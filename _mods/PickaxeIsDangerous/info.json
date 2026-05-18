@@ -1,0 +1,13 @@
+{
+  "name": "PickaxeIsDangerous",
+  "version": "1.0",
+  "description": "That pointy point with a heavy weight meant to break rocks and does little damage? no more! if used well it is a good weapon!",
+  "author": "GussakThor",
+  "author_url": "",
+  "website": "",
+  "launch_parameters": [],
+  "gameinfo_parameters": [],
+  "modules": [],
+  "game_configs": [],
+  "autoexec_configs": []
+}

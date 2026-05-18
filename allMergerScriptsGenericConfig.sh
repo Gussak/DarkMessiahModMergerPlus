@@ -1,0 +1,348 @@
+#!/bin/bash
+
+#	BSD 3-Clause License
+#
+#	Copyright (c) 2026, Gussak
+#
+#	Redistribution and use in source and binary forms, with or without
+#	modification, are permitted provided that the following conditions are met:
+#
+#	1. Redistributions of source code must retain the above copyright notice, this
+#		 list of conditions and the following disclaimer.
+#
+#	2. Redistributions in binary form must reproduce the above copyright notice,
+#		 this list of conditions and the following disclaimer in the documentation
+#		 and/or other materials provided with the distribution.
+#
+#	3. Neither the name of the copyright holder nor the names of its
+#		 contributors may be used to endorse or promote products derived from
+#		 this software without specific prior written permission.
+#
+#	THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+#	AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+#	IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+#	DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+#	FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+#	DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+#	SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+#	CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+#	OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+#	OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+set -Eeu -o pipefail
+
+trap 'echo "Ctrl+C pressed, exiting..."; exit 1' INT
+
+: ${bChkVpkExec:=false} #help
+strVpkExec="$HOME/.local/bin/vpk"
+if $bChkVpkExec;then
+	if [[ ! -f "$strVpkExec" ]];then
+		set -x
+		if ! which pip;then
+			sudo -k apt install python3-pip
+		fi
+		pip install vpk
+		set +x
+	fi
+fi
+
+: ${bDoPrivacyChecks:=true} #help
+if $bDoPrivacyChecks;then
+	if egrep "$USER" * -iRnIa |egrep -v ".SUCCESS.cfg:|.log:";then
+		echo "[PROBLEM:] user name found in files that go to git"
+		
+		#strTimeStampRegex="[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}[.][0-9]{9} [+-][0-9]{4}"
+		if false;then # helpful one-line-cmd simple scripts meant to be run copy/paste on the terminal, like one time use
+			# this helps on fixing patch files:
+			optWrite="-i.bkp";optWrite="";FUNCfixPatchFiles(){ echo;echo ">>>>>>>>>>>>>> $1";sed $optWrite -r -e 's,^(---)([^\t]*)\t(.*),\1 /dev/fd/63\t\3,g' -e 's,^([+][+][+])([^\t]*)\t(.*),\1 /dev/fd/62\t\3,g' "$1"; };export -f FUNCfixPatchFiles;find -iname "*.patch" -exec bash -c "FUNCfixPatchFiles '{}'" \;
+		fi
+		
+		exit 1
+	fi
+fi
+
+# sed to prettify arrays into multilines use like: declare -p astr |sed -r -e "$strSedArrayLn"
+strSedArrayLn='s@(\[[0-9]*\]=)@\n \1@g'
+strSedArrayNumToLn="$strSedArrayLn"
+strSedArrayIDsToLn='s@(\[[a-zA-Z0-9_/.]*\]=)@\n \1@g'
+
+# all text file extensions
+astrScriptsExt=()
+astrScriptsExt+=("txt" "vmt" "cfg" "vmf" "res" "qc" "nut" "vdf" "vcd" "scr" "lst" "smd" "vmap" "vmat" "vpcf" "vcfg" "vsndevts" "qct") #from AI question
+astrScriptsExt+=(js tag ttj ahk ain bat bns cfg css dat fgd gam html inf ini js lst md org php qc qct rad rc res scr sh smd tga txt vbsp vcd vdf vmf vmt) #clear;find . -mount -type f -exec bash -c 'file -b --mime-type "$1" | grep -q "^text/"' _ {} \; -print | awk -F. 'NF>1 {print $NF}' | sort -u #vpk is not 
+astrScriptsExt=($(echo "${astrScriptsExt[@]}" |tr ' ' '\n' |sort -u))
+#declare -p astrScriptsExt |tr '[' '\n'
+strScriptsExtRegexEsc=".*[.]\($(echo "${astrScriptsExt[@]}" |sed -r -e 's@ @\\|@g')\)$"
+strScriptsExtRegexNorm=".*[.]($(echo "${astrScriptsExt[@]}" |sed -r -e 's@ @|@g'))$"
+strJustExtRegexEsc="$(echo "${astrScriptsExt[@]}" |sed -r -e 's@ @\\|@g')$"
+strJustExtRegex="$(echo "${astrScriptsExt[@]}" |sed -r -e 's@ @|@g')$"
+astrGrepIncludesExt=()
+for strExt in "${astrScriptsExt[@]}";do
+	astrGrepIncludesExt+=(--include="*.${strExt}")
+done
+
+declare -p strScriptsExtRegexEsc strScriptsExtRegexNorm
+
+strPathSelf="$(pwd)"
+strPathParent="$(dirname "$strPathSelf")" #help this is important in case this path is a symlink! when using '../' would navigate to the realpath!
+
+: ${strGameInstallMainFolder:="${strPathParent}/Dark Messiah Might and Magic Single Player"} #help vanilla game installed main folder
+
+: ${strVanillaLayer:="$(ls -d "${strGameInstallMainFolder}"*VanillaGameFiles*)"} #help vanilla game installed files' folder
+if [[ ! -d "$strVanillaLayer" ]];then echo "ERROR: vanilla layer not found";exit 1;fi
+
+#: ${strVanillaScriptsFolder:="${strGameInstallMainFolder}.layer004.VanillaExtractedTextFiles.IGNORE_LAYER"} #help
+: ${strVanillaScriptsPath:="$(ls -d "${strGameInstallMainFolder}"*VanillaExtractedTextFiles*/)"} #help after installing the game, use some vpk extractor (like thru one of the other bash scripts here)
+if [[ ! -d "$strVanillaScriptsPath" ]];then echo "ERROR: VanillaExtractedTextFiles layer not found";exit 1;fi
+
+: ${strWriteLayer:="${strGameInstallMainFolder}.0.WriteLayer"} #help write output thru OverlayFS
+
+: ${strDownloadedModFilesRel:=".modPackages"} #help
+: ${strDisabledTmpTestFolderRel:=".DisabledTmpTest"} #help
+
+: ${strMergedModsFolderBN:="FinalMergedScriptsMaxPriority"} #help
+: ${strMergedModsFolder:="${strPathSelf}/_mods/${strMergedModsFolderBN}"} #help
+mkdir -vp "${strMergedModsFolder}"
+
+strFinalMergedFolder="${strMergedModsFolder}/content/" #help compatible with mod manager
+mkdir -vp "$strFinalMergedFolder"
+
+strFinalDummyHelperFolder="${strMergedModsFolder}/dummy/"
+mkdir -vp "${strFinalDummyHelperFolder}"
+
+: ${strRegexFoldersToIgnore:="IGNORE_LAYER|Extracted.Quick.TMP|/_tmp/|/tmp/"} #help this is compatible with secOverrideMultiLayerMountPoint.sh that is using OverlayFS
+
+shopt -s expand_aliases
+alias FUNCechoInfo='echo "[$(basename "$0"):$LINENO]"'
+#function FUNCechoInfo() {
+	#echo "[$(basename "$0")] $@"
+#}
+
+strFlJson="$strMergedModsFolder/info.json"
+
+astrKnownGameModRelativeFolders=( #help from mini mods or overhaul EDIT THIS LINE TO ADD NEW ONES IF EVER
+	mm #vanilla, also used by many mods
+	custom #some mods use this
+	AddOn #overhaul mod
+	content #ModLauncher mods
+) 
+strRegexKGMRF=""
+strRegexEscKGMRF=""
+for strKGMRF in "${astrKnownGameModRelativeFolders[@]}";do
+	if [[ -n "${strRegexKGMRF}" ]];then strRegexKGMRF+="|";fi
+	if [[ -n "${strRegexEscKGMRF}" ]];then strRegexEscKGMRF+='\|';fi
+	strRegexKGMRF+="${strKGMRF}"
+	strRegexEscKGMRF+="${strKGMRF}"
+done
+
+: ${strExecMerger:="meld"} #help
+if ! which "$strExecMerger";then
+	strExecMerger="winmerge" # for cygwin/windows
+fi
+if ! which "$strExecMerger";then
+	FUNCechoInfo "ERROR: no GUI merger tool found"
+	exit 1
+fi
+
+echo
+declare -p strMergedModsFolder strDisabledTmpTestFolderRel strDownloadedModFilesRel strVanillaLayer strVanillaScriptsPath strWriteLayer strFinalMergedFolder strFinalDummyHelperFolder strFlJson astrKnownGameModRelativeFolders strRegexKGMRF
+echo
+
+FUNCtrash() {
+	#while ! ${1+false} && [[ "${1:0:1}" == "-" ]];do # checks if param is set
+	while ! ${1+false};do
+		if [[ -f "$1" ]];then
+			echo "[Trashing] '$1'"
+			trash "$1"
+		fi
+		shift
+	done
+	return 0
+}
+
+function SECFUNCshowHelpV2() { #help TODO WIP making it much easier to maintain!!!!!!!!
+	local lstrFlHelp="$1"
+	
+	echo "[HELP for:] $lstrFlHelp  # OPTION DEFAULT DESCRIPTION"
+	
+	local lastrHelpList
+	IFS=$'\n' read -d '' -r -a lastrHelpList < <(egrep "[#]help" "$lstrFlHelp")&&:
+	
+	local lstrHelp
+	local lstrCommentedLinesRegex='^\s*#'
+	local lnColW0max=0
+	local lnColW1max=0
+	
+	local lastrColumnsPerLine=()
+	local lastrColumnsAllLinesEnv=()
+	local lastrColumnsAllLinesParam=()
+	
+	local lcolorEqualSign
+	local lcolorOptParameter
+	local lcolorOptParamVar
+	local lcolorValue
+	local lcolorReqOpenClose
+	local lcolorEnvVar
+	local lcolorCode
+	local lcolorEnd
+	function FUNCcolorSet() {
+		lcolorEqualSign='\\E[0m\\E[33m'
+		lcolorOptParameter='\\E[0m\\E[92m'
+		lcolorOptParamVar='\\E[0m\\E[36m'
+		lcolorValue='\\E[0m\\E[93m'
+		lcolorReqOpenClose='\\E[0m\\E[31m'
+		lcolorEnvVar='\\E[0m\\E[36m\\E[2m'
+		lcolorCode='\\E[0m\\E[94m'
+		lcolorEnd='\\E[0m'
+	}
+	function FUNCcolorUnset() {
+		lcolorEqualSign=""
+		lcolorOptParameter=""
+		lcolorOptParamVar=""
+		lcolorValue=""
+		lcolorReqOpenClose=""
+		lcolorEnvVar=""
+		lcolorEnd=""
+	}
+	
+	FUNCalignIgnoringEscColorChars() {
+		local lstrCol0
+		local lstrCol1
+		local lstrCol2
+    while IFS=$'\t' read -r lstrCol0 lstrCol1 lstrCol2; do
+        # 1. Strip ANSI escape color codes to get true visual length
+        local lstrClean0=$(echo -e "$lstrCol0" | sed 's@\x1b\[[0-9;]*m@@g')
+        local lstrClean1=$(echo -e "$lstrCol1" | sed 's@\x1b\[[0-9;]*m@@g')
+
+        # 2. Calculate required padding spaces
+        local lstrPad1=$(( lnColW0max - ${#lstrClean0} ))
+        local lstrPad2=$(( lnColW1max - ${#lstrClean1} ))
+
+        # 3. Prevent negative padding numbers if string exceeds the width
+        (( lstrPad1 < 0 )) && lstrPad1=0
+        (( lstrPad2 < 0 )) && lstrPad2=0
+
+        # 4. Generate the space strings
+        local lstrSpaces1=$(printf '%*s' "$lstrPad1" "")
+        local lstrSpaces2=$(printf '%*s' "$lstrPad2" "")
+
+        # 5. Output using echo -e so the colors render correctly
+        # indent with 2 spaces so if there is a line wrap beggining with one space, it will differ
+        echo -e "  ${lstrCol0}${lstrSpaces1} ${lstrCol1}${lstrSpaces2} [#]${lstrCol2}"
+    done
+	}
+	
+	: ${bSECShowHelpColoredMode:=true} #help_SECFUNCshowHelpV2
+	if $bSECShowHelpColoredMode;then
+		FUNCcolorSet
+	else
+		FUNCcolorUnset
+	fi
+	
+	function FUNChelpPrint() {
+		#set -x
+		#echo -e "$(printf "  %-${lnColW0max}s %-${lnColW1max}s [#]%s\n" "${lastrColumnsPrint[@]}")" # indent with 2 spaces so if there is a line wrap beggining with one space, it will differ
+		#printf "  %-${lnColW0max}s %-${lnColW1max}s [#]%s\n" "${lastrColumnsPrint[@]}" |align_colored_columns
+		#printf "%-${lnColW0max}s\t%-${lnColW1max}s\t[#]%s\n" "${lastrColumnsPrint[@]}" |FUNCalignIgnoringEscColorChars
+		printf "%s\t%s\t%s\n" "${lastrColumnsPrint[@]}" |FUNCalignIgnoringEscColorChars
+		#set +x
+	}
+	
+	for lstrHelp in "${lastrHelpList[@]}";do
+		if [[ "$lstrHelp" =~ ${lstrCommentedLinesRegex} ]];then continue;fi # skip commented lines
+		
+		lstrHelp="$(echo "$lstrHelp" |sed -r -e 's@^[ \t]*@@')" #remove beggining spaces
+		#lstrHelp="$(echo "$lstrHelp" |sed -r -e 's@.*@\t&@')" #indent
+#		lstrHelp="$(echo "$lstrHelp" |sed -r -e 's@if *\[\[ *"\$\{1-\}" *== *@@' -e 's@ \]\];then [#]help[_ ]*(.*)@ \1@')" #clean param options
+#declare -p lstrHelp
+		lstrHelp="$(echo "$lstrHelp" |sed -r -e 's@if *\[\[ *"\$\{1[-]*\}" *== *"(.*)" *\]\];then [#]help[_ ]*(.*)@\1\t\2@')" #clean param simple options
+		lstrHelp="$(echo "$lstrHelp" |sed -r -e 's@(if|elif) *\[\[ *"\$[{]*1[}]*" *== *"(.*)" *\|\| *"\$[{]*1[}]*" *== *"(.*)" *\]\];then [#]help[_ ]*(.*)@\2 \3\t\4@')" #clean param options for options loop
+		#elif [[ "$1" == "-v" || "$1" == "--verbosity" ]];then #help <iVerboseLvl> shows more useful messages
+#declare -p lstrHelp		
+		#declare -p lstrHelp
+		if ! [[ "$lstrHelp" =~ ^:\ \$\{.* ]] && ! [[ "$lstrHelp" =~ ^\-.* ]];then continue;fi #skip non env nor param options (probably just non optional configs (may be shown later thru declare just to let user know what is happening. Could become options may be?)
+		lstrHelp="$(echo "$lstrHelp" |sed -r -e 's@: [$][{]([^:]*):=(.*)[}] [#]help[_ ]*(.*)@\1\t\2\t\3@')" #clean env options
+		
+		#echo "$lstrHelp"
+		IFS=$'\n' read -d '' -r -a lastrColumnsPerLine < <(echo "$lstrHelp" |sed -r -e 's@\t@\n@' -e 's@\t@\n@')&&:
+		lbIsParam=false;if [[ "${lastrColumnsPerLine[0]}" =~ ^[-].* ]];then lbIsParam=true;fi
+		
+		# Before being colored
+		if((lnColW0max<${#lastrColumnsPerLine[0]}));then lnColW0max=${#lastrColumnsPerLine[0]};fi
+		if((lnColW1max<${#lastrColumnsPerLine[1]}));then lnColW1max=${#lastrColumnsPerLine[1]};fi
+		
+		#local lastrColumnsPerLine=($(echo "$lstrHelp" |sed -r -e 's@\t@\n@g'))
+		if [[ "${lastrColumnsPerLine[0]}" =~ ^\-.* ]];then
+			lastrColumnsPerLine[0]="${lcolorOptParameter}${lastrColumnsPerLine[0]}${lcolorEnd}"
+			# a param will have no default value column
+			if((${#lastrColumnsPerLine[@]} < 3));then lastrColumnsPerLine=("${lastrColumnsPerLine[0]}" "  " "${lastrColumnsPerLine[1]-}");fi
+		else
+			lastrColumnsPerLine[0]="${lcolorEnvVar}${lastrColumnsPerLine[0]}${lcolorEnd}"
+			# an env var may have no help description
+			if((${#lastrColumnsPerLine[@]} < 3));then lastrColumnsPerLine=("${lastrColumnsPerLine[0]}" "${lastrColumnsPerLine[1]-}" "");fi
+		fi
+		
+		# This fixes the double escaped \\E into \E to match lastrColumnsPerLine[2] below
+		lastrColumnsPerLine[0]="$(echo -e "${lastrColumnsPerLine[0]}")"
+		lastrColumnsPerLine[1]="$(echo -e "${lcolorReqOpenClose}<${lcolorCode}${lastrColumnsPerLine[1]}${lcolorReqOpenClose}>${lcolorEnd}")"
+		
+		#echo "${lastrColumnsPerLine[2]}"
+		local lstrDefaultVar="$(echo "${lastrColumnsPerLine[2]}" |sed -n -r -e 's@(.*<)(.*)(>.*)@\2@p')" #from help column
+		#declare -p lstrDefaultVar
+		if [[ -n "$lstrDefaultVar" ]] && [[ "$lstrDefaultVar" =~ ^[a-zA-Z0-9]*$ ]];then
+			local lstrDefVal="$(eval "echo \"\${$lstrDefaultVar}\"")"
+			#declare -p lstrDefaultVar lstrDefVal
+			local lstrHelpWithVarValues="${lastrColumnsPerLine[2]}"
+			#echo "${lstrHelpWithVarValues}" |sed -n -r -e 's@(.*<)('"${lstrDefaultVar}"')(>.*)@\1'"${lstrDefaultVar}=\"${lstrDefVal}\""'\3@p'
+			
+			local lstrVarAndVal
+			function FUNCsetVarAndVal() {
+				lstrVarAndVal=""
+				lstrVarAndVal+="${lcolorReqOpenClose}<"
+				lstrVarAndVal+="${lcolorOptParamVar}${lstrDefaultVar}"
+				lstrVarAndVal+="${lcolorEqualSign}="
+				lstrVarAndVal+="${lcolorValue}\"${lstrDefVal}\""
+				lstrVarAndVal+="${lcolorReqOpenClose}>"
+				lstrVarAndVal+="${lcolorEnd}"
+			}
+			FUNCcolorUnset
+			FUNCsetVarAndVal
+			:
+			FUNCcolorSet
+			FUNCsetVarAndVal
+			
+			lastrColumnsPerLine[2]="$(echo "${lstrHelpWithVarValues}" |sed -n -r -e 's@(.*)<('"${lstrDefaultVar}"')>(.*)@\1'"${lstrVarAndVal}"'\3@p')"
+			#echo "${lstrHelpWithVarValues}" |sed -n -r -e 's@(.*)<('"${lstrDefaultVar}"')>(.*)@\1'"${lcolorReqOpenClose}<${lcolorOptParamVar}${lstrDefaultVar}${lcolorEqualSign}=${lcolorValue}\"${lstrDefVal}\"${lcolorReqOpenClose}>${lcolorEnd}"'\3@p'
+			#echo "${lastrColumnsPerLine[2]}"
+		fi
+		
+		if $lbIsParam;then
+			lastrColumnsAllLinesParam+=("${lastrColumnsPerLine[@]}")
+		else
+			lastrColumnsAllLinesEnv+=("${lastrColumnsPerLine[@]}")
+		fi
+		
+#		printf " %-${nHelpTableColWidth0}s %-${nHelpTableColWidth1}s %s\n" "${lastrColumnsPerLine[@]}"
+	done #| column -t -s $'\t' -W 2
+	
+	#declare -p lnColW1max
+	if((lnColW1max>15));then lnColW1max=15;fi
+	#declare -p lnColW1max
+	local i
+	
+	if((${#lastrColumnsAllLinesParam[@]}>0));then echo " [PARAMS:]";fi
+	for((i=0;i<${#lastrColumnsAllLinesParam[@]};i+=3));do
+		local lastrColumnsPrint=("${lastrColumnsAllLinesParam[i+0]}" "${lastrColumnsAllLinesParam[i+1]}" "${lastrColumnsAllLinesParam[i+2]}")
+		FUNChelpPrint
+	done
+	
+	if((${#lastrColumnsAllLinesEnv[@]}>0));then echo " [ENV VARS:] (set like this to easy change on each execution ex.: bDummy1=true strDummy2=\"abc\" $0; #OR to set for the terminal export bDummy1=true; export strDummy2=\"abc\"; #Then later you just run: $0)";fi
+	for((i=0;i<${#lastrColumnsAllLinesEnv[@]};i+=3));do
+		local lastrColumnsPrint=("${lastrColumnsAllLinesEnv[i+0]}" "${lastrColumnsAllLinesEnv[i+1]}" "${lastrColumnsAllLinesEnv[i+2]}")
+		FUNChelpPrint
+	done
+	
+	#declare -p lastrColumnsAllLinesParam lastrColumnsAllLinesEnv
+	
+	echo
+}

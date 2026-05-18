@@ -1,0 +1,11 @@
+--- /dev/fd/63	2026-05-18 01:30:11.873367702 -0300
++++ /dev/fd/62	2026-05-18 01:30:11.873367702 -0300
+@@ -65,7 +65,7 @@
+ 		"Green_zone"		"80"		// Ideal close combat distance
+ 		"Red_zone"		"20"		// min close combat distance
+ 		
+-		"npc_health"		"25"		// NPC's life points.
++		"npc_health"		"525"		// NPC's life points.
+ 		
+ 		"Vulnerabilities_spells"
+   		{ 

@@ -1,0 +1,18 @@
+--- /dev/fd/63	2026-05-14 02:38:10.229130538 -0300
++++ /dev/fd/62	2026-05-11 06:01:01.314837000 -0300
+@@ -7,7 +7,7 @@
+ "+moveright"			"#menu_controls_moveright"
+ "+speed"             	"#menu_controls_speed"
+ "+jump"					"#menu_controls_jump"
+-"+duck"					"#menu_controls_duck"
++"CrouchToggle"					"#menu_controls_ducktoggle"
+ "+sprint"					"#menu_controls_sprint"
+ "+leanleft"					"#menu_leanleft"
+ "+leanright"					"#menu_leanright"
+@@ -38,4 +38,4 @@
+ "mm_nextitem" "#menu_controls_nextitem"
+ "mm_objectives_show" "#menu_controls_mm_objectives_show"
+ "save quick" "#Valve_Quick_Save"
+-"load quick" "#Valve_Quick_Load"
+\ No newline at end of file
++"load quick" "#Valve_Quick_Load"

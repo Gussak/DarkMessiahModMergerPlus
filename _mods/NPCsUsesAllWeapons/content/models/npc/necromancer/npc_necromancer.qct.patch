@@ -1,0 +1,42 @@
+--- /dev/fd/63	2026-05-18 01:55:36.479165572 -0300
++++ /dev/fd/62	2026-05-18 01:55:36.479165572 -0300
+@@ -87,6 +87,39 @@
+ 		
+ 		"Yellow_zone"					"80"		// Close combat attack only below this distance
+ 		
++		"checkforweapons" 		"1"				// Check for weapons if it does not have one.
++		"weapon_takable_1" 		"weapon_arx_short_sword"
++		"weapon_takable_2" 		"weapon_arx_long_sword"
++		"weapon_takable_3" 		"weapon_arx_silver_sword"
++		"weapon_takable_4" 		"weapon_arx_wakizashi_of_excellence"
++		"weapon_takable_5" 		"weapon_arxsword"
++		"weapon_takable_6" 		"weapon_arxkatana"
++		"weapon_takable_7" 		"weapon_arxorcleaver"
++		"weapon_takable_8" 		"weapon_arxclub"
++		"weapon_takable_9" 		"weapon_mm_shield_gob"
++		"weapon_takable_10" 	"weapon_mm_weapon_generic"
++		"weapon_takable_11" 	"weapon_sword_souldrinker"
++		"weapon_takable_12" 	"weapon_arx_sword_collector"
++		"weapon_takable_13" 	"weapon_arx_sword_of_fire"
++		"weapon_takable_14" 	"weapon_mm_shield_lava"
++		"weapon_takable_15" 	"weapon_mm_shield_magic"
++		"weapon_takable_16" 	"weapon_mm_shield_necroguard"
++		"weapon_takable_17" 	"weapon_mm_shield_orc"
++		"weapon_takable_18" 	"weapon_mm_shield_deathknight"
++		"weapon_takable_19" 	"weapon_mm_hook"
++		"weapon_takable_20" 	"weapon_mm_shield_guard"
++		"weapon_takable_21"		"weapon_mm_bow_long"
++		"weapon_takable_22"		"weapon_mm_bow_plan"
++		"weapon_takable_23"		"weapon_mm_bow_sniper"
++		"weapon_takable_24"		"weapon_mm_bow_poison"
++		"weapon_takable_25"		"weapon_mm_bow_freeze"
++		"weapon_takable_26"		"weapon_mm_bow_explosive"
++		"weapon_takable_27" 	"weapon_arxcrossbow"
++		"weapon_takable_28" 	"weapon_arxorccleaver"
++		"weapon_takable_29" 	"weapon_arx_orc_chief_cleaver"
++		"weapon_takable_30" 	"weapon_arx_sword_of_misery"
++		"weapon_takable_31" 	"weapon_mm_specter_knife"		
++		
+ 		"ChanceToFreeze"				"0.5"
+ 		"striketurndist"				"120"
+ 		"CoverTime"		"4" 		// Time NPC stay in cover

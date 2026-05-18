@@ -1,0 +1,13 @@
+{
+    "name"                  :   "AutoLoadLastQuickSave",
+    "version"               :   "1.0",
+    "description"           :   "On game app startup, skip main menu. PRIORITY IS LAST ONE as it uses a wait delay and must happen after everything else was loaded at main menu.",
+    "author"                :   "GussakThor",
+    "author_url"            :   "",
+    "website"               :   "",
+    "launch_parameters"     :   [],
+    "gameinfo_parameters"   :   [],
+    "modules"               :   [],
+    "game_configs"          :   [],
+    "autoexec_configs"      :   [ "auto_load_last_quicksave.cfg" ]
+}

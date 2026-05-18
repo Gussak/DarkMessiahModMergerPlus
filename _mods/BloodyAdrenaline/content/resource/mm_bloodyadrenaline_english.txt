@@ -1,0 +1,10 @@
+"lang"
+{
+    "Language" "English"
+    "Tokens"
+    {
+        //# menu_controls_bloodyadrenaline
+        //~ menu_controls_bloodyadrenaline
+        "menu_controls_bloodyadrenaline" "Hold to convert some HP into Adrenaline"
+    }
+}

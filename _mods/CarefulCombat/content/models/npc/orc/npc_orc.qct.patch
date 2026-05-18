@@ -1,0 +1,11 @@
+--- /dev/fd/63	2026-05-18 01:57:39.748702294 -0300
++++ /dev/fd/62	2026-05-18 01:57:39.749702258 -0300
+@@ -114,7 +114,7 @@
+ 		"Green_zone"			"70"		// Ideal close combat distance
+ 		"Red_zone"			"10"		// min close combat distance
+ 		
+-		"npc_health"			"35"		// NPC's life points.
++		"npc_health"			"735"		// NPC's life points.
+ 		
+ 		"checkforweapons" 		"1"				// Check for weapons if it does not have one.
+ 		"weapon_takable_1" 		"weapon_arxorccleaver"		// Type of weapon it looks for.

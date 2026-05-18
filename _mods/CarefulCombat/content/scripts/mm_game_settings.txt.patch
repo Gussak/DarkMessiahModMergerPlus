@@ -1,0 +1,110 @@
+--- /dev/fd/63	2026-05-17 21:18:57.874159153 -0300
++++ /dev/fd/62	2026-05-17 21:18:57.874159153 -0300
+@@ -127,7 +127,7 @@
+ 	"player"
+ 	{
+ 
+-		"HealthCoeffShield"	"3"
++		"HealthCoeffShield"	"1" // vanilla guard shield is 600HP. vanilla x3 was 1800. As many can be found, lowering to x1.
+ 		"HolyWeaponSceneDelay" 		"10"   // minimum delay between two holy weapon equip vcds
+ 		"poison_resistance" 	"2.5"
+ 		"xanasubhealthpercsecond"	"1"
+@@ -142,8 +142,8 @@
+ 		// in fact it's not easy but hard difficulty
+ 		"EasyDifficultyNPCDmgMul"	"3"
+ 		"EasyDifficultyNPCLifeMul"	"2"
+-		"HardDifficultyNPCDmgMul"	"4" // Hardcore mode
+-		"HardDifficultyNPCLifeMul"	"3" // Hardcore mode
++		"HardDifficultyNPCDmgMul"	"7" // Hardcore mode
++		"HardDifficultyNPCLifeMul"	"7" //21 for Hardcore mode. But this seems to be ignored on the boat combat necro guards spawn? may be later too... Better modify each enemy HP*20, and set this back to default. I expect that this is the only thing that fails to kick in...
+ 
+ 
+ 		"AttackAnimationChangeSpeedOnPlayerOnStoneSkin"		"0.80"
+@@ -155,7 +155,7 @@
+ 		"slowtime_critical_duration"	"0"
+ 		"slowtime_critical_factor"	"1"
+ 
+-		"kick_damage" 			"1"			// Player's Kick Damage
++		"kick_damage" 			"18"			// Player's Kick Damage, balanced for hardcore HPx21
+ 		"stamina_kick_npc"		"3"
+ 		"stamina_kick_all"		"1"
+ 
+@@ -185,11 +185,11 @@
+  		"DetectAppearDelay" "0.5" // Still player time before FX start
+                 "DetectAppearSpeed" "0.5" // Time to fade to full FX
+                 
+-        	"CloseArrowDist"		"300"	// if distance beetween Player and hit entity is below this value, damages are scaled with CloseArrowDmgScale
+-	        "CloseArrowDmgScale"		"1"	                
+-		"ArrowMaxTimeInFire"		"90"
++        	"CloseArrowDist"		"33"	// "300" if distance beetween Player and hit entity is below this value, damages are scaled with CloseArrowDmgScale
++	        "CloseArrowDmgScale"		"10"	// powerful if mix this with sneak attack
++		"ArrowMaxTimeInFire"		"300" //"90"
+ 		"NbrArrowsWhenFirstTakeBow" 	"30"
+-		"NbrArrowsMax" 			"99"
++		"NbrArrowsMax" 			"30" //max medieval quiver, meant for sneaky headshots mainly
+ 	}
+ 		
+ 	"ai"
+@@ -252,8 +252,8 @@
+ 		"DistTestVoidWhilePushNPC"		"170"			
+ 		"force_on_damage_fireball"		"25000"
+ 
+-		"mul_damages_Npc_Not_alerted" 	"3"		// VAlue that multiply damages done by player when npc is not alerted
+-		"mul_damages_Npc_Not_alerted_level"	"0"	// over this level, npc his awared
++		"mul_damages_Npc_Not_alerted" 		"100"	//  Value that multiply damages done by player when npc is not alerted. Hard with x21 HP, Guards still fall with one headshot.
++		"mul_damages_Npc_Not_alerted_level"	"1"		// "0" over this level, npc is awared
+ 		
+ 		"MaxTimeToStealthMaxAfterBump" 	"5"		// Time after npc have been bumped by player when stealth is at his max value
+ 		
+@@ -284,25 +284,25 @@
+ 		"NbFriendPlayerAttackBeforHateHim" 	"1"
+ 
+ 		// Dynamic difficulty
+-		
+-		"DifficultyEasyNpcDmgMul"	"1.2"
+-		"DifficultyEasyPlayerDmgMul"	"0.8"
+-		"DifficultyEasyDifficultyMul"	"1.2"
+-		
+-		"DifficultyHardNpcDmgMul"	"0.8"
+-		"DifficultyHardPlayerDmgMul"	"1.2"
+-		"DifficultyHardDifficultyMul"	"0.8"
+-		
+-		"DifficultyHardCoreNpcDmgMul"		"0.6"
+-		"DifficultyHardCorePlayerDmgMul"	"1.4"
+-		"DifficultyHardCoreDifficultyMul"	"0.6"
+-		
+-		"DifficultyCombatEasy"		"0.1"
+-		"DifficultyCombatAverage"	"0.4"
+-		"DifficultyCombatHard"		"0.6"
++		//ISSUE: these make no difference? better just normalize it all
++		"DifficultyEasyNpcDmgMul"			"1.0"	//"1.2"
++		"DifficultyEasyPlayerDmgMul"		"1.0"	//"0.8"
++		"DifficultyEasyDifficultyMul"		"1.0"	//"1.2"
++		//ISSUE: these make no difference? better just normalize it all
++		"DifficultyHardNpcDmgMul"			"1.0"	//"0.8"
++		"DifficultyHardPlayerDmgMul"		"1.0"	//"1.2"
++		"DifficultyHardDifficultyMul"		"1.0"	//"0.8"
++		//ISSUE: these make no difference? better just normalize it all
++		"DifficultyHardCoreNpcDmgMul"		"1.0"	//"0.5"
++		"DifficultyHardCorePlayerDmgMul"	"1.0"	//"1.5"
++		"DifficultyHardCoreDifficultyMul"	"1.0"	//"0.5"
++		
++		"DifficultyCombatEasy"				"0.6"	//"0.1"
++		"DifficultyCombatAverage"			"0.8"	//"0.4"
++		"DifficultyCombatHard"				"1.0"	//"0.6" //why hard was less than 1.0? tho 1.0 means 100% AI capacities right?
+ 
+ 		"player_damage_multiplier"	"1.0"
+-		"AttackByPlayerToBeEnemy"	"0"	//Number of times the player hurt the npc to be attacked by him if the npc have an other enemy
++		"AttackByPlayerToBeEnemy"	"2"	//Number of times the player hurt the npc to be attacked by him if the npc have an other enemy
+ 		
+ 		"GlobalStunChanceMultiplier" 	"1.5"
+ 		
+@@ -311,7 +311,7 @@
+ 
+ 		"PlayerParryTimeToBreakIt"	"5"	// If player is parrying and parrying time is below this value, NPCs will choose attack that don't break parry, else, they try to break parry or choose dodge strikes to bypass player's parry
+ 		
+-		"ShouldNpcCriticalStrike"	"0"
++		"ShouldNpcCriticalStrike"	"1"
+ 
+ 
+ 

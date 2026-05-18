@@ -1,0 +1,17 @@
+--- /dev/fd/63	2026-05-04 23:48:39.603560249 -0300
++++ /dev/fd/62	2026-05-05 13:41:24.288619771 -0300
+@@ -2,6 +2,7 @@
+ {
+ 	//"load_file"		"resource/closecaption_%language%.txt"
+ 	"load_file"		"resource/mm_itemnames_%language%.txt"
++	"load_file"		"resource/mm_bloodymana_%language%.txt"
+ 	"load_file"		"resource/%language%/closecaption_speech_monsters.txt"
+ 	"load_file"		"resource/%language%/closecaption_speech_generic.txt"
+ 	"load_file"		"resource/%language%/closecaption_speech_lvl_00.txt"
+@@ -31,4 +32,4 @@
+ 	"load_file"		"resource/%language%/system_strings_lvl_11.txt"
+ 	"load_file"		"resource/%language%/system_strings_lvl_12.txt"
+ 	"load_file"		"resource/%language%/system_strings_fpp_tutorial.txt"
+-}
+\ No newline at end of file
++}

@@ -1,0 +1,13 @@
+{
+    "name"                  :   "Pseudo Skip Interactive Cutscenes Helper",
+    "version"               :   "1.0",
+    "description"           :   "Hold F2 F3 F4 to increase timescale (5 10 50) during cutscenes, and restore normal timescale with F1 or by releasing them. Beware using F3 and mainly F4, be careful to not keep them for too long, but anyway if it freezes, holding F1 shall fix it (as the engine will need some time to detect F1 is pressed to let it's command to kick in).",
+    "author"                :   "GussakThor",
+    "author_url"            :   "",
+    "website"               :   "",
+    "launch_parameters"     :   [],
+    "gameinfo_parameters"   :   [],
+    "modules"               :   [],
+    "game_configs"          :   [ "skipcutscenes.cfg" ],
+    "autoexec_configs"      :   []
+}

@@ -1,0 +1,13 @@
+{
+    "name"                  :   "Bloody Mana",
+    "version"               :   "1.0",
+    "description"           :   "Convert HP into Mana, bound key. DependsOn:000gskBaseLib",
+    "author"                :   "GussakThor",
+    "author_url"            :   "",
+    "website"               :   "",
+    "launch_parameters"     :   [],
+    "gameinfo_parameters"   :   [],
+    "modules"               :   [],
+    "game_configs"          :   [ "bloodymana.cfg", "game.cfg" ],
+    "autoexec_configs"      :   []
+}

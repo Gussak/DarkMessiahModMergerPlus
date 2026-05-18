@@ -1,0 +1,11 @@
+--- /dev/fd/63	2026-05-04 23:48:39.451550912 -0300
++++ /dev/fd/62	2026-05-05 06:14:18.214537040 -0300
+@@ -165,7 +165,7 @@
+ 	             "Props_Max_Add"       	"0.01"    // ambient increase for props
+ 		"effect_duration" 		"30"
+ 		"adrenaline_add"		"0"
+-		"cost"				"0"
++		"cost"				"5"
+ 		"effect"			"30"
+ 		"recovery"			"0"
+ 	  	"radius"   			"300"	

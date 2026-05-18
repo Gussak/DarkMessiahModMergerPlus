@@ -1,0 +1,18 @@
+--- /dev/fd/63	2026-05-14 02:38:10.229130538 -0300
++++ /dev/fd/62	2026-05-05 04:19:09.196968000 -0300
+@@ -11,6 +11,8 @@
+ "+sprint"					"#menu_controls_sprint"
+ "+leanleft"					"#menu_leanleft"
+ "+leanright"					"#menu_leanright"
++"ToggleSlowMotionGSK"				"#menu_controls_slowmo"
++
+ "blank"			"=========================="
+ "blank"			"#menu_controls_combatmagic"
+ "blank"			"=========================="
+@@ -38,4 +40,4 @@
+ "mm_nextitem" "#menu_controls_nextitem"
+ "mm_objectives_show" "#menu_controls_mm_objectives_show"
+ "save quick" "#Valve_Quick_Save"
+-"load quick" "#Valve_Quick_Load"
+\ No newline at end of file
++"load quick" "#Valve_Quick_Load"

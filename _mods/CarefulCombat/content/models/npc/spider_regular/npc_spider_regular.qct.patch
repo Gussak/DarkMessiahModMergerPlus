@@ -1,0 +1,11 @@
+--- /dev/fd/63	2026-05-18 02:01:28.646414486 -0300
++++ /dev/fd/62	2026-05-18 02:01:28.646414486 -0300
+@@ -78,7 +78,7 @@
+ 		"can_eat_food"			"1"		// NPC can eat object flagged as food.
+ 		"can_eat_corpse" 		"1"		// NPC can eat bodies flagged as corpse.
+ 		
+-		"npc_health"			"25"		// NPC's life points.
++		"npc_health"			"525"		// NPC's life points.
+ 		"dont_open_door"		"1"		// NPC don't open door
+ 
+   		"Vulnerabilities_spells"

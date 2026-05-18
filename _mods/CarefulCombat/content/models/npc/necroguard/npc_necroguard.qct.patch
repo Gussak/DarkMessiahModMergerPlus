@@ -1,0 +1,20 @@
+--- /dev/fd/63	2026-05-18 01:52:14.241488089 -0300
++++ /dev/fd/62	2026-05-18 01:52:14.241488089 -0300
+@@ -14,7 +14,7 @@
+ 			"chancetostun"			"0.2"		// Base chance for npc to get stuned (default 0.2).			
+ 			"versus_click"			"3"		// Number of cliks needed to win a sword contest.			
+ //			"bow_precision"			"20.0"		// Distance for hits. The higher the number is, more the shots are not accurate.
+-			"npc_health"			"18"		// NPC's life points
++			"npc_health"			"378"		// NPC's life points
+ 			"ThrowPrecisionMinDist" 	"150.0" 	// Below this distance, NPC has max distance accuracy
+ 			"ThrowPrecisionMaxDist" 	"650.0" 	// Between this distance and ThrowPrecisionMinDist, distance accuracy increase
+ 			"ThrowPrecisionNbShootToIn"	"10.0"		// 1st shoot has very bad accuracy, ThrowPrecisionNbShootToIncrease'th shoot is the most accurate
+@@ -114,7 +114,7 @@
+ 		"Green_zone"			"62"		// Ideal close combat distance
+ 		"Red_zone"			"15"		// min close combat distance	
+ 
+-		"npc_health"			"18"		// NPC's life points.
++		"npc_health"			"378"		// NPC's life points.
+ 		"life_tohurt"			"0.4"  		// life percentage needed to hurt the NPC ( he plays hurt animations )
+ 		"stamina"			"18"		// Starting stamina
+ 		

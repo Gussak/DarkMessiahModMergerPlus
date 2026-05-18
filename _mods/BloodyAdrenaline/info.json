@@ -1,0 +1,13 @@
+{
+    "name"                  :   "Bloody Adrenaline",
+    "version"               :   "1.0",
+    "description"           :   "Convert HP into Adrenaline, bound key. DependsOn:000gskBaseLib",
+    "author"                :   "GussakThor",
+    "author_url"            :   "",
+    "website"               :   "",
+    "launch_parameters"     :   [],
+    "gameinfo_parameters"   :   [],
+    "modules"               :   [],
+    "game_configs"          :   [ "bloodyadrenaline.cfg" ],
+    "autoexec_configs"      :   []
+}

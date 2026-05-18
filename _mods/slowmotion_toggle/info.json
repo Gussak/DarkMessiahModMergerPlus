@@ -1,0 +1,13 @@
+{
+    "name"                  :   "YASM (Yet Another Slowmotion Mod)",
+    "version"               :   "1.0",
+    "description"           :   "Another slowmotion mod with debuff. You take some damage when activating it. Look also for the alternative slow motion (bullet time) mods: Balanced slowmotion by Dancal, TRUE MIGHT AND MAGIC - Shiro Wantami. DependsOn:000gskBaseLib",
+    "author"                :   "GussakThor",
+    "author_url"            :   "",
+    "website"               :   "",
+    "launch_parameters"     :   [],
+    "gameinfo_parameters"   :   [],
+    "modules"               :   [],
+    "game_configs"          :   [ "slowmotion_toggle.cfg" ],
+    "autoexec_configs"      :   []
+}

@@ -1,0 +1,13 @@
+{
+    "name"                  :   "GamePathWriteTo",
+    "version"               :   "1.0",
+    "description"           :   "just a top first Game path to distinguish written from installed files TODO: not working",
+    "author"                :   "GussakThor",
+    "author_url"            :   "",
+    "website"               :   "",
+    "launch_parameters"     :   [],
+    "gameinfo_parameters"   :   [],
+    "modules"               :   [],
+    "game_configs"          :   [],
+    "autoexec_configs"      :   []
+}

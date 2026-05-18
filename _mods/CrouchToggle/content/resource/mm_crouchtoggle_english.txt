@@ -1,0 +1,10 @@
+"lang"
+{
+    "Language" "English"
+    "Tokens"
+    {
+        //# menu_controls_ducktoggle
+        //~ menu_controls_ducktoggle
+        "menu_controls_ducktoggle" "Toggle Crouch"
+    }
+}

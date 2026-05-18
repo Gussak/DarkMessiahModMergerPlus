@@ -1,0 +1,13 @@
+{
+    "name"                  :   "Wizard Eye costs mana",
+    "version"               :   "1.0",
+    "description"           :   "for the challenge of managing mana. EngineBug(?): Try to not deactivate it or it will spend mana twice",
+    "author"                :   "GussakThor",
+    "author_url"            :   "",
+    "website"               :   "",
+    "launch_parameters"     :   [],
+    "gameinfo_parameters"   :   [],
+    "modules"               :   [],
+    "game_configs"          :   [],
+    "autoexec_configs"      :   []
+}

@@ -1,0 +1,11 @@
+--- /dev/fd/63	2026-05-18 02:47:48.497763083 -0300
++++ /dev/fd/62	2026-05-18 02:47:48.498763047 -0300
+@@ -35,3 +35,8 @@
+ // This command is intended to be used in custom maps that want to make use of
+ // Unlimited Edition's freeze damage.
+ alias HookFreezeEvents "exec mmue_freezedamage_hooks"
++
++// MERGE THIS PATCH AT THE END OF THE FINAL unlimitededition.cfg FILE
++// as the newzoom is configured at unlimitededition.cfg and that cfg is executed later by game.cfg, this is the easiest option:
++exec eagle_eye
++

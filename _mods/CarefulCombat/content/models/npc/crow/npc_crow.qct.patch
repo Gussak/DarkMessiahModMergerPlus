@@ -1,0 +1,11 @@
+--- /dev/fd/63	2026-05-18 01:22:05.529976969 -0300
++++ /dev/fd/62	2026-05-18 01:22:05.530976932 -0300
+@@ -38,7 +38,7 @@
+ //		"max_jump_drop"		"300"		// how high can a NPC drop. No jump for Arantir.
+ //		"max_jump_dist"		"200"		// how long can a NPC jump (2D). No jump for Arantir.
+ 
+-		"npc_health"		"15"		// Npc's health.
++		"npc_health"		"315"		// Npc's health.
+ 	}
+ 	
+ 	"prop_data"					// Position and orientation when the corpse is grabed by player.Only when npc is dead. 

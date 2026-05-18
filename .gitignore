@@ -1,0 +1,35 @@
+//.gitignore
+
+///////// personal customized options
+// this calls prepareAllModsPatchesForScriptFile.sh with my custom options for my system and mod merging preferences, but can be useful as easy example
+//merge.sh
+
+///////// generated files
+findAllConflictingModdedFiles.sh.log
+prepareAllModsPatchesForScriptFile.sh.cfg
+*.SUCCESS.cfg
+*.log
+_mods/FinalMergedScriptsTopPriority/*
+_mods/FinalMergedScriptsMaxPriority/*
+*.BKP
+*.NEWLY_PATCHED
+*.rej
+
+// this skips temp dev backups
+_mods/FinalMergedScriptsTopPriority*/*
+_mods/FinalMergedScriptsMaxPriority*/*
+
+/////////// on meld patches are not easily readable like comparing 2 full files, but patches can be used to recreate the original patched file based on vanilla file!
+//*.patch
+
+
+/////////// releases
+GSK_ModMerger_AndMiniMods_Release*.tar.7z
+GSK_ModMerger_AndMiniMods_FullBkp*.tar.7z
+
+
+/////////// tmp dev debug etc
+ztemp.cfg
+Extracted/*
+Extracted.Quick.TMP/*
+tmp

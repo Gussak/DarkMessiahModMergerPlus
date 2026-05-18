@@ -1,0 +1,13 @@
+{
+    "name"                  :   "GSK Graphics Tweaks",
+    "version"               :   "1.0",
+    "description"           :   "",
+    "author"                :   "GussakThor",
+    "author_url"            :   "",
+    "website"               :   "",
+    "launch_parameters"     :   [],
+    "gameinfo_parameters"   :   [],
+    "modules"               :   [],
+    "game_configs"          :   [ "gskGfxTweaks.cfg" ],
+    "autoexec_configs"      :   []
+}

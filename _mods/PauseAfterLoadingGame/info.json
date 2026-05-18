@@ -1,0 +1,13 @@
+{
+    "name"                  :   "PauseAfterLoadingGame",
+    "version"               :   "1.0",
+    "description"           :   "WIP not working. DependsOn:000gskBaseLib",
+    "author"                :   "GussakThor",
+    "author_url"            :   "",
+    "website"               :   "",
+    "launch_parameters"     :   [],
+    "gameinfo_parameters"   :   [],
+    "modules"               :   [],
+    "game_configs"          :   [ "pause_after_load.cfg" ],
+    "autoexec_configs"      :   [ ]
+}

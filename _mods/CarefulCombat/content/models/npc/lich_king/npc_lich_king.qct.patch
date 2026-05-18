@@ -1,0 +1,11 @@
+--- /dev/fd/63	2026-05-18 01:50:29.880266746 -0300
++++ /dev/fd/62	2026-05-18 01:50:29.880266746 -0300
+@@ -71,7 +71,7 @@
+ 
+ 		"flies_spawn_time"	"10"		// Flies will be spawned after NPC is dead (time in seconds).
+ 		
+-		"npc_health"		"200"		// NPC's life points.
++		"npc_health"		"4200"		// NPC's life points.
+ 			
+ 		"life_tohurt"			"0"  		// life percentage needed to hurt the NPC ( he plays hurt animations )
+ 		"stamina"			"500"		// Starting stamina

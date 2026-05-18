@@ -1,0 +1,13 @@
+{
+    "name"                  :   "GSK Base LIB for other mods",
+    "version"               :   "1.0",
+    "description"           :   "LOAD THIS FIRST! aliases etc",
+    "author"                :   "GussakThor",
+    "author_url"            :   "",
+    "website"               :   "",
+    "launch_parameters"     :   [],
+    "gameinfo_parameters"   :   [],
+    "modules"               :   [],
+    "game_configs"          :   [ "gskBaseLib.cfg" ],
+    "autoexec_configs"      :   []
+}

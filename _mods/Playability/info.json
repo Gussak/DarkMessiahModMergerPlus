@@ -1,0 +1,13 @@
+{
+    "name"                  :   "Playability",
+    "version"               :   "1.0",
+    "description"           :   "",
+    "author"                :   "GussakThor",
+    "author_url"            :   "",
+    "website"               :   "",
+    "launch_parameters"     :   [],
+    "gameinfo_parameters"   :   [],
+    "modules"               :   [],
+    "game_configs"          :   [ "Playability.cfg" ],
+    "autoexec_configs"      :   []
+}

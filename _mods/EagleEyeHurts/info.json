@@ -1,0 +1,13 @@
+{
+    "name"                  :   "GSK - Eagle Eye",
+    "version"               :   "1.0",
+    "description"           :   "DependsOn:unlimited_edition_zoom_in_anytime",
+    "author"                :   "GussakThor",
+    "author_url"            :   "",
+    "website"               :   "",
+    "launch_parameters"     :   [],
+    "gameinfo_parameters"   :   [],
+    "modules"               :   [],
+    "game_configs"          :   [ "eagle_eye.cfg" ],
+    "autoexec_configs"      :   []
+}

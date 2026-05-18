@@ -1,0 +1,13 @@
+{
+    "name"                  :   "My Custom Key Bindings",
+    "version"               :   "1.0",
+    "description"           :   "Only enable this if they do not conflict with your keybindings, check on 'condump*.txt'. Open gskEnabledBinds.cfg and comment all OR rename that file to gskEnabledBinds.cfg.bkp OR remove it from game_configs below (at info.json file). TODO: add a config menu entry to bind each key one day?",
+    "author"                :   "GussakThor",
+    "author_url"            :   "",
+    "website"               :   "",
+    "launch_parameters"     :   [],
+    "gameinfo_parameters"   :   [],
+    "modules"               :   [],
+    "game_configs"          :   [ "gskShowAllKeyBindings.cfg", "gskEnabledBinds.cfg" ],
+    "autoexec_configs"      :   []
+}

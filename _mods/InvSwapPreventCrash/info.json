@@ -1,0 +1,13 @@
+{
+    "name"                  :   "InvSwapPreventCrash",
+    "version"               :   "1.0",
+    "description"           :   "After inventory swap, trying to open inventory too quickly will crash the game, this prevents that. Replace the swap inventory key during the mod merge. Obs.: it is not granted to not crash tho... be patient while swapping inv, go move around a bit, look for some spider to smash etc...",
+    "author"                :   "GussakThor",
+    "author_url"            :   "",
+    "website"               :   "",
+    "launch_parameters"     :   [],
+    "gameinfo_parameters"   :   [],
+    "modules"               :   [],
+    "game_configs"          :   [ "gskInvSwapPreventCrash.cfg" ],
+    "autoexec_configs"      :   []
+}

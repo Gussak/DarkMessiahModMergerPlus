@@ -1,0 +1,24 @@
+TODO
+	Main goal, make it more challenging but not impossible.
+
+MayBeEasy
+- let small spiders attack
+- make all melee enemies use some kind of ranged attack without having to find a dropepd bow, to compensate the AI being too weak if you are in the top of a ladder. It could be just replacing ex.: all melee only guards with archers that also have a melee weapon. Not sure about other kind of enemies tho, if them all have a melle+ranged alternative ready to use in the replacer modded files.
+- stepping on fire should give much more damage like 20, or that damage over time 
+
+MayBeOnlyPatchingTheEngineBinary
+- humanoids should be able to use levers and open portcullis, otherwise we can just beat them thru the closed grate. Them getting close to a closed gate should trigger it opened IF the player can already do that too.
+- spikes on walls should hurt the player like does stepping on fire
+- swap inventory should re-equip the items automatically or at least opening inventory should pause the game in a way that let we manage the inventory to re-equip stuff as pause prevents managing inventory.
+- player should be knock back and knock down too
+- create necromantic revival that is only countered by gore dismembering on corpses
+- lockpick minigame like in skyrim with breakable lockpicks. you have like 10. when one breaks, imagine that you take like 5mins to create a new one from scrap materials found everywhere. It auto refills 1 every 5mins up to 10.
+- let we throw everything in the direction we are actually looking at, and not just in front horizontally. sometimes it is impossible to hit an oil jar on enemy if it is on the ground below...
+- get we throw light things while crouched, may be not so far
+- enemies should block with their shield, mainly if we are aiming arrows on them
+- shooting an arrow in a knocked down target, should apply the multiplier from sneaking
+- when our shield breaks it should explode and make breaking sound
+- it should have a generic headshot damage multiplier
+
+MayBeNot
+- physics traps should damage us as much it does on NPCs, last test was only 20 damage, could be 80?

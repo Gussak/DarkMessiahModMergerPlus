@@ -1,0 +1,11 @@
+--- /dev/fd/63	2026-05-18 01:22:27.864168304 -0300
++++ /dev/fd/62	2026-05-18 01:22:27.864168304 -0300
+@@ -93,7 +93,7 @@
+ 		"move_blocker_mass"	"100"		// mass of objects NPC can push 
+ 		"MaxMassKickObject"	"1000"		//Max mass of object that can be kicked
+ 		
+-		"npc_health"		"350"		// NPC's life points.
++		"npc_health"		"7350"		// NPC's life points.
+ 		
+ 		"can_be_stand_impaled"	"0"		//avoid to be directly impaled by player
+ 		

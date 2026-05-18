@@ -1,0 +1,10 @@
+"lang"
+{
+    "Language" "English"
+    "Tokens"
+    {
+        //# menu_controls_bloodymana
+        //~ menu_controls_bloodymana
+        "menu_controls_bloodymana" "Hold to deplet HP and slowly add MANA"
+    }
+}

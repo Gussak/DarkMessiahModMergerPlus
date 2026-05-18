@@ -1,0 +1,11 @@
+--- /dev/fd/63	2026-05-18 02:02:46.486596089 -0300
++++ /dev/fd/62	2026-05-18 02:02:46.486596089 -0300
+@@ -38,7 +38,7 @@
+ 
+ //		"life_tohurt"		"0.3"		// When NPC life percentage goes below this value, NPC is hurt and plays hurt animations.
+ 
+-		"npc_health"		"10"		// NPC's life points.	
++		"npc_health"		"210"		// NPC's life points.	
+ 		
+ 		"maxsightdistancequiet" 	"1500"	// Maximum vision distance, in inches, when in idle mode.
+ 		"maxsightdistancealerted" 	"1500"	// Maximum vision distance, in inches, when in alert mode.
