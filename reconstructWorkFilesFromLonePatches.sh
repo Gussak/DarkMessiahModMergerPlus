@@ -130,19 +130,31 @@ for strFlPatch in "${astrPatchList[@]}";do
 	if ! ls -l "$strFlVanilla";then
 		strFlSelVanillaAlt=""
 		if [[ -f "${strFlPatch}.Vanilla.cfg" ]];then
-			strFlSelVanillaAlt="$(cat "${strFlPatch}.Vanilla.cfg")"
+			strFlSelVanillaAlt="${strPathParent}/$(cat "${strFlPatch}.Vanilla.cfg")"
 		fi
 		
-		if [[ ! -f "$strFlSelVanillaAlt" ]];then
+		if [[ -f "$strFlSelVanillaAlt" ]];then
+			strFlVanilla="$strFlSelVanillaAlt"
+		else
 			strFlVaniFilter="$(basename "${strFlRelat}")"
 			strProblMsg="Vanilla file not found.\n If it is not based on vanilla game files but in some mod, select it now to be used as base in the patching process.\n strFlSelVanillaAlt='$strFlSelVanillaAlt'\n strFlVaniFilter='$strFlVaniFilter'"
 			FUNCechoInfo "[PROBLEM:] $strProblMsg"
-			if strFlSelVanillaAlt="$(yad --title "$0" --text "$strProblMsg" --file-filter="$strFlVaniFilter" --file)";then
-				echo "$strFlSelVanillaAlt" >"${strFlPatch}.Vanilla.cfg"
-				ls -l "${strFlPatch}.Vanilla.cfg"
-				cat "${strFlPatch}.Vanilla.cfg"
-				strFlVanilla="$strFlSelVanillaAlt"
-			else
+			bVanillaAltOk=false
+			while strFlSelVanillaAlt="$(yad --title "$0" --text "$strProblMsg" --file-filter="$strFlVaniFilter" --file)";do
+				if [[ "$strFlSelVanillaAlt" =~ ^${strPathParent}.* ]];then
+					strFlVanilla="$strFlSelVanillaAlt"
+					strFlSelVanillaRelat="${strFlSelVanillaAlt#${strPathParent}/}" # relative
+					echo "$strFlSelVanillaRelat" >"${strFlPatch}.Vanilla.cfg"
+					ls -l "${strFlPatch}.Vanilla.cfg"
+					cat "${strFlPatch}.Vanilla.cfg"
+					bVanillaAltOk=true
+					break
+				else
+					read -n 1 -p "[It must be relative to '${strPathParent}']"
+				fi
+			done
+			
+			if ! $bVanillaAltOk;then
 				astrFlMissingVanillaList+=("$strFlVanilla")
 				continue
 			fi
@@ -181,6 +193,7 @@ for strFlPatch in "${astrPatchList[@]}";do
 		read -n 1 -p "Hit a key to run ${strExecMerger}"
 		if $bRevalidate;then
 			cp -v "$strFlVanilla" "${strFlWork}.NEWLY_PATCHED"
+			chmod u+w "${strFlWork}.NEWLY_PATCHED"
 			while ! "${strExecMerger}" "${strFlPatch}" "${strFlWork}.NEWLY_PATCHED";do #TODO this is not good because the .patch file is hard to use in case of many lines beggining with '+' ?
 				FUNCechoInfo "[PROBLEM:] some error happened in the merger, please retry"
 				read -n 1 -p "Hit a key to run ${strExecMerger}"
@@ -195,7 +208,11 @@ for strFlPatch in "${astrPatchList[@]}";do
 			exit 1
 		else
 			cp -v "$strFlVanilla" "$strFlWork"
-			"${strExecMerger}" "${strFlPatch}" "$strFlWork"
+			chmod u+w "$strFlWork"
+			while ! "${strExecMerger}" "${strFlPatch}" "$strFlWork";do
+				FUNCechoInfo "[PROBLEM:] some error happened in the merger, please retry"
+				read -n 1 -p "Hit a key to run ${strExecMerger}"
+			done
 		fi
 	fi
 	
