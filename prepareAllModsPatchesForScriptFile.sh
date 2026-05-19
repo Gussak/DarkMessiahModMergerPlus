@@ -280,7 +280,7 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 		( # prepare the patch using relative path to remove user name
 			cd "${strPathParent}"
 			set -x
-			set -o pipefail # so the diff exit value will be captured with $?
+			set -o pipefail # so the diff exit value will be captured with $? if using |tee
 			diff -u \
 				<(iconv -f $(file -b --mime-encoding "$strVanillaScriptFile") -t UTF-8 "$strVanillaScriptFile") \
 				<(iconv -f $(file -b --mime-encoding "$strFileToMerge"      ) -t UTF-8 "$strFileToMerge"      ) \

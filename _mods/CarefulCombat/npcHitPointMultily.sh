@@ -3,20 +3,47 @@
 if true;then
 	set -Eeu
 	
-	strPathModFolder="$(dirname "$(realpath "$0")")"
-	declare -p strPathModFolder
+	strPathThisModFolderFull="$(pwd)"
+	declare -p strPathThisModFolderFull
+	
+	strPathThisModFolderBN="$(basename "${strPathThisModFolderFull}")"
+	declare -p strPathThisModFolderBN
 	
 	cd "../../"
+	strPathMainModFolder="$(pwd)"
 	source "./allMergerScriptsGenericConfig.sh"
 
+	: ${bApplyHP:=false} #help
+	while ! ${1+false} && [[ "${1:0:1}" == "-" ]];do # checks if param is set
+		if [[ "$1" == "--help" ]];then #help show this help
+			#egrep "[#]help" "./allMergerScriptsGenericConfig.sh" "$0" |sed -r -e 's@^[ \t]*@@'
+			SECFUNCshowHelpV2 "./allMergerScriptsGenericConfig.sh"
+			SECFUNCshowHelpV2 "${strPathThisModFolderFull}/$0"
+			exit 0
+		elif [[ "$1" == "-a" || "$1" == "--apply" ]];then #help create patched files and their .kvpatch
+			bApplyHP=true
+		else
+			echo "[invalid option] '$1'"
+			$0 --help #$0 considers ./, works best anyway..
+			exit 1
+		fi
+		shift&&:
+	done	
+	
 	#FUNCechoInfo 
 	echo "You can reapply this patch changing the HP multiplier."
 	
 	: ${bVerbose=false} #help
 	
-	cd "$strPathParent"
 	#IFS=$'\n' read -d '' -r -a astrList < <(egrep "npc_health" -R "${astrGrepIncludesExt[@]}" "${strPathParent}/"* |egrep -v "${strGameInstallMainFolder}/" &&:)&&:
-	IFS=$'\n' read -d '' -r -a astrList < <(egrep "npc_health" -R --include="*.qct" "${strPathParent}/"* |egrep -v "${strGameInstallMainFolder}/" |tr -d '\r' |sort -u &&:)&&:
+	IFS=$'\n' read -d '' -r -a astrList < <(
+		cd "$strPathParent"
+		egrep "npc_health" -R --include="*.qct" "${strPathParent}/"* \
+			|egrep -v "${strPathThisModFolderFull}|${strGameInstallMainFolder}/|${strMergedModsFolderBN}|${strVanillaLayer}" \
+			|tr -d '\r' \
+			|sort -u \
+			&&: \
+	)&&:
 	if $bVerbose;then
 		declare -p astrList |sed -r -e "$strSedArrayNumToLn"
 	fi
@@ -62,7 +89,7 @@ if true;then
 
 	: ${nMultHP:=21} #help
 	: ${strSpecialNpcRegex:=".*(leanna).*"} #help
-	: ${nSpecialNpcFurtherMult:=20} #help
+	: ${nSpecialNpcMult:=400} #help
 	
 	nColW=7
 	astrSortFlNPCs=($(for str in "${!anVanillaValues[@]}";do echo "$str";done |sort))
@@ -74,7 +101,7 @@ if true;then
 	for strFlNpc in "${astrSortFlNPCs[@]}";do
 		#declare -p strFlNpc
 		if [[ "$strFlNpc" =~ ${strSpecialNpcRegex} ]];then
-			nMultHPfinal=$((nMultHP*nSpecialNpcFurtherMult));
+			nMultHPfinal=$nSpecialNpcMult
 		else
 			nMultHPfinal=$nMultHP
 		fi
@@ -83,18 +110,22 @@ if true;then
 		if((${anMaxOtherModsValues[$strFlNpc]} > nNewHP));then strHint="!";fi
 		printf "$strFmt" "${anVanillaValues[$strFlNpc]}" "${anMaxOtherModsValues[$strFlNpc]}${strHint}" "$nNewHP" "${strFlNpc}"
 		
-		strPathModPatch="${strPathModFolder}/content/$(dirname "${strFlNpc}")"
+		strPathModPatch="${strPathThisModFolderFull}/content/$(dirname "${strFlNpc}")"
 		mkdir -vp "${strPathModPatch}"
 		
-		strModFilePatch="${strPathModPatch}/$(basename "${strFlNpc}")"
-		if [[ ! -f "${strModFilePatch}" ]];then
+		strFlModded="${strPathModPatch}/$(basename "${strFlNpc}")"
+		if [[ ! -f "${strFlModded}" ]];then
 			cp -v "${astrFlVanillaScript[$strFlNpc]}" "${strPathModPatch}/"
-			chmod -v u+w "$strModFilePatch"
+			chmod -v u+w "$strFlModded"
 		fi
 		
-		: ${bApplyHP:=false} #help
 		if $bApplyHP;then
-			sed -i.bkp -r -e 's@(.*npc_health[^0-9]*)([0-9]*)(.*)@\1'"${nNewHP}"'\3@' "$strModFilePatch" #|grep npc_health
+			sed -i.bkp -r -e 's@(.*npc_health[^0-9]*)([0-9]*)(.*)@\1'"${nNewHP}"'\3@' "$strFlModded" #|grep npc_health
+			
+			"${strPathMainModFolder}/keyValuePatcher.py" create -o "${strFlModded}.kvpatch" "${astrFlVanillaScript[$strFlNpc]}" "${strFlModded}"
+			ls -l "${strFlModded}.kvpatch"
+			cat "${strFlModded}.kvpatch";echo
+			#read -n 1 -p "keyValuePatcher created: '${strFlModded}.kvpatch'"
 		fi
 	done
 

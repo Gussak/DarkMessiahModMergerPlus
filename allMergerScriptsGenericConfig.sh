@@ -84,7 +84,7 @@ done
 declare -p strScriptsExtRegexEsc strScriptsExtRegexNorm
 
 strPathSelf="$(pwd)"
-strPathParent="$(dirname "$strPathSelf")" #help this is important in case this path is a symlink! when using '../' would navigate to the realpath!
+strPathParent="$(dirname "$strPathSelf")" #help This is the folder where all Layers are placed, it is the parent of game main folder. this is important to be detected like that in case this path is a symlink! when using '../' would navigate to the realpath!
 
 : ${strGameInstallMainFolder:="${strPathParent}/Dark Messiah Might and Magic Single Player"} #help vanilla game installed main folder
 
