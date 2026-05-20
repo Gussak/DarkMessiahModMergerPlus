@@ -1,0 +1,13 @@
+{
+    "name"                  :   "DangerousPoisonousSpiders",
+    "version"               :   "1.0",
+    "description"           :   "The poison will last much much long, dont let them bite you!",
+    "author"                :   "GussakThor",
+    "author_url"            :   "",
+    "website"               :   "",
+    "launch_parameters"     :   [],
+    "gameinfo_parameters"   :   [],
+    "modules"               :   [],
+    "game_configs"          :   [],
+    "autoexec_configs"      :   []
+}

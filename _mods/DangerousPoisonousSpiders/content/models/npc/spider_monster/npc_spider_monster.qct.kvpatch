@@ -1,0 +1,5 @@
+{
+    "$keyvalues.entity_data.life_regen": "0.25",
+    "$keyvalues.entity_data.Poison_Duration": "200",
+    "$keyvalues.entity_data.poisoned": "1.0"
+}
