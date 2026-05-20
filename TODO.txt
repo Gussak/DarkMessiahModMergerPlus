@@ -5,6 +5,11 @@ MayBeEasy
 - let small spiders attack
 - make all melee enemies use some kind of ranged attack without having to find a dropepd bow, to compensate the AI being too weak if you are in the top of a ladder. It could be just replacing ex.: all melee only guards with archers that also have a melee weapon. Not sure about other kind of enemies tho, if them all have a melle+ranged alternative ready to use in the replacer modded files.
 - stepping on fire should give much more damage like 20, or that damage over time 
+- destructible spider eggs
+- animals and spiders etc could drop raw meat to cook on fire like we can cook in Arx Fatalis!
+- make spiders jump like guards, and if possible hit on jump too
+- make spider poison last much longer requiring to use the antidote... like 100x longer
+- let we pickup spiders and other animals corpses and throw much farer
 
 MayBeOnlyPatchingTheEngineBinary
 - humanoids should be able to use levers and open portcullis, otherwise we can just beat them thru the closed grate. Them getting close to a closed gate should trigger it opened IF the player can already do that too.

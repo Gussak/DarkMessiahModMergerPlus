@@ -43,7 +43,7 @@ function FUNCbkp() {
 	done
 	
 	: ${strCopyToFolder:=""} #help set this to copy it into some backup device
-
+	
 	astr=("./AddOn/SAVE/" "./mm/SAVE" "./custom/SAVE") #help add folders here if you use any different
 	strThisPath="$(pwd)"
 	while true;do
@@ -56,15 +56,23 @@ function FUNCbkp() {
 			
 			cd "$strThisPath"
 			cd "$str"
-			pwd
+			#pwd
 			
 			strBkpKeyOld="$(cat quick.sav.bkpKey.cfg)"&&:
 			strBkpKeyNew="$(ls -l quick.sav)"
 			if [[ -f "quick.sav" ]] && [[ "${strBkpKeyNew}" != "${strBkpKeyOld}" ]];then
 				trash "quick.sav.7z"&&:
-				7z a "quick.sav.7z" "quick.sav"
+				
+				7z a "quick.sav.7z" "quick.sav" "quick.tga"
 				touch -r "quick.sav" "quick.sav.7z"
-				ls -l "quick.sav.7z"
+				touch -r "quick.tga" "quick.sav.7z"
+				
+				strDupItDtTm="$(date +"%Y_%m_%d-%H_%M_%S")" #the game stops auto duplicating after some time of playing...
+				cp "quick.sav" "mm-${strDupItDtTm}.sav"
+				cp "quick.tga" "mm-${strDupItDtTm}.tga"
+				
+				ls -l "quick.sav.7z" "mm-${strDupItDtTm}.sav" "mm-${strDupItDtTm}.tga"
+				
 				ls -l "quick.sav" >"quick.sav.bkpKey.cfg"
 				if [[ -n "$strCopyToFolder" ]];then
 					mkdir -vp "$strCopyToFolder"
@@ -74,7 +82,7 @@ function FUNCbkp() {
 			fi
 		done
 		
-		read -t 60 -p "[press a key to backup all again]"
+		read -t 5 -p "[$(date +"%Y_%m_%d-%H_%M_%S")][press a key to backup all again]"
 	done
 };export -f FUNCbkp
 

@@ -1,1 +1,1 @@
-- if the inventory becomes unusable, try climbing a ladder. When you exit it, the inventory may be re-enabled.
+- if the inventory becomes inaccessible, and stops showing up the quick belt (like when climbing a ladder), try climbing a ladder again (you probably just climbed out from one). When you exit it, the inventory may be re-enabled.
