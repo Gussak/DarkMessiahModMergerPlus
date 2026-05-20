@@ -10,6 +10,27 @@ ___
 This mod can be used to merge all other mods' scripts and text files thru diff, patch and merge apps.
 
 Keep 'FinalMergedScriptsTopPriority' as last entry at '_mods/core/user_settings.json' of [Mod Launcher](https://github.com/KingDavidW/DarkMessiah-ModLauncher-Files).
+___
+
+# Key Value patcher
+
+Use the python script `keyValuePatcher.py` to prepare Key Value based patches.   
+They are very flexible.   
+They are not like Code patches, they are just used to seek for a key and set it's value in the final file.  
+They work at least for .qct and some .txt files too.  
+I will describe it better later if needed.  
+So your mod can be just a list of Keys and Values, and not an overriding file that erases other mods' file with lower priority in load order.  
+They look like this in a json file ex.:
+`npc_necroguard.qct.kvpatch`
+```
+{
+    "$keyvalues.entity_data.level_1.npc_health": "378",
+    "$keyvalues.entity_data.npc_health": "378"
+}
+```
+As you can see, the script will seek for that nested key to set the value. and with `keyValuePatcher.py apply -a ...` it can append missing Keys, so nothing is lost or ignored.
+`keyValuePatcher.py` is generic and can be used for any file of any game or application.  
+It detects nested structures with '{' ... '}', but these can also be set to other delimiters easily if needed by editing `keyValuePatcher.py`.  
 
 ___
 
