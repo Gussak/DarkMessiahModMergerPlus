@@ -28,7 +28,7 @@ They look like this in a json file ex.:
     "$keyvalues.entity_data.npc_health": "378"
 }
 ```
-As you can see, the script will seek for that nested key to set the value. and with `keyValuePatcher.py apply -a ...` it can append missing Keys, so nothing is lost or ignored.
+As you can see, the script will seek for that nested key to set the value. and with `keyValuePatcher.py apply -a ...` it can append missing Keys, so nothing is lost or ignored.  
 `keyValuePatcher.py` is generic and can be used for any file of any game or application.  
 It detects nested structures with '{' ... '}', but these can also be set to other delimiters easily if needed by editing `keyValuePatcher.py`.  
 
