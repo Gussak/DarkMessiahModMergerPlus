@@ -46,8 +46,12 @@ import sys
 # REUSABLE PARSING LOGIC
 # ==========================================
 
+nesting_open = os.getenv("KEYVALUE_NESTING_OPEN", "{")
+nesting_close = os.getenv("KEYVALUE_NESTING_CLOSE", "}")
+ending = os.getenv("KEYVALUE_LINE_ENDING", '\r\n')
+
 def parse_qct_to_dict(file_path):
-		"""Parses a Valve KeyValues .qct file into a nested Python dictionary."""
+		"""Parses a Valve KeyValues .qct file into a nested Python dictionary (actually any one per line key value file)."""
 		with open(file_path, 'r', encoding='utf-8', errors='ignore', newline='') as f:
 				lines = f.readlines()
 
@@ -64,7 +68,7 @@ def parse_qct_to_dict(file_path):
 				if not stripped or stripped.startswith("//"):
 						continue
 
-				if stripped == "{":
+				if stripped == nesting_open:
 						if last_key is not None:
 								new_block = {}
 								stack[-1][last_key] = new_block
@@ -72,7 +76,7 @@ def parse_qct_to_dict(file_path):
 								last_key = None
 						continue
 
-				if stripped == "}":
+				if stripped == nesting_close:
 						if len(stack) > 1:
 								stack.pop()
 						continue
@@ -109,7 +113,6 @@ def append_nested_missing(lines, missing_patches):
 		Appends missing hierarchical elements into the raw text array.
 		Indentation level is strictly calculated from the block nesting depth.
 		"""
-		ending = '\r\n'
 		
 		for full_path, new_value in missing_patches.items():
 				parts = full_path.split('.')
@@ -121,10 +124,10 @@ def append_nested_missing(lines, missing_patches):
 						line = lines[idx]
 						stripped = line.strip()
 						
-						if stripped == "}":
-								current_stack.append("}")
-						elif stripped == "{":
-								if current_stack and current_stack[-1] == "}":
+						if stripped == nesting_close:
+								current_stack.append(nesting_close)
+						elif stripped == nesting_open:
+								if current_stack and current_stack[-1] == nesting_close:
 										current_stack.pop()
 										
 						for depth in range(len(parts) - 1, 0, -1):
@@ -135,9 +138,9 @@ def append_nested_missing(lines, missing_patches):
 										bracket_score = 0
 										for scan_idx in range(idx, len(lines)):
 												scan_stripped = lines[scan_idx].strip()
-												if scan_stripped == "{":
+												if scan_stripped == nesting_open:
 														bracket_score += 1
-												elif scan_stripped == "}":
+												elif scan_stripped == nesting_close:
 														bracket_score -= 1
 														if bracket_score == 0:
 																insert_index = scan_idx
@@ -150,9 +153,9 @@ def append_nested_missing(lines, missing_patches):
 				nesting_level = 0
 				for i in range(insert_index):
 						line_strip = lines[i].strip()
-						if line_strip == "{":
+						if line_strip == nesting_open:
 								nesting_level += 1
-						elif line_strip == "}":
+						elif line_strip == nesting_close:
 								nesting_level -= 1
 
 				new_lines = []
@@ -199,12 +202,17 @@ def handle_create(args):
 				if path not in orig_tree or orig_tree[path] != mod_value:
 						patch_data[path] = mod_value
 
+		output_destination = args.output
+		if output_destination.startswith("patch.json"):
+				output_destination = args.modified + ".kvpatch.json"
+
 		# with open(args.output, 'w', encoding='utf-8', newline='\n') as f:
 		# with open(args.output, 'w', encoding='utf-8', newline='') as f:
-		with open(args.output, 'w', encoding='utf-8', newline='\r\n') as f:
+		# with open(args.output, 'w', encoding='utf-8', newline=ending) as f:
+		with open(output_destination, 'w', encoding='utf-8', newline=ending) as f:
 				json.dump(patch_data, f, indent=4)
 				
-		print(f"\nSuccess! Found {len(patch_data)} changes. Saved to: {args.output}")
+		print(f"\nSuccess! Found {len(patch_data)} changes. Saved to:\n '{output_destination}'")
 
 
 def handle_apply(args):
@@ -232,7 +240,7 @@ def handle_apply(args):
 		print(f"Applying patches from '{args.patch}' onto '{args.target}'...")
 
 		for line in lines:
-				ending = '\r\n' #if line.endswith('\r\n') else '\n'
+				# ending = '\r\n' #if line.endswith('\r\n') else '\n'
 				
 				if line.endswith('\r\n'): #windows
 						line = line.rstrip('\r\n')
@@ -244,10 +252,10 @@ def handle_apply(args):
 				
 				stripped = line.strip()
 				
-				if stripped == "{":
+				if stripped == nesting_open:
 						output_lines.append(line)
 						continue
-				elif stripped == "}":
+				elif stripped == nesting_close:
 						if current_stack:
 								current_stack.pop()
 						output_lines.append(line)
@@ -344,8 +352,8 @@ if __name__ == "__main__":
 		# 'create' subcommand setup
 		parser_create = subparsers.add_parser("create", help="Generate a JSON patch by comparing two files")
 		parser_create.add_argument("original", help="Path to original/vanilla file")
-		parser_create.add_argument("modified", help="Path to your modified file")
-		parser_create.add_argument("-o", "--output", default="patch.json", help="Output patch JSON name")
+		parser_create.add_argument("modified", help="Path to your modified file 'PathToModified'")
+		parser_create.add_argument("-o", "--output", default="patch.json", help="Output patch JSON name (default is to create a 'PathToModified.kvpatch.json' file)")
 		parser_create.set_defaults(func=handle_create)
 
 		# 'apply' subcommand setup

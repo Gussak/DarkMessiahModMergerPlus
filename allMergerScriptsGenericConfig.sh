@@ -29,7 +29,7 @@
 #	OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 #	OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-set -Eeu -o pipefail
+set -Eeu #use this specifically, not to everything or |grep results will fail...: set -o pipefail
 
 trap 'echo "Ctrl+C pressed, exiting..."; exit 1' INT
 
@@ -84,6 +84,10 @@ done
 declare -p strScriptsExtRegexEsc strScriptsExtRegexNorm
 
 strPathSelf="$(pwd)"
+if [[ ! -f "${strPathSelf}/$(basename "$0")" ]];then
+	echo "[ERROR] failed to determine ModMerger path: '$strPathSelf' doesnt contain $(basename "$0")"
+	exit 1
+fi
 strPathParent="$(dirname "$strPathSelf")" #help This is the folder where all Layers are placed, it is the parent of game main folder. this is important to be detected like that in case this path is a symlink! when using '../' would navigate to the realpath!
 
 : ${strGameInstallMainFolder:="${strPathParent}/Dark Messiah Might and Magic Single Player"} #help vanilla game installed main folder

@@ -113,7 +113,7 @@ for((i=0;i<nTotPossibilities;i++));do
 	if [[ "${strRelFlPrev}" != "${strRelFl}" ]] || (( i == (nTotPossibilities-1) ));then
 		if((iCountConflictFl>1));then
 			strFlSuccessCfgRel="${strRelFlPrev}.SUCCESS.cfg"
-			declare -p strFlSuccessCfgRel
+			#declare -p strFlSuccessCfgRel
 			strFlPatchSuccess="${strMergedModsFolder}/content/${strFlSuccessCfgRel}"
 			if $bVerbose;then declare -p strFlPatchSuccess;fi
 			if [[ -f "$strFlPatchSuccess" ]];then

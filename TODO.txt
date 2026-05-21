@@ -7,7 +7,6 @@ MayBeEasy
 - stepping on fire should give much more damage like 20, or that damage over time 
 - destructible spider eggs
 - animals and spiders etc could drop raw meat to cook on fire like we can cook in Arx Fatalis!
-- make spiders jump like guards, and if possible hit on jump too
 - make spider poison last much longer requiring to use the antidote... like 100x longer
 - let we pickup spiders and other animals corpses and throw much farer
 
@@ -27,3 +26,8 @@ MayBeOnlyPatchingTheEngineBinary
 
 MayBeNot
 - physics traps should damage us as much it does on NPCs, last test was only 20 damage, could be 80?
+
+DONE:
+
+THIS WORKS ALREADY:
+- make spiders jump like guards, and if possible hit on jump too
