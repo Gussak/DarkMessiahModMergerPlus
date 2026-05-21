@@ -50,8 +50,14 @@ nesting_open = os.getenv("KEYVALUE_NESTING_OPEN", "{")
 nesting_close = os.getenv("KEYVALUE_NESTING_CLOSE", "}")
 ending = os.getenv("KEYVALUE_LINE_ENDING", '\r\n')
 
+def strip_inline_comment(line):
+    """Helper to remove inline comments safely for clean regex evaluation."""
+    if "//" in line:
+        return line.split("//", 1)[0].strip()
+    return line.strip()
+
 def parse_qct_to_dict(file_path):
-    """Parses a Valve KeyValues .qct file into a nested Python dictionary (actually any one per line key value file)."""
+    """Parses a Valve KeyValues .qct file into a nested Python dictionary."""
     with open(file_path, 'r', encoding='utf-8', errors='ignore', newline='') as f:
         lines = f.readlines()
 
@@ -68,7 +74,11 @@ def parse_qct_to_dict(file_path):
         if not stripped or stripped.startswith("//"):
             continue
 
-        if stripped == nesting_open:
+        clean_line = strip_inline_comment(line)
+        if not clean_line:
+            continue
+
+        if clean_line == nesting_open:
             if last_key is not None:
                 new_block = {}
                 stack[-1][last_key] = new_block
@@ -76,21 +86,21 @@ def parse_qct_to_dict(file_path):
                 last_key = None
             continue
 
-        if stripped == nesting_close:
+        if clean_line == nesting_close:
             if len(stack) > 1:
                 stack.pop()
             continue
 
-        kv_match = kv_pattern.match(line)
+        kv_match = kv_pattern.match(clean_line)
         if kv_match:
             key, val = kv_match.groups()
             stack[-1][key] = val
             last_key = None
             continue
 
-        block_match = block_pattern.match(line)
+        block_match = block_pattern.match(clean_line)
         if block_match:
-            last_key = block_match.group(1)
+            last_key = block_match.group(1).strip('"')
 
     return root
 
@@ -130,22 +140,26 @@ def append_nested_missing(lines, missing_patches):
             if not stripped or stripped.startswith("//"):
                 continue
                 
-            if stripped == nesting_open:
+            clean_line = strip_inline_comment(line)
+            if not clean_line:
+                continue
+
+            if clean_line == nesting_open:
                 if last_block_key:
                     current_stack.append(last_block_key)
                     open_braces[tuple(current_stack)] = idx
                     last_block_key = None
                 continue
                 
-            if stripped == nesting_close:
+            if clean_line == nesting_close:
                 if current_stack:
                     close_braces[tuple(current_stack)] = idx
                     current_stack.pop()
                 continue
                 
-            block_match = block_pattern.match(line)
-            if block_match and '"' not in stripped.split(None, 1)[-1] if len(stripped.split(None, 1)) > 1 else True:
-                last_block_key = block_match.group(1)
+            block_match = block_pattern.match(clean_line)
+            if block_match:
+                last_block_key = block_match.group(1).strip('"')
             else:
                 last_block_key = None
 
@@ -222,12 +236,9 @@ def handle_create(args):
     if output_destination.startswith("patch.json"):
         output_destination = args.modified + ".kvpatch.json"
 
-    # with open(args.output, 'w', encoding='utf-8', newline='\n') as f:
-    # with open(args.output, 'w', encoding='utf-8', newline='') as f:
-    # with open(args.output, 'w', encoding='utf-8', newline=ending) as f:
     with open(output_destination, 'w', encoding='utf-8', newline=ending) as f:
         json.dump(patch_data, f, indent=4)
-        f.write(ending) # FIXED: Appends your configured final trailing newline smoothly
+        f.write(ending)
         
     print(f"\nSuccess! Found {len(patch_data)} changes. Saved to:\n '{output_destination}'")
     
@@ -271,6 +282,7 @@ def handle_apply(args):
         line = line + ending
         
         stripped = line.strip()
+        clean_line = strip_inline_comment(line)
         
         if stripped == nesting_open:
             output_lines.append(line)
@@ -284,24 +296,25 @@ def handle_apply(args):
             output_lines.append(line)
             continue
             
-        kv_match = kv_pattern.match(line)
+        kv_match = kv_pattern.match(clean_line)
         if kv_match:
             key, val = kv_match.groups()
             full_path = ".".join(current_stack + [key])
             
             if full_path in patches:
                 new_val = patches[full_path]
+                
                 if '"' in line:
                     line = re.sub(r'(\s*"[^"]*"\s+)("[^"]*")(.*)', r'\1"' + new_val + r'"\3', line) #values may have spaces
                 else:
                     line = re.sub(r'(\s+)('+re.escape(val)+r')(\s*)$', r'\1' + new_val + r'\3', line) # this just seeks for the value and replaces it. may be enforce an exit 2 if there is no double quotes instead?
-                    
+                
                 applied_keys.add(full_path)
             output_lines.append(line)
         else:
-            block_match = block_pattern.match(line)
+            block_match = block_pattern.match(clean_line)
             if block_match:
-                current_stack.append(block_match.group(1))
+                current_stack.append(block_match.group(1).strip('"'))
             output_lines.append(line)
 
     # PROCESS MATCH VERIFICATION
@@ -332,9 +345,6 @@ def handle_apply(args):
 
     # Save destination file with forced Windows CRLF line ending compatibility already fixed above
     output_destination = args.output if args.output else args.target
-#    with open(output_destination, 'w', encoding='utf-8', newline='\r\n') as f:
-    # with open(output_destination, 'w', encoding='utf-8', newline='\r\n') as f:
-    # with open(output_destination, 'w', encoding='utf-8', newline='\n') as f:
     with open(output_destination, 'w', encoding='utf-8', newline='') as f:
         f.writelines(output_lines)
         
