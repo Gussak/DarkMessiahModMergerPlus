@@ -1,3 +1,4 @@
+//////////////////////// IGNORE
 //.gitignore
 
 ///////// personal customized options
@@ -33,3 +34,23 @@ ztemp.cfg
 Extracted/*
 Extracted.Quick.TMP/*
 tmp
+
+
+
+//////////////////////////////////////////////////////////////
+// Just to cleanup the git gui view, disable this just after
+
+//*.json
+//*.patch
+
+//*.qct
+//*.lst
+//*.vmt
+//*.txt
+//*.cfg
+
+
+
+
+//////////////////////// INCLUDE
+!*.Vanilla.cfg

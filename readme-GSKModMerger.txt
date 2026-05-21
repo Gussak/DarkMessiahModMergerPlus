@@ -68,6 +68,9 @@ ___
 	
 3.2) OR read `merge.sh` contents, it is customized for my system. Customize it to yours:      
 	 `./merge.sh --all`    
+	 
+Obs.: when the patch is based in a mod and not game vanilla extracted files, they use a cfg that ends with *.Vanilla.cfg to indicate what they were based on
+
 ___
 
 Optional(Linux): OverlayFS can be run on these layers creating one writable folder, but just to prepare the merged files, it is not necessary.
