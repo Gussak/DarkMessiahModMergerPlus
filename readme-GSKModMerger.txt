@@ -3,7 +3,7 @@ Scripts to help merging DarkMessiahMM on Linux or expectedly CygWin too (for Win
 
 Main idea is no free powers for the challenge. As I found no way to spend mana, all costs goes to HP thru `hurtme` cmd.
 
-(This is WIP. If you have problems open an issue.)
+(This is WIP. The work scripts are being tested yet. If you have problems open an issue.)
 
 ___
 
