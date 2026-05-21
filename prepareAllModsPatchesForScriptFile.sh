@@ -278,8 +278,8 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 			bKeyValueDiffMode=true
 			strFlPatch="${strFileToMerge}.kvpatch.json"
 			;;
-		cfg) # see *) uses generic code patcher way
-			;;
+		#KEEPinfo: cfg) # see *) uses generic code patcher way
+			#;;
 		*)
 			bKeyValueDiffMode=false
 			strFlPatch="${strFileToMerge}.patch"
@@ -341,14 +341,18 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 		bMergedManually=false
 		: ${nFuzzyPatch:=0} #help try nFuzzyPatch=1 This is very helpful to make it easier to provide an initial auto merge, just review the results
 #		acmdPatch=(patch -F $nFuzzyPatch "$strFlWork" "${strFlPatch}")
-		acmdPatch=(patch -F $nFuzzyPatch -i "${strFlPatch}" -o "${strFlWork}.NEWLY_PATCHED" "$strFlWork") #patch [ORIGINAL_FILE] -i [PATCH_FILE] -o [OUTPUT_FILE]
+		if $bKeyValueDiffMode;then
+			acmdPatch=("${strPathSelf}/keyValuePatcher.py" apply -a -o "${strFlWork}.NEWLY_PATCHED" "$strFlWork" "${strFlPatch}") #keyValuePatcher.py apply [-h] [-o OUTPUT] [-a] target patch
+		else
+			acmdPatch=(patch -F $nFuzzyPatch -i "${strFlPatch}" -o "${strFlWork}.NEWLY_PATCHED" "$strFlWork") #patch [ORIGINAL_FILE] -i [PATCH_FILE] -o [OUTPUT_FILE]
+		fi
 		declare -p acmdPatch
 		ls -l "$strFlWork"
 		set -x;"${acmdPatch[@]}"&&:;nRetPatch=$?;set +x
 		ls -l "$strFlWork"
 		if((nRetPatch==0));then
 			mv -vf "$strFlWork" "$strFlWork.$nBkpIndex.bkp"
-			cp -vf "${strFlWork}.NEWLY_PATCHED" "$strFlWork"
+			mv -vf "${strFlWork}.NEWLY_PATCHED" "$strFlWork"
 		else
 			FUNCechoInfo "[ERROR: patch failed] if it is a compatibility patch (that is just merging other mods) may work just to disable the file by renaming it to ex.: filename.ext.DISABLED"
 			if $bVerbose;then declare -p acmdPatch;fi
