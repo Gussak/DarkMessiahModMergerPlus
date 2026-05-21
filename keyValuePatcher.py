@@ -226,7 +226,8 @@ def handle_create(args):
     # with open(args.output, 'w', encoding='utf-8', newline='') as f:
     # with open(args.output, 'w', encoding='utf-8', newline=ending) as f:
     with open(output_destination, 'w', encoding='utf-8', newline=ending) as f:
-        json.dump(patch_data, f, indent=4) #TODO how to add a line ending here at the last line of this file?
+        json.dump(patch_data, f, indent=4)
+        f.write(ending) # FIXED: Appends your configured final trailing newline smoothly
         
     print(f"\nSuccess! Found {len(patch_data)} changes. Saved to:\n '{output_destination}'")
     
