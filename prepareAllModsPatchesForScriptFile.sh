@@ -289,6 +289,11 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 			strFlPatch="${strFileToMerge}.patch"
 			;;
 	esac
+	# special files that keys are meant to happen more than once in the same hierarchy nesting depth
+	if echo "${strFileToMerge}" |egrep "resource/closecaption_manifest.txt$";then
+			bKeyValueDiffMode=false
+			strFlPatch="${strFileToMerge}.patch"
+	fi
 	
 	: ${bForceRecreatePatches:=true} #help
 	if ! $bForceRecreatePatches && [[ -f "$strFlPatch" ]];then
