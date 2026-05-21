@@ -40,9 +40,11 @@ if true;then
 
 	: ${bBackupFinalMergedFolder:=true} #help
 	if $bBackupFinalMergedFolder;then
-		cp -a "${strMergedModsFolder}" "${strMergedModsFolder}.$$.bkp"
-		mv -v "${strMergedModsFolder}.$$.bkp/info.json" "${strMergedModsFolder}.$$.bkp/info.json.DISABLED" #this prevents it showing on ModLauncher
-		ls -ld "${strMergedModsFolder}" "${strMergedModsFolder}.$$.bkp"
+		if [[ -d "${strMergedModsFolder}" ]];then
+			cp -a "${strMergedModsFolder}" "${strMergedModsFolder}.$$.bkp"
+			mv -v "${strMergedModsFolder}.$$.bkp/info.json" "${strMergedModsFolder}.$$.bkp/info.json.DISABLED"&&: #this prevents it showing on ModLauncher
+			ls -ld "${strMergedModsFolder}" "${strMergedModsFolder}.$$.bkp"
+		fi
 	fi
 
 	: ${bUpdateTodoList:=true} #help

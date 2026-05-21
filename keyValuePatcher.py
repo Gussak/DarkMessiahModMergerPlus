@@ -307,7 +307,9 @@ def handle_apply(args):
                 if '"' in line:
                     line = re.sub(r'(\s*"[^"]*"\s+)("[^"]*")(.*)', r'\1"' + new_val + r'"\3', line) #values may have spaces
                 else:
-                    line = re.sub(r'(\s+)('+re.escape(val)+r')(\s*)$', r'\1' + new_val + r'\3', line) # this just seeks for the value and replaces it. may be enforce an exit 2 if there is no double quotes instead?
+                    print(f"Error: keys and values shall be between double quotes.")
+                    sys.exit(2)
+                    #line = re.sub(r'(\s+)('+re.escape(val)+r')(\s*)$', r'\1' + new_val + r'\3', line) # this just seeks for the value and replaces it. may be enforce an exit 2 if there is no double quotes instead?
                 
                 applied_keys.add(full_path)
             output_lines.append(line)
