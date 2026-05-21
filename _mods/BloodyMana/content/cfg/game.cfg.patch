@@ -1,6 +1,6 @@
---- /dev/fd/63	2026-05-18 02:53:39.098068730 -0300
-+++ /dev/fd/62	2026-05-18 02:53:39.098068730 -0300
-@@ -30,4 +30,9 @@
+--- /dev/fd/63	2026-05-21 05:01:14.125578811 -0300
++++ /dev/fd/62	2026-05-21 05:01:14.125578811 -0300
+@@ -30,4 +30,10 @@
  fog_enable 0 
  
  //Required if using Unlimited Edition Mod:
@@ -12,3 +12,4 @@
 +
 +//BloodyMana: MERGE at the end of game.cfg as override
 +mm_player_time_to_add_mana "3.0"
++
