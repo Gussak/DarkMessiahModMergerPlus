@@ -68,6 +68,16 @@ IFS=$'\n' read -d '' -r -a astrList < <(find -L "${strGameInstallMainFolder}"* -
 if [[ -n "$strDebugFilter" ]];then declare -p astrList |sed -r -e "$strSedArrayLn" |egrep "${strDebugFilter}";echo;fi 
 
 ####################################
+#function FUNCfileRelat() {
+	#local lstrFile="$1"
+	
+	#if [[ "${lstrFile}" =~ .*/_mods/.* ]];then
+		#echo "$lstrFile" |sed -r -e 's@.*/_mods/.*/content/(.*)@\1@I'
+	#else
+		#echo "$lstrFile" |sed -r -e "s@.*/(${strRegexKGMRF})/(.*)@\2@I"
+	#fi
+#}
+
 echo
 FUNCechoInfo "[INFO] showing only relative paths for files"
 IFS=$'\n' read -d '' -r -a astrRelativeList < <(
@@ -76,11 +86,12 @@ IFS=$'\n' read -d '' -r -a astrRelativeList < <(
 		#FUNCechoInfo "#$strFile"
 		#echo -n . >&2
 		echo -ne "${iCountWorkingAll}\r" >&2
-		if [[ "${strFile}" =~ .*/_mods/.* ]];then
-			echo "$strFile" |sed -r -e 's@.*/_mods/.*/content/(.*)@\1@I'
-		else
-			echo "$strFile" |sed -r -e "s@.*/(${strRegexKGMRF})/(.*)@\2@I"
-		fi
+		FUNCfileRelat "${strFile}"
+		#if [[ "${strFile}" =~ .*/_mods/.* ]];then
+			#echo "$strFile" |sed -r -e 's@.*/_mods/.*/content/(.*)@\1@I'
+		#else
+			#echo "$strFile" |sed -r -e "s@.*/(${strRegexKGMRF})/(.*)@\2@I"
+		#fi
 		((iCountWorkingAll++))&&:
 	done |sort
 )&&:

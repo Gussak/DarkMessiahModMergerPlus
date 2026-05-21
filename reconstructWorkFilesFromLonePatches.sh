@@ -79,7 +79,7 @@ done
 cd "${strPathParent}"
 
 IFS=$'\n' read -d '' -r -a astrPatchList < <(
-	find -L "${strGameInstallMainFolder}"* -iregex ".*\(${strJustExtRegexEsc}\).patch" \
+	find -L "${strGameInstallMainFolder}"* -iregex ".*\(${strJustExtRegexEsc}\)\(.patch\|.kvpatch.json\)" \
 		|sort \
 		|egrep "[.]layer" \
 		|egrep ".*${strFilter}.*" \
@@ -98,7 +98,15 @@ astrFlCanTrash=()
 astrRevalidationFail=()
 astrFlMissingVanillaList=()
 for strFlPatch in "${astrPatchList[@]}";do
-	strFlWork="${strFlPatch%.patch}"
+	if [[ "$strFlPatch" =~ .*[.]kvpatch[.]json$ ]] && [[ "$(cat "$strFlPatch" |tr -d '\r')" == "{}" ]];then #TODO this file should not have even been generated...
+		trash "$strFlPatch"
+		continue
+	fi
+	
+	strFlWork="$strFlPatch"
+	strFlWork="${strFlWork%.patch}"
+	strFlWork="${strFlWork%.kvpatch.json}"
+	
 	bWorkFileExists=false
 	if [[ -f "$strFlWork" ]];then
 		astrExistingWorkFilesList+=("$strFlWork")
@@ -123,7 +131,8 @@ for strFlPatch in "${astrPatchList[@]}";do
 			#:
 		#fi
 	#done
-	strFlRelat="$(echo "$strFlWork" |egrep -oi "(${strRegexKGMRF}).*" |cut -d"/" -f2-)"
+	#strFlRelat="$(echo "$strFlWork" |egrep -oi "(${strRegexKGMRF}).*" |cut -d"/" -f2-)"
+	strFlRelat="$(FUNCfileRelat "$strFlWork")"
 	declare -p strFlRelat
 	strFlVanilla="$strVanillaScriptsPath/mm/${strFlRelat}"
 	#strVanillaScriptFile="$(find -L "$strVanillaScriptsPath" -iregex "${strFindScriptFileRegex}")"
@@ -179,12 +188,46 @@ for strFlPatch in "${astrPatchList[@]}";do
 		#return 0
 	}
 	
-	set -x;patch -i "${strFlPatch}" -o "${strFlWork}.NEWLY_PATCHED" "$strFlVanilla"&&:;nRetPatch=$?;set +x
+	#declare -p strFileToMerge
+	bKeyValueDiffMode=false
+	if strFlPatchCheck="$(FUNCpatchMode "${strFlWork}")";then
+		bKeyValueDiffMode=true
+	fi
+	if [[ "$strFlPatchCheck" != "$strFlPatch" ]];then
+		FUNCechoInfo "[ERROR:] strFlPatchCheck='$strFlPatchCheck' != strFlPatch='$strFlPatch'"
+		exit 1
+	fi
+	
+	if $bKeyValueDiffMode;then
+		#"${strPathSelf}/keyValuePatcher.py" apply \
+			#-o "${strFlPatch}" \
+			#<(iconv -f $(file -b --mime-encoding "$strFlVanilla") -t UTF-8 "$strVanillaScriptFile") \
+			#<(iconv -f $(file -b --mime-encoding "$strFileToMerge"      ) -t UTF-8 "$strFileToMerge"      ) \
+			#&&:;
+		set -x;
+		"${strPathSelf}/keyValuePatcher.py" apply -a \
+			-o "${strFlWork}.NEWLY_PATCHED" \
+			<(iconv -f $(file -b --mime-encoding "$strFlVanilla") -t UTF-8 "$strFlVanilla") \
+			"${strFlPatch}" \
+			&&: #keyValuePatcher.py apply [-h] [-o OUTPUT] [-a] target patch
+		nRetPatch=$?
+		set +x;
+	else
+		set -x;
+		patch \
+			-i "${strFlPatch}" \
+			-o "${strFlWork}.NEWLY_PATCHED" \
+			<(iconv -f $(file -b --mime-encoding "$strFlVanilla") -t UTF-8 "$strFlVanilla") \
+			&&:;
+		nRetPatch=$?;
+		set +x
+	fi
+	
 	ls -l "${strFlPatch}" "${strFlWork}.NEWLY_PATCHED" "$strFlVanilla"&&:
 	if((nRetPatch==0));then
-		if $bRevalidate;then
+		if $bRevalidate;then # just revalidate
 			FUNCrevalidDiff
-		else
+		else # reconstruct
 			mv -vf "${strFlWork}.NEWLY_PATCHED" "$strFlWork"
 			ls -l "$strFlWork"
 		fi

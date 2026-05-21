@@ -139,6 +139,53 @@ for strKGMRF in "${astrKnownGameModRelativeFolders[@]}";do
 	strRegexEscKGMRF+="${strKGMRF}"
 done
 
+function FUNCfileRelat() {
+	local lstrFile="$1"
+	
+	if [[ "${lstrFile}" =~ .*/_mods/.* ]];then
+		echo "$lstrFile" |sed -r -e 's@.*/_mods/.*/content/(.*)@\1@I'
+	else
+		echo "$lstrFile" |sed -r -e "s@.*/(${strRegexKGMRF})/(.*)@\2@I"
+	fi
+}
+
+function FUNCpatchMode() {
+	local lstrFileToMerge="$1"
+	
+	local lbKeyValueDiffMode=false
+	local lstrExt="$(echo "${lstrFileToMerge}" |sed -r -e 's@.*[.]([a-zA-Z0-9_]*)$@\1@')"
+	declare -p lstrExt >&2
+	if [[ -z "$lstrExt" ]];then
+		FUNCechoInfo "[ERROR] invalid filename without extension '$lstrFileToMerge'" >&2
+		exit 1
+	fi
+	case $lstrExt in
+		lst|qct|txt|vmt)
+			lbKeyValueDiffMode=true
+			strFlPatch="${lstrFileToMerge}.kvpatch.json"
+			;;
+		#KEEPinfo: cfg) # see *) uses generic code patcher way
+			#;;
+		*)
+			lbKeyValueDiffMode=false
+			strFlPatch="${lstrFileToMerge}.patch"
+			;;
+	esac
+	# special files that keys are meant to happen more than once in the same hierarchy nesting depth
+	if echo "${lstrFileToMerge}" |egrep -q "resource/closecaption_manifest.txt$";then
+			lbKeyValueDiffMode=false
+			strFlPatch="${lstrFileToMerge}.patch"
+	fi
+	
+	echo "$strFlPatch" # OUTPUT TO BE CAPTURED!
+	
+	if $lbKeyValueDiffMode;then
+		return 0
+	else
+		return 1
+	fi
+}
+
 : ${strExecMerger:="meld"} #help
 if ! which "$strExecMerger";then
 	strExecMerger="winmerge" # for cygwin/windows

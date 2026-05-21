@@ -270,29 +270,43 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 	astrEasyLogReview+=("$strInfo")
 	echo;FUNCechoInfo "$strInfo"
 	
-	bKeyValueDiffMode=false
-	strExt="$(echo "${strFileToMerge}" |sed -r -e 's@.*[.]([a-zA-Z0-9_]*)$@\1@')"
-	declare -p strExt
-	if [[ -z "$strExt" ]];then
-		FUNCechoInfo "[ERROR] invalid filename without extension '$strFileToMerge'"
-		exit 1
-	fi
-	case $strExt in
-		lst|qct|txt|vmt)
-			bKeyValueDiffMode=true
-			strFlPatch="${strFileToMerge}.kvpatch.json"
-			;;
-		#KEEPinfo: cfg) # see *) uses generic code patcher way
+#function FUNCpatchMode() {
+	#local lstrFileToMerge="$1"
+	
+	#local lbKeyValueDiffMode=false
+	#local lstrExt="$(echo "${lstrFileToMerge}" |sed -r -e 's@.*[.]([a-zA-Z0-9_]*)$@\1@')"
+	#declare -p lstrExt >&2
+	#if [[ -z "$lstrExt" ]];then
+		#FUNCechoInfo "[ERROR] invalid filename without extension '$lstrFileToMerge'" >&2
+		#exit 1
+	#fi
+	#case $lstrExt in
+		#lst|qct|txt|vmt)
+			#lbKeyValueDiffMode=true
+			#strFlPatch="${lstrFileToMerge}.kvpatch.json"
 			#;;
-		*)
-			bKeyValueDiffMode=false
-			strFlPatch="${strFileToMerge}.patch"
-			;;
-	esac
-	# special files that keys are meant to happen more than once in the same hierarchy nesting depth
-	if echo "${strFileToMerge}" |egrep "resource/closecaption_manifest.txt$";then
-			bKeyValueDiffMode=false
-			strFlPatch="${strFileToMerge}.patch"
+		##KEEPinfo: cfg) # see *) uses generic code patcher way
+			##;;
+		#*)
+			#lbKeyValueDiffMode=false
+			#strFlPatch="${lstrFileToMerge}.patch"
+			#;;
+	#esac
+	## special files that keys are meant to happen more than once in the same hierarchy nesting depth
+	#if echo "${lstrFileToMerge}" |egrep -q "resource/closecaption_manifest.txt$";then
+			#lbKeyValueDiffMode=false
+			#strFlPatch="${lstrFileToMerge}.patch"
+	#fi
+	
+	#if $lbKeyValueDiffMode;then
+		#return 0
+	#else
+		#return 1
+	#fi
+#}
+	bKeyValueDiffMode=false
+	if strFlPatch="$(FUNCpatchMode "${strFileToMerge}")";then
+		bKeyValueDiffMode=true
 	fi
 	
 	: ${bForceRecreatePatches:=true} #help
