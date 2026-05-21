@@ -216,7 +216,7 @@ def handle_create(args):
 		
 		if len(patch_data) > 0: #changes found
 				sys.exit(1)
-		else
+		else:
 				sys.exit(0) # no changes found, files are probably identical in final results. unless there is a second setting for the same var value with a different value and the final engine reading it overwrites the first value read with the last found. But that is a file manual preparation bug. TODO? but this patcher could create overrides by always appending even if there is a var there what would work but is overkill.
 
 
