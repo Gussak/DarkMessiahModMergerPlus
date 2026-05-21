@@ -202,8 +202,6 @@ fi
 chmod ugo-w "$strVanillaScriptFile"
 ls -l "$strVanillaScriptFile"
 
-nCols=$(tput cols)
-
 nBkpIndex=0
 
 ######## MAIN ########
@@ -261,10 +259,11 @@ fi
 echo
 #for strFileToMerge in "${astrListCurrent[@]}";do
 astrEasyLogReview=()
+nCols=$(tput cols)
 for((i=0;i<${#astrListCurrent[@]};i++));do
 	strFileToMerge="${astrListCurrent[i]}"
 	
-	eval printf '=%.0s' {1..${nCols}}
+	if [[ "$nCols" =~ ^[0-9]*$ ]];then eval printf '=%.0s' {1..${nCols}};fi #KEEPinfo eval is properly protected
 
 	strInfo="[Working with][$((i+1))/${#astrListCurrent[@]}] '$(echo "$strFileToMerge" |egrep -o "[.]layer.*")'"
 	astrEasyLogReview+=("$strInfo")
