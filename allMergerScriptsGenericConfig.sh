@@ -319,8 +319,10 @@ function SECFUNCshowHelpV2() { #help TODO WIP making it much easier to maintain!
 			#echo "${lstrHelpWithVarValues}" |sed -n -r -e 's@(.*)<('"${lstrDefaultVar}"')>(.*)@\1'"${lcolorReqOpenClose}<${lcolorOptParamVar}${lstrDefaultVar}${lcolorEqualSign}=${lcolorValue}\"${lstrDefVal}\"${lcolorReqOpenClose}>${lcolorEnd}"'\3@p'
 			#echo "${lastrColumnsPerLine[2]}"
 		else
-			echo "[ERROR] invalid (potentialy dangerous) variable name '$lstrDefaultVar' to eval for value."
-			exit 1
+			if [[ -n "$lstrDefaultVar" ]];then
+				echo "[ERROR] invalid (potentialy dangerous) variable name '$lstrDefaultVar' to eval for value."
+				exit 1
+			fi
 		fi
 		
 		if $lbIsParam;then
