@@ -210,7 +210,7 @@ def handle_create(args):
 		# with open(args.output, 'w', encoding='utf-8', newline='') as f:
 		# with open(args.output, 'w', encoding='utf-8', newline=ending) as f:
 		with open(output_destination, 'w', encoding='utf-8', newline=ending) as f:
-				json.dump(patch_data, f, indent=4)
+				json.dump(patch_data, f, indent=4) #TODO how to add a line ending here at the last line of this file?
 				
 		print(f"\nSuccess! Found {len(patch_data)} changes. Saved to:\n '{output_destination}'")
 
@@ -353,7 +353,7 @@ if __name__ == "__main__":
 		parser_create = subparsers.add_parser("create", help="Generate a JSON patch by comparing two files")
 		parser_create.add_argument("original", help="Path to original/vanilla file")
 		parser_create.add_argument("modified", help="Path to your modified file 'PathToModified'")
-		parser_create.add_argument("-o", "--output", default="patch.json", help="Output patch JSON name (default is to create a 'PathToModified.kvpatch.json' file)")
+		parser_create.add_argument("-o", "--output", default="patch.json", help="Output patch JSON name (default is to create a 'PathToModified.kvpatch.json' file)") # default="patch.json" is actually a hint for the better dynamic default
 		parser_create.set_defaults(func=handle_create)
 
 		# 'apply' subcommand setup
