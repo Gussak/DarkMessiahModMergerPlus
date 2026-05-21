@@ -270,26 +270,50 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 	astrEasyLogReview+=("$strInfo")
 	echo;FUNCechoInfo "$strInfo"
 	
-	strFlPatch="${strFileToMerge}.patch"
+	bKeyValueDiffMode=false
+	strExt="$(echo "" |sed -r -e 's@.*[.]([a-zA-Z0-9]*)$@\1@')"
+	declare -p strExt
+	case $strExt in
+		lst|qct|txt|vmt)
+			bKeyValueDiffMode=true
+			strFlPatch="${strFileToMerge}.kvpatch.json"
+			;;
+		cfg) # see *) uses generic code patcher way
+			;;
+		*)
+			bKeyValueDiffMode=false
+			strFlPatch="${strFileToMerge}.patch"
+			;;
+	esac
 	
 	: ${bForceRecreatePatches:=true} #help
 	if ! $bForceRecreatePatches && [[ -f "$strFlPatch" ]];then
 		FUNCechoInfo "[Skip patch creation, ready already]"
 		ls -l "${strFlPatch}"
 	else
-		( # prepare the patch using relative path to remove user name
-			cd "${strPathParent}"
-			set -x
-			set -o pipefail # so the diff exit value will be captured with $? if using |tee
-			diff -u \
+		if $bKeyValueDiffMode;then
+			#KEEPinfo: this implicitly creates the same "${strFileToMerge}.kvpatch.json": "${strPathSelf}/keyValuePatcher.py" create <(iconv -f $(file -b --mime-encoding "$strVanillaScriptFile") -t UTF-8 "$strVanillaScriptFile") "$strFileToMerge"&&:;nDiffRet=$? #but the below is more clear and can handle mismatching encodings
+			"${strPathSelf}/keyValuePatcher.py" create \
+				-o "${strFlPatch}" \
 				<(iconv -f $(file -b --mime-encoding "$strVanillaScriptFile") -t UTF-8 "$strVanillaScriptFile") \
 				<(iconv -f $(file -b --mime-encoding "$strFileToMerge"      ) -t UTF-8 "$strFileToMerge"      ) \
-					>"${strFlPatch}";nRet=$?
-#KEEPinfo: too much unnecessary log: #					|tee "${strFlPatch}";nRet=$?
-			declare -p nRet
-			set +x
-			exit $nRet
-		)&&:;nDiffRet=$?
+				&&:;
+			nDiffRet=$?
+		else
+			( # prepare the patch using relative path to remove user name
+				cd "${strPathParent}"
+				set -x
+				set -o pipefail # so the diff exit value will be captured with $? if using |tee
+				diff -u \
+					<(iconv -f $(file -b --mime-encoding "$strVanillaScriptFile") -t UTF-8 "$strVanillaScriptFile") \
+					<(iconv -f $(file -b --mime-encoding "$strFileToMerge"      ) -t UTF-8 "$strFileToMerge"      ) \
+						>"${strFlPatch}";nRet=$?
+						#KEEPinfo: too much unnecessary log: #					|tee "${strFlPatch}";nRet=$?
+				declare -p nRet
+				set +x
+				exit $nRet
+			)&&:;nDiffRet=$?
+		fi
 		if $bVerbose;then declare -p nDiffRet;fi
 		case $nDiffRet in
 			0) FUNCechoInfo "[Identical] Skip"; continue;;
