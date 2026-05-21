@@ -138,8 +138,8 @@ for strFlPatch in "${astrPatchList[@]}";do
 	#strVanillaScriptFile="$(find -L "$strVanillaScriptsPath" -iregex "${strFindScriptFileRegex}")"
 	if ! ls -l "$strFlVanilla";then
 		strFlSelVanillaAlt=""
-		if [[ -f "${strFlPatch}.Vanilla.cfg" ]];then
-			strFlSelVanillaAlt="${strPathParent}/$(cat "${strFlPatch}.Vanilla.cfg")"
+		if [[ -f "${strFlPatch}.Vanilla.config" ]];then
+			strFlSelVanillaAlt="${strPathParent}/$(cat "${strFlPatch}.Vanilla.config")"
 		fi
 		
 		if [[ -f "$strFlSelVanillaAlt" ]];then
@@ -153,9 +153,9 @@ for strFlPatch in "${astrPatchList[@]}";do
 				if [[ "$strFlSelVanillaAlt" =~ ^${strPathParent}.* ]];then
 					strFlVanilla="$strFlSelVanillaAlt"
 					strFlSelVanillaRelat="${strFlSelVanillaAlt#${strPathParent}/}" # relative
-					echo "$strFlSelVanillaRelat" >"${strFlPatch}.Vanilla.cfg"
-					ls -l "${strFlPatch}.Vanilla.cfg"
-					cat "${strFlPatch}.Vanilla.cfg"
+					echo "$strFlSelVanillaRelat" >"${strFlPatch}.Vanilla.config"
+					ls -l "${strFlPatch}.Vanilla.config"
+					cat "${strFlPatch}.Vanilla.config"
 					bVanillaAltOk=true
 					break
 				else
