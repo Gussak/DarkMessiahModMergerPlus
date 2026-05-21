@@ -284,7 +284,7 @@ def handle_apply(args):
 										line = re.sub(r'(\s*"[^"]*"\s+)("[^"]*")(.*)', r'\1"' + new_val + r'"\3', line) #values may have spaces
 										#mmm line = re.sub(r'(\s*"[^"\s]+"\s+")([^"\s]+)(".*)', r'\1' + new_val + r'\3', line)
 								else:
-										line = re.sub(r'(\s+)('+re.escape(val)+r')(\s*)$', r'\1' + new_val + r'\3', line) # may be enforce an exit 2 if there is no double quotes instead?
+										line = re.sub(r'(\s+)('+re.escape(val)+r')(\s*)$', r'\1' + new_val + r'\3', line) # this just seeks for the value and replaces it. may be enforce an exit 2 if there is no double quotes instead?
 								
 								# if not line.endswith(ending):
 										# line = line.rstrip('\r\n') + ending
