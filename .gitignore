@@ -35,6 +35,15 @@ Extracted/*
 Extracted.Quick.TMP/*
 tmp
 
+//////////  only patches, never full files
+*.qct
+*.lst
+*.vmt
+*.cfg
+_mods/*/content/resource/*.txt
+_mods/*/content/gameinfo.txt
+_mods/*/content/scripts/*.txt
+
 
 
 //////////////////////////////////////////////////////////////
