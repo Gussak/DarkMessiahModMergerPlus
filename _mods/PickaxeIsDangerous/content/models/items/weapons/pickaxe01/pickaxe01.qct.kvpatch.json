@@ -1,0 +1,10 @@
+{
+    "$keyvalues.entity_data.WDmg": "22",
+    "$keyvalues.entity_data.rangeattack": "70",
+    "$keyvalues.entity_data.WCritHit": "50",
+    "$keyvalues.entity_data.WPiercing": "0.90",
+    "$keyvalues.entity_data.speed_attack": "0.5",
+    "$keyvalues.entity_data.parry_cos": "0.35",
+    "$keyvalues.entity_data.fearfactor": "50",
+    "$keyvalues.entity_data.skills_required.combat": "1"
+}
