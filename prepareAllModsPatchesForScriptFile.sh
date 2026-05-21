@@ -260,18 +260,23 @@ echo
 #for strFileToMerge in "${astrListCurrent[@]}";do
 astrEasyLogReview=()
 nCols=$(tput cols)
+if [[ "$nCols" =~ ^[0-9]*$ ]];then strFullLineVisualDelimiter="$(echo;eval printf '=%.0s' {1..${nCols}})";fi #KEEPinfo eval is properly protected
 for((i=0;i<${#astrListCurrent[@]};i++));do
+	echo "$strFullLineVisualDelimiter"
+	
 	strFileToMerge="${astrListCurrent[i]}"
 	
-	if [[ "$nCols" =~ ^[0-9]*$ ]];then eval printf '=%.0s' {1..${nCols}};fi #KEEPinfo eval is properly protected
-
 	strInfo="[Working with][$((i+1))/${#astrListCurrent[@]}] '$(echo "$strFileToMerge" |egrep -o "[.]layer.*")'"
 	astrEasyLogReview+=("$strInfo")
 	echo;FUNCechoInfo "$strInfo"
 	
 	bKeyValueDiffMode=false
-	strExt="$(echo "" |sed -r -e 's@.*[.]([a-zA-Z0-9]*)$@\1@')"
+	strExt="$(echo "${strFileToMerge}" |sed -r -e 's@.*[.]([a-zA-Z0-9_]*)$@\1@')"
 	declare -p strExt
+	if [[ -z "$strExt" ]];then
+		FUNCechoInfo "[ERROR] invalid filename without extension '$strFileToMerge'"
+		exit 1
+	fi
 	case $strExt in
 		lst|qct|txt|vmt)
 			bKeyValueDiffMode=true
@@ -386,6 +391,8 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 	bFirstFileWork=false
 	echo
 done
+
+echo "$strFullLineVisualDelimiter"
 
 : ${bShowFinalComparison:=true} #help compare vanilla with fully mods merged file after all mods merging end for it
 if $bShowFinalComparison;then

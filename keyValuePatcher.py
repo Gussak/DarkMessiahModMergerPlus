@@ -186,10 +186,10 @@ def handle_create(args):
 		"""Generates a patch JSON file by comparing original and modified configs."""
 		if not os.path.exists(args.original):
 				print(f"Error: Original file '{args.original}' not found.")
-				sys.exit(1)
+				sys.exit(2)
 		if not os.path.exists(args.modified):
 				print(f"Error: Modified file '{args.modified}' not found.")
-				sys.exit(1)
+				sys.exit(2)
 
 		print(f"Parsing original: {args.original}")
 		orig_tree = flatten_dict(parse_qct_to_dict(args.original))
@@ -213,16 +213,21 @@ def handle_create(args):
 				json.dump(patch_data, f, indent=4) #TODO how to add a line ending here at the last line of this file?
 				
 		print(f"\nSuccess! Found {len(patch_data)} changes. Saved to:\n '{output_destination}'")
+		
+		if len(patch_data) > 0: #changes found
+				sys.exit(1)
+		else
+				sys.exit(0) # no changes found, files are probably identical in final results. unless there is a second setting for the same var value with a different value and the final engine reading it overwrites the first value read with the last found. But that is a file manual preparation bug. TODO? but this patcher could create overrides by always appending even if there is a var there what would work but is overkill.
 
 
 def handle_apply(args):
 		"""Applies a patch JSON file onto a target config file."""
 		if not os.path.exists(args.target):
 				print(f"Error: Target file '{args.target}' not found.")
-				sys.exit(1)
+				sys.exit(2)
 		if not os.path.exists(args.patch):
 				print(f"Error: Patch file '{args.patch}' not found.")
-				sys.exit(1)
+				sys.exit(2)
 
 		with open(args.patch, 'r', encoding='utf-8') as f:
 				patches = json.load(f)
@@ -326,7 +331,7 @@ def handle_apply(args):
 				else:
 						print("\n[CRITICAL ERROR] Operation aborted. No files were modified.", file=sys.stderr)
 						print("To append these options instead of failing, rerun the command with the -a flag.", file=sys.stderr)
-						sys.exit(1)
+						sys.exit(2)
 
 		# Save destination file with forced Windows CRLF line ending compatibility
 		output_destination = args.output if args.output else args.target
