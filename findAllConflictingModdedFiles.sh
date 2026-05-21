@@ -30,15 +30,16 @@
 #	OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 source "./allMergerScriptsGenericConfig.sh"
-if [[ "${1-}" == --help ]];then #help
+
+if [[ "${1-}" == "--help" ]];then #help
 	#egrep "[#]help" "./allMergerScriptsGenericConfig.sh" "$0"
 	SECFUNCshowHelpV2 "./allMergerScriptsGenericConfig.sh"
 	SECFUNCshowHelpV2 "$0"
 	exit
 fi
 
-bVerbose=false;
-if [[ "${1-}" == -v ]];then #help verbose
+: ${bVerbose:=false} #help
+if [[ "${1-}" == "-v" ]];then #help verbose
 	bVerbose=true;
 	shift
 fi

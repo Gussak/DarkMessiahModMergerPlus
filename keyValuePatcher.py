@@ -318,7 +318,7 @@ def handle_apply(args):
             if block_match:
                 current_stack.append(block_match.group(1).strip('"'))
             output_lines.append(line)
-
+    
     # PROCESS MATCH VERIFICATION
     requested_keys = set(patches.keys())
     missing_keys = requested_keys - applied_keys
@@ -329,6 +329,8 @@ def handle_apply(args):
     print(f"Total requested updates: {len(requested_keys)}")
     print(f"Successfully modified:  {len(applied_keys)}")
     print(f"Missing items:          {len(missing_keys)}")
+    if len(applied_keys) == 0: # if this happens, this patcher may require improvement
+        print(f"\n[WARNING] No successfully modified items may mean this patcher requires improvement. Or the files need manual or a pre-patch fixer for minor syntax issues.\n")
     
     if missing_keys:
         print("\nMissing items detected:")

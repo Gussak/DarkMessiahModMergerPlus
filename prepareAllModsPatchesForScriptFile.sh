@@ -33,7 +33,7 @@ source "./allMergerScriptsGenericConfig.sh"
 
 #help USAGE: <strScriptFileRelat>
 
-bVerbose=false;
+: ${bVerbose:=false} #help
 bRedoAllFiles=false;
 : ${bForceRePatch:=false} #help
 while ! ${1+false} && [[ "${1:0:1}" == "-" ]];do # checks if param is set

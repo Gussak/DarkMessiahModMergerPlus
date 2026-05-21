@@ -33,8 +33,10 @@ source "./allMergerScriptsGenericConfig.sh"
 
 #set -x
 if true;then
-	if [[ "${1-}" == --help ]];then #help
-		egrep "[#]help" "./allMergerScriptsGenericConfig.sh" "$0"
+	if [[ "${1-}" == "--help" ]];then #help
+		#egrep "[#]help" "./allMergerScriptsGenericConfig.sh" "$0"
+		SECFUNCshowHelpV2 "./allMergerScriptsGenericConfig.sh"
+		SECFUNCshowHelpV2 "$0"
 		exit
 	fi
 
@@ -57,7 +59,7 @@ if true;then
 		local lastrOpts="$@"
 		
 		if ! cat findAllConflictingModdedFiles.sh.log |grep "${lstrWhat}";then
-			FUNCechoInfo "[Nothing to do for:] ${lstrWhat}"
+			FUNCechoInfo "[Nothing to do for:] work type = '${lstrWhat}'"
 			return 0
 		fi
 		FUNCechoInfo "[Review the list above of files to be merged] ${lstrWhat}"
@@ -91,4 +93,10 @@ if true;then
 	FUNCechoInfo "[Re-process the files with warning about changed mod's order and new conflicting mods added? (if not hit Ctrl+C)]"
 	read -n 1
 	FUNCdoItAll "WARNING" --forceRePatch
+	
+	echo
+	cd "$strPathParent";
+	if egrep "Successfully modified:\s*0" * -iRnIa --include="*.log" -c |grep -v :0;then
+		FUNCechoInfo "[WARNING] the above may be a bad thing. Better review if the .kvpach.json were really applied for them!"
+	fi
 fi

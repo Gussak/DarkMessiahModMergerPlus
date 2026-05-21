@@ -33,6 +33,12 @@ set -Eeu #use this specifically, not to everything or |grep results will fail...
 
 trap 'echo "Ctrl+C pressed, exiting..."; exit 1' INT
 
+: ${bVerbose:=false} #help enable this to see auto configured variables thru `declare`
+exec 3>/dev/null   # Point FD 3 to /dev/null
+if $bVerbose;then
+	exec 3>&2          # Point FD 3 to stderr
+fi
+
 : ${bChkVpkExec:=false} #help
 strVpkExec="$HOME/.local/bin/vpk"
 if $bChkVpkExec;then
@@ -61,7 +67,7 @@ if $bDoPrivacyChecks;then
 	fi
 fi
 
-# sed to prettify arrays into multilines use like: declare -p astr |sed -r -e "$strSedArrayLn"
+# sed to prettify arrays into multilines use like: declare -p astr |sed -r -e "$strSedArrayLn"  >&3
 strSedArrayLn='s@(\[[0-9]*\]=)@\n \1@g'
 strSedArrayNumToLn="$strSedArrayLn"
 strSedArrayIDsToLn='s@(\[[a-zA-Z0-9_/.]*\]=)@\n \1@g'
@@ -71,7 +77,7 @@ astrScriptsExt=()
 astrScriptsExt+=("txt" "vmt" "cfg" "vmf" "res" "qc" "nut" "vdf" "vcd" "scr" "lst" "smd" "vmap" "vmat" "vpcf" "vcfg" "vsndevts" "qct") #from AI question
 astrScriptsExt+=(js tag ttj ahk ain bat bns cfg css dat fgd gam html inf ini js lst md org php qc qct rad rc res scr sh smd tga txt vbsp vcd vdf vmf vmt) #clear;find . -mount -type f -exec bash -c 'file -b --mime-type "$1" | grep -q "^text/"' _ {} \; -print | awk -F. 'NF>1 {print $NF}' | sort -u #vpk is not 
 astrScriptsExt=($(echo "${astrScriptsExt[@]}" |tr ' ' '\n' |sort -u))
-#declare -p astrScriptsExt |tr '[' '\n'
+#declare -p astrScriptsExt |tr '[' '\n' >&3
 strScriptsExtRegexEsc=".*[.]\($(echo "${astrScriptsExt[@]}" |sed -r -e 's@ @\\|@g')\)$"
 strScriptsExtRegexNorm=".*[.]($(echo "${astrScriptsExt[@]}" |sed -r -e 's@ @|@g'))$"
 strJustExtRegexEsc="$(echo "${astrScriptsExt[@]}" |sed -r -e 's@ @\\|@g')$"
@@ -81,7 +87,7 @@ for strExt in "${astrScriptsExt[@]}";do
 	astrGrepIncludesExt+=(--include="*.${strExt}")
 done
 
-declare -p strScriptsExtRegexEsc strScriptsExtRegexNorm
+declare -p strScriptsExtRegexEsc strScriptsExtRegexNorm >&3
 
 strPathSelf="$(pwd)"
 if [[ ! -f "${strPathSelf}/$(basename "$0")" ]];then
@@ -187,17 +193,17 @@ function FUNCpatchMode() {
 }
 
 : ${strExecMerger:="meld"} #help
-if ! which "$strExecMerger";then
+if ! which "$strExecMerger" >&3;then
 	strExecMerger="winmerge" # for cygwin/windows
 fi
-if ! which "$strExecMerger";then
+if ! which "$strExecMerger" >&3;then
 	FUNCechoInfo "ERROR: no GUI merger tool found"
 	exit 1
 fi
 
-echo
-declare -p strMergedModsFolder strDisabledTmpTestFolderRel strDownloadedModFilesRel strVanillaLayer strVanillaScriptsPath strWriteLayer strFinalMergedFolder strFinalDummyHelperFolder strFlJson astrKnownGameModRelativeFolders strRegexKGMRF
-echo
+echo  >&3
+declare -p strMergedModsFolder strDisabledTmpTestFolderRel strDownloadedModFilesRel strVanillaLayer strVanillaScriptsPath strWriteLayer strFinalMergedFolder strFinalDummyHelperFolder strFlJson astrKnownGameModRelativeFolders strRegexKGMRF >&3
+echo >&3
 
 FUNCtrash() {
 	#while ! ${1+false} && [[ "${1:0:1}" == "-" ]];do # checks if param is set
