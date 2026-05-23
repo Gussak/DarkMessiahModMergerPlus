@@ -65,6 +65,12 @@ def get_verbosity_level():
 	except ValueError:
 		return 0  # Fallback for invalid non-numeric strings
 
+verbose_level = get_verbosity_level() # the values below can be kept unchanged and others added in between TODO: it would be better to use strings, and check what kind of output we want, so we could mix them arbitrarily instead of showing all above a certain value.
+verbose_fixed_stuff = 10 # will show fail proof fixed error corrected data
+verbose_bug_tracking_tests = 20 # will show tests to track bugs
+verbose_herper_data = 30 # will show data that helps to understand the tests
+verbose_full = 1000 # will show everything being done (fully verbose)
+
 def strip_inline_comment(line):
 	"""Helper to remove inline comments safely for clean regex evaluation."""
 	if "//" in line:
@@ -72,23 +78,21 @@ def strip_inline_comment(line):
 	return line.strip()
 
 def clean_and_validate_for_kv(file_path, iLn, line):
-	verbose_level = get_verbosity_level()
-	
 	# 1. Strip whitespace and handle comments/empty lines
 	clean = line.strip()
 	if not clean or clean.startswith('//'):
-			if verbose_level >= 1:
-					print(f"[DIAGNOSTIC] Empty or fully commented line: '{line.strip()}'")
-			return ""
-			
+		if verbose_level >= verbose_full:
+			print(f"[DIAGNOSTIC] Empty or fully commented line: '{line.strip()}'")
+		return ""
+		
 	if '//' in clean:
-			clean = clean.split('//', 1)[0].strip()
+		clean = clean.split('//', 1)[0].strip()
 	
 	# 2. Check if it already matches perfectly
 	if kv_pattern.match(clean):
-			if verbose_level >= 1:
-					print(f"[DIAGNOSTIC] Line is perfectly valid: {clean}")
-			return clean
+		if verbose_level >= verbose_full:
+			print(f"[DIAGNOSTIC] Line is perfectly valid: {clean}")
+		return clean
 	
 	# 3. AUTO-CLEANING ATTEMPT
 	raw_text = clean.strip('" ;,')
@@ -96,10 +100,10 @@ def clean_and_validate_for_kv(file_path, iLn, line):
 	
 	# 4. RETRY if we isolated exactly two valid parts
 	if len(parts) == 2:
-			reconstructed = f'"{parts[0]}" "{parts[1]}"'
-			if verbose_level >= 1:
-					print(f"[DIAGNOSTIC] Auto-Cleaned & Fixed: '{clean}' -> '{reconstructed}'")
-			return reconstructed
+		reconstructed = f'"{parts[0]}" "{parts[1]}"'
+		if verbose_level >= verbose_fixed_stuff:
+			print(f"{file_path}:{iLn}:\n{line}\n{reconstructed}")
+		return reconstructed
 	
 	# 5. UNRECOVERABLE: Always prints to stderr and exits regardless of verbosity
 	print("[STACK TRACE]", file=sys.stderr)
@@ -115,28 +119,36 @@ def parse_qct_to_dict(file_path):
 
 	root = {}
 	stack = [root]
-	last_key = None
+	last_block_key = None
 	kv_pattern = re.compile(r'^\s*"?([^"\s]+)"?\s+"?([^"//]*)"?')
-	block_pattern = re.compile(r'^\s*"?([^"\s//]+)"?')
+	block_pattern = re.compile(r'^\s*"?([^"\s//]+)"?\s*$')
 	
 	# for line in lines:
 	for iLn, line in enumerate(lines, 1):
 		stripped = line.strip()
 		if not stripped or stripped.startswith("//"):
 			continue
+		
 		clean_line = strip_inline_comment(line)
 		if not clean_line:
 			continue
+		
 		if clean_line == nesting_open:
-			if last_key is not None:
+			if last_block_key is not None:
 				new_block = {}
-				stack[-1][last_key] = new_block
+				stack[-1][last_block_key] = new_block
 				stack.append(new_block)
-				last_key = None
+				last_block_key = None
 			continue
+		
 		if clean_line == nesting_close:
 			if len(stack) > 1:
 				stack.pop()
+			continue
+		
+		block_match = block_pattern.match(clean_line)
+		if block_match:
+			last_block_key = block_match.group(1).strip('"')
 			continue
 		
 		clean_line_for_kv = clean_and_validate_for_kv(file_path, iLn, clean_line)
@@ -144,12 +156,8 @@ def parse_qct_to_dict(file_path):
 		if kv_match:
 			key, val = kv_match.groups()
 			stack[-1][key] = val
-			last_key = None
+			last_block_key = None
 			continue
-		
-		block_match = block_pattern.match(clean_line)
-		if block_match:
-			last_key = block_match.group(1).strip('"')
 		
 	return root
 
@@ -170,7 +178,7 @@ def append_nested_missing(lines, missing_patches):
 	Groups and injects missing configurations by tracking structural depth adjustments
 	dynamically, preventing line index corruption when adding multiple options.
 	"""
-	block_pattern = re.compile(r'^\s*"?([^"\s//{}]+)"?')
+	block_pattern = re.compile(r'^\s*"?([^"\s//{}]+)"?\s*$')
 	
 	# Group missing properties by their parent blocks to minimize structural recalculations
 	grouped_patches = defaultdict(list)
@@ -315,6 +323,9 @@ def handle_apply(args):
 	block_pattern = re.compile(r'^\s*"?([^"\s]+)"?\s*$')
 	print(f"Applying patches from '{args.patch}' onto '{args.target}'...")
 	
+	if verbose_level >= verbose_herper_data:
+		print(f"{patches}")
+	
 	for iLn, line in enumerate(lines, 1):
 		# Optimized platform line ending transformation cycle
 		line = line.rstrip('\r\n').rstrip('\n').rstrip('\r') + ending
@@ -323,11 +334,15 @@ def handle_apply(args):
 		if stripped == nesting_open:
 			output_lines.append(line)
 			continue
+		
 		elif stripped == nesting_close:
 			if current_stack:
 				current_stack.pop()
+				if verbose_level >= verbose_herper_data:
+					print(f"{current_stack}")
 			output_lines.append(line)
 			continue
+		
 		if not stripped or stripped.startswith("//"):
 			output_lines.append(line)
 			continue
@@ -337,6 +352,8 @@ def handle_apply(args):
 		block_match = block_pattern.match(clean_line)
 		if block_match:
 			current_stack.append(block_match.group(1).strip('"'))
+			if verbose_level >= verbose_herper_data:
+				print(f"{current_stack}")
 		else:
 			clean_line_for_kv = clean_and_validate_for_kv(args.target, iLn, clean_line)
 			kv_match = kv_pattern.match(clean_line_for_kv)
@@ -348,6 +365,9 @@ def handle_apply(args):
 					new_val = patches[full_path]
 					line = re.sub(r'(\s*"[^"]+"\s+)("[^"]*")(.*)', r'\1"' + new_val + r'"\3', line) #values may have spaces or be empty like ""
 					applied_keys.add(full_path)
+				else:
+					if verbose_level >= verbose_bug_tracking_tests:
+						print(f"{args.target}:{iLn}:\n{full_path}\n{line}\n{clean_line}\n{clean_line_for_kv}")
 		
 		output_lines.append(line)
 	
