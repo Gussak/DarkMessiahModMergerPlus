@@ -55,6 +55,44 @@ def strip_inline_comment(line):
 		return line.split("//", 1)[0].strip()
 	return line.strip()
 
+def clean_and_validate(file_path,line,iLn):
+	# Strict pattern for exactly two quoted strings separated by whitespace
+	kv_pattern = re.compile(r'^("[^"]+")\s+("[^"]*")$')
+	# 1. Strip whitespace and remove comments
+	clean = line.strip()
+	if not clean or clean.startswith('//'):
+		return "" #"Valid (Empty/Comment)"
+	if '//' in clean:
+		clean = clean.split('//', 1).strip()
+	
+	# 2. Check if it already matches perfectly
+	if kv_pattern.match(clean):
+		return clean #f"Valid: {clean}"
+	
+	# 3. AUTO-CLEANING ATTEMPT:
+	# Strip leading/trailing quotes, spaces, commas, and semicolons
+	raw_text = clean.strip('" ;,')
+	
+	# Split by spaces, quotes, commas, or semicolons to isolate the core words
+	parts = [p.strip('" ;,') for p in re.split(r'[\s",;]+', raw_text) if p]
+	
+	# 4. RETRY if we isolated exactly two valid parts
+	if len(parts) == 2:
+		reconstructed = f'"{parts}" "{parts}"'
+		print(f"Auto-Cleaned & Fixed: {reconstructed}")
+		return 0
+	
+	print(f"{file_path}:{iLn}: {line}")
+	print(f"Error: Unrecoverable format (Found {len(parts)} parts instead of 2)")
+	sys.exit(2)
+	
+	# --- Test Cases ---
+	# print(clean_and_validate('"key" , "value"'))          # Fixed: Strips the invalid stray comma
+	# print(clean_and_validate('"key";"value"'))            # Fixed: Strips the invalid stray semicolon
+	# print(clean_and_validate('"key"xyz "value"'))         # Error: 'xyz' makes it 3 parts ("keyxyz" and "value" merge or split)
+	# print(clean_and_validate('key-name "value"'))          # Fixed: Hyphens inside a single word are preserved
+	# print(clean_and_validate('"key" "value" extra_text'))  # Error: 3 separate words found
+
 def parse_qct_to_dict(file_path):
 	"""Parses a Valve KeyValues .qct file into a nested Python dictionary."""
 	with open(file_path, 'r', encoding='utf-8', errors='ignore', newline='') as f:
@@ -282,11 +320,11 @@ def handle_apply(args):
 			
 			if full_path in patches:
 				new_val = patches[full_path]
-				if '"' in line:
-					line = re.sub(r'(\s*"[^"]+"\s+)("[^"]*")(.*)', r'\1"' + new_val + r'"\3', line) #values may have spaces or be empty like ""
-				else:
-					print(f"Error: keys and values shall be between double quotes.")
-					sys.exit(2)
+				# if '"' in line:
+				line = re.sub(r'(\s*"[^"]+"\s+)("[^"]*")(.*)', r'\1"' + new_val + r'"\3', line) #values may have spaces or be empty like ""
+				# else:
+					# print(f"Error: keys and values shall be between double quotes.")
+					# sys.exit(2) todoo
 				
 				if debug == 'y':
 					print(f"DEBUG:line['{iLn}']'{clean_line}'")
