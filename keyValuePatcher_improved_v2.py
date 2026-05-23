@@ -565,7 +565,7 @@ def prettify_output(lines: List[str]) -> List[str]:
 			if depth > 0:
 				depth -= 1
 			proper_indent = "\t" * depth
-			prettified.append(f'{proper_indent}{{{LINE_ENDING}')
+			prettified.append(f'{proper_indent}}}{LINE_ENDING}')
 			continue
 		
 		# Handle opening braces
