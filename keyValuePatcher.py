@@ -70,6 +70,12 @@ DEBUG = os.getenv("KEYVALUE_DEBUG", 'n').lower() in ('y', 'yes', '1', 'true')
 DUPLICATE_KEYS = os.getenv("KEYVALUE_DUPLICATE_KEYS", "prop_physics,load_file").split(",")
 DUPLICATE_KEYS = [key.strip() for key in DUPLICATE_KEYS if key.strip()]
 
+# Dominant multi-keys: like duplicate keys but when a patch is applied, all
+# existing occurrences in the same block are erased and replaced exclusively
+# by the values from the patch.
+DOMINANT_MULTI_KEYS = os.getenv("KEYVALUE_DOMINANT_MULTI_KEYS", "prop_physics").split(",")
+DOMINANT_MULTI_KEYS = [key.strip() for key in DOMINANT_MULTI_KEYS if key.strip()]
+
 # Verbosity level constants with clear names
 VERBOSE_SILENT = 0
 VERBOSE_FIXED_STUFF = 10           # Show auto-corrected lines
@@ -182,15 +188,34 @@ def is_duplicate_key(key: str) -> bool:
         Check if a key is marked as a duplicate key.
         
         Duplicate keys can appear multiple times and should be appended
-        rather than overwritten during patching.
+        rather than overwritten during patching.  Dominant multi-keys are
+        also treated as duplicate keys so they receive indexed patch paths.
         
         Args:
                 key: Key name to check
                 
         Returns:
-                True if key is in the duplicate keys list
+                True if key is in the duplicate or dominant keys list
         """
-        return key in DUPLICATE_KEYS
+        return key in DUPLICATE_KEYS or key in DOMINANT_MULTI_KEYS
+
+
+def is_dominant_key(key: str) -> bool:
+        """
+        Check if a key is marked as a dominant multi-key.
+        
+        Dominant keys behave like duplicate keys during patch creation
+        (they get indexed paths), but during patch application ALL existing
+        occurrences in the same block are erased and replaced solely by
+        the values from the patch.
+        
+        Args:
+                key: Key name to check
+                
+        Returns:
+                True if key is in the dominant multi-keys list
+        """
+        return key in DOMINANT_MULTI_KEYS
 
 
 def strip_inline_comment(line: str) -> str:
@@ -827,9 +852,21 @@ def handle_apply(args) -> None:
         
         Logger.info(f"Applying patches from '{args.patch}' onto '{args.target}'...")
         Logger.info(f"Duplicate keys to append (not overwrite): {', '.join(DUPLICATE_KEYS)}")
+        if DOMINANT_MULTI_KEYS:
+                Logger.info(f"Dominant multi-keys (erase originals, insert patch values): {', '.join(DOMINANT_MULTI_KEYS)}")
         
         if VERBOSE_LEVEL >= VERBOSE_HELPER_DATA:
                 Logger.debug(f"Patches to apply: {patches}")
+        
+        # Pre-compute which dominant key base paths have at least one patch entry.
+        # A base path looks like "block.key" for patch entries "block.key.0", "block.key.1", ...
+        dominant_has_patches: set = set()
+        for _patch_path in patches:
+                _parts = _patch_path.split(".")
+                if len(_parts) >= 2 and is_dominant_key(_parts[-2]):
+                        dominant_has_patches.add(".".join(_parts[:-1]))
+        
+        dominant_inserted: set = set()  # base paths whose patch values have been written
         
         for line_num, line in enumerate(lines, 1):
                 # Normalize line endings
@@ -886,7 +923,30 @@ def handle_apply(args) -> None:
                                 
                                 # Check if this is a duplicate key
                                 if is_duplicate_key(key):
-                                        # For duplicate keys, look for indexed patches (e.g., "path.prop_physics.0")
+                                        # ── Dominant key: erase originals, insert all patch values at first hit
+                                        if is_dominant_key(key) and full_path in dominant_has_patches:
+                                                if full_path not in dominant_inserted:
+                                                        indent_str = line[:len(line) - len(line.lstrip())]
+                                                        new_dom_lines: List[str] = []
+                                                        dom_idx = 0
+                                                        while f"{full_path}.{dom_idx}" in patches:
+                                                                ipath = f"{full_path}.{dom_idx}"
+                                                                new_val = patches[ipath]
+                                                                new_dom_line = f'{indent_str}"{key}"\t\t"{new_val}"{LINE_ENDING}'
+                                                                if ipath in comment_patches:
+                                                                        new_dom_line = set_inline_comment(new_dom_line, comment_patches[ipath])
+                                                                new_dom_lines.append(new_dom_line)
+                                                                applied_keys.add(ipath)
+                                                                Logger.debug(f"Patched (dominant, inserted): {ipath} = {new_val}")
+                                                                dom_idx += 1
+                                                        output_lines.extend(new_dom_lines)
+                                                        dominant_inserted.add(full_path)
+                                                else:
+                                                        Logger.debug(f"Dominant key erased (already inserted at this path): {full_path}")
+                                                last_block_key = None
+                                                continue  # skip output_lines.append(line) below
+                                        
+                                        # ── Regular duplicate key: index and patch in-place
                                         dup_index = duplicate_keys_found[full_path]
                                         indexed_path = f"{full_path}.{dup_index}"
                                         duplicate_keys_found[full_path] += 1
@@ -1004,6 +1064,8 @@ Note:
   - Patch files store keys and values WITHOUT quotes
   - Applied files maintain proper format with quoted keys/values
   - Duplicate keys (prop_physics, load_file) are appended, not overwritten
+  - Dominant multi-keys (KEYVALUE_DOMINANT_MULTI_KEYS) erase all originals and
+    replace them exclusively with the patch values
   - Use --prettify to fix indentation to match nesting depth
   - Set KEYVALUE_DUPLICATE_KEYS env var to customize: "key1,key2,key3"
                 """,
