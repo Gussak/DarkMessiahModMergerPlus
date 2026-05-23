@@ -120,7 +120,8 @@ def parse_qct_to_dict(file_path):
 	root = {}
 	stack = [root]
 	last_block_key = None
-	kv_pattern = re.compile(r'^\s*"?([^"\s]+)"?\s+"?([^"//]*)"?')
+	# kv_pattern = re.compile(r'^\s*"?([^"\s]+)"?\s+"?([^"//]*)"?')
+	kv_pattern = re.compile(r'^\s*"?([^"\s]+)"?\s+"?([^"]*)"?')
 	block_pattern = re.compile(r'^\s*"?([^"\s//]+)"?\s*$')
 	
 	# for line in lines:
