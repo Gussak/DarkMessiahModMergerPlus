@@ -799,6 +799,130 @@ def handle_create(args) -> None:
 	sys.exit(1 if total_changes > 0 else 0)
 
 
+def _patch_duplicate_key(
+	line: str,
+	key: str,
+	full_path: str,
+	patches: Dict[str, Any],
+	comment_patches: Dict[str, str],
+	applied_keys: set,
+	duplicate_keys_found: Dict[str, int],
+	dominant_has_patches: set,
+	dominant_inserted: set,
+) -> Tuple[str, List[str], bool]:
+	"""
+	Process a duplicate or dominant key line.
+
+	For dominant keys whose base path has patch entries, builds replacement
+	lines (erasing the original) and signals the caller to skip appending
+	the original.  For regular duplicate keys, patches the line in-place.
+
+	Args:
+		line:                 The raw source line (newline-normalised).
+		key:                  The bare key name (quotes stripped).
+		full_path:            Dot-path of this key in the current block.
+		patches:              Flat dot-path -> new-value mapping.
+		comment_patches:      Flat dot-path -> comment string mapping.
+		applied_keys:         Set updated in-place with patched paths.
+		duplicate_keys_found: Counter updated in-place per duplicate occurrence.
+		dominant_has_patches: Pre-computed set of dominant base paths with patch entries.
+		dominant_inserted:    Set updated in-place once a dominant base path is written.
+
+	Returns:
+		Tuple of (modified_line, extra_lines, should_skip).
+		extra_lines  -- Replacement lines to extend into output (dominant case only).
+		should_skip  -- True when the original line must NOT be appended to output.
+	"""
+	# ── Dominant key: erase originals, insert all patch values at first hit
+	if is_dominant_key(key) and full_path in dominant_has_patches:
+		extra_lines: List[str] = []
+		if full_path not in dominant_inserted:
+			indent_str = line[:len(line) - len(line.lstrip())]
+			dom_idx = 0
+			while f"{full_path}.{dom_idx}" in patches:
+				ipath = f"{full_path}.{dom_idx}"
+				new_val = patches[ipath]
+				new_dom_line = f'{indent_str}"{key}"		"{new_val}"{LINE_ENDING}'
+				if ipath in comment_patches:
+					new_dom_line = set_inline_comment(new_dom_line, comment_patches[ipath])
+				extra_lines.append(new_dom_line)
+				applied_keys.add(ipath)
+				Logger.debug(f"Patched (dominant, inserted): {ipath} = {new_val}")
+				dom_idx += 1
+			dominant_inserted.add(full_path)
+		else:
+			Logger.debug(f"Dominant key erased (already inserted at this path): {full_path}")
+		return line, extra_lines, True  # skip original line
+
+	# ── Regular duplicate key: index and patch in-place
+	dup_index = duplicate_keys_found[full_path]
+	indexed_path = f"{full_path}.{dup_index}"
+	duplicate_keys_found[full_path] += 1
+
+	if indexed_path in patches:
+		new_val = patches[indexed_path]
+		try:
+			line = VALUE_REPLACEMENT_PATTERN.sub(
+				lambda m: f'{m.group(1)}"{new_val}"{m.group(3)}',
+				line,
+				count=1
+			)
+			applied_keys.add(indexed_path)
+			Logger.debug(f"Patched (duplicate): {indexed_path} = {new_val}")
+		except Exception as e:
+			Logger.warning(f"Failed to patch {indexed_path}: {e}")
+	else:
+		if VERBOSE_LEVEL >= VERBOSE_BUG_TRACKING:
+			Logger.debug(f"Indexed key not in patch: {indexed_path}")
+	if indexed_path in comment_patches:
+		line = set_inline_comment(line, comment_patches[indexed_path])
+
+	return line, [], False  # append original (now patched) line
+
+
+def _patch_normal_key(
+	line: str,
+	full_path: str,
+	patches: Dict[str, Any],
+	comment_patches: Dict[str, str],
+	applied_keys: set,
+) -> str:
+	"""
+	Process a regular (non-duplicate) key line.
+
+	If the key's dot-path exists in the patch, replaces its value in the
+	line.  If a comment patch exists, appends or updates the inline comment.
+
+	Args:
+		line:            The raw source line (newline-normalised).
+		full_path:       Dot-path of this key in the current block.
+		patches:         Flat dot-path -> new-value mapping.
+		comment_patches: Flat dot-path -> comment string mapping.
+		applied_keys:    Set updated in-place with patched paths.
+
+	Returns:
+		The (potentially patched) line.
+	"""
+	if full_path in patches:
+		new_val = patches[full_path]
+		try:
+			line = VALUE_REPLACEMENT_PATTERN.sub(
+				lambda m: f'{m.group(1)}"{new_val}"{m.group(3)}',
+				line,
+				count=1
+			)
+			applied_keys.add(full_path)
+			Logger.debug(f"Patched: {full_path} = {new_val}")
+		except Exception as e:
+			Logger.warning(f"Failed to patch {full_path}: {e}")
+	else:
+		if VERBOSE_LEVEL >= VERBOSE_BUG_TRACKING:
+			Logger.debug(f"Key not in patch: {full_path}")
+	if full_path in comment_patches:
+		line = set_inline_comment(line, comment_patches[full_path])
+	return line
+
+
 def _apply_patches_to_lines(
 	lines: List[str],
 	patches: Dict[str, Any],
@@ -885,75 +1009,20 @@ def _apply_patches_to_lines(
 			if kv_match:
 				key = strip_quotes(kv_match.group(1))
 				full_path = ".".join(current_stack + [key])
+				last_block_key = None
 
 				if is_duplicate_key(key):
-					# ── Dominant key: erase originals, insert all patch values at first hit
-					if is_dominant_key(key) and full_path in dominant_has_patches:
-						if full_path not in dominant_inserted:
-							indent_str = line[:len(line) - len(line.lstrip())]
-							new_dom_lines: List[str] = []
-							dom_idx = 0
-							while f"{full_path}.{dom_idx}" in patches:
-								ipath = f"{full_path}.{dom_idx}"
-								new_val = patches[ipath]
-								new_dom_line = f'{indent_str}"{key}"\t\t"{new_val}"{LINE_ENDING}'
-								if ipath in comment_patches:
-									new_dom_line = set_inline_comment(new_dom_line, comment_patches[ipath])
-								new_dom_lines.append(new_dom_line)
-								applied_keys.add(ipath)
-								Logger.debug(f"Patched (dominant, inserted): {ipath} = {new_val}")
-								dom_idx += 1
-							output_lines.extend(new_dom_lines)
-							dominant_inserted.add(full_path)
-						else:
-							Logger.debug(f"Dominant key erased (already inserted at this path): {full_path}")
-						last_block_key = None
-						continue  # skip output_lines.append(line) below
-
-					# ── Regular duplicate key: index and patch in-place
-					dup_index = duplicate_keys_found[full_path]
-					indexed_path = f"{full_path}.{dup_index}"
-					duplicate_keys_found[full_path] += 1
-
-					if indexed_path in patches:
-						new_val = patches[indexed_path]
-						try:
-							line = VALUE_REPLACEMENT_PATTERN.sub(
-								lambda m: f'{m.group(1)}"{new_val}"{m.group(3)}',
-								line,
-								count=1
-							)
-							applied_keys.add(indexed_path)
-							Logger.debug(f"Patched (duplicate): {indexed_path} = {new_val}")
-						except Exception as e:
-							Logger.warning(f"Failed to patch {indexed_path}: {e}")
-					else:
-						if VERBOSE_LEVEL >= VERBOSE_BUG_TRACKING:
-							Logger.debug(f"Indexed key not in patch: {indexed_path}")
-					if indexed_path in comment_patches:
-						line = set_inline_comment(line, comment_patches[indexed_path])
-
+					line, extra_lines, skip = _patch_duplicate_key(
+						line, key, full_path,
+						patches, comment_patches, applied_keys,
+						duplicate_keys_found, dominant_has_patches, dominant_inserted,
+					)
+					if extra_lines:
+						output_lines.extend(extra_lines)
+					if skip:
+						continue
 				else:
-					# Normal key: standard patching
-					if full_path in patches:
-						new_val = patches[full_path]
-						try:
-							line = VALUE_REPLACEMENT_PATTERN.sub(
-								lambda m: f'{m.group(1)}"{new_val}"{m.group(3)}',
-								line,
-								count=1
-							)
-							applied_keys.add(full_path)
-							Logger.debug(f"Patched: {full_path} = {new_val}")
-						except Exception as e:
-							Logger.warning(f"Failed to patch {full_path}: {e}")
-					else:
-						if VERBOSE_LEVEL >= VERBOSE_BUG_TRACKING:
-							Logger.debug(f"Key not in patch: {full_path}")
-					if full_path in comment_patches:
-						line = set_inline_comment(line, comment_patches[full_path])
-
-				last_block_key = None
+					line = _patch_normal_key(line, full_path, patches, comment_patches, applied_keys)
 
 		output_lines.append(line)
 
