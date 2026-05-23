@@ -696,7 +696,12 @@ def append_nested_missing(lines: List[str],
                                 new_lines.append(f'{tabs}}}{LINE_ENDING}')
                 
                 lines[insert_idx:insert_idx] = new_lines
-        
+                # Rescan so subsequent iterations see the blocks we just created.
+                # Without this, two groups that share a newly-inserted parent block
+                # (e.g. "weapons.sword" and "weapons.axe" both needing a new "weapons"
+                # block) would each create their own copy of the parent → duplication.
+                open_braces, close_braces = find_block_structure(lines)
+
         return lines
 
 
