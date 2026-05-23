@@ -35,6 +35,10 @@ KeyValue Patcher for Dark Messiah .qct files
 Generates and applies patches for Valve KeyValue configuration files.
 Supports automatic injection of missing configuration blocks.
 
+Supports duplicate keys (e.g., 'prop_physics', 'prop_physics2') that can
+appear multiple times. When patching, duplicate keys are APPENDED instead
+of overwritten.
+
 Patch files store keys and values WITHOUT double quotes (raw form).
 Applied files maintain standard format with quotes around keys/values.
 
@@ -60,6 +64,10 @@ NESTING_OPEN = os.getenv("KEYVALUE_NESTING_OPEN", "{")
 NESTING_CLOSE = os.getenv("KEYVALUE_NESTING_CLOSE", "}")
 LINE_ENDING = os.getenv("KEYVALUE_LINE_ENDING", '\r\n')
 DEBUG = os.getenv("KEYVALUE_DEBUG", 'n').lower() in ('y', 'yes', '1', 'true')
+
+# Duplicate key detection
+DUPLICATE_KEYS = os.getenv("KEYVALUE_DUPLICATE_KEYS", "prop_physics,prop_physics2").split(",")
+DUPLICATE_KEYS = [key.strip() for key in DUPLICATE_KEYS if key.strip()]
 
 # Verbosity level constants with clear names
 VERBOSE_SILENT = 0
@@ -168,6 +176,22 @@ class ConfigError(Exception):
 # HELPER FUNCTIONS
 # ==========================================
 
+def is_duplicate_key(key: str) -> bool:
+	"""
+	Check if a key is marked as a duplicate key.
+	
+	Duplicate keys can appear multiple times and should be appended
+	rather than overwritten during patching.
+	
+	Args:
+		key: Key name to check
+		
+	Returns:
+		True if key is in the duplicate keys list
+	"""
+	return key in DUPLICATE_KEYS
+
+
 def strip_inline_comment(line: str) -> str:
 	"""
 	Remove inline comments safely for clean regex evaluation.
@@ -260,8 +284,10 @@ def parse_qct_to_dict(file_path: str) -> Dict[str, Any]:
 	- Nested block structures with { } braces
 	- Inline comments (//)
 	- Key-value pairs in format: "<key>" "<value>"
+	- Duplicate keys: stored as lists instead of overwriting
 	
 	Keys and values are stored WITHOUT surrounding quotes.
+	Duplicate keys (e.g., 'prop_physics') are stored as lists of values.
 	
 	Args:
 		file_path: Path to .qct file to parse
@@ -329,7 +355,17 @@ def parse_qct_to_dict(file_path: str) -> Dict[str, Any]:
 		if kv_match:
 			key = strip_quotes(kv_match.group(1))
 			val = strip_quotes(kv_match.group(2))
-			stack[-1][key] = val
+			
+			# Handle duplicate keys by storing as list
+			if is_duplicate_key(key):
+				if key not in stack[-1]:
+					stack[-1][key] = []
+				if not isinstance(stack[-1][key], list):
+					stack[-1][key] = [stack[-1][key]]
+				stack[-1][key].append(val)
+			else:
+				stack[-1][key] = val
+			
 			last_block_key = None
 			continue
 	
@@ -337,7 +373,7 @@ def parse_qct_to_dict(file_path: str) -> Dict[str, Any]:
 
 
 def flatten_dict(d: Dict[str, Any], current_path: str = "", 
-				 result: Optional[Dict[str, str]] = None) -> Dict[str, str]:
+				 result: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
 	"""
 	Flatten a nested dictionary into dot-notated absolute paths.
 	
@@ -345,6 +381,9 @@ def flatten_dict(d: Dict[str, Any], current_path: str = "",
 		{"weapons": {"sword": {"damage": "10"}}}
 		->
 		{"weapons.sword.damage": "10"}
+	
+	Duplicate keys (stored as lists) are handled specially:
+	- They are expanded into indexed paths like "path.key.0", "path.key.1", etc.
 	
 	Args:
 		d: Dictionary to flatten
@@ -360,6 +399,11 @@ def flatten_dict(d: Dict[str, Any], current_path: str = "",
 		new_path = f"{current_path}.{key}" if current_path else key
 		if isinstance(value, dict):
 			flatten_dict(value, new_path, result)
+		elif isinstance(value, list):
+			# Duplicate key: store as indexed entries
+			for idx, item in enumerate(value):
+				indexed_path = f"{new_path}.{idx}"
+				result[indexed_path] = item
 		else:
 			result[new_path] = value
 	return result
@@ -502,6 +546,8 @@ def handle_create(args) -> None:
 	Identifies all key-value pairs that differ between two files and
 	saves them to a JSON patch file. Keys and values in the patch file
 	are stored WITHOUT surrounding quotes.
+	
+	Duplicate keys are expanded with indices (e.g., "prop_physics.0", "prop_physics.1").
 	"""
 	if not os.path.exists(args.original):
 		Logger.error(f"Original file not found: {args.original}")
@@ -540,6 +586,7 @@ def handle_create(args) -> None:
 	Logger.info(f"\nSuccess! Found {len(patch_data)} changes.")
 	Logger.info(f"Patch file: {output_destination}")
 	Logger.info(f"Note: Keys and values in patch are stored without quotes.")
+	Logger.info(f"Note: Duplicate keys are expanded with indices (e.g., prop_physics.0)")
 	sys.exit(1 if len(patch_data) > 0 else 0)
 
 
@@ -552,6 +599,9 @@ def handle_apply(args) -> None:
 	
 	The patch file contains unquoted keys/values, but they are applied
 	with proper quotes to the target file.
+	
+	For duplicate keys: instead of overwriting, new values are APPENDED
+	after the existing ones.
 	"""
 	if not os.path.exists(args.target):
 		Logger.error(f"Target file not found: {args.target}")
@@ -584,9 +634,11 @@ def handle_apply(args) -> None:
 	current_stack: List[str] = []
 	output_lines: List[str] = []
 	applied_keys: set = set()
+	duplicate_keys_found: Dict[str, int] = defaultdict(int)  # Track duplicate key counts
 	last_block_key: Optional[str] = None
 	
 	Logger.info(f"Applying patches from '{args.patch}' onto '{args.target}'...")
+	Logger.info(f"Duplicate keys to append (not overwrite): {', '.join(DUPLICATE_KEYS)}")
 	
 	if VERBOSE_LEVEL >= VERBOSE_HELPER_DATA:
 		Logger.debug(f"Patches to apply: {patches}")
@@ -641,22 +693,45 @@ def handle_apply(args) -> None:
 				
 				full_path = ".".join(current_stack + [key])
 				
-				if full_path in patches:
-					new_val = patches[full_path]
-					# Replace the value part, keeping the key and quotes intact
-					try:
-						line = VALUE_REPLACEMENT_PATTERN.sub(
-							lambda m: f'{m.group(1)}"{new_val}"{m.group(3)}',
-							line,
-							count=1
-						)
-						applied_keys.add(full_path)
-						Logger.debug(f"Patched: {full_path} = {new_val}")
-					except Exception as e:
-						Logger.warning(f"Failed to patch {full_path}: {e}")
+				# Check if this is a duplicate key
+				if is_duplicate_key(key):
+					# For duplicate keys, look for indexed patches (e.g., "path.prop_physics.0")
+					dup_index = duplicate_keys_found[full_path]
+					indexed_path = f"{full_path}.{dup_index}"
+					duplicate_keys_found[full_path] += 1
+					
+					if indexed_path in patches:
+						new_val = patches[indexed_path]
+						try:
+							line = VALUE_REPLACEMENT_PATTERN.sub(
+								lambda m: f'{m.group(1)}"{new_val}"{m.group(3)}',
+								line,
+								count=1
+							)
+							applied_keys.add(indexed_path)
+							Logger.debug(f"Patched (duplicate): {indexed_path} = {new_val}")
+						except Exception as e:
+							Logger.warning(f"Failed to patch {indexed_path}: {e}")
+					else:
+						if VERBOSE_LEVEL >= VERBOSE_BUG_TRACKING:
+							Logger.debug(f"Indexed key not in patch: {indexed_path}")
 				else:
-					if VERBOSE_LEVEL >= VERBOSE_BUG_TRACKING:
-						Logger.debug(f"Key not in patch: {full_path}")
+					# Normal key: standard patching
+					if full_path in patches:
+						new_val = patches[full_path]
+						try:
+							line = VALUE_REPLACEMENT_PATTERN.sub(
+								lambda m: f'{m.group(1)}"{new_val}"{m.group(3)}',
+								line,
+								count=1
+							)
+							applied_keys.add(full_path)
+							Logger.debug(f"Patched: {full_path} = {new_val}")
+						except Exception as e:
+							Logger.warning(f"Failed to patch {full_path}: {e}")
+					else:
+						if VERBOSE_LEVEL >= VERBOSE_BUG_TRACKING:
+							Logger.debug(f"Key not in patch: {full_path}")
 				
 				last_block_key = None
 		
@@ -726,6 +801,8 @@ Examples:
 Note:
   - Patch files store keys and values WITHOUT quotes
   - Applied files maintain proper format with quoted keys/values
+  - Duplicate keys (prop_physics, prop_physics2) are appended, not overwritten
+  - Set KEYVALUE_DUPLICATE_KEYS env var to customize: "key1,key2,key3"
 		""",
 		formatter_class=argparse.RawDescriptionHelpFormatter
 	)
