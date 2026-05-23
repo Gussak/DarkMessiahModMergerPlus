@@ -39,6 +39,7 @@ import json
 import os
 import re
 import sys
+import traceback
 from collections import defaultdict
 
 	# ==========================================
@@ -49,49 +50,63 @@ nesting_close = os.getenv("KEYVALUE_NESTING_CLOSE", "}")
 ending = os.getenv("KEYVALUE_LINE_ENDING", '\r\n')
 debug = os.getenv("KEYVALUE_DEBUG", 'n')
 
+# Strict pattern for exactly two quoted strings separated by whitespace
+kv_pattern = re.compile(r'^("[^"]*")\s+("[^"]*")$')
+
+def get_verbosity_level():
+	"""Parses KEYVALUE_VERBOSE env var into an integer level."""
+	val = os.environ.get("KEYVALUE_VERBOSE", "").strip().lower()
+	if not val or val == "false" or val == "0":
+		return 0
+	if val == "true" or val == "1":
+		return 1
+	try:
+		return int(val)
+	except ValueError:
+		return 0  # Fallback for invalid non-numeric strings
+
 def strip_inline_comment(line):
 	"""Helper to remove inline comments safely for clean regex evaluation."""
 	if "//" in line:
 		return line.split("//", 1)[0].strip()
 	return line.strip()
 
-def clean_and_validate(file_path,line,iLn):
-	# Strict pattern for exactly two quoted strings separated by whitespace
-	kv_pattern = re.compile(r'^("[^"]+")\s+("[^"]*")$')
-	# 1. Strip whitespace and remove comments
+def clean_and_validate_for_kv(file_path, iLn, line):
+	verbose_level = get_verbosity_level()
+	
+	# 1. Strip whitespace and handle comments/empty lines
 	clean = line.strip()
 	if not clean or clean.startswith('//'):
-		return "" #"Valid (Empty/Comment)"
+			if verbose_level >= 1:
+					print(f"[DIAGNOSTIC] Empty or fully commented line: '{line.strip()}'")
+			return ""
+			
 	if '//' in clean:
-		clean = clean.split('//', 1).strip()
+			clean = clean.split('//', 1)[0].strip()
 	
 	# 2. Check if it already matches perfectly
 	if kv_pattern.match(clean):
-		return clean #f"Valid: {clean}"
+			if verbose_level >= 1:
+					print(f"[DIAGNOSTIC] Line is perfectly valid: {clean}")
+			return clean
 	
-	# 3. AUTO-CLEANING ATTEMPT:
-	# Strip leading/trailing quotes, spaces, commas, and semicolons
+	# 3. AUTO-CLEANING ATTEMPT
 	raw_text = clean.strip('" ;,')
-	
-	# Split by spaces, quotes, commas, or semicolons to isolate the core words
 	parts = [p.strip('" ;,') for p in re.split(r'[\s",;]+', raw_text) if p]
 	
 	# 4. RETRY if we isolated exactly two valid parts
 	if len(parts) == 2:
-		reconstructed = f'"{parts}" "{parts}"'
-		print(f"Auto-Cleaned & Fixed: {reconstructed}")
-		return 0
+			reconstructed = f'"{parts[0]}" "{parts[1]}"'
+			if verbose_level >= 1:
+					print(f"[DIAGNOSTIC] Auto-Cleaned & Fixed: '{clean}' -> '{reconstructed}'")
+			return reconstructed
 	
-	print(f"{file_path}:{iLn}: {line}")
-	print(f"Error: Unrecoverable format (Found {len(parts)} parts instead of 2)")
+	# 5. UNRECOVERABLE: Always prints to stderr and exits regardless of verbosity
+	print("[STACK TRACE]", file=sys.stderr)
+	traceback.print_stack(file=sys.stderr)
+	print(f"{file_path}:{iLn}: {line}") #TODO show file and line number iLn
+	print(f"[ERROR] Unrecoverable format. Found {len(parts)} parts instead of 2 in line: '{line.strip()}'", file=sys.stderr)
 	sys.exit(2)
-	
-	# --- Test Cases ---
-	# print(clean_and_validate('"key" , "value"'))          # Fixed: Strips the invalid stray comma
-	# print(clean_and_validate('"key";"value"'))            # Fixed: Strips the invalid stray semicolon
-	# print(clean_and_validate('"key"xyz "value"'))         # Error: 'xyz' makes it 3 parts ("keyxyz" and "value" merge or split)
-	# print(clean_and_validate('key-name "value"'))          # Fixed: Hyphens inside a single word are preserved
-	# print(clean_and_validate('"key" "value" extra_text'))  # Error: 3 separate words found
 
 def parse_qct_to_dict(file_path):
 	"""Parses a Valve KeyValues .qct file into a nested Python dictionary."""
@@ -104,7 +119,8 @@ def parse_qct_to_dict(file_path):
 	kv_pattern = re.compile(r'^\s*"?([^"\s]+)"?\s+"?([^"//]*)"?')
 	block_pattern = re.compile(r'^\s*"?([^"\s//]+)"?')
 	
-	for line in lines:
+	# for line in lines:
+	for iLn, line in enumerate(lines, 1):
 		stripped = line.strip()
 		if not stripped or stripped.startswith("//"):
 			continue
@@ -122,15 +138,19 @@ def parse_qct_to_dict(file_path):
 			if len(stack) > 1:
 				stack.pop()
 			continue
-		kv_match = kv_pattern.match(clean_line)
+		
+		clean_line_for_kv = clean_and_validate_for_kv(file_path, iLn, clean_line)
+		kv_match = kv_pattern.match(clean_line_for_kv)
 		if kv_match:
 			key, val = kv_match.groups()
 			stack[-1][key] = val
 			last_key = None
 			continue
+		
 		block_match = block_pattern.match(clean_line)
 		if block_match:
 			last_key = block_match.group(1).strip('"')
+		
 	return root
 
 def flatten_dict(d, current_path="", result=None):
@@ -292,14 +312,13 @@ def handle_apply(args):
 	applied_keys = set()
 	
 	kv_pattern = re.compile(r'^\s*"?([^"\s]+)"?\s+"?([^"]*)"?')
-	block_pattern = re.compile(r'^\s*"?([^"\s]+)"?')
+	block_pattern = re.compile(r'^\s*"?([^"\s]+)"?\s*$')
 	print(f"Applying patches from '{args.patch}' onto '{args.target}'...")
 	
 	for iLn, line in enumerate(lines, 1):
 		# Optimized platform line ending transformation cycle
 		line = line.rstrip('\r\n').rstrip('\n').rstrip('\r') + ending
 		stripped = line.strip()
-		clean_line = strip_inline_comment(line)
 		
 		if stripped == nesting_open:
 			output_lines.append(line)
@@ -313,29 +332,24 @@ def handle_apply(args):
 			output_lines.append(line)
 			continue
 		
-		kv_match = kv_pattern.match(clean_line)
-		if kv_match:
-			key, val = kv_match.groups()
-			full_path = ".".join(current_stack + [key])
-			
-			if full_path in patches:
-				new_val = patches[full_path]
-				# if '"' in line:
-				line = re.sub(r'(\s*"[^"]+"\s+)("[^"]*")(.*)', r'\1"' + new_val + r'"\3', line) #values may have spaces or be empty like ""
-				# else:
-					# print(f"Error: keys and values shall be between double quotes.")
-					# sys.exit(2) todoo
-				
-				if debug == 'y':
-					print(f"DEBUG:line['{iLn}']'{clean_line}'")
-				
-				applied_keys.add(full_path)
-			output_lines.append(line)
+		clean_line = strip_inline_comment(stripped)
+		
+		block_match = block_pattern.match(clean_line)
+		if block_match:
+			current_stack.append(block_match.group(1).strip('"'))
 		else:
-			block_match = block_pattern.match(clean_line)
-			if block_match:
-				current_stack.append(block_match.group(1).strip('"'))
-			output_lines.append(line)
+			clean_line_for_kv = clean_and_validate_for_kv(args.target, iLn, clean_line)
+			kv_match = kv_pattern.match(clean_line_for_kv)
+			if kv_match:
+				key, val = kv_match.groups()
+				full_path = ".".join(current_stack + [key])
+				
+				if full_path in patches:
+					new_val = patches[full_path]
+					line = re.sub(r'(\s*"[^"]+"\s+)("[^"]*")(.*)', r'\1"' + new_val + r'"\3', line) #values may have spaces or be empty like ""
+					applied_keys.add(full_path)
+		
+		output_lines.append(line)
 	
 	requested_keys = set(patches.keys())
 	missing_keys = requested_keys - applied_keys
