@@ -35,6 +35,9 @@ KeyValue Patcher for Dark Messiah .qct files
 Generates and applies patches for Valve KeyValue configuration files.
 Supports automatic injection of missing configuration blocks.
 
+Patch files store keys and values WITHOUT double quotes (raw form).
+Applied files maintain standard format with quotes around keys/values.
+
 Example usage:
     ./keyValuePatcher.py create base.qct modded.qct -o weapon_tweak.kvpatch.json
     ./keyValuePatcher.py apply target.qct weapon_tweak.kvpatch.json
@@ -180,6 +183,21 @@ def strip_inline_comment(line: str) -> str:
 	return line.strip()
 
 
+def strip_quotes(text: str) -> str:
+	"""
+	Remove surrounding double quotes from text.
+	
+	Args:
+		text: Text that may be surrounded by quotes
+		
+	Returns:
+		Text without surrounding quotes
+	"""
+	if text.startswith('"') and text.endswith('"'):
+		return text[1:-1]
+	return text
+
+
 def clean_and_validate_for_kv(file_path: str, line_num: int, line: str) -> str:
 	"""
 	Validate and clean a key-value line to match expected format.
@@ -243,6 +261,8 @@ def parse_qct_to_dict(file_path: str) -> Dict[str, Any]:
 	- Inline comments (//)
 	- Key-value pairs in format: "<key>" "<value>"
 	
+	Keys and values are stored WITHOUT surrounding quotes.
+	
 	Args:
 		file_path: Path to .qct file to parse
 		
@@ -290,7 +310,7 @@ def parse_qct_to_dict(file_path: str) -> Dict[str, Any]:
 		
 		block_match = BLOCK_PATTERN.match(clean_line)
 		if block_match:
-			last_block_key = block_match.group(1).strip('"')
+			last_block_key = strip_quotes(block_match.group(1))
 			continue
 		
 		try:
@@ -307,7 +327,8 @@ def parse_qct_to_dict(file_path: str) -> Dict[str, Any]:
 		
 		kv_match = KV_PATTERN.match(clean_line_for_kv)
 		if kv_match:
-			key, val = kv_match.groups()
+			key = strip_quotes(kv_match.group(1))
+			val = strip_quotes(kv_match.group(2))
 			stack[-1][key] = val
 			last_block_key = None
 			continue
@@ -331,7 +352,7 @@ def flatten_dict(d: Dict[str, Any], current_path: str = "",
 		result: Accumulator dictionary (used recursively)
 		
 	Returns:
-		Flattened dictionary with dot-notation keys
+		Flattened dictionary with dot-notation keys (keys/values have no quotes)
 	"""
 	if result is None:
 		result = {}
@@ -383,7 +404,7 @@ def find_block_structure(lines: List[str]) -> Tuple[Dict[Tuple, int], Dict[Tuple
 		
 		block_match = BLOCK_PATTERN_EXTENDED.match(clean_line)
 		if block_match:
-			last_block_key = block_match.group(1).strip('"')
+			last_block_key = strip_quotes(block_match.group(1))
 		else:
 			last_block_key = None
 	
@@ -398,9 +419,12 @@ def append_nested_missing(lines: List[str],
 	Groups patches by parent hierarchy and inserts them at appropriate
 	locations without index corruption.
 	
+	Inserts keys and values WITH surrounding quotes (as required by format).
+	The input missing_patches dict contains unquoted values.
+	
 	Args:
 		lines: File lines to modify
-		missing_patches: Dict of full_path -> value for missing items
+		missing_patches: Dict of full_path -> unquoted_value for missing items
 		
 	Returns:
 		Modified lines list with patches injected
@@ -476,7 +500,8 @@ def handle_create(args) -> None:
 	Generate a patch JSON file by comparing original and modified configs.
 	
 	Identifies all key-value pairs that differ between two files and
-	saves them to a JSON patch file.
+	saves them to a JSON patch file. Keys and values in the patch file
+	are stored WITHOUT surrounding quotes.
 	"""
 	if not os.path.exists(args.original):
 		Logger.error(f"Original file not found: {args.original}")
@@ -513,7 +538,8 @@ def handle_create(args) -> None:
 		sys.exit(2)
 	
 	Logger.info(f"\nSuccess! Found {len(patch_data)} changes.")
-	Logger.info(f"Saved to: {output_destination}")
+	Logger.info(f"Patch file: {output_destination}")
+	Logger.info(f"Note: Keys and values in patch are stored without quotes.")
 	sys.exit(1 if len(patch_data) > 0 else 0)
 
 
@@ -523,6 +549,9 @@ def handle_apply(args) -> None:
 	
 	Attempts to find and update all keys specified in the patch.
 	Can optionally inject missing keys if --append-missing is enabled.
+	
+	The patch file contains unquoted keys/values, but they are applied
+	with proper quotes to the target file.
 	"""
 	if not os.path.exists(args.target):
 		Logger.error(f"Target file not found: {args.target}")
@@ -590,7 +619,7 @@ def handle_apply(args) -> None:
 		
 		block_match = BLOCK_PATTERN.match(clean_line)
 		if block_match:
-			last_block_key = block_match.group(1).strip('"')
+			last_block_key = strip_quotes(block_match.group(1))
 			Logger.debug(f"Detected block key: {last_block_key}")
 		else:
 			try:
@@ -606,15 +635,16 @@ def handle_apply(args) -> None:
 			
 			kv_match = KV_PATTERN.match(clean_line_for_kv)
 			if kv_match:
-				key, val = kv_match.groups()
+				key_with_quotes = kv_match.group(1)
+				key = strip_quotes(key_with_quotes)
+				val_with_quotes = kv_match.group(2)
+				
 				full_path = ".".join(current_stack + [key])
 				
 				if full_path in patches:
 					new_val = patches[full_path]
-					# Use string replacement with literal quotes instead of regex
+					# Replace the value part, keeping the key and quotes intact
 					try:
-						# Construct the old value part with literal quotes
-						old_value_pattern = re.escape(val)
 						line = VALUE_REPLACEMENT_PATTERN.sub(
 							lambda m: f'{m.group(1)}"{new_val}"{m.group(3)}',
 							line,
@@ -692,6 +722,10 @@ Examples:
   %(prog)s create base.qct modded.qct -o weapon_tweak.kvpatch.json
   %(prog)s apply target.qct weapon_tweak.kvpatch.json
   %(prog)s apply target.qct weapon_tweak.kvpatch.json --append-missing
+
+Note:
+  - Patch files store keys and values WITHOUT quotes
+  - Applied files maintain proper format with quoted keys/values
 		""",
 		formatter_class=argparse.RawDescriptionHelpFormatter
 	)
