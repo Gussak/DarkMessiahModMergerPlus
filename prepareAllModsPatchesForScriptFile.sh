@@ -365,7 +365,7 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 		: ${nFuzzyPatch:=0} #help try nFuzzyPatch=1 This is very helpful to make it easier to provide an initial auto merge, just review the results
 #		acmdPatch=(patch -F $nFuzzyPatch "$strFlWork" "${strFlPatch}")
 		if $bKeyValueDiffMode;then
-			acmdPatch=("${strPathSelf}/keyValuePatcher.py" apply -a -o "${strFlWork}.NEWLY_PATCHED" "$strFlWork" "${strFlPatch}") #keyValuePatcher.py apply [-h] [-o OUTPUT] [-a] target patch
+			acmdPatch=("${strPathSelf}/keyValuePatcher.py" apply --prettify --append-missing --output "${strFlWork}.NEWLY_PATCHED" "$strFlWork" "${strFlPatch}") #keyValuePatcher.py apply [-h] [-o OUTPUT] [-a] target patch
 		else
 			acmdPatch=(patch -F $nFuzzyPatch -i "${strFlPatch}" -o "${strFlWork}.NEWLY_PATCHED" "$strFlWork") #patch [ORIGINAL_FILE] -i [PATCH_FILE] -o [OUTPUT_FILE]
 		fi
