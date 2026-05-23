@@ -35,7 +35,7 @@ KeyValue Patcher for Dark Messiah .qct files
 Generates and applies patches for Valve KeyValue configuration files.
 Supports automatic injection of missing configuration blocks.
 
-Supports duplicate keys (e.g., 'prop_physics', 'prop_physics2') that can
+Supports duplicate keys (e.g., 'prop_physics', 'load_file') that can
 appear multiple times. When patching, duplicate keys are APPENDED instead
 of overwritten.
 
@@ -67,7 +67,7 @@ LINE_ENDING = os.getenv("KEYVALUE_LINE_ENDING", '\r\n')
 DEBUG = os.getenv("KEYVALUE_DEBUG", 'n').lower() in ('y', 'yes', '1', 'true')
 
 # Duplicate key detection
-DUPLICATE_KEYS = os.getenv("KEYVALUE_DUPLICATE_KEYS", "prop_physics,prop_physics2").split(",")
+DUPLICATE_KEYS = os.getenv("KEYVALUE_DUPLICATE_KEYS", "prop_physics,load_file").split(",")
 DUPLICATE_KEYS = [key.strip() for key in DUPLICATE_KEYS if key.strip()]
 
 # Verbosity level constants with clear names
@@ -1003,7 +1003,7 @@ Examples:
 Note:
   - Patch files store keys and values WITHOUT quotes
   - Applied files maintain proper format with quoted keys/values
-  - Duplicate keys (prop_physics, prop_physics2) are appended, not overwritten
+  - Duplicate keys (prop_physics, load_file) are appended, not overwritten
   - Use --prettify to fix indentation to match nesting depth
   - Set KEYVALUE_DUPLICATE_KEYS env var to customize: "key1,key2,key3"
                 """,
