@@ -46,6 +46,7 @@ Example usage:
     ./keyValuePatcher.py create base.qct modded.qct -o weapon_tweak.kvpatch.json
     ./keyValuePatcher.py apply target.qct weapon_tweak.kvpatch.json
     ./keyValuePatcher.py apply target.qct weapon_tweak.kvpatch.json --append-missing
+    ./keyValuePatcher.py apply target.qct weapon_tweak.kvpatch.json --prettify
 """
 
 import argparse
@@ -535,6 +536,53 @@ def append_nested_missing(lines: List[str],
 	return lines
 
 
+def prettify_output(lines: List[str]) -> List[str]:
+	"""
+	Prettify output by fixing indentation to match nesting depth.
+	
+	Scans the file to determine proper nesting depth and adjusts tab
+	indentation for all lines accordingly.
+	
+	Args:
+		lines: File lines to prettify
+		
+	Returns:
+		Prettified lines with correct indentation
+	"""
+	prettified: List[str] = []
+	depth = 0
+	
+	for line in lines:
+		stripped = line.strip()
+		
+		# Skip empty lines and preserve them as-is
+		if not stripped:
+			prettified.append(line)
+			continue
+		
+		# Handle closing braces - decrease depth before writing
+		if stripped == NESTING_CLOSE:
+			if depth > 0:
+				depth -= 1
+			proper_indent = "\t" * depth
+			prettified.append(f'{proper_indent}{{{LINE_ENDING}')
+			continue
+		
+		# Handle opening braces
+		if stripped == NESTING_OPEN:
+			proper_indent = "\t" * depth
+			prettified.append(f'{proper_indent}{{{LINE_ENDING}')
+			depth += 1
+			continue
+		
+		# Regular line (key-value or block name)
+		proper_indent = "\t" * depth
+		# Preserve the content but fix the indentation
+		prettified.append(f'{proper_indent}{stripped}{LINE_ENDING}')
+	
+	return prettified
+
+
 # ==========================================
 # COMMAND IMPLEMENTATIONS
 # ==========================================
@@ -596,6 +644,7 @@ def handle_apply(args) -> None:
 	
 	Attempts to find and update all keys specified in the patch.
 	Can optionally inject missing keys if --append-missing is enabled.
+	Can optionally prettify output if --prettify is enabled.
 	
 	The patch file contains unquoted keys/values, but they are applied
 	with proper quotes to the target file.
@@ -774,6 +823,12 @@ def handle_apply(args) -> None:
 			Logger.error("Operation aborted. Use --append-missing to inject missing keys.")
 			sys.exit(2)
 	
+	# Apply prettification if requested
+	if args.prettify:
+		Logger.info("Prettifying output formatting...")
+		output_lines = prettify_output(output_lines)
+		Logger.info("Output prettified with correct indentation.")
+	
 	output_destination = args.output if args.output else args.target
 	try:
 		with open(output_destination, 'w', encoding='utf-8', newline='') as f:
@@ -797,11 +852,13 @@ Examples:
   %(prog)s create base.qct modded.qct -o weapon_tweak.kvpatch.json
   %(prog)s apply target.qct weapon_tweak.kvpatch.json
   %(prog)s apply target.qct weapon_tweak.kvpatch.json --append-missing
+  %(prog)s apply target.qct weapon_tweak.kvpatch.json --prettify
 
 Note:
   - Patch files store keys and values WITHOUT quotes
   - Applied files maintain proper format with quoted keys/values
   - Duplicate keys (prop_physics, prop_physics2) are appended, not overwritten
+  - Use --prettify to fix indentation to match nesting depth
   - Set KEYVALUE_DUPLICATE_KEYS env var to customize: "key1,key2,key3"
 		""",
 		formatter_class=argparse.RawDescriptionHelpFormatter
@@ -837,6 +894,11 @@ Note:
 		"-a", "--append-missing",
 		action="store_true",
 		help="Inject missing keys instead of failing"
+	)
+	parser_apply.add_argument(
+		"-p", "--prettify",
+		action="store_true",
+		help="Prettify output by fixing indentation to match nesting depth"
 	)
 	parser_apply.set_defaults(func=handle_apply)
 	
