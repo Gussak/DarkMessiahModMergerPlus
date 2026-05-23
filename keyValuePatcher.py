@@ -200,20 +200,24 @@ def append_nested_missing(lines, missing_patches):
 			stripped = line.strip()
 			if not stripped or stripped.startswith("//"):
 				continue
+			
 			clean_line = strip_inline_comment(line)
 			if not clean_line:
 				continue
+			
 			if clean_line == nesting_open:
-				if last_block_key:
+				if last_block_key is not None:
 					current_stack.append(last_block_key)
 					open_braces[tuple(current_stack)] = idx
 					last_block_key = None
 				continue
+			
 			if clean_line == nesting_close:
 				if current_stack:
 					close_braces[tuple(current_stack)] = idx
 					current_stack.pop()
 				continue
+			
 			block_match = block_pattern.match(clean_line)
 			if block_match:
 				last_block_key = block_match.group(1).strip('"')
@@ -326,12 +330,18 @@ def handle_apply(args):
 	if verbose_level >= verbose_herper_data:
 		print(f"{patches}")
 	
+	last_block_key = None
 	for iLn, line in enumerate(lines, 1):
 		# Optimized platform line ending transformation cycle
 		line = line.rstrip('\r\n').rstrip('\n').rstrip('\r') + ending
 		stripped = line.strip()
 		
 		if stripped == nesting_open:
+			if last_block_key is not None:
+				current_stack.append(last_block_key)
+				if verbose_level >= verbose_herper_data:
+					print(f"{current_stack} # CREATED BLOCK")
+				last_block_key = None
 			output_lines.append(line)
 			continue
 		
@@ -351,9 +361,9 @@ def handle_apply(args):
 		
 		block_match = block_pattern.match(clean_line)
 		if block_match:
-			current_stack.append(block_match.group(1).strip('"'))
+			last_block_key = block_match.group(1).strip('"')
 			if verbose_level >= verbose_herper_data:
-				print(f"{current_stack}")
+				print(f"{current_stack} # DETECTED POSSIBLE BLOCK") # it accepts matching empty name like in json that the top block has no name... but nested at least should all have block name otherwise it will be impossible to update the proper block/keyValue in case of conflicts (would update them all? that would be just a mess)
 		else:
 			clean_line_for_kv = clean_and_validate_for_kv(args.target, iLn, clean_line)
 			kv_match = kv_pattern.match(clean_line_for_kv)
@@ -368,6 +378,7 @@ def handle_apply(args):
 				else:
 					if verbose_level >= verbose_bug_tracking_tests:
 						print(f"{args.target}:{iLn}:\n{full_path}\n{line}\n{clean_line}\n{clean_line_for_kv}")
+				last_block_key = None
 		
 		output_lines.append(line)
 	
