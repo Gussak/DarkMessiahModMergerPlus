@@ -77,13 +77,6 @@ DUPLICATE_KEYS = [key.strip() for key in DUPLICATE_KEYS if key.strip()]
 DOMINANT_MULTI_KEYS = os.getenv("KEYVALUE_DOMINANT_MULTI_KEYS", "prop_physics").split(",")
 DOMINANT_MULTI_KEYS = [key.strip() for key in DOMINANT_MULTI_KEYS if key.strip()]
 
-# # Verbosity level constants with clear names
-# VERBOSE_SILENT = 0
-# VERBOSE_FIXED_STUFF = 10	   # Show auto-corrected lines
-# VERBOSE_BUG_TRACKING = 20	  # Show diagnostic tracking info
-# VERBOSE_HELPER_DATA = 30	   # Show detailed helper data
-# VERBOSE_FULL = 1000		# Show everything
-
 # Compiled regex patterns for reuse
 KV_PATTERN = re.compile(r'^("[^"]*")\s+("[^"]*")$')
 BLOCK_PATTERN = re.compile(r'^\s*"?([^"\s//]+)"?\s*$')
@@ -101,26 +94,12 @@ class LogConfig(Flag):
 # Mix your preferred default flags using the bitwise OR mixer
 FULL_SET = LogConfig.ERRORS_CORRECTED | LogConfig.BUG_TRACKING
 
-# # --- Dynamic Loop to Mix All Flags into FULL ---
-# # 1.1. Start with an empty mask
-# all_flags_mixed = LogConfig.SILENT
-
-# # 1.2. Loop through every single available flag member
-# for member in LogConfig:
-	# all_flags_mixed |= member
-
-# # 1.3. Inject the combined bitmask value directly into FULL
-# LogConfig.FULL = all_flags_mixed
-
-# 3. Use Bitwise OR (|=) to combine environment strings into your state
+# Use Bitwise OR (|=) to combine environment strings into your state
 def set_verbosity_from_env():
 	global verbosity
 	verbosity = LogConfig.SILENT  
 	env_str = os.environ.get("KEYVALUE_VERBOSE_OPTIONS", "") # ex.: export VERBOSE_OPTIONS="FIXED_STUFF,BUG_TRACKING"
 	if env_str:
-		# for opt in [o.strip().upper() for o in env_str.split(",")]:
-			# if opt in LogConfig.__members__:
-				# verbosity |= LogConfig[opt]  # Bitwise OR sets the bit
 		options = [opt.strip().upper() for opt in env_str.split(",")]
 		for opt in options:
 			# 1. Intercept the custom 'FULL' string manually
@@ -134,11 +113,6 @@ def set_verbosity_from_env():
 
 set_verbosity_from_env()
 
-# # 4. Use Bitwise validation (in / &) to verify composite masks
-# def verify_flags(expected_flags: LogConfig) -> bool:
-	# if expected_flags in verbosity:  # Evaluates via bitwise AND underneath
-		# return True
-	# return False
 def verify_flags(flags_to_check: LogConfig) -> bool:
     """Returns True if AT LEAST ONE of the specified flags is active."""
     if verbosity & flags_to_check:
@@ -149,28 +123,6 @@ def verify_flags(flags_to_check: LogConfig) -> bool:
 def toggle_flag(flag: LogConfig):
 	global verbosity
 	verbosity ^= flag  # Flips the state of the target bit
-
-# def get_verbosity_level() -> int:
-	# """
-	# Parses KEYVALUE_VERBOSE environment variable into an integer level.
-	
-	# Valid values:
-	  # - 'false', '0': VERBOSE_SILENT (0)
-	  # - 'true', '1': VERBOSE_FIXED_STUFF (10)
-	  # - Any integer: that exact level
-	
-	# Returns:
-		# Verbosity level as integer, defaults to VERBOSE_SILENT
-	# """
-	# val = os.environ.get("KEYVALUE_VERBOSE", "").strip().lower()
-	# if not val or val in ("false", "0"):
-		# return VERBOSE_SILENT
-	# if val in ("true", "1"):
-		# return VERBOSE_FIXED_STUFF
-	# try:
-		# return int(val)
-	# except ValueError:
-		# return VERBOSE_SILENT
 
 # VERBOSE_LEVEL = get_verbosity_level()
 
