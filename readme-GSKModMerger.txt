@@ -34,7 +34,7 @@ It detects nested structures with '{' ... '}', but these can also be set to othe
 
 ___
 
-The executable scripts are for Linux but can be run on Windows thru CygWin.   
+The executable scripts are for Linux but can be run on Windows thru CygWin (check [Nice cygwin tips at 3.1 section.](https://www.nexusmods.com/7daystodie/mods/14?tab=description) ).   
 
 To patch all mods into final merged files, it requires mods to be extracted and placed as folder layers at the same level the main game folder is.   
 

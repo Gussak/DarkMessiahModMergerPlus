@@ -67,6 +67,49 @@ if $bDoPrivacyChecks;then
 	fi
 fi
 
+# Detect the OS environment safely
+OS_ENV=$(uname -s)
+: ${strOSEnvType:=""} #help override in case it is failing to detect
+if [[ -z "$strOSEnvType" ]];then
+	case "$OS_ENV" in
+		CYGWIN*)
+			echo "[Environment: Cygwin detected.]"
+			
+			# Example Windows path to convert
+			WIN_PATH="C:\Users\Public\Documents"
+			
+			# Convert Windows path to Unix format using cygpath
+			UNIX_PATH=$(cygpath -u "$WIN_PATH")
+			echo " Windows Path: $WIN_PATH"
+			echo " Unix Format: $UNIX_PATH"
+			
+			strOSEnvType=cygwin #help
+			;;
+			
+		MSYS*|MINGW*)
+			echo "[Environment: Git Bash / MSYS / MinGW detected.]"
+			# Uses standard POSIX paths directly
+			strOSEnvType=mingw #help
+			;;
+			
+		Linux)
+			echo "[Environment: Linux detected.]"
+			strOSEnvType=linux #help
+			;;
+			
+		Darwin)
+			echo "[Environment: macOS detected.]"
+			strOSEnvType=macos #help
+			;;
+			
+		*)
+			echo "[Environment: Unknown ($OS_ENV)]"
+			echo "override strOSEnvType"
+			exit 1
+			;;
+	esac
+fi
+
 # sed to prettify arrays into multilines use like: declare -p astr |sed -r -e "$strSedArrayLn"  >&3
 strSedArrayLn='s@(\[[0-9]*\]=)@\n \1@g'
 strSedArrayNumToLn="$strSedArrayLn"
