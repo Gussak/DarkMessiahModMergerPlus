@@ -1,0 +1,12 @@
+
+# Next request (if on the same AI I need to wait 28 days xD)
+	# this command is generating wrong block nesting.
+		clear;bFollowFolderLayersOrder=true ./prepareAllModsPatchesForScriptFile.sh --forceRePatch "resource/closecaption_manifest.txt"
+	# The duplication trick is to use indexes in the end see ".30" ex.:
+			"closecaption_manifest.load_file.30": "resource/mm_regenbinds_%language%.txt"
+	# The bug: it ends up creating an invalid block like this, and further patches change the value as the key='30' is just a bug
+		"load_file"
+		{
+			"30"		"resource/mmue_freeinvswap_%language%.txt"
+		}
+	# So again, it detects '.30' from "closecaption_manifest.load_file.30" as being a block and not a key!
