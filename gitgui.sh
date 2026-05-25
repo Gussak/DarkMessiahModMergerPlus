@@ -4,10 +4,13 @@ cd "$(dirname "$0")"
 pwd
 strGitProj="$(basename "$(realpath .)")"
 declare -p strGitProj
+read -t 1 -n 1 -p "[$LINENO]wait a bit..." # waiting a bit may help it kickin mainly just after starting the OS while there is some cpu load
 nWid="$(xdotool search "Git Gui.*${strGitProj}")"
 declare -p nWid
 if [[ -n "$nWid" ]];then
+	read -t 1 -n 1 -p "[$LINENO]wait a bit..."
 	if which xdotool;then
+		read -t 1 -n 1 -p "[$LINENO]wait a bit..."
 		xdotool windowraise $nWid
 	fi
 else
