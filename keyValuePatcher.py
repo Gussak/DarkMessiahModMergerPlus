@@ -1,33 +1,33 @@
 #!/usr/bin/env python3
 
-#|#     BSD 3-Clause License
-#|#
-#|#     Copyright (c) 2026, Gussak<https://github.com/Gussak>
-#|#
-#|#     Redistribution and use in source and binary forms, with or without
-#|#     modification, are permitted provided that the following conditions are met:
-#|#
-#|#     1. Redistributions of source code must retain the above copyright notice, this
-#|#      list of conditions and the following disclaimer.
-#|#
-#|#     2. Redistributions in binary form must reproduce the above copyright notice,
-#|#      this list of conditions and the following disclaimer in the documentation
-#|#      and/or other materials provided with the distribution.
-#|#
-#|#     3. Neither the name of the copyright holder nor the names of its
-#|#      contributors may be used to endorse or promote products derived from
-#|#      this software without specific prior written permission.
-#|#
-#|#     THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-#|#     AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-#|#     IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-#|#     DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
-#|#     FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-#|#     DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-#|#     SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-#|#     CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-#|#     OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-#|#     OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+# BSD 3-Clause License
+#
+# Copyright (c) 2026, Gussak<https://github.com/Gussak>
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are met:
+#
+# 1. Redistributions of source code must retain the above copyright notice, this
+#  list of conditions and the following disclaimer.
+#
+# 2. Redistributions in binary form must reproduce the above copyright notice,
+#  this list of conditions and the following disclaimer in the documentation
+#  and/or other materials provided with the distribution.
+#
+# 3. Neither the name of the copyright holder nor the names of its
+#  contributors may be used to endorse or promote products derived from
+#  this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+# DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+# FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+# DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+# SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+# CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+# OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 """
 KeyValue Patcher for Dark Messiah .qct files
@@ -43,10 +43,10 @@ Patch files store keys and values WITHOUT double quotes (raw form).
 Applied files maintain standard format with quotes around keys/values.
 
 Example usage:
-    ./keyValuePatcher.py create base.qct modded.qct -o weapon_tweak.kvpatch.json
-    ./keyValuePatcher.py apply target.qct weapon_tweak.kvpatch.json
-    ./keyValuePatcher.py apply target.qct weapon_tweak.kvpatch.json --append-missing
-    ./keyValuePatcher.py apply target.qct weapon_tweak.kvpatch.json --prettify
+./keyValuePatcher.py create base.qct modded.qct -o weapon_tweak.kvpatch.json
+./keyValuePatcher.py apply target.qct weapon_tweak.kvpatch.json
+./keyValuePatcher.py apply target.qct weapon_tweak.kvpatch.json --append-missing
+./keyValuePatcher.py apply target.qct weapon_tweak.kvpatch.json --prettify
 """
 
 import argparse
@@ -64,8 +64,8 @@ from enum import Flag, auto
 # ==========================================
 NESTING_OPEN = os.getenv("KEYVALUE_NESTING_OPEN", "{")
 NESTING_CLOSE = os.getenv("KEYVALUE_NESTING_CLOSE", "}")
-LINE_ENDING = os.getenv("KEYVALUE_LINE_ENDING", '\r\n')
-DEBUG = os.getenv("KEYVALUE_DEBUG", 'n').lower() in ('y', 'yes', '1', 'true')
+LINE_ENDING = os.getenv("KEYVALUE_LINE_ENDING", "\r\n")
+DEBUG = os.getenv('KEYVALUE_DEBUG', 'n').lower() in ('y', 'yes', '1', 'true')
 
 # Duplicate key detection
 DUPLICATE_KEYS = os.getenv("KEYVALUE_DUPLICATE_KEYS", "prop_physics,load_file").split(",")
@@ -77,18 +77,12 @@ DUPLICATE_KEYS = [key.strip() for key in DUPLICATE_KEYS if key.strip()]
 DOMINANT_MULTI_KEYS = os.getenv("KEYVALUE_DOMINANT_MULTI_KEYS", "prop_physics").split(",")
 DOMINANT_MULTI_KEYS = [key.strip() for key in DOMINANT_MULTI_KEYS if key.strip()]
 
-# Compiled regex patterns for reuse
-KV_PATTERN = re.compile(r'^("[^"]*")\s+("[^"]*")$')
-BLOCK_PATTERN = re.compile(r'^\s*"?([^"\s//]+)"?\s*$')
-BLOCK_PATTERN_EXTENDED = re.compile(r'^\s*"?([^"\s//{}]+)"?\s*$')
-VALUE_REPLACEMENT_PATTERN = re.compile(r'(\s*"[^"]+"\s+)("[^"]*")(.*)')
-
 # 1. Automate masks using sequential bit-shifting behind the scenes
 class LogConfig(Flag):
-	SILENT = 0
+	SILENT           = 0
 	ERRORS_CORRECTED = auto()  # 1  (1 << 0) Show auto-corrected lines
 	BUG_TRACKING     = auto()  # 2  (1 << 1) Show diagnostic tracking info, running extra code just to help on debug
-	DEBUG	    = auto()  # 4  (1 << 2) Show detailed helper debug data
+	DEBUG            = auto()  # 4  (1 << 2) Show detailed helper debug data
 
 # --- Define your custom FULL set here ---
 # Mix your preferred default flags using the bitwise OR mixer
@@ -97,8 +91,8 @@ FULL_SET = LogConfig.ERRORS_CORRECTED | LogConfig.BUG_TRACKING
 # Use Bitwise OR (|=) to combine environment strings into your state
 def set_verbosity_from_env():
 	global verbosity
-	verbosity = LogConfig.SILENT  
-	env_str = os.environ.get("KEYVALUE_VERBOSE_OPTIONS", "") # ex.: export VERBOSE_OPTIONS="FIXED_STUFF,BUG_TRACKING"
+	verbosity = LogConfig.SILENT
+	env_str = os.environ.get("KEYVALUE_VERBOSE_OPTIONS", "")  # ex.: export KEYVALUE_VERBOSE_OPTIONS="ERRORS_CORRECTED,BUG_TRACKING"
 	if env_str:
 		options = [opt.strip().upper() for opt in env_str.split(",")]
 		for opt in options:
@@ -107,59 +101,63 @@ def set_verbosity_from_env():
 				verbosity |= FULL_SET
 			# 2. Otherwise look it up in the standard enum
 			elif opt in LogConfig.__members__:
-				verbosity |= LogConfig[opt] # Bitwise OR sets the bit
+				verbosity |= LogConfig[opt]  # Bitwise OR sets the bit
 			else:
 				print(f"Warning: Unknown log option ignored: {opt}")
 
 set_verbosity_from_env()
 
 def verify_flags(flags_to_check: LogConfig) -> bool:
-    """Returns True if AT LEAST ONE of the specified flags is active."""
-    if verbosity & flags_to_check:
-        return True
-    return False
+	"""Returns True if AT LEAST ONE of the specified flags is active."""
+	return bool(verbosity & flags_to_check)
 
-# 5. Use Bitwise XOR (^=) whenever you need live toggling
+# Use Bitwise XOR (^=) whenever you need live toggling
 def toggle_flag(flag: LogConfig):
 	global verbosity
 	verbosity ^= flag  # Flips the state of the target bit
 
-# VERBOSE_LEVEL = get_verbosity_level()
+# Compiled regex patterns for reuse
+KV_PATTERN = re.compile(r'^("[^"]*")\s+("[^"]*")$')
+BLOCK_PATTERN = re.compile(r'^\s*"?([^"\s//]+)"?\s*$')
+BLOCK_PATTERN_EXTENDED = re.compile(r'^\s*"?([^"\s//{}]+)"?\s*$')
+VALUE_REPLACEMENT_PATTERN = re.compile(r'(\s*"[^"]+"\s+)("[^"]*")(.*)')
+
 
 # ==========================================
 # LOGGING ABSTRACTION
 # ==========================================
 
+
 class Logger:
 	"""Centralizes all logging to avoid scattered print() calls."""
-	
+
 	@staticmethod
 	def diagnostic(message: str) -> None:
 		"""Log diagnostic information (FULL_SET)."""
 		if verify_flags(FULL_SET):
 			print(f"[DIAGNOSTIC] {message}")
-	
+
 	@staticmethod
 	def debug(message: str) -> None:
 		"""Log debug information (DEBUG)."""
 		if verify_flags(LogConfig.DEBUG):
 			print(f"[DEBUG] {message}")
-	
+
 	@staticmethod
 	def info(message: str) -> None:
 		"""Log informational message."""
 		print(message)
-	
+
 	@staticmethod
 	def warning(message: str) -> None:
 		"""Log warning to stderr."""
 		print(f"[WARNING] {message}", file=sys.stderr)
-	
+
 	@staticmethod
 	def error(message: str) -> None:
 		"""Log error to stderr."""
 		print(f"[ERROR] {message}", file=sys.stderr)
-	
+
 	@staticmethod
 	def fixed(file_path: str, line_num: int, original: str, fixed: str) -> None:
 		"""Log auto-fixed line (ERRORS_CORRECTED)."""
@@ -173,9 +171,10 @@ class Logger:
 # CUSTOM EXCEPTIONS
 # ==========================================
 
+
 class ValidationError(Exception):
 	"""Raised when a line cannot be validated."""
-	
+
 	def __init__(self, file_path: str, line_num: int, line_content: str, message: str):
 		self.file_path = file_path
 		self.line_num = line_num
@@ -186,6 +185,7 @@ class ValidationError(Exception):
 
 class ConfigError(Exception):
 	"""Raised for configuration parsing errors."""
+
 	pass
 
 
@@ -193,19 +193,20 @@ class ConfigError(Exception):
 # HELPER FUNCTIONS
 # ==========================================
 
+
 def is_duplicate_key(key: str) -> bool:
 	"""
 	Check if a key is marked as a duplicate key.
-	
+
 	Duplicate keys can appear multiple times and should be appended
 	rather than overwritten during patching.  Dominant multi-keys are
 	also treated as duplicate keys so they receive indexed patch paths.
-	
+
 	Args:
-		key: Key name to check
-		
+			key: Key name to check
+
 	Returns:
-		True if key is in the duplicate or dominant keys list
+			True if key is in the duplicate or dominant keys list
 	"""
 	return key in DUPLICATE_KEYS or key in DOMINANT_MULTI_KEYS
 
@@ -213,17 +214,17 @@ def is_duplicate_key(key: str) -> bool:
 def is_dominant_key(key: str) -> bool:
 	"""
 	Check if a key is marked as a dominant multi-key.
-	
+
 	Dominant keys behave like duplicate keys during patch creation
 	(they get indexed paths), but during patch application ALL existing
 	occurrences in the same block are erased and replaced solely by
 	the values from the patch.
-	
+
 	Args:
-		key: Key name to check
-		
+			key: Key name to check
+
 	Returns:
-		True if key is in the dominant multi-keys list
+			True if key is in the dominant multi-keys list
 	"""
 	return key in DOMINANT_MULTI_KEYS
 
@@ -231,12 +232,12 @@ def is_dominant_key(key: str) -> bool:
 def strip_inline_comment(line: str) -> str:
 	"""
 	Remove inline comments safely for clean regex evaluation.
-	
+
 	Args:
-		line: Input line that may contain inline comments
-		
+			line: Input line that may contain inline comments
+
 	Returns:
-		Line with inline comments stripped and whitespace trimmed
+			Line with inline comments stripped and whitespace trimmed
 	"""
 	if "//" in line:
 		return line.split("//", 1)[0].strip()
@@ -246,12 +247,12 @@ def strip_inline_comment(line: str) -> str:
 def strip_quotes(text: str) -> str:
 	"""
 	Remove surrounding double quotes from text.
-	
+
 	Args:
-		text: Text that may be surrounded by quotes
-		
+			text: Text that may be surrounded by quotes
+
 	Returns:
-		Text without surrounding quotes
+			Text without surrounding quotes
 	"""
 	if text.startswith('"') and text.endswith('"'):
 		return text[1:-1]
@@ -261,15 +262,15 @@ def strip_quotes(text: str) -> str:
 def extract_inline_comment(line: str) -> str:
 	"""
 	Extract the inline comment from a line (everything from // onward).
-	
+
 	Args:
-		line: Raw line that may contain an inline comment
-		
+			line: Raw line that may contain an inline comment
+
 	Returns:
-		Comment string including the '//' prefix, or empty string if none present
+			Comment string including the '//' prefix, or empty string if none present
 	"""
 	if "//" in line:
-		comment_part = line.split("//", 1)[1].rstrip('\r\n').rstrip()
+		comment_part = line.split("//", 1)[1].rstrip("\r\n").rstrip("\n").rstrip("\r").rstrip()
 		return "//" + comment_part
 	return ""
 
@@ -277,18 +278,18 @@ def extract_inline_comment(line: str) -> str:
 def set_inline_comment(line: str, comment: str) -> str:
 	"""
 	Set or replace the inline comment on a line, preserving its line ending.
-	
+
 	Strips any existing inline comment, then appends the new one separated by
 	two spaces.  Passing an empty string removes the comment entirely.
-	
+
 	Args:
-		line: Original line (may or may not already have an inline comment)
-		comment: New comment string, should start with '//'
-		
+			line: Original line (may or may not already have an inline comment)
+			comment: New comment string, should start with '//'
+
 	Returns:
-		Line with the new inline comment, using LINE_ENDING as the line terminator
+			Line with the new inline comment, using LINE_ENDING as the line terminator
 	"""
-	base = line.rstrip('\r\n')
+	base = line.rstrip("\r\n").rstrip("\n").rstrip("\r")
 	if "//" in base:
 		base = base.split("//", 1)[0].rstrip()
 	if comment:
@@ -299,102 +300,110 @@ def set_inline_comment(line: str, comment: str) -> str:
 def clean_and_validate_for_kv(file_path: str, line_num: int, line: str) -> str:
 	"""
 	Validate and clean a key-value line to match expected format.
-	
+
 	Expected format: "<key>" "<value>"
-	
+
 	Attempts automatic cleanup:
 	1. Check if already valid
 	2. Strip excess characters (quotes, semicolons, commas)
 	3. Reconstruct if exactly 2 parts remain
 	4. Raise ValidationError if cleanup fails
-	
+
 	Args:
-		file_path: Path to file being processed
-		line_num: Line number in file
-		line: Raw line to validate
-		
+			file_path: Path to file being processed
+			line_num: Line number in file
+			line: Raw line to validate
+
 	Returns:
-		Cleaned line matching KV_PATTERN
-		
+			Cleaned line matching KV_PATTERN
+
 	Raises:
-		ValidationError: If line cannot be fixed or is empty
+			ValidationError: If line cannot be fixed or is empty
 	"""
 	# 1. Strip whitespace and handle comments/empty lines
 	clean = line.strip()
-	if not clean or clean.startswith('//'):
+	if not clean or clean.startswith("//"):
 		Logger.diagnostic(f"Empty or fully commented line at {file_path}:{line_num}")
 		return ""
-	
-	if '//' in clean:
-		clean = clean.split('//', 1)[0].strip()
-	
+
+	if "//" in clean:
+		clean = clean.split("//", 1)[0].strip()
+
 	# 2. Check if it already matches perfectly
 	if KV_PATTERN.match(clean):
 		Logger.diagnostic(f"Line is valid: {clean}")
 		return clean
-	
+
 	# 3. AUTO-CLEANING ATTEMPT
+	# First try: extract all quoted tokens — preserves spaces inside values.
+	quoted_tokens = re.findall(r'"([^"]*)"', clean)
+	if len(quoted_tokens) == 2:
+		reconstructed = f'"{quoted_tokens[0]}" "{quoted_tokens[1]}"'
+		Logger.fixed(file_path, line_num, line, reconstructed)
+		return reconstructed
+
+	# Second try: no quotes present — split on whitespace/commas/semicolons.
+	# Only safe when neither key nor value contains spaces.
 	raw_text = clean.strip('" ;,')
 	parts = [p.strip('" ;,') for p in re.split(r'[\s",;]+', raw_text) if p]
-	
+
 	# 4. RETRY if we isolated exactly two valid parts
 	if len(parts) == 2:
 		reconstructed = f'"{parts[0]}" "{parts[1]}"'
 		Logger.fixed(file_path, line_num, line, reconstructed)
 		return reconstructed
-	
+
 	# 5. UNRECOVERABLE
 	raise ValidationError(
-		file_path, line_num, line,
-		f"Cannot fix: found {len(parts)} parts instead of 2"
+		file_path, line_num, line, f"Cannot fix: found {len(parts)} parts instead of 2\n{file_path}:{line_num}: {line}"
 	)
 
 
 def parse_qct_to_dict(file_path: str) -> Dict[str, Any]:
 	"""
 	Parse a Valve KeyValues .qct file into a nested Python dictionary.
-	
+
 	Handles:
 	- Nested block structures with { } braces
 	- Inline comments (//)
 	- Key-value pairs in format: "<key>" "<value>"
 	- Duplicate keys: stored as lists instead of overwriting
-	
+
 	Keys and values are stored WITHOUT surrounding quotes.
 	Duplicate keys (e.g., 'prop_physics') are stored as lists of values.
-	
+
 	Args:
-		file_path: Path to .qct file to parse
-		
+			file_path: Path to .qct file to parse
+
 	Returns:
-		Nested dictionary representing the file structure
-		
+			Nested dictionary representing the file structure
+
 	Raises:
-		ConfigError: If file cannot be read or contains unrecoverable syntax errors
+			ConfigError: If file cannot be read or contains unrecoverable syntax errors
 	"""
 	try:
-		with open(file_path, 'r', encoding='utf-8', errors='ignore', newline='') as f:
+		with open(file_path, "r", encoding="utf-8", errors="ignore", newline="") as f:
 			lines = f.readlines()
 	except IOError as e:
 		raise ConfigError(f"Cannot read file {file_path}: {e}")
-	
+
 	if not lines:
 		Logger.warning(f"Empty file: {file_path}")
 		return {}
-	
+
 	root: Dict[str, Any] = {}
 	stack: List[Dict[str, Any]] = [root]
 	last_block_key: Optional[str] = None
-	
+
 	for line_num, line in enumerate(lines, 1):
 		stripped = line.strip()
 		if not stripped or stripped.startswith("//"):
 			continue
-		
+
 		clean_line = strip_inline_comment(line)
 		if not clean_line:
 			continue
-		
+
 		if clean_line == NESTING_OPEN:
 			if last_block_key is not None:
 				new_block: Dict[str, Any] = {}
@@ -402,34 +411,36 @@ def parse_qct_to_dict(file_path: str) -> Dict[str, Any]:
 				stack.append(new_block)
 				last_block_key = None
 			continue
-		
+
 		if clean_line == NESTING_CLOSE:
 			if len(stack) > 1:
 				stack.pop()
 			continue
-		
+
 		block_match = BLOCK_PATTERN.match(clean_line)
 		if block_match:
 			last_block_key = strip_quotes(block_match.group(1))
 			continue
-		
+
 		try:
-			clean_line_for_kv = clean_and_validate_for_kv(file_path, line_num, clean_line)
+			clean_line_for_kv = clean_and_validate_for_kv(
+				file_path, line_num, clean_line
+			)
 		except ValidationError as e:
 			Logger.error(f"Validation failed at {file_path}:{line_num}")
 			Logger.error(str(e))
 			print("[STACK TRACE]", file=sys.stderr)
 			traceback.print_exc(file=sys.stderr)
 			sys.exit(2)
-		
+
 		if not clean_line_for_kv:
 			continue
-		
+
 		kv_match = KV_PATTERN.match(clean_line_for_kv)
 		if kv_match:
 			key = strip_quotes(kv_match.group(1))
 			val = strip_quotes(kv_match.group(2))
-			
+
 			# Handle duplicate keys by storing as list
 			if is_duplicate_key(key):
 				if key not in stack[-1]:
@@ -439,7 +450,7 @@ def parse_qct_to_dict(file_path: str) -> Dict[str, Any]:
 				stack[-1][key].append(val)
 			else:
 				stack[-1][key] = val
-			
+
 			last_block_key = None
 			continue
 
@@ -458,47 +469,47 @@ def parse_qct_to_dict(file_path: str) -> Dict[str, Any]:
 def parse_qct_comments(file_path: str) -> Dict[str, str]:
 	"""
 	Parse a .qct file and return a flat dict mapping dot-paths to inline comments.
-	
+
 	Captures inline comments (// ...) that appear on the same line as a key-value
 	pair or a block name.  The path convention mirrors flatten_dict:
 	  - Key-value line  →  path is the full dot-notation key path
 	  - Block name line →  path is the full dot-notation block path (resolved when
-			       the opening '{' is encountered)
-	
+						   the opening '{' is encountered)
+
 	Only paths that actually carry an inline comment are included in the result.
-	
+
 	Args:
-		file_path: Path to the .qct file to parse
-		
+			file_path: Path to the .qct file to parse
+
 	Returns:
-		Dict mapping dot-notation paths to their inline comment strings
-		(e.g. {"weapons.sword.damage": "// buffed for balance"})
-		
+			Dict mapping dot-notation paths to their inline comment strings
+			(e.g. {"weapons.sword.damage": "// buffed for balance"})
+
 	Raises:
-		ConfigError: If the file cannot be read
+			ConfigError: If the file cannot be read
 	"""
 	try:
-		with open(file_path, 'r', encoding='utf-8', errors='ignore', newline='') as f:
+		with open(file_path, "r", encoding="utf-8", errors="ignore", newline="") as f:
 			lines = f.readlines()
 	except IOError as e:
 		raise ConfigError(f"Cannot read file {file_path}: {e}")
-	
+
 	result: Dict[str, str] = {}
 	stack: List[str] = []
 	last_block_key: Optional[str] = None
 	last_block_comment: str = ""
 	duplicate_counts: Dict[str, int] = defaultdict(int)
-	
+
 	for line in lines:
 		stripped = line.strip()
 		if not stripped or stripped.startswith("//"):
 			continue
-		
+
 		inline_comment = extract_inline_comment(line)
 		clean_line = strip_inline_comment(line)
 		if not clean_line:
 			continue
-		
+
 		if clean_line == NESTING_OPEN:
 			if last_block_key is not None:
 				stack.append(last_block_key)
@@ -507,20 +518,20 @@ def parse_qct_comments(file_path: str) -> Dict[str, str]:
 				last_block_key = None
 				last_block_comment = ""
 			continue
-		
+
 		if clean_line == NESTING_CLOSE:
 			if stack:
 				stack.pop()
 			last_block_key = None
 			last_block_comment = ""
 			continue
-		
+
 		block_match = BLOCK_PATTERN.match(clean_line)
 		if block_match:
 			last_block_key = strip_quotes(block_match.group(1))
 			last_block_comment = inline_comment
 			continue
-		
+
 		kv_match = KV_PATTERN.match(clean_line)
 		if kv_match:
 			key = strip_quotes(kv_match.group(1))
@@ -535,30 +546,31 @@ def parse_qct_comments(file_path: str) -> Dict[str, str]:
 				result[full_path] = inline_comment
 			last_block_key = None
 			last_block_comment = ""
-	
+
 	return result
 
 
-def flatten_dict(d: Dict[str, Any], current_path: str = "", 
-				 result: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+def flatten_dict(
+	d: Dict[str, Any], current_path: str = "", result: Optional[Dict[str, Any]] = None
+) -> Dict[str, Any]:
 	"""
 	Flatten a nested dictionary into dot-notated absolute paths.
-	
+
 	Example:
-		{"weapons": {"sword": {"damage": "10"}}}
-		->
-		{"weapons.sword.damage": "10"}
-	
+			{"weapons": {"sword": {"damage": "10"}}}
+			->
+			{"weapons.sword.damage": "10"}
+
 	Duplicate keys (stored as lists) are handled specially:
 	- They are expanded into indexed paths like "path.key.0", "path.key.1", etc.
-	
+
 	Args:
-		d: Dictionary to flatten
-		current_path: Current path prefix (used recursively)
-		result: Accumulator dictionary (used recursively)
-		
+			d: Dictionary to flatten
+			current_path: Current path prefix (used recursively)
+			result: Accumulator dictionary (used recursively)
+
 	Returns:
-		Flattened dictionary with dot-notation keys (keys/values have no quotes)
+			Flattened dictionary with dot-notation keys (keys/values have no quotes)
 	"""
 	if result is None:
 		result = {}
@@ -579,40 +591,40 @@ def flatten_dict(d: Dict[str, Any], current_path: str = "",
 def find_block_structure(lines: List[str]) -> Tuple[Dict[Tuple, int], Dict[Tuple, int]]:
 	"""
 	Scan file once to identify block positions (start/end indices).
-	
+
 	Args:
-		lines: List of file lines
-		
+			lines: List of file lines
+
 	Returns:
-		Tuple of (open_braces, close_braces) where keys are block paths as tuples
+			Tuple of (open_braces, close_braces) where keys are block paths as tuples
 	"""
 	current_stack: List[str] = []
 	last_block_key: Optional[str] = None
 	open_braces: Dict[Tuple, int] = {}
 	close_braces: Dict[Tuple, int] = {}
-	
+
 	for idx, line in enumerate(lines):
 		stripped = line.strip()
 		if not stripped or stripped.startswith("//"):
 			continue
-		
+
 		clean_line = strip_inline_comment(line)
 		if not clean_line:
 			continue
-		
+
 		if clean_line == NESTING_OPEN:
 			if last_block_key is not None:
 				current_stack.append(last_block_key)
 				open_braces[tuple(current_stack)] = idx
 				last_block_key = None
 			continue
-		
+
 		if clean_line == NESTING_CLOSE:
 			if current_stack:
 				close_braces[tuple(current_stack)] = idx
 				current_stack.pop()
 			continue
-		
+
 		block_match = BLOCK_PATTERN_EXTENDED.match(clean_line)
 		if block_match:
 			last_block_key = strip_quotes(block_match.group(1))
@@ -630,35 +642,36 @@ def find_block_structure(lines: List[str]) -> Tuple[Dict[Tuple, int], Dict[Tuple
 	return open_braces, close_braces
 
 
-def append_nested_missing(lines: List[str], 
-						  missing_patches: Dict[str, str]) -> List[str]:
+def append_nested_missing(
+	lines: List[str], missing_patches: Dict[str, str]
+) -> List[str]:
 	"""
 	Inject missing configurations by tracking structural depth.
-	
+
 	Groups patches by parent hierarchy and inserts them at appropriate
 	locations without index corruption.
-	
+
 	Inserts keys and values WITH surrounding quotes (as required by format).
 	The input missing_patches dict contains unquoted values.
-	
+
 	Args:
-		lines: File lines to modify
-		missing_patches: Dict of full_path -> unquoted_value for missing items
-		
+			lines: File lines to modify
+			missing_patches: Dict of full_path -> unquoted_value for missing items
+
 	Returns:
-		Modified lines list with patches injected
+			Modified lines list with patches injected
 	"""
 	# Group missing properties by their parent blocks
 	grouped_patches: Dict[Tuple, List[Tuple[str, str]]] = defaultdict(list)
 	for full_path, new_value in missing_patches.items():
-		parts = full_path.split('.')
+		parts = full_path.split(".")
 		target_hierarchy = tuple(parts[:-1])
 		key_name = parts[-1]
 		grouped_patches[target_hierarchy].append((key_name, new_value))
-	
+
 	# Scan block structure once outside the loop
 	open_braces, close_braces = find_block_structure(lines)
-	
+
 	# Process group entries systematically
 	for target_hierarchy, items in grouped_patches.items():
 		# Find deepest matching block
@@ -668,7 +681,7 @@ def append_nested_missing(lines: List[str],
 			if check_path in open_braces and check_path in close_braces:
 				matched_depth = depth
 				break
-		
+
 		new_lines: List[str] = []
 		if matched_depth == 0:
 			# No existing structure; create from scratch
@@ -676,35 +689,39 @@ def append_nested_missing(lines: List[str],
 			for i, part in enumerate(target_hierarchy):
 				tabs = "\t" * i
 				new_lines.append(f'{tabs}"{part}"{LINE_ENDING}')
-				new_lines.append(f'{tabs}{{{LINE_ENDING}')
-			
+				new_lines.append(f"{tabs}{{{LINE_ENDING}")
+
 			final_tabs = "\t" * len(target_hierarchy)
 			for key_name, new_value in items:
-				new_lines.append(f'{final_tabs}"{key_name}"\t\t"{new_value}"{LINE_ENDING}')
-			
+				new_lines.append(
+					f'{final_tabs}"{key_name}"\t\t"{new_value}"{LINE_ENDING}'
+				)
+
 			for i in range(len(target_hierarchy) - 1, -1, -1):
 				tabs = "\t" * i
-				new_lines.append(f'{tabs}}}{LINE_ENDING}')
+				new_lines.append(f"{tabs}}}{LINE_ENDING}")
 		else:
 			# Extend existing structure
 			matched_path = target_hierarchy[:matched_depth]
 			missing_structure = target_hierarchy[matched_depth:]
 			insert_idx = close_braces[matched_path]
 			base_tabs = len(matched_path)
-			
+
 			for i, part in enumerate(missing_structure):
 				tabs = "\t" * (base_tabs + i)
 				new_lines.append(f'{tabs}"{part}"{LINE_ENDING}')
-				new_lines.append(f'{tabs}{{{LINE_ENDING}')
-			
+				new_lines.append(f"{tabs}{{{LINE_ENDING}")
+
 			final_tabs = "\t" * (base_tabs + len(missing_structure))
 			for key_name, new_value in items:
-				new_lines.append(f'{final_tabs}"{key_name}"\t\t"{new_value}"{LINE_ENDING}')
-			
+				new_lines.append(
+					f'{final_tabs}"{key_name}"\t\t"{new_value}"{LINE_ENDING}'
+				)
+
 			for i in range(len(missing_structure) - 1, -1, -1):
 				tabs = "\t" * (base_tabs + i)
-				new_lines.append(f'{tabs}}}{LINE_ENDING}')
-		
+				new_lines.append(f"{tabs}}}{LINE_ENDING}")
+
 		lines[insert_idx:insert_idx] = new_lines
 		# Rescan so subsequent iterations see the blocks we just created.
 		# Without this, two groups that share a newly-inserted parent block
@@ -718,47 +735,47 @@ def append_nested_missing(lines: List[str],
 def prettify_output(lines: List[str]) -> List[str]:
 	"""
 	Prettify output by fixing indentation to match nesting depth.
-	
+
 	Scans the file to determine proper nesting depth and adjusts tab
 	indentation for all lines accordingly.
-	
+
 	Args:
-		lines: File lines to prettify
-		
+			lines: File lines to prettify
+
 	Returns:
-		Prettified lines with correct indentation
+			Prettified lines with correct indentation
 	"""
 	prettified: List[str] = []
 	depth = 0
-	
+
 	for line in lines:
 		stripped = line.strip()
-		
+
 		# Skip empty lines and preserve them as-is
 		if not stripped:
 			prettified.append(line)
 			continue
-		
+
 		# Handle closing braces - decrease depth before writing
 		if stripped == NESTING_CLOSE:
 			if depth > 0:
 				depth -= 1
 			proper_indent = "\t" * depth
-			prettified.append(f'{proper_indent}}}{LINE_ENDING}')
+			prettified.append(f"{proper_indent}}}{LINE_ENDING}")
 			continue
-		
+
 		# Handle opening braces
 		if stripped == NESTING_OPEN:
 			proper_indent = "\t" * depth
-			prettified.append(f'{proper_indent}{{{LINE_ENDING}')
+			prettified.append(f"{proper_indent}{{{LINE_ENDING}")
 			depth += 1
 			continue
-		
+
 		# Regular line (key-value or block name)
 		proper_indent = "\t" * depth
 		# Preserve the content but fix the indentation
-		prettified.append(f'{proper_indent}{stripped}{LINE_ENDING}')
-	
+		prettified.append(f"{proper_indent}{stripped}{LINE_ENDING}")
+
 	return prettified
 
 
@@ -766,14 +783,15 @@ def prettify_output(lines: List[str]) -> List[str]:
 # COMMAND IMPLEMENTATIONS
 # ==========================================
 
+
 def handle_create(args) -> None:
 	"""
 	Generate a patch JSON file by comparing original and modified configs.
-	
+
 	Identifies all key-value pairs that differ between two files and
 	saves them to a JSON patch file. Keys and values in the patch file
 	are stored WITHOUT surrounding quotes.
-	
+
 	Duplicate keys are expanded with indices (e.g., "prop_physics.0", "prop_physics.1").
 	"""
 	if not os.path.exists(args.original):
@@ -782,52 +800,58 @@ def handle_create(args) -> None:
 	if not os.path.exists(args.modified):
 		Logger.error(f"Modified file not found: {args.modified}")
 		sys.exit(2)
-	
+
 	try:
 		Logger.info(f"Parsing original: {args.original}")
 		orig_tree = flatten_dict(parse_qct_to_dict(args.original))
-		
+
 		Logger.info(f"Parsing modified: {args.modified}")
 		mod_tree = flatten_dict(parse_qct_to_dict(args.modified))
 	except ConfigError as e:
 		Logger.error(str(e))
 		sys.exit(2)
-	
+
 	patch_data: Dict[str, str] = {}
 	for path, mod_value in mod_tree.items():
 		if path not in orig_tree or orig_tree[path] != mod_value:
 			patch_data[path] = mod_value
-	
+
 	orig_comments = parse_qct_comments(args.original)
 	mod_comments = parse_qct_comments(args.modified)
-	
+
 	comment_patch: Dict[str, str] = {}
 	for path, mod_comment in mod_comments.items():
 		orig_comment = orig_comments.get(path, "")
 		if mod_comment != orig_comment:
 			comment_patch[path] = mod_comment
-	
+
 	output_destination = args.output
-	if output_destination == "patch.json" or output_destination.startswith("patch.json"):
+	if output_destination == "patch.json" or output_destination.startswith(
+		"patch.json"
+	):
 		output_destination = args.modified + ".kvpatch.json"
-	
+
 	output_patch: Dict[str, Any] = dict(patch_data)
 	if comment_patch:
 		output_patch["__comments__"] = comment_patch
-	
+
 	try:
-		with open(output_destination, 'w', encoding='utf-8', newline='') as f:
+		with open(output_destination, "w", encoding="utf-8", newline="") as f:
 			json.dump(output_patch, f, indent=4)
 			f.write(LINE_ENDING)
 	except IOError as e:
 		Logger.error(f"Failed to write output: {e}")
 		sys.exit(2)
-	
+
 	total_changes = len(patch_data) + len(comment_patch)
-	Logger.info(f"\nSuccess! Found {len(patch_data)} value change(s) and {len(comment_patch)} comment change(s).")
+	Logger.info(
+		f"\nSuccess! Found {len(patch_data)} value change(s) and {len(comment_patch)} comment change(s)."
+	)
 	Logger.info(f"Patch file: {output_destination}")
 	Logger.info(f"Note: Keys and values in patch are stored without quotes.")
-	Logger.info(f"Note: Duplicate keys are expanded with indices (e.g., prop_physics.0)")
+	Logger.info(
+		f"Note: Duplicate keys are expanded with indices (e.g., prop_physics.0)"
+	)
 	sys.exit(1 if total_changes > 0 else 0)
 
 
@@ -850,40 +874,46 @@ def _patch_duplicate_key(
 	the original.  For regular duplicate keys, patches the line in-place.
 
 	Args:
-		line:		 The raw source line (newline-normalised).
-		key:		  The bare key name (quotes stripped).
-		full_path:	    Dot-path of this key in the current block.
-		patches:	      Flat dot-path -> new-value mapping.
-		comment_patches:      Flat dot-path -> comment string mapping.
-		applied_keys:	 Set updated in-place with patched paths.
-		duplicate_keys_found: Counter updated in-place per duplicate occurrence.
-		dominant_has_patches: Pre-computed set of dominant base paths with patch entries.
-		dominant_inserted:    Set updated in-place once a dominant base path is written.
+			line:                 The raw source line (newline-normalised).
+			key:                  The bare key name (quotes stripped).
+			full_path:            Dot-path of this key in the current block.
+			patches:              Flat dot-path -> new-value mapping.
+			comment_patches:      Flat dot-path -> comment string mapping.
+			applied_keys:         Set updated in-place with patched paths.
+			duplicate_keys_found: Counter updated in-place per duplicate occurrence.
+			dominant_has_patches: Pre-computed set of dominant base paths with patch entries.
+			dominant_inserted:    Set updated in-place once a dominant base path is written.
 
 	Returns:
-		Tuple of (modified_line, extra_lines, should_skip).
-		extra_lines  -- Replacement lines to extend into output (dominant case only).
-		should_skip  -- True when the original line must NOT be appended to output.
+			Tuple of (modified_line, extra_lines, should_skip).
+			extra_lines  -- Replacement lines to extend into output (dominant case only).
+			should_skip  -- True when the original line must NOT be appended to output.
 	"""
 	# ── Dominant key: erase originals, insert all patch values at first hit
 	if is_dominant_key(key) and full_path in dominant_has_patches:
 		extra_lines: List[str] = []
 		if full_path not in dominant_inserted:
-			indent_str = line[:len(line) - len(line.lstrip())]
+			indent_str = line[: len(line) - len(line.lstrip())]
 			dom_idx = 0
 			while f"{full_path}.{dom_idx}" in patches:
 				ipath = f"{full_path}.{dom_idx}"
 				new_val = patches[ipath]
-				new_dom_line = f'{indent_str}"{key}"	    "{new_val}"{LINE_ENDING}'
+				new_dom_line = (
+					f'{indent_str}"{key}"            "{new_val}"{LINE_ENDING}'
+				)
 				if ipath in comment_patches:
-					new_dom_line = set_inline_comment(new_dom_line, comment_patches[ipath])
+					new_dom_line = set_inline_comment(
+						new_dom_line, comment_patches[ipath]
+					)
 				extra_lines.append(new_dom_line)
 				applied_keys.add(ipath)
 				Logger.debug(f"Patched (dominant, inserted): {ipath} = {new_val}")
 				dom_idx += 1
 			dominant_inserted.add(full_path)
 		else:
-			Logger.debug(f"Dominant key erased (already inserted at this path): {full_path}")
+			Logger.debug(
+				f"Dominant key erased (already inserted at this path): {full_path}"
+			)
 		return line, extra_lines, True  # skip original line
 
 	# ── Regular duplicate key: index and patch in-place
@@ -895,9 +925,7 @@ def _patch_duplicate_key(
 		new_val = patches[indexed_path]
 		try:
 			line = VALUE_REPLACEMENT_PATTERN.sub(
-				lambda m: f'{m.group(1)}"{new_val}"{m.group(3)}',
-				line,
-				count=1
+				lambda m: f'{m.group(1)}"{new_val}"{m.group(3)}', line, count=1
 			)
 			applied_keys.add(indexed_path)
 			Logger.debug(f"Patched (duplicate): {indexed_path} = {new_val}")
@@ -926,22 +954,20 @@ def _patch_normal_key(
 	line.  If a comment patch exists, appends or updates the inline comment.
 
 	Args:
-		line:	    The raw source line (newline-normalised).
-		full_path:       Dot-path of this key in the current block.
-		patches:	 Flat dot-path -> new-value mapping.
-		comment_patches: Flat dot-path -> comment string mapping.
-		applied_keys:    Set updated in-place with patched paths.
+			line:            The raw source line (newline-normalised).
+			full_path:       Dot-path of this key in the current block.
+			patches:         Flat dot-path -> new-value mapping.
+			comment_patches: Flat dot-path -> comment string mapping.
+			applied_keys:    Set updated in-place with patched paths.
 
 	Returns:
-		The (potentially patched) line.
+			The (potentially patched) line.
 	"""
 	if full_path in patches:
 		new_val = patches[full_path]
 		try:
 			line = VALUE_REPLACEMENT_PATTERN.sub(
-				lambda m: f'{m.group(1)}"{new_val}"{m.group(3)}',
-				line,
-				count=1
+				lambda m: f'{m.group(1)}"{new_val}"{m.group(3)}', line, count=1
 			)
 			applied_keys.add(full_path)
 			Logger.debug(f"Patched: {full_path} = {new_val}")
@@ -968,13 +994,13 @@ def _apply_patches_to_lines(
 	replacement (erase-all-then-insert), and inline comment updates.
 
 	Args:
-		lines:	   Raw lines from the target file.
-		patches:	 Flat dot-path -> new-value dict (no __comments__).
-		comment_patches: Flat dot-path -> comment string dict.
-		target_path:     File path used only for validation error messages.
+			lines:           Raw lines from the target file.
+			patches:         Flat dot-path -> new-value dict (no __comments__).
+			comment_patches: Flat dot-path -> comment string dict.
+			target_path:     File path used only for validation error messages.
 
 	Returns:
-		Tuple of (output_lines, applied_keys).
+			Tuple of (output_lines, applied_keys).
 	"""
 	current_stack: List[str] = []
 	output_lines: List[str] = []
@@ -994,7 +1020,7 @@ def _apply_patches_to_lines(
 
 	for line_num, line in enumerate(lines, 1):
 		# Normalize line endings
-		line = line.rstrip('\r\n') + LINE_ENDING
+		line = line.rstrip("\r\n").rstrip("\n").rstrip("\r") + LINE_ENDING
 		stripped = line.strip()
 
 		if stripped == NESTING_OPEN:
@@ -1027,7 +1053,9 @@ def _apply_patches_to_lines(
 				line = set_inline_comment(line, comment_patches[block_path])
 		else:
 			try:
-				clean_line_for_kv = clean_and_validate_for_kv(target_path, line_num, clean_line)
+				clean_line_for_kv = clean_and_validate_for_kv(
+					target_path, line_num, clean_line
+				)
 			except ValidationError as e:
 				Logger.warning(f"Skipping invalid line {line_num}: {e.message}")
 				output_lines.append(line)
@@ -1045,16 +1073,24 @@ def _apply_patches_to_lines(
 
 				if is_duplicate_key(key):
 					line, extra_lines, skip = _patch_duplicate_key(
-						line, key, full_path,
-						patches, comment_patches, applied_keys,
-						duplicate_keys_found, dominant_has_patches, dominant_inserted,
+						line,
+						key,
+						full_path,
+						patches,
+						comment_patches,
+						applied_keys,
+						duplicate_keys_found,
+						dominant_has_patches,
+						dominant_inserted,
 					)
 					if extra_lines:
 						output_lines.extend(extra_lines)
 					if skip:
 						continue
 				else:
-					line = _patch_normal_key(line, full_path, patches, comment_patches, applied_keys)
+					line = _patch_normal_key(
+						line, full_path, patches, comment_patches, applied_keys
+					)
 
 		output_lines.append(line)
 
@@ -1066,10 +1102,12 @@ def _apply_patches_to_lines(
 			f"File ended with {len(current_stack)} unclosed block(s): "
 			+ " > ".join(current_stack)
 		)
-		Logger.warning("Auto-inserting missing closing markers to restore nesting sanity.")
+		Logger.warning(
+			"Auto-inserting missing closing markers to restore nesting sanity."
+		)
 		while current_stack:
 			depth = len(current_stack) - 1  # 0-based: root block closes at col 0
-			output_lines.append(f'{"	" * depth}{NESTING_CLOSE}{LINE_ENDING}')
+			output_lines.append(f"{'        ' * depth}{NESTING_CLOSE}{LINE_ENDING}")
 			Logger.debug(f"Auto-closed block: {'.'.join(current_stack)}")
 			current_stack.pop()
 
@@ -1099,7 +1137,7 @@ def handle_apply(args) -> None:
 		sys.exit(2)
 
 	try:
-		with open(args.patch, 'r', encoding='utf-8') as f:
+		with open(args.patch, "r", encoding="utf-8") as f:
 			patches = json.load(f)
 	except json.JSONDecodeError as e:
 		Logger.error(f"Invalid JSON in patch file: {e}")
@@ -1116,33 +1154,39 @@ def handle_apply(args) -> None:
 	patches = {k: v for k, v in patches.items() if k != "__comments__"}
 
 	try:
-		with open(args.target, 'r', encoding='utf-8', errors='ignore', newline='') as f:
+		with open(args.target, "r", encoding="utf-8", errors="ignore", newline="") as f:
 			lines = f.readlines()
 	except IOError as e:
 		Logger.error(f"Failed to read target file: {e}")
 		sys.exit(2)
 
 	Logger.info(f"Applying patches from '{args.patch}' onto '{args.target}'...")
-	Logger.info(f"Duplicate keys to append (not overwrite): {', '.join(DUPLICATE_KEYS)}")
+	Logger.info(
+		f"Duplicate keys to append (not overwrite): {', '.join(DUPLICATE_KEYS)}"
+	)
 	if DOMINANT_MULTI_KEYS:
-		Logger.info(f"Dominant multi-keys (erase originals, insert patch values): {', '.join(DOMINANT_MULTI_KEYS)}")
+		Logger.info(
+			f"Dominant multi-keys (erase originals, insert patch values): {', '.join(DOMINANT_MULTI_KEYS)}"
+		)
 
 	if verify_flags(LogConfig.DEBUG):
 		Logger.debug(f"Patches to apply: {patches}")
 
-	output_lines, applied_keys = _apply_patches_to_lines(lines, patches, comment_patches, args.target)
+	output_lines, applied_keys = _apply_patches_to_lines(
+		lines, patches, comment_patches, args.target
+	)
 
 	requested_keys = set(patches.keys())
 	missing_keys = requested_keys - applied_keys
 
 	# Print summary
-	print("\n" + "="*60)
+	print("\n" + "=" * 60)
 	print("PATCH EXECUTION SUMMARY")
-	print("="*60)
+	print("=" * 60)
 	print(f"Total requested updates: {len(requested_keys):3d}")
 	print(f"Successfully modified:   {len(applied_keys):3d}")
-	print(f"Missing items:	   {len(missing_keys):3d}")
-	print("="*60)
+	print(f"Missing items:     {len(missing_keys):3d}")
+	print("=" * 60)
 
 	if len(applied_keys) == 0:
 		Logger.warning("No items were successfully patched!")
@@ -1161,12 +1205,16 @@ def handle_apply(args) -> None:
 			missing_patches_dict = {k: patches[k] for k in missing_keys}
 			try:
 				output_lines = append_nested_missing(output_lines, missing_patches_dict)
-				Logger.info(f"Successfully appended {len(missing_keys)} missing options.")
+				Logger.info(
+					f"Successfully appended {len(missing_keys)} missing options."
+				)
 			except Exception as e:
 				Logger.error(f"Failed to append missing options: {e}")
 				sys.exit(2)
 		else:
-			Logger.error("Operation aborted. Use --append-missing to inject missing keys.")
+			Logger.error(
+				"Operation aborted. Use --append-missing to inject missing keys."
+			)
 			sys.exit(2)
 
 	# Apply prettification if requested
@@ -1177,13 +1225,14 @@ def handle_apply(args) -> None:
 
 	output_destination = args.output if args.output else args.target
 	try:
-		with open(output_destination, 'w', encoding='utf-8', newline='') as f:
+		with open(output_destination, "w", encoding="utf-8", newline="") as f:
 			f.writelines(output_lines)
 	except IOError as e:
 		Logger.error(f"Failed to write output file: {e}")
 		sys.exit(2)
 
 	Logger.info(f"\nPatching complete. Output: {output_destination}")
+
 
 # ==========================================
 # MAIN INTERFACE & SUBCOMMAND ROUTING
@@ -1204,50 +1253,52 @@ Note:
   - Applied files maintain proper format with quoted keys/values
   - Duplicate keys (prop_physics, load_file) are appended, not overwritten
   - Dominant multi-keys (KEYVALUE_DOMINANT_MULTI_KEYS) erase all originals and
-    replace them exclusively with the patch values
+	replace them exclusively with the patch values
   - Use --prettify to fix indentation to match nesting depth
   - Set KEYVALUE_DUPLICATE_KEYS env var to customize: "key1,key2,key3"
-		""",
-		formatter_class=argparse.RawDescriptionHelpFormatter
+				""",
+		formatter_class=argparse.RawDescriptionHelpFormatter,
 	)
-	subparsers = parser.add_subparsers(dest="command", required=True, help="Subcommands")
+	subparsers = parser.add_subparsers(
+		dest="command", required=True, help="Subcommands"
+	)
 
 	# 'create' subcommand
 	parser_create = subparsers.add_parser(
-		"create",
-		help="Generate a JSON patch by comparing two .qct files"
+		"create", help="Generate a JSON patch by comparing two .qct files"
 	)
 	parser_create.add_argument("original", help="Path to original/vanilla .qct file")
 	parser_create.add_argument("modified", help="Path to your modified .qct file")
 	parser_create.add_argument(
-		"-o", "--output",
+		"-o",
+		"--output",
 		default="patch.json",
-		help="Output patch JSON file (default: <modified>.kvpatch.json)"
+		help="Output patch JSON file (default: <modified>.kvpatch.json)",
 	)
 	parser_create.set_defaults(func=handle_create)
 
 	# 'apply' subcommand
 	parser_apply = subparsers.add_parser(
-		"apply",
-		help="Apply a JSON patch to a .qct file"
+		"apply", help="Apply a JSON patch to a .qct file"
 	)
 	parser_apply.add_argument("target", help="The .qct file to modify")
 	parser_apply.add_argument("patch", help="The .kvpatch.json patch file to apply")
 	parser_apply.add_argument(
-		"-o", "--output",
-		help="Output file (default: overwrite target)"
+		"-o", "--output", help="Output file (default: overwrite target)"
 	)
 	parser_apply.add_argument(
-		"-a", "--append-missing",
+		"-a",
+		"--append-missing",
 		action="store_true",
-		help="Inject missing keys instead of failing"
+		help="Inject missing keys instead of failing",
 	)
 	parser_apply.add_argument(
-		"-p", "--prettify",
+		"-p",
+		"--prettify",
 		action="store_true",
-		help="Prettify output by fixing indentation to match nesting depth"
+		help="Prettify output by fixing indentation to match nesting depth",
 	)
 	parser_apply.set_defaults(func=handle_apply)
-	
+
 	args = parser.parse_args()
 	args.func(args)
