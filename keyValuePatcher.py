@@ -118,10 +118,6 @@ def toggle_flag(flag: LogConfig):
         global verbosity
         verbosity ^= flag  # Flips the state of the target bit
 
-def debug_ln():
-    """Returns the line number of the caller."""
-    return inspect.currentframe().f_back.f_lineno
-
 # Compiled regex patterns for reuse
 KV_PATTERN = re.compile(r'^("[^"]*")\s+("[^"]*")$')
 BLOCK_PATTERN = re.compile(r'^\s*"?([^"\s//]+)"?\s*$')
@@ -141,18 +137,23 @@ def strip_line_ending(line: str) -> str:
 
 class Logger:
         """Centralizes all logging to avoid scattered print() calls."""
+        
+        @staticmethod
+        def ln(): #TODO let a call stack depth be determined like -1 -2 -3
+                """Returns the line number of the caller."""
+                return inspect.currentframe().f_back.f_back.f_lineno
 
         @staticmethod
         def diagnostic(message: str) -> None:
                 """Log diagnostic information (FULL_SET)."""
                 if verify_flags(FULL_SET):
-                        print(f"[DIAGNOSTIC:{inspect.currentframe().f_back.f_lineno}] {message}")
+                        print(f"[DIAGNOSTIC:{Logger.ln()}] {message}")
 
         @staticmethod
         def debug(message: str) -> None:
                 """Log debug information (DEBUG)."""
                 if verify_flags(LogConfig.DEBUG):
-                        print(f"[DEBUG:{inspect.currentframe().f_back.f_lineno}] {message}")
+                        print(f"[DEBUG:{Logger.ln()}] {message}")
 
         @staticmethod
         def info(message: str) -> None:
@@ -162,12 +163,12 @@ class Logger:
         @staticmethod
         def warning(message: str) -> None:
                 """Log warning to stderr."""
-                print(f"[WARNING:{inspect.currentframe().f_back.f_lineno}] {message}", file=sys.stderr)
+                print(f"[WARNING:{Logger.ln()}] {message}", file=sys.stderr)
 
         @staticmethod
         def error(message: str) -> None:
                 """Log error to stderr."""
-                print(f"[ERROR:{inspect.currentframe().f_back.f_lineno}] {message}", file=sys.stderr)
+                print(f"[ERROR:{Logger.ln()}] {message}", file=sys.stderr)
 
         @staticmethod
         def fixed(file_path: str, line_num: int, original: str, fixed: str) -> None:
