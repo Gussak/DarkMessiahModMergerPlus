@@ -80,15 +80,16 @@ DOMINANT_MULTI_KEYS = os.getenv("KEYVALUE_DOMINANT_MULTI_KEYS", "prop_physics").
 DOMINANT_MULTI_KEYS = [key.strip() for key in DOMINANT_MULTI_KEYS if key.strip()]
 
 # 1. Automate masks using sequential bit-shifting behind the scenes
-class LogConfig(Flag):
+class LogConfig(Flag): #only append new options, do not organize (or will have to update the comments..)
         SILENT           = 0
         ERRORS_CORRECTED = auto()  # 1  (1 << 0) Show auto-corrected lines
         BUG_TRACKING     = auto()  # 2  (1 << 1) Show diagnostic tracking info, running extra code just to help on debug
         DEBUG            = auto()  # 4  (1 << 2) Show detailed helper debug data
+        SHOW_MISSING     = auto()  # show missing keys even if already appending them
 
 # --- Define your custom FULL set here ---
 # Mix your preferred default flags using the bitwise OR mixer
-FULL_SET = LogConfig.ERRORS_CORRECTED | LogConfig.BUG_TRACKING
+FULL_SET = LogConfig.ERRORS_CORRECTED | LogConfig.BUG_TRACKING | LogConfig.DEBUG | LogConfig.SHOW_MISSING
 
 # Use Bitwise OR (|=) to combine environment strings into your state
 def set_verbosity_from_env():
@@ -145,8 +146,8 @@ class Logger:
 
         @staticmethod
         def diagnostic(message: str) -> None:
-                """Log diagnostic information (FULL_SET)."""
-                if verify_flags(FULL_SET):
+                """Log diagnostic information (BUG_TRACKING)."""
+                if verify_flags(LogConfig.BUG_TRACKING):
                         print(f"[DIAGNOSTIC:{Logger.ln()}] {message}")
 
         @staticmethod
@@ -922,7 +923,7 @@ def handle_create(args) -> None:
         Logger.info(
                 f"\nSuccess! Found {len(patch_data)} value change(s) and {len(comment_patch)} comment change(s)."
         )
-        Logger.info(f"Patch file: {output_destination}")
+        Logger.info(f"Patch file:\n '{output_destination}'")
         Logger.info(f"Note: Keys and values in patch are stored without quotes.")
         Logger.info(
                 f"Note: Duplicate keys are expanded with indices (e.g., prop_physics.0)"
@@ -1188,6 +1189,11 @@ def _apply_patches_to_lines(
 
         return output_lines, applied_keys
 
+def show_missing(missing_keys) -> None:
+        print(f"\nMissing items ({len(missing_keys)}):")
+        for key in sorted(missing_keys):
+                print(f"  - {key}")
+
 
 def handle_apply(args) -> None:
         """
@@ -1271,9 +1277,8 @@ def handle_apply(args) -> None:
                 Logger.warning("  - Incompatible patch file")
 
         if missing_keys:
-                print(f"\nMissing items ({len(missing_keys)}):")
-                for key in sorted(missing_keys):
-                        print(f"  - {key}")
+                if verify_flags(LogConfig.SHOW_MISSING):
+                        show_missing(missing_keys)
 
                 if args.append_missing:
                         Logger.info("\nInjecting missing options...")
@@ -1287,6 +1292,7 @@ def handle_apply(args) -> None:
                                 Logger.error(f"Failed to append missing options: {e}")
                                 sys.exit(2)
                 else:
+                        show_missing(missing_keys)
                         Logger.error(
                                 "Operation aborted. Use --append-missing to inject missing keys."
                         )
@@ -1378,7 +1384,7 @@ Note:
 
         # 'selftests' subcommand
         parser_selftests = subparsers.add_parser(
-                "selftests", help="Self tests"
+                "selftests", help="Sanity check (Self tests)"
         )
         parser_selftests.set_defaults(func=handle_selftests)
 
