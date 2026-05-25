@@ -342,6 +342,8 @@ def clean_and_validate_for_kv(file_path: str, line_num: int, line: str) -> str:
         # 3. AUTO-CLEANING ATTEMPT
         # First try: extract all quoted tokens — preserves spaces inside values.
         quoted_tokens = re.findall(r'"([^"]*)"', clean)
+        if verify_flags(LogConfig.DEBUG):
+                Logger.debug(f"{clean}")
         if len(quoted_tokens) == 2:
                 reconstructed = f'"{quoted_tokens[0]}" "{quoted_tokens[1]}"'
                 Logger.fixed(file_path, line_num, line, reconstructed)
