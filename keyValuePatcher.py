@@ -50,6 +50,7 @@ Example usage:
 """
 
 import argparse
+import inspect
 import json
 import os
 import re
@@ -62,6 +63,7 @@ from enum import Flag, auto
 # ==========================================
 # CONFIGURATION & CONSTANTS
 # ==========================================
+FUN_CHARS = "❌ ✖ ✗ ✔ ☑ ✅ ⚙️ ⚠ ⟳ 🔒 ★ ☆ ✦ ✺ ☼ ☾ ➤ ▶ ◀ ⬆ ⬇ ⤓ ⮀ ∞ ∑ √ π Ω ₿ € █ ▒ ─ │ ┌" # these didnt show in geany: ⏻ ⮌
 NESTING_OPEN = os.getenv("KEYVALUE_NESTING_OPEN", "{")
 NESTING_CLOSE = os.getenv("KEYVALUE_NESTING_CLOSE", "}")
 LINE_ENDING = os.getenv("KEYVALUE_LINE_ENDING", "\r\n")
@@ -116,6 +118,10 @@ def toggle_flag(flag: LogConfig):
         global verbosity
         verbosity ^= flag  # Flips the state of the target bit
 
+def debug_ln():
+    """Returns the line number of the caller."""
+    return inspect.currentframe().f_back.f_lineno
+
 # Compiled regex patterns for reuse
 KV_PATTERN = re.compile(r'^("[^"]*")\s+("[^"]*")$')
 BLOCK_PATTERN = re.compile(r'^\s*"?([^"\s//]+)"?\s*$')
@@ -140,13 +146,13 @@ class Logger:
         def diagnostic(message: str) -> None:
                 """Log diagnostic information (FULL_SET)."""
                 if verify_flags(FULL_SET):
-                        print(f"[DIAGNOSTIC] {message}")
+                        print(f"[DIAGNOSTIC:{inspect.currentframe().f_back.f_lineno}] {message}")
 
         @staticmethod
         def debug(message: str) -> None:
                 """Log debug information (DEBUG)."""
                 if verify_flags(LogConfig.DEBUG):
-                        print(f"[DEBUG] {message}")
+                        print(f"[DEBUG:{inspect.currentframe().f_back.f_lineno}] {message}")
 
         @staticmethod
         def info(message: str) -> None:
@@ -156,12 +162,12 @@ class Logger:
         @staticmethod
         def warning(message: str) -> None:
                 """Log warning to stderr."""
-                print(f"[WARNING] {message}", file=sys.stderr)
+                print(f"[WARNING:{inspect.currentframe().f_back.f_lineno}] {message}", file=sys.stderr)
 
         @staticmethod
         def error(message: str) -> None:
                 """Log error to stderr."""
-                print(f"[ERROR] {message}", file=sys.stderr)
+                print(f"[ERROR:{inspect.currentframe().f_back.f_lineno}] {message}", file=sys.stderr)
 
         @staticmethod
         def fixed(file_path: str, line_num: int, original: str, fixed: str) -> None:
@@ -301,6 +307,67 @@ def set_inline_comment(line: str, comment: str) -> str:
                 return base + "  " + comment + LINE_ENDING
         return base + LINE_ENDING
 
+def parse_key_value(line: str) -> tuple[str, str] | None:
+	"""Parses a line to extract a key and value using regular expressions.
+
+	Supports:
+	- Quoted or unquoted keys (no spaces/quotes allowed if unquoted)
+	- Quoted or unquoted values (can be empty if quoted)
+	- Leading and trailing whitespace
+	"""
+	# 1. Define modular, self-documenting sub-patterns
+	QUOTED_STR = r'"([^"]*)"'  # Captures inside ""; allows empty strings
+	NO_SPACE_STR = r"([^\s\"]+)"  # Captures non-space, non-quote characters
+
+	# 2. Assemble the final pattern using semantic names
+	KEY_PART = f"(?:{QUOTED_STR}|{NO_SPACE_STR})"
+	VALUE_PART = f"(?:{QUOTED_STR}|{NO_SPACE_STR})"
+
+	# The middle \s+ ensures a space or tab MUST separate key and value
+	FULL_PATTERN = f"^\s*{KEY_PART}\s+{VALUE_PART}\s*$"
+
+	# 3. Match against the line
+	match = re.match(FULL_PATTERN, line)
+
+	if match:
+		# Directly map the conceptual capture groups to their numbers
+		quoted_key = match.group(1)
+		unquoted_key = match.group(2)
+		quoted_value = match.group(3)
+		unquoted_value = match.group(4)
+
+		# Resolve which group successfully captured data
+		key = quoted_key or unquoted_key
+		value = quoted_value if quoted_value is not None else unquoted_value
+
+		return key, value
+
+	return None
+
+
+def sc_parse_key_value():
+	test_cases = [
+		"   key-with+chars_ 10   ",  # Unquoted special key, unquoted value, padding
+		'"my-key" "some value"',  # Quoted key, quoted value with spaces
+		'simple_key ""',  # Unquoted key, empty quoted value
+		'   "spaced key"   "another value"   ',  # Quoted key with spaces, padded
+		"invalid_line_no_value",  # Invalid: Missing value component (Fails ❌)
+		"key too many unquoted words",  # Invalid: Unquoted spaces break the pattern
+	]
+
+	print("--- Running Key-Value Parser Tests ---\n")
+	for i, test in enumerate(test_cases, 1):
+		result = parse_key_value(test)
+		print(f"Test {i}: Input -> {repr(test)}")
+		if result:
+			key, value = result
+			print(f"        Result -> Key: '{key}' | Value: '{value}'")
+		else:
+			print("        Result -> ❌ No match found (Invalid syntax)")
+		print("-" * 40)
+
+def handle_selftests(args) -> None:
+        sc_parse_key_value()
 
 def clean_and_validate_for_kv(file_path: str, line_num: int, line: str) -> str:
         """
@@ -340,12 +407,12 @@ def clean_and_validate_for_kv(file_path: str, line_num: int, line: str) -> str:
                 return clean
 
         # 3. AUTO-CLEANING ATTEMPT
-        # First try: extract all quoted tokens — preserves spaces inside values.
-        quoted_tokens = re.findall(r'"([^"]*)"', clean)
+        result = parse_key_value(clean)
         if verify_flags(LogConfig.DEBUG):
-                Logger.debug(f"{clean}")
-        if len(quoted_tokens) == 2:
-                reconstructed = f'"{quoted_tokens[0]}" "{quoted_tokens[1]}"'
+                Logger.debug(f"{clean} #{result}")
+        if result:
+                key, value = result
+                reconstructed = f'"{key}" "{value}"'
                 Logger.fixed(file_path, line_num, line, reconstructed)
                 return reconstructed
 
@@ -1246,6 +1313,7 @@ def handle_apply(args) -> None:
 # ==========================================
 
 if __name__ == "__main__":
+        # do_all_self_sanity_checks()
         parser = argparse.ArgumentParser(
                 description="Unified Windows-Compatible Patcher for Dark Messiah .qct files.",
                 epilog="""
@@ -1306,6 +1374,12 @@ Note:
                 help="Prettify output by fixing indentation to match nesting depth",
         )
         parser_apply.set_defaults(func=handle_apply)
+
+        # 'selftests' subcommand
+        parser_selftests = subparsers.add_parser(
+                "selftests", help="Self tests"
+        )
+        parser_selftests.set_defaults(func=handle_selftests)
 
         args = parser.parse_args()
         args.func(args)
