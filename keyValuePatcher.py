@@ -309,63 +309,63 @@ def set_inline_comment(line: str, comment: str) -> str:
         return base + LINE_ENDING
 
 def parse_key_value(line: str) -> tuple[str, str] | None:
-	"""Parses a line to extract a key and value using regular expressions.
+        """Parses a line to extract a key and value using regular expressions.
 
-	Supports:
-	- Quoted or unquoted keys (no spaces/quotes allowed if unquoted)
-	- Quoted or unquoted values (can be empty if quoted)
-	- Leading and trailing whitespace
-	"""
-	# 1. Define modular, self-documenting sub-patterns
-	QUOTED_STR = r'"([^"]*)"'  # Captures inside ""; allows empty strings
-	NO_SPACE_STR = r"([^\s\"]+)"  # Captures non-space, non-quote characters
+        Supports:
+        - Quoted or unquoted keys (no spaces/quotes allowed if unquoted)
+        - Quoted or unquoted values (can be empty if quoted)
+        - Leading and trailing whitespace
+        """
+        # 1. Define modular, self-documenting sub-patterns
+        QUOTED_STR = r'"([^"]*)"'  # Captures inside ""; allows empty strings
+        NO_SPACE_STR = r"([^\s\"]+)"  # Captures non-space, non-quote characters
 
-	# 2. Assemble the final pattern using semantic names
-	KEY_PART = f"(?:{QUOTED_STR}|{NO_SPACE_STR})"
-	VALUE_PART = f"(?:{QUOTED_STR}|{NO_SPACE_STR})"
+        # 2. Assemble the final pattern using semantic names
+        KEY_PART = f"(?:{QUOTED_STR}|{NO_SPACE_STR})"
+        VALUE_PART = f"(?:{QUOTED_STR}|{NO_SPACE_STR})"
 
-	# The middle \s+ ensures a space or tab MUST separate key and value
-	FULL_PATTERN = f"^\s*{KEY_PART}\s+{VALUE_PART}\s*$"
+        # The middle \s+ ensures a space or tab MUST separate key and value
+        FULL_PATTERN = f"^\s*{KEY_PART}\s+{VALUE_PART}\s*$"
 
-	# 3. Match against the line
-	match = re.match(FULL_PATTERN, line)
+        # 3. Match against the line
+        match = re.match(FULL_PATTERN, line)
 
-	if match:
-		# Directly map the conceptual capture groups to their numbers
-		quoted_key = match.group(1)
-		unquoted_key = match.group(2)
-		quoted_value = match.group(3)
-		unquoted_value = match.group(4)
+        if match:
+                # Directly map the conceptual capture groups to their numbers
+                quoted_key = match.group(1)
+                unquoted_key = match.group(2)
+                quoted_value = match.group(3)
+                unquoted_value = match.group(4)
 
-		# Resolve which group successfully captured data
-		key = quoted_key or unquoted_key
-		value = quoted_value if quoted_value is not None else unquoted_value
+                # Resolve which group successfully captured data
+                key = quoted_key or unquoted_key
+                value = quoted_value if quoted_value is not None else unquoted_value
 
-		return key, value
+                return key, value
 
-	return None
+        return None
 
 
 def sc_parse_key_value():
-	test_cases = [
-		"   key-with+chars_ 10   ",  # Unquoted special key, unquoted value, padding
-		'"my-key" "some value"',  # Quoted key, quoted value with spaces
-		'simple_key ""',  # Unquoted key, empty quoted value
-		'   "spaced key"   "another value"   ',  # Quoted key with spaces, padded
-		"invalid_line_no_value",  # Invalid: Missing value component (Fails ❌)
-		"key too many unquoted words",  # Invalid: Unquoted spaces break the pattern
-	]
+        test_cases = [
+                "   key-with+chars_ 10   ",  # Unquoted special key, unquoted value, padding
+                '"my-key" "some value"',  # Quoted key, quoted value with spaces
+                'simple_key ""',  # Unquoted key, empty quoted value
+                '   "spaced key"   "another value"   ',  # Quoted key with spaces, padded
+                "invalid_line_no_value",  # Invalid: Missing value component (Fails ❌)
+                "key too many unquoted words",  # Invalid: Unquoted spaces break the pattern
+        ]
 
-	print("--- Running Key-Value Parser Tests ---\n")
-	for i, test in enumerate(test_cases, 1):
-		result = parse_key_value(test)
-		print(f"Test {i}: Input -> {repr(test)}")
-		if result:
-			key, value = result
-			print(f"        Result -> Key: '{key}' | Value: '{value}'")
-		else:
-			print("        Result -> ❌ No match found (Invalid syntax)")
-		print("-" * 40)
+        print("--- Running Key-Value Parser Tests ---\n")
+        for i, test in enumerate(test_cases, 1):
+                result = parse_key_value(test)
+                print(f"Test {i}: Input -> {repr(test)}")
+                if result:
+                        key, value = result
+                        print(f"        Result -> Key: '{key}' | Value: '{value}'")
+                else:
+                        print("        Result -> ❌ No match found (Invalid syntax)")
+                print("-" * 40)
 
 def handle_selftests(args) -> None:
         sc_parse_key_value()
