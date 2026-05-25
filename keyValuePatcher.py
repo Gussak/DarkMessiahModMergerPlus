@@ -860,6 +860,73 @@ def prettify_output(lines: List[str]) -> List[str]:
 # ==========================================
 
 
+def _filter_nondom_dup_to_new_only(
+        patch_data: Dict[str, str],
+        orig_tree: Dict[str, Any],
+        mod_tree: Dict[str, Any],
+) -> Dict[str, str]:
+        """
+        For non-dominant duplicate keys, replace index-matched diff entries with
+        only the values that are genuinely absent from the original file.
+
+        The standard diff compares by position (prop_physics.0 vs prop_physics.0).
+        That produces false "changes" when entries were reordered, and includes
+        existing values when the mod file just added new ones at the end.
+
+        This function re-computes those entries as a value-set difference so the
+        patch only carries truly new values.  They are assigned indices starting
+        after the last original occurrence so that 'apply' treats them as missing
+        and appends them without touching what is already there.
+
+        Dominant duplicate keys are intentionally left alone — their erase-and-
+        replace semantics are handled separately during apply.
+        """
+        # Discover all non-dominant dup base paths that appear in the patch
+        dup_bases: Dict[str, str] = {}  # base_path -> bare_key_name
+        for path in patch_data:
+                parts = path.split(".")
+                if len(parts) >= 2 and parts[-1].isdigit():
+                        bare_key = parts[-2]
+                        if is_duplicate_key(bare_key) and not is_dominant_key(bare_key):
+                                base = ".".join(parts[:-1])
+                                dup_bases[base] = bare_key
+
+        for base, bare_key in dup_bases.items():
+                # Collect original value list for this base path
+                orig_values: List[str] = []
+                idx = 0
+                while f"{base}.{idx}" in orig_tree:
+                        orig_values.append(orig_tree[f"{base}.{idx}"])
+                        idx += 1
+
+                # Collect modified value list for this base path
+                mod_values: List[str] = []
+                idx = 0
+                while f"{base}.{idx}" in mod_tree:
+                        mod_values.append(mod_tree[f"{base}.{idx}"])
+                        idx += 1
+
+                # Values present in mod but absent from orig (by value, not index)
+                orig_value_set = set(orig_values)
+                new_values = [v for v in mod_values if v not in orig_value_set]
+
+                # Remove all existing indexed entries for this base from the patch
+                for p in [k for k in patch_data if k.startswith(base + ".") and k.split(".")[-1].isdigit()]:
+                        del patch_data[p]
+
+                # Re-add only the new values, indexed after the last original entry
+                for i, val in enumerate(new_values):
+                        patch_data[f"{base}.{len(orig_values) + i}"] = val
+
+                Logger.debug(
+                        f"Non-dominant dup '{bare_key}' at '{base}': "
+                        f"{len(orig_values)} original, {len(mod_values)} modified, "
+                        f"{len(new_values)} new → patch entries added"
+                )
+
+        return patch_data
+
+
 def handle_create(args) -> None:
         """
         Generate a patch JSON file by comparing original and modified configs.
@@ -868,7 +935,10 @@ def handle_create(args) -> None:
         saves them to a JSON patch file. Keys and values in the patch file
         are stored WITHOUT surrounding quotes.
 
-        Duplicate keys are expanded with indices (e.g., "prop_physics.0", "prop_physics.1").
+        Non-dominant duplicate keys (e.g. load_file) include only values that
+        are genuinely new compared to the original, so applying the patch appends
+        them without touching existing occurrences.
+        Dominant duplicate keys are expanded with indices (e.g., "prop_physics.0").
         """
         if not os.path.exists(args.original):
                 Logger.error(f"Original file not found: {args.original}")
@@ -891,6 +961,10 @@ def handle_create(args) -> None:
         for path, mod_value in mod_tree.items():
                 if path not in orig_tree or orig_tree[path] != mod_value:
                         patch_data[path] = mod_value
+
+        # For non-dominant duplicate keys, keep only values absent from the original
+        # so that applying the patch appends them instead of overwriting in place.
+        patch_data = _filter_nondom_dup_to_new_only(patch_data, orig_tree, mod_tree)
 
         orig_comments = parse_qct_comments(args.original)
         mod_comments = parse_qct_comments(args.modified)
