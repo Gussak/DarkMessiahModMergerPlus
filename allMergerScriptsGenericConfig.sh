@@ -134,7 +134,7 @@ declare -p strScriptsExtRegexEsc strScriptsExtRegexNorm >&3
 
 strPathSelf="$(pwd)"
 if [[ ! -f "${strPathSelf}/$(basename "$0")" ]];then
-	echo "[ERROR] failed to determine ModMerger path: '$strPathSelf' doesnt contain $(basename "$0")"
+	echo "[ERROR] failed to determine ModMerger path: current path '$strPathSelf' doesnt contain $(basename "$0")"
 	exit 1
 fi
 strPathParent="$(dirname "$strPathSelf")" #help This is the folder where all Layers are placed, it is the parent of game main folder. this is important to be detected like that in case this path is a symlink! when using '../' would navigate to the realpath!
@@ -157,8 +157,8 @@ if [[ ! -d "$strVanillaScriptsPath" ]];then echo "ERROR: VanillaExtractedTextFil
 : ${strMergedModsFolder:="${strPathSelf}/_mods/${strMergedModsFolderBN}"} #help
 mkdir -vp "${strMergedModsFolder}"
 
-strFinalMergedFolder="${strMergedModsFolder}/content/" #help compatible with mod manager
-mkdir -vp "$strFinalMergedFolder"
+strFinalMergedFolderContent="${strMergedModsFolder}/content/" #help compatible with mod manager
+mkdir -vp "$strFinalMergedFolderContent"
 
 strFinalDummyHelperFolder="${strMergedModsFolder}/dummy/"
 mkdir -vp "${strFinalDummyHelperFolder}"
@@ -221,9 +221,15 @@ function FUNCpatchMode() {
 			;;
 	esac
 	# special files that keys are meant to happen more than once in the same hierarchy nesting depth
-	if echo "${lstrFileToMerge}" |egrep -q "resource/closecaption_manifest.txt$";then
-			lbKeyValueDiffMode=false
-			strFlPatch="${lstrFileToMerge}.patch"
+	astrSpecialCodePatchingModeFiles=(
+		# no need, kvpatch supports it now: "resource/closecaption_manifest.txt$"
+	)
+	strSpecialCodePatchingModeFiles="$(echo "${astrSpecialCodePatchingModeFiles[@]}" |tr ' ' '|')"
+	if [[ -n "$strSpecialCodePatchingModeFiles" ]];then
+		if echo "${lstrFileToMerge}" |egrep -q "${strSpecialCodePatchingModeFiles}";then
+				lbKeyValueDiffMode=false
+				strFlPatch="${lstrFileToMerge}.patch"
+		fi
 	fi
 	
 	echo "$strFlPatch" # OUTPUT TO BE CAPTURED!
@@ -245,7 +251,7 @@ if ! which "$strExecMerger" >&3;then
 fi
 
 echo  >&3
-declare -p strMergedModsFolder strDisabledTmpTestFolderRel strDownloadedModFilesRel strVanillaLayer strVanillaScriptsPath strWriteLayer strFinalMergedFolder strFinalDummyHelperFolder strFlJson astrKnownGameModRelativeFolders strRegexKGMRF >&3
+declare -p strMergedModsFolder strDisabledTmpTestFolderRel strDownloadedModFilesRel strVanillaLayer strVanillaScriptsPath strWriteLayer strFinalMergedFolderContent strFinalDummyHelperFolder strFlJson astrKnownGameModRelativeFolders strRegexKGMRF >&3
 echo >&3
 
 FUNCtrash() {

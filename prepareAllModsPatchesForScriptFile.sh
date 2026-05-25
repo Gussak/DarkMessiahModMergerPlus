@@ -57,7 +57,7 @@ while ! ${1+false} && [[ "${1:0:1}" == "-" ]];do # checks if param is set
 done
 
 strScriptFileRelat="${1}" #help provide a relative path (as mods may implement variants in other sub paths, like arena mod, that shall not affect the main game) ex.: "scripts/spells.txt" will be prepended with "*/" becoming "*/scripts/spells.txt" and matching like _mods folder like ".../content/scripts/spells.txt", main game like ".../mm/scripts/spells.txt"
-exec > >(tee "$strFinalMergedFolder/${strScriptFileRelat}.log") 2>&1
+exec > >(tee "$strFinalMergedFolderContent/${strScriptFileRelat}.log") 2>&1
 
 FUNCchkDeps() {
 	while ! ${1+false};do
@@ -89,7 +89,7 @@ fi
 : ${strShowDiffCmd:="${strExecMerger}"} #help try also colordiff
 
 if $bForceRePatch;then
-	FUNCtrash "$strFinalMergedFolder/$strScriptFileRelat" "$strFinalMergedFolder/${strScriptFileRelat}.SUCCESS.cfg"&&:
+	FUNCtrash "$strFinalMergedFolderContent/$strScriptFileRelat" "$strFinalMergedFolderContent/${strScriptFileRelat}.SUCCESS.cfg"&&:
 fi
 
 if [[ "$strScriptFileRelat" != "gameinfo.txt" ]];then #help is this the only file that ever happens on root mod dir? TODO
@@ -208,7 +208,7 @@ nBkpIndex=0
 
 : ${bApplyEachPatch:=true} #help to finalize the merge work properly
 if $bApplyEachPatch;then
-	strFlWork="${strFinalMergedFolder}/${strScriptFileRelat}"
+	strFlWork="${strFinalMergedFolderContent}/${strScriptFileRelat}"
 	if $bVerbose;then declare -p strFlWork;fi
 	
 	strFlSuccessCfg="${strFlWork}.SUCCESS.cfg"

@@ -55,14 +55,17 @@ if true;then
 	fi
 
 	function FUNCdoItAll() {
+		#local lbJustList=false;if [[ "$1" == --justlist ]];then lbJustList=true;shift;fi
 		local lstrWhat="$1";shift
+		local lstrComment="$1";shift
 		local lastrOpts="$@"
 		
 		if ! cat findAllConflictingModdedFiles.sh.log |grep "${lstrWhat}";then
 			FUNCechoInfo "[Nothing to do for:] work type = '${lstrWhat}'"
 			return 0
 		fi
-		FUNCechoInfo "[Review the list above of files to be merged] ${lstrWhat}"
+		
+		FUNCechoInfo "[Review the list above of files to be merged] ${lstrWhat} # ${strComment}"
 		read -n 1
 		
 		IFS=$'\n' read -d '' -r -a astrList < <(cat findAllConflictingModdedFiles.sh.log |grep "${lstrWhat}" |sed -r -e 's@(.*) #INFO: .*@\1@g' |sort -u &&:)&&:
@@ -88,15 +91,14 @@ if true;then
 		done
 	}
 
-	FUNCdoItAll "TODO"
-
-	FUNCechoInfo "[Re-process the files with warning about changed mod's order and new conflicting mods added? (if not hit Ctrl+C)]"
-	read -n 1
-	FUNCdoItAll "WARNING" --forceRePatch
+	FUNCdoItAll "TODO" ""
+	FUNCdoItAll "WARNING" "Re-process the files with warning about changed mod's order and new conflicting mods added? (if not hit Ctrl+C)" --forceRePatch
 	
 	echo
 	cd "$strPathParent";
-	if egrep "Successfully modified:\s*0" * -iRnIa --include="*.log" -c |grep -v :0;then
+	strChk="$(egrep "Successfully modified:\s*0" "${strMergedModsFolder}/"* -iRnIa --include="*.log" -c |sed -r "s@${strPathSelf}/@@")"
+	if echo "$strChk" |grep -q -v :0;then
+		echo "$strChk" |grep -v :0 |sed -r -e 's@(.*)[.]log:.*@\1@'
 		FUNCechoInfo "[WARNING] the above may be a bad thing. Better review if the .kvpach.json were really applied for them!"
 	fi
 fi
