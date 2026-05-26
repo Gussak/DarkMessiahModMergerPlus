@@ -121,10 +121,9 @@ def toggle_flag(flag: LogConfig):
 
 # Compiled regex patterns for reuse
 KV_PATTERN = re.compile(r'^("[^"]*")\s+("[^"]*")$')
-BLOCK_PATTERN = re.compile(r'^\s*"?([^"\s//]+)"?\s*$')
-BLOCK_PATTERN_EXTENDED = re.compile(r'^\s*"?([^"\s//{}]+)"?\s*$')
+BLOCK_PATTERN = re.compile(r'^\s*"?([^"\s//0-9]+)"?\s*$') #this prevents numbers in block names
+BLOCK_PATTERN_EXTENDED = re.compile(r'^\s*"?([^"\s//{}0-9]+)"?\s*$') #this prevents numbers in block names
 VALUE_REPLACEMENT_PATTERN = re.compile(r'(\s*"[^"]+"\s+)("[^"]*")(.*)')
-
 
 def strip_line_ending(line: str) -> str:
         """Strip all trailing CR and LF characters from a line."""
