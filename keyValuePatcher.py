@@ -741,8 +741,17 @@ def append_nested_missing(
         grouped_patches: Dict[Tuple, List[Tuple[str, str]]] = defaultdict(list)
         for full_path, new_value in missing_patches.items():
                 parts = full_path.split(".")
-                target_hierarchy = tuple(parts[:-1])
-                key_name = parts[-1]
+
+                # ── FIX: Detect indexed duplicate keys (e.g., "path.load_file.30") ──
+                # Numeric suffixes are indices, NOT nested blocks. Collapse them back
+                # to the base duplicate key so they are injected as flat KV pairs.
+                if len(parts) >= 2 and parts[-1].isdigit() and parts[-2] in DUPLICATE_KEYS:
+                        target_hierarchy = tuple(parts[:-2])
+                        key_name = parts[-2]
+                else:
+                        target_hierarchy = tuple(parts[:-1])
+                        key_name = parts[-1]
+
                 grouped_patches[target_hierarchy].append((key_name, new_value))
 
         # Scan block structure once outside the loop
@@ -806,7 +815,6 @@ def append_nested_missing(
                 open_braces, close_braces = find_block_structure(lines)
 
         return lines
-
 
 def prettify_output(lines: List[str]) -> List[str]:
         """
