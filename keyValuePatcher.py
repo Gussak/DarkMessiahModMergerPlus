@@ -1384,6 +1384,11 @@ def handle_apply(args) -> None:
         comment_patches: Dict[str, str] = patches.get("__comments__", {})
         patches = {k: v for k, v in patches.items() if k != "__comments__"}
 
+        # ── NEW: Skip cleanly if patch is empty ──
+        if not patches and not comment_patches:
+                Logger.info("Patch file is empty. Nothing to apply.")
+                sys.exit(0)
+
         try:
                 with open(args.target, "r", encoding="utf-8", errors="ignore", newline="") as f:
                         lines = f.readlines()
