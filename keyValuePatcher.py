@@ -1078,7 +1078,11 @@ def _patch_duplicate_key(
         indexed_path = f"{full_path}.{dup_index}"
         duplicate_keys_found[full_path] += 1
 
-        if indexed_path in patches:
+        # FIX: Non-dominant duplicates should ALWAYS be appended, never replaced in-place.
+        # We skip index-based matching here and defer to the auto-append logic in handle_apply.
+        if not is_dominant_key(key):
+            pass
+        elif indexed_path in patches:
                 new_val = patches[indexed_path]
                 try:
                         line = VALUE_REPLACEMENT_PATTERN.sub(
@@ -1341,6 +1345,16 @@ def handle_apply(args) -> None:
         requested_keys = set(patches.keys())
         missing_keys = requested_keys - applied_keys
 
+        # Identify non-dominant duplicate keys that weren't matched in-place.
+        # These use indices in the patch (e.g., ".30") but should always be appended.
+        auto_append_dups = {
+            k for k in missing_keys
+            if len(k.split(".")) >= 2
+            and k.split(".")[-1].isdigit()
+            and k.split(".")[-2] in DUPLICATE_KEYS
+            and k.split(".")[-2] not in DOMINANT_MULTI_KEYS
+        }
+
         # Print summary
         print("\n" + "=" * 60)
         print("PATCH EXECUTION SUMMARY")
@@ -1357,27 +1371,29 @@ def handle_apply(args) -> None:
                 Logger.warning("  - Syntax issues in target file")
                 Logger.warning("  - Incompatible patch file")
 
-        if missing_keys:
+        # Prepare combined missing patches
+        auto_append_dict = {k: patches[k] for k in auto_append_dups}
+        remaining_missing = missing_keys - auto_append_dups
+        append_remaining = remaining_missing and args.append_missing
+
+        if auto_append_dict or append_remaining:
+                combined_patches = dict(auto_append_dict)
+                if append_remaining:
+                        combined_patches.update({k: patches[k] for k in remaining_missing})
+
+                Logger.info(f"Injecting missing options ({len(auto_append_dict)} duplicate, {len(remaining_missing)} structural)...")
+                try:
+                        output_lines = append_nested_missing(output_lines, combined_patches)
+                        applied_keys.update(combined_patches.keys())
+                        Logger.info(f"Successfully appended {len(combined_patches)} missing option(s).")
+                except Exception as e:
+                        Logger.error(f"Failed to append missing options: {e}")
+                        sys.exit(2)
+        elif missing_keys:
                 if verify_flags(LogConfig.SHOW_MISSING):
                         show_missing(missing_keys)
-
-                if args.append_missing:
-                        Logger.info("\nInjecting missing options...")
-                        missing_patches_dict = {k: patches[k] for k in missing_keys}
-                        try:
-                                output_lines = append_nested_missing(output_lines, missing_patches_dict)
-                                Logger.info(
-                                        f"Successfully appended {len(missing_keys)} missing options."
-                                )
-                        except Exception as e:
-                                Logger.error(f"Failed to append missing options: {e}")
-                                sys.exit(2)
-                else:
-                        show_missing(missing_keys)
-                        Logger.error(
-                                "Operation aborted. Use --append-missing to inject missing keys."
-                        )
-                        sys.exit(2)
+                Logger.error("Operation aborted. Use --append-missing to inject missing keys.")
+                sys.exit(2)
 
         # Apply prettification if requested
         if args.prettify:
