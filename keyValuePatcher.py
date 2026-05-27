@@ -782,10 +782,11 @@ def append_nested_missing(
         """
         Inject missing configurations by tracking structural depth.
         
-        ── NEW ── Automatically skips appending keys listed in 
+        Automatically skips appending keys listed in 
         DUPLICATE_KEYS_WITHOUT_DUP_VALUES if their exact value already 
         exists in the target block.
         """
+        # Group missing properties by their parent blocks
         grouped_patches: Dict[Tuple, List[Tuple[str, str]]] = defaultdict(list)
         for full_path, new_value in missing_patches.items():
                 parts = full_path.split(".")
@@ -800,8 +801,10 @@ def append_nested_missing(
 
                 grouped_patches[target_hierarchy].append((key_name, new_value))
 
+        # Scan block structure once outside the loop
         open_braces, close_braces = find_block_structure(lines)
 
+        # Process group entries systematically
         for target_hierarchy, items in grouped_patches.items():
                 # ── NEW: Filter out values that already exist in the target block ──
                 filtered_items = []
@@ -829,6 +832,7 @@ def append_nested_missing(
 
                 new_lines: List[str] = []
                 if matched_depth == 0:
+                        # No existing structure; create from scratch
                         insert_idx = len(lines)
                         for i, part in enumerate(target_hierarchy):
                                 tabs = "\t" * i
@@ -845,6 +849,7 @@ def append_nested_missing(
                                 tabs = "\t" * i
                                 new_lines.append(f"{tabs}}}{LINE_ENDING}")
                 else:
+                        # Extend existing structure
                         matched_path = target_hierarchy[:matched_depth]
                         missing_structure = target_hierarchy[matched_depth:]
                         insert_idx = close_braces[matched_path]
@@ -866,6 +871,10 @@ def append_nested_missing(
                                 new_lines.append(f"{tabs}}}{LINE_ENDING}")
 
                 lines[insert_idx:insert_idx] = new_lines
+                # Rescan so subsequent iterations see the blocks we just created.
+                # Without this, two groups that share a newly-inserted parent block
+                # (e.g. "weapons.sword" and "weapons.axe" both needing a new "weapons"
+                # block) would each create their own copy of the parent → duplication.
                 open_braces, close_braces = find_block_structure(lines)
 
         return lines
@@ -1543,3 +1552,4 @@ Note:
 
         args = parser.parse_args()
         args.func(args)
+
