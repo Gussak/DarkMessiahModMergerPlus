@@ -130,8 +130,9 @@ def toggle_flag(flag: LogConfig):
 
 # Compiled regex patterns for reuse
 KV_PATTERN = re.compile(r'^("[^"]*")\s+("[^"]*")$')
-BLOCK_PATTERN = re.compile(r'^\s*"?([^"\s//0-9]+)"?\s*$') #this prevents numbers in block names
-BLOCK_PATTERN_EXTENDED = re.compile(r'^\s*"?([^"\s//{}0-9]+)"?\s*$') #this prevents numbers in block names
+# Updated: Removed '0-9' exclusion to allow digits in block names (e.g., air_2)
+BLOCK_PATTERN = re.compile(r'^\s*"?([^"\s//]+)"?\s*$') 
+BLOCK_PATTERN_EXTENDED = re.compile(r'^\s*"?([^"\s//{}]+)"?\s*$') 
 VALUE_REPLACEMENT_PATTERN = re.compile(r'(\s*"[^"]+"\s+)("[^"]*")(.*)')
 
 def strip_line_ending(line: str) -> str:
