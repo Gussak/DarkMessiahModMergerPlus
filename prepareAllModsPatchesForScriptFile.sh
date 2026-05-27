@@ -282,12 +282,14 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 	else
 		if $bKeyValueDiffMode;then
 			#KEEPinfo: this implicitly creates the same "${strFileToMerge}.kvpatch.json": "${strPathSelf}/keyValuePatcher.py" create <(iconv -f $(file -b --mime-encoding "$strVanillaScriptFile") -t UTF-8 "$strVanillaScriptFile") "$strFileToMerge"&&:;nDiffRet=$? #but the below is more clear and can handle mismatching encodings
+			set -x
 			"${strPathSelf}/keyValuePatcher.py" create \
 				-o "${strFlPatch}" \
 				<(iconv -f $(file -b --mime-encoding "$strVanillaScriptFile") -t UTF-8 "$strVanillaScriptFile") \
 				<(iconv -f $(file -b --mime-encoding "$strFileToMerge"      ) -t UTF-8 "$strFileToMerge"      ) \
 				&&:;
 			nDiffRet=$?
+			set +x
 		else
 			( # prepare the patch using relative path to remove user name
 				cd "${strPathParent}"
