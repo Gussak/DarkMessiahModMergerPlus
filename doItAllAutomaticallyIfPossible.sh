@@ -65,7 +65,7 @@ if true;then
 			return 0
 		fi
 		
-		FUNCechoInfo "[Review the list above of files to be merged] ${lstrWhat} # ${strComment}"
+		FUNCechoInfo "[Review the list above of files to be merged] ${lstrWhat} # ${lstrComment}"
 		read -n 1
 		
 		IFS=$'\n' read -d '' -r -a astrList < <(cat findAllConflictingModdedFiles.sh.log |grep "${lstrWhat}" |sed -r -e 's@(.*) #INFO: .*@\1@g' |sort -u &&:)&&:

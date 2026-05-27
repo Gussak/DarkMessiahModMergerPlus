@@ -79,6 +79,15 @@ DUPLICATE_KEYS = [key.strip() for key in DUPLICATE_KEYS if key.strip()]
 DOMINANT_MULTI_KEYS = os.getenv("KEYVALUE_DOMINANT_MULTI_KEYS", "prop_physics").split(",")
 DOMINANT_MULTI_KEYS = [key.strip() for key in DOMINANT_MULTI_KEYS if key.strip()]
 
+# Keys that should only be appended if their exact value does not already exist
+# in the target block. Useful for preventing duplicate entries like language packs.
+DUPLICATE_KEYS_WITHOUT_DUP_VALUES = os.getenv(
+    "KEYVALUE_DUPLICATE_KEYS_WITHOUT_DUP_VALUES", "load_file"
+).split(",")
+DUPLICATE_KEYS_WITHOUT_DUP_VALUES = [
+    key.strip() for key in DUPLICATE_KEYS_WITHOUT_DUP_VALUES if key.strip()
+]
+
 # 1. Automate masks using sequential bit-shifting behind the scenes
 class LogConfig(Flag): #only append new options, do not organize (or will have to update the comments..)
         SILENT           = 0
@@ -717,33 +726,71 @@ def find_block_structure(lines: List[str]) -> Tuple[Dict[Tuple, int], Dict[Tuple
         return open_braces, close_braces
 
 
+def _value_exists_in_scope(
+    lines: List[str], target_hierarchy: Tuple[str, ...], key_name: str, value_to_check: str
+) -> bool:
+    """
+    Scan `lines` to determine if a specific key-value pair already exists
+    within the block scope defined by `target_hierarchy`.
+    
+    Returns True if the exact combination is found, False otherwise.
+    """
+    current_stack: List[str] = []
+    last_block_key: Optional[str] = None
+    # Root scope matches when current_stack is empty
+    in_target_block = len(target_hierarchy) == 0
+
+    for line in lines:
+        stripped = line.strip()
+        if not stripped or stripped.startswith("//"):
+            continue
+        clean = strip_inline_comment(stripped).strip()
+
+        if clean == NESTING_OPEN:
+            if last_block_key is not None:
+                current_stack.append(last_block_key)
+                if tuple(current_stack) == target_hierarchy:
+                    in_target_block = True
+                last_block_key = None
+            continue
+
+        if clean == NESTING_CLOSE:
+            if current_stack:
+                if tuple(current_stack) == target_hierarchy:
+                    in_target_block = False
+                current_stack.pop()
+            continue
+
+        block_match = BLOCK_PATTERN.match(clean)
+        if block_match:
+            last_block_key = strip_quotes(block_match.group(1))
+            continue
+
+        if in_target_block:
+            kv_match = KV_PATTERN.match(clean)
+            if kv_match:
+                k = strip_quotes(kv_match.group(1))
+                v = strip_quotes(kv_match.group(2))
+                if k == key_name and v == value_to_check:
+                    return True
+    return False
+
+
 def append_nested_missing(
         lines: List[str], missing_patches: Dict[str, str]
 ) -> List[str]:
         """
         Inject missing configurations by tracking structural depth.
-
-        Groups patches by parent hierarchy and inserts them at appropriate
-        locations without index corruption.
-
-        Inserts keys and values WITH surrounding quotes (as required by format).
-        The input missing_patches dict contains unquoted values.
-
-        Args:
-                        lines: File lines to modify
-                        missing_patches: Dict of full_path -> unquoted_value for missing items
-
-        Returns:
-                        Modified lines list with patches injected
+        
+        ── NEW ── Automatically skips appending keys listed in 
+        DUPLICATE_KEYS_WITHOUT_DUP_VALUES if their exact value already 
+        exists in the target block.
         """
-        # Group missing properties by their parent blocks
         grouped_patches: Dict[Tuple, List[Tuple[str, str]]] = defaultdict(list)
         for full_path, new_value in missing_patches.items():
                 parts = full_path.split(".")
 
-                # ── FIX: Detect indexed duplicate keys (e.g., "path.load_file.30") ──
-                # Numeric suffixes are indices, NOT nested blocks. Collapse them back
-                # to the base duplicate key so they are injected as flat KV pairs.
+                # Detect indexed duplicate keys and collapse to base key
                 if len(parts) >= 2 and parts[-1].isdigit() and parts[-2] in DUPLICATE_KEYS:
                         target_hierarchy = tuple(parts[:-2])
                         key_name = parts[-2]
@@ -753,11 +800,25 @@ def append_nested_missing(
 
                 grouped_patches[target_hierarchy].append((key_name, new_value))
 
-        # Scan block structure once outside the loop
         open_braces, close_braces = find_block_structure(lines)
 
-        # Process group entries systematically
         for target_hierarchy, items in grouped_patches.items():
+                # ── NEW: Filter out values that already exist in the target block ──
+                filtered_items = []
+                for key_name, new_value in items:
+                        if key_name in DUPLICATE_KEYS_WITHOUT_DUP_VALUES:
+                                if _value_exists_in_scope(lines, target_hierarchy, key_name, new_value):
+                                        Logger.debug(
+                                                f"Skipped append (value exists in scope): "
+                                                f"{key_name} = {new_value}"
+                                        )
+                                        continue
+                        filtered_items.append((key_name, new_value))
+
+                # If all items were filtered out, skip block creation/injection for this hierarchy
+                if not filtered_items:
+                        continue
+
                 # Find deepest matching block
                 matched_depth = 0
                 for depth in range(len(target_hierarchy), 0, -1):
@@ -768,7 +829,6 @@ def append_nested_missing(
 
                 new_lines: List[str] = []
                 if matched_depth == 0:
-                        # No existing structure; create from scratch
                         insert_idx = len(lines)
                         for i, part in enumerate(target_hierarchy):
                                 tabs = "\t" * i
@@ -776,7 +836,7 @@ def append_nested_missing(
                                 new_lines.append(f"{tabs}{{{LINE_ENDING}")
 
                         final_tabs = "\t" * len(target_hierarchy)
-                        for key_name, new_value in items:
+                        for key_name, new_value in filtered_items:  # ── NEW: use filtered ──
                                 new_lines.append(
                                         f'{final_tabs}"{key_name}"\t\t"{new_value}"{LINE_ENDING}'
                                 )
@@ -785,7 +845,6 @@ def append_nested_missing(
                                 tabs = "\t" * i
                                 new_lines.append(f"{tabs}}}{LINE_ENDING}")
                 else:
-                        # Extend existing structure
                         matched_path = target_hierarchy[:matched_depth]
                         missing_structure = target_hierarchy[matched_depth:]
                         insert_idx = close_braces[matched_path]
@@ -797,7 +856,7 @@ def append_nested_missing(
                                 new_lines.append(f"{tabs}{{{LINE_ENDING}")
 
                         final_tabs = "\t" * (base_tabs + len(missing_structure))
-                        for key_name, new_value in items:
+                        for key_name, new_value in filtered_items:  # ── NEW: use filtered ──
                                 new_lines.append(
                                         f'{final_tabs}"{key_name}"\t\t"{new_value}"{LINE_ENDING}'
                                 )
@@ -807,13 +866,10 @@ def append_nested_missing(
                                 new_lines.append(f"{tabs}}}{LINE_ENDING}")
 
                 lines[insert_idx:insert_idx] = new_lines
-                # Rescan so subsequent iterations see the blocks we just created.
-                # Without this, two groups that share a newly-inserted parent block
-                # (e.g. "weapons.sword" and "weapons.axe" both needing a new "weapons"
-                # block) would each create their own copy of the parent → duplication.
                 open_braces, close_braces = find_block_structure(lines)
 
         return lines
+
 
 def prettify_output(lines: List[str]) -> List[str]:
         """
