@@ -1,0 +1,13 @@
+{
+    "name"                  :   "NoFreeHealings",
+    "version"               :   "1.0",
+    "description"           :   "Prevents all easy healing sources like Leanna magic. Or at least not that super easy.",
+    "author"                :   "GussakThor",
+    "author_url"            :   "",
+    "website"               :   "",
+    "launch_parameters"     :   [],
+    "gameinfo_parameters"   :   [],
+    "modules"               :   [],
+    "game_configs"          :   [],
+    "autoexec_configs"      :   []
+}
