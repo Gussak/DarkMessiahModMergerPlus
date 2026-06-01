@@ -74,8 +74,8 @@ function FUNCjson() {
 	jq "$@"&&:;local lnRet=$?
 	if((lnRet==1 || lnRet==0));then return 0;fi
 	case $lnRet in
-		2|3|4) set -x;echo jq "$@";set +x;FUNCechoInfo "[ERROR] in 'jq'"; exit 1;;
-		*)     set -x;echo jq "$@";set +x;FUNCechoInfo "[ERROR] UNKNOWN in 'jq'"; exit 1;;
+		2|3|4) echo jq "$@" >&2;FUNCechoInfo "[ERROR] in 'jq'" >&2; exit 1;;
+		*)     echo jq "$@" >&2;FUNCechoInfo "[ERROR] UNKNOWN in 'jq'" >&2; exit 1;;
 	esac
 	return 0;
 };export -f FUNCjson
