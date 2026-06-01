@@ -2,7 +2,7 @@
 
 #	BSD 3-Clause License
 #
-#	Copyright (c) 2026, Gussak
+#	Copyright (c) 2026, Gussak<https://github.com/Gussak>
 #
 #	Redistribution and use in source and binary forms, with or without
 #	modification, are permitted provided that the following conditions are met:
@@ -70,6 +70,16 @@ FUNCchkDeps() {
 }
 FUNCchkDeps jq colordiff patch
 
+function FUNCjson() {
+	jq "$@"&&:;local lnRet=$?
+	if((lnRet==1 || lnRet==0));then return 0;fi
+	case $lnRet in
+		2|3|4) set -x;echo jq "$@";set +x;FUNCechoInfo "[ERROR] in 'jq'"; exit 1;;
+		*)     set -x;echo jq "$@";set +x;FUNCechoInfo "[ERROR] UNKNOWN in 'jq'"; exit 1;;
+	esac
+	return 0;
+};export -f FUNCjson
+
 astrWorkDB=()
 strFlWorkDatabase="$(basename "$0").cfg"
 if [[ -f "$strFlWorkDatabase" ]];then
@@ -99,42 +109,57 @@ if [[ "$strScriptFileRelat" != "gameinfo.txt" ]];then #help is this the only fil
 		exit 1
 	fi
 fi
-strFindScriptFileRegex=".*/\(${strRegexEscKGMRF}\)/${strScriptFileRelat}\$"
+strFindScriptFileRegex=".*/\(${strRegexEscKGMRF}\)/${strScriptFileRelat}\(\.patch\|\.kvpatch\.json\)?\$"
 if $bVerbose;then declare -p strFindScriptFileRegex;fi
 
 strThisFolder="$(pwd)"
 #strThisFolderBN="$(basename "${strThisFolder}")"
 
 #help This bash script will look on the parent folder for all mergeable script or text files you passed as main parameter. Each will be considered as layers to be merged in a single final folder. The load order priority is from the ModLauncher main mod, then the order you prepared by naming the folders properly with numbered layers. Each folder must have the contents of one extracted game mod file.
-#set -x
-IFS=$'\n' read -d '' -r -a astrListFoldersLayersOrderOriginal < <(
+mapfile -t astrListFoldersLayersOrderOriginal < <(
 	find -L "${strGameInstallMainFolder}"* -iregex "${strFindScriptFileRegex}" \
 		|sort \
 		|egrep "[.]layer" \
 		|egrep -v "${strRegexFoldersToIgnore}|${strMergedModsFolderBN}|${strVanillaScriptsPath}|${strVanillaLayer}" \
 			2>/dev/null
-)&&:
-#set +x
+)
+# Fix the list to only have final file references
+for((i=0;i<${#astrListFoldersLayersOrderOriginal[@]};i++));do
+	strTmp="${astrListFoldersLayersOrderOriginal[$i]}"
+	if [[ "${strTmp}" =~ .*([.]patch|[.]kvpatch[.]json)$ ]];then
+		strTmp="${strTmp%.patch}"
+		strTmp="${strTmp%.kvpatch.json}"
+		astrListFoldersLayersOrderOriginal[$i]="${strTmp}"
+	fi
+done
+# Fix the list to have no dups
+mapfile -t astrListFoldersLayersOrderOriginal < <(
+	for strTmp in "${astrListFoldersLayersOrderOriginal[@]}";do
+		echo "$strTmp"
+	done |sort -u
+)
 echo;declare -p astrListFoldersLayersOrderOriginal |sed -r -e "$strSedArrayNumToLn";echo
 astrListFoldersLayersOrder=("${astrListFoldersLayersOrderOriginal[@]}")
 
-: ${strFlModLoadSett:="${strPathParent}/Dark Messiah Might and Magic Single Player/_mods/core/user_settings.json"} #help
+: ${strFlModLoadSett:="${strPathParent}/Dark Messiah Might and Magic Single Player/_mods/core/user_settings.json"} #help This is the main game folder, also is the final merged folder from OverlayFS
 if [[ ! -f "$strFlModLoadSett" ]];then
+	# this below is where it is written by OverlayFS or equivalent if you setup it like that, but in this case, OverlayFS is not running
 	strFlModLoadSett="${strPathParent}/Dark Messiah Might and Magic Single Player.0.WriteLayer/_mods/core/user_settings.json";
 fi
 if [[ ! -f "$strFlModLoadSett" ]];then
-	FUNCechoInfo "ModLauncher settings file not found where expected '${strPathParent}/*/_mods/core/user_settings.json'"
+	FUNCechoInfo "ModLauncher settings file not found where expected '${strPathParent}/Dark Messiah Might and Magic Single Player/_mods/core/user_settings.json'"
 	exit 1
 fi
 
-IFS=$'\n' read -d '' -r -a astrModLauncherOrderList < <(
-	jq ".load_order[]" "$strFlModLoadSett" |sed -r -e 's@^"@@' -e 's@"$@@'
-)&&:
-IFS=$'\n' read -d '' -r -a astrModLauncherIgnoreList < <(
-	jq ".ignore[]" "$strFlModLoadSett" |sed -r -e 's@^"@@' -e 's@"$@@'
-)&&:
+mapfile -t astrModLauncherOrderList < <(
+	FUNCjson ".load_order[]" "$strFlModLoadSett" |sed -r -e 's@^"@@' -e 's@"$@@'
+)
+mapfile -t astrModLauncherIgnoreList < <(
+	FUNCjson ".ignore[]" "$strFlModLoadSett" |sed -r -e 's@^"@@' -e 's@"$@@'
+)
 echo;declare -p astrModLauncherOrderList |sed -r -e "$strSedArrayNumToLn";echo
 astrListCurrent=()
+#set +x
 for strModLauncherModFolder in "${astrModLauncherOrderList[@]}";do
 #	for strLayer in "${astrListFoldersLayersOrder[@]}";do
 	for((i=0;i<${#astrListFoldersLayersOrder[@]};i++));do
@@ -280,31 +305,61 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 		FUNCechoInfo "[Skip patch creation, ready already]"
 		ls -l "${strFlPatch}"
 	else
-		if $bKeyValueDiffMode;then
-			#KEEPinfo: this implicitly creates the same "${strFileToMerge}.kvpatch.json": "${strPathSelf}/keyValuePatcher.py" create <(iconv -f $(file -b --mime-encoding "$strVanillaScriptFile") -t UTF-8 "$strVanillaScriptFile") "$strFileToMerge"&&:;nDiffRet=$? #but the below is more clear and can handle mismatching encodings
-			set -x
-			"${strPathSelf}/keyValuePatcher.py" create \
-				-o "${strFlPatch}" \
-				<(iconv -f $(file -b --mime-encoding "$strVanillaScriptFile") -t UTF-8 "$strVanillaScriptFile") \
-				<(iconv -f $(file -b --mime-encoding "$strFileToMerge"      ) -t UTF-8 "$strFileToMerge"      ) \
-				&&:;
-			nDiffRet=$?
-			set +x
-		else
-			( # prepare the patch using relative path to remove user name
-				cd "${strPathParent}"
+		if [[ -f "$strFileToMerge" ]];then
+			if $bKeyValueDiffMode;then
+				#KEEPinfo: this implicitly creates the same "${strFileToMerge}.kvpatch.json": "${strPathSelf}/keyValuePatcher.py" create <(iconv -f $(file -b --mime-encoding "$strVanillaScriptFile") -t UTF-8 "$strVanillaScriptFile") "$strFileToMerge"&&:;nDiffRet=$? #but the below is more clear and can handle mismatching encodings
 				set -x
-				set -o pipefail # so the diff exit value will be captured with $? if using |tee
-				diff -u \
+				"${strPathSelf}/keyValuePatcher.py" create \
+					-o "${strFlPatch}" \
 					<(iconv -f $(file -b --mime-encoding "$strVanillaScriptFile") -t UTF-8 "$strVanillaScriptFile") \
 					<(iconv -f $(file -b --mime-encoding "$strFileToMerge"      ) -t UTF-8 "$strFileToMerge"      ) \
-						>"${strFlPatch}";nRet=$?
-						#KEEPinfo: too much unnecessary log: #					|tee "${strFlPatch}";nRet=$?
-				declare -p nRet
+					&&:;
+				nDiffRet=$?
 				set +x
-				exit $nRet
-			)&&:;nDiffRet=$?
+			else
+				( # prepare the patch using relative path to remove user name
+					cd "${strPathParent}"
+					set -x
+					set -o pipefail # so the diff exit value will be captured with $? if using |tee
+					diff -u \
+						<(iconv -f $(file -b --mime-encoding "$strVanillaScriptFile") -t UTF-8 "$strVanillaScriptFile") \
+						<(iconv -f $(file -b --mime-encoding "$strFileToMerge"      ) -t UTF-8 "$strFileToMerge"      ) \
+							>"${strFlPatch}";nRet=$?
+							#KEEPinfo: too much unnecessary log: #					|tee "${strFlPatch}";nRet=$?
+					declare -p nRet
+					set +x
+					exit $nRet
+				)&&:;nDiffRet=$?
+			fi
+		else #if [[ -f "$strFileToMerge" ]];then
+			FUNCechoInfo "[WARNING] unable to recreate the patch as modded file does not exist: '$strFileToMerge'"
+			FUNCechoInfo "[INFO] using the patch to re-create the modded file: '$strFileToMerge'"
+			if $bKeyValueDiffMode;then
+				acmdPatch=("${strPathSelf}/keyValuePatcher.py" apply --prettify --append-missing --output "${strFileToMerge}.RECREATED_MODDED" "$strVanillaScriptFile" "${strFlPatch}") #keyValuePatcher.py apply [-h] [-o OUTPUT] [-a] target patch
+			else
+				acmdPatch=(patch -F $nFuzzyPatch -i "${strFlPatch}" -o "${strFileToMerge}.RECREATED_MODDED" "$strVanillaScriptFile") #patch [ORIGINAL_FILE] -i [PATCH_FILE] -o [OUTPUT_FILE]
+			fi
+			nDiffRet=0 # means there is no patch available
+			set -x;"${acmdPatch[@]}"&&:;nRetPatch=$?;set +x
+			if((nRetPatch==0));then
+				mv -vf "${strFileToMerge}.RECREATED_MODDED" "${strFileToMerge}"
+				nDiffRet=1 # assuming success already in the past
+			else
+				FUNCechoInfo "[ERROR] unable to recreate the modded file by applying the patch using the vanilla file, modded would be: '${strFileToMerge}'"
+				echo -n >>"${strFileToMerge}" # creates and empty "modded" file if it doesnt exist ...
+				nDiffRet=2 #... to help open merger tool later
+			fi
+			#if $bKeyValueDiffMode;then
+				#if [[ -f "${strFileToMerge}.kvpatch.json" ]];then
+					#nDiffRet=1 # success already in the past
+				#fi
+			#else
+				#if [[ -f "${strFileToMerge}.patch" ]];then
+					#nDiffRet=1 # success already in the past
+				#fi
+			#fi
 		fi
+		
 		if $bVerbose;then declare -p nDiffRet;fi
 		case $nDiffRet in
 			0) FUNCechoInfo "[Identical] Skip"; continue;;
@@ -337,7 +392,7 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 		else
 			acmdPatch=(patch -F $nFuzzyPatch -i "${strFlPatch}" -o "${strFlWork}.NEWLY_PATCHED" "$strFlWork") #patch [ORIGINAL_FILE] -i [PATCH_FILE] -o [OUTPUT_FILE]
 		fi
-		declare -p acmdPatch
+		#declare -p acmdPatch
 		ls -l "$strFlWork"
 		set -x;"${acmdPatch[@]}"&&:;nRetPatch=$?;set +x
 		ls -l "$strFlWork"
@@ -394,7 +449,7 @@ if $bApplyEachPatch;then
 	ls -l "$strFlSuccessCfg"
 	
 	astrWorkDB+=("$strScriptFileRelat")
-	IFS=$'\n' read -d '' -r -a astrWorkDB < <(for strFl in "${astrWorkDB[@]}";do echo "$strFl";done |sort -u)&&:
+	mapfile -t astrWorkDB < <(for strFl in "${astrWorkDB[@]}";do echo "$strFl";done |sort -u)
 	declare -p astrWorkDB >"$strFlWorkDatabase"
 	
 	if $bDummyVanilla;then
@@ -403,28 +458,28 @@ if $bApplyEachPatch;then
 	
 	### JSON ###
 	FUNCjsonSet() {
-		jq ".${1} = \"${2}\"" "$strFlJson" |sponge "$strFlJson"
+		FUNCjson ".${1} = \"${2}\"" "$strFlJson" |sponge "$strFlJson"
 	}
 	FUNCjsonSetArray() {
 		local lstrID="$1"
 		local lstrExt="$2"
 		
 		local lastrCfgsList
-		IFS=$'\n' read -d '' -r -a lastrCfgsList < <(jq ".${lstrID}[]" "$strFlJson" |sed -r -e 's@^"@@' -e 's@"$@@' |sort -u)&&:
+		mapfile -t lastrCfgsList < <(FUNCjson ".${lstrID}[]" "$strFlJson" |sed -r -e 's@^"@@' -e 's@"$@@' |sort -u)
 		if [[ -n "$lstrExt" ]] && [[ "${strScriptFileRelat}" =~ .*[.]${lstrExt}$ ]];then
 			lastrCfgsList+=("$(basename "${strScriptFileRelat}")")
 		fi
-		IFS=$'\n' read -d '' -r -a lastrCfgsList < <(for strFl in "${lastrCfgsList[@]}";do echo "$strFl";done |sort -u)&&:
+		mapfile -t lastrCfgsList < <(for strFl in "${lastrCfgsList[@]}";do echo "$strFl";done |sort -u)
 		local lstrArrayCfg=""
 		for((i=0;i<${#lastrCfgsList[@]};i++));do
 			if((i>0));then lstrArrayCfg+=", ";fi
 			lstrArrayCfg+="\"${lastrCfgsList[i]}\"";
 		done
-		#jq '.autoexec_configs = ['"${lstrArrayCfg}"']' "$strFlJson" |sponge "$strFlJson"
-		jq ".${lstrID} = [ ${lstrArrayCfg} ]" "$strFlJson" |sponge "$strFlJson"
+		#FUNCjson '.autoexec_configs = ['"${lstrArrayCfg}"']' "$strFlJson" |sponge "$strFlJson"
+		FUNCjson ".${lstrID} = [ ${lstrArrayCfg} ]" "$strFlJson" |sponge "$strFlJson"
 	}
 	#if [[ ! -f "$strFlJson" ]];then echo "{}" >"$strFlJson";fi
-	if [[ -z "$(jq ".name" "$strFlJson")" ]];then
+	if [[ -z "$(FUNCjson ".name" "$strFlJson")" ]];then
 		FUNCtrash "$strFlJson"
 		echo "{}" >"$strFlJson";
 	fi
