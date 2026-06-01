@@ -1183,8 +1183,8 @@ def _patch_normal_key(
         Args:
                         line:            The raw source line (newline-normalised).
                         full_path:       Dot-path of this key in the current block.
-                        patches:         Flat dot-path -> new-value mapping.
-                        comment_patches: Flat dot-path -> comment string mapping.
+                        patches:         Flat dot-path -> new-value dict (no __comments__).
+                        comment_patches: Flat dot-path -> comment string dict.
                         applied_keys:    Set updated in-place with patched paths.
 
         Returns:
@@ -1385,10 +1385,14 @@ def handle_apply(args) -> None:
         comment_patches: Dict[str, str] = patches.get("__comments__", {})
         patches = {k: v for k, v in patches.items() if k != "__comments__"}
 
-        # ── NEW: Skip cleanly if patch is empty ──
+        # ── Handle empty patch ──
         if not patches and not comment_patches:
                 Logger.info("Patch file is empty. Nothing to apply.")
-                sys.exit(0)
+                if not args.output:
+                        Logger.info("No output file specified, exiting.")
+                        sys.exit(0)
+                Logger.info("Output file specified; will generate output (copy of target).")
+                # Fall through to normal processing & write path
 
         try:
                 with open(args.target, "r", encoding="utf-8", errors="ignore", newline="") as f:
@@ -1435,7 +1439,7 @@ def handle_apply(args) -> None:
         print(f"Missing items:     {len(missing_keys):3d}")
         print("=" * 60)
 
-        if len(applied_keys) == 0:
+        if len(applied_keys) == 0 and requested_keys:
                 Logger.warning("No items were successfully patched!")
                 Logger.warning("This may indicate:")
                 Logger.warning("  - Target file structure differs from expected")
@@ -1558,4 +1562,3 @@ Note:
 
         args = parser.parse_args()
         args.func(args)
-
