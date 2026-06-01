@@ -211,7 +211,7 @@ function FUNCpatchMode() {
 	case $lstrExt in
 		lst|qct|txt|vmt)
 			lbKeyValueDiffMode=true
-			strFlPatch="${lstrFileToMerge}.kvpatch.json"
+			strFlPatch="${lstrFileToMerge}.kvpatch.json" # OBS.: using default patch.json would automatically create the same file but it is not output there, so if it changes there at keyValuPatcher.py, will miss here
 			;;
 		#KEEPinfo: cfg) # see *) uses generic code patcher way
 			#;;
@@ -222,7 +222,7 @@ function FUNCpatchMode() {
 	esac
 	# special files that keys are meant to happen more than once in the same hierarchy nesting depth
 	astrSpecialCodePatchingModeFiles=(
-		# no need, kvpatch supports it now: "resource/closecaption_manifest.txt$"
+		# no need, .kvpatch.json supports it now: "resource/closecaption_manifest.txt$"
 	)
 	strSpecialCodePatchingModeFiles="$(echo "${astrSpecialCodePatchingModeFiles[@]}" |tr ' ' '|')"
 	if [[ -n "$strSpecialCodePatchingModeFiles" ]];then
