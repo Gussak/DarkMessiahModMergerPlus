@@ -19,6 +19,7 @@ _mods/FinalMergedScriptsMaxPriority/*
 // this skips temp dev backups
 _mods/FinalMergedScriptsTopPriority*/*
 _mods/FinalMergedScriptsMaxPriority*/*
+*.layer*
 
 /////////// on meld patches are not easily readable like comparing 2 full files, but patches can be used to recreate the original patched file based on vanilla file!
 //*.patch
