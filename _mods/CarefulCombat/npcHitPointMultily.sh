@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# the HP multiplier is working correctly, just at the docks war seems to have NPCs with hardcoded very low HP, no workaround I guess...
+
 if true;then
 	set -Eeu
 	
@@ -20,7 +22,7 @@ if true;then
 			SECFUNCshowHelpV2 "./allMergerScriptsGenericConfig.sh"
 			SECFUNCshowHelpV2 "${strPathThisModFolderFull}/$0"
 			exit 0
-		elif [[ "$1" == "-a" || "$1" == "--apply" ]];then #help create patched files and their .kvpatch
+		elif [[ "$1" == "-a" || "$1" == "--apply" ]];then #help create patched files and their .kvpatch.json
 			bApplyHP=true
 		else
 			echo "[invalid option] '$1'"
@@ -122,10 +124,10 @@ if true;then
 		if $bApplyHP;then
 			sed -i.bkp -r -e 's@(.*npc_health[^0-9]*)([0-9]*)(.*)@\1'"${nNewHP}"'\3@' "$strFlModded" #|grep npc_health
 			
-			"${strPathMainModFolder}/keyValuePatcher.py" create -o "${strFlModded}.kvpatch" "${astrFlVanillaScript[$strFlNpc]}" "${strFlModded}"
-			ls -l "${strFlModded}.kvpatch"
-			cat "${strFlModded}.kvpatch";echo
-			#read -n 1 -p "keyValuePatcher created: '${strFlModded}.kvpatch'"
+			"${strPathMainModFolder}/keyValuePatcher.py" create "${astrFlVanillaScript[$strFlNpc]}" "${strFlModded}"
+			ls -l "${strFlModded}.kvpatch.json"
+			cat "${strFlModded}.kvpatch.json";echo
+			#read -n 1 -p "keyValuePatcher created: '${strFlModded}.kvpatch.json'"
 		fi
 	done
 
