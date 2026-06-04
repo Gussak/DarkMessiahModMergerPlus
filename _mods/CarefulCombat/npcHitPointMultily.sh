@@ -3,7 +3,7 @@
 # the HP multiplier at mm_game_settings.txt is working correctly, just at the docks war seems to have NPCs with hardcoded very low HP, no workaround I guess...
 # but... for precise tweaking better use this script and a x1 multiplier at mm_game_settings.txt
 
-if true;then
+#if true;then
 	set -Eeu
 	
 	if [[ ! -f "info.json" ]];then echo "[ERROR] run this at this minimod folder";exit 1;fi
@@ -139,7 +139,19 @@ if true;then
 		if $bApplyHP;then
 			sed -i.bkp -r -e 's@(.*npc_health[^0-9]*)([0-9]*)(.*)@\1'"${nNewHP}"'\3@' "$strFlModded" #|grep npc_health
 			
-			"${strPathMainModFolder}/keyValuePatcher.py" create "${astrFlVanillaScript[$strFlNpc]}" "${strFlModded}"
+			"${strPathMainModFolder}/keyValuePatcher.py" create "${astrFlVanillaScript[$strFlNpc]}" "${strFlModded}"&&:;nRet=$?
+			case $nRet in
+				0) FUNCechoInfo "[Identical]";;
+				1) 
+					FUNCechoInfo "[Diff PATCH from MOD vs Vanilla creation (((OK))) ]"
+					;;
+				2) 
+					FUNCechoInfo "[WARNING: diff trouble] try manually"; #this ever happens?
+					"${strExecMerger}" "${astrFlVanillaScript[$strFlNpc]}" "$strFlModded";
+					;;
+				*) FUNCechoInfo "[ERROR: unrecognized diff return value]";exit 1;;
+			esac
+			
 			ls -l "${strFlModded}.kvpatch.json"
 			cat "${strFlModded}.kvpatch.json";echo
 			#read -n 1 -p "keyValuePatcher created: '${strFlModded}.kvpatch.json'"
@@ -148,4 +160,8 @@ if true;then
 
 	##\
 		#|egrep -vi "${strDownloadedModFilesRel}|${strDisabledTmpTestFolderRel}|ModLauncher|AdvancedSDK|OverlayFSworkDirDontTouchThis|IGNORE_LAYER|${strWriteLayer}|${strVanillaLayer}|${strMergedModsFolder}|${strGameInstallMainFolder}"
+#fi
+
+if ! $bApplyHP;then
+	echo "[INFO] !!! Now run it with param --apply to generate the modded files and patches. !!!"
 fi
