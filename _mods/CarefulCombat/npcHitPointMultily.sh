@@ -6,6 +6,8 @@
 if true;then
 	set -Eeu
 	
+	if [[ ! -f "info.json" ]];then echo "[ERROR] run this at this minimod folder";exit 1;fi
+	
 	strPathThisModFolderFull="$(pwd)"
 	declare -p strPathThisModFolderFull
 	
