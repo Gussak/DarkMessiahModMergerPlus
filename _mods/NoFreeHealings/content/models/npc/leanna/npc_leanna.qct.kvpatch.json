@@ -1,6 +1,6 @@
 {
     "air_2.effect": "500",
     "air_2.recovery": "60",
-    "air_2.range_max": "20",
+    "air_2.range_max": "50",
     "air_2.trigger": "0.95"
 }

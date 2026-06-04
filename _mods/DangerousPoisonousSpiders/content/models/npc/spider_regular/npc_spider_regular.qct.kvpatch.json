@@ -1,11 +1,11 @@
 {
-    "$keyvalues.entity_data.AttackCoolMinTime": "3.2",
-    "$keyvalues.entity_data.AttackCoolMaxTime": "5.5",
+    "$keyvalues.entity_data.Poison_Duration": "200",
+    "$keyvalues.entity_data.poisoned": "0.8",
     "$keyvalues.entity_data.AttackBersekerMinTime": "3.2",
     "$keyvalues.entity_data.AttackBersekerMaxTime": "5.5",
+    "$keyvalues.entity_data.AttackCoolMaxTime": "5.5",
     "$keyvalues.entity_data.AttackRythmMinTime": "10.0",
+    "$keyvalues.entity_data.AttackCoolMinTime": "3.2",
     "$keyvalues.entity_data.AttackRythmMaxTime": "15.0",
-    "$keyvalues.entity_data.PlayerNoAttackDelayToGoBersekerMode": "2.0",
-    "$keyvalues.entity_data.Poison_Duration": "200",
-    "$keyvalues.entity_data.poisoned": "0.8"
-}
+    "$keyvalues.entity_data.PlayerNoAttackDelayToGoBersekerMode": "2.0"
+}

@@ -364,7 +364,7 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 		case $nDiffRet in
 			0) FUNCechoInfo "[Identical] Skip"; continue;;
 			1) 
-				FUNCechoInfo "[Diff PATCH from MOD vs Vanilla creation OK]"
+				FUNCechoInfo "[Diff PATCH from MOD vs Vanilla creation (((OK))) ]"
 				if $bShowDiffPerFile;then
 					"$strShowDiffCmd" "$strVanillaScriptFile" "$strFileToMerge"
 				fi
