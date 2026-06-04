@@ -44,7 +44,7 @@ function FUNCbkp() {
 	
 	: ${strCopyToFolder:=""} #help set this to copy it into some backup device
 	
-	astr=("./AddOn/SAVE/" "./mm/SAVE" "./custom/SAVE") #help add folders here if you use any different
+	astr=("./AddOn/SAVE/" "./mm/SAVE" "./custom/SAVE" "./WriteNewDataHereOnly/SAVE") #help add folders here if you use any different
 	strThisPath="$(pwd)"
 	while true;do
 		for str in "${astr[@]}";do
