@@ -1,0 +1,14 @@
+--- /dev/fd/63	2026-06-03 21:59:43.720148829 -0300
++++ /dev/fd/62	2026-06-03 21:59:43.721148829 -0300
+@@ -31,8 +31,9 @@
+ 		//
+ 		SearchPaths
+ 		{
++			Game	WriteNewDataHereOnly
+ 			Game 	mm
+ 			Game	|gameinfo_path|.
+ 		}
+ 	}
+-}
+\ No newline at end of file
++}

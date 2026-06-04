@@ -200,6 +200,7 @@ function FUNCfileRelat() {
 
 function FUNCpatchMode() {
 	local lstrFileToMerge="$1"
+	declare -p lstrFileToMerge >&2
 	
 	local lbKeyValueDiffMode=false
 	local lstrExt="$(echo "${lstrFileToMerge}" |sed -r -e 's@.*[.]([a-zA-Z0-9_]*)$@\1@')"
@@ -208,6 +209,9 @@ function FUNCpatchMode() {
 		FUNCechoInfo "[ERROR] invalid filename without extension '$lstrFileToMerge'" >&2
 		exit 1
 	fi
+	if [[ "$lstrFileToMerge" =~ .*/gameinfo[.]txt$ ]];then
+		lstrExt="ForceCodePatchMode"
+	fi
 	case $lstrExt in
 		lst|qct|txt|vmt)
 			lbKeyValueDiffMode=true
@@ -215,7 +219,7 @@ function FUNCpatchMode() {
 			;;
 		#KEEPinfo: cfg) # see *) uses generic code patcher way
 			#;;
-		*)
+		*) #ForcePatchMode
 			lbKeyValueDiffMode=false
 			strFlPatch="${lstrFileToMerge}.patch"
 			;;
