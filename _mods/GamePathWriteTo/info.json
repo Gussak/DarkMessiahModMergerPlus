@@ -1,7 +1,7 @@
 {
     "name"                  :   "GamePathWriteTo",
     "version"               :   "1.0",
-    "description"           :   "just a top first Game path to distinguish written from installed files TODO: not working",
+    "description"           :   "just a top first Game path to distinguish written from installed files",
     "author"                :   "GussakThor",
     "author_url"            :   "",
     "website"               :   "",
