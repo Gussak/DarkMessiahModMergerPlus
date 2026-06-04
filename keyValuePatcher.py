@@ -67,7 +67,6 @@ FUN_CHARS = "❌ ✖ ✗ ✔ ☑ ✅ ⚙️ ⚠ ⟳ 🔒 ★ ☆ ✦ ✺ ☼ ☾
 NESTING_OPEN = os.getenv("KEYVALUE_NESTING_OPEN", "{")
 NESTING_CLOSE = os.getenv("KEYVALUE_NESTING_CLOSE", "}")
 LINE_ENDING = os.getenv("KEYVALUE_LINE_ENDING", "\r\n")
-DEBUG = os.getenv('KEYVALUE_DEBUG', 'n').lower() in ('y', 'yes', '1', 'true')
 
 # Duplicate key detection
 DUPLICATE_KEYS = os.getenv("KEYVALUE_DUPLICATE_KEYS", "prop_physics,load_file").split(",")
@@ -1514,13 +1513,41 @@ Note:
   - Patch files store keys and values WITHOUT quotes
   - Applied files maintain proper format with quoted keys/values
   - Duplicate keys (prop_physics, load_file) are appended, not overwritten
-  - Dominant multi-keys (KEYVALUE_DOMINANT_MULTI_KEYS) erase all originals and
-        replace them exclusively with the patch values
+  - Dominant multi-keys erase all originals and replace them exclusively
   - Use --prettify to fix indentation to match nesting depth
-  - Set KEYVALUE_DUPLICATE_KEYS env var to customize: "key1,key2,key3"
-                                """,
+
+ENVIRONMENT VARIABLES:
+  KEYVALUE_NESTING_OPEN        Character used to open configuration blocks
+                               (default: "{")
+  KEYVALUE_NESTING_CLOSE       Character used to close configuration blocks
+                               (default: "}")
+  KEYVALUE_LINE_ENDING         Line terminator for generated/patched output
+                               (default: "\\r\\n" for Windows compatibility)
+  KEYVALUE_DUPLICATE_KEYS      Comma-separated keys that can appear multiple
+                               times in a block. New values are APPENDED
+                               rather than overwriting existing ones.
+                               (default: "prop_physics,load_file")
+  KEYVALUE_DOMINANT_MULTI_KEYS Comma-separated. Subset of duplicate keys where patching ERASES
+                               all existing occurrences in a block and replaces
+                               them entirely with the patch values.
+                               (default: "prop_physics")
+  KEYVALUE_DUPLICATE_KEYS_WITHOUT_DUP_VALUES
+                               Comma-separated. Duplicate keys that only append if the exact
+                               key-value pair does not already exist in the
+                               target block. Prevents accidental duplicates.
+                               (default: "load_file")
+  KEYVALUE_VERBOSE_OPTIONS     Modern bitmask logging system. Comma-separated
+                               flags to enable: ERRORS_CORRECTED, BUG_TRACKING,
+                               DEBUG, SHOW_MISSING, FULL
+                               (default: empty/silent mode)
+
+ENVIRONMENT EXAMPLES:
+  # Enable detailed debugging and show missing keys during apply
+  export KEYVALUE_VERBOSE_OPTIONS="DEBUG,SHOW_MISSING"
+""",
                 formatter_class=argparse.RawDescriptionHelpFormatter,
         )
+
         subparsers = parser.add_subparsers(
                 dest="command", required=True, help="Subcommands"
         )

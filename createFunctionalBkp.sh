@@ -4,6 +4,7 @@ tar -cvf GSK_ModMerger_AndMiniMods_FullBkp.tar \
 	--exclude='./Extracted.Quick.TMP' \
 	--exclude='./GSK_ModMerger_AndMiniMods_Release.tar.7z' \
 	--exclude='./GSK_ModMerger_AndMiniMods_FullBkp.tar.7z' \
+	--exclude='./Dark Messiah Might and Magic Single Player.layer*' \
 	.
 	
 ls -l GSK_ModMerger_AndMiniMods_FullBkp.tar
