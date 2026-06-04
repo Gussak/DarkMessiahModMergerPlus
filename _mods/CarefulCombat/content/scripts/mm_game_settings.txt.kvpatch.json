@@ -1,7 +1,7 @@
 {
     "Game.player.HealthCoeffShield": "1",
     "Game.player.HardDifficultyNPCDmgMul": "7",
-    "Game.player.HardDifficultyNPCLifeMul": "21",
+    "Game.player.HardDifficultyNPCLifeMul": "1",
     "Game.player.kick_damage": "18",
     "Game.player.CloseArrowDist": "33",
     "Game.player.CloseArrowDmgScale": "10",

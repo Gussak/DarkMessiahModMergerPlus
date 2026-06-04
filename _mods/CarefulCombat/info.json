@@ -1,7 +1,7 @@
 {
     "name"                  :   "CarefulCombat",
     "version"               :   "1.0",
-    "description"           :   "Be careful what doors you forget opened. Tuffer enemies. Less arrows in quiver. More powerful arrow shots. Stronger kick tho consumes more stamina. ISSUE: during the combat at the dock with the ship, some necroguards are spawning with 35HP that is based in what? Seems hardcoded? From console (developer 1; ent_text) they spawn with correct HP*HardDifficultyNPCLifeMul. There are also others spawning with correct HP tho.",
+    "description"           :   "Be careful what doors you forget opened. Tuffer enemies. Less arrows in quiver. More powerful sneaky arrow shots. Stronger kick tho consumes more stamina. You won't be able to quickly kill most enemies thru simple combat, the idea is to have to throw them on water, on spikes, on fire, sneaky arrow headshots etc. This tweak is only for hard mode, I won't balance it for easy mode. ISSUE: during the combat at the dock with the ship, some necroguards are spawning with 35HP that is based in what? Seems hardcoded? From console (developer 1; ent_text) they spawn with correct HP*HardDifficultyNPCLifeMul. There are also others spawning with correct HP there tho. ",
     "author"                :   "GussakThor",
     "author_url"            :   "",
     "website"               :   "",

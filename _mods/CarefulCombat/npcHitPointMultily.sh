@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# the HP multiplier is working correctly, just at the docks war seems to have NPCs with hardcoded very low HP, no workaround I guess...
+# the HP multiplier at mm_game_settings.txt is working correctly, just at the docks war seems to have NPCs with hardcoded very low HP, no workaround I guess...
+# but... for precise tweaking better use this script and a x1 multiplier at mm_game_settings.txt
 
 if true;then
 	set -Eeu
@@ -90,35 +91,47 @@ if true;then
 	fi
 
 	: ${nMultHP:=21} #help
-	: ${strSpecialNpcRegex:=".*(leanna).*"} #help
-	: ${nSpecialNpcMult:=400} #help
+	
+	: ${astrSpecialNpcs:="models/npc/leanna/npc_leanna.qct,models/npc/leanna_lich/npc_leanna_lich.qct"} #help comma separated
+	: ${anSpecialNpcHP:="200,1200"} #help comma separated
+	
+	astrSpecialNpcs=($(echo "$astrSpecialNpcs" |tr ',' ' '))
+	anSpecialNpcHP=($(echo "$anSpecialNpcHP" |tr ',' ' '))
 	
 	nColW=7
 	astrSortFlNPCs=($(for str in "${!anVanillaValues[@]}";do echo "$str";done |sort))
 	declare -p astrSortFlNPCs
 	strFmt="%-${nColW}s %-${nColW}s %-${nColW}s %s\n"
 	echo
-	printf "$strFmt" "Vanilla" "MaxOtherMods" "Mult" "FlNPC"
-	printf "$strFmt" "Vnl" "MaxOM" "Mult" "FlNPC"
+	printf "$strFmt" "Vanilla" "MaxAtOtherMods" "FinalHP" "FlNPC"
+	printf "$strFmt" "Vnl" "MaxOM" "FinHP" "FlNPC"
 	for strFlNpc in "${astrSortFlNPCs[@]}";do
 		#declare -p strFlNpc
-		if [[ "$strFlNpc" =~ ${strSpecialNpcRegex} ]];then
-			nMultHPfinal=$nSpecialNpcMult
-		else
-			nMultHPfinal=$nMultHP
-		fi
+		nMultHPfinal=$nMultHP
+		#if [[ "$strFlNpc" =~ ${strSpecialNpcRegex} ]];then
+			#nMultHPfinal=$nSpecialNpcMult
+		#else
+			#nMultHPfinal=$nMultHP
+		#fi
 		nNewHP=$((${anVanillaValues[$strFlNpc]} * nMultHPfinal))
+		for((i=0;i<${#astrSpecialNpcs[@]};i++));do
+			if [[ "$strFlNpc" == "${astrSpecialNpcs[i]}" ]];then
+				#nMultHPfinal="${anSpecialNpcHP[i]}"
+				nNewHP="${anSpecialNpcHP[i]}"
+				break
+			fi
+		done
 		strHint=""
 		if((${anMaxOtherModsValues[$strFlNpc]} > nNewHP));then strHint="!";fi
 		printf "$strFmt" "${anVanillaValues[$strFlNpc]}" "${anMaxOtherModsValues[$strFlNpc]}${strHint}" "$nNewHP" "${strFlNpc}"
 		
 		strPathModPatch="${strPathThisModFolderFull}/content/$(dirname "${strFlNpc}")"
-		mkdir -vp "${strPathModPatch}"
+		mkdir -p "${strPathModPatch}"
 		
 		strFlModded="${strPathModPatch}/$(basename "${strFlNpc}")"
 		if [[ ! -f "${strFlModded}" ]];then
-			cp -v "${astrFlVanillaScript[$strFlNpc]}" "${strPathModPatch}/"
-			chmod -v u+w "$strFlModded"
+			cp "${astrFlVanillaScript[$strFlNpc]}" "${strPathModPatch}/"
+			chmod u+w "$strFlModded"
 		fi
 		
 		if $bApplyHP;then
