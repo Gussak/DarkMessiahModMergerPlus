@@ -1,3 +1,18 @@
+Fix the cfg loading for mana regen and eagleeye.
+
+
+
+
+
+
+
+
+
+
+
+
+DONE
+
 Generate detailed help description with examples about the usage of detected environment variables.
 
 Gameinfo.txt shall use .patch
@@ -6,7 +21,6 @@ Npc hp mult x1
 Apply thru script x21
 A few npcs use low hp to keep the defend challenge like leanna.
 
-Fix the cfg loading for mana regen and eagleeye.
 
 
 
