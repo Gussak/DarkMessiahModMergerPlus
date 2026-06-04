@@ -1058,10 +1058,18 @@ def handle_create(args) -> None:
         if comment_patch:
                 output_patch["__comments__"] = comment_patch
 
+        # Sort keys naturally so numerical indices appear in order (1, 2, 10...)
+        def natural_sort_key(key: str):
+                return [int(part) if part.isdigit() else part.lower()
+                        for part in re.split(r'(\d+)', key)]
+
+        sorted_output_patch = dict(sorted(output_patch.items(), key=lambda item: natural_sort_key(item[0])))
+
         try:
                 with open(output_destination, "w", encoding="utf-8", newline="") as f:
-                        json.dump(output_patch, f, indent=4)
+                        json.dump(sorted_output_patch, f, indent=4)
                         f.write(LINE_ENDING)
+
         except IOError as e:
                 Logger.error(f"Failed to write output: {e}")
                 sys.exit(2)
