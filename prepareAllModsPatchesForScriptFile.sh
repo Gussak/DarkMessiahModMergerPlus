@@ -97,6 +97,7 @@ fi
 
 : ${bShowDiffPerFile:=false} #help
 : ${strShowDiffCmd:="${strExecMerger}"} #help try also colordiff
+: ${nFuzzyPatch:=0} #help try nFuzzyPatch=1 This may help to make it easier to provide an initial auto merge? better just review the results...
 
 if $bForceRePatch;then
 	FUNCtrash "$strFinalMergedFolderContent/$strScriptFileRelat" "$strFinalMergedFolderContent/${strScriptFileRelat}.SUCCESS.cfg"&&:
@@ -385,7 +386,6 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 		chmod ugo-w "$strFlPreviouslyPatched" #help if you want to modify a patch, do it in a new mod folder layer instead of using "$strExecMerger" 3way
 		
 		bMergedManually=false
-		: ${nFuzzyPatch:=0} #help try nFuzzyPatch=1 This is very helpful to make it easier to provide an initial auto merge, just review the results
 #		acmdPatch=(patch -F $nFuzzyPatch "$strFlWork" "${strFlPatch}")
 		if $bKeyValueDiffMode;then
 			acmdPatch=("${strPathSelf}/keyValuePatcher.py" apply --prettify --append-missing --output "${strFlWork}.NEWLY_PATCHED" "$strFlWork" "${strFlPatch}") #keyValuePatcher.py apply [-h] [-o OUTPUT] [-a] target patch
