@@ -1,7 +1,7 @@
 {
     "name"                  :   "PauseAfterLoadingGame",
     "version"               :   "1.0",
-    "description"           :   "WIP not working. DependsOn:000gskBaseLib",
+    "description"           :   "WIP not working, try autoPauseAfterSaveGameIsLoaded.sh instead. DependsOn:000gskBaseLib",
     "author"                :   "GussakThor",
     "author_url"            :   "",
     "website"               :   "",

@@ -1,6 +1,6 @@
---- /dev/fd/63	2026-06-08 01:31:13.918051130 -0300
-+++ /dev/fd/62	2026-06-08 01:31:13.918051130 -0300
-@@ -30,4 +30,8 @@
+--- /dev/fd/63	2026-06-08 01:31:29.966033900 -0300
++++ /dev/fd/62	2026-06-08 01:31:29.966033900 -0300
+@@ -30,4 +30,9 @@
  fog_enable 0 
  
  //Required if using Unlimited Edition Mod:
@@ -10,4 +10,5 @@
 +
 +//The only way to grant evey cfg will be loaded in order is in this file? so better append it all here thru patches.
 +//MERGE at the end of game.cfg as override
-+exec bloodymana.cfg
++exec gskEnabledBinds.cfg
++exec gskShowAllKeyBindings.cfg
