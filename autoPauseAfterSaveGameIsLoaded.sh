@@ -33,7 +33,7 @@ set -Eeu -o pipefail
 
 egrep "[#]help" "$0"
 
-: ${strGameSubFolderCore:="AddOn"};export strGameSubFolderCore #help I know of: mm custom AddOn(overhaul mod)
+: ${strGameSubFolderCore:="WriteNewDataHereOnly"};export strGameSubFolderCore #help I know of: mm custom AddOn(overhaul mod) and the new one WriteNewDataHereOnly
 
 : ${strFlHint:="$HOME/Wine/DarkMessiahOfMightAndMagic.win32/drive_c/Games/Dark Messiah Might and Magic Single Player/${strGameSubFolderCore}/demoheader.tmp"};export strFlHint #help overrides strGameSubFolderCore
 
