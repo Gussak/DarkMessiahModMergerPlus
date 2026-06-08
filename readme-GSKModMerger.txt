@@ -91,6 +91,8 @@ Example of OverlayFS folders (I used ScriptEchoColor's `secOverrideMultiLayerMou
 	
 This structure is necessary also to let the merger scripts work properly. But you need to properly place each mod's extracted files inside them by following their instructions to create paths like `mm/scripts/...`, this way the merger script will know what to do. Any difficulties I can give tips.
 
+Important! after editing files in the mod's folders layers, umount and remount or OverlayFS may fail!
+
 ___
 
 LINUX(troubleShutting):
