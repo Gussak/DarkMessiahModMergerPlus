@@ -6,17 +6,18 @@
 #if true;then
 	set -Eeu
 	
-	if [[ ! -f "info.json" ]];then echo "[ERROR] run this at this minimod folder";exit 1;fi
+	#if [[ ! -f "info.json" ]];then echo "[ERROR] run this at this minimod folder";exit 1;fi
 	
-	strPathThisModFolderFull="$(pwd)"
-	declare -p strPathThisModFolderFull
+	while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
+	#strPathThisModFolderFull="$(pwd)"
+	#declare -p strPathThisModFolderFull
 	
-	strPathThisModFolderBN="$(basename "${strPathThisModFolderFull}")"
-	declare -p strPathThisModFolderBN
+	#strPathThisModFolderBN="$(basename "${strPathThisModFolderFull}")"
+	#declare -p strPathThisModFolderBN
 	
-	cd "../../"
-	strPathMainModFolder="$(pwd)"
-	source "./allMergerScriptsGenericConfig.sh"
+	#cd "../../"
+	#strPathMainModFolder="$(pwd)"
+	#source "./allMergerScriptsGenericConfig.sh"
 
 	: ${bApplyHP:=false} #help
 	while ! ${1+false} && [[ "${1:0:1}" == "-" ]];do # checks if param is set

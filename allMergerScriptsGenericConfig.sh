@@ -134,6 +134,7 @@ done
 declare -p strScriptsExtRegexEsc strScriptsExtRegexNorm >&3
 
 strPathSelf="$(pwd)"
+strPathMainModFolder="${strPathSelf}"
 if [[ ! -f "${strPathSelf}/$(basename "$0")" ]];then
 	echo "[ERROR] failed to determine ModMerger path: current path '$strPathSelf' doesnt contain $(basename "$0")"
 	exit 1
@@ -463,23 +464,56 @@ function SECFUNCshowHelpV2() { #help TODO WIP making it much easier to maintain!
 	echo
 }
 
+#function FUNCparseJson() {
+	#local lstrFlJson="$1";shift
+	#local lstrFilterJson="$1";shift
+	#exec 5> >(lstrStdErr=$(cat))
+	##cat "$lstrFlJson" |jq "${lstrFilterJson}" 3>&1 1>&2 2>&3
+	#cat "$lstrFlJson" |jq "${lstrFilterJson}" 2>&5
+	#exec 5>&- #close custom descriptor
+#}
 function FUNCjson() {
-	jq "$@"&&:;local lnRet=$?
+	local lbIgnoreMissing=false
+	if [[ "$1" == --ignoremissing ]];then shift;lbIgnoreMissing=true;fi
+	
+	local lstrFlJson="$1";shift
+	local lstrFilterJson="$1";shift
+	
+	#local lstrStdErr="$(FUNCparseJson "$lstrFlJson" "$lstrFilterJson")"&&:;local lnRet=$?
+	#local lstrStdErr="$( { FUNCparseJson "$lstrFlJson" "$lstrFilterJson"; } 3>&1 1>&2 2>&3)"&&:;local lnRet=$?
+	#FUNCparseJson "$lstrFlJson" "$lstrFilterJson"&&:;local lnRet=$?
+
+	#local lstrStdErr
+	#exec 5> >(lstrStdErr="$(cat)")
+	##cat "$lstrFlJson" |jq "${lstrFilterJson}" 3>&1 1>&2 2>&3
+	#cat "$lstrFlJson" |jq "${lstrFilterJson}" 2>&5 &&:;local lnRet=$?
+	#declare -p lstrStdErr >&2
+	#exec 5>&- #close custom descriptor
+	
+	local lstrFlErr="$(mktemp -p /dev/shm)"
+	cat "$lstrFlJson" |jq "${lstrFilterJson}" 2>"${lstrFlErr}" &&:;local lnRet=$?
+	local lstrStdErr="$(cat "$lstrFlErr")"
+	rm "$lstrFlErr"
+	#declare -p lstrStdErr >&2
+	
+	#jq "$@"&&:;local lnRet=$? # jq outputs data here
 	if((lnRet==1 || lnRet==0));then return 0;fi
+	if((lnRet==5)) && $lbIgnoreMissing;then return 0;fi
 	case $lnRet in
-		2|3|4) echo jq "$@" >&2;FUNCechoInfo "[ERROR] in 'jq'" >&2; exit 1;;
-		*)     echo jq "$@" >&2;FUNCechoInfo "[ERROR] UNKNOWN in 'jq'" >&2; exit 1;;
+		2|3|4) echo jq "$@" >&2;FUNCechoInfo "[ERROR:${FUNCNAME[@]-}] in 'jq': \`$@\` # ${lstrStdErr}" >&2; exit 1;;
+		*)     echo jq "$@" >&2;FUNCechoInfo "[ERROR:${FUNCNAME[@]-}] UNKNOWN($lnRet) in 'jq': \`$@\` # ${lstrStdErr}" >&2; exit 1;;
 	esac
+	
 	return 0;
 };export -f FUNCjson
 FUNCjsonSet() {
 	local lstrFlJson="$1";shift
-	FUNCjson ".${1} = \"${2}\"" "$lstrFlJson" |sponge "$lstrFlJson"
+	FUNCjson "$lstrFlJson" ".${1} = \"${2}\"" |sponge "$lstrFlJson"
 }
 function FUNCjsonGetArray() {
 	local lstrFlJson="$1";shift
 	local lstrID="$1";shift
-	FUNCjson ".${lstrID}[]" "$lstrFlJson" |sed -r -e 's@^"@@' -e 's@"$@@' |sort -u
+	FUNCjson --ignoremissing "$lstrFlJson" ".${lstrID}[]" |sed -r -e 's@^"@@' -e 's@"$@@' |sort -u
 }
 FUNCjsonSetArray() {
 	local lstrFlJson="$1";shift
@@ -488,9 +522,30 @@ FUNCjsonSetArray() {
 	
 	local lstrArrayCfg=""
 	for((i=0;i<${#lastrCfgsList[@]};i++));do
+		if [[ -z "${lastrCfgsList[i]}" ]];then continue;fi
 		if((i>0));then lstrArrayCfg+=", ";fi
 		lstrArrayCfg+="\"${lastrCfgsList[i]}\"";
 	done
-	FUNCjson ".${lstrID} = [ ${lstrArrayCfg} ]" "$lstrFlJson" |sponge "$lstrFlJson"
+	FUNCjson "$lstrFlJson" ".${lstrID} = [ ${lstrArrayCfg} ]" |sponge "$lstrFlJson"
 }
 
+function FUNCminiModInit() {
+	# go to the path of the real file
+	if [[ -L "$0" ]];then cd "$(dirname "$(readlink "$0")")";fi # a link at main mod root folder pointing to some minimod sub folder
+	if [[ ! -f "$(basename "$0")" ]];then cd "$(dirname "$0")";fi # in case run by using some relative or absolute path
+	
+	declare -g strPathThisModFolderFull="$(pwd)";declare -p strPathThisModFolderFull >&2
+	declare -g strPathThisModFolderBN="$(basename "${strPathThisModFolderFull}")";declare -p strPathThisModFolderBN >&2
+	
+	#while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done
+	#declare -g strPathMainModFolder="$(pwd)"
+	
+	#source "./allMergerScriptsGenericConfig.sh"
+	
+	if [[ $# -gt 0 &&  "$1" == "--help" ]];then #help show this help
+		#egrep "[#]help" "./allMergerScriptsGenericConfig.sh" "$0" |sed -r -e 's@^[ \t]*@@'
+		SECFUNCshowHelpV2 "${strPathMainModFolder}/allMergerScriptsGenericConfig.sh"
+		SECFUNCshowHelpV2 "${strPathThisModFolderFull}/$0"
+		exit
+	fi
+}

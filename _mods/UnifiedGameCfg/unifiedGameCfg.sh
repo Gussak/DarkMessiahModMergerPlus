@@ -31,26 +31,24 @@
 
 source "./allMergerScriptsGenericConfig.sh"
 
+#function FUNCseekMainModFolderRoot() {
+	#if [[ -L "$0" ]];then cd "$(dirname "$(readlink "$0")")";fi
+	#strPathThisModFolderFull="$(pwd)";declare -p strPathThisModFolderFull >&2
+	#strPathThisModFolderBN="$(basename "${strPathThisModFolderFull}")";declare -p strPathThisModFolderBN >&2
+	#while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done
+	#strPathMainModFolder="$(pwd)"
+	#source "./allMergerScriptsGenericConfig.sh"
+	#if [[ $# -gt 0 &&  "$1" == "--help" ]];then #help show this help
+		##egrep "[#]help" "./allMergerScriptsGenericConfig.sh" "$0" |sed -r -e 's@^[ \t]*@@'
+		#SECFUNCshowHelpV2 "./allMergerScriptsGenericConfig.sh"
+		#SECFUNCshowHelpV2 "${strPathThisModFolderFull}/$0"
+		#exit
+	#fi
+#}
+
 #set -x
 if true;then
-	strPathThisModFolderFull="$(pwd)"
-	declare -p strPathThisModFolderFull
-	
-	strPathThisModFolderBN="$(basename "${strPathThisModFolderFull}")"
-	declare -p strPathThisModFolderBN
-	
-	cd "../../"
-	strPathMainModFolder="$(pwd)"
-	source "./allMergerScriptsGenericConfig.sh"
-
-	while ! ${1+false} && [[ "${1:0:1}" == "-" ]];do # checks if param is set
-		if [[ "$1" == "--help" ]];then #help show this help
-			#egrep "[#]help" "./allMergerScriptsGenericConfig.sh" "$0" |sed -r -e 's@^[ \t]*@@'
-			SECFUNCshowHelpV2 "./allMergerScriptsGenericConfig.sh"
-			SECFUNCshowHelpV2 "${strPathThisModFolderFull}/$0"
-			exit
-		fi
-	done
+	while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
 	
 	mapfile -t astrFlInfoList < <(find "${strPathParent}/" -iname "info.json")
 	#declare -p astrFlInfoList
@@ -61,25 +59,38 @@ if true;then
 #		if egrep -q '"game_configs".*[.]cfg"' "$strFlInfo";then #this will match all "...cfg" but will ignored patched files with "...cfg-"
 		#if egrep -q '"game_configs".*[.]cfg' "$strFlInfo";then
 		mapfile -t lastrCfgsList < <(FUNCjsonGetArray "$strFlInfo" game_configs)
-		declare -p lastrCfgsList
-		if [[ "${lastrCfgsList[*]}" =~ .*[.]cfg.* ]];then
+		mapfile -t lastrCfgsBkpList < <(FUNCjsonGetArray "$strFlInfo" game_configs_bkp)
+		declare -p lastrCfgsList lastrCfgsBkpList
+		if [[ "${lastrCfgsList[*]}" =~ .*[.]cfg.* ]] || [[ "${lastrCfgsBkpList[*]}" =~ .*[.]cfg.* ]];then
 			#if ! egrep -q '"game_configs".*[.]cfg-"' "$strFlInfo";then
-			if [[ ! "${lastrCfgsList[*]}" =~ .*[.]cfg-.* ]];then
+			#if [[ ! "${lastrCfgsList[*]}" =~ .*[.]cfg-.* ]];then
+			#if ! egrep -q '"game_configs_bkp"' "$strFlInfo";then
+			if((${#lastrCfgsBkpList[*]}==0));then
 				cp -v "$strFlInfo" "${strFlInfo}.bkp"
+				FUNCjsonSetArray "$strFlInfo" game_configs_bkp "${lastrCfgsList[@]}"
+				FUNCjsonSetArray "$strFlInfo" game_configs     "" #"${lastrCfgsList[@]}"
 			fi
 			
-			lastrCfgsAllList+=("${lastrCfgsList[@]}")
-			for((i=0;i<${#lastrCfgsList[@]};i++));do
-				if [[ ! "${lastrCfgsList[i]}" =~ .*[.]cfg-$ ]];then
-					lastrCfgsList[$i]="${lastrCfgsList[i]}-" #this is just to break the filename like "...cfg-" preventing it being found, as it will be loaded thru the unified way
-				fi
-			done
-			declare -p lastrCfgsList
-			FUNCjsonSetArray "$strFlInfo" game_configs "${lastrCfgsList[@]}"
+			lastrCfgsAllList+=("${lastrCfgsList[@]}" "${lastrCfgsBkpList[@]}")
+			#for((i=0;i<${#lastrCfgsList[@]};i++));do
+				#if [[ ! "${lastrCfgsList[i]}" =~ .*[.]cfg-$ ]];then
+					#lastrCfgsList[$i]="${lastrCfgsList[i]}-" #this is just to break the filename like "...cfg-" preventing it being found, as it will be loaded thru the unified way
+				#fi
+			#done
+			#declare -p lastrCfgsList
+			#FUNCjsonSetArray "$strFlInfo" game_configs "" #"${lastrCfgsList[@]}"
 		fi
+		#declare -p lastrCfgsAllList;exit
 	done
 	declare -p lastrCfgsAllList
+
 	echo
+	echo "[EXISTING] at '$strMergedModsFolder'"
+	#egrep "exec " "${strPathSelf}/_mods/FinalMergedScriptsMaxPriority/content/cfg/game.cfg"
+	egrep "exec " "${strMergedModsFolder}/content/cfg/game.cfg"
+	
+	echo
+	echo "[MISSING?]"
 	for strFlCfg in "${lastrCfgsAllList[@]}";do
 		if [[ "$strFlCfg" =~ ^unlimitededition[.]cfg.* ]];then continue;fi # already at main game.cfg from Overhaul mod
 		echo "exec ${strFlCfg%-}"
@@ -97,7 +108,5 @@ if true;then
 		#:
 	#done
 	
-	echo
-	egrep "exec " "${strPathSelf}/_mods/FinalMergedScriptsMaxPriority/content/cfg/game.cfg"
-	
+
 fi
