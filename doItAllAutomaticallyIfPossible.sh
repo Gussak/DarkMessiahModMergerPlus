@@ -101,4 +101,6 @@ if true;then
 		echo "$strChk" |grep -v :0 |sed -r -e 's@(.*)[.]log:.*@\1@'
 		FUNCechoInfo "[WARNING] the above may be a bad thing. Better review if the .kvpach.json were really applied for them!"
 	fi
+	
+	FUNCechoInfo "[INFO] You should now run: ./unifiedGameCfg.sh"
 fi
