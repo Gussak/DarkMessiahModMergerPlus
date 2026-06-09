@@ -172,7 +172,7 @@ alias FUNCechoInfo='echo "[$(basename "$0"):$LINENO]"'
 	#echo "[$(basename "$0")] $@"
 #}
 
-strFlJson="$strMergedModsFolder/info.json"
+strFlFinalMergerModJson="$strMergedModsFolder/info.json"
 
 astrKnownGameModRelativeFolders=( #help from mini mods or overhaul EDIT THIS LINE TO ADD NEW ONES IF EVER
 	mm #vanilla, also used by many mods
@@ -462,3 +462,35 @@ function SECFUNCshowHelpV2() { #help TODO WIP making it much easier to maintain!
 	
 	echo
 }
+
+function FUNCjson() {
+	jq "$@"&&:;local lnRet=$?
+	if((lnRet==1 || lnRet==0));then return 0;fi
+	case $lnRet in
+		2|3|4) echo jq "$@" >&2;FUNCechoInfo "[ERROR] in 'jq'" >&2; exit 1;;
+		*)     echo jq "$@" >&2;FUNCechoInfo "[ERROR] UNKNOWN in 'jq'" >&2; exit 1;;
+	esac
+	return 0;
+};export -f FUNCjson
+FUNCjsonSet() {
+	local lstrFlJson="$1";shift
+	FUNCjson ".${1} = \"${2}\"" "$lstrFlJson" |sponge "$lstrFlJson"
+}
+function FUNCjsonGetArray() {
+	local lstrFlJson="$1";shift
+	local lstrID="$1";shift
+	FUNCjson ".${lstrID}[]" "$strFlJson" |sed -r -e 's@^"@@' -e 's@"$@@' |sort -u
+}
+FUNCjsonSetArray() {
+	local lstrFlJson="$1";shift
+	local lstrID="$1";shift
+	local lastrCfgsList=("$@")
+	
+	local lstrArrayCfg=""
+	for((i=0;i<${#lastrCfgsList[@]};i++));do
+		if((i>0));then lstrArrayCfg+=", ";fi
+		lstrArrayCfg+="\"${lastrCfgsList[i]}\"";
+	done
+	FUNCjson ".${lstrID} = [ ${lstrArrayCfg} ]" "$lstrFlJson" |sponge "$lstrFlJson"
+}
+
