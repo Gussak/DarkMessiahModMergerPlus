@@ -90,7 +90,7 @@ if true;then
 	egrep "exec " "${strMergedModsFolder}/content/cfg/game.cfg"
 	
 	echo
-	echo "[MISSING?]"
+	echo "[MISSING?] append here at a 'content/cfg/game.cfg' copy from first match found (probably at Overhaul mod)"
 	for strFlCfg in "${lastrCfgsAllList[@]}";do
 		if [[ "$strFlCfg" =~ ^unlimitededition[.]cfg.* ]];then continue;fi # already at main game.cfg from Overhaul mod
 		echo "exec ${strFlCfg%-}"
