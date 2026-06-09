@@ -256,7 +256,7 @@ if ! which "$strExecMerger" >&3;then
 fi
 
 echo  >&3
-declare -p strMergedModsFolder strDisabledTmpTestFolderRel strDownloadedModFilesRel strVanillaLayer strVanillaScriptsPath strWriteLayer strFinalMergedFolderContent strFinalDummyHelperFolder strFlJson astrKnownGameModRelativeFolders strRegexKGMRF >&3
+declare -p strMergedModsFolder strDisabledTmpTestFolderRel strDownloadedModFilesRel strVanillaLayer strVanillaScriptsPath strWriteLayer strFinalMergedFolderContent strFinalDummyHelperFolder strFlFinalMergerModJson astrKnownGameModRelativeFolders strRegexKGMRF >&3
 echo >&3
 
 FUNCtrash() {
@@ -479,7 +479,7 @@ FUNCjsonSet() {
 function FUNCjsonGetArray() {
 	local lstrFlJson="$1";shift
 	local lstrID="$1";shift
-	FUNCjson ".${lstrID}[]" "$strFlJson" |sed -r -e 's@^"@@' -e 's@"$@@' |sort -u
+	FUNCjson ".${lstrID}[]" "$lstrFlJson" |sed -r -e 's@^"@@' -e 's@"$@@' |sort -u
 }
 FUNCjsonSetArray() {
 	local lstrFlJson="$1";shift
