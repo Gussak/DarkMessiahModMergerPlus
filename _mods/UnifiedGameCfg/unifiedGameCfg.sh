@@ -50,7 +50,7 @@ source "./allMergerScriptsGenericConfig.sh"
 if true;then
 	while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
 	
-	mapfile -t astrFlInfoList < <(find "${strPathParent}/" -iname "info.json")
+	mapfile -t astrFlInfoList < <(find -L "${strPathParent}/" -iregex ".*[.]layer.*/info.json" |grep -v IGNORE_LAYER |sort -u)
 	#declare -p astrFlInfoList
 	lastrCfgsAllList=()
 	for strFlInfo in "${astrFlInfoList[@]}";do
@@ -110,3 +110,7 @@ if true;then
 	
 
 fi
+
+echo "[INFO] the below command will add a debug info in every game.cfg file. Run only once and only if you know what you are doing!"
+tail -n 2 $0
+#help: clear;find -L ./ -iregex ".*[.]layer.*/game.cfg" -exec bash -c "chmod u+w '{}'; echo -e '\necho \"DEBUG:{}\"' >>'{}'" \;

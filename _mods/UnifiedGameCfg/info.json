@@ -1,7 +1,7 @@
 {
     "name"                  :   "UnifiedGameCfg",
     "version"               :   "1.0",
-    "description"           :   "This will grant all .cfg loaded when a game is loaded happens only thru the cfg/game.cfg flow, making it more predictable.",
+    "description"           :   "This will grant all .cfg loaded when a game is loaded happens only thru the '_mods/FinalMergedScriptsMaxPriority/content/cfg/game.cfg' flow (load as last minimod), making it more predictable. Tho... condump still shows cfgs being loaded out of order...",
     "author"                :   "GussakThor",
     "author_url"            :   "",
     "website"               :   "",
