@@ -1,9 +1,0 @@
-Fix the cfg loading for mana regen and eagleeye.
-
-
-
-
-
-DONE
-
-
