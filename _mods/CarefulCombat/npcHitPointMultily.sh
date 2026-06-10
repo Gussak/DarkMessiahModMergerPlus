@@ -124,7 +124,21 @@
 
 	: ${nMultHP:=21} #help
 	
-	: ${astrSpecialNpcs:="models/npc/leanna/npc_leanna.qct=Vanilla,models/npc/crow/npc_crow.qct=Vanilla,models/npc/dog/npc_dog.qct=Vanilla,models/npc/menelag/npc_menelag.qct=Vanilla,models/npc/pig/pig.qct=Vanilla"} #help comma separated. use file=<numericValue> or file=Vanilla. All non hostiles (friendlies) and uniques, I am keeping vanilla, as we are intended to defend them right? it is about keeping it a challenging "defend them" quest (WIP).
+	astrSpecialNpcsTmp=(
+		models/npc/leanna/npc_leanna.qct=Vanilla
+		models/npc/crow/npc_crow.qct=Vanilla
+		models/npc/dog/npc_dog.qct=Vanilla
+		models/npc/menelag/npc_menelag.qct=Vanilla
+		models/npc/pig/pig.qct=Vanilla
+		models/npc/orc/npc_orc.qct=*210
+		models/npc/orc_chief/npc_orc_chief.qct=*42
+		models/npc/necromancer/npc_necromancer.qct=*210
+		models/npc/necromancer_lord/npc_necromancer_lord.qct=*42
+		models/npc/necroguard/npc_necroguard.qct=*210
+		models/npc/necroguard_undead/npc_necroguard_undead.qct=*126
+		models/npc/necrocivilian/npc_necrocivilian.qct=*63
+	)
+	: ${astrSpecialNpcs:="$(echo "${astrSpecialNpcsTmp[*]}" |tr ' ' ',')"} #help comma separated. use file=<numericValue> or file=Vanilla. All non hostiles (friendlies) and uniques, I am keeping vanilla, as we are intended to defend them right? it is about keeping it a challenging "defend them" quest (WIP).
 	#: ${anSpecialNpcHP:="200,1200"} #help comma separated
 	
 	astrSpecialNpcs=($(echo "$astrSpecialNpcs" |tr ',' ' '))
@@ -163,6 +177,8 @@
 				#declare -p nNewHPcheck
 				if [[ "$nNewHPcheck" == Vanilla ]];then
 					nNewHP="$((nVanillaHP+1))" # +1 is just a trick to grant the patch override
+				elif [[ "${nNewHPcheck:0:1}" == "*" ]];then
+					nNewHP=$((nVanillaHP * ${nNewHPcheck:1}))
 				else
 					nNewHP="$nNewHPcheck"
 				fi
