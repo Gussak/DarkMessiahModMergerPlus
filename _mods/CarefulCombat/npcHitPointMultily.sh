@@ -1,5 +1,34 @@
 #!/bin/bash
 
+#	BSD 3-Clause License
+#
+#	Copyright (c) 2026, Gussak
+#
+#	Redistribution and use in source and binary forms, with or without
+#	modification, are permitted provided that the following conditions are met:
+#
+#	1. Redistributions of source code must retain the above copyright notice, this
+#		 list of conditions and the following disclaimer.
+#
+#	2. Redistributions in binary form must reproduce the above copyright notice,
+#		 this list of conditions and the following disclaimer in the documentation
+#		 and/or other materials provided with the distribution.
+#
+#	3. Neither the name of the copyright holder nor the names of its
+#		 contributors may be used to endorse or promote products derived from
+#		 this software without specific prior written permission.
+#
+#	THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+#	AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+#	IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+#	DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+#	FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+#	DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+#	SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+#	CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+#	OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+#	OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
 # the HP multiplier at mm_game_settings.txt is working correctly, just at the docks war seems to have NPCs with hardcoded very low HP, no workaround I guess...
 # but... for precise tweaking better use this script and a x1 multiplier at mm_game_settings.txt
 
@@ -95,11 +124,20 @@
 
 	: ${nMultHP:=21} #help
 	
-	: ${astrSpecialNpcs:="models/npc/leanna/npc_leanna.qct,models/npc/leanna_lich/npc_leanna_lich.qct"} #help comma separated
-	: ${anSpecialNpcHP:="200,1200"} #help comma separated
+	: ${astrSpecialNpcs:="models/npc/leanna/npc_leanna.qct=Vanilla,models/npc/crow/npc_crow.qct=Vanilla,models/npc/dog/npc_dog.qct=Vanilla,models/npc/menelag/npc_menelag.qct=Vanilla,models/npc/pig/pig.qct=Vanilla"} #help comma separated. use file=<numericValue> or file=Vanilla. All non hostiles (friendlies) and uniques, I am keeping vanilla, as we are intended to defend them right? it is about keeping it a challenging "defend them" quest (WIP).
+	#: ${anSpecialNpcHP:="200,1200"} #help comma separated
 	
 	astrSpecialNpcs=($(echo "$astrSpecialNpcs" |tr ',' ' '))
-	anSpecialNpcHP=($(echo "$anSpecialNpcHP" |tr ',' ' '))
+	declare -p astrSpecialNpcs
+	for((i=0;i<${#astrSpecialNpcs[@]};i++));do
+		echo "astrSpecialNpcs[$i]=${astrSpecialNpcs[$i]}"
+		strFl="$(echo "${astrSpecialNpcs[i]}" |sed -r -e 's@(.*)=(.*)@\1@')"
+		nHP="$(  echo "${astrSpecialNpcs[i]}" |sed -r -e 's@(.*)=(.*)@\2@')"
+		astrSpecialNpcs[$i]="$strFl"
+		anSpecialNpcHP[$i]="$nHP"
+	done
+	#anSpecialNpcHP=($(echo "$anSpecialNpcHP" |tr ',' ' '))
+	declare -p astrSpecialNpcs anSpecialNpcHP
 	
 	nColW=7
 	astrSortFlNPCs=($(for str in "${!anVanillaValues[@]}";do echo "$str";done |sort))
@@ -116,17 +154,27 @@
 		#else
 			#nMultHPfinal=$nMultHP
 		#fi
-		nNewHP=$((${anVanillaValues[$strFlNpc]} * nMultHPfinal))
+		nVanillaHP=$((${anVanillaValues[$strFlNpc]}))
+		nNewHP=$((nVanillaHP * nMultHPfinal))
+		#declare -p nVanillaHP nNewHP
 		for((i=0;i<${#astrSpecialNpcs[@]};i++));do
 			if [[ "$strFlNpc" == "${astrSpecialNpcs[i]}" ]];then
-				#nMultHPfinal="${anSpecialNpcHP[i]}"
-				nNewHP="${anSpecialNpcHP[i]}"
+				nNewHPcheck="${anSpecialNpcHP[i]}"
+				#declare -p nNewHPcheck
+				if [[ "$nNewHPcheck" == Vanilla ]];then
+					nNewHP="$((nVanillaHP+1))" # +1 is just a trick to grant the patch override
+				else
+					nNewHP="$nNewHPcheck"
+				fi
 				break
 			fi
 		done
+		#declare -p nVanillaHP nNewHP
 		strHint=""
-		if((${anMaxOtherModsValues[$strFlNpc]} > nNewHP));then strHint="!";fi
-		printf "$strFmt" "${anVanillaValues[$strFlNpc]}" "${anMaxOtherModsValues[$strFlNpc]}${strHint}" "$nNewHP" "${strFlNpc}"
+		strHint2=""
+		if((${anMaxOtherModsValues[$strFlNpc]} > nNewHP));then strHint+="!";fi
+		if((${anVanillaValues[$strFlNpc]} == (nNewHP - 1) ));then strHint2+="!";fi
+		printf "$strFmt" "${anVanillaValues[$strFlNpc]}" "${anMaxOtherModsValues[$strFlNpc]}${strHint}" "${nNewHP}${strHint2}" "${strFlNpc}"
 		
 		strPathModPatch="${strPathThisModFolderFull}/content/$(dirname "${strFlNpc}")"
 		mkdir -p "${strPathModPatch}"

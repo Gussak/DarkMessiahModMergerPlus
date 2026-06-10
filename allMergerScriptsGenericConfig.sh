@@ -55,7 +55,7 @@ fi
 : ${bDoPrivacyChecks:=true} #help
 if $bDoPrivacyChecks;then
 	#KEEPinfo: if egrep "$USER" * -iRnIa |egrep -v ".SUCCESS.cfg:|.log:";then #this may end weird
-	if egrep "$USER" * -iRnIa --exclude="*.SUCCESS.cfg" --exclude="*.log" --exclude="*.bkp" --exclude="*.pyc";then
+	if egrep "$USER" * -iRnIa --exclude="*.SUCCESS.cfg" --exclude="*.log" --exclude="*.bkp" --exclude="*.pyc" || ls -lR |egrep "[-]>.*$USER";then
 		echo "[PROBLEM:] user name found in files that go to git"
 		
 		#strTimeStampRegex="[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}[.][0-9]{9} [+-][0-9]{4}"
