@@ -31,7 +31,17 @@
 
 set -Eeu #use this specifically, not to everything or |grep results will fail...: set -o pipefail
 
-trap 'echo "Ctrl+C pressed, exiting..."; exit 1' INT
+FUNCexit() {
+	if [[ $* -gt 0 ]];then
+		if(($1 != 0));then
+			read -n 1 -p "[ERROR] $1" >&2 #because the script keeps running and wont stop not abruptly exit to terminal anymore!!!! :(, this is the only way to see problems now... :(
+		fi
+		exit $1
+	fi
+	exit 0
+}
+trap 'echo "Ctrl+C pressed, exiting..." >&2; exit 1' INT
+#trap 'read -n 1 -p "Ctrl+C pressed, exiting..." >&2; exit 1' INT
 
 : ${bVerbose:=false} #help enable this to see auto configured variables thru `declare`
 exec 3>/dev/null   # Point FD 3 to /dev/null
@@ -64,7 +74,7 @@ if $bDoPrivacyChecks;then
 			optWrite="-i.bkp";optWrite="";FUNCfixPatchFiles(){ echo;echo ">>>>>>>>>>>>>> $1";sed $optWrite -r -e 's,^(---)([^\t]*)\t(.*),\1 /dev/fd/63\t\3,g' -e 's,^([+][+][+])([^\t]*)\t(.*),\1 /dev/fd/62\t\3,g' "$1"; };export -f FUNCfixPatchFiles;find -iname "*.patch" -exec bash -c "FUNCfixPatchFiles '{}'" \;
 		fi
 		
-		exit 1
+		FUNCexit 1
 	fi
 fi
 
@@ -106,7 +116,7 @@ if [[ -z "$strOSEnvType" ]];then
 		*)
 			echo "[Environment: Unknown ($OS_ENV)]"
 			echo "override strOSEnvType"
-			exit 1
+			FUNCexit 1
 			;;
 	esac
 fi
@@ -137,18 +147,18 @@ strPathSelf="$(pwd)"
 strPathMainModFolder="${strPathSelf}"
 if [[ ! -f "${strPathSelf}/$(basename "$0")" ]];then
 	echo "[ERROR] failed to determine ModMerger path: current path '$strPathSelf' doesnt contain $(basename "$0")"
-	exit 1
+	FUNCexit 1
 fi
 strPathParent="$(dirname "$strPathSelf")" #help This is the folder where all Layers are placed, it is the parent of game main folder. this is important to be detected like that in case this path is a symlink! when using '../' would navigate to the realpath!
 
 : ${strGameInstallMainFolder:="${strPathParent}/Dark Messiah Might and Magic Single Player"} #help vanilla game installed main folder
 
 : ${strVanillaLayer:="$(ls -d "${strGameInstallMainFolder}"*VanillaGameFiles*)"} #help vanilla game installed files' folder
-if [[ ! -d "$strVanillaLayer" ]];then echo "ERROR: vanilla layer not found";exit 1;fi
+if [[ ! -d "$strVanillaLayer" ]];then echo "ERROR: vanilla layer not found";FUNCexit 1;fi
 
 #: ${strVanillaScriptsFolder:="${strGameInstallMainFolder}.layer004.VanillaExtractedTextFiles.IGNORE_LAYER"} #help
 : ${strVanillaScriptsPath:="$(ls -d "${strGameInstallMainFolder}"*VanillaExtractedTextFiles*/)"} #help after installing the game, use some vpk extractor (like thru one of the other bash scripts here)
-if [[ ! -d "$strVanillaScriptsPath" ]];then echo "ERROR: VanillaExtractedTextFiles layer not found";exit 1;fi
+if [[ ! -d "$strVanillaScriptsPath" ]];then echo "ERROR: VanillaExtractedTextFiles layer not found";FUNCexit 1;fi
 
 : ${strWriteLayer:="${strGameInstallMainFolder}.0.WriteLayer"} #help write output thru OverlayFS
 
@@ -209,7 +219,7 @@ function FUNCpatchMode() {
 	declare -p lstrExt >&2
 	if [[ -z "$lstrExt" ]];then
 		FUNCechoInfo "[ERROR] invalid filename without extension '$lstrFileToMerge'" >&2
-		exit 1
+		FUNCexit 1
 	fi
 	if [[ "$lstrFileToMerge" =~ .*/gameinfo[.]txt$ ]];then
 		lstrExt="ForceCodePatchMode"
@@ -253,7 +263,7 @@ if ! which "$strExecMerger" >&3;then
 fi
 if ! which "$strExecMerger" >&3;then
 	FUNCechoInfo "ERROR: no GUI merger tool found"
-	exit 1
+	FUNCexit 1
 fi
 
 echo  >&3
@@ -429,7 +439,7 @@ function SECFUNCshowHelpV2() { #help TODO WIP making it much easier to maintain!
 		else
 			if [[ -n "$lstrDefaultVar" ]];then
 				echo "[ERROR] invalid (potentialy dangerous) variable name '$lstrDefaultVar' to eval for value."
-				exit 1
+				FUNCexit 1
 			fi
 		fi
 		
@@ -491,17 +501,18 @@ function FUNCjson() {
 	#exec 5>&- #close custom descriptor
 	
 	local lstrFlErr="$(mktemp -p /dev/shm)"
-	cat "$lstrFlJson" |jq "${lstrFilterJson}" 2>"${lstrFlErr}" &&:;local lnRet=$?
+	cat "$lstrFlJson" |jq "${lstrFilterJson}" 2>"${lstrFlErr}" &&:;local lnRet=$? #### OUTPUTS DATA HERE!!!
 	local lstrStdErr="$(cat "$lstrFlErr")"
 	rm "$lstrFlErr"
+	#declare -p lstrFlErr lstrFlJson lstrFilterJson >&2
 	#declare -p lstrStdErr >&2
 	
 	#jq "$@"&&:;local lnRet=$? # jq outputs data here
 	if((lnRet==1 || lnRet==0));then return 0;fi
-	if((lnRet==5)) && $lbIgnoreMissing;then return 0;fi
+	if((lnRet==5)) && $lbIgnoreMissing;then return 0;fi # ignore missing data mainly for get it
 	case $lnRet in
-		2|3|4) echo jq "$@" >&2;FUNCechoInfo "[ERROR:${FUNCNAME[@]-}] in 'jq': \`$@\` # ${lstrStdErr}" >&2; exit 1;;
-		*)     echo jq "$@" >&2;FUNCechoInfo "[ERROR:${FUNCNAME[@]-}] UNKNOWN($lnRet) in 'jq': \`$@\` # ${lstrStdErr}" >&2; exit 1;;
+		2|3|4) echo jq "$@" >&2;FUNCechoInfo "[ERROR:${FUNCNAME[@]-}] in 'jq': \`$@\` # ${lstrStdErr}" >&2; FUNCexit 1;;
+		*)     echo jq "$@" >&2;FUNCechoInfo "[ERROR:${FUNCNAME[@]-}] UNKNOWN($lnRet) in 'jq': \`$@\` # ${lstrStdErr}" >&2; FUNCexit 1;;
 	esac
 	
 	return 0;
@@ -546,6 +557,6 @@ function FUNCminiModInit() {
 		#egrep "[#]help" "./allMergerScriptsGenericConfig.sh" "$0" |sed -r -e 's@^[ \t]*@@'
 		SECFUNCshowHelpV2 "${strPathMainModFolder}/allMergerScriptsGenericConfig.sh"
 		SECFUNCshowHelpV2 "${strPathThisModFolderFull}/$0"
-		exit
+		FUNCexit
 	fi
 }

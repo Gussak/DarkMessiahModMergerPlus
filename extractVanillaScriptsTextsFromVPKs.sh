@@ -49,7 +49,7 @@ source "./allMergerScriptsGenericConfig.sh"
 mkdir -vp "$strExtFolder/mm"
 if ! cp -vf "${strVanillaLayer}/mm/gameinfo.txt" "$strExtFolder/mm/";then
 	FUNCechoInfo "[it is important to copy 'gameinfo.txt' from vanilla folder too as it may be patched and is not present in vpk files]" 
-	exit 1
+	FUNCexit 1
 fi
 
 mkdir -vp "$strExtFolder"

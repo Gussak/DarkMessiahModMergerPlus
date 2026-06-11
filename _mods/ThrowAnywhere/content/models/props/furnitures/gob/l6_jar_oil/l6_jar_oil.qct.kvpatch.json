@@ -1,0 +1,8 @@
+{
+    "$keyvalues.entity_data.DummyVar": "DummyVal",
+    "$keyvalues.prop_data.min_dmg_to_hurt": "2",
+    "__comments__": {
+        "$keyvalues.prop_data.min_dmg_to_hurt": "// No damage inflicted when amount is less than this value.",
+        "$keyvalues.entity_data.DummyVar": "// I guess this may help on let the item be thruly thrown where you are aiming."
+    }
+}

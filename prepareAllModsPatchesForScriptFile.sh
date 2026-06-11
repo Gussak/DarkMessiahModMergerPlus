@@ -41,7 +41,7 @@ while ! ${1+false} && [[ "${1:0:1}" == "-" ]];do # checks if param is set
 		#egrep "[#]help" "./allMergerScriptsGenericConfig.sh" "$0" |sed -r -e 's@^[ \t]*@@'
 		SECFUNCshowHelpV2 "./allMergerScriptsGenericConfig.sh"
 		SECFUNCshowHelpV2 "$0"
-		exit 0
+		FUNCexit 0
 	elif [[ "$1" == "-f" || "$1" == "--forceRePatch" ]];then #help
 		bForceRePatch=true
 	elif [[ "$1" == "-v" || "$1" == "--verbose" ]];then #help shows more useful messages
@@ -51,7 +51,7 @@ while ! ${1+false} && [[ "${1:0:1}" == "-" ]];do # checks if param is set
 	else
 		echo "[invalid option] '$1'"
 		$0 --help #$0 considers ./, works best anyway..
-		exit 1
+		FUNCexit 1
 	fi
 	shift&&:
 done
@@ -63,22 +63,12 @@ FUNCchkDeps() {
 	while ! ${1+false};do
 		if ! which "$1";then
 			FUNCechoInfo "ERROR: missing dependency '$1'"
-			exit 1;
+			FUNCexit 1;
 		fi
 		shift
 	done
 }
 FUNCchkDeps jq colordiff patch
-
-#function FUNCjson() {
-	#jq "$@"&&:;local lnRet=$?
-	#if((lnRet==1 || lnRet==0));then return 0;fi
-	#case $lnRet in
-		#2|3|4) echo jq "$@" >&2;FUNCechoInfo "[ERROR] in 'jq'" >&2; exit 1;;
-		#*)     echo jq "$@" >&2;FUNCechoInfo "[ERROR] UNKNOWN in 'jq'" >&2; exit 1;;
-	#esac
-	#return 0;
-#};export -f FUNCjson
 
 astrWorkDB=()
 strFlWorkDatabase="$(basename "$0").cfg"
@@ -91,7 +81,7 @@ if [[ -f "$strFlWorkDatabase" ]];then
 			read -n 1&&:
 			bForceRePatch=true "$0" "$strFlWDB"
 		done
-		exit
+		FUNCexit
 	fi
 fi
 
@@ -107,7 +97,7 @@ if [[ "$strScriptFileRelat" != "gameinfo.txt" ]];then #help is this the only fil
 	if [[ ! "$strScriptFileRelat" =~ .*/.* ]] || [[ "$strScriptFileRelat" =~ ^[/].* ]];then
 		declare -p strScriptFileRelat
 		FUNCechoInfo "[Invalid relative file] all text script etc files are relative to some sub directory in vanilla tree. Also do not use absolute file paths."
-		exit 1
+		FUNCexit 1
 	fi
 fi
 strFindScriptFileRegex=".*/\(${strRegexEscKGMRF}\)/${strScriptFileRelat}\(\.patch\|\.kvpatch\.json\)?\$"
@@ -149,14 +139,16 @@ if [[ ! -f "$strFlModLoadSett" ]];then
 fi
 if [[ ! -f "$strFlModLoadSett" ]];then
 	FUNCechoInfo "ModLauncher settings file not found where expected '${strPathParent}/Dark Messiah Might and Magic Single Player/_mods/core/user_settings.json'"
-	exit 1
+	FUNCexit 1
 fi
 
 mapfile -t astrModLauncherOrderList < <(
-	FUNCjson ".load_order[]" "$strFlModLoadSett" |sed -r -e 's@^"@@' -e 's@"$@@'
+	#FUNCjson "$strFlModLoadSett" ".load_order[]" |sed -r -e 's@^"@@' -e 's@"$@@'
+	FUNCjsonGetArray "$strFlModLoadSett" "load_order" |sed -r -e 's@^"@@' -e 's@"$@@'
 )
 mapfile -t astrModLauncherIgnoreList < <(
-	FUNCjson ".ignore[]" "$strFlModLoadSett" |sed -r -e 's@^"@@' -e 's@"$@@'
+	#FUNCjson "$strFlModLoadSett" ".ignore[]" |sed -r -e 's@^"@@' -e 's@"$@@'
+	FUNCjsonGetArray "$strFlModLoadSett" "ignore" |sed -r -e 's@^"@@' -e 's@"$@@'
 )
 echo;declare -p astrModLauncherOrderList |sed -r -e "$strSedArrayNumToLn";echo
 astrListCurrent=()
@@ -188,7 +180,7 @@ FUNCechoInfo "[list with overriden by the ones from ModLauncher list order]"
 declare -p astrListCurrent |sed -r -e "$strSedArrayNumToLn";echo
 if((${#astrListCurrent[@]} < 2));then
 	FUNCechoInfo "[Nothing to merge] is needed 2 or more to merge"
-	exit
+	FUNCexit
 fi
 
 : ${bFollowFolderLayersOrder:=""} #help bFollowFolderLayersOrder=false to use ModLaucher order before other mods not using it. bFollowFolderLayersOrder=true will just follow folders alphanumeric order so you need to grant the priority properly naming them. bFollowFolderLayersOrder="" will show a message and wait. Tho, anyway, ModMerger will prioritize it's order also over mods non compatible with it, so FinalMergedScriptsMaxPriority mod must be last one there to this all work, as FinalMergedScriptsMaxPriority actually works are a max priority overrider.
@@ -215,7 +207,7 @@ if [[ ! -f "$strVanillaScriptFile" ]];then
 	#FUNCechoInfo "[WARNING: There is no such Vanilla] create it there empty: '${strVanillaScriptsPath}/mm/$strScriptFileRelat'"
 	#FUNCechoInfo "[Merge existing one from mods anyway?] Ctrl+C to abort"
 	##read -n 1&&:
-	##exit 1
+	##FUNCexit 1
 	#bFlVanilla=false
 	bDummyVanilla=true
 	strVanillaScriptFile="${strFinalDummyHelperFolder}/${strScriptFileRelat}"
@@ -255,7 +247,7 @@ if $bApplyEachPatch;then
 			#declare -p astrListCurrent |sed -r -e "$strSedArrayNumToLn"
 			if $bVerbose;then declare -p astrListSUCCESS |sed -r -e "$strSedArrayNumToLn";fi
 			FUNCechoInfo "[File alredy fully patched with the same existing mods.]"
-			exit
+			FUNCexit
 		else
 			colordiff <(declare -p astrListSUCCESS |sed -r -e "$strSedArrayNumToLn") <(declare -p astrListCurrent |sed -r -e "$strSedArrayNumToLn")&&:
 			FUNCechoInfo "[File alredy fully patched but mods list changed, repatch ? ] Ctrl+C to abort"
@@ -329,7 +321,7 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 							#KEEPinfo: too much unnecessary log: #					|tee "${strFlPatch}";nRet=$?
 					declare -p nRet
 					set +x
-					exit $nRet
+					FUNCexit $nRet
 				)&&:;nDiffRet=$?
 			fi
 		else #if [[ -f "$strFileToMerge" ]];then
@@ -374,7 +366,7 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 				FUNCechoInfo "[WARNING: diff trouble] try manually"; #this ever happens?
 				"${strExecMerger}" "$strVanillaScriptFile" "$strFileToMerge";
 				;;
-			*) FUNCechoInfo "[ERROR: unrecognized diff return value]";exit 1;;
+			*) FUNCechoInfo "[ERROR: unrecognized diff return value]";FUNCexit 1;;
 		esac
 		
 		ls -l "${strFlPatch}"
@@ -471,7 +463,7 @@ if $bApplyEachPatch;then
 		#FUNCjson ".${lstrID} = [ ${lstrArrayCfg} ]" "$strFlJson" |sponge "$strFlJson"
 	#}
 	#if [[ ! -f "$strFlJson" ]];then echo "{}" >"$strFlJson";fi
-	if [[ -z "$(FUNCjson ".name" "$strFlJson")" ]];then
+	if [[ -z "$(FUNCjson "$strFlJson" ".name")" ]];then
 		FUNCtrash "$strFlJson"
 		echo "{}" >"$strFlJson";
 	fi
@@ -514,4 +506,4 @@ fi
 
 FUNCtrash "$strFinalDummyHelperFolder"
 FUNCechoInfo "nRet=$?"
-exit 0
+FUNCexit 0

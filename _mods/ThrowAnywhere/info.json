@@ -1,0 +1,13 @@
+{
+    "name"                  :   "ThrowAnywhere",
+    "version"               :   "1.0",
+    "description"           :   "You can throw any item where you are aiming.",
+    "author"                :   "GussakThor",
+    "author_url"            :   "",
+    "website"               :   "",
+    "launch_parameters"     :   [],
+    "gameinfo_parameters"   :   [],
+    "modules"               :   [],
+    "game_configs"          :   [],
+    "autoexec_configs"      :   []
+}

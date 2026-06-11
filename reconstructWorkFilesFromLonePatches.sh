@@ -71,7 +71,7 @@ while ! ${1+false} && [[ "${1:0:1}" == "-" ]];do # checks if param is set
 	else
 		echo "[invalid option] '$1'"
 		$0 --help #$0 considers ./, works best anyway..
-		exit 1
+		FUNCexit 1
 	fi
 	shift&&:
 done
@@ -195,7 +195,7 @@ for strFlPatch in "${astrPatchList[@]}";do
 	fi
 	if [[ "$strFlPatchCheck" != "$strFlPatch" ]];then
 		FUNCechoInfo "[ERROR:] strFlPatchCheck='$strFlPatchCheck' != strFlPatch='$strFlPatch'"
-		exit 1
+		FUNCexit 1
 	fi
 	
 	if $bKeyValueDiffMode;then
@@ -248,7 +248,7 @@ for strFlPatch in "${astrPatchList[@]}";do
 			FUNCrevalidDiff
 			FUNCechoInfo "[Prepare patch for it now] ./prepareAllModsPatchesForScriptFile.sh '${strFlRelat}'"
 			FUNCechoInfo "[Run this again after the .patch file is ready] $0 ${astrInitialParams[@]}"
-			exit 1
+			FUNCexit 1
 		else
 			cp -v "$strFlVanilla" "$strFlWork"
 			chmod u+w "$strFlWork"

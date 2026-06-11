@@ -1,6 +1,10 @@
 TODO
 	Main goal, make it more challenging but not impossible.
 
+	allow Throw all objects up down like oil, not only useless props.
+	Crit dmg player and npcs x10 not just x2.
+	Phys traps dmg max possible, make them worth becoming useless after.
+
 MayBeEasy
 - let small spiders attack
 - make all melee enemies use some kind of ranged attack without having to find a dropepd bow, to compensate the AI being too weak if you are in the top of a ladder. It could be just replacing ex.: all melee only guards with archers that also have a melee weapon. Not sure about other kind of enemies tho, if them all have a melle+ranged alternative ready to use in the replacer modded files.

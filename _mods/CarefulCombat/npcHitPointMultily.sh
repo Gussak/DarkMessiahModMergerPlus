@@ -35,7 +35,7 @@
 #if true;then
 	set -Eeu
 	
-	#if [[ ! -f "info.json" ]];then echo "[ERROR] run this at this minimod folder";exit 1;fi
+	#if [[ ! -f "info.json" ]];then echo "[ERROR] run this at this minimod folder";FUNCexit 1;fi
 	
 	while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
 	#strPathThisModFolderFull="$(pwd)"
@@ -54,13 +54,13 @@
 			#egrep "[#]help" "./allMergerScriptsGenericConfig.sh" "$0" |sed -r -e 's@^[ \t]*@@'
 			SECFUNCshowHelpV2 "./allMergerScriptsGenericConfig.sh"
 			SECFUNCshowHelpV2 "${strPathThisModFolderFull}/$0"
-			exit 0
+			FUNCexit 0
 		elif [[ "$1" == "-a" || "$1" == "--apply" ]];then #help create patched files and their .kvpatch.json
 			bApplyHP=true
 		else
 			echo "[invalid option] '$1'"
 			$0 --help #$0 considers ./, works best anyway..
-			exit 1
+			FUNCexit 1
 		fi
 		shift&&:
 	done	
@@ -138,7 +138,8 @@
 		models/npc/necroguard_undead/npc_necroguard_undead.qct=*126
 		models/npc/necrocivilian/npc_necrocivilian.qct=*63
 	)
-	: ${astrSpecialNpcs:="$(echo "${astrSpecialNpcsTmp[*]}" |tr ' ' ',')"} #help comma separated. use file=<numericValue> or file=Vanilla. All non hostiles (friendlies) and uniques, I am keeping vanilla, as we are intended to defend them right? it is about keeping it a challenging "defend them" quest (WIP).
+	declare -p astrSpecialNpcsTmp |sed -r -e "$strSedArrayIDsToLn"
+	: ${astrSpecialNpcs:="$(echo "${astrSpecialNpcsTmp[*]}" |tr ' ' ',')"} #help comma separated. use file=NumericValue or file=Vanilla. All non hostiles (friendlies) and uniques, I am keeping vanilla, as we are intended to defend them right? it is about keeping it a challenging "defend them" quest (WIP).
 	#: ${anSpecialNpcHP:="200,1200"} #help comma separated
 	
 	astrSpecialNpcs=($(echo "$astrSpecialNpcs" |tr ',' ' '))
@@ -196,15 +197,40 @@
 		mkdir -p "${strPathModPatch}"
 		
 		strFlModded="${strPathModPatch}/$(basename "${strFlNpc}")"
+		if [[ -f "${strFlModded}" ]];then
+			: ${bForceRecreate:=false} #help this will delete the copy of vanilla file that was patched and copy again from vanilla before repatching
+			if $bForceRecreate;then 
+				FUNCtrash "${strFlModded}"
+			fi
+		fi
 		if [[ ! -f "${strFlModded}" ]];then
 			cp "${astrFlVanillaScript[$strFlNpc]}" "${strPathModPatch}/"
 			chmod u+w "$strFlModded"
 		fi
 		
 		if $bApplyHP;then
-			sed -i.bkp -r -e 's@(.*npc_health[^0-9]*)([0-9]*)(.*)@\1'"${nNewHP}"'\3@' "$strFlModded" #|grep npc_health
+			strKVPatch='
+{
+    "$keyvalues.entity_data.difficulty": "1.0",
+    "$keyvalues.entity_data.dodge_on_kick_init_chance": "0.25",
+    "$keyvalues.entity_data.level_1.difficulty": "1.0",
+    "$keyvalues.entity_data.level_1.npc_health": "'"${nNewHP}"'",
+    "$keyvalues.entity_data.level_1.ThrowPrecisionNbShootToIn": "2",
+    "$keyvalues.entity_data.life_stopflee": "1.0",
+    "$keyvalues.entity_data.life_tobeg": "0.1",
+    "$keyvalues.entity_data.npc_health": "'"${nNewHP}"'",
+    "$keyvalues.entity_data.TimeKnockedDownByPhysics": "10"
+}
+'
+			# this is like manually typing the value there. Could may be use a json data created here to apply thru keyValuePatcher.py instead, may ne more robust (less prone to fail).
+			#sed -i.bkp -r -e 's@(.*npc_health[^0-9]*)([0-9]*)(.*)@\1'"${nNewHP}"'\3@' "$strFlModded" #|grep npc_health
+			#set -x
+			"${strPathMainModFolder}/keyValuePatcher.py" apply "${strFlModded}" <(echo "$strKVPatch") --prettify --append-missing
+			#set +x
+			#exit
 			
 			"${strPathMainModFolder}/keyValuePatcher.py" create "${astrFlVanillaScript[$strFlNpc]}" "${strFlModded}"&&:;nRet=$?
+			#exit
 			case $nRet in
 				0) FUNCechoInfo "[Identical]";;
 				1) 
@@ -214,7 +240,7 @@
 					FUNCechoInfo "[WARNING: diff trouble] try manually"; #this ever happens?
 					"${strExecMerger}" "${astrFlVanillaScript[$strFlNpc]}" "$strFlModded";
 					;;
-				*) FUNCechoInfo "[ERROR: unrecognized diff return value]";exit 1;;
+				*) FUNCechoInfo "[ERROR: unrecognized diff return value]";FUNCexit 1;;
 			esac
 			
 			ls -l "${strFlModded}.kvpatch.json"
