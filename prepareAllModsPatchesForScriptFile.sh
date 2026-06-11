@@ -321,7 +321,7 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 							#KEEPinfo: too much unnecessary log: #					|tee "${strFlPatch}";nRet=$?
 					declare -p nRet
 					set +x
-					FUNCexit $nRet
+					exit $nRet #KeepInfo dont use FUNCexit for captured exit values on subshells!
 				)&&:;nDiffRet=$?
 			fi
 		else #if [[ -f "$strFileToMerge" ]];then
