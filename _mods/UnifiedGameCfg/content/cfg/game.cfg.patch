@@ -1,0 +1,16 @@
+--- /dev/fd/63	2026-06-11 04:32:17.812478277 -0300
++++ /dev/fd/62	2026-06-11 04:32:17.812478277 -0300
+@@ -30,4 +30,12 @@
+ fog_enable 0 
+ 
+ //Required if using Unlimited Edition Mod:
+-exec unlimitededition
++exec unlimitededition
++
++//The only way to grant evey cfg will be loaded in order is in this file? so better append it all here thru patches.
++//MERGE at the end of game.cfg as override
++exec restoration_graphics_fixes.cfg
++exec mmue-enableinvswap.cfg
++exec regenbinds.cfg
++exec mmue-zoom-in-anytime.cfg
++exec mmue-enablefreezedamage.cfg
