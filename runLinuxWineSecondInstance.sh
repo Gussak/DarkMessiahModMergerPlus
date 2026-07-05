@@ -1,6 +1,7 @@
 #!/bin/bash
 
-#TODO 
+#TODO a script that just handles it all described below
+
 echo '
 	Goal: no wait time after being defeated, instantly continue playing, no loading game waiting anymore!
 	
@@ -15,8 +16,8 @@ echo '
 		Copy all folders from MAIN here, least ".../drive_c/.../Dark Messiah Might and Magic Single Player".
 		That game folder will just be a symlink on the new WINEPREFIX.
 		Just run the 2nd instance while the first is already running.
-		You have to keep the background instance in sync with the latest savegame, so use it mainly when you reach a difficult area, like in, while MAIN is loading, put the 2nd to load too.
-		Now, when you are defeated, just switch to the already game loaded instance, while the current one is loading.
+		You have to keep the background instance in sync with the latest savegame, so use it mainly when you reach a difficult area, like in, after MAIN finishes loading, put the 2nd instance to load (dont load together or both will crash).
+		Now, when you are defeated put it to load and just switch to the other already loaded instance!
 		
 		TODO: Pause the background instance without popups, after it fully loads
 		TODO: May be, create a new folder to let the 2nd instance write files? but from tests, even overwriting the same files from the main instance, I still detected no problems yet.

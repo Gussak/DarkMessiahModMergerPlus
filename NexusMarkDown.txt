@@ -1,0 +1,56 @@
+[size=4][b]Description[/b][/size]
+[color=#d4d4d8]Mod merging thru command line [/color][color=#d4d4d8][size=2][font=Monaco, Menlo, Consolas, monospace]keyValuePatcher.py and patch apps.[/font][/size][/color]
+
+[color=#d4d4d8][size=2][font=Monaco, Menlo, Consolas, monospace]Several mini mods (but some are patches and not simple files that you can just extract to overwrite).[/font][/size][/color]
+[color=#d4d4d8][size=2][font=Monaco, Menlo, Consolas, monospace]Development at [url=https://github.com/Gussak/DarkMessiahModMergerPlus]github project[/url] WIP.[/font][/size][/color]
+
+[color=#d4d4d8][size=2][font=Monaco, Menlo, Consolas, monospace]Example for keyValuePatcher.py: the patch "npc_spider_mini.qct.kvpatch.json" will be used to patch "npc_spider_mini.qct", no overwriting, just requested changes will be applied.[/font][/size][/color]
+
+[color=#d4d4d8][size=2][font=Monaco, Menlo, Consolas, monospace]If you have difficulty to use it, ask on comments, I will try to help when I can.[/font][/size][/color]
+[color=#d4d4d8][size=2][font=Monaco, Menlo, Consolas, monospace]I have only tested this on Ubuntu 22.04 + Wine.[/font][/size][/color]
+
+[size=4][b]Installation instructions[/b][/size]
+
+[size=3][color=#D4D4D8]Initially designed to be run on Linux using OverlayFS (one folder for each mod).[/color][/size]
+
+[size=3][color=#D4D4D8]May work on cygwin under Windows (not tested), to be able to execute bash scripts and the patch command line.[/color][/size]
+[color=#D4D4D8]keyValuePatcher.py is python and will most certainly run natively on windows (not tested tho), may work for other games and anything that uses the same key value format.[/color]
+
+[size=4][b]Main features[/b][/size]
+
+The mod Merger (scripts) is a tool, reuse it freely, it is under BSD3. 
+keyValuePatcher.py was generated using AI and was fully and extensively tested under expected (and even buggy or structurally broken vanilla files) conditions.
+
+For each mini mod, there is a better description in it's json file, here is the current simplified list (some are WIP tho, I haven't played thru all game yet):
+  000gskBaseLib #dependency for some mini mods
+  AutoLoadLastQuickSave # if enabled will not wait on main menu on game app start
+  BloodyAdrenaline
+  BloodyMana
+  CarefulCombat # hardcore
+  CrouchToggle
+  DangerousPoisonousSpiders
+  EagleEyeHurts
+  FinalMergedScriptsMaxPriority # this is where the merging tools write everything, it is created dynamically.
+  InvSwapPreventCrash
+  NoFreeHealings
+  NPCsUsesAllWeapons # WIP, still need to grant all brained NPCs are ready
+  PickaxeIsDangerous # still can't find a way to parry with it tho..
+  Playability
+  pseudoskip_interactive_cutscenes_helper # this is juicy, if you already saw every cutscene, just skip (fast forward) it!
+  slowmotion_toggle
+  UnifiedGameCfg # load all cfgs thru a single file, no random load order surprises.
+  Wizard Eye Costs mana
+
+[size=4][b]Requirements[/b][/size]
+
+[color=#d4d4d8]If you are on windows and want to try the mod merging bash scripts (.sh), look at [/color][url=https://www.nexusmods.com/7daystodie/mods/14]"[b]Installing (at Windows, on a cygwin terminal):[/b]"[/url][color=#d4d4d8].[/color]
+
+On linux you will want to have OverlayFS installed, also 'jq' for JSON, pip install vpk (some of these things may be available for windows too I guess), may be other things.. the scripts will ask for them.
+
+All content here are or original files (therefore there is no patching required, they work by just placing the files there).
+Or patches, so the whole point is, I am not uploading final files that you can just overwrite and run, if they are patches it means it has just changes based on the vanilla files and need to be applied thru command lines keyValuePatcher.py and patch.
+
+If you don't like to use command lines and patching tools and really want to use some mini mod, you can just apply the patch by hand. Just open the text file, look for each key and paste the value. The .patch files are not difficult to use by hand but you need to understand how they work (the + and -).
+
+[size=4][b]Shout outs[/b][/size]
+[size=3][color=#D4D4D8]Thank you all![/color][/size]
