@@ -41,6 +41,7 @@ while ! ${1+false} && [[ "${1:0:1}" == "-" ]];do # checks if param is set
 		#egrep "[#]help" "./allMergerScriptsGenericConfig.sh" "$0" |sed -r -e 's@^[ \t]*@@'
 		SECFUNCshowHelpV2 "./allMergerScriptsGenericConfig.sh"
 		SECFUNCshowHelpV2 "$0"
+		echo "Usage Example: $0 -f <strScriptFileRelat> # see above"
 		FUNCexit 0
 	elif [[ "$1" == "-f" || "$1" == "--forceRePatch" ]];then #help
 		bForceRePatch=true
@@ -56,7 +57,8 @@ while ! ${1+false} && [[ "${1:0:1}" == "-" ]];do # checks if param is set
 	shift&&:
 done
 
-strScriptFileRelat="${1}" #help provide a relative path (as mods may implement variants in other sub paths, like arena mod, that shall not affect the main game) ex.: "scripts/spells.txt" will be prepended with "*/" becoming "*/scripts/spells.txt" and matching like _mods folder like ".../content/scripts/spells.txt", main game like ".../mm/scripts/spells.txt"
+: ${strScriptFileRelat:="${1-}"} #help provide a relative path (as mods may implement variants in other sub paths, like arena mod, that shall not affect the main game) ex.: "scripts/spells.txt" will be prepended with "*/" becoming "*/scripts/spells.txt" and matching like _mods folder like ".../content/scripts/spells.txt", main game like ".../mm/scripts/spells.txt"
+if [[ -z "$strScriptFileRelat" ]];then echo "[invalid] strScriptFileRelat='' is empty"; FUNCexit 1;fi
 exec > >(tee "$strFinalMergedFolderContent/${strScriptFileRelat}.log") 2>&1
 
 FUNCchkDeps() {
