@@ -31,7 +31,8 @@
 
 source "./allMergerScriptsGenericConfig.sh"
 
-strMatch="$1" #help
+strMatch="$1" #help if [--all] will extract all files
+bAll=false;if [[ "$strMatch" == --all ]];then bAll=true;fi
 
 bChkVpkExec=true
 
@@ -48,6 +49,14 @@ cd "${strVanillaLayer}/vpks/" ########################################
 IFS=$'\n' read -d '' -r -a astrFlVpk < <(ls *_dir.vpk)&&:
 declare -p astrFlVpk |sed -r -e 's@\[@\n\[@g' >&2
 
+: ${strExtFolder:="${strPathSelf}/Extracted.Quick.TMP"} #help
+mkdir -vp "$strExtFolder"
+
+if $bAll;then
+	for strFlVpk in "${astrFlVpk[@]}";do
+		"$strVpkExec" -x "$strExtFolder" "$strFlVpk"
+	done
+else
 IFS=$'\n' read -d '' -r -a astrFlEx < <(
 	for strFlVpk in "${astrFlVpk[@]}";do
 		"$strVpkExec" "$strFlVpk" -l;
@@ -58,11 +67,10 @@ for strFlEx in "${astrFlEx[@]}";do echo "$strFlEx";done
 
 : ${bDoExtract:=true} #help
 if $bDoExtract;then
-	: ${strExtFolder:="${strPathSelf}/Extracted.Quick.TMP"} #help
-	mkdir -vp "$strExtFolder"
 	for strFlEx in "${astrFlEx[@]}";do
 		for strFlVpk in "${astrFlVpk[@]}";do
 			"$strVpkExec" -x "$strExtFolder" --filter "$strFlEx" "$strFlVpk"
 		done
 	done
+	fi
 fi
