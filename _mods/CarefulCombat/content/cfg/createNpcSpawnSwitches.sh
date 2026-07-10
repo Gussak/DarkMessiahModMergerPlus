@@ -13,8 +13,8 @@ astr=(
 	#mm_npc_create_lich
 	#mm_npc_create_lich_king
 	#mm_npc_create_necro_guard
-	mm_npc_create_necro_guard_bow
-	#mm_npc_create_necro_guard_shield
+	mm_npc_create_necro_guard_bow # good because they wont drop arrows and wont make it easier
+	#mm_npc_create_necro_guard_shield # this would drop the shield I guess
 	mm_npc_create_necromancer
 	#mm_npc_create_necromancer_lord
 	#mm_npc_create_orc_sword
