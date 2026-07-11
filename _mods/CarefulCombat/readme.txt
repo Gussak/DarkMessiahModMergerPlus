@@ -10,6 +10,7 @@ More Foes:
 	Use f7 and f8 (see my keybinds mod to remap if you want) to place more 5 to 15 coherent enemies on current sector (before opening a gate or entering a tower, then repeat when you go thru), read more on cfg file.
 	Tip, first time o map sector play it normally, reload, add 10-15 foes, replay hardcore.
 	Foe placement tips: add about 3 near fireplaces, add foes looking at other foes to when you defeat one the other comes, add them in shadows and corners, add them looking at doors, add above in anywhere they can stand. Add inside: bathroom, small rooms, behind doors.
+	You can still farm bowman arrows (that drop no quiver) if you use a shield and make them miss you and hit on wood.
 	(TODO: edit map files to place a lot more of foes).
 
 More power:
