@@ -1,9 +1,10 @@
 {
+    "__comments__": {
+        "spelldatas.air_2": "// Cure Wounds ok",
+        "spelldatas.air_2.cost": "//Cure Wounds 1to1 conversion. no fill up mana and easily fill up HP.",
+        "spelldatas.air_2.effect": "//Cure Wounds just to differ and create the kvpatch"
+    },
     "spelldatas.air_2.cost": "11",
     "spelldatas.air_2.effect": "11",
-    "spelldatas.air_2.recovery": "3",
-    "__comments__": {
-        "spelldatas.air_2.cost": "// Cure Wounds 1to1 conversion. no fill up mana and easily fill up HP.",
-        "spelldatas.air_2.effect": "// Cure Wounds just to differ and create the kvpatch"
-    }
+    "spelldatas.air_2.recovery": "3"
 }

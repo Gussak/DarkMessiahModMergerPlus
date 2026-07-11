@@ -443,7 +443,7 @@ def clean_and_validate_for_kv(file_path: str, line_num: int, line: str) -> str:
         )
 
 
-def parse_qct_to_dict(file_path: str) -> Dict[str, Any]:
+def parse_qct_to_dict(file_path: str, lines: Optional[List[str]] = None) -> Dict[str, Any]:
         """
         Parse a Valve KeyValues .qct file into a nested Python dictionary.
 
@@ -465,11 +465,12 @@ def parse_qct_to_dict(file_path: str) -> Dict[str, Any]:
         Raises:
                         ConfigError: If file cannot be read or contains unrecoverable syntax errors
         """
-        try:
-                with open(file_path, "r", encoding="utf-8", errors="ignore", newline="") as f:
-                        lines = f.readlines()
-        except IOError as e:
-                raise ConfigError(f"Cannot read file {file_path}: {e}")
+        if lines is None:
+                try:
+                        with open(file_path, "r", encoding="utf-8-sig", errors="ignore", newline="") as f:
+                                lines = f.readlines()
+                except IOError as e:
+                        raise ConfigError(f"Cannot read file {file_path}: {e}")
 
         if not lines:
                 Logger.warning(f"Empty file: {file_path}")
@@ -550,7 +551,7 @@ def parse_qct_to_dict(file_path: str) -> Dict[str, Any]:
         return root
 
 
-def parse_qct_comments(file_path: str) -> Dict[str, str]:
+def parse_qct_comments(file_path: str, lines: Optional[List[str]] = None) -> Dict[str, str]:
         """
         Parse a .qct file and return a flat dict mapping dot-paths to inline comments.
 
@@ -572,11 +573,12 @@ def parse_qct_comments(file_path: str) -> Dict[str, str]:
         Raises:
                         ConfigError: If the file cannot be read
         """
-        try:
-                with open(file_path, "r", encoding="utf-8", errors="ignore", newline="") as f:
-                        lines = f.readlines()
-        except IOError as e:
-                raise ConfigError(f"Cannot read file {file_path}: {e}")
+        if lines is None:
+                try:
+                        with open(file_path, "r", encoding="utf-8-sig", errors="ignore", newline="") as f:
+                                lines = f.readlines()
+                except IOError as e:
+                        raise ConfigError(f"Cannot read file {file_path}: {e}")
 
         result: Dict[str, str] = {}
         stack: List[str] = []
@@ -782,6 +784,15 @@ def _value_exists_in_scope(
                 if k == key_name and v == value_to_check:
                     return True
     return False
+
+
+def _read_file_lines(file_path: str) -> List[str]:
+    """Read file lines once. Handles regular files and unseekable pipes/FDs."""
+    try:
+        with open(file_path, "r", encoding="utf-8-sig", errors="ignore", newline="") as f:
+            return f.readlines()
+    except IOError as e:
+        raise ConfigError(f"Cannot read file {file_path}: {e}")
 
 
 def append_nested_missing(
@@ -1028,11 +1039,19 @@ def handle_create(args) -> None:
                 sys.exit(2)
 
         try:
+                # 🔑 READ FILES ONCE to support pipes/FDs from process substitution
+                try:
+                        orig_lines = _read_file_lines(args.original)
+                        mod_lines = _read_file_lines(args.modified)
+                except ConfigError as e:
+                        Logger.error(str(e))
+                        sys.exit(2)
+
                 Logger.info(f"Parsing original: {args.original}")
-                orig_tree = flatten_dict(parse_qct_to_dict(args.original))
+                orig_tree = flatten_dict(parse_qct_to_dict(args.original, lines=orig_lines))
 
                 Logger.info(f"Parsing modified: {args.modified}")
-                mod_tree = flatten_dict(parse_qct_to_dict(args.modified))
+                mod_tree = flatten_dict(parse_qct_to_dict(args.modified, lines=mod_lines))
         except ConfigError as e:
                 Logger.error(str(e))
                 sys.exit(2)
@@ -1046,8 +1065,9 @@ def handle_create(args) -> None:
         # so that applying the patch appends them instead of overwriting in place.
         patch_data = _filter_nondom_dup_to_new_only(patch_data, orig_tree, mod_tree)
 
-        orig_comments = parse_qct_comments(args.original)
-        mod_comments = parse_qct_comments(args.modified)
+        # Reuse the same cached lines for comment extraction
+        orig_comments = parse_qct_comments(args.original, lines=orig_lines)
+        mod_comments = parse_qct_comments(args.modified, lines=mod_lines)
 
         comment_patch: Dict[str, str] = {}
 
