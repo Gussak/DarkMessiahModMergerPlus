@@ -2,7 +2,7 @@
     "__comments__": {
         "spelldatas.air_3.effect_adrenaline": "//Lightning Bolt",
         "spelldatas.fire_1.effect_adrenaline": "//Fire Arrow",
-        "spelldatas.fire_2": "// Fire trap. Up to 3 simultaneously placed but their index cycles instead of checking for an amount, so if you place 1st 2nd 3rd, 4th will vanish with 1st, but if 2nd and 3rd exploded b4 1st, 4th will still vanish with 1st :(",
+        "spelldatas.fire_2": "// Fire trap. Up to 3 or 4 or more simultaneously placed? but their index cycles instead of checking for an amount? so if you place 1st 2nd 3rd, 4th will vanish with 1st, but if 2nd and 3rd exploded b4 1st, 4th will still vanish with 1st?",
         "spelldatas.fire_2.cost": "// Fire trap: kept mana cost as even not having adrenaline option, this can be triggered without targetting and you can use bloodymana to restore your mana and prepare many traps.",
         "spelldatas.fire_2.effect": "// Fire trap: based on necroguard new HP, seems to multiply by 4? depends on how near it is from center? so placing in a corner that the foe has to slowdown is the best? one explosion shall not kill but will damage a lot",
         "spelldatas.fire_3.effect_adrenaline": "//Fireball",
