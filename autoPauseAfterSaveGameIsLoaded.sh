@@ -31,6 +31,44 @@
 
 set -Eeu -o pipefail
 
+
+function FUNCdetectPidToPause() { # the one that has no focus
+	#set -x
+	nWFoc="$(xdotool getwindowfocus)"&&:
+	nWNm="$(xdotool getwindowname $nWFoc)"&&:
+	nWPid="$(xdotool getwindowpid $nWFoc)"&&:
+	
+	strWineprefixFocus="$(strings /proc/$nWPid/environ |grep WINEPREFIX)"
+	
+	anPid=($(pgrep -f "Dark Messiah.*mm.exe"))
+	strWineprefixExecutableFocus=""
+	nPidExecFocus=0
+	#for((i=0;i<${#anPid[@]};i++));do
+	for nPid in "${anPid[@]}";do
+		strWineprefixExecutable="$(strings /proc/$nPid/environ |grep WINEPREFIX)"
+		if [[ "$strWineprefixExecutable" == "$strWineprefixFocus" ]];then
+			strWineprefixExecutableFocus="$strWineprefixExecutable"
+			nPidExecFocus=$nPid
+			break;
+		fi
+	done
+	nPidExecOther=0
+	for nPid in "${anPid[@]}";do
+		if((nPidExecFocus == nPid));then continue;fi
+		nPidExecOther=$nPid
+		break;
+	done
+	
+	declare -p nWFoc nWNm nWPid anPid strWineprefixExecutableFocus nPidExecFocus >&2
+	
+	echo $nPidExecOther
+};export -f FUNCdetectPidToPause
+
+function FUNCtest() {
+	FUNCdetectPidToPause
+}
+if [[ "${1-}" == --test ]];then FUNCtest;exit;fi
+
 egrep "[#]help" "$0"
 
 : ${strGameSubFolderCore:="WriteNewDataHereOnly"};export strGameSubFolderCore #help I know of: mm custom AddOn(overhaul mod) and the new one WriteNewDataHereOnly
@@ -87,19 +125,22 @@ if [[ "${1-}" == -m ]];then #help monitor changes and dump strings
 	exit
 fi
 
+nScrWhalf=$(($(xdotool getdisplaygeometry |awk '{print $1}') / 2 ))
+
 function FUNCpauseAfterLoad() {
 	set -x
 	: ${strTextHint:="hltv_status"} #help this shows up on the last writing to that file, after that you only need to wait for 5s!
+	: ${bPauseOnlyNoFocusInstance:=false} #help :D
 	while true;do
 		nThisRunTime=$(date +%s)
 		while true;do
 			sleep 1
 			
-			nPid=$(pgrep -f "C:[\].*[\]mm.exe")
+			anPid=($(pgrep -f "C:[\].*[\]mm.exe"))
 			
 			: ${bExitIfGameExits:=false} #help
 			if $bExitIfGameExits;then
-				if ! ps -p $nPid;then exit;fi
+				if ! ps -p ${anPid[@]};then exit;fi
 			fi
 			
 			if(( $(stat -c %Y "$strFlHint") < nThisRunTime ));then
@@ -111,10 +152,16 @@ function FUNCpauseAfterLoad() {
 			: ${fSleepAfterHintFound:=3.0} #help
 			read -n 1 -t $fSleepAfterHintFound -p "hit a key to SIGSTOP game"
 			
-			kill -SIGSTOP $nPid
-			if which ScriptEchoColor;then echoc --say "Game Loaded";fi
-			while ! yad --title="DarkMessiah:helper" --text="Dark Messiah of MM\n Game Finished Loading\n SigStopped\n Continue NOW?" --center --on-top;do :;done;
-			kill -SIGCONT $nPid
+			nPidNoFocus="$(FUNCdetectPidToPause)"
+			for nPid in "${anPid[@]}";do
+				if $bPauseOnlyNoFocusInstance && ((nPidNoFocus != 0 && nPid != nPidNoFocus));then continue;fi
+				kill -SIGSTOP $nPid
+				if which ScriptEchoColor;then echoc --say "Game Loaded";fi
+				#while ! yad --title="DarkMessiah:helper" --text="Dark Messiah of MM\n Game Finished Loading\n SigStopped\n Continue NOW?" --geometry=1x1+$nScrWhalf+0 --undecorated;do :;done; # not --on-top because it cant be too small :(
+				#while ! yad --geometry=1x1+$nScrWhalf+0 --title="DarkMessiah:helper" --center --no-buttons;do :;done; # not --on-top because it cant be too small :(
+				yad --geometry=500x1+$nScrWhalf+0 --title="DarkMessiah:FinishedLoading" --on-top --no-buttons --no-focus #unable to popup below :(, it should not receive imediate focus but should be focusable!!! unable to prevent it starting --on-top, so keep it there; no buttons, just hold the flow here
+				kill -SIGCONT $nPid
+			done
 			
 			break # to update nThisRunTime for the next game load
 		done
