@@ -1,0 +1,8 @@
+{
+    "spelldatas.air_2.cost": "10"
+    "spelldatas.air_2.effect": "10"
+    "spelldatas.air_2.recovery": "2"
+    "__comments__": {
+        "spelldatas.air_2.effect": "// 1to1 conversion. no fill up mana and easily fill up HP.",
+    }
+}
