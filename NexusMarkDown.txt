@@ -26,7 +26,7 @@ For each mini mod, there is a better description in it's json file, here is the 
   AutoLoadLastQuickSave # if enabled will not wait on main menu on game app start
   BloodyAdrenaline
   BloodyMana
-  CarefulCombat # hardcore
+  CarefulCombat # hardcore, using f7 and f8, place about 10-15 coherent enemies (that wont fight each other) in each sector/room (not entire map, each part that you advance), this will finally force you spend potions and scrolls or use other tactics like gate trick, and to be careful with your arrows. So, a room with mini spiders, fill it with big spiders. 2 necroguards? make it 15! It is important to fill each room little by little to not use too much PC memory I think.
   CrouchToggle
   DangerousPoisonousSpiders
   EagleEyeHurts

@@ -6,6 +6,7 @@ TODO
 	Phys traps dmg max possible, make them worth becoming useless after.
 
 MayBeEasy
+- find a way to let bow foes use all ammo (or 20 if infinite) before go hunting the player in melee (when they lose all their advantage...) for CarefulCombat.
 - guards could drop ale or food
 - every barrel or crate could have a chance to drop food
 - make all melee enemies use some kind of ranged attack without having to find a dropped bow, may be at least like goblins throwing tiny rocks (that could damage 5 instead of 1), to compensate the AI being too weak if you are in the top of a ladder. It could be just replacing ex.: all melee only guards with archers that also have a melee weapon. Not sure about other kind of enemies tho, if them all have a melle+ranged alternative ready to use in the replacer modded files.
