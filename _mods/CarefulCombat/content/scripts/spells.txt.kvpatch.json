@@ -2,16 +2,20 @@
     "__comments__": {
         "spelldatas.air_3.effect_adrenaline": "//Lightning Bolt",
         "spelldatas.fire_1.effect_adrenaline": "//Fire Arrow",
-        "spelldatas.fire_2.effect": "// based on necroguard new HP, seems to multiply by 4, one shall not kill but will damage a lot",
+        "spelldatas.fire_2.cost": "// Fire trap: kept mana cost as even not having adrenaline option, this can be triggered without targetting and you can use bloodymana to restore your mana and prepare many traps.",
+        "spelldatas.fire_2.effect": "// Fire trap: based on necroguard new HP, seems to multiply by 4? depends on how near it is from center? so placing in a corner that the foe has to slowdown is the best? one explosion shall not kill but will damage a lot",
         "spelldatas.fire_3.effect_adrenaline": "//Fireball",
         "spelldatas.fire_4.effect_adrenaline": "//Inferno damage done when adrenalised",
+        "spelldatas.water_4.cost": "// .0 just to grant the kvpatch creation",
         "spelldatas.water_4.effect": "// charm is over powerful if for too long as is granted foe getting killed. the foe will create an excellent distraction already so you can activate adrenaline and use powerful spells and skills on others but not for too long, and this foe will return against you later soon. almost vanilla value is enough to help. Is not like a thrall or raised zombie, is just a frenzy confusion."
     },
     "spelldatas.air_3.effect_adrenaline": "5000",
     "spelldatas.air_4.weaken_damage_multiplicator": "100",
     "spelldatas.fire_1.effect_adrenaline": "5000",
+    "spelldatas.fire_2.cost": "15.0",
     "spelldatas.fire_2.effect": "750",
     "spelldatas.fire_3.effect_adrenaline": "5001",
     "spelldatas.fire_4.effect_adrenaline": "1000",
+    "spelldatas.water_4.cost": "15.0",
     "spelldatas.water_4.effect": "30"
 }
