@@ -2,6 +2,7 @@
     "__comments__": {
         "spelldatas.air_3.effect_adrenaline": "//Lightning Bolt",
         "spelldatas.fire_1.effect_adrenaline": "//Fire Arrow",
+        "spelldatas.fire_2": "// Fire trap (up to 3 simultaneously placed)",
         "spelldatas.fire_2.cost": "// Fire trap: kept mana cost as even not having adrenaline option, this can be triggered without targetting and you can use bloodymana to restore your mana and prepare many traps.",
         "spelldatas.fire_2.effect": "// Fire trap: based on necroguard new HP, seems to multiply by 4? depends on how near it is from center? so placing in a corner that the foe has to slowdown is the best? one explosion shall not kill but will damage a lot",
         "spelldatas.fire_3.effect_adrenaline": "//Fireball",
