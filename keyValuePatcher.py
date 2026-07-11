@@ -616,9 +616,10 @@ def parse_qct_comments(file_path: str) -> Dict[str, str]:
                         last_block_comment = inline_comment
                         continue
 
-                kv_match = KV_PATTERN.match(clean_line)
-                if kv_match:
-                        key = strip_quotes(kv_match.group(1))
+                # Use parse_key_value instead of KV_PATTERN for robustness
+                kv_result = parse_key_value(clean_line)
+                if kv_result:
+                        key, _ = kv_result
                         if is_duplicate_key(key):
                                 full_path_base = ".".join(stack + [key])
                                 idx = duplicate_counts[full_path_base]
@@ -626,12 +627,19 @@ def parse_qct_comments(file_path: str) -> Dict[str, str]:
                                 duplicate_counts[full_path_base] += 1
                         else:
                                 full_path = ".".join(stack + [key])
+
                         if inline_comment:
                                 result[full_path] = inline_comment
                         last_block_key = None
                         last_block_comment = ""
+                        continue
+
+                # Reset block state if line matches neither block nor KV pattern
+                last_block_key = None
+                last_block_comment = ""
 
         return result
+
 
 
 def flatten_dict(
@@ -1042,10 +1050,17 @@ def handle_create(args) -> None:
         mod_comments = parse_qct_comments(args.modified)
 
         comment_patch: Dict[str, str] = {}
+
+        # 1. Track added or changed comments
         for path, mod_comment in mod_comments.items():
                 orig_comment = orig_comments.get(path, "")
                 if mod_comment != orig_comment:
                         comment_patch[path] = mod_comment
+
+        # 2. Track removed comments (empty string signals removal during apply)
+        for path in orig_comments:
+                if path not in mod_comments:
+                        comment_patch[path] = ""
 
         output_destination = args.output
         if output_destination == "patch.json" or output_destination.startswith(

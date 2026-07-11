@@ -1,0 +1,9 @@
+{
+    "spelldatas.air_3.effect_adrenaline": "5000",
+    "spelldatas.air_4.weaken_damage_multiplicator": "100",
+    "spelldatas.fire_1.effect_adrenaline": "5000",
+    "spelldatas.fire_2.effect": "750",
+    "spelldatas.fire_3.effect_adrenaline": "5001",
+    "spelldatas.fire_4.effect_adrenaline": "1000",
+    "spelldatas.water_4.effect": "30"
+}
