@@ -4,7 +4,7 @@
         "spelldatas.air_2.cost": "//see reason at cfg file. was 7 (non hardcore) Cure Wounds 1to1 conversion. no fill up mana and easily fill up HP fastly.",
         "spelldatas.air_2.effect": "//was 7 (non hardcore)"
     },
-    "spelldatas.air_2.cost": "45",
-    "spelldatas.air_2.effect": "12",
+    "spelldatas.air_2.cost": "52",
+    "spelldatas.air_2.effect": "10",
     "spelldatas.air_2.recovery": "3"
 }
