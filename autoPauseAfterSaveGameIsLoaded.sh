@@ -125,7 +125,7 @@ if [[ "${1-}" == -m ]];then #help monitor changes and dump strings
 	exit
 fi
 
-nScrWhalf=$(($(xdotool getdisplaygeometry |awk '{print $1}') / 2 ))
+export nScrWhalf=$(($(xdotool getdisplaygeometry |awk '{print $1}') / 2 ))
 
 function FUNCpauseAfterLoad() {
 	set -x
