@@ -29,24 +29,6 @@
 #	OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 #	OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-source "./allMergerScriptsGenericConfig.sh"
-
-#function FUNCseekMainModFolderRoot() {
-	#if [[ -L "$0" ]];then cd "$(dirname "$(readlink "$0")")";fi
-	#strPathThisModFolderFull="$(pwd)";declare -p strPathThisModFolderFull >&2
-	#strPathThisModFolderBN="$(basename "${strPathThisModFolderFull}")";declare -p strPathThisModFolderBN >&2
-	#while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done
-	#strPathMainModFolder="$(pwd)"
-	#source "./allMergerScriptsGenericConfig.sh"
-	#if [[ $# -gt 0 &&  "$1" == "--help" ]];then #help show this help
-		##egrep "[#]help" "./allMergerScriptsGenericConfig.sh" "$0" |sed -r -e 's@^[ \t]*@@'
-		#SECFUNCshowHelpV2 "./allMergerScriptsGenericConfig.sh"
-		#SECFUNCshowHelpV2 "${strPathThisModFolderFull}/$0"
-		#exit
-	#fi
-#}
-
-#set -x
 if true;then
 	while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
 	

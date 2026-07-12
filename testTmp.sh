@@ -1,10 +1,6 @@
 #!/bin/bash
 
-set -Eeux
-
-source "./allMergerScriptsGenericConfig.sh"
-
-
+while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
 
 #TESTS:
 function FUNCtst1() {
@@ -22,8 +18,6 @@ function FUNCtst1() {
 	)&&:
 	echo;declare -p astrListFoldersLayersOrderOriginal |sed -r -e "$strSedArrayLn";echo
 }
-
-
 
 #EXEC
 clear

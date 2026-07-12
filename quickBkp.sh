@@ -29,9 +29,7 @@
 #	OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 #	OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-set -Eeu
-
-egrep "[#]help" "$0"
+while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
 
 echo "Easy backup"
 echo "This is meant to be run at (final merged OverlayFS) game folder"

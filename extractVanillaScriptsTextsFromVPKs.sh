@@ -29,10 +29,8 @@
 #	OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 #	OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-set -Eeu
-
-bChkVpkExec=true
-source "./allMergerScriptsGenericConfig.sh"
+bChkVpkExec=true # for allMergerScriptsGenericConfig.sh
+while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
 
 #strExec="$HOME/.local/bin/vpk"
 #if [[ ! -f "$strExec" ]];then

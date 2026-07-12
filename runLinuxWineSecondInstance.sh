@@ -2,6 +2,8 @@
 
 #TODO a script that just handles it all described below
 
+while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
+
 echo '
 	Goal: no wait time after being defeated, instantly continue playing, no loading game waiting anymore!
 	

@@ -557,6 +557,7 @@ function FUNCminiModInit() {
 		#egrep "[#]help" "./allMergerScriptsGenericConfig.sh" "$0" |sed -r -e 's@^[ \t]*@@'
 		SECFUNCshowHelpV2 "${strPathMainModFolder}/allMergerScriptsGenericConfig.sh"
 		SECFUNCshowHelpV2 "${strPathThisModFolderFull}/$0"
-		FUNCexit
+		: ${FUNCminiModInit_bExitOnHelpAtBaseInit:=true}
+		if $FUNCminiModInit_bExitOnHelpAtBaseInit;then FUNCexit;fi
 	fi
 }

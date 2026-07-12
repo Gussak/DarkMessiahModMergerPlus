@@ -31,7 +31,7 @@
 
 astrInitialParams=("$@")
 
-source "./allMergerScriptsGenericConfig.sh"
+while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
 
 FUNCechoInfo "This looks for PATCH files that have no full work file available by it's side."
 FUNCechoInfo "These PATCH files MUST have been created based on VANILLA files (just a \`diff -u\` from them!)."

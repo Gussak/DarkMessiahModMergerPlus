@@ -29,7 +29,7 @@
 #	OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 #	OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-source "./allMergerScriptsGenericConfig.sh"
+while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
 
 if [[ "${1-}" == "--help" ]];then #help
 	#egrep "[#]help" "./allMergerScriptsGenericConfig.sh" "$0"

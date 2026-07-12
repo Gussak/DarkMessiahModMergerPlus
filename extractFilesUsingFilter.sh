@@ -29,7 +29,7 @@
 #	OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 #	OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-source "./allMergerScriptsGenericConfig.sh"
+while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
 
 strMatch="$1" #help if [--all] will extract all files
 bAll=false;if [[ "$strMatch" == --all ]];then bAll=true;fi
@@ -57,20 +57,20 @@ if $bAll;then
 		"$strVpkExec" -x "$strExtFolder" "$strFlVpk"
 	done
 else
-IFS=$'\n' read -d '' -r -a astrFlEx < <(
-	for strFlVpk in "${astrFlVpk[@]}";do
-		"$strVpkExec" "$strFlVpk" -l;
-	done |egrep "$strMatch" -i |sort -u
-)&&:
-#declare -p astrFlEx |sed -r -e 's@\[@\n\[@g' >&2
-for strFlEx in "${astrFlEx[@]}";do echo "$strFlEx";done
-
-: ${bDoExtract:=true} #help
-if $bDoExtract;then
-	for strFlEx in "${astrFlEx[@]}";do
+	IFS=$'\n' read -d '' -r -a astrFlEx < <(
 		for strFlVpk in "${astrFlVpk[@]}";do
-			"$strVpkExec" -x "$strExtFolder" --filter "$strFlEx" "$strFlVpk"
+			"$strVpkExec" "$strFlVpk" -l;
+		done |egrep "$strMatch" -i |sort -u
+	)&&:
+	#declare -p astrFlEx |sed -r -e 's@\[@\n\[@g' >&2
+	for strFlEx in "${astrFlEx[@]}";do echo "$strFlEx";done
+
+	: ${bDoExtract:=true} #help
+	if $bDoExtract;then
+		for strFlEx in "${astrFlEx[@]}";do
+			for strFlVpk in "${astrFlVpk[@]}";do
+				"$strVpkExec" -x "$strExtFolder" --filter "$strFlEx" "$strFlVpk"
+			done
 		done
-	done
 	fi
 fi

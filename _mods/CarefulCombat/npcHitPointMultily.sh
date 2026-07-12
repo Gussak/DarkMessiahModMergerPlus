@@ -33,7 +33,7 @@
 # but... for precise tweaking better use this script and a x1 multiplier at mm_game_settings.txt
 
 #if true;then
-	set -Eeu
+	#set -Eeu
 	
 	#if [[ ! -f "info.json" ]];then echo "[ERROR] run this at this minimod folder";FUNCexit 1;fi
 	
