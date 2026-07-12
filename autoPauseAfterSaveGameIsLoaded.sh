@@ -31,7 +31,7 @@
 
 set -Eeu -o pipefail
 
-
+aPidVsWindowList=()
 function FUNCdetectPidToPause() { # the one that has no focus
 	#set -x
 	nWFoc="$(xdotool getwindowfocus)"&&:
@@ -41,6 +41,11 @@ function FUNCdetectPidToPause() { # the one that has no focus
 	strWineprefixFocus="$(strings /proc/$nWPid/environ |grep WINEPREFIX)"
 	
 	anPid=($(pgrep -f "Dark Messiah.*mm.exe"))
+	wmctrl -l -p |grep "Wine Desktop" |awk '{print "_nW=" $1 ";_nPidFM=" $3 ";"}' |while read strLn;do
+		eval "${strLn}";
+		aPidVsWindowList[${_nPidFM}]="${_nW}" # the pid is from explorer.exe (filemanager FM) and not from the game as wine is running in desktop single window mode
+	done
+	
 	strWineprefixExecutableFocus=""
 	nPidExecFocus=0
 	#for((i=0;i<${#anPid[@]};i++));do
@@ -61,7 +66,8 @@ function FUNCdetectPidToPause() { # the one that has no focus
 	
 	declare -p nWFoc nWNm nWPid anPid strWineprefixExecutableFocus nPidExecFocus >&2
 	
-	echo $nPidExecOther
+	declare -g FUNCdetectPidToPause_nPidNoFocus=$nPidExecOther
+	declare -g FUNCdetectPidToPause_nWindowNoFocus=$nWindowOther
 };export -f FUNCdetectPidToPause
 
 function FUNCtest() {
@@ -152,9 +158,9 @@ function FUNCpauseAfterLoad() {
 			: ${fSleepAfterHintFound:=3.0} #help
 			read -n 1 -t $fSleepAfterHintFound -p "hit a key to SIGSTOP game"
 			
-			nPidNoFocus="$(FUNCdetectPidToPause)"
+			FUNCdetectPidToPause
 			for nPid in "${anPid[@]}";do
-				if $bPauseOnlyNoFocusInstance && ((nPidNoFocus != 0 && nPid != nPidNoFocus));then continue;fi
+				if $bPauseOnlyNoFocusInstance && ((FUNCdetectPidToPause_nPidNoFocus != 0 && nPid != FUNCdetectPidToPause_nPidNoFocus));then continue;fi
 				kill -SIGSTOP $nPid
 				if which ScriptEchoColor;then echoc --say "Game Loaded";fi
 				#while ! yad --title="DarkMessiah:helper" --text="Dark Messiah of MM\n Game Finished Loading\n SigStopped\n Continue NOW?" --geometry=1x1+$nScrWhalf+0 --undecorated;do :;done; # not --on-top because it cant be too small :(
