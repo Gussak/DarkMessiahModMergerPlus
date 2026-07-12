@@ -329,6 +329,7 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 						<(iconv -f $(file -b --mime-encoding "$strFileToMerge"      ) -t UTF-8 "$strFileToMerge"      ) \
 							>"${strFlPatch}";nRet=$?
 							#KEEPinfo: too much unnecessary log: #					|tee "${strFlPatch}";nRet=$?
+					set +o pipefail # to not mess other things like grep
 					declare -p nRet
 					set +x
 					exit $nRet #KeepInfo dont use FUNCexit for captured exit values on subshells!

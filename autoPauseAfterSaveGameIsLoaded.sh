@@ -29,15 +29,18 @@
 #	OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 #	OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-set -Eeu -o pipefail
+set -Eeu
 
 function FUNCdetectPidToPause() { # the one that has no focus
 	#set -x
-	nWFoc="$(xdotool getwindowfocus)"&&:
-	nWNm="$(xdotool getwindowname $nWFoc)"&&:
-	nWPid="$(xdotool getwindowpid $nWFoc)"&&:
+	nWFocId="$(xdotool getwindowfocus)"&&:
+	nWFocNm="$(xdotool getwindowname $nWFocId)"&&:
+	nWFocPid="$(xdotool getwindowpid $nWFocId)"&&:
 	
-	strWineprefixWFocus="$(strings /proc/$nWPid/environ |grep WINEPREFIX)"
+	bPauseAll=false
+	if ! strWineprefixWFocus="$(strings /proc/$nWFocPid/environ |grep WINEPREFIX)";then
+		bPauseAll=true;
+	fi
 	
 	# multidimentional array simulated: [PidGM] = PidFM WindowID WINEPREFIX (the link between them is WINEPREFIX)
 	declare -g anPidGm=($(pgrep -f "Dark Messiah.*mm.exe"))
@@ -50,16 +53,22 @@ function FUNCdetectPidToPause() { # the one that has no focus
 		strWineprefixGm="$(strings /proc/$nPidGm/environ |grep WINEPREFIX)"
 		aPidGm_WINEPREFIX[$nPidGm]="$strWineprefixGm"
 	done
-	wmctrl -l -p |grep "Wine Desktop" |awk '{print "_nW=" $1 ";_nPidFM=" $3 ";"}' |while read strLn;do eval "${strLn}";
+	
+	mapfile -t astrLn < <(wmctrl -l -p |grep "Wine Desktop" |awk '{print "_nW=" $1 ";_nPidFM=" $3 ";"}')
+	for strLn in "${astrLn[@]}";do eval "${strLn}";
 		strWineprefixFm="$(strings /proc/$_nPidFM/environ |grep WINEPREFIX)"
 		#for((i=0;i<${#aPidGm_WINEPREFIX[@]};i++));do
+		#echo "DEBUG:${!aPidGm_WINEPREFIX[@]}"
+		#declare -p _nPidFM _nW
 		for nPidGm in ${!aPidGm_WINEPREFIX[@]};do
+			#echo "if [[ \"$strWineprefixFm\" == \"${aPidGm_WINEPREFIX[$nPidGm]}\" ]];then"
 			if [[ "$strWineprefixFm" == "${aPidGm_WINEPREFIX[$nPidGm]}" ]];then
 				aPidGm_PidFM[$nPidGm]="$_nPidFM"
 				aPidGm_WindowID[$nPidGm]="$(printf %d $_nW)"
-				if((nWFoc==${aPidGm_WindowID[$nPidGm]}));then aPidGm_bFocus[$nPidGm]=true; else aPidGm_bFocus[$nPidGm]=false; fi
+				if((nWFocId==${aPidGm_WindowID[$nPidGm]}));then aPidGm_bFocus[$nPidGm]=true; else aPidGm_bFocus[$nPidGm]=false; fi
 			fi
 		done
+		#declare -p aPidGm_PidFM
 	done
 	
 	#nPidGmExecFocus=0
@@ -78,7 +87,7 @@ function FUNCdetectPidToPause() { # the one that has no focus
 		#break;
 	#done
 	
-	#declare -p nWFoc nWNm nWPid anPidGm nPidGmExecFocus >&2
+	#declare -p nWFocId nWNm nWPid anPidGm nPidGmExecFocus >&2
 	declare -p anPidGm aPidGm_PidFM aPidGm_WindowID aPidGm_WINEPREFIX aPidGm_bFocus
 	
 	#declare -g FUNCdetectPidToPause_nPidGmNoFocus=$nPidGmExecOther
@@ -155,6 +164,8 @@ function FUNCpauseAfterLoad() {
 	while true;do
 		nThisRunTime=$(date +%s)
 		while true;do
+			echo
+			echo "=============================== $(date) ================================"
 			sleep 1
 			
 			FUNCdetectPidToPause
@@ -174,7 +185,7 @@ function FUNCpauseAfterLoad() {
 			: ${fSleepAfterHintFound:=3.0} #help
 			read -n 1 -t $fSleepAfterHintFound -p "hit a key to SIGSTOP game"
 			
-			FUNCdetectPidToPause
+			#FUNCdetectPidToPause
 			for nPidGm in "${anPidGm[@]}";do
 				#if $bPauseOnlyNoFocusInstance && ((FUNCdetectPidToPause_nPidNoFocus != 0 && nPidGm != FUNCdetectPidToPause_nPidNoFocus));then continue;fi
 				if $bPauseOnlyNoFocusInstance && ${aPidGm_bFocus[$nPidGm]};then continue;fi # ignores focused window
@@ -193,6 +204,12 @@ function FUNCpauseAfterLoad() {
 	done
 };export -f FUNCpauseAfterLoad;
 
+#set -x
 if ! pgrep -fa DarkMessiah_FUNCpauseAfterLoad;then
-	(xterm -title DarkMessiah_FUNCpauseAfterLoad -e bash -c "FUNCpauseAfterLoad" & disown);
+	: ${bXterm:=true}
+	if $bXterm;then
+		(xterm -title DarkMessiah_FUNCpauseAfterLoad -e bash -c "FUNCpauseAfterLoad" & disown);
+	else
+		FUNCpauseAfterLoad
+	fi
 fi
