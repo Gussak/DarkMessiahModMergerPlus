@@ -149,7 +149,7 @@ fi
 export nScrWhalf=$(($(xdotool getdisplaygeometry |awk '{print $1}') / 2 ))
 
 function FUNCpauseAfterLoad() {
-	set -x
+	#set -x
 	: ${strTextHint:="hltv_status"} #help this shows up on the last writing to that file, after that you only need to wait for 5s!
 	: ${bPauseOnlyNoFocusInstance:=false} #help :D
 	while true;do
