@@ -31,43 +31,58 @@
 
 set -Eeu -o pipefail
 
-aPidVsWindowList=()
 function FUNCdetectPidToPause() { # the one that has no focus
 	#set -x
 	nWFoc="$(xdotool getwindowfocus)"&&:
 	nWNm="$(xdotool getwindowname $nWFoc)"&&:
 	nWPid="$(xdotool getwindowpid $nWFoc)"&&:
 	
-	strWineprefixFocus="$(strings /proc/$nWPid/environ |grep WINEPREFIX)"
+	strWineprefixWFocus="$(strings /proc/$nWPid/environ |grep WINEPREFIX)"
 	
-	anPid=($(pgrep -f "Dark Messiah.*mm.exe"))
-	wmctrl -l -p |grep "Wine Desktop" |awk '{print "_nW=" $1 ";_nPidFM=" $3 ";"}' |while read strLn;do
-		eval "${strLn}";
-		aPidVsWindowList[${_nPidFM}]="${_nW}" # the pid is from explorer.exe (filemanager FM) and not from the game as wine is running in desktop single window mode
+	# multidimentional array simulated: [PidGM] = PidFM WindowID WINEPREFIX (the link between them is WINEPREFIX)
+	declare -g anPidGm=($(pgrep -f "Dark Messiah.*mm.exe"))
+	declare -g aPidGm_PidFM=() # the PidFM is from explorer.exe (filemanager FM) and not from the game as wine is running in desktop single window mode
+	declare -g aPidGm_WindowID=()
+	declare -g aPidGm_WINEPREFIX=()
+	declare -g aPidGm_bFocus=()
+	
+	for nPidGm in "${anPidGm[@]}";do
+		strWineprefixGm="$(strings /proc/$nPidGm/environ |grep WINEPREFIX)"
+		aPidGm_WINEPREFIX[$nPidGm]="$strWineprefixGm"
+	done
+	wmctrl -l -p |grep "Wine Desktop" |awk '{print "_nW=" $1 ";_nPidFM=" $3 ";"}' |while read strLn;do eval "${strLn}";
+		strWineprefixFm="$(strings /proc/$_nPidFM/environ |grep WINEPREFIX)"
+		#for((i=0;i<${#aPidGm_WINEPREFIX[@]};i++));do
+		for nPidGm in ${!aPidGm_WINEPREFIX[@]};do
+			if [[ "$strWineprefixFm" == "${aPidGm_WINEPREFIX[$nPidGm]}" ]];then
+				aPidGm_PidFM[$nPidGm]="$_nPidFM"
+				aPidGm_WindowID[$nPidGm]="$(printf %d $_nW)"
+				if((nWFoc==${aPidGm_WindowID[$nPidGm]}));then aPidGm_bFocus[$nPidGm]=true; else aPidGm_bFocus[$nPidGm]=false; fi
+			fi
+		done
 	done
 	
-	strWineprefixExecutableFocus=""
-	nPidExecFocus=0
-	#for((i=0;i<${#anPid[@]};i++));do
-	for nPid in "${anPid[@]}";do
-		strWineprefixExecutable="$(strings /proc/$nPid/environ |grep WINEPREFIX)"
-		if [[ "$strWineprefixExecutable" == "$strWineprefixFocus" ]];then
-			strWineprefixExecutableFocus="$strWineprefixExecutable"
-			nPidExecFocus=$nPid
-			break;
-		fi
-	done
-	nPidExecOther=0
-	for nPid in "${anPid[@]}";do
-		if((nPidExecFocus == nPid));then continue;fi
-		nPidExecOther=$nPid
-		break;
-	done
+	#nPidGmExecFocus=0
+	##for((i=0;i<${#anPidGm[@]};i++));do
+	#for nPidGm in "${anPidGm[@]}";do
+		#strWineprefixGm="$(strings /proc/$nPidGm/environ |grep WINEPREFIX)"
+		#if [[ "$strWineprefixGm" == "$strWineprefixWFocus" ]];then
+			#nPidGmExecFocus=$nPidGm
+			#break;
+		#fi
+	#done
+	#nPidGmExecOther=0
+	#for nPidGm in "${anPidGm[@]}";do
+		#if((nPidGmExecFocus == nPidGm));then continue;fi
+		#nPidGmExecOther=$nPidGm
+		#break;
+	#done
 	
-	declare -p nWFoc nWNm nWPid anPid strWineprefixExecutableFocus nPidExecFocus >&2
+	#declare -p nWFoc nWNm nWPid anPidGm nPidGmExecFocus >&2
+	declare -p anPidGm aPidGm_PidFM aPidGm_WindowID aPidGm_WINEPREFIX aPidGm_bFocus
 	
-	declare -g FUNCdetectPidToPause_nPidNoFocus=$nPidExecOther
-	declare -g FUNCdetectPidToPause_nWindowNoFocus=$nWindowOther
+	#declare -g FUNCdetectPidToPause_nPidGmNoFocus=$nPidGmExecOther
+	#declare -g FUNCdetectPidToPause_nWindowNoFocus=$nWindowOther
 };export -f FUNCdetectPidToPause
 
 function FUNCtest() {
@@ -142,11 +157,12 @@ function FUNCpauseAfterLoad() {
 		while true;do
 			sleep 1
 			
-			anPid=($(pgrep -f "C:[\].*[\]mm.exe"))
+			FUNCdetectPidToPause
+			#anPidGm=($(pgrep -f "C:[\].*[\]mm.exe"))
 			
 			: ${bExitIfGameExits:=false} #help
 			if $bExitIfGameExits;then
-				if ! ps -p ${anPid[@]};then exit;fi
+				if ! ps -p ${anPidGm[@]};then exit;fi
 			fi
 			
 			if(( $(stat -c %Y "$strFlHint") < nThisRunTime ));then
@@ -159,14 +175,17 @@ function FUNCpauseAfterLoad() {
 			read -n 1 -t $fSleepAfterHintFound -p "hit a key to SIGSTOP game"
 			
 			FUNCdetectPidToPause
-			for nPid in "${anPid[@]}";do
-				if $bPauseOnlyNoFocusInstance && ((FUNCdetectPidToPause_nPidNoFocus != 0 && nPid != FUNCdetectPidToPause_nPidNoFocus));then continue;fi
-				kill -SIGSTOP $nPid
+			for nPidGm in "${anPidGm[@]}";do
+				#if $bPauseOnlyNoFocusInstance && ((FUNCdetectPidToPause_nPidNoFocus != 0 && nPidGm != FUNCdetectPidToPause_nPidNoFocus));then continue;fi
+				if $bPauseOnlyNoFocusInstance && ${aPidGm_bFocus[$nPidGm]};then continue;fi # ignores focused window
+				
+				kill -SIGSTOP $nPidGm
 				if which ScriptEchoColor;then echoc --say "Game Loaded";fi
 				#while ! yad --title="DarkMessiah:helper" --text="Dark Messiah of MM\n Game Finished Loading\n SigStopped\n Continue NOW?" --geometry=1x1+$nScrWhalf+0 --undecorated;do :;done; # not --on-top because it cant be too small :(
 				#while ! yad --geometry=1x1+$nScrWhalf+0 --title="DarkMessiah:helper" --center --no-buttons;do :;done; # not --on-top because it cant be too small :(
-				yad --geometry=500x1+$nScrWhalf+0 --title="DarkMessiah:FinishedLoading" --on-top --no-buttons --no-focus #unable to popup below :(, it should not receive imediate focus but should be focusable!!! unable to prevent it starting --on-top, so keep it there; no buttons, just hold the flow here
-				kill -SIGCONT $nPid
+				yad --geometry=500x1+$nScrWhalf+0 --title="DarkMessiah:FinishedLoading:${nPidGm}" --on-top --no-buttons --no-focus #unable to popup below :(, it should not receive imediate focus but should be focusable!!! unable to prevent it starting --on-top, so keep it there; no buttons, just hold the flow here
+				kill -SIGCONT $nPidGm
+				xdotool windowfocus ${aPidGm_WindowID[$nPidGm]}
 			done
 			
 			break # to update nThisRunTime for the next game load
