@@ -101,9 +101,7 @@ if [[ "${1-}" == --test ]];then FUNCtest;exit;fi
 
 egrep "[#]help" "$0"
 
-: ${strGameSubFolderCore:="WriteNewDataHereOnly"};export strGameSubFolderCore #help I know of: mm custom AddOn(overhaul mod) and the new one WriteNewDataHereOnly
-
-: ${strFlHint:="$HOME/Wine/DarkMessiahOfMightAndMagic.win32/drive_c/Games/Dark Messiah Might and Magic Single Player/${strGameSubFolderCore}/demoheader.tmp"};export strFlHint #help overrides strGameSubFolderCore
+: ${strFlHint:="${strGameInstallMainFolder}/${strGameSubRelatFolderWriteAllHere}/demoheader.tmp"};export strFlHint #help overrides strGameSubRelatFolderWriteAllHere
 
 : ${nIgnoreTinyStringsSize:=10};export nIgnoreTinyStringsSize #help these tiny strings are probably useless here TODO: just filter out if not: [0-9a-zA-Z_]*
 
@@ -114,7 +112,6 @@ function FUNCstringsDump() { #help <index> use this to dump demoheader.tmp strin
 		|sed -r -e 's@^.{1,'${nIgnoreTinyStringsSize}'}$@@g' \
 		|sort -u >"${lstrFlSnapshot}.Strings.txt"
 };export -f FUNCstringsDump
-
 function FUNCmonitorChanges() {
 	local lnSz=0;
 	local lnCount=1
@@ -122,12 +119,14 @@ function FUNCmonitorChanges() {
 	local lfLoopDelay
 	: ${lfLoopDelay:=0.33} #help_FUNCmonitorChanges
 	
-	#local lstrFlNewest="$(ls -1tr "${strFlHint}"*"bkp" |tail -n 1)"&&:
-	local lstrFlNewest="$(ls -1 "${strFlHint}"*"bkp" |sort |tail -n 1)"&&:
+	local lstrFlNewest="$(ls -1tr "${strFlHint}.SnapShot_ID_"*".bkp" |tail -n 1)"&&:
+	#local lstrFlNewest="$(ls -1 "${strFlHint}.SnapShot_ID_"*".bkp" |sort |tail -n 1)"&&:
 	declare -p lstrFlNewest
 	
+	# init with newest file
 	if [[ -n "$lstrFlNewest" ]];then
-		local lnIndex="${lstrFlNewest#${strFlHint}.}"
+		#local lnIndex="${lstrFlNewest#${strFlHint}.}"
+		local lnIndex="$(echo "$lstrFlNewest" |sed -r -e 's@.*[.]Index_([0-9]*)[.].*@\1@')"
 		lnIndex="${lnIndex%.bkp}"
 		lnIndex=$((10#$lnIndex))
 		((lnIndex++))&&: #next
@@ -140,7 +139,7 @@ function FUNCmonitorChanges() {
 		local lnDtTmID=$(stat -c %W "$strFlHint"); # creation time
 		if(( lnSz != lnSzNew ));then
 			local lstrIndex="$(printf %09d $lnCount)"
-			local lstrFlSnapshot="${strFlHint}.ID_${lnDtTmID}.${lstrIndex}.bkp"
+			local lstrFlSnapshot="${strFlHint}.SnapShot_ID_${lnDtTmID}.Index_${lstrIndex}.bkp"
 			cp -vf "$strFlHint" "$lstrFlSnapshot";
 			FUNCstringsDump "${lstrFlSnapshot}"
 			((lnCount++))&&:;
@@ -151,11 +150,18 @@ function FUNCmonitorChanges() {
 	done
 };export -f FUNCmonitorChanges
 
-if [[ "${1-}" == -m ]];then #help monitor changes and dump strings
-	#FUNCmonitorChanges
-	(xterm -e FUNCmonitorChanges & disown)
-	exit
-fi
+iMonCh=0
+if [[ "${1-}" == "-m" ]];then shift;iMonCh=1;fi #help monitor changes and dump strings xterm
+if [[ "${1-}" == "-M" ]];then shift;iMonCh=2;fi #help monitor changes and dump strings
+case $iMonCh in
+	1)
+		if ! pgrep -fa DarkMessiah_FUNCmonitorChanges;then
+			(xterm -title DarkMessiah_FUNCmonitorChanges -e FUNCmonitorChanges & disown)
+		fi
+		;;
+	2) FUNCmonitorChanges;exit;;
+	*);;
+esac
 
 export nScrWhalf=$(($(xdotool getdisplaygeometry |awk '{print $1}') / 2 ))
 

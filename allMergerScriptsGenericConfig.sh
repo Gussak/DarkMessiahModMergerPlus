@@ -151,6 +151,8 @@ if [[ ! -f "${strPathSelf}/$(basename "$0")" ]];then
 fi
 strPathParent="$(dirname "$strPathSelf")" #help This is the folder where all Layers are placed, it is the parent of game main folder. this is important to be detected like that in case this path is a symlink! when using '../' would navigate to the realpath!
 
+: ${strGameSubRelatFolderWriteAllHere:="WriteNewDataHereOnly"};export strGameSubRelatFolderWriteAllHere #help I know of: mm custom AddOn(overhaul mod) and my new one WriteNewDataHereOnly
+
 : ${strGameInstallMainFolder:="${strPathParent}/Dark Messiah Might and Magic Single Player"} #help vanilla game installed main folder
 
 : ${strVanillaLayer:="$(ls -d "${strGameInstallMainFolder}"*VanillaGameFiles*)"} #help vanilla game installed files' folder
