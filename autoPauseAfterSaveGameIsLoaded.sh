@@ -167,6 +167,7 @@ function FUNCmonitorChanges() {
 			if egrep "${strTextHint}" "$strFlHint";then
 				((lnID++))&&: # begin next hint detection
 				lnIndex=0
+				declare -p lnID lnIndex
 			fi
 			
 			lstrFlSnapshotPrev="$lstrFlSnapshot"
@@ -192,7 +193,7 @@ esac
 export nScrWhalf=$(($(xdotool getdisplaygeometry |awk '{print $1}') / 2 ))
 
 function FUNCpauseAfterLoad() {
-	: ${bPauseOnlyNoFocusInstance:=false} #help :D
+	: ${bPauseOnlyNoFocusInstance:=true} #help if false will pause all instance
 	while true;do
 		nThisRunTime=$(date +%s)
 		while true;do
@@ -221,35 +222,33 @@ function FUNCpauseAfterLoad() {
 			: ${fSleepAfterHintFound:=3.0} #help
 			read -n 1 -t $fSleepAfterHintFound -p "hit a key to SIGSTOP game"&&:
 			
-			#FUNCdetectPidToPause
-			for nPidGm in "${anPidGm[@]}";do #use case for 2 instances only
-				#if $bPauseOnlyNoFocusInstance && ((FUNCdetectPidToPause_nPidNoFocus != 0 && nPidGm != FUNCdetectPidToPause_nPidNoFocus));then continue;fi
-				if $bPauseOnlyNoFocusInstance && ${aPidGm_bFocus[$nPidGm]};then continue;fi # ignores focused window
-				
+			function FUNCminimizePopup() {
+				set -x
+				while true;do
+					if nWIdPopup="$(wmctrl -l |grep "$strTitle" |awk '{print $1}')";then
+						#sleep 1 # or the window will not be read to be minized..
+						if xdotool windowminimize --sync $(printf %d $nWIdPopup);then
+							break
+						fi
+					fi
+					sleep 0.33
+				done
+				set +x
+				read -t 60 -p "press a key to exit"
+			};export -f FUNCminimizePopup
+			
+			function FUNCpauseAndResumeAtom() {
 				set -x;kill -SIGSTOP $nPidGm;set +x
 				if which ScriptEchoColor;then echoc --say "Game Loaded";fi
 				#while ! yad --title="DarkMessiah:helper" --text="Dark Messiah of MM\n Game Finished Loading\n SigStopped\n Continue NOW?" --geometry=1x1+$nScrWhalf+0 --undecorated;do :;done; # not --on-top because it cant be too small :(
 				#while ! yad --geometry=1x1+$nScrWhalf+0 --title="DarkMessiah:helper" --center --no-buttons;do :;done; # not --on-top because it cant be too small :(
 				
 				export strTitle="DarkMessiah:FinishedLoading:${nPidGm}"
-				function FUNCminimizePopup() {
-					set -x
-					while true;do
-						if nWIdPopup="$(wmctrl -l |grep "$strTitle" |awk '{print $1}')";then
-							#sleep 1 # or the window will not be read to be minized..
-							if xdotool windowminimize --sync $(printf %d $nWIdPopup);then
-								break
-							fi
-						fi
-						sleep 0.33
-					done
-					set +x
-					echoc -w
-				};export -f FUNCminimizePopup
-				(xterm -maximized -e FUNCminimizePopup & disown)
+				declare -p aPidGm_PidFM aPidGm_WindowID aPidGm_WINEPREFIX aPidGm_bFocus strTitle
+				#KEEPinfo this gets the focus and break the gameplay: #(xterm -geometry 1x1+1+1 -e FUNCminimizePopup & disown) #this gets the focus and break the gameplay
+				FUNCminimizePopup&
 				
-				declare -p aPidGm_PidFM aPidGm_WindowID aPidGm_WINEPREFIX aPidGm_bFocus
-				
+				# popup
 				yad --geometry=500x1+$nScrWhalf+0 --title="$strTitle" --on-top --no-buttons --no-focus &&: #unable to popup below :(, it should not receive imediate focus but should be focusable!!! unable to prevent it starting --on-top, so keep it there; no buttons, just hold the flow here
 				kill -SIGCONT $nPidGm
 				
@@ -257,7 +256,34 @@ function FUNCpauseAfterLoad() {
 				xdotool windowactivate ${aPidGm_WindowID[$nPidGm]}
 				xdotool windowfocus    ${aPidGm_WindowID[$nPidGm]}
 				set +x
+			};export -f FUNCpauseAndResumeAtom
+			
+			#FUNCdetectPidToPause
+			
+			#use case for 2 instances only
+			nPidGmFocus=0
+			for nPidGm in "${anPidGm[@]}";do 
+				if ${aPidGm_bFocus[$nPidGm]};then
+					nPidGmFocus=$nPidGm
+				fi
 			done
+			
+			if((nPidGmFocus==0)) || ! $bPauseOnlyNoFocusInstance;then #none has focus, force pause all
+				for nPidGm in "${anPidGm[@]}";do #use case for 2 instances only
+					(xterm -geometry 100x10+1+1 -e FUNCminimizePopup & disown) #this gets the focus and break the gameplay
+				done
+			else
+				if $bPauseOnlyNoFocusInstance;then
+					for nPidGm in "${anPidGm[@]}";do 
+						#if $bPauseOnlyNoFocusInstance && ((FUNCdetectPidToPause_nPidNoFocus != 0 && nPidGm != FUNCdetectPidToPause_nPidNoFocus));then continue;fi
+						#if $bPauseOnlyNoFocusInstance && ${aPidGm_bFocus[$nPidGm]};then continue;fi # ignores focused window
+						if ! ${aPidGm_bFocus[$nPidGm]};then
+							FUNCpauseAndResumeAtom
+							break
+						fi
+					done
+				fi
+			fi
 			
 			break # to update nThisRunTime for the next game load
 		done
