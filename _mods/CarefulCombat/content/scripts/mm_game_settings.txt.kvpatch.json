@@ -1,4 +1,15 @@
 {
+    "__comments__": {
+        "Game.player.HealthCoeffShield": "//Shield HP multiplier (keeping default as there are many shield to have to manage that when they break)",
+        "Game.player.poison_resistance": "//2.5 let the poison come",
+        "Game.player.EasyDifficultyNPCLifeMul": "//this is scaled/fixed thru npcHitPointMultily.sh",
+        "Game.player.HardDifficultyNPCLifeMul": "//this is scaled/fixed thru npcHitPointMultily.sh",
+        "Game.player.StoneSkin_ArmorValue": "//0.05 why so little?",
+        "Game.player.stamina_kick_all": "//stamina rises too fast",
+        "Game.player.NbrArrowsWhenFirstTakeBow": "// no too easy stuff",
+        "Game.player.NbrArrowsMax": "// this is important because the fun arrow_always_stick 1 will provide a lot of arrows, this is the minimum amount used in wars, could be less tho?",
+        "Game.ai.DamageOnTriggerFall": "//the traps with boxes?"
+    },
     "Game.ai.AttackByPlayerToBeEnemy": "2",
     "Game.ai.DamageOnTriggerFall": "5000",
     "Game.ai.DifficultyCombatAverage": "0.8",
@@ -43,7 +54,7 @@
     "Game.player.HardDifficultyNPCLifeMul": "1",
     "Game.player.HealthCoeffShield": "1",
     "Game.player.kick_damage": "300",
-    "Game.player.NbrArrowsMax": "30",
+    "Game.player.NbrArrowsMax": "12",
     "Game.player.NbrArrowsWhenFirstTakeBow": "0",
     "Game.player.poison_resistance": "0",
     "Game.player.slowtime_critical_delay": "1",

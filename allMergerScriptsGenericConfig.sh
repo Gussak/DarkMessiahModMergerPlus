@@ -555,11 +555,15 @@ function FUNCminiModInit() {
 	
 	#source "./allMergerScriptsGenericConfig.sh"
 	
-	if [[ $# -gt 0 &&  "$1" == "--help" ]];then #help show this help
+	if [[ $# -gt 0 && "$1" == "--help" ]];then #help show this help
 		#egrep "[#]help" "./allMergerScriptsGenericConfig.sh" "$0" |sed -r -e 's@^[ \t]*@@'
 		SECFUNCshowHelpV2 "${strPathMainModFolder}/allMergerScriptsGenericConfig.sh"
 		SECFUNCshowHelpV2 "${strPathThisModFolderFull}/$0"
-		: ${FUNCminiModInit_bExitOnHelpAtBaseInit:=true}
-		if $FUNCminiModInit_bExitOnHelpAtBaseInit;then FUNCexit;fi
+		
+		: ${FUNCminiModInit_bExitOnHelpAtBaseInit:=true} #help
+		if $FUNCminiModInit_bExitOnHelpAtBaseInit;then FUNCexit;fi #this will not consume the param so it can be reused at main file
+		
+		: ${FUNCminiModInit_bConsumeParamHelp:=true} #help
+		if $FUNCminiModInit_bConsumeParamHelp;then shift;fi #if not, the param can be reused at main file
 	fi
 }

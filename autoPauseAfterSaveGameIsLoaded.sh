@@ -226,24 +226,30 @@ function FUNCpauseAfterLoad() {
 				#if $bPauseOnlyNoFocusInstance && ((FUNCdetectPidToPause_nPidNoFocus != 0 && nPidGm != FUNCdetectPidToPause_nPidNoFocus));then continue;fi
 				if $bPauseOnlyNoFocusInstance && ${aPidGm_bFocus[$nPidGm]};then continue;fi # ignores focused window
 				
-				kill -SIGSTOP $nPidGm
+				set -x;kill -SIGSTOP $nPidGm;set +x
 				if which ScriptEchoColor;then echoc --say "Game Loaded";fi
 				#while ! yad --title="DarkMessiah:helper" --text="Dark Messiah of MM\n Game Finished Loading\n SigStopped\n Continue NOW?" --geometry=1x1+$nScrWhalf+0 --undecorated;do :;done; # not --on-top because it cant be too small :(
 				#while ! yad --geometry=1x1+$nScrWhalf+0 --title="DarkMessiah:helper" --center --no-buttons;do :;done; # not --on-top because it cant be too small :(
 				
 				export strTitle="DarkMessiah:FinishedLoading:${nPidGm}"
 				function FUNCminimizePopup() {
+					set -x
 					while true;do
 						if nWIdPopup="$(wmctrl -l |grep "$strTitle" |awk '{print $1}')";then
 							#sleep 1 # or the window will not be read to be minized..
-							xdotool windowminimize --sync $(printf %d $nWIdPopup)&&:
-							break
+							if xdotool windowminimize --sync $(printf %d $nWIdPopup);then
+								break
+							fi
 						fi
 						sleep 0.33
 					done
-				}
-				FUNCminimizePopup&
-
+					set +x
+					echoc -w
+				};export -f FUNCminimizePopup
+				(xterm -maximized -e FUNCminimizePopup & disown)
+				
+				declare -p aPidGm_PidFM aPidGm_WindowID aPidGm_WINEPREFIX aPidGm_bFocus
+				
 				yad --geometry=500x1+$nScrWhalf+0 --title="$strTitle" --on-top --no-buttons --no-focus &&: #unable to popup below :(, it should not receive imediate focus but should be focusable!!! unable to prevent it starting --on-top, so keep it there; no buttons, just hold the flow here
 				kill -SIGCONT $nPidGm
 				

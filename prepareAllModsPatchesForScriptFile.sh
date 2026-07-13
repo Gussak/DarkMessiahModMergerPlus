@@ -29,7 +29,7 @@
 #	OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 #	OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-export FUNCminiModInit_bExitOnHelpAtBaseInit=false
+export FUNCminiModInit_bConsumeParamHelp=false
 while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
 
 #help USAGE: <strScriptFileRelat>
@@ -37,11 +37,11 @@ while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./a
 : ${bVerbose:=false} #help
 bRedoAllFiles=false;
 : ${bForceRePatch:=false} #help
-while [[ $# -gt 0 &&  "$1" == "--help" ]];do # checks if param is set
+while [[ $# -gt 0 ]] && [[ "${1:0:1}" == "-" ]];do # checks if param is set
 	if [[ "$1" == "--help" ]];then #help show this help
 		#egrep "[#]help" "./allMergerScriptsGenericConfig.sh" "$0" |sed -r -e 's@^[ \t]*@@'
-		SECFUNCshowHelpV2 "./allMergerScriptsGenericConfig.sh"
-		SECFUNCshowHelpV2 "$0"
+		#SECFUNCshowHelpV2 "./allMergerScriptsGenericConfig.sh"
+		#SECFUNCshowHelpV2 "$0"
 		echo "Usage Example: $0 -f <strScriptFileRelat> # see above"
 		FUNCexit 0
 	elif [[ "$1" == "-f" || "$1" == "--forceRePatch" ]];then #help

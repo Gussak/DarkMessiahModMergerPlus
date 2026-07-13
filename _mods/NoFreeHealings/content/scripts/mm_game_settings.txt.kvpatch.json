@@ -1,3 +1,6 @@
 {
+    "__comments__": {
+        "Game.player.xanaaddhealthifhit": "//20 xana heals the player?"
+    },
     "Game.player.xanaaddhealthifhit": "1"
 }
