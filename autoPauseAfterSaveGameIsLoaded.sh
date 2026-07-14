@@ -226,7 +226,8 @@ function FUNCpauseAfterLoad() {
 				set -x
 				while true;do
 					if nWIdPopup="$(wmctrl -l |grep "$strTitle" |awk '{print $1}')";then
-						#sleep 1 # or the window will not be read to be minized..
+#					if nWIdPopup="$(wmctrl -l |grep "$1" |awk '{print $1}')";then
+						#sleep 2 # or the window will not be read to be minized and may bug and vanish! could be 1s? other tests like thru xwininfo may help to know it will be reaally reeady and not bug out?
 						if xdotool windowminimize --sync $(printf %d $nWIdPopup);then
 							break
 						fi
@@ -246,6 +247,7 @@ function FUNCpauseAfterLoad() {
 				export strTitle="DarkMessiah:FinishedLoading:${nPidGm}"
 				declare -p aPidGm_PidFM aPidGm_WindowID aPidGm_WINEPREFIX aPidGm_bFocus strTitle
 				#KEEPinfo this gets the focus and break the gameplay: #(xterm -geometry 1x1+1+1 -e FUNCminimizePopup & disown) #this gets the focus and break the gameplay
+#				FUNCminimizePopup "$strTitle"& #TODO why export strTitle didnt work?
 				FUNCminimizePopup&
 				
 				# popup
@@ -270,7 +272,7 @@ function FUNCpauseAfterLoad() {
 			
 			if((nPidGmFocus==0)) || ! $bPauseOnlyNoFocusInstance;then #none has focus, force pause all
 				for nPidGm in "${anPidGm[@]}";do #use case for 2 instances only
-					(xterm -geometry 100x10+1+1 -e FUNCminimizePopup & disown) #this gets the focus and break the gameplay
+					(xterm -geometry 100x10+1+1 -e FUNCpauseAndResumeAtom & disown) #this thru xterm gets the focus and break the gameplay if focused, there is no way to auto minimize xterm? only thru title match like with the popup.. but that brief miliseconds may still break the gameplay... it is hasnt just a -minimize???
 				done
 			else
 				if $bPauseOnlyNoFocusInstance;then
