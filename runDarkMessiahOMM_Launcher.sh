@@ -51,7 +51,7 @@ if((nInstance==0));then
 		case "$nChoice" in
 			1)nInstance=1;;
 			2)nInstance=2;;
-			*)continue;;
+			*)echo "invalid choice...";continue;;
 		esac
 		break
 	done
@@ -94,7 +94,7 @@ if [[ "$strAutoLoad" == "auto" ]];then
 		0)strAutoLoad=auto;;
 		1)strAutoLoad=forceLoad;;
 		2)strAutoLoad=forceIgnore;;
-		*)strAutoLoad=auto;;
+		*)strAutoLoad=auto;; #help just hit Enter for default
 	esac
 fi
 case "$strAutoLoad" in
