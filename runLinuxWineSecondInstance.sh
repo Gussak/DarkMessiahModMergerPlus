@@ -1,9 +1,5 @@
 #!/bin/bash
 
-#TODO a script that just handles it all described below
-
-while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
-
 echo '
 	Goal: no wait time after being defeated, instantly continue playing, no loading game waiting anymore!
 	
@@ -21,7 +17,8 @@ echo '
 		You have to keep the background instance in sync with the latest savegame, so use it mainly when you reach a difficult area, like in, after MAIN finishes loading, put the 2nd instance to load (dont load together or both will crash).
 		Now, when you are defeated put it to load and just switch to the other already loaded instance!
 		
-		TODO: Pause the background instance without popups, after it fully loads
 		TODO: May be, create a new folder to let the 2nd instance write files? but from tests, even overwriting the same files from the main instance, I still detected no problems yet.
-		TODO: try to sync the game loadings to happen only after the other is not loading thru SIGSTOP.
+		TODO: try to sync the game loadings to happen only after the other is not loading thru SIGSTOP. The quick.sav creation could be detected and trigger an auto load on the background instance thru like "xdotool type F9" macro on that window.
 '
+
+./runDarkMessiahOMM_Launcher.sh -2 "$@"
