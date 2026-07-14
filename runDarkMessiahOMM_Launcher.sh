@@ -53,7 +53,7 @@ function FUNCautoLoadLastSave() {
 }
 : ${strAutoLoad:=auto} #help # "auto" (let be decided by folder mode), "forceLoad" no matter if main or second instance folder, "forceIgnore" idem
 if [[ "$strAutoLoad" == "auto" ]];then
-	read -t 5 -n 1 -p "AutoLoadLastSavegame? 0)auto(default), 1)forceLoad, 2)forceIgnore (5s)" nChoice&&:
+	read -t 60 -n 1 -p "AutoLoadLastSavegame? 0)auto(default), 1)forceLoad, 2)forceIgnore ($(date) + 60s)" nChoice&&:
 	case "$nChoice" in
 		0)strAutoLoad=auto;;
 		1)strAutoLoad=forceLoad;;
@@ -63,11 +63,10 @@ if [[ "$strAutoLoad" == "auto" ]];then
 fi
 case "$strAutoLoad" in
 	auto)
-		if((nInstance==2));then
-			FUNCautoLoadLastSave disable # so it can be run imediately as long the game is no being loaded simultaneously to not crash both instances
-		else
-			FUNCautoLoadLastSave enable
-		fi
+		case "$nInstance" in
+			1)FUNCautoLoadLastSave enable;;
+			2)FUNCautoLoadLastSave disable;; # so it can be run imediately as long the game is no being loaded simultaneously to not crash both instances
+		esac
 		;;
 	forceLoad)
 		FUNCautoLoadLastSave enable

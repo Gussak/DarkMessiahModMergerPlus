@@ -1,21 +1,31 @@
 #!/bin/bash
 
 pwd
-strSelf="$(basename $0)"
-if [[ ! -f "./${strSelf}" ]];then
-	cd "$(dirname "${strSelf}")"
+strSelfBN="$(basename "$0")"
+declare -p strSelfBN
+if [[ ! -f "./${strSelfBN}" ]];then
+	cd "$(dirname "$0")"
 fi
 pwd
 strMainModFolder="$(pwd)"
 
 while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
 
+: ${bXtermAlready:=false} # self control use only
+if ! $bXtermAlready;then
+	: ${bXterm:=true} #help
+	if $bXterm;then
+		(xterm -title DMMM_Helpers -e bash -c "bXtermAlready=true ./${strSelfBN}" & disown)
+		exit 0
+	fi
+fi
+
 #set -x
 
 if which ScriptEchoColor;then
 	cd ..;pwd
 	if [[ -f "Dark Messiah Might and Magic Single Player/mm.exe" ]];then
-		echo "Already mounted..."
+		echo "Merged game folder already mounted..."
 	else
 		bSudoWithScript=true strUnionFSID=overlayfs secOverrideMultiLayerMountPoint.sh "Dark Messiah Might and Magic Single Player" #help depends on ScriptEchoColor
 	fi

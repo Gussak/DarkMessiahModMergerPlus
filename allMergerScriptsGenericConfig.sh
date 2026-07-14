@@ -31,6 +31,14 @@
 
 set -Eeu #use this specifically, not to everything or |grep results will fail...: set -o pipefail
 
+FUNCask() { #use read cmd options
+	while read -n 1;do :;done #clear key buffer
+	local lstrResp
+	read "$@" lstrResp&&:;local lnRet=$?
+	echo "$lstrResp"
+	return $lnRet
+};export -f FUNCask
+
 FUNCwaitSeconds() {
 	read -t $1 -n 1 -p "[WAITING:${1}s] ${2-} (press a key to continue)"
 };export -f FUNCwaitSeconds
@@ -577,7 +585,7 @@ function FUNCminiModInit() {
 	if [[ $# -gt 0 && "$1" == "--help" ]];then #help show this help
 		#egrep "[#]help" "./allMergerScriptsGenericConfig.sh" "$0" |sed -r -e 's@^[ \t]*@@'
 		SECFUNCshowHelpV2 "${strPathMainModFolder}/allMergerScriptsGenericConfig.sh"
-		SECFUNCshowHelpV2 "${strPathThisModFolderFull}/$0"
+		SECFUNCshowHelpV2 "${strPathThisModFolderFull}/$(basename "$0")"
 		
 		: ${FUNCminiModInit_bExitOnHelpAtBaseInit:=true} #help
 		if $FUNCminiModInit_bExitOnHelpAtBaseInit;then FUNCexit;fi #this will not consume the param so it can be reused at main file
