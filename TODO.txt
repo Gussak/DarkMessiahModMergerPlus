@@ -5,6 +5,9 @@ TODO
 	Crit dmg player and npcs x10 not just x2.
 	Phys traps dmg max possible, make them worth becoming useless after.
 
+AI:
+	key=value: at keyValuePatcher.py, allow for inbetween key value, to have like '=' or ':', letting it be used elsewhere too, prompt: on the attached code, patch it to allow the detection of a assignment char between "key" and "value" (like ex.: "key"="value") but allow it to have optional spaces/tabs like: "key"  = "value". And let it be configurable so it could be ":" instead of "=". Show immediately first the patches, explain later (to grant the patches will show up by conserving your AI tokens).
+
 MayBeEasy
 - find a way to let bow foes use all ammo (or 20 if infinite) before go hunting the player in melee (when they lose all their advantage...) for CarefulCombat.
 - guards could drop ale or food
