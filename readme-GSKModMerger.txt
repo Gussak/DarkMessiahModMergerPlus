@@ -95,6 +95,16 @@ Important! after editing files in the mod's folders layers, umount and remount o
 
 ___
 
+# To create mods:
+
+Run `reconstructWorkFilesFromLonePatches.sh`, it will use the patches and vanilla files to recreate the modded full file for that specific patch by it's side.   
+Now, to further patch, edit the modded file (not the patch file).   
+Before applying the patch with `prepareAllModsPatchesForScriptFile.sh` into the final merged folder, it will be recreated based on the changes of the modded file relatively to the vanilla file.
+
+To create a new mod (or add a new modded file), copy the vanilla file, modify it and run the patcher `prepareAllModsPatchesForScriptFile.sh`, it will then create the patch file for the first time.
+
+___
+
 LINUX(troubleShutting):
 <details>
   <summary>if trying to move and the game keeps toggling pause:</summary>
