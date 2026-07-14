@@ -27,9 +27,16 @@ if((nInstance==0));then
 		break
 	done
 fi
+strAutoLoadDefault=""
 case "$nInstance" in
-	1)export WINEPREFIX="$HOME/Wine/DarkMessiahOfMightAndMagic.win32";;
-	2)export WINEPREFIX="$HOME/Wine/DarkMessiahOfMightAndMagic.win32/DarkMessiahOfMightAndMagic.win32.SecondSimultaneousInstance/";;
+	1)
+		export WINEPREFIX="$HOME/Wine/DarkMessiahOfMightAndMagic.win32";
+		strAutoLoadDefault=forceLoad
+		;;
+	2)
+		export WINEPREFIX="$HOME/Wine/DarkMessiahOfMightAndMagic.win32/DarkMessiahOfMightAndMagic.win32.SecondSimultaneousInstance/";
+		strAutoLoadDefault=forceIgnore
+		;;
 esac
 
 ############################# MAIN FOLDER
@@ -53,7 +60,8 @@ function FUNCautoLoadLastSave() {
 }
 : ${strAutoLoad:=auto} #help # "auto" (let be decided by folder mode), "forceLoad" no matter if main or second instance folder, "forceIgnore" idem
 if [[ "$strAutoLoad" == "auto" ]];then
-	read -t 60 -n 1 -p "AutoLoadLastSavegame? 0)auto(default), 1)forceLoad, 2)forceIgnore ($(date) + 60s)" nChoice&&:
+	
+	read -t 60 -n 1 -p "AutoLoadLastSavegame? 0)auto(default=${strAutoLoadDefault}), 1)forceLoad, 2)forceIgnore ($(date) + 60s)" nChoice&&:
 	case "$nChoice" in
 		0)strAutoLoad=auto;;
 		1)strAutoLoad=forceLoad;;
