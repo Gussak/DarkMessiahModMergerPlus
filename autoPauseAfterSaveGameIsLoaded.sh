@@ -43,19 +43,20 @@ function FUNCdetectPidToPause() { # the one that has no focus
 	#set -x
 	nWFocId="$(xdotool getwindowfocus)"&&:
 	nWFocNm="$(xdotool getwindowname $nWFocId)"&&:
-	nWFocPid="$(xdotool getwindowpid $nWFocId)"&&:
+	nWFocPid="$(xdotool getwindowpid $nWFocId)"&&: # some windows may have no pid thru xdotool!!! :O
 	
-	bPauseAll=false
-	if ! strWineprefixWFocus="$(strings /proc/$nWFocPid/environ |grep WINEPREFIX)";then
+	declare -gx bPauseAll=false
+	# not a window with pid or has not env WINEPREFIX #TODO could test other things like checking for wine executable
+	if [[ -z "$nWFocPid" ]] || ! strWineprefixWFocus="$(strings /proc/$nWFocPid/environ |grep WINEPREFIX)";then
 		bPauseAll=true;
 	fi
 	
 	# multidimentional array simulated: [PidGM] = PidFM WindowID WINEPREFIX (the link between them is WINEPREFIX)
-	declare -g anPidGm=($(pgrep -f "Dark Messiah.*mm.exe"))
-	declare -g aPidGm_PidFM=() # the PidFM is from explorer.exe (filemanager FM) and not from the game as wine is running in desktop single window mode
-	declare -g aPidGm_WindowID=()
-	declare -g aPidGm_WINEPREFIX=()
-	declare -g aPidGm_bFocus=()
+	declare -gx anPidGm=($(pgrep -f "Dark Messiah.*mm.exe|mm.exe ")) # as wine cant decide if will run it with or without windows full path naming :(
+	declare -gx aPidGm_PidFM=() # the PidFM is from explorer.exe (filemanager FM) and not from the game as wine is running in desktop single window mode
+	declare -gx aPidGm_WindowID=()
+	declare -gx aPidGm_WINEPREFIX=()
+	declare -gx aPidGm_bFocus=()
 	
 	for nPidGm in "${anPidGm[@]}";do
 		strWineprefixGm="$(strings /proc/$nPidGm/environ |grep WINEPREFIX)"
@@ -79,29 +80,11 @@ function FUNCdetectPidToPause() { # the one that has no focus
 		#declare -p aPidGm_PidFM
 	done
 	
-	#nPidGmExecFocus=0
-	##for((i=0;i<${#anPidGm[@]};i++));do
-	#for nPidGm in "${anPidGm[@]}";do
-		#strWineprefixGm="$(strings /proc/$nPidGm/environ |grep WINEPREFIX)"
-		#if [[ "$strWineprefixGm" == "$strWineprefixWFocus" ]];then
-			#nPidGmExecFocus=$nPidGm
-			#break;
-		#fi
-	#done
-	#nPidGmExecOther=0
-	#for nPidGm in "${anPidGm[@]}";do
-		#if((nPidGmExecFocus == nPidGm));then continue;fi
-		#nPidGmExecOther=$nPidGm
-		#break;
-	#done
-	
 	#declare -p nWFocId nWNm nWPid anPidGm nPidGmExecFocus >&2
 	if $bVerbose;then
 		declare -p anPidGm aPidGm_PidFM aPidGm_WindowID aPidGm_WINEPREFIX aPidGm_bFocus bVerbose
 	fi
 	
-	#declare -g FUNCdetectPidToPause_nPidGmNoFocus=$nPidGmExecOther
-	#declare -g FUNCdetectPidToPause_nWindowNoFocus=$nWindowOther
 };export -f FUNCdetectPidToPause
 
 function FUNCtest() {
@@ -118,7 +101,7 @@ function FUNCstringsDump() { #help <index> use this to dump demoheader.tmp strin
 };export -f FUNCstringsDump
 function FUNCmonitorChanges() {
 	local lfLoopDelay
-	: ${lfLoopDelay:=0.33} #help_FUNCmonitorChanges
+	: ${lfLoopDelay:=0.33};export lfLoopDelay #help_FUNCmonitorChanges
 	
 	local lstrFlNewest="$(ls -1tr "${strFlHint}.SnapShot_ID_"*".bkp" |tail -n 1)"&&:
 	#local lstrFlNewest="$(ls -1 "${strFlHint}.SnapShot_ID_"*".bkp" |sort |tail -n 1)"&&:
@@ -192,8 +175,56 @@ esac
 
 export nScrWhalf=$(($(xdotool getdisplaygeometry |awk '{print $1}') / 2 ))
 
+function FUNCCHILDminimizePopup() {
+	set -x
+	while true;do
+		if nWIdPopup="$(wmctrl -l |grep "$strTitle" |awk '{print $1}')";then
+#					if nWIdPopup="$(wmctrl -l |grep "$1" |awk '{print $1}')";then
+			#sleep 2 # or the window will not be read to be minized and may bug and vanish! could be 1s? other tests like thru xwininfo may help to know it will be reaally reeady and not bug out?
+			if xdotool windowminimize --sync $(printf %d $nWIdPopup);then
+				break
+			fi
+		fi
+		sleep 0.33
+	done
+	set +x
+	read -t 60 -p "press a key to exit"
+};export -f FUNCCHILDminimizePopup
+
+function FUNCpauseAndResumeAtom() {
+	local lnPidGm="$1";shift
+	if [[ -z "$lnPidGm" ]];then
+		pstree -psl $$&&:
+		FUNCechoInfo "INVALID!!! lnPidGm='$lnPidGm'"
+		FUNCwait
+		return 1
+	fi
+	
+	if FUNCisPidStopped $lnPidGm;then return 0;fi #already stopped
+	
+	set -x;kill -SIGSTOP $lnPidGm;set +x
+	if which ScriptEchoColor;then echoc --say "Game Loaded";fi
+	#while ! yad --title="DarkMessiah:helper" --text="Dark Messiah of MM\n Game Finished Loading\n SigStopped\n Continue NOW?" --geometry=1x1+$nScrWhalf+0 --undecorated;do :;done; # not --on-top because it cant be too small :(
+	#while ! yad --geometry=1x1+$nScrWhalf+0 --title="DarkMessiah:helper" --center --no-buttons;do :;done; # not --on-top because it cant be too small :(
+	
+	export strTitle="DarkMessiah:FinishedLoading:${lnPidGm}"
+	declare -p aPidGm_PidFM aPidGm_WindowID aPidGm_WINEPREFIX aPidGm_bFocus strTitle
+	#KEEPinfo this gets the focus and break the gameplay: #(xterm -geometry 1x1+1+1 -e FUNCCHILDminimizePopup & disown) #this gets the focus and break the gameplay
+#				FUNCCHILDminimizePopup "$strTitle"& #TODO why export strTitle didnt work?
+	FUNCCHILDminimizePopup&
+	
+	# popup
+	yad --geometry=500x1+$nScrWhalf+0 --title="$strTitle" --on-top --no-buttons --no-focus &&: #unable to popup below :(, it should not receive imediate focus but should be focusable!!! unable to prevent it starting --on-top, so keep it there; no buttons, just hold the flow here
+	kill -SIGCONT $lnPidGm
+	
+	set -x
+	xdotool windowactivate ${aPidGm_WindowID[$lnPidGm]}
+	xdotool windowfocus    ${aPidGm_WindowID[$lnPidGm]}
+	set +x
+};export -f FUNCpauseAndResumeAtom
+
 function FUNCpauseAfterLoad() {
-	: ${bPauseOnlyNoFocusInstance:=true} #help if false will pause all instance
+	: ${bPauseOnlyNoFocusInstance:=true};export bPauseOnlyNoFocusInstance #help if false will pause all instance
 	while true;do
 		nThisRunTime=$(date +%s)
 		while true;do
@@ -203,12 +234,12 @@ function FUNCpauseAfterLoad() {
 			FUNCdetectPidToPause
 			#anPidGm=($(pgrep -f "C:[\].*[\]mm.exe"))
 			
-			: ${bExitIfGameExits:=false} #help
+			: ${bExitIfGameExits:=false};export bExitIfGameExits #help
 			if $bExitIfGameExits;then
 				if ! ps -p ${anPidGm[@]};then exit;fi
 			fi
 			
-			: ${bTestFoundHint:=false} #help
+			: ${bTestFoundHint:=false};export bTestFoundHint #help fake a hint was found, for DEBUG only
 			if ! $bTestFoundHint;then
 				if(( $(stat -c %Y "$strFlHint") < nThisRunTime ));then
 					continue
@@ -219,46 +250,8 @@ function FUNCpauseAfterLoad() {
 				fi
 			fi
 			
-			: ${fSleepAfterHintFound:=3.0} #help
+			: ${fSleepAfterHintFound:=3.0};export fSleepAfterHintFound #help
 			read -n 1 -t $fSleepAfterHintFound -p "hit a key to SIGSTOP game"&&:
-			
-			function FUNCminimizePopup() {
-				set -x
-				while true;do
-					if nWIdPopup="$(wmctrl -l |grep "$strTitle" |awk '{print $1}')";then
-#					if nWIdPopup="$(wmctrl -l |grep "$1" |awk '{print $1}')";then
-						#sleep 2 # or the window will not be read to be minized and may bug and vanish! could be 1s? other tests like thru xwininfo may help to know it will be reaally reeady and not bug out?
-						if xdotool windowminimize --sync $(printf %d $nWIdPopup);then
-							break
-						fi
-					fi
-					sleep 0.33
-				done
-				set +x
-				read -t 60 -p "press a key to exit"
-			};export -f FUNCminimizePopup
-			
-			function FUNCpauseAndResumeAtom() {
-				set -x;kill -SIGSTOP $nPidGm;set +x
-				if which ScriptEchoColor;then echoc --say "Game Loaded";fi
-				#while ! yad --title="DarkMessiah:helper" --text="Dark Messiah of MM\n Game Finished Loading\n SigStopped\n Continue NOW?" --geometry=1x1+$nScrWhalf+0 --undecorated;do :;done; # not --on-top because it cant be too small :(
-				#while ! yad --geometry=1x1+$nScrWhalf+0 --title="DarkMessiah:helper" --center --no-buttons;do :;done; # not --on-top because it cant be too small :(
-				
-				export strTitle="DarkMessiah:FinishedLoading:${nPidGm}"
-				declare -p aPidGm_PidFM aPidGm_WindowID aPidGm_WINEPREFIX aPidGm_bFocus strTitle
-				#KEEPinfo this gets the focus and break the gameplay: #(xterm -geometry 1x1+1+1 -e FUNCminimizePopup & disown) #this gets the focus and break the gameplay
-#				FUNCminimizePopup "$strTitle"& #TODO why export strTitle didnt work?
-				FUNCminimizePopup&
-				
-				# popup
-				yad --geometry=500x1+$nScrWhalf+0 --title="$strTitle" --on-top --no-buttons --no-focus &&: #unable to popup below :(, it should not receive imediate focus but should be focusable!!! unable to prevent it starting --on-top, so keep it there; no buttons, just hold the flow here
-				kill -SIGCONT $nPidGm
-				
-				set -x
-				xdotool windowactivate ${aPidGm_WindowID[$nPidGm]}
-				xdotool windowfocus    ${aPidGm_WindowID[$nPidGm]}
-				set +x
-			};export -f FUNCpauseAndResumeAtom
 			
 			#FUNCdetectPidToPause
 			
@@ -270,17 +263,20 @@ function FUNCpauseAfterLoad() {
 				fi
 			done
 			
-			if((nPidGmFocus==0)) || ! $bPauseOnlyNoFocusInstance;then #none has focus, force pause all
+			if((nPidGmFocus==0)) || ! $bPauseOnlyNoFocusInstance || $bPauseAll;then #none has focus, force pause all
 				for nPidGm in "${anPidGm[@]}";do #use case for 2 instances only
-					(xterm -geometry 100x10+1+1 -e FUNCpauseAndResumeAtom & disown) #this thru xterm gets the focus and break the gameplay if focused, there is no way to auto minimize xterm? only thru title match like with the popup.. but that brief miliseconds may still break the gameplay... it is hasnt just a -minimize???
+					if FUNCisPidStopped $nPidGm;then continue;fi
+					# this is good to let it stop both instances, being run as child process
+					(xterm -title "DarkMessiah_FUNCpauseAndResumeAtom" -geometry 100x10+1+1 -e bash -c "FUNCpauseAndResumeAtom $nPidGm" &) #no "& disown" to grant it cascade kills with this script. this thru xterm gets the focus and break the gameplay if focused, there is no way to auto minimize xterm? only thru title match like with the popup.. but that brief miliseconds may still break the gameplay... why it hasnt just a -minimize???
 				done
 			else
 				if $bPauseOnlyNoFocusInstance;then
 					for nPidGm in "${anPidGm[@]}";do 
+						if FUNCisPidStopped $nPidGm;then continue;fi
 						#if $bPauseOnlyNoFocusInstance && ((FUNCdetectPidToPause_nPidNoFocus != 0 && nPidGm != FUNCdetectPidToPause_nPidNoFocus));then continue;fi
 						#if $bPauseOnlyNoFocusInstance && ${aPidGm_bFocus[$nPidGm]};then continue;fi # ignores focused window
 						if ! ${aPidGm_bFocus[$nPidGm]};then
-							FUNCpauseAndResumeAtom
+							FUNCpauseAndResumeAtom $nPidGm #this holds the execution of this script and grants gameplay wont lose keyboard focus and mess up
 							break
 						fi
 					done
@@ -294,7 +290,7 @@ function FUNCpauseAfterLoad() {
 
 #set -x
 if ! pgrep -fa DarkMessiah_FUNCpauseAfterLoad;then
-	: ${bXterm:=true}
+	: ${bXterm:=true};export bXterm
 	if $bXterm;then
 		(xterm -maximized -title DarkMessiah_FUNCpauseAfterLoad -e bash -c "FUNCpauseAfterLoad" & disown);
 	else

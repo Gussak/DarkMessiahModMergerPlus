@@ -31,6 +31,10 @@
 
 set -Eeu #use this specifically, not to everything or |grep results will fail...: set -o pipefail
 
+FUNCwait() {
+	read -n 1 -p "[WAITING] ${1-} (press a key to continue)"
+};export -f FUNCwait
+
 FUNCexit() {
 	if [[ $* -gt 0 ]];then
 		if(($1 != 0));then
@@ -39,7 +43,7 @@ FUNCexit() {
 		exit $1
 	fi
 	exit 0
-}
+};export -f FUNCexit
 trap 'echo "Ctrl+C pressed, exiting..." >&2; exit 1' INT
 #trap 'read -n 1 -p "Ctrl+C pressed, exiting..." >&2; exit 1' INT
 
@@ -210,7 +214,7 @@ function FUNCfileRelat() {
 	else
 		echo "$lstrFile" |sed -r -e "s@.*/(${strRegexKGMRF})/(.*)@\2@I"
 	fi
-}
+};export -f FUNCfileRelat
 
 function FUNCpatchMode() {
 	local lstrFileToMerge="$1"
@@ -257,7 +261,7 @@ function FUNCpatchMode() {
 	else
 		return 1
 	fi
-}
+};export -f FUNCpatchMode
 
 : ${strExecMerger:="meld"} #help
 if ! which "$strExecMerger" >&3;then
@@ -282,7 +286,7 @@ FUNCtrash() {
 		shift
 	done
 	return 0
-}
+};export -f FUNCtrash
 
 function SECFUNCshowHelpV2() { #help TODO WIP making it much easier to maintain!!!!!!!!
 	local lstrFlHelp="$1"
@@ -318,7 +322,7 @@ function SECFUNCshowHelpV2() { #help TODO WIP making it much easier to maintain!
 		lcolorEnvVar='\\E[0m\\E[36m\\E[2m'
 		lcolorCode='\\E[0m\\E[94m'
 		lcolorEnd='\\E[0m'
-	}
+	};export -f FUNCcolorSet
 	function FUNCcolorUnset() {
 		lcolorEqualSign=""
 		lcolorOptParameter=""
@@ -327,7 +331,7 @@ function SECFUNCshowHelpV2() { #help TODO WIP making it much easier to maintain!
 		lcolorReqOpenClose=""
 		lcolorEnvVar=""
 		lcolorEnd=""
-	}
+	};export -f FUNCcolorUnset
 	
 	FUNCalignIgnoringEscColorChars() {
 		local lstrCol0
@@ -354,7 +358,7 @@ function SECFUNCshowHelpV2() { #help TODO WIP making it much easier to maintain!
         # indent with 2 spaces so if there is a line wrap beggining with one space, it will differ
         echo -e "  ${lstrCol0}${lstrSpaces1} ${lstrCol1}${lstrSpaces2} [#]${lstrCol2}"
     done
-	}
+	};export -f FUNCalignIgnoringEscColorChars
 	
 	: ${bSECShowHelpColoredMode:=true} #help_SECFUNCshowHelpV2
 	if $bSECShowHelpColoredMode;then
@@ -370,7 +374,7 @@ function SECFUNCshowHelpV2() { #help TODO WIP making it much easier to maintain!
 		#printf "%-${lnColW0max}s\t%-${lnColW1max}s\t[#]%s\n" "${lastrColumnsPrint[@]}" |FUNCalignIgnoringEscColorChars
 		printf "%s\t%s\t%s\n" "${lastrColumnsPrint[@]}" |FUNCalignIgnoringEscColorChars
 		#set +x
-	}
+	};export -f FUNChelpPrint
 	
 	for lstrHelp in "${lastrHelpList[@]}";do
 		if [[ "$lstrHelp" =~ ${lstrCommentedLinesRegex} ]];then continue;fi # skip commented lines
@@ -428,7 +432,7 @@ function SECFUNCshowHelpV2() { #help TODO WIP making it much easier to maintain!
 				lstrVarAndVal+="${lcolorValue}\"${lstrDefVal}\""
 				lstrVarAndVal+="${lcolorReqOpenClose}>"
 				lstrVarAndVal+="${lcolorEnd}"
-			}
+			};export -f FUNCsetVarAndVal
 			FUNCcolorUnset
 			FUNCsetVarAndVal
 			:
@@ -474,7 +478,7 @@ function SECFUNCshowHelpV2() { #help TODO WIP making it much easier to maintain!
 	#declare -p lastrColumnsAllLinesParam lastrColumnsAllLinesEnv
 	
 	echo
-}
+};export -f SECFUNCshowHelpV2
 
 #function FUNCparseJson() {
 	#local lstrFlJson="$1";shift
@@ -522,12 +526,12 @@ function FUNCjson() {
 FUNCjsonSet() {
 	local lstrFlJson="$1";shift
 	FUNCjson "$lstrFlJson" ".${1} = \"${2}\"" |sponge "$lstrFlJson"
-}
+};export -f FUNCjsonSet
 function FUNCjsonGetArray() {
 	local lstrFlJson="$1";shift
 	local lstrID="$1";shift
 	FUNCjson --ignoremissing "$lstrFlJson" ".${lstrID}[]" |sed -r -e 's@^"@@' -e 's@"$@@' |sort -u
-}
+};export -f FUNCjsonGetArray
 FUNCjsonSetArray() {
 	local lstrFlJson="$1";shift
 	local lstrID="$1";shift
@@ -540,7 +544,13 @@ FUNCjsonSetArray() {
 		lstrArrayCfg+="\"${lastrCfgsList[i]}\"";
 	done
 	FUNCjson "$lstrFlJson" ".${lstrID} = [ ${lstrArrayCfg} ]" |sponge "$lstrFlJson"
-}
+};export -f FUNCjsonSetArray
+
+function FUNCisPidStopped() { #help <pid>
+	local lstrState="$(ps --no-headers -o state -p $1)"
+	if [[ "$lstrState" == T ]];then return 0;fi
+	return 1
+};export -f FUNCisPidStopped
 
 function FUNCminiModInit() {
 	# go to the path of the real file
@@ -566,4 +576,4 @@ function FUNCminiModInit() {
 		: ${FUNCminiModInit_bConsumeParamHelp:=true} #help
 		if $FUNCminiModInit_bConsumeParamHelp;then shift;fi #if not, the param can be reused at main file
 	fi
-}
+};export -f FUNCminiModInit
