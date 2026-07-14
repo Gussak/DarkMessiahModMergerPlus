@@ -1,5 +1,34 @@
 #!/bin/bash
 
+#	BSD 3-Clause License
+#
+#	Copyright (c) 2026, Gussak<https://github.com/Gussak>
+#
+#	Redistribution and use in source and binary forms, with or without
+#	modification, are permitted provided that the following conditions are met:
+#
+#	1. Redistributions of source code must retain the above copyright notice, this
+#		 list of conditions and the following disclaimer.
+#
+#	2. Redistributions in binary form must reproduce the above copyright notice,
+#		 this list of conditions and the following disclaimer in the documentation
+#		 and/or other materials provided with the distribution.
+#
+#	3. Neither the name of the copyright holder nor the names of its
+#		 contributors may be used to endorse or promote products derived from
+#		 this software without specific prior written permission.
+#
+#	THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+#	AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+#	IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+#	DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+#	FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+#	DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+#	SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+#	CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+#	OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+#	OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
 if [[ "${1-}" == "--help" ]];then
 	egrep "[#]help" $0 #do not use this here yet: while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
 	exit 0
@@ -89,7 +118,7 @@ astrOptList=(
 	-novid #faster start time?
 	
 	# performance and no crashes. 32bits is limited to 2GB, heapsize increase stability also with the 4gb executable patcher
-	-heapsize 2097152 +datacachesize "128" #helps with stability to avoid crashes? not good?: 524288 1572864
+	-heapsize 2097152 +datacachesize "128" #helps with stability to avoid crashes? these smaller are not good?: 524288 1572864
 	+map_background none #prevents loading startupscreen heavy data
 	+mat_forcemanagedtextureintohardware 0 #helps prevent some crashes
 	
@@ -101,7 +130,7 @@ astrOptList=(
 	# just to be sure
 	#+exec autoexec.cfg
 	
-	# game cfg tips from RTX mod
+	# game cfg tips from RTX mod (look for updates there)
 	+mat_softwarelighting 0 +sv_cheats 1 +r_frustumcullworld 0 +r_portalsopenall 1 +mat_very_high_texture 1 +mat_picmip 0 +mat_colorcorrection 0 +r_drawdetailprops 1 +datacachesize 128 +r_rootlod 0 +r_lod -1 +r_modellodscale 0 +map_background none +r_occlusion 0 +r_PortalTestEnts 0 +r_propsmaxdist 99999
 )
 

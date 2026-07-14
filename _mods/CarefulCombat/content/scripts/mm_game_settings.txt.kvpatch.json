@@ -6,7 +6,7 @@
         "Game.player.HardDifficultyNPCLifeMul": "//this is scaled/fixed thru npcHitPointMultily.sh",
         "Game.player.StoneSkin_ArmorValue": "//0.05 why so little?",
         "Game.player.stamina_kick_all": "//stamina rises too fast",
-        "Game.player.ArrowMaxTimeInFire": "// arrows in fire vs unaware foes are insta kill (like if they are bathed in oil), this is over power, so better keep this time short. In adrenaline mode will also kill if they are hunting you, so just be fast. This also copes with arrows increased availability from arrow_always_stick=1 arrow_stick_on_npc=1",
+        "Game.player.ArrowMaxTimeInFire": "// arrows in fire vs unaware foes are insta kill (like if they are bathed in oil), this is over power, so better keep this time short. In adrenaline mode will also kill if they are hunting you, so just be fast. This also copes with arrows increased availability from arrow_always_stick=1 arrow_stick_on_npc=1. Tip: with arrow_always_stick=1 just shoot a arrow in fire in a wall and go for it to light a new one.",
         "Game.player.NbrArrowsWhenFirstTakeBow": "// no too easy stuff",
         "Game.player.NbrArrowsMax": "// this is important because the fun arrow_always_stick=1 arrow_stick_on_npc=1 will provide a lot of arrows, this is the minimum amount used in wars, could be less tho? is good in a sense of being also not (pseudo) encumbering.",
         "Game.ai.DamageOnTriggerFall": "//the traps with boxes?"
