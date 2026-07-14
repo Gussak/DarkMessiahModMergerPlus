@@ -177,7 +177,13 @@ strPathParent="$(dirname "$strPathSelf")" #help This is the folder where all Lay
 : ${strGameInstallMainFolder:="${strPathParent}/Dark Messiah Might and Magic Single Player"} #help vanilla game installed main folder
 
 : ${strVanillaLayer:="$(ls -d "${strGameInstallMainFolder}"*VanillaGameFiles*)"} #help vanilla game installed files' folder
-if [[ ! -d "$strVanillaLayer" ]];then echo "ERROR: vanilla layer not found";FUNCexit 1;fi
+if [[ ! -d "$strVanillaLayer" ]];then
+	pwd
+	echo "selfRunParam0: $0"
+	declare -p strVanillaLayer strGameInstallMainFolder
+	echo "ERROR: vanilla layer not found";
+	FUNCexit 1;
+fi
 
 #: ${strVanillaScriptsFolder:="${strGameInstallMainFolder}.layer004.VanillaExtractedTextFiles.IGNORE_LAYER"} #help
 : ${strVanillaScriptsPath:="$(ls -d "${strGameInstallMainFolder}"*VanillaExtractedTextFiles*/)"} #help after installing the game, use some vpk extractor (like thru one of the other bash scripts here)
