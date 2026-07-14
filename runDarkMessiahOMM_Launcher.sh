@@ -1,23 +1,46 @@
 #!/bin/bash
 
-#do not use this here yet: while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
+if [[ "${1-}" == "--help" ]];then
+	egrep "[#]help" $0 #do not use this here yet: while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
+	exit 0
+fi
 
 export WINEARCH="win32"
 
-b2ndInst=false
-if [[ "${1-}" == "-2" ]];then #help second instance
+############################## INSTANCE
+: ${nInstance:=0} #help
+if [[ "${1-}" == "-1" ]];then #help first instance
 	shift
-	b2ndInst=true
-	export WINEPREFIX="$HOME/Wine/DarkMessiahOfMightAndMagic.win32/DarkMessiahOfMightAndMagic.win32.SecondSimultaneousInstance/"
-else
-	export WINEPREFIX="$HOME/Wine/DarkMessiahOfMightAndMagic.win32"
+	nInstance=1
+elif [[ "${1-}" == "-2" ]];then #help second instance
+	shift
+	nInstance=2
 fi
+if((nInstance==0));then
+	while true;do
+		read -n 1 -p "FirstOrSecondInstance? 1)First, 2)Second (5s)" nChoice&&:
+		case "$nChoice" in
+			1)nInstance=1;;
+			2)nInstance=2;;
+			*)continue;;
+		esac
+		break
+	done
+fi
+case "$nInstance" in
+	1)export WINEPREFIX="$HOME/Wine/DarkMessiahOfMightAndMagic.win32";;
+	2)export WINEPREFIX="$HOME/Wine/DarkMessiahOfMightAndMagic.win32/DarkMessiahOfMightAndMagic.win32.SecondSimultaneousInstance/";;
+esac
 
+############################# MAIN FOLDER
 : ${strExecutable:="mm.exe"} #help
 : ${strInstFolder:="$WINEPREFIX/drive_c/Games/Dark Messiah Might and Magic Single Player"} #help this may be an OverlayFS folder tho, and must be already mounted
 while [[ ! -f "${strInstFolder}/${strExecutable}" ]];do read -t 3 -p "waiting mount of '${strInstFolder}'"&&:;done
 cd "$strInstFolder" 
 
+if [[ -n "$@" ]];then "$@";exit;fi #help you can run other commands with the correct wineprefix, try "bash" to just open a command line
+
+############################ AUTO LOAD SAVEGAME
 function FUNCautoLoadLastSave() {
 	strFl="_mods/core/user_settings.json"
 	if [[ "$1" == enable ]];then
@@ -28,14 +51,34 @@ function FUNCautoLoadLastSave() {
 		jq '.ignore += ["AutoLoadLastQuickSave"]' "$strFl" | sponge "$strFl"
 	fi
 }
-if $b2ndInst;then
-	FUNCautoLoadLastSave disable # so it can be run imediately as long the game is no being loaded simultaneously to not crash both instances
-else
-	FUNCautoLoadLastSave enable
+: ${strAutoLoad:=auto} #help # "auto" (let be decided by folder mode), "forceLoad" no matter if main or second instance folder, "forceIgnore" idem
+if [[ "$strAutoLoad" == "auto" ]];then
+	read -t 5 -n 1 -p "AutoLoadLastSavegame? 0)auto(default), 1)forceLoad, 2)forceIgnore (5s)" nChoice&&:
+	case "$nChoice" in
+		0)strAutoLoad=auto;;
+		1)strAutoLoad=forceLoad;;
+		2)strAutoLoad=forceIgnore;;
+		*)strAutoLoad=auto;;
+	esac
 fi
+case "$strAutoLoad" in
+	auto)
+		if((nInstance==2));then
+			FUNCautoLoadLastSave disable # so it can be run imediately as long the game is no being loaded simultaneously to not crash both instances
+		else
+			FUNCautoLoadLastSave enable
+		fi
+		;;
+	forceLoad)
+		FUNCautoLoadLastSave enable
+		;;
+	forceIgnore)
+		FUNCautoLoadLastSave disable
+		;;
+	*) echo "INVALID OPTION: $strAutoLoad";read -n 1;;
+esac
 
-if [[ -n "$@" ]];then "$@";exit;fi #help you can run other commands with the correct wineprefix
-
+################################### RUN
 astrOptList=(
 	-novid #faster start time?
 	
