@@ -57,6 +57,8 @@ function FUNCdetectPidToPause() { # the one that has no focus
 	declare -gx aPidGm_WindowID=()
 	declare -gx aPidGm_WINEPREFIX=()
 	declare -gx aPidGm_bFocus=()
+	# arrays dont export in bash, see in the end they filled up and exported
+	
 	
 	for nPidGm in "${anPidGm[@]}";do
 		strWineprefixGm="$(strings /proc/$nPidGm/environ |grep WINEPREFIX)"
@@ -85,6 +87,7 @@ function FUNCdetectPidToPause() { # the one that has no focus
 		declare -p anPidGm aPidGm_PidFM aPidGm_WindowID aPidGm_WINEPREFIX aPidGm_bFocus bVerbose
 	fi
 	
+	export strExportArrays="$(declare -p anPidGm aPidGm_PidFM aPidGm_WindowID aPidGm_WINEPREFIX aPidGm_bFocus)"
 };export -f FUNCdetectPidToPause
 
 function FUNCtest() {
@@ -202,6 +205,8 @@ function FUNCpauseAndResumeAtom() {
 	
 	if FUNCisPidStopped $lnPidGm;then return 0;fi #already stopped
 	
+	if [[ -z "${anPidGm[@]-}" ]];then eval "$strExportArrays";fi #could be a mktemp file thru source but is equivalent...
+	
 	set -x;kill -SIGSTOP $lnPidGm;set +x
 	if which ScriptEchoColor;then echoc --say "Game Loaded";fi
 	#while ! yad --title="DarkMessiah:helper" --text="Dark Messiah of MM\n Game Finished Loading\n SigStopped\n Continue NOW?" --geometry=1x1+$nScrWhalf+0 --undecorated;do :;done; # not --on-top because it cant be too small :(
@@ -267,7 +272,7 @@ function FUNCpauseAfterLoad() {
 				for nPidGm in "${anPidGm[@]}";do #use case for 2 instances only
 					if FUNCisPidStopped $nPidGm;then continue;fi
 					# this is good to let it stop both instances, being run as child process
-					(xterm -title "DarkMessiah_FUNCpauseAndResumeAtom" -geometry 100x10+1+1 -e bash -c "FUNCpauseAndResumeAtom $nPidGm" &) #no "& disown" to grant it cascade kills with this script. this thru xterm gets the focus and break the gameplay if focused, there is no way to auto minimize xterm? only thru title match like with the popup.. but that brief miliseconds may still break the gameplay... why it hasnt just a -minimize???
+					(xterm -title "DarkMessiah_FUNCpauseAndResumeAtom" -geometry 100x10+1+1 -e bash -c "FUNCpauseAndResumeAtom $nPidGm;FUNCwait60s" &) #no "& disown" to grant it cascade kills with this script. this thru xterm gets the focus and break the gameplay if focused, there is no way to auto minimize xterm? only thru title match like with the popup.. but that brief miliseconds may still break the gameplay... why it hasnt just a -minimize???
 				done
 			else
 				if $bPauseOnlyNoFocusInstance;then

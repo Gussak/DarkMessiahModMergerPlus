@@ -31,9 +31,18 @@
 
 set -Eeu #use this specifically, not to everything or |grep results will fail...: set -o pipefail
 
+FUNCwaitSeconds() {
+	read -t $1 -n 1 -p "[WAITING:${1}s] ${2-} (press a key to continue)"
+};export -f FUNCwaitSeconds
 FUNCwait() {
-	read -n 1 -p "[WAITING] ${1-} (press a key to continue)"
+	FUNCwaitSeconds $((60*60*24*31*12)) "${1-}"
 };export -f FUNCwait
+FUNCwait10s() {
+	FUNCwaitSeconds 10 "${1-}"
+};export -f FUNCwait10s
+FUNCwait60s() {
+	FUNCwaitSeconds 60 "${1-}"
+};export -f FUNCwait10s
 
 FUNCexit() {
 	if [[ $* -gt 0 ]];then
