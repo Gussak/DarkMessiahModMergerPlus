@@ -33,11 +33,11 @@ while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./a
 
 : ${bVerbose:=false};export bVerbose #help
 
-: ${strTextHint:="hltv_status|player_death"};export strTextHint #help this shows up on the last writing to that file, after that you only need to wait for 5s! "maxplayers" hint may happen before the real last file writing tho, so better not use it.
+: ${strTextHint:="hltv_status"};export strTextHint #help this shows up on the last writing to that file, after that you only need to wait for 5s! "maxplayers|player_death" hints may happen before the real last file writing tho, so better not use them.
 
 : ${strFlHint:="${strGameInstallMainFolder}/${strGameSubRelatFolderWriteAllHere}/demoheader.tmp"};export strFlHint #help the hint file is never recreated. It stays there, it seems to be emptied and receive new fresh data, so it's creation time is useless.
 
-: ${nIgnoreTinyStringsSize:=10};export nIgnoreTinyStringsSize #help these tiny strings are probably useless here TODO: just filter out if not: [0-9a-zA-Z_]*
+: ${nIgnoreTinyStringsSize:=1};export nIgnoreTinyStringsSize #help these tiny strings are probably useless here TODO: just filter out if not: [0-9a-zA-Z_]*
 
 function FUNCdetectPidToPause() { # the one that has no focus
 	#set -x
@@ -151,6 +151,7 @@ function FUNCmonitorChanges() {
 			
 			# prepare next
 			if egrep "${strTextHint}" "$strFlHint";then
+				echo "HINT DETECTED! prepare next detection"
 				((lnID++))&&: # begin next hint detection
 				lnIndex=0
 				declare -p lnID lnIndex
