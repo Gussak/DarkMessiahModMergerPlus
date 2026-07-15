@@ -42,7 +42,7 @@ while [[ $# -gt 0 ]] && [[ "${1:0:1}" == "-" ]];do # checks if param is set
 		#egrep "[#]help" "./allMergerScriptsGenericConfig.sh" "$0" |sed -r -e 's@^[ \t]*@@'
 		#SECFUNCshowHelpV2 "./allMergerScriptsGenericConfig.sh"
 		#SECFUNCshowHelpV2 "$0"
-		echo "Usage Example: $0 -f <strScriptFileRelat> # see above"
+		FUNCechoInfo "Usage Example: $0 -f <strScriptFileRelat> # see above"
 		FUNCexit 0
 	elif [[ "$1" == "-f" || "$1" == "--forceRePatch" ]];then #help
 		bForceRePatch=true
@@ -51,7 +51,7 @@ while [[ $# -gt 0 ]] && [[ "${1:0:1}" == "-" ]];do # checks if param is set
 	elif [[ "$1" == --redoall ]];then #help REDO the work on all files at the Final merged folder
 		bRedoAllFiles=true
 	else
-		echo "[invalid option] '$1'"
+		FUNCechoInfo "[invalid option] '$1'"
 		$0 --help #$0 considers ./, works best anyway..
 		FUNCexit 1
 	fi
@@ -59,7 +59,7 @@ while [[ $# -gt 0 ]] && [[ "${1:0:1}" == "-" ]];do # checks if param is set
 done
 
 : ${strScriptFileRelat:="${1-}"} #help provide a relative path (as mods may implement variants in other sub paths, like arena mod, that shall not affect the main game) ex.: "scripts/spells.txt" will be prepended with "*/" becoming "*/scripts/spells.txt" and matching like _mods folder like ".../content/scripts/spells.txt", main game like ".../mm/scripts/spells.txt"
-if [[ -z "$strScriptFileRelat" ]];then echo "[invalid] strScriptFileRelat='' is empty"; FUNCexit 1;fi
+if [[ -z "$strScriptFileRelat" ]];then FUNCechoInfo "[invalid] strScriptFileRelat='' is empty"; FUNCexit 1;fi
 exec > >(tee "$strFinalMergedFolderContent/${strScriptFileRelat}.log") 2>&1
 
 FUNCchkDeps() {

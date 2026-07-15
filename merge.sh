@@ -1,19 +1,20 @@
 #!/bin/bash
 
-set -x
+#set -x
 if true;then
+	while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
+	
 	# example of configuring easy merging
 	# it is configured for my system, customize it to yours.
 
 	export bFollowFolderLayersOrder=true # for ./prepareAllModsPatchesForScriptFile.sh: this helps by merging last the Overhaul mod that is the last ordered mod folder layer on my system while using OverlayFS.
 	export KEYVALUE_VERBOSE_OPTIONS="ERRORS_CORRECTED" # for ./keyValuePatcher.py
-	if [[ "${1-}" == --all ]];then #help all other params after this go for ./doItAllAutomaticallyIfPossible.sh
+	if [[ "${1-}" == "--all" ]];then #help (work on all files possible) every other params after this go for ./doItAllAutomaticallyIfPossible.sh. Without this option, all params go for ./prepareAllModsPatchesForScriptFile.sh to process a single file with some default settings.
 		shift
 		export bShowFinalComparison=false # for ./prepareAllModsPatchesForScriptFile.sh: this should be set to 'true', but for a quick test is false. it is important to check all auto merged final result files to grant nothing weird is placed there.
 		#allowing updating is more reliable #export bUpdateTodoList=false # for doItAllAutomaticallyIfPossible.sh->findAllConflictingModdedFiles.sh: no need to update it that often. If already merged it will be quickly skipped. Only if mods' order changes or a new one is added, then run it once.
 		./doItAllAutomaticallyIfPossible.sh "$@"
 	else
-		# single file mode #help all params go for ./prepareAllModsPatchesForScriptFile.sh
 		export bShowFinalComparison=true
 		./prepareAllModsPatchesForScriptFile.sh "$@"
 	fi
