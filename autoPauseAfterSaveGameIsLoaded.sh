@@ -33,7 +33,7 @@ while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./a
 
 : ${bVerbose:=false};export bVerbose #help
 
-: ${strTextHint:="hltv_status|maxplayers|player_death"};export strTextHint #help this shows up on the last writing to that file, after that you only need to wait for 5s!
+: ${strTextHint:="hltv_status|player_death"};export strTextHint #help this shows up on the last writing to that file, after that you only need to wait for 5s! "maxplayers" hint may happen before the real last file writing tho, so better not use it.
 
 : ${strFlHint:="${strGameInstallMainFolder}/${strGameSubRelatFolderWriteAllHere}/demoheader.tmp"};export strFlHint #help the hint file is never recreated. It stays there, it seems to be emptied and receive new fresh data, so it's creation time is useless.
 
