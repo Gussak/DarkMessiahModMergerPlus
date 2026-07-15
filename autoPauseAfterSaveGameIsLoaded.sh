@@ -33,7 +33,7 @@ while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./a
 
 : ${bVerbose:=false};export bVerbose #help
 
-: ${strTextHint:="hltv_status"};export strTextHint #help this shows up on the last writing to that file, after that you only need to wait for 5s! "maxplayers|player_death" hints may happen before the real last file writing tho, so better not use them.
+: ${strTextHint:="hltv_status"};export strTextHint #help this shows up on the last writing to that file, after that you only need to wait for 5s! "maxplayers|player_death" hints may happen before the real last file writing tho, so better not use them. # "46:|hltv_fov|target2"
 
 : ${strFlHint:="${strGameInstallMainFolder}/${strGameSubRelatFolderWriteAllHere}/demoheader.tmp"};export strFlHint #help the hint file is never recreated. It stays there, it seems to be emptied and receive new fresh data, so it's creation time is useless.
 
@@ -151,7 +151,7 @@ function FUNCmonitorChanges() {
 			
 			# prepare next
 			if egrep "${strTextHint}" "$strFlHint";then
-				echo "HINT DETECTED! prepare next detection"
+				echo "HINT DETECTED! prepare next detection (BUT on next ID, if the file is still modified and increase, there may have hints there!)"
 				((lnID++))&&: # begin next hint detection
 				lnIndex=0
 				declare -p lnID lnIndex
