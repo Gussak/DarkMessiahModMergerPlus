@@ -16,7 +16,7 @@ if true;then
 		./doItAllAutomaticallyIfPossible.sh "$@"
 	else
 		export bShowFinalComparison=true
-		./prepareAllModsPatchesForScriptFile.sh "$@"
+		./prepareAllModsPatchesForScriptFile.sh -f "$@"
 	fi
 
 fi

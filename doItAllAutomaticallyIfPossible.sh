@@ -98,8 +98,8 @@ if true;then
 	cd "$strPathParent";
 	strChk="$(egrep "Successfully modified:\s*0" "${strMergedModsFolder}/"* -iRnIa --include="*.log" -c |sed -r "s@${strPathSelf}/@@")"
 	if echo "$strChk" |grep -q -v :0;then
-		echo "$strChk" |grep -v :0 |sed -r -e 's@(.*)[.]log:.*@\1@'
-		FUNCechoInfo "[WARNING] the above may be a bad thing. Better review if the .kvpach.json were really applied for them!"
+		echo "$strChk" |grep -v :0 |sed -r -e 's@(.*)[.]log(:.*)@\1\2@'
+		FUNCechoInfo "[WARNING] the above may be a bad thing (found 0 'Successfully modified' requested changes). Better review if the .kvpach.json were really applied for them!"
 	fi
 	
 	FUNCechoInfo "[INFO] You should now run: ./unifiedGameCfg.sh"
