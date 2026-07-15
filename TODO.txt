@@ -18,6 +18,7 @@ MayBeEasy
 - animals and spiders etc could drop raw meat to cook on fire like we can cook in Arx Fatalis!
 - let we pickup spiders and other animals corpses and throw much farer
 - moving clouds
+- backstab and wirlwind: could be available from beggining without having to wait to gather all the skills on the tree, as they add veteran features
 
 MayBeOnlyPatchingTheEngineBinary
 - let bows shoot thru gates (I guess it is a model issue, gates could have a hollow collider that just prevents NPCs and player going thru by being a bit smaller than them, this could also let magic targetting thru)

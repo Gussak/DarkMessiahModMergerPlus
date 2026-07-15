@@ -137,6 +137,7 @@
 		models/npc/necroguard/npc_necroguard.qct=*210
 		models/npc/necroguard_undead/npc_necroguard_undead.qct=*126
 		models/npc/necrocivilian/npc_necrocivilian.qct=*63
+		models/npc/undead/npc_undead.qct=*420 # it is too slow. low HP would make sense if it was a crowd of 50. necromancers should be able to raise them. To compensate all that, make it a tank.
 	)
 	declare -p astrSpecialNpcsTmp |sed -r -e "$strSedArrayIDsToLn"
 	: ${astrSpecialNpcs:="$(echo "${astrSpecialNpcsTmp[*]}" |tr ' ' ',')"} #help comma separated. use file=NumericValue or file=Vanilla. All non hostiles (friendlies) and uniques, I am keeping vanilla, as we are intended to defend them right? it is about keeping it a challenging "defend them" quest (WIP).
