@@ -237,6 +237,8 @@ function FUNCpauseAfterLoad() {
 			echo -ne "=============================== $(date) ================================\r"
 			sleep 1
 			
+			if [[ ! -f "$strFlHint" ]];then FUNCechoInfo "'$strFlHint' not found"; continue;fi
+			
 			FUNCdetectPidToPause
 			#anPidGm=($(pgrep -f "C:[\].*[\]mm.exe"))
 			
