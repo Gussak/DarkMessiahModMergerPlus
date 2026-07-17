@@ -16,7 +16,7 @@ if ! $bXtermAlready;then
 	: ${bXterm:=true} #help
 	if $bXterm;then
 		if pgrep -fa GSK_DMMM_Helpers;then exit 0;fi
-		(xterm -title GSK_DMMM_Helpers -e bash -c "while true;do bXtermAlready=true ./${strSelfBN};done" & disown)
+		(xterm -title GSK_DMMM_Helpers -e bash -c "while true;do read -p PressEnterToRunHelpers&&:; bXtermAlready=true ./${strSelfBN};done" & disown)
 		exit 0
 	fi
 fi
