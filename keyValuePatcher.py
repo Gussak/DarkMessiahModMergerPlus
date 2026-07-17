@@ -69,7 +69,7 @@ NESTING_CLOSE = os.getenv("KEYVALUE_NESTING_CLOSE", "}")
 LINE_ENDING = os.getenv("KEYVALUE_LINE_ENDING", "\r\n")
 
 # Duplicate key detection
-DUPLICATE_KEYS = os.getenv("KEYVALUE_DUPLICATE_KEYS", "prop_physics,load_file").split(",")
+DUPLICATE_KEYS = os.getenv("KEYVALUE_DUPLICATE_KEYS", "prop_physics,load_file,module").split(",")
 DUPLICATE_KEYS = [key.strip() for key in DUPLICATE_KEYS if key.strip()]
 
 # Dominant multi-keys: like duplicate keys but when a patch is applied, all
@@ -81,7 +81,7 @@ DOMINANT_MULTI_KEYS = [key.strip() for key in DOMINANT_MULTI_KEYS if key.strip()
 # Keys that should only be appended if their exact value does not already exist
 # in the target block. Useful for preventing duplicate entries like language packs.
 DUPLICATE_KEYS_WITHOUT_DUP_VALUES = os.getenv(
-    "KEYVALUE_DUPLICATE_KEYS_WITHOUT_DUP_VALUES", "load_file"
+    "KEYVALUE_DUPLICATE_KEYS_WITHOUT_DUP_VALUES", "load_file,module"
 ).split(",")
 DUPLICATE_KEYS_WITHOUT_DUP_VALUES = [
     key.strip() for key in DUPLICATE_KEYS_WITHOUT_DUP_VALUES if key.strip()
