@@ -42,6 +42,11 @@ of overwritten.
 Patch files store keys and values WITHOUT double quotes (raw form).
 Applied files maintain standard format with quotes around keys/values.
 
+NEW FEATURE: Removal Directive
+  If a key in the patch JSON has the comment "//@KEYVALUE_REMOVE", 
+  that exact key-value pair will be stripped from the target file 
+  during application, respecting nesting and duplicate indexing.
+
 Example usage:
 ./keyValuePatcher.py create base.qct modded.qct -o weapon_tweak.kvpatch.json
 ./keyValuePatcher.py apply target.qct weapon_tweak.kvpatch.json
@@ -86,6 +91,9 @@ DUPLICATE_KEYS_WITHOUT_DUP_VALUES = os.getenv(
 DUPLICATE_KEYS_WITHOUT_DUP_VALUES = [
     key.strip() for key in DUPLICATE_KEYS_WITHOUT_DUP_VALUES if key.strip()
 ]
+
+# Removal directive marker
+REMOVE_DIRECTIVE = "//@KEYVALUE_REMOVE"
 
 # 1. Automate masks using sequential bit-shifting behind the scenes
 class LogConfig(Flag): #only append new options, do not organize (or will have to update the comments..)
@@ -520,6 +528,10 @@ def parse_qct_to_dict(file_path: str, lines: Optional[List[str]] = None) -> Dict
 
                 if not clean_line_for_kv:
                         continue
+                
+                # Skip and remove key-values marked with the removal comment flag
+                # if "//@KEYVALUE_REMOVE" in line:
+                        # continue
 
                 kv_match = KV_PATTERN.match(clean_line_for_kv)
                 if kv_match:
@@ -1130,6 +1142,7 @@ def _patch_duplicate_key(
         duplicate_keys_found: Dict[str, int],
         dominant_has_patches: set,
         dominant_inserted: set,
+        remove_paths: set,
 ) -> Tuple[str, List[str], bool]:
         """
         Process a duplicate or dominant key line.
@@ -1148,6 +1161,7 @@ def _patch_duplicate_key(
                         duplicate_keys_found: Counter updated in-place per duplicate occurrence.
                         dominant_has_patches: Pre-computed set of dominant base paths with patch entries.
                         dominant_inserted:    Set updated in-place once a dominant base path is written.
+                        remove_paths:         Set of paths marked with "//@KEYVALUE_REMOVE".
 
         Returns:
                         Tuple of (modified_line, extra_lines, should_skip).
@@ -1186,6 +1200,12 @@ def _patch_duplicate_key(
         indexed_path = f"{full_path}.{dup_index}"
         duplicate_keys_found[full_path] += 1
 
+        # ── Removal Directive ──
+        if indexed_path in remove_paths or full_path in remove_paths:
+                applied_keys.add(indexed_path)
+                Logger.debug(f"Removed via directive: {indexed_path}")
+                return line, [], True  # skip original line
+
         # FIX: Non-dominant duplicates should ALWAYS be appended, never replaced in-place.
         # We skip index-based matching here and defer to the auto-append logic in handle_apply.
         if not is_dominant_key(key):
@@ -1215,7 +1235,8 @@ def _patch_normal_key(
         patches: Dict[str, Any],
         comment_patches: Dict[str, str],
         applied_keys: set,
-) -> str:
+        remove_paths: set,
+) -> Optional[str]:
         """
         Process a regular (non-duplicate) key line.
 
@@ -1228,10 +1249,17 @@ def _patch_normal_key(
                         patches:         Flat dot-path -> new-value dict (no __comments__).
                         comment_patches: Flat dot-path -> comment string dict.
                         applied_keys:    Set updated in-place with patched paths.
+                        remove_paths:    Set of paths marked with "//@KEYVALUE_REMOVE".
 
         Returns:
-                        The (potentially patched) line.
+                        The (potentially patched) line, or None if marked for removal.
         """
+        # ── Removal Directive ──
+        if full_path in remove_paths:
+                applied_keys.add(full_path)
+                Logger.debug(f"Removed via directive: {full_path}")
+                return None
+
         if full_path in patches:
                 new_val = patches[full_path]
                 try:
@@ -1254,6 +1282,7 @@ def _apply_patches_to_lines(
         lines: List[str],
         patches: Dict[str, Any],
         comment_patches: Dict[str, str],
+        remove_paths: set,
         target_path: str,
 ) -> Tuple[List[str], set]:
         """
@@ -1266,6 +1295,7 @@ def _apply_patches_to_lines(
                         lines:           Raw lines from the target file.
                         patches:         Flat dot-path -> new-value dict (no __comments__).
                         comment_patches: Flat dot-path -> comment string dict.
+                        remove_paths:    Set of paths marked with "//@KEYVALUE_REMOVE".
                         target_path:     File path used only for validation error messages.
 
         Returns:
@@ -1351,15 +1381,19 @@ def _apply_patches_to_lines(
                                                 duplicate_keys_found,
                                                 dominant_has_patches,
                                                 dominant_inserted,
+                                                remove_paths,
                                         )
                                         if extra_lines:
                                                 output_lines.extend(extra_lines)
                                         if skip:
                                                 continue
                                 else:
-                                        line = _patch_normal_key(
-                                                line, full_path, patches, comment_patches, applied_keys
+                                        patched_line = _patch_normal_key(
+                                                line, full_path, patches, comment_patches, applied_keys, remove_paths
                                         )
+                                        if patched_line is None:
+                                                continue  # Marked for removal
+                                        line = patched_line
 
                 output_lines.append(line)
 
@@ -1402,6 +1436,7 @@ def handle_apply(args) -> None:
         For duplicate keys: new values are APPENDED after existing ones.
         For dominant multi-keys: ALL originals are erased and replaced
         exclusively by the patch values.
+        For removal directives: Keys with "//@KEYVALUE_REMOVE" comment are stripped.
         """
         if not os.path.exists(args.target):
                 Logger.error(f"Target file not found: {args.target}")
@@ -1427,6 +1462,9 @@ def handle_apply(args) -> None:
         comment_patches: Dict[str, str] = patches.get("__comments__", {})
         patches = {k: v for k, v in patches.items() if k != "__comments__"}
 
+        # Identify removal directives from comments
+        remove_paths = {k for k, v in comment_patches.items() if v.strip() == REMOVE_DIRECTIVE}
+
         # ── Handle empty patch ──
         if not patches and not comment_patches:
                 Logger.info("Patch file is empty. Nothing to apply.")
@@ -1451,16 +1489,20 @@ def handle_apply(args) -> None:
                 Logger.info(
                         f"Dominant multi-keys (erase originals, insert patch values): {', '.join(DOMINANT_MULTI_KEYS)}"
                 )
+        if remove_paths:
+                Logger.info(f"Removal directives ({len(remove_paths)}): {', '.join(remove_paths)}")
 
         if verify_flags(LogConfig.DEBUG):
                 Logger.debug(f"Patches to apply: {patches}")
 
         output_lines, applied_keys = _apply_patches_to_lines(
-                lines, patches, comment_patches, args.target
+                lines, patches, comment_patches, remove_paths, args.target
         )
 
         requested_keys = set(patches.keys())
         missing_keys = requested_keys - applied_keys
+        # Exclude removal-only paths from missing keys report
+        missing_keys -= remove_paths
 
         # Identify non-dominant duplicate keys that weren't matched in-place.
         # These use indices in the patch (e.g., ".30") but should always be appended.
@@ -1549,6 +1591,7 @@ Note:
   - Applied files maintain proper format with quoted keys/values
   - Duplicate keys (prop_physics, load_file) are appended, not overwritten
   - Dominant multi-keys erase all originals and replace them exclusively
+  - Keys with the comment "//@KEYVALUE_REMOVE" will be stripped from the target
   - Use --prettify to fix indentation to match nesting depth
 
 ENVIRONMENT VARIABLES:
