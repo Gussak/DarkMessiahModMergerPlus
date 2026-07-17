@@ -305,25 +305,21 @@ def extract_inline_comment(line: str) -> str:
 
 
 def set_inline_comment(line: str, comment: str) -> str:
-        """
-        Set or replace the inline comment on a line, preserving its line ending.
-
-        Strips any existing inline comment, then appends the new one separated by
-        two spaces.  Passing an empty string removes the comment entirely.
-
-        Args:
-                        line: Original line (may or may not already have an inline comment)
-                        comment: New comment string, should start with '//'
-
-        Returns:
-                        Line with the new inline comment, using LINE_ENDING as the line terminator
-        """
-        base = line.rstrip("\r\n").rstrip("\n").rstrip("\r")
-        if "//" in base:
-                base = base.split("//", 1)[0].rstrip()
-        if comment:
-                return base + "  " + comment + LINE_ENDING
-        return base + LINE_ENDING
+    """Set or replace the inline comment on a line, preserving indentation & line endings."""
+    base = line.rstrip("\r\n").rstrip("\n").rstrip("\r")
+    
+    # Strip existing comment if present
+    if "//" in base:
+        base = base.split("//", 1)[0].rstrip()
+        
+    # Normalize comment input
+    comment = comment.strip("\r\n")
+    if comment and not comment.startswith("//"):
+        comment = "//" + comment
+        
+    if comment:
+        return base + "  " + comment + LINE_ENDING
+    return base + LINE_ENDING
 
 def parse_key_value(line: str) -> tuple[str, str] | None:
         """Parses a line to extract a key and value using regular expressions.
@@ -808,21 +804,15 @@ def _read_file_lines(file_path: str) -> List[str]:
 
 
 def append_nested_missing(
-        lines: List[str], missing_patches: Dict[str, str]
+        lines: List[str], missing_patches: Dict[str, str], comment_patches: Optional[Dict[str, str]] = None  # <-- NEW
 ) -> List[str]:
-        """
-        Inject missing configurations by tracking structural depth.
-        
-        Automatically skips appending keys listed in 
-        DUPLICATE_KEYS_WITHOUT_DUP_VALUES if their exact value already 
-        exists in the target block.
-        """
-        # Group missing properties by their parent blocks
-        grouped_patches: Dict[Tuple, List[Tuple[str, str]]] = defaultdict(list)
+        if comment_patches is None:
+                comment_patches = {}
+        # Group missing properties by their parent blocks, preserving full_path
+        grouped_patches: Dict[Tuple, List[Tuple[str, str, str]]] = defaultdict(list)  # <-- NEW type hint
         for full_path, new_value in missing_patches.items():
                 parts = full_path.split(".")
 
-                # Detect indexed duplicate keys and collapse to base key
                 if len(parts) >= 2 and parts[-1].isdigit() and parts[-2] in DUPLICATE_KEYS:
                         target_hierarchy = tuple(parts[:-2])
                         key_name = parts[-2]
@@ -830,30 +820,22 @@ def append_nested_missing(
                         target_hierarchy = tuple(parts[:-1])
                         key_name = parts[-1]
 
-                grouped_patches[target_hierarchy].append((key_name, new_value))
+                grouped_patches[target_hierarchy].append((key_name, new_value, full_path))  # <-- NEW: store full_path
 
-        # Scan block structure once outside the loop
         open_braces, close_braces = find_block_structure(lines)
 
-        # Process group entries systematically
         for target_hierarchy, items in grouped_patches.items():
-                # ── NEW: Filter out values that already exist in the target block ──
                 filtered_items = []
-                for key_name, new_value in items:
+                for key_name, new_value, full_path in items:  # <-- NEW: unpack full_path
                         if key_name in DUPLICATE_KEYS_WITHOUT_DUP_VALUES:
                                 if _value_exists_in_scope(lines, target_hierarchy, key_name, new_value):
-                                        Logger.debug(
-                                                f"Skipped append (value exists in scope): "
-                                                f"{key_name} = {new_value}"
-                                        )
+                                        Logger.debug(f"Skipped append (value exists in scope): {key_name} = {new_value}")
                                         continue
-                        filtered_items.append((key_name, new_value))
+                        filtered_items.append((key_name, new_value, full_path))  # <-- NEW
 
-                # If all items were filtered out, skip block creation/injection for this hierarchy
                 if not filtered_items:
                         continue
 
-                # Find deepest matching block
                 matched_depth = 0
                 for depth in range(len(target_hierarchy), 0, -1):
                         check_path = target_hierarchy[:depth]
@@ -863,7 +845,6 @@ def append_nested_missing(
 
                 new_lines: List[str] = []
                 if matched_depth == 0:
-                        # No existing structure; create from scratch
                         insert_idx = len(lines)
                         for i, part in enumerate(target_hierarchy):
                                 tabs = "\t" * i
@@ -871,16 +852,16 @@ def append_nested_missing(
                                 new_lines.append(f"{tabs}{{{LINE_ENDING}")
 
                         final_tabs = "\t" * len(target_hierarchy)
-                        for key_name, new_value in filtered_items:  # ── NEW: use filtered ──
-                                new_lines.append(
-                                        f'{final_tabs}"{key_name}"\t\t"{new_value}"{LINE_ENDING}'
-                                )
+                        for key_name, new_value, full_path in filtered_items:  # <-- NEW
+                                base_line = f'{final_tabs}"{key_name}"\t\t"{new_value}"{LINE_ENDING}'
+                                if full_path in comment_patches:  # <-- NEW: apply comment
+                                        base_line = set_inline_comment(base_line, comment_patches[full_path])
+                                new_lines.append(base_line)
 
                         for i in range(len(target_hierarchy) - 1, -1, -1):
                                 tabs = "\t" * i
                                 new_lines.append(f"{tabs}}}{LINE_ENDING}")
                 else:
-                        # Extend existing structure
                         matched_path = target_hierarchy[:matched_depth]
                         missing_structure = target_hierarchy[matched_depth:]
                         insert_idx = close_braces[matched_path]
@@ -892,20 +873,17 @@ def append_nested_missing(
                                 new_lines.append(f"{tabs}{{{LINE_ENDING}")
 
                         final_tabs = "\t" * (base_tabs + len(missing_structure))
-                        for key_name, new_value in filtered_items:  # ── NEW: use filtered ──
-                                new_lines.append(
-                                        f'{final_tabs}"{key_name}"\t\t"{new_value}"{LINE_ENDING}'
-                                )
+                        for key_name, new_value, full_path in filtered_items:  # <-- NEW
+                                base_line = f'{final_tabs}"{key_name}"\t\t"{new_value}"{LINE_ENDING}'
+                                if full_path in comment_patches:  # <-- NEW: apply comment
+                                        base_line = set_inline_comment(base_line, comment_patches[full_path])
+                                new_lines.append(base_line)
 
                         for i in range(len(missing_structure) - 1, -1, -1):
                                 tabs = "\t" * (base_tabs + i)
                                 new_lines.append(f"{tabs}}}{LINE_ENDING}")
 
                 lines[insert_idx:insert_idx] = new_lines
-                # Rescan so subsequent iterations see the blocks we just created.
-                # Without this, two groups that share a newly-inserted parent block
-                # (e.g. "weapons.sword" and "weapons.axe" both needing a new "weapons"
-                # block) would each create their own copy of the parent → duplication.
                 open_braces, close_braces = find_block_structure(lines)
 
         return lines
@@ -1223,8 +1201,14 @@ def _patch_duplicate_key(
         else:
                 if verify_flags(LogConfig.BUG_TRACKING):
                         Logger.debug(f"Indexed key not in patch: {indexed_path}")
-        if indexed_path in comment_patches:
-                line = set_inline_comment(line, comment_patches[indexed_path])
+        
+        # ── Comment Patching ──
+        # Check both indexed (e.g., .0) and non-indexed paths for robustness
+        comment_val = comment_patches.get(indexed_path) or comment_patches.get(full_path)
+        if comment_val:
+                line = set_inline_comment(line, comment_val)
+        # if indexed_path in comment_patches:
+                # line = set_inline_comment(line, comment_patches[indexed_path])
 
         return line, [], False  # append original (now patched) line
 
@@ -1273,8 +1257,14 @@ def _patch_normal_key(
         else:
                 if verify_flags(LogConfig.BUG_TRACKING):
                         Logger.debug(f"Key not in patch: {full_path}")
-        if full_path in comment_patches:
-                line = set_inline_comment(line, comment_patches[full_path])
+        
+        # ── Comment Patching ──
+        comment_val = comment_patches.get(full_path)
+        if comment_val:
+                line = set_inline_comment(line, comment_val)
+        # if full_path in comment_patches:
+                # line = set_inline_comment(line, comment_patches[full_path])
+        
         return line
 
 
@@ -1542,7 +1532,7 @@ def handle_apply(args) -> None:
 
                 Logger.info(f"Injecting missing options ({len(auto_append_dict)} duplicate, {len(remaining_missing)} structural)...")
                 try:
-                        output_lines = append_nested_missing(output_lines, combined_patches)
+                        output_lines = append_nested_missing(output_lines, combined_patches, comment_patches)
                         applied_keys.update(combined_patches.keys())
                         Logger.info(f"Successfully appended {len(combined_patches)} missing option(s).")
                 except Exception as e:
