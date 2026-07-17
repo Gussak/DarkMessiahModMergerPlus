@@ -106,6 +106,9 @@ fi
 strFindScriptFileRegex=".*/\(${strRegexEscKGMRF}\)/${strScriptFileRelat}\(\.patch\|\.kvpatch\.json\)?\$"
 if $bVerbose;then declare -p strFindScriptFileRegex;fi
 
+: ${strFlLastOneAlwaysWinList:="scripts/mm_skills_infos.txt"} #help comma separated relative file paths. The last one found will override every other mod that modifies it, and will just patch vanilla directly.
+mapfile -t -d "," astrFlLastOneAlwaysWinList < <( echo -n "$strFlLastOneAlwaysWinList" )
+
 strThisFolder="$(pwd)"
 #strThisFolderBN="$(basename "${strThisFolder}")"
 
@@ -190,7 +193,7 @@ fi
 if [[ -z "$bFollowFolderLayersOrder" ]];then
 	if [[ "${astrListCurrent[@]}" != "${astrListFoldersLayersOrder[@]}" ]];then
 		FUNCechoInfo "[The folders layers order differ from following ModLauncher setting list order]"
-		FUNCechoInfo "[ModLauncher setting list order will be prefered] Unless you set bFollowFolderLayersOrder=true"
+		FUNCechoInfo "[ModLauncher setting list order will be prefered] Unless you set bFollowFolderLayersOrder=true (hit Ctrl+c to set it)"
 		FUNCechoInfo "[Press a key to continue.]"
 		read -n 1
 	fi
@@ -202,6 +205,14 @@ else
 		declare -p astrListCurrent |sed -r -e "$strSedArrayNumToLn";echo
 	fi
 fi
+
+for strLastOneWins in "${astrFlLastOneAlwaysWinList[@]}";do
+	if [[ "$strLastOneWins" == "$strScriptFileRelat" ]];then
+		astrListCurrent=("${astrListCurrent[$((${#astrListCurrent[*]}-1))]}")
+		declare -p astrListCurrent |sed -r -e "$strSedArrayNumToLn";echo
+		break;
+	fi
+done
 
 strVanillaScriptFile="$(find -L "$strVanillaScriptsPath" -iregex "${strFindScriptFileRegex}")"
 bDummyVanilla=false
