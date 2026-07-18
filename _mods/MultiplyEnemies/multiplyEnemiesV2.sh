@@ -40,6 +40,7 @@ function FUNCappendNPCs() {
 	#local lnNumericGlobalID="$1";shift
 	
 	local lstrClassOrig="${aNpcId_Class[$lstrNpcID]}"
+	declare -p lstrClassOrig astrClass_ExtraNpcClasses
 	mapfile -t lastrClassList < <(echo "${astrClass_ExtraNpcClasses[$lstrClassOrig]}" |tr '|' '\n')
 	
 	nExtraNpcClassIndex=0
@@ -51,6 +52,7 @@ function FUNCappendNPCs() {
 		
 		nQuiverAmmo=$((iM+6))&&:
 		
+		declare -p nExtraNpcClassIndex lastrClassList
 		lstrClass="${lastrClassList[$nExtraNpcClassIndex]}"
 		((nExtraNpcClassIndex++))&&:
 		if((nExtraNpcClassIndex >= ${#lastrClassList[*]}));then nExtraNpcClassIndex=0;fi
