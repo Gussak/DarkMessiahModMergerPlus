@@ -16,16 +16,22 @@ mapfile -t -d ',' astrMapList < <(echo -n "$strMapList")
 #aMap_NpcFirstFoundEntLn[l02_b1_4ee4febf333ce791bd93942253d8fcb1]="316521"
 #aMap_NpcFirstFoundEntLn[l02_b2_1f2d529785eed57d3b332b0a8b75f0e1]="366480"
 
-: ${strNPCallowedClasses:="npc_necro_guard,npc_necro_guard_bow,npc_necromancer,npc_necromancer_lord,npc_spider_mini"} #help
+: ${strNPCallowedClasses:="npc_necro_guard,npc_necro_guard_bow,npc_necromancer,npc_necromancer_lord,npc_spider_mini,npc_spider_regular,npc_spider_giant,npc_undead,npc_villager_undead"} #help
 strNPCallowedClassesRegex=$(echo "$strNPCallowedClasses" |tr ',' '|')
 mapfile -t astrNPCallowedClassList < <(echo "$strNPCallowedClasses" |tr ',' '\n')
 
-declare -A astrClass_ExtraNpcClasses=() # beggining with '_' are custom setup here. These are the npcs that will be added if the key matches. The more they appear the more weight they have to spawn, so you can repeat them.
-astrClass_ExtraNpcClasses[npc_necro_guard]="_NpcNecroGuardShield|npc_necro_guard_bow|npc_necro_guard_bow|npc_necro_guard_bow"
-astrClass_ExtraNpcClasses[npc_necro_guard_bow]="_NpcNecroGuardShield|npc_necro_guard_bow|npc_necro_guard_bow|npc_necro_guard_bow|npc_necro_guard_bow|npc_necro_guard_bow"
-astrClass_ExtraNpcClasses[npc_necromancer]="npc_necro_guard_bow|npc_villager_undead|npc_undead|npc_villager_undead|npc_undead|npc_villager_undead|npc_undead"
-astrClass_ExtraNpcClasses[npc_necromancer_lord]="npc_necromancer|npc_necro_guard_bow|npc_villager_undead|npc_undead|npc_villager_undead|npc_undead|npc_villager_undead|npc_undead"
-astrClass_ExtraNpcClasses[npc_spider_mini]="npc_spider_mini"
+# more variety and challenge
+declare -A astrClass_ExtraNpcClasses=() # beggining with '_' are custom setup here. These are the npcs that will be added if the key matches. The more they appear the more weight they have to spawn, so you can repeat them. They cycle to first.
+astrClass_ExtraNpcClasses[npc_necro_guard]="npc_necro_guard_bow|_NpcNecroGuardShield|npc_necromancer"
+#astrClass_ExtraNpcClasses[npc_necro_guard_bow]="npc_necro_guard_bow|_NpcNecroGuardShield|npc_necromancer"
+astrClass_ExtraNpcClasses[npc_necro_guard_bow]="npc_necromancer|npc_undead|npc_undead"
+astrClass_ExtraNpcClasses[npc_necromancer]="npc_undead|npc_villager_undead|npc_necro_guard_bow"
+astrClass_ExtraNpcClasses[npc_necromancer_lord]="npc_undead|npc_villager_undead|npc_necro_guard_bow|npc_necromancer"
+astrClass_ExtraNpcClasses[npc_spider_mini]="npc_spider_regular|npc_spider_mini|npc_spider_mini|npc_spider_mini"
+astrClass_ExtraNpcClasses[npc_spider_regular]="npc_spider_regular|npc_spider_mini"
+astrClass_ExtraNpcClasses[npc_spider_giant]="npc_spider_regular"
+astrClass_ExtraNpcClasses[npc_undead]="npc_undead|npc_undead|npc_villager_undead"
+astrClass_ExtraNpcClasses[npc_villager_undead]="npc_undead|npc_villager_undead|npc_villager_undead"
 
 declare -A astrNpcModel=()
 astrNpcModel[npc_necro_guard]="models/npc/Necroguard/npc_necroguard.mdl"
