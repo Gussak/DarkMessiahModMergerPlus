@@ -26,6 +26,17 @@ astrClass_ExtraNpcClasses[npc_necromancer]="npc_necro_guard_bow|npc_villager_und
 astrClass_ExtraNpcClasses[npc_necromancer_lord]="npc_necromancer|npc_necro_guard_bow|npc_villager_undead|npc_undead|npc_villager_undead|npc_undead|npc_villager_undead|npc_undead"
 astrClass_ExtraNpcClasses[npc_spider_mini]="npc_spider_mini"
 
+declare -A astrNpcModel=()
+astrNpcModel[npc_necro_guard]="models/npc/Necroguard/npc_necroguard.mdl"
+astrNpcModel[npc_necro_guard_bow]="models/npc/Necroguard/npc_necroguard.mdl"
+astrNpcModel[_NpcNecroGuardShield]="models/npc/Necroguard/npc_necroguard.mdl"
+astrNpcModel[npc_necromancer]="models/NPC/Necromancer/Npc_necromancer.mdl"
+astrNpcModel[npc_necromancer_lord]="models/NPC/Necromancer_Lord/Npc_Necromancer_Lord.mdl"
+astrNpcModel[npc_spider_mini]="models/NPC/spider_mini/Npc_spider_mini.mdl"
+astrNpcModel[npc_villager_undead]="models/npc/villager_undead/npc_villager_undead.mdl"
+astrNpcModel[npc_undead]="models/NPC/Undead/Npc_undead.mdl"
+
+# internal consistency checks
 for npcClass1 in "${astrNPCallowedClassList[@]}";do
 	bFoundClass=false
 	for npcClass2 in "${!astrClass_ExtraNpcClasses[@]}";do
@@ -40,15 +51,6 @@ for npcClass1 in "${astrNPCallowedClassList[@]}";do
 	fi
 done
 
-declare -A astrNpcModel=()
-astrNpcModel[npc_necro_guard]="models/npc/Necroguard/npc_necroguard.mdl"
-astrNpcModel[npc_necro_guard_bow]="models/npc/Necroguard/npc_necroguard.mdl"
-astrNpcModel[_NpcNecroGuardShield]="models/npc/Necroguard/npc_necroguard.mdl"
-astrNpcModel[npc_necromancer]="models/NPC/Necromancer/Npc_necromancer.mdl"
-astrNpcModel[npc_necromancer_lord]="models/NPC/Necromancer_Lord/Npc_Necromancer_Lord.mdl"
-astrNpcModel[npc_spider_mini]="models/NPC/spider_mini/Npc_spider_mini.mdl"
-astrNpcModel[npc_villager_undead]="models/npc/villager_undead/npc_villager_undead.mdl"
-astrNpcModel[npc_undead]="models/NPC/Undead/Npc_undead.mdl"
 
 function FUNCappendNPCs() {
 	local lstrFl="$1";shift
@@ -56,8 +58,10 @@ function FUNCappendNPCs() {
 	#local lstrClass="$1";shift
 	#local lnNumericGlobalID="$1";shift
 	
+	declare -p lstrNpcID
+	
 	local lstrClassOrig="${aNpcId_Class[$lstrNpcID]}"
-	declare -p lstrClassOrig astrClass_ExtraNpcClasses
+	#declare -p lstrClassOrig astrClass_ExtraNpcClasses
 	mapfile -t lastrClassList < <(echo "${astrClass_ExtraNpcClasses[$lstrClassOrig]}" |tr '|' '\n')
 	
 	nExtraNpcClassIndex=0
@@ -69,7 +73,7 @@ function FUNCappendNPCs() {
 		
 		nQuiverAmmo=$((iM+6))&&:
 		
-		declare -p nExtraNpcClassIndex lastrClassList
+		#declare -p nExtraNpcClassIndex lastrClassList
 		lstrClass="${lastrClassList[$nExtraNpcClassIndex]}"
 		((nExtraNpcClassIndex++))&&:
 		if((nExtraNpcClassIndex >= ${#lastrClassList[*]}));then nExtraNpcClassIndex=0;fi
