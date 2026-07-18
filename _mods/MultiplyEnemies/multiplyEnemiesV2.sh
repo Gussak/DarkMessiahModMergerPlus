@@ -4,16 +4,16 @@ while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./a
 
 : ${strPathSDK:="${strPathParent}/Might and Magic Dark Messiah SDK"} #help 
 : ${nMultiply:=10} #help hardcore is 10-15 (too many will lag tho, tests on 3.2GHz CPU, it uses a single core for everything? ...)
-
 : ${strMultToken:="DupMultHC"} #help used to detect if already multiplied
+declare -p nMultiply strMultToken strPathSDK
 
 strMapList="l02_b1,l02_b2" #help comma separated
 mapfile -t -d ',' astrMapList < <(echo -n "$strMapList") 
 
-declare -A aMap_NpcFirstFoundEntLn=()
-# these are based on vanilla .vmf files, changed files will differ so it also needs the md5sum
-aMap_NpcFirstFoundEntLn[l02_b1_4ee4febf333ce791bd93942253d8fcb1]="316521"
-aMap_NpcFirstFoundEntLn[l02_b2_1f2d529785eed57d3b332b0a8b75f0e1]="366480"
+#declare -A aMap_NpcFirstFoundEntLn=()
+## these are based on vanilla .vmf files, changed files will differ so it also needs the md5sum
+#aMap_NpcFirstFoundEntLn[l02_b1_4ee4febf333ce791bd93942253d8fcb1]="316521"
+#aMap_NpcFirstFoundEntLn[l02_b2_1f2d529785eed57d3b332b0a8b75f0e1]="366480"
 
 declare -A astrExtraNPCs=() # beggining with '_' are custom setup here
 astrExtraNPCs[npc_necro_guard]="npc_necro_guard|npc_necro_guard_bow|_NpcNecroGuardShield"
@@ -27,13 +27,18 @@ declare -A astrNpcModel=()
 astrNpcModel[npc_necro_guard]="models/npc/Necroguard/npc_necroguard.mdl"
 astrNpcModel[npc_necro_guard_bow]="models/npc/Necroguard/npc_necroguard.mdl"
 astrNpcModel[_NpcNecroGuardShield]="models/npc/Necroguard/npc_necroguard.mdl"
+astrNpcModel[npc_necromancer]="0"
+astrNpcModel[npc_necromancer_lord]="0"
+astrNpcModel[npc_spider_mini]="0"
 
 function FUNCappendNPCs() {
 	local lstrFl="$1";shift
 	local lstrNpcID="$1";shift
-	local lstrClass="$1";shift
-	local lnNumericGlobalID="$1";shift
-
+	#local lstrClass="$1";shift
+	#local lnNumericGlobalID="$1";shift
+	
+	local lstrClass="${aNpcId_Class[$lstrNpcID]}"
+	
 	for((iM=1;iM<=nMultiply;iM++));do
 		strTargetName="${lstrNpcID}_${strMultToken}_$(printf %03d $iM)"
 		if egrep "${strTargetName}" "$lstrFl";then continue;fi
@@ -45,7 +50,7 @@ function FUNCappendNPCs() {
 		strRangedWeapon="0"
 		strAdditionalShield="0"
 		strAdditionalEquipment="0"
-		case "$lstrClass" in
+		case "${lstrClass}" in
 			npc_necro_guard)
 				strAdditionalEquipment="weapon_arx_short_sword"
 				strAdditionalShield="weapon_mm_shield_necroguard"
@@ -59,7 +64,7 @@ function FUNCappendNPCs() {
 		echo '
 entity
 {
-	"id" "'"${lnNumericGlobalID}"'"
+	"id" "'"${nGlobalCurrentID}"'"
 	"classname" "'"${lstrClass}"'"
 	"targetname" "'"${strTargetName}"'"
 	"model" "'"${astrNpcModel[$lstrClass]}"'"
@@ -71,7 +76,7 @@ entity
 	"QuiverAmmo" "'"${nQuiverAmmo}"'"
 	"rangeweapon" "'"$strRangedWeapon"'"
 	"purse" "item_food_bread01_cooked"
-	"origin" "'"${aNpcIdOrigin[$lstrNpcID]}"'"
+	"origin" "'"${aNpcId_Origin[$lstrNpcID]}"'"
 	"angles" "0 '"${nAngleY}"' 0"
 	
 	"combinability" "1"
@@ -124,7 +129,7 @@ for strMap in "${astrMapList[@]}";do
 	#cp -v "$strVmf" "${strVmf}.$(date +'%Y_%m_%d-%H_%M_%S').bkp"
 	
 	strMD5="$(md5sum "$strVmf" |awk '{print $1}')"
-	
+	echo -n >"${strVmf}.ToAppend.vmf"
 	strVmfData="$(cat "$strVmf" |tr -d '\r')"
 	
 	nMaxID=$(echo "$strVmfData" |egrep '"id"' |tr -d '\t\r"' |awk '{print $2}' |sort -un |tail -n 1)
@@ -137,14 +142,25 @@ for strMap in "${astrMapList[@]}";do
 	#mapfile -t aLnData < <(cat "$strVmf")
 	#declare -p aLnData
 	#set -x
-	strFlKey="${strMap}_${strMD5}"
-	declare -p strFlKey
-	if [[ -n "${aMap_NpcFirstFoundEntLn[${strFlKey}]-}" ]];then
-		nInitLn="${aMap_NpcFirstFoundEntLn[${strFlKey}]}"
-	else
-		nInitLn="$(echo "$strVmfData" |egrep '^\s*entity$' -n |head -n 1 |sed -r -e 's@^([0-9]*):.*@\1@g')"
-	fi
-	declare -p nInitLn
+	#strFlKey="${strMap}_${strMD5}"
+	#declare -p strFlKey
+	#if [[ -n "${aMap_NpcFirstFoundEntLn[${strFlKey}]-}" ]];then
+		#nInitLn="${aMap_NpcFirstFoundEntLn[${strFlKey}]}"
+	#else
+		#nInitLn="$(echo "$strVmfData" |egrep '^\s*entity$' -n |head -n 1 |sed -r -e 's@^([0-9]*):.*@\1@g')"
+	#fi
+	#declare -p nInitLn
+	
+	nInitLn=1
+	mapfile -t aEntLnList < <(echo "$strVmfData" |egrep '^\s*entity$' -n |sed -r -e 's@^([0-9]*):.*@\1@g')
+	nFirstNpcValidClassLn="$(echo "$strVmfData" |egrep "^\s*\"classname\"\s*\"(${strNPCallowedClassesRegex})\"$" -n |head -n 1 |sed -r -e 's@^([0-9]*):.*@\1@g')"
+	for nEntLn in "${aEntLnList[@]}";do
+		if((nEntLn>nFirstNpcValidClassLn));then
+			nInitLn=$nEntLnPrev
+			break
+		fi
+		nEntLnPrev=$nEntLn
+	done
 	
 	nLn=$((nInitLn-1))&&: #because it inc first at while loop below
 	nEntInitLn=-1
@@ -152,7 +168,7 @@ for strMap in "${astrMapList[@]}";do
 	targetname=""
 	classname=""
 	origin=""
-	nDBGtestLim=3
+	: ${nDBGtestLim:=0} #help
 	nFound=0
 	strFlDB="$(mktemp)"
 	echo "$strVmfData" |tail -n +"${nInitLn}" |while read strLn;do
@@ -171,7 +187,7 @@ for strMap in "${astrMapList[@]}";do
 				if((iSkipSubNesting>0));then ((iSkipSubNesting--))&&:;continue;fi
 				aNpcId_Class[$targetname]="$classname"
 				aNpcId_Origin[$targetname]="$origin"
-				echo "FOUND: $targetname $classname $origin (Ln:$nEntInitLn)"
+				echo "FOUND: $targetname $classname origin='$origin' (Ln:$nEntInitLn)"
 				#declare -p aNpcId_Class aNpcId_Origin >"$strFlDB" #always overwrite with full data (could just append tho)
 				echo 'aNpcId_Class['"$targetname"']="'"$classname"'"' >>"$strFlDB"
 				echo 'aNpcId_Origin['"$targetname"']="'"$origin"'"' >>"$strFlDB"
@@ -209,6 +225,6 @@ for strMap in "${astrMapList[@]}";do
 	declare -p aNpcId_Class
 	for strNpcID in "${!aNpcId_Class[@]}";do
 		if [[ "$strNpcID" =~ .*_${strMultToken}_.* ]];then continue;fi #skip new dups
-		FUNCappendNPCs "$strVmf" "$strNpcID" "${aNpcId_Class[$strNpcID]}" $nGlobalCurrentID
+		FUNCappendNPCs "$strVmf" "$strNpcID"
 	done
 done
