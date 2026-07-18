@@ -3,12 +3,12 @@
 while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
 
 : ${strPathSDK:="${strPathParent}/Might and Magic Dark Messiah SDK"} #help 
-: ${nMultiply:=10} #help hardcore is 10-15 (too many will lag tho, tests on 3.2GHz CPU, it uses a single core for everything? ...)
+: ${nMultiply:=3} #help too many will lag tho, tests on 3.2GHz CPU, it uses a single core for everything?
 : ${strMultToken:="DupMultHC"} #help used to detect if already multiplied
 : ${strDBGnpcIdFilterRegex:=""} #help
 declare -p nMultiply strMultToken strPathSDK strDBGnpcIdFilterRegex
 
-strMapList="l02_b1,l02_b2" #help comma separated
+: ${strMapList:="l02_b1,l02_b2"} #help comma separated
 mapfile -t -d ',' astrMapList < <(echo -n "$strMapList") 
 
 #declare -A aMap_NpcFirstFoundEntLn=()
@@ -215,7 +215,8 @@ for strMap in "${astrMapList[@]}";do
 	strVmfData="$(cat "$strVmf" |tr -d '\r')"
 	
 	nMaxID=$(echo "$strVmfData" |egrep '"id"' |tr -d '\t\r"' |awk '{print $2}' |sort -un |tail -n 1)
-	declare -g nGlobalCurrentID=$((nMaxID+1000)) #could be just +1 I guess
+	declare -g nGlobalStartAddID=$((nMaxID+1000)) #could be just +1 I guess
+	declare -g nGlobalCurrentID=$nGlobalStartAddID
 	declare -p nMaxID nGlobalCurrentID
 	#jq '.entity | select(.targetname == "killer_in_house")' "$strVmf"
 	
@@ -336,4 +337,5 @@ for strMap in "${astrMapList[@]}";do
 	done
 	cat "${strVmf}.ToAppend.vmf" >>"$strVmf"
 	ls -l "${strVmf}.BeforeMultiplyEnemies.vmf" "${strVmf}.ToAppend.vmf" "$strVmf"
+	echo "TOTAL ADDED: $((nGlobalStartAddID-nGlobalCurrentID))"
 done
