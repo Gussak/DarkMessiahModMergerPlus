@@ -224,7 +224,7 @@ for strMap in "${astrMapList[@]}";do
 				if((iSkipSubNesting>0));then ((iSkipSubNesting--))&&:;continue;fi
 				aNpcId_Class[$targetname]="$classname"
 				aNpcId_Origin[$targetname]="$origin"
-				echo "FOUND: $targetname $classname origin='$origin' (Ln:$nEntInitLn)"
+				echo "FOUND: $targetname $classname origin='$origin' (Ln: $nEntInitLn)"
 				#declare -p aNpcId_Class aNpcId_Origin >"$strFlDB" #always overwrite with full data (could just append tho)
 				echo 'aNpcId_Class['"$targetname"']="'"$classname"'"' >>"$strFlDB"
 				echo 'aNpcId_Origin['"$targetname"']="'"$origin"'"' >>"$strFlDB"
