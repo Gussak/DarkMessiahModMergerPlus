@@ -53,13 +53,14 @@ for npcClass1 in "${astrNPCallowedClassList[@]}";do
 done
 
 function FUNCappendFood() {
+	local lstrNpcId="$(echo "${!aNpcId_origin[@]}" |awk '{print $1}')" #first
 	echo '
 entity
 {
 	"id" "'"${nGlobalCurrentID}"'"
 	"classname" "item_food_bread01_cooked"
 	"combinability" "1"
-	"angles" "-0.463535 29.7028 -0.223474"
+	"angles" "0 0 0"
 	"model" "models/items/provisions/bread01/bread01_cooked.mdl"
 	"combinetarget1enable" "1"
 	"combinetarget2enable" "1"
@@ -77,7 +78,7 @@ entity
 	"fadescale" "1"
 	"spawnflags" "257"
 	"UseSpeedToCalculateSoundVolume" "1"
-	"origin" "9725.26 -3156.28 328.324"
+	"origin" "'"${aNpcId_origin[$lstrNpcId]}"'"
 	editor
 	{
 		"color" "220 30 220"
@@ -88,6 +89,7 @@ entity
 	}
 }
 '	
+	((nGlobalCurrentID++))&&:
 }
 
 function FUNCappendNPCs() {
@@ -374,8 +376,8 @@ for strMap in "${astrMapList[@]}";do
 		if [[ "$strNpcID" =~ .*_${strMultToken}_.* ]];then continue;fi #skip new dups
 		FUNCappendNPCs "$strVmf" "$strNpcID"
 	done
+	FUNCappendFood >>"${strVmf}.ToAppend.vmf"
 	cat "${strVmf}.ToAppend.vmf" >>"$strVmf"
-	FUNCappendFood >>"$strVmf"
 	ls -l "${strVmf}.BeforeMultiplyEnemies.vmf" "${strVmf}.ToAppend.vmf" "$strVmf"
 	echo "TOTAL ADDED: $((nGlobalStartAddID-nGlobalCurrentID))"
 done
