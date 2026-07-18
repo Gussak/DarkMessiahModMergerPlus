@@ -1,7 +1,7 @@
 // clear;egrep "item_[0-9a-zA-Z_]*" -iRIaoh * |sort -u
 // clear;egrep "weapon_[a-z_]*" * -iRIaoh |sort -u
 
-// not tested items (move tested to dev cfg at least)
+// not tested items (move tested to dev cfg, at least the ones that are useful, as many mix into a single thing like food)
 
 item_01
 item_02
@@ -31,7 +31,6 @@ Item_AR2_Grenade
 ITEM_AVAILABLE
 item_base
 item_base2
-item_battery
 item_book_demons
 item_book_garan
 item_bottle_wine01
@@ -320,7 +319,6 @@ weapon_arxringstrength_in_inv
 weapon_arxshield
 weapon_arx_short_sword
 weapon_arx_silver_sword
-weapon_arxstaff
 weapon_arxsword
 weapon_arx_sword_collector
 weapon_arx_sword_of_fire
@@ -505,8 +503,8 @@ weapon_MMSpell_weapon_WATER_1
 weapon_MMSpell_weapon_WATER_2
 weapon_MMSpell_weapon_WATER_3
 weapon_MMSpell_weapon_WATER_4
+weapon_arxstaff
 weapon_mm_staff_collector
-weapon_mm_staff_combat
 weapon_mm_staff_destruction
 weapon_mm_staff_fire
 weapon_mm_staff_fire_in_inv
@@ -540,7 +538,6 @@ Weapon_PhysCannon
 weapon_physgun
 Weapon_Physgun
 WEAPON_PICKUP
-weapon_pistol
 weapon_pitch
 WEAPON_PLAYER_IN_SPREAD
 WEAPON_PLAYER_NEAR_TARGET
@@ -548,7 +545,6 @@ weapon_poison_bow
 weapon_poison_daggers
 weapon_poison_daggers_amount
 weapon_poison_daggers_cost
-Weapon_Polymorph
 Weapon_Polymorph_Upgrade
 weapon_prop_
 weapon_prop_barrel
@@ -588,8 +584,6 @@ WEAPON_SIGHT_OCCLUDED
 weapon_silver_vulnerability
 weapon_slam
 Weapon_SLAM
-weapon_smg
-Weapon_SMG
 weapon_sniperrifle
 weapon_speed
 weapon_staff
@@ -640,3 +634,7 @@ weapon_yaw
 
 // FAIL:
 weapon_daggers
+weapon_pistol
+weapon_smg
+Weapon_Polymorph
+item_battery
