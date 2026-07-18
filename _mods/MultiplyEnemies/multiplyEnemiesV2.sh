@@ -15,13 +15,30 @@ mapfile -t -d ',' astrMapList < <(echo -n "$strMapList")
 #aMap_NpcFirstFoundEntLn[l02_b1_4ee4febf333ce791bd93942253d8fcb1]="316521"
 #aMap_NpcFirstFoundEntLn[l02_b2_1f2d529785eed57d3b332b0a8b75f0e1]="366480"
 
-declare -A astrClass_ExtraNpcClasses=() # beggining with '_' are custom setup here. These are the npcs that will be added if the key matches. The more they appear the more weight they have to spawn, so you can repeat them.
-astrClass_ExtraNpcClasses[npc_necro_guard]="_NpcNecroGuardShield|npc_necro_guard_bow|npc_necro_guard_bow|npc_necro_guard_bow"
-astrClass_ExtraNpcClasses[npc_necromancer]="npc_necro_guard_bow|npc_villager_undead|npc_undead|npc_villager_undead|npc_undead|npc_villager_undead|npc_undead"
-astrClass_ExtraNpcClasses[npc_necromancer_lord]="npc_necromancer|npc_necro_guard_bow|npc_villager_undead|npc_undead|npc_villager_undead|npc_undead|npc_villager_undead|npc_undead"
-
 : ${strNPCallowedClasses:="npc_necro_guard,npc_necro_guard_bow,npc_necromancer,npc_necromancer_lord,npc_spider_mini"} #help
 strNPCallowedClassesRegex=$(echo "$strNPCallowedClasses" |tr ',' '|')
+mapfile -t astrNPCallowedClassList < <(echo "$strNPCallowedClasses" |tr ',' '\n')
+
+declare -A astrClass_ExtraNpcClasses=() # beggining with '_' are custom setup here. These are the npcs that will be added if the key matches. The more they appear the more weight they have to spawn, so you can repeat them.
+astrClass_ExtraNpcClasses[npc_necro_guard]="_NpcNecroGuardShield|npc_necro_guard_bow|npc_necro_guard_bow|npc_necro_guard_bow"
+astrClass_ExtraNpcClasses[npc_necro_guard_bow]="_NpcNecroGuardShield|npc_necro_guard_bow|npc_necro_guard_bow|npc_necro_guard_bow|npc_necro_guard_bow|npc_necro_guard_bow"
+astrClass_ExtraNpcClasses[npc_necromancer]="npc_necro_guard_bow|npc_villager_undead|npc_undead|npc_villager_undead|npc_undead|npc_villager_undead|npc_undead"
+astrClass_ExtraNpcClasses[npc_necromancer_lord]="npc_necromancer|npc_necro_guard_bow|npc_villager_undead|npc_undead|npc_villager_undead|npc_undead|npc_villager_undead|npc_undead"
+astrClass_ExtraNpcClasses[npc_spider_mini]="npc_spider_mini"
+
+for npcClass1 in "${astrNPCallowedClassList[@]}";do
+	bFoundClass=false
+	for npcClass2 in "${!astrClass_ExtraNpcClasses[@]}";do
+		if [[ "$npcClass1" == "$npcClass2" ]];then 
+			bFoundClass=true
+			break
+		fi
+	done
+	if ! $bFoundClass;then
+		echo "[ERROR] npcClass1='$npcClass1' not set at astrClass_ExtraNpcClasses"
+		exit 1
+	fi
+done
 
 declare -A astrNpcModel=()
 astrNpcModel[npc_necro_guard]="models/npc/Necroguard/npc_necroguard.mdl"
@@ -176,6 +193,8 @@ for strMap in "${astrMapList[@]}";do
 		nEntLnPrev=$nEntLn
 	done
 	
+	: ${nDBGinitLn:=-1} #help
+	if((nDBGinitLn>0));then nInitLn=$nDBGinitLn;fi
 	nLn=$((nInitLn-1))&&: #because it inc first at while loop below
 	nEntInitLn=-1
 	iSkipSubNesting=0
