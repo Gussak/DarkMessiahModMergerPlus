@@ -11,10 +11,9 @@ strMapList="l02_b1,l02_b2" #help comma separated
 mapfile -t -d ',' astrMapList < <(echo -n "$strMapList") 
 
 declare -A aMap_NpcFirstFoundEntLn=()
-: ${bRefreshNpcFirstFoundEntityLn:=false} #help
-if ! $bRefreshNpcFirstFoundEntityLn;then # these are based on vanilla .vmf files, changed files will differ TODO use md5sum on them to grant here!
-	aMap_NpcFirstFoundEntLn[l02_b1]="316521"
-fi
+# these are based on vanilla .vmf files, changed files will differ so it also needs the md5sum
+aMap_NpcFirstFoundEntLn[l02_b1_4ee4febf333ce791bd93942253d8fcb1]="316521"
+aMap_NpcFirstFoundEntLn[l02_b2_1f2d529785eed57d3b332b0a8b75f0e1]="366480"
 
 declare -A astrExtraNPCs=() # beggining with '_' are custom setup here
 astrExtraNPCs[npc_necro_guard]="npc_necro_guard|npc_necro_guard_bow|_NpcNecroGuardShield"
@@ -124,6 +123,8 @@ for strMap in "${astrMapList[@]}";do
 	if ! [[ -f "$strVmf" ]];then continue;fi
 	#cp -v "$strVmf" "${strVmf}.$(date +'%Y_%m_%d-%H_%M_%S').bkp"
 	
+	strMD5="$(md5sum "$strVmf" |awk '{print $1}')"
+	
 	strVmfData="$(cat "$strVmf" |tr -d '\r')"
 	
 	nMaxID=$(echo "$strVmfData" |egrep '"id"' |tr -d '\t\r"' |awk '{print $2}' |sort -un |tail -n 1)
@@ -136,10 +137,13 @@ for strMap in "${astrMapList[@]}";do
 	#mapfile -t aLnData < <(cat "$strVmf")
 	#declare -p aLnData
 	#set -x
-	if [[ -n "${aMap_NpcFirstFoundEntLn[$strMap]-}" ]];then
-		nInitLn="${aMap_NpcFirstFoundEntLn[$strMap]}"
+	strFlKey="${strMap}_${strMD5}"
+	declare -p strFlKey
+	if [[ -n "${aMap_NpcFirstFoundEntLn[${strFlKey}]-}" ]];then
+		nInitLn="${aMap_NpcFirstFoundEntLn[${strFlKey}]}"
+	else
+		nInitLn="$(echo "$strVmfData" |egrep '^\s*entity$' -n |head -n 1 |sed -r -e 's@^([0-9]*):.*@\1@g')"
 	fi
-	: ${nInitLn:="$(echo "$strVmfData" |egrep '^\s*entity$' -n |head -n 1 |sed -r -e 's@^([0-9]*):.*@\1@g')"} #help
 	declare -p nInitLn
 	
 	nLn=$((nInitLn-1))&&: #because it inc first at while loop below
@@ -150,6 +154,7 @@ for strMap in "${astrMapList[@]}";do
 	origin=""
 	nDBGtestLim=3
 	nFound=0
+	strFlDB="$(mktemp)"
 	echo "$strVmfData" |tail -n +"${nInitLn}" |while read strLn;do
 		((nLn++))&&:
 		#declare -p strLn
@@ -166,7 +171,10 @@ for strMap in "${astrMapList[@]}";do
 				if((iSkipSubNesting>0));then ((iSkipSubNesting--))&&:;continue;fi
 				aNpcId_Class[$targetname]="$classname"
 				aNpcId_Origin[$targetname]="$origin"
-				declare -p targetname classname origin nEntInitLn
+				echo "FOUND: $targetname $classname $origin (Ln:$nEntInitLn)"
+				#declare -p aNpcId_Class aNpcId_Origin >"$strFlDB" #always overwrite with full data (could just append tho)
+				echo 'aNpcId_Class['"$targetname"']="'"$classname"'"' >>"$strFlDB"
+				echo 'aNpcId_Origin['"$targetname"']="'"$origin"'"' >>"$strFlDB"
 				nEntInitLn=-1
 				((nFound++))&&:
 				if((nFound==nDBGtestLim));then break;fi
@@ -196,8 +204,9 @@ for strMap in "${astrMapList[@]}";do
 		else
 			echo -ne "$nLn\r"
 		fi
-	done
+	done;cat "$strFlDB";source "$strFlDB";rm -v "$strFlDB"
 	
+	declare -p aNpcId_Class
 	for strNpcID in "${!aNpcId_Class[@]}";do
 		if [[ "$strNpcID" =~ .*_${strMultToken}_.* ]];then continue;fi #skip new dups
 		FUNCappendNPCs "$strVmf" "$strNpcID" "${aNpcId_Class[$strNpcID]}" $nGlobalCurrentID
