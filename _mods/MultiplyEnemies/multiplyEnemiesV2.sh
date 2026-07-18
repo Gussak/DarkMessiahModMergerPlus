@@ -127,19 +127,30 @@ function FUNCappendNPCs() {
 		rangeweapon="0"
 		additionalshield="0"
 		additionalequipment="0"
+		weaponmodel="0"
 		case "${lstrClass}" in
 			npc_necro_guard)
 				additionalequipment="weapon_arx_short_sword"
+				weaponmodel="models/Items/Weapons/Sword_Guard/Sword_Guard.mdl"
 				;;
 			_NpcNecroGuardShield)
 				lstrClass="npc_necro_guard" # needs to update to the game classname
 				additionalequipment="weapon_arx_short_sword"
+				weaponmodel="models/Items/Weapons/Sword_Guard/Sword_Guard.mdl"
 				additionalshield="weapon_mm_shield_necroguard"
 				;;
 			npc_necro_guard_bow)
 				additionalequipment="weapon_arx_short_sword"
+				weaponmodel="models/Items/Weapons/Sword_Guard/Sword_Guard.mdl"
 				rangeweapon="weapon_arxcrossbow"
 				# cant have shield and bow as will prevent firing the bow (bug as it wont unequip the shield to use the bow)
+				;;
+			npc_necromancer)
+				additionalequipment="weapon_mm_staff_combat"
+				;;
+			npc_necromancer_lord)
+				additionalequipment="weapon_mm_hook"
+				weaponmodel="models/Items/Weapons/hook/hook.mdl"
 				;;
 		esac
 		
@@ -172,7 +183,7 @@ hidden
 		"targetname" "'"${strTargetName}"'"
 		"model" "'"${astrNpcModel[$lstrClass]}"'"
 		"additionalequipment" "'"${additionalequipment}"'"
-		"weaponmodel" "models/Items/Weapons/Sword_Guard/Sword_Guard.mdl"
+		"weaponmodel" "'"$weaponmodel"'"
 		"additionalshield" "'"${additionalshield}"'"
 		"shieldmodel" "models/Items/Armors/shield_guard/shield_guard.mdl"
 		"QuiverAmmo" "'"${nQuiverAmmo}"'"
@@ -187,6 +198,7 @@ hidden
 		"wakeradius" "15"
 		"wakesquad" "1"
 		"physdamagescale" "10"
+		"EnableSummonSpider" "1"
 		
 		"combinability" "1"
 		"renderfx" "0"
