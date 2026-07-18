@@ -15,10 +15,10 @@ mapfile -t -d ',' astrMapList < <(echo -n "$strMapList")
 #aMap_NpcFirstFoundEntLn[l02_b1_4ee4febf333ce791bd93942253d8fcb1]="316521"
 #aMap_NpcFirstFoundEntLn[l02_b2_1f2d529785eed57d3b332b0a8b75f0e1]="366480"
 
-declare -A astrClass_ExtraNPCs=() # beggining with '_' are custom setup here. These are the npcs that will be added if the key matches
-astrClass_ExtraNPCs[npc_necro_guard]="npc_necro_guard|npc_necro_guard_bow|_NpcNecroGuardShield"
-astrClass_ExtraNPCs[npc_necromancer]="npc_necro_guard_bow|npc_villager_undead|npc_undead"
-astrClass_ExtraNPCs[npc_necromancer_lord]="npc_necromancer|npc_necro_guard_bow|npc_villager_undead|npc_undead"
+declare -A astrClass_ExtraNpcClasses=() # beggining with '_' are custom setup here. These are the npcs that will be added if the key matches. The more they appear the more weight they have to spawn, so you can repeat them.
+astrClass_ExtraNpcClasses[npc_necro_guard]="_NpcNecroGuardShield|npc_necro_guard_bow|npc_necro_guard_bow|npc_necro_guard_bow"
+astrClass_ExtraNpcClasses[npc_necromancer]="npc_necro_guard_bow|npc_villager_undead|npc_undead|npc_villager_undead|npc_undead|npc_villager_undead|npc_undead"
+astrClass_ExtraNpcClasses[npc_necromancer_lord]="npc_necromancer|npc_necro_guard_bow|npc_villager_undead|npc_undead|npc_villager_undead|npc_undead|npc_villager_undead|npc_undead"
 
 : ${strNPCallowedClasses:="npc_necro_guard,npc_necro_guard_bow,npc_necromancer,npc_necromancer_lord,npc_spider_mini"} #help
 strNPCallowedClassesRegex=$(echo "$strNPCallowedClasses" |tr ',' '|')
@@ -40,7 +40,7 @@ function FUNCappendNPCs() {
 	#local lnNumericGlobalID="$1";shift
 	
 	local lstrClassOrig="${aNpcId_Class[$lstrNpcID]}"
-	mapfile -t lastrClassList < <(echo "${astrClass_ExtraNPCs[$lstrClassOrig]}" |tr '|' '\n')
+	mapfile -t lastrClassList < <(echo "${astrClass_ExtraNpcClasses[$lstrClassOrig]}" |tr '|' '\n')
 	
 	nExtraNpcClassIndex=0
 	for((iM=1;iM<=nMultiply;iM++));do
@@ -61,11 +61,15 @@ function FUNCappendNPCs() {
 		case "${lstrClass}" in
 			npc_necro_guard)
 				strAdditionalEquipment="weapon_arx_short_sword"
+				;;
+			_NpcNecroGuardShield)
+				strAdditionalEquipment="weapon_arx_short_sword"
 				strAdditionalShield="weapon_mm_shield_necroguard"
 				;;
 			npc_necro_guard_bow)
 				strAdditionalEquipment="weapon_arx_short_sword"
 				strRangedWeapon="weapon_arxcrossbow"
+				# cant have shield and bow as will prevent firing the bow (bug as it wont unequip the shield to use the bow)
 				;;
 		esac
 		
@@ -80,8 +84,8 @@ entity
 	"weaponmodel" "models/Items/Weapons/Sword_Guard/Sword_Guard.mdl"
 	"additionalshield" "'"${strAdditionalShield}"'"
 	"shieldmodel" "models/Items/Armors/shield_guard/shield_guard.mdl"
-	"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
 	"QuiverAmmo" "'"${nQuiverAmmo}"'"
+	"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
 	"rangeweapon" "'"$strRangedWeapon"'"
 	"purse" "item_food_bread01_cooked"
 	"origin" "'"${aNpcId_Origin[$lstrNpcID]}"'"
