@@ -32,12 +32,19 @@
 set -Eeu #use this specifically, not to everything or |grep results will fail...: set -o pipefail
 
 FUNCask() { #use read cmd options
-	while read -n 1;do :;done #clear key buffer
+	while read -t 0.1 -n 1;do :;done #clear key buffer
 	local lstrResp
 	read "$@" lstrResp&&:;local lnRet=$?
 	echo "$lstrResp"
 	return $lnRet
 };export -f FUNCask
+FUNCaskYesNo() { # <questionForYesNo>. use like: if FUNCaskYesNo "oi?";then ...
+	while read -t 0.1 -n 1;do :;done #clear key buffer
+	local lstrResp
+	read -n 1 -p "${1}? (y/...)" lstrResp&&:
+	if [[ "$lstrResp" =~ [yY] ]];then return 0;fi
+	return 1
+};export -f FUNCaskYesNo
 
 FUNCwaitSeconds() {
 	read -t $1 -n 1 -p "[WAITING:${1}s] ${2-} (press a key to continue)"
