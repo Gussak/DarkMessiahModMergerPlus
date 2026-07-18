@@ -236,7 +236,8 @@ for strMap in "${astrMapList[@]}";do
 	#declare -p nInitLn
 	
 	nInitLn=1
-	mapfile -t aEntLnList < <(echo "$strVmfData" |egrep '^\s*entity$' -n |sed -r -e 's@^([0-9]*):.*@\1@g')
+	#mapfile -t aEntLnList < <(echo "$strVmfData" |egrep '^\s*entity$' -n |sed -r -e 's@^([0-9]*):.*@\1@g')
+	mapfile -t aEntLnList < <(echo "$strVmfData" |egrep '^entity$' -n |sed -r -e 's@^([0-9]*):.*@\1@g') #only npc entities that are not hidden (they have no indentation)
 	nFirstNpcValidClassLn="$(echo "$strVmfData" |egrep "^\s*\"classname\"\s*\"(${strNPCallowedClassesRegex})\"$" -n |head -n 1 |sed -r -e 's@^([0-9]*):.*@\1@g')"
 	for nEntLn in "${aEntLnList[@]}";do
 		if((nEntLn>nFirstNpcValidClassLn));then
@@ -245,13 +246,14 @@ for strMap in "${astrMapList[@]}";do
 		fi
 		nEntLnPrev=$nEntLn
 	done
+	declare -p nInitLn
 	
 	: ${nDBGinitLn:=-1} #help
 	if((nDBGinitLn>0));then nInitLn=$nDBGinitLn;fi
 	nLn=$((nInitLn-1))&&: #because it inc first at while loop below
 	nEntInitLn=-1
 	iSkipSubNesting=0
-	targetname="";classname="";origin="";angles=""
+	targetname="";classname="";origin="";angles="";squadname=""
 	: ${nDBGtestLim:=0} #help
 	nFound=0
 	strFlDB="$(mktemp)"
@@ -261,7 +263,8 @@ for strMap in "${astrMapList[@]}";do
 		#declare -p strLn
 		#nEntLn=${aEntLnList[$nEntLnIndex]}
 		
-		if [[ "$strLn" =~ ^[\t]*entity$ ]];then
+		#if [[ "$strLn" =~ ^[\t]*entity$ ]];then
+		if [[ "$strLn" =~ ^entity$ ]];then #only npc entities that are not hidden (they have no indentation)
 			nEntInitLn="$nLn"
 			iSkipSubNesting=-1 # the next line with '{' is from "entity"
 			continue
