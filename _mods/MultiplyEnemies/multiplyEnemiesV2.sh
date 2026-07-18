@@ -30,6 +30,8 @@ astrNpcModel[_NpcNecroGuardShield]="models/npc/Necroguard/npc_necroguard.mdl"
 astrNpcModel[npc_necromancer]="models/NPC/Necromancer/Npc_necromancer.mdl"
 astrNpcModel[npc_necromancer_lord]="models/NPC/Necromancer_Lord/Npc_Necromancer_Lord.mdl"
 astrNpcModel[npc_spider_mini]="models/NPC/spider_mini/Npc_spider_mini.mdl"
+astrNpcModel[npc_villager_undead]="models/npc/villager_undead/npc_villager_undead.mdl"
+astrNpcModel[npc_undead]="models/NPC/Undead/Npc_undead.mdl"
 
 function FUNCappendNPCs() {
 	local lstrFl="$1";shift
