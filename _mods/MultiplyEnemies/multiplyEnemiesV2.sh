@@ -52,6 +52,43 @@ for npcClass1 in "${astrNPCallowedClassList[@]}";do
 	fi
 done
 
+function FUNCappendFood() {
+	echo '
+entity
+{
+	"id" "'"${nGlobalCurrentID}"'"
+	"classname" "item_food_bread01_cooked"
+	"combinability" "1"
+	"angles" "-0.463535 29.7028 -0.223474"
+	"model" "models/items/provisions/bread01/bread01_cooked.mdl"
+	"combinetarget1enable" "1"
+	"combinetarget2enable" "1"
+	"combinetarget3enable" "1"
+	"combinetarget4enable" "1"
+	"combinetarget5enable" "1"
+	"combinetarget6enable" "1"
+	"combinetarget7enable" "1"
+	"combinetarget8enable" "1"
+	"combinetarget9enable" "1"
+	"combinetarget10enable" "1"
+	"physdamagescale" "0.1"
+	"inertiaScale" "1.0"
+	"fademindist" "-1"
+	"fadescale" "1"
+	"spawnflags" "257"
+	"UseSpeedToCalculateSoundVolume" "1"
+	"origin" "9725.26 -3156.28 328.324"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupid" "27"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[3500 -13268]"
+	}
+}
+'	
+}
 
 function FUNCappendNPCs() {
 	local lstrFl="$1";shift
@@ -118,6 +155,7 @@ hidden
 {
 ' >>"${lstrFl}.ToAppend.vmf"
 		fi
+		# trying to easy CPU with sleepstate wakeradius wakesquad
 		echo '
 	entity
 	{
@@ -137,8 +175,12 @@ hidden
 		"angles" "'"${aNpcId_angles[$lstrNpcID]}"'"
 		"squadname" "'"${aNpcId_squadname[$lstrNpcID]}"'"
 		
+		"sleepstate" "1"
+		"wakeradius" "15"
+		"wakesquad" "1"
+		"physdamagescale" "10"
+		
 		"combinability" "1"
-		"physdamagescale" "0.1"
 		"renderfx" "0"
 		"rendermode" "0"
 		"renderamt" "255"
@@ -148,9 +190,6 @@ hidden
 		"usetruemovement" "0"
 		"IgnoreEntInNav" "0"
 		"healthreferencevalue" "0"
-		"sleepstate" "0"
-		"wakeradius" "0"
-		"wakesquad" "0"
 		"radiusforrandomattitude" "500"
 		"health" "0"
 		"DifficultyLevel" "0"
@@ -336,6 +375,7 @@ for strMap in "${astrMapList[@]}";do
 		FUNCappendNPCs "$strVmf" "$strNpcID"
 	done
 	cat "${strVmf}.ToAppend.vmf" >>"$strVmf"
+	FUNCappendFood >>"$strVmf"
 	ls -l "${strVmf}.BeforeMultiplyEnemies.vmf" "${strVmf}.ToAppend.vmf" "$strVmf"
 	echo "TOTAL ADDED: $((nGlobalStartAddID-nGlobalCurrentID))"
 done
