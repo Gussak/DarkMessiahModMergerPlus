@@ -1,7 +1,5 @@
 #!/bin/bash
 
-echo seeV2;exit 1
-
 while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
 
 : ${strPathSDK:="${strPathParent}/Might and Magic Dark Messiah SDK"} #help 
@@ -12,12 +10,19 @@ while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./a
 strMapList="l02_b1,l02_b2" #help comma separated
 mapfile -t -d ',' astrMapList < <(echo -n "$strMapList") 
 
+declare -A aMap_NpcFirstFoundEntLn=()
+: ${bRefreshNpcFirstFoundEntityLn:=false} #help
+if ! $bRefreshNpcFirstFoundEntityLn;then # these are based on vanilla .vmf files, changed files will differ TODO use md5sum on them to grant here!
+	aMap_NpcFirstFoundEntLn[l02_b1]="316521"
+fi
+
 declare -A astrExtraNPCs=() # beggining with '_' are custom setup here
 astrExtraNPCs[npc_necro_guard]="npc_necro_guard|npc_necro_guard_bow|_NpcNecroGuardShield"
 astrExtraNPCs[npc_necromancer]="npc_necro_guard_bow|npc_villager_undead|npc_undead"
 astrExtraNPCs[npc_necromancer_lord]="npc_necromancer|npc_necro_guard_bow|npc_villager_undead|npc_undead"
 
-: ${strNPCregex:="npc_necro_guard|npc_necro_guard_bow|npc_necromancer|npc_necromancer_lord|npc_spider_mini"}
+: ${strNPCallowedClasses:="npc_necro_guard,npc_necro_guard_bow,npc_necromancer,npc_necromancer_lord,npc_spider_mini"} #help
+strNPCallowedClassesRegex=$(echo "$strNPCallowedClasses" |tr ',' '|')
 
 declare -A astrNpcModel=()
 astrNpcModel[npc_necro_guard]="models/npc/Necroguard/npc_necroguard.mdl"
@@ -103,7 +108,7 @@ entity
 		"logicalpos" "[0 0]"
 	}
 }
-' >>"${lstrFl}.NEW.vmf"
+' >>"${lstrFl}.ToAppend.vmf"
 
 		((nGlobalCurrentID++))&&:
 	
@@ -119,64 +124,82 @@ for strMap in "${astrMapList[@]}";do
 	if ! [[ -f "$strVmf" ]];then continue;fi
 	#cp -v "$strVmf" "${strVmf}.$(date +'%Y_%m_%d-%H_%M_%S').bkp"
 	
-	nMaxID=$(egrep '"id"' "$strVmf" |tr -d '\t\r"' |awk '{print $2}' |sort -un |tail -n 1)
+	strVmfData="$(cat "$strVmf" |tr -d '\r')"
+	
+	nMaxID=$(echo "$strVmfData" |egrep '"id"' |tr -d '\t\r"' |awk '{print $2}' |sort -un |tail -n 1)
 	declare -g nGlobalCurrentID=$((nMaxID+1000)) #could be just +1 I guess
 	declare -p nMaxID nGlobalCurrentID
 	#jq '.entity | select(.targetname == "killer_in_house")' "$strVmf"
 	
-	declare -A aNpcIdClass=()
-	declare -A aNpcIdOrigin=()
-	function FUNCnpcArray() {
-		local lbInvertLines=false;if [[ "$1" == --invertLines ]];then lbInvertLines=true;fi
-		local lstrNpcArrayId="$1";shift
-		local lstrNpcOtherKey="$1";shift
-		local lstrNpcOtherKeyFilter="$1";shift
-		
-		strFlData="$(mktemp)"
-		sedRmEmptyLines='/^$/d'
-		sedInvertEvenOddLines='h;n;p;g;p'
-		sedDelNLfromOddLines='N;s/\n//'
-		# find allowed classes to be multiplied, then assigns each nameID to the class like aNpcIdClass[peter]="npc_spider_mini". This depends on the files being perfectly ordered where class comes before targetname
-		strData="$(egrep "${lstrNpcOtherKeyFilter}|targetname" "$strVmf")"
-		#set -x
-		strData="$(echo "$strData" \
-			|egrep "${lstrNpcOtherKey}" -A1 \
-			|sed -r -e 's@^--$@@g' \
-			|sed "$sedRmEmptyLines" \
-			|tr -d '\r\t"' \
-			|sed -r -e "s@(targetname|${lstrNpcOtherKey}) @\1=@g")"
-		
-		if $lbInvertLines;then
-			strData="$(echo "$strData" \
-				|sed -n "$sedInvertEvenOddLines")"
-		fi
-		
-		strData="$(echo "$strData" \
-			|sed -r -e "s@targetname=(.*)@${lstrNpcArrayId}[\1]=@g" \
-			|sed "$sedDelNLfromOddLines" \
-			|sed -r -e "s@(.*)=${lstrNpcOtherKey}=(.*)@\1=\"\2\";@g" \
-			|sort)"
-			
-		echo "$strData" >"$strFlData"
-		#set +x
-		cat "$strFlData"
-		#read
-		source "$strFlData"
-		rm -vf "$strFlData"
-	}
-	FUNCnpcArray --invertLines aNpcIdClass  "classname" "\"classname\".*(${strNPCregex})"
-	FUNCnpcArray aNpcIdOrigin "origin"    "\"origin\""
+	declare -A aNpcId_Class=()
+	declare -A aNpcId_Origin=()
+	#mapfile -t aLnData < <(cat "$strVmf")
+	#declare -p aLnData
+	#set -x
+	if [[ -n "${aMap_NpcFirstFoundEntLn[$strMap]-}" ]];then
+		nInitLn="${aMap_NpcFirstFoundEntLn[$strMap]}"
+	fi
+	: ${nInitLn:="$(echo "$strVmfData" |egrep '^\s*entity$' -n |head -n 1 |sed -r -e 's@^([0-9]*):.*@\1@g')"} #help
+	declare -p nInitLn
 	
-	#declare -p aNpcIdClass |tr '[' '\n'
-	for strNpcID in "${!aNpcIdClass[@]}";do
-		if [[ "$strNpcID" =~ .*_${strMultToken}_.* ]];then continue;fi
-		declare -p strNpcID
-		nCount="$(egrep "${strNpcID}_${strMultToken}" "$strVmf" -c)"&&:
-		if((nCount<nMultiply));then
-			nTot=$((nMultiply-nCount))&&:
-			for((i=0;i<nTot;i++));do
-				FUNCappendNPCs "$strVmf" "$strNpcID" "${aNpcIdClass[$strNpcID]}" $nGlobalCurrentID
-			done
+	nLn=$((nInitLn-1))&&: #because it inc first at while loop below
+	nEntInitLn=-1
+	iSkipSubNesting=0
+	targetname=""
+	classname=""
+	origin=""
+	nDBGtestLim=3
+	nFound=0
+	echo "$strVmfData" |tail -n +"${nInitLn}" |while read strLn;do
+		((nLn++))&&:
+		#declare -p strLn
+		
+		if [[ "$strLn" =~ ^[\t]*entity$ ]];then
+			nEntInitLn="$nLn"
+			iSkipSubNesting=-1 # the next line with '{' is from "entity"
+			continue
 		fi
+		
+		if((nEntInitLn != -1));then
+			if [[ "$strLn" =~ ^[\t]*[{]$ ]];then ((iSkipSubNesting++))&&:;continue;fi
+			if [[ "$strLn" =~ ^[\t]*[}]$ ]];then
+				if((iSkipSubNesting>0));then ((iSkipSubNesting--))&&:;continue;fi
+				aNpcId_Class[$targetname]="$classname"
+				aNpcId_Origin[$targetname]="$origin"
+				declare -p targetname classname origin nEntInitLn
+				nEntInitLn=-1
+				((nFound++))&&:
+				if((nFound==nDBGtestLim));then break;fi
+				continue
+			fi
+			#### NPC ID
+			if [[ "$strLn" =~ .*"targetname".* ]];then
+				targetname="$(echo "$strLn" |tr -d '"' |awk '{print $2}')"
+				#declare -p targetname
+				continue
+			fi
+			#### data
+			if [[ "$strLn" =~ .*"classname".* ]];then
+				classname="$(echo "$strLn" |tr -d '"' |awk '{print $2}')"
+				#declare -p classname
+				if ! [[ "$classname" =~ ^${strNPCallowedClassesRegex}$ ]];then
+					nEntInitLn=-1 # to ignore and seek next entity
+					echo -ne "skip classname='$classname'            \r"
+				fi
+				continue
+			fi
+			if [[ "$strLn" =~ .*"origin".* ]];then
+				origin="$(echo "$strLn" |sed -r -e 's@\s*"origin"\s*"(.*)"\s*$@\1@g')"
+				#declare -p origin
+				continue
+			fi
+		else
+			echo -ne "$nLn\r"
+		fi
+	done
+	
+	for strNpcID in "${!aNpcId_Class[@]}";do
+		if [[ "$strNpcID" =~ .*_${strMultToken}_.* ]];then continue;fi #skip new dups
+		FUNCappendNPCs "$strVmf" "$strNpcID" "${aNpcId_Class[$strNpcID]}" $nGlobalCurrentID
 	done
 done
