@@ -15,10 +15,10 @@ mapfile -t -d ',' astrMapList < <(echo -n "$strMapList")
 #aMap_NpcFirstFoundEntLn[l02_b1_4ee4febf333ce791bd93942253d8fcb1]="316521"
 #aMap_NpcFirstFoundEntLn[l02_b2_1f2d529785eed57d3b332b0a8b75f0e1]="366480"
 
-declare -A astrExtraNPCs=() # beggining with '_' are custom setup here
-astrExtraNPCs[npc_necro_guard]="npc_necro_guard|npc_necro_guard_bow|_NpcNecroGuardShield"
-astrExtraNPCs[npc_necromancer]="npc_necro_guard_bow|npc_villager_undead|npc_undead"
-astrExtraNPCs[npc_necromancer_lord]="npc_necromancer|npc_necro_guard_bow|npc_villager_undead|npc_undead"
+declare -A astrClass_ExtraNPCs=() # beggining with '_' are custom setup here. These are the npcs that will be added if the key matches
+astrClass_ExtraNPCs[npc_necro_guard]="npc_necro_guard|npc_necro_guard_bow|_NpcNecroGuardShield"
+astrClass_ExtraNPCs[npc_necromancer]="npc_necro_guard_bow|npc_villager_undead|npc_undead"
+astrClass_ExtraNPCs[npc_necromancer_lord]="npc_necromancer|npc_necro_guard_bow|npc_villager_undead|npc_undead"
 
 : ${strNPCallowedClasses:="npc_necro_guard,npc_necro_guard_bow,npc_necromancer,npc_necromancer_lord,npc_spider_mini"} #help
 strNPCallowedClassesRegex=$(echo "$strNPCallowedClasses" |tr ',' '|')
@@ -27,9 +27,9 @@ declare -A astrNpcModel=()
 astrNpcModel[npc_necro_guard]="models/npc/Necroguard/npc_necroguard.mdl"
 astrNpcModel[npc_necro_guard_bow]="models/npc/Necroguard/npc_necroguard.mdl"
 astrNpcModel[_NpcNecroGuardShield]="models/npc/Necroguard/npc_necroguard.mdl"
-astrNpcModel[npc_necromancer]="0"
-astrNpcModel[npc_necromancer_lord]="0"
-astrNpcModel[npc_spider_mini]="0"
+astrNpcModel[npc_necromancer]="models/NPC/Necromancer/Npc_necromancer.mdl"
+astrNpcModel[npc_necromancer_lord]="models/NPC/Necromancer_Lord/Npc_Necromancer_Lord.mdl"
+astrNpcModel[npc_spider_mini]="models/NPC/spider_mini/Npc_spider_mini.mdl"
 
 function FUNCappendNPCs() {
 	local lstrFl="$1";shift
@@ -37,8 +37,10 @@ function FUNCappendNPCs() {
 	#local lstrClass="$1";shift
 	#local lnNumericGlobalID="$1";shift
 	
-	local lstrClass="${aNpcId_Class[$lstrNpcID]}"
+	local lstrClassOrig="${aNpcId_Class[$lstrNpcID]}"
+	mapfile -t lastrClassList < <(echo "${astrClass_ExtraNPCs[$lstrClassOrig]}" |tr '|' '\n')
 	
+	nExtraNpcClassIndex=0
 	for((iM=1;iM<=nMultiply;iM++));do
 		strTargetName="${lstrNpcID}_${strMultToken}_$(printf %03d $iM)"
 		if egrep "${strTargetName}" "$lstrFl";then continue;fi
@@ -46,6 +48,10 @@ function FUNCappendNPCs() {
 		nAngleY=$(( iM * (360/nMultiply) ))&&:
 		
 		nQuiverAmmo=$((iM+6))&&:
+		
+		lstrClass="${lastrClassList[$nExtraNpcClassIndex]}"
+		((nExtraNpcClassIndex++))&&:
+		if((nExtraNpcClassIndex >= ${#lastrClassList[*]}));then nExtraNpcClassIndex=0;fi
 		
 		strRangedWeapon="0"
 		strAdditionalShield="0"
@@ -222,7 +228,7 @@ for strMap in "${astrMapList[@]}";do
 		fi
 	done;cat "$strFlDB";source "$strFlDB";rm -v "$strFlDB"
 	
-	declare -p aNpcId_Class
+	#declare -p aNpcId_Class
 	for strNpcID in "${!aNpcId_Class[@]}";do
 		if [[ "$strNpcID" =~ .*_${strMultToken}_.* ]];then continue;fi #skip new dups
 		FUNCappendNPCs "$strVmf" "$strNpcID"
