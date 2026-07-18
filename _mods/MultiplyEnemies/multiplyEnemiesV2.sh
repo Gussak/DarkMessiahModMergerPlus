@@ -5,7 +5,8 @@ while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./a
 : ${strPathSDK:="${strPathParent}/Might and Magic Dark Messiah SDK"} #help 
 : ${nMultiply:=10} #help hardcore is 10-15 (too many will lag tho, tests on 3.2GHz CPU, it uses a single core for everything? ...)
 : ${strMultToken:="DupMultHC"} #help used to detect if already multiplied
-declare -p nMultiply strMultToken strPathSDK
+: ${strDBGnpcIdFilterRegex:=""} #help
+declare -p nMultiply strMultToken strPathSDK strDBGnpcIdFilterRegex
 
 strMapList="l02_b1,l02_b2" #help comma separated
 mapfile -t -d ',' astrMapList < <(echo -n "$strMapList") 
@@ -60,7 +61,7 @@ function FUNCappendNPCs() {
 	
 	declare -p lstrNpcID
 	
-	local lstrClassOrig="${aNpcId_Class[$lstrNpcID]}"
+	local lstrClassOrig="${aNpcId_classname[$lstrNpcID]}"
 	#declare -p lstrClassOrig astrClass_ExtraNpcClasses
 	mapfile -t lastrClassList < <(echo "${astrClass_ExtraNpcClasses[$lstrClassOrig]}" |tr '|' '\n')
 	
@@ -69,7 +70,7 @@ function FUNCappendNPCs() {
 		strTargetName="${lstrNpcID}_${strMultToken}_$(printf %03d $iM)"
 		if egrep "${strTargetName}" "$lstrFl";then continue;fi
 		
-		nAngleY=$(( iM * (360/nMultiply) ))&&:
+		#dont use. the angle must be identical too to not leak, bad: nAngleY=$(( iM * (360/nMultiply) ))&&:
 		
 		nQuiverAmmo=$((iM+6))&&:
 		
@@ -78,76 +79,103 @@ function FUNCappendNPCs() {
 		((nExtraNpcClassIndex++))&&:
 		if((nExtraNpcClassIndex >= ${#lastrClassList[*]}));then nExtraNpcClassIndex=0;fi
 		
-		strRangedWeapon="0"
-		strAdditionalShield="0"
-		strAdditionalEquipment="0"
+		rangeweapon="0"
+		additionalshield="0"
+		additionalequipment="0"
 		case "${lstrClass}" in
 			npc_necro_guard)
-				strAdditionalEquipment="weapon_arx_short_sword"
+				additionalequipment="weapon_arx_short_sword"
 				;;
 			_NpcNecroGuardShield)
-				strAdditionalEquipment="weapon_arx_short_sword"
-				strAdditionalShield="weapon_mm_shield_necroguard"
+				lstrClass="npc_necro_guard" # needs to update to the game classname
+				additionalequipment="weapon_arx_short_sword"
+				additionalshield="weapon_mm_shield_necroguard"
 				;;
 			npc_necro_guard_bow)
-				strAdditionalEquipment="weapon_arx_short_sword"
-				strRangedWeapon="weapon_arxcrossbow"
+				additionalequipment="weapon_arx_short_sword"
+				rangeweapon="weapon_arxcrossbow"
 				# cant have shield and bow as will prevent firing the bow (bug as it wont unequip the shield to use the bow)
 				;;
 		esac
 		
-		echo '
-entity
+		strOrigin="${aNpcId_origin[$lstrNpcID]}"
+		# the compiler uses origin as "ID" for the NPCs on error logs... :(
+		: ${bDBGoriginIdTrick:=false} #help
+		if $bDBGoriginIdTrick;then
+			astrOrigin=($strOrigin)
+			nY="$(echo "${astrOrigin[1]}" |sed -r -e 's@(.*)[.].*@\1@g')"
+			#echo "nY=$nY ${astrOrigin[1]}"
+			nY=$((nY+iM))&&:
+			astrOrigin[1]=$nY
+			strOrigin="${astrOrigin[@]}"
+			declare -p strOrigin
+		fi
+		
+		: ${bHiddenNpc:=false} #help
+		if $bHiddenNpc;then
+			echo '
+hidden
 {
-	"id" "'"${nGlobalCurrentID}"'"
-	"classname" "'"${lstrClass}"'"
-	"targetname" "'"${strTargetName}"'"
-	"model" "'"${astrNpcModel[$lstrClass]}"'"
-	"additionalequipment" "'"${strAdditionalEquipment}"'"
-	"weaponmodel" "models/Items/Weapons/Sword_Guard/Sword_Guard.mdl"
-	"additionalshield" "'"${strAdditionalShield}"'"
-	"shieldmodel" "models/Items/Armors/shield_guard/shield_guard.mdl"
-	"QuiverAmmo" "'"${nQuiverAmmo}"'"
-	"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
-	"rangeweapon" "'"$strRangedWeapon"'"
-	"purse" "item_food_bread01_cooked"
-	"origin" "'"${aNpcId_Origin[$lstrNpcID]}"'"
-	"angles" "0 '"${nAngleY}"' 0"
-	
-	"combinability" "1"
-	"physdamagescale" "0.1"
-	"renderfx" "0"
-	"rendermode" "0"
-	"renderamt" "255"
-	"rendercolor" "255 255 255"
-	"disablereceiveshadows" "0"
-	"hintlimiting" "0"
-	"usetruemovement" "0"
-	"IgnoreEntInNav" "0"
-	"healthreferencevalue" "0"
-	"sleepstate" "0"
-	"wakeradius" "0"
-	"wakesquad" "0"
-	"radiusforrandomattitude" "500"
-	"health" "0"
-	"DifficultyLevel" "0"
-	"additionalhelmet" "0"
-	"skin" "0"
-	"disableheadcut" "0"
-	"ShouldDropOrnament" "0"
-	"UseSpeak" "0"
-	"spawnflags" "4"
-	editor
+' >>"${lstrFl}.ToAppend.vmf"
+		fi
+		echo '
+	entity
 	{
-		"color" "0 0 0"
-		"visgroupid" "10"
-		"visgroupid" "12"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 0]"
+		"id" "'"${nGlobalCurrentID}"'"
+		"classname" "'"${lstrClass}"'"
+		"targetname" "'"${strTargetName}"'"
+		"model" "'"${astrNpcModel[$lstrClass]}"'"
+		"additionalequipment" "'"${additionalequipment}"'"
+		"weaponmodel" "models/Items/Weapons/Sword_Guard/Sword_Guard.mdl"
+		"additionalshield" "'"${additionalshield}"'"
+		"shieldmodel" "models/Items/Armors/shield_guard/shield_guard.mdl"
+		"QuiverAmmo" "'"${nQuiverAmmo}"'"
+		"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+		"rangeweapon" "'"$rangeweapon"'"
+		"purse" "item_food_bread01_cooked"
+		"origin" "'"${strOrigin}"'"
+		"angles" "'"${aNpcId_angles[$lstrNpcID]}"'"
+		"squadname" "'"${aNpcId_squadname[$lstrNpcID]}"'"
+		
+		"combinability" "1"
+		"physdamagescale" "0.1"
+		"renderfx" "0"
+		"rendermode" "0"
+		"renderamt" "255"
+		"rendercolor" "255 255 255"
+		"disablereceiveshadows" "0"
+		"hintlimiting" "0"
+		"usetruemovement" "0"
+		"IgnoreEntInNav" "0"
+		"healthreferencevalue" "0"
+		"sleepstate" "0"
+		"wakeradius" "0"
+		"wakesquad" "0"
+		"radiusforrandomattitude" "500"
+		"health" "0"
+		"DifficultyLevel" "0"
+		"additionalhelmet" "0"
+		"skin" "0"
+		"disableheadcut" "0"
+		"ShouldDropOrnament" "0"
+		"UseSpeak" "0"
+		"spawnflags" "4"
+		editor
+		{
+			"color" "0 0 0"
+			"visgroupid" "10"
+			"visgroupid" "12"
+			"visgroupshown" "1"
+			"visgroupautoshown" "1"
+			"logicalpos" "[0 0]"
+		}
 	}
+' >>"${lstrFl}.ToAppend.vmf"
+		if $bHiddenNpc;then
+			echo '
 }
 ' >>"${lstrFl}.ToAppend.vmf"
+		fi
 
 		((nGlobalCurrentID++))&&:
 	
@@ -163,6 +191,25 @@ for strMap in "${astrMapList[@]}";do
 	if ! [[ -f "$strVmf" ]];then continue;fi
 	#cp -v "$strVmf" "${strVmf}.$(date +'%Y_%m_%d-%H_%M_%S').bkp"
 	
+	if egrep "_${strMultToken}_" "$strVmf";then
+		ls -l "${strVmf}.BeforeMultiplyEnemies.vmf" "${strVmf}" &&:
+		if FUNCaskYesNo "[WARN] file already patched, restore backup and proceed?";then
+			if cp -vf "${strVmf}.BeforeMultiplyEnemies.vmf" "${strVmf}";then
+				# without the cleanup it may not properly update during compilation?
+				FUNCtrash "${strPathSDK}/mm_content/mapsrc/${strMap}.bsp"
+				FUNCtrash "${strPathSDK}/mm_content/mapsrc/${strMap}.log"
+				FUNCtrash "${strPathSDK}/mm_content/mapsrc/${strMap}.prt"
+				FUNCtrash "${strPathSDK}/mm_content/mapsrc/${strMap}.vmx"
+			else
+				exit 1
+			fi
+		else
+			exit 1;
+		fi
+	else
+		cp -v "$strVmf" "${strVmf}.BeforeMultiplyEnemies.vmf"
+	fi
+	
 	strMD5="$(md5sum "$strVmf" |awk '{print $1}')"
 	echo -n >"${strVmf}.ToAppend.vmf"
 	strVmfData="$(cat "$strVmf" |tr -d '\r')"
@@ -172,8 +219,10 @@ for strMap in "${astrMapList[@]}";do
 	declare -p nMaxID nGlobalCurrentID
 	#jq '.entity | select(.targetname == "killer_in_house")' "$strVmf"
 	
-	declare -A aNpcId_Class=()
-	declare -A aNpcId_Origin=()
+	declare -A aNpcId_classname=()
+	declare -A aNpcId_origin=()
+	declare -A aNpcId_angles=()
+	declare -A aNpcId_squadname=()
 	#mapfile -t aLnData < <(cat "$strVmf")
 	#declare -p aLnData
 	#set -x
@@ -202,15 +251,15 @@ for strMap in "${astrMapList[@]}";do
 	nLn=$((nInitLn-1))&&: #because it inc first at while loop below
 	nEntInitLn=-1
 	iSkipSubNesting=0
-	targetname=""
-	classname=""
-	origin=""
+	targetname="";classname="";origin="";angles=""
 	: ${nDBGtestLim:=0} #help
 	nFound=0
 	strFlDB="$(mktemp)"
+	#nEntLnIndex=0
 	echo "$strVmfData" |tail -n +"${nInitLn}" |while read strLn;do
 		((nLn++))&&:
 		#declare -p strLn
+		#nEntLn=${aEntLnList[$nEntLnIndex]}
 		
 		if [[ "$strLn" =~ ^[\t]*entity$ ]];then
 			nEntInitLn="$nLn"
@@ -222,12 +271,16 @@ for strMap in "${astrMapList[@]}";do
 			if [[ "$strLn" =~ ^[\t]*[{]$ ]];then ((iSkipSubNesting++))&&:;continue;fi
 			if [[ "$strLn" =~ ^[\t]*[}]$ ]];then
 				if((iSkipSubNesting>0));then ((iSkipSubNesting--))&&:;continue;fi
-				aNpcId_Class[$targetname]="$classname"
-				aNpcId_Origin[$targetname]="$origin"
-				echo "FOUND: $targetname $classname origin='$origin' (Ln: $nEntInitLn)"
-				#declare -p aNpcId_Class aNpcId_Origin >"$strFlDB" #always overwrite with full data (could just append tho)
-				echo 'aNpcId_Class['"$targetname"']="'"$classname"'"' >>"$strFlDB"
-				echo 'aNpcId_Origin['"$targetname"']="'"$origin"'"' >>"$strFlDB"
+				aNpcId_classname[$targetname]="$classname"
+				aNpcId_origin[$targetname]="$origin"
+				aNpcId_angles[$targetname]="$angles"
+				aNpcId_squadname[$targetname]="$squadname"
+				echo "FOUND: $targetname $classname $squadname angles='$angles' origin='$origin' (Ln: $nEntInitLn)"
+				#declare -p aNpcId_classname aNpcId_origin >"$strFlDB" #always overwrite with full data (could just append tho)
+				echo 'aNpcId_classname['"$targetname"']="'"$classname"'"' >>"$strFlDB"
+				echo 'aNpcId_origin['"$targetname"']="'"$origin"'"' >>"$strFlDB"
+				echo 'aNpcId_angles['"$targetname"']="'"$angles"'"' >>"$strFlDB"
+				echo 'aNpcId_squadname['"$targetname"']="'"$squadname"'"' >>"$strFlDB"
 				nEntInitLn=-1
 				((nFound++))&&:
 				if((nFound==nDBGtestLim));then break;fi
@@ -236,22 +289,27 @@ for strMap in "${astrMapList[@]}";do
 			#### NPC ID
 			if [[ "$strLn" =~ .*"targetname".* ]];then
 				targetname="$(echo "$strLn" |tr -d '"' |awk '{print $2}')"
-				#declare -p targetname
 				continue
 			fi
 			#### data
 			if [[ "$strLn" =~ .*"classname".* ]];then
 				classname="$(echo "$strLn" |tr -d '"' |awk '{print $2}')"
-				#declare -p classname
 				if ! [[ "$classname" =~ ^${strNPCallowedClassesRegex}$ ]];then
 					nEntInitLn=-1 # to ignore and seek next entity
 					echo -ne "skip classname='$classname'            \r"
 				fi
 				continue
 			fi
+			if [[ "$strLn" =~ .*"squadname".* ]];then
+				squadname="$(echo "$strLn" |tr -d '"' |awk '{print $2}')"
+				continue
+			fi
 			if [[ "$strLn" =~ .*"origin".* ]];then
 				origin="$(echo "$strLn" |sed -r -e 's@\s*"origin"\s*"(.*)"\s*$@\1@g')"
-				#declare -p origin
+				continue
+			fi
+			if [[ "$strLn" =~ .*"angles".* ]];then
+				angles="$(echo "$strLn" |sed -r -e 's@\s*"angles"\s*"(.*)"\s*$@\1@g')"
 				continue
 			fi
 		else
@@ -259,9 +317,12 @@ for strMap in "${astrMapList[@]}";do
 		fi
 	done;cat "$strFlDB";source "$strFlDB";rm -v "$strFlDB"
 	
-	#declare -p aNpcId_Class
-	for strNpcID in "${!aNpcId_Class[@]}";do
+	#declare -p aNpcId_classname
+	for strNpcID in "${!aNpcId_classname[@]}";do
+		if [[ -n "$strDBGnpcIdFilterRegex" ]] && ! [[ "$strNpcID" =~ ${strDBGnpcIdFilterRegex} ]];then continue;fi
 		if [[ "$strNpcID" =~ .*_${strMultToken}_.* ]];then continue;fi #skip new dups
 		FUNCappendNPCs "$strVmf" "$strNpcID"
 	done
+	cat "${strVmf}.ToAppend.vmf" >>"$strVmf"
+	ls -l "${strVmf}.BeforeMultiplyEnemies.vmf" "${strVmf}.ToAppend.vmf" "$strVmf"
 done
