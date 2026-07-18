@@ -321,12 +321,14 @@ function SECFUNCshowHelpV2() { #help TODO WIP making it much easier to maintain!
 	
 	local lstrHelp
 	local lstrCommentedLinesRegex='^\s*#'
+	local lstrCommentedLinesInfoRegex='#help.*[@]InfoID'
 	local lnColW0max=0
 	local lnColW1max=0
 	
 	local lastrColumnsPerLine=()
 	local lastrColumnsAllLinesEnv=()
 	local lastrColumnsAllLinesParam=()
+	local lastrColumnsAllLinesInfo=()
 	
 	local lcolorEqualSign
 	local lcolorOptParameter
@@ -334,6 +336,7 @@ function SECFUNCshowHelpV2() { #help TODO WIP making it much easier to maintain!
 	local lcolorValue
 	local lcolorReqOpenClose
 	local lcolorEnvVar
+	local lcolorInfo
 	local lcolorCode
 	local lcolorEnd
 	function FUNCcolorSet() {
@@ -343,6 +346,7 @@ function SECFUNCshowHelpV2() { #help TODO WIP making it much easier to maintain!
 		lcolorValue='\\E[0m\\E[93m'
 		lcolorReqOpenClose='\\E[0m\\E[31m'
 		lcolorEnvVar='\\E[0m\\E[36m\\E[2m'
+		lcolorInfo='\\E[0m\\E[37m\\E[2m'
 		lcolorCode='\\E[0m\\E[94m'
 		lcolorEnd='\\E[0m'
 	};export -f FUNCcolorSet
@@ -353,6 +357,7 @@ function SECFUNCshowHelpV2() { #help TODO WIP making it much easier to maintain!
 		lcolorValue=""
 		lcolorReqOpenClose=""
 		lcolorEnvVar=""
+		lcolorInfo=""
 		lcolorEnd=""
 	};export -f FUNCcolorUnset
 	
@@ -400,38 +405,84 @@ function SECFUNCshowHelpV2() { #help TODO WIP making it much easier to maintain!
 	};export -f FUNChelpPrint
 	
 	for lstrHelp in "${lastrHelpList[@]}";do
-		if [[ "$lstrHelp" =~ ${lstrCommentedLinesRegex} ]];then continue;fi # skip commented lines
+		#if [[ "$lstrHelp" =~ ${lstrCommentedLinesRegex} ]];then continue;fi # skip commented lines
+		if [[ "$lstrHelp" =~ ${lstrCommentedLinesRegex} ]] && ! [[ "$lstrHelp" =~ ${lstrCommentedLinesInfoRegex} ]];then continue;fi # skip commented lines
+		
+		strHelpType=""
+		
+		: ${bSECFUNCshowHelpV2_FUNCverboseHelpCleanup:=false};FUNCverboseHelpCleanup() { if $bSECFUNCshowHelpV2_FUNCverboseHelpCleanup;then echo "Ln$1: lstrHelp=\"$lstrHelp\"";fi }
+		FUNCverboseHelpCleanup $LINENO
+		
+		############## line cleanup BEGIN
 		
 		lstrHelp="$(echo "$lstrHelp" |sed -r -e 's@^[ \t]*@@')" #remove beggining spaces
-		#lstrHelp="$(echo "$lstrHelp" |sed -r -e 's@.*@\t&@')" #indent
-#		lstrHelp="$(echo "$lstrHelp" |sed -r -e 's@if *\[\[ *"\$\{1-\}" *== *@@' -e 's@ \]\];then [#]help[_ ]*(.*)@ \1@')" #clean param options
-#declare -p lstrHelp
-		lstrHelp="$(echo "$lstrHelp" |sed -r -e 's@if *\[\[ *"\$\{1[-]*\}" *== *"(.*)" *\]\];then [#]help[_ ]*(.*)@\1\t\2@')" #clean param simple options
-		lstrHelp="$(echo "$lstrHelp" |sed -r -e 's@(if|elif) *\[\[ *"\$[{]*1[}]*" *== *"(.*)" *\|\| *"\$[{]*1[}]*" *== *"(.*)" *\]\];then [#]help[_ ]*(.*)@\2 \3\t\4@')" #clean param options for options loop
-		#elif [[ "$1" == "-v" || "$1" == "--verbosity" ]];then #help <iVerboseLvl> shows more useful messages
-#declare -p lstrHelp		
-		#declare -p lstrHelp
-		if ! [[ "$lstrHelp" =~ ^:\ \$\{.* ]] && ! [[ "$lstrHelp" =~ ^\-.* ]];then continue;fi #skip non env nor param options (probably just non optional configs (may be shown later thru declare just to let user know what is happening. Could become options may be?)
-		lstrHelp="$(echo "$lstrHelp" |sed -r -e 's@: [$][{]([^:]*):=(.*)[}] [#]help[_ ]*(.*)@\1\t\2\t\3@')" #clean env options
+		FUNCverboseHelpCleanup $LINENO
 		
-		#echo "$lstrHelp"
+		if [[ "${lstrHelp:0:1}" == ":" ]];then strHelpType=env;fi
+		
+		lstrHelp="$(echo "$lstrHelp" |sed -r -e 's@if *\[\[ *"\$\{1[-]*\}" *== *"(.*)" *\]\];then [#]help[_ ]*(.*)@\1\t\2@')" #clean param simple options like: if [[ "${1}" == "-a" ]];then
+		FUNCverboseHelpCleanup $LINENO
+		
+		#lstrHelp="$(echo "$lstrHelp" |sed -r -e 's@if *\[\[ \$# -gt 0 && *"\$\{1[-]*\}" *== *"(.*)" *\]\];then [#]help[_ ]*(.*)@\1\t\2@')" #clean param simple options like: if [[ $# -gt 0 && "$1" == "--help" ]];then
+		#FUNCverboseHelpCleanup $LINENO
+		
+		lstrHelp="$(echo "$lstrHelp" |sed -r -e 's@(if|elif) *\[\[ *"\$[{]*1[}]*" *== *"(.*)" *\|\| *"\$[{]*1[}]*" *== *"(.*)" *\]\];then [#]help[_ ]*(.*)@\2 \3\t\4@')" #clean param options for options loop like: if [[ "${1}" == "-a" || "${1}" == "--alert"]];then
+		FUNCverboseHelpCleanup $LINENO
+		
+		if [[ "${lstrHelp:0:1}" == "-" ]];then strHelpType=param;fi
+		
+		#if ! [[ "$lstrHelp" =~ ^:\ \$\{.* ]] && ! [[ "$lstrHelp" =~ ^\-.* ]] && ! [[ "$lstrHelp" =~ ${lstrCommentedLinesInfoRegex} ]];then continue;fi #after line is cleaned, skip non env (env is already a very clean line) nor param options nor info. (probably just non optional configs (may be shown later thru declare just to let user know what is happening. Could become options may be?)
+		FUNCverboseHelpCleanup $LINENO
+		
+		if [[ "$strHelpType" == env ]];then
+			lstrHelp="$(echo "$lstrHelp" |sed -r -e 's@(.*);export.*([#]help)@\1 \2@')" #clean env export directive
+			lstrHelp="$(echo "$lstrHelp" |sed -r -e 's@^:\s*[$][{]([^:]*):=(.*)[}]\s*[#]help[_ ]*(.*)@\1\t\2\t\3@')" #clean env options like: : ${bTest:=true}
+			FUNCverboseHelpCleanup $LINENO
+		fi
+		
+		if [[ "$lstrHelp" =~ ${lstrCommentedLinesInfoRegex} ]];then strHelpType=info;fi
+		lstrHelp="$(echo "$lstrHelp" |sed -r -e 's%.*[#]help[_ ]*[@]InfoID="([^"]*)"\s*(.*)%\1\t\2%')" #clean info options like: @InfoID="SomethingUnique123" help text description...
+		FUNCverboseHelpCleanup $LINENO
+		
+		if [[ -z "$strHelpType" ]];then continue;fi
+		
+		############## line cleanup END
+		
 		IFS=$'\n' read -d '' -r -a lastrColumnsPerLine < <(echo "$lstrHelp" |sed -r -e 's@\t@\n@' -e 's@\t@\n@')&&:
-		lbIsParam=false;if [[ "${lastrColumnsPerLine[0]}" =~ ^[-].* ]];then lbIsParam=true;fi
+		#if [[ "${lastrColumnsPerLine[0]}" =~ ^[-].* ]];then strHelpType=param;fi
 		
 		# Before being colored
 		if((lnColW0max<${#lastrColumnsPerLine[0]}));then lnColW0max=${#lastrColumnsPerLine[0]};fi
 		if((lnColW1max<${#lastrColumnsPerLine[1]}));then lnColW1max=${#lastrColumnsPerLine[1]};fi
 		
 		#local lastrColumnsPerLine=($(echo "$lstrHelp" |sed -r -e 's@\t@\n@g'))
-		if [[ "${lastrColumnsPerLine[0]}" =~ ^\-.* ]];then
-			lastrColumnsPerLine[0]="${lcolorOptParameter}${lastrColumnsPerLine[0]}${lcolorEnd}"
-			# a param will have no default value column
-			if((${#lastrColumnsPerLine[@]} < 3));then lastrColumnsPerLine=("${lastrColumnsPerLine[0]}" "  " "${lastrColumnsPerLine[1]-}");fi
-		else
-			lastrColumnsPerLine[0]="${lcolorEnvVar}${lastrColumnsPerLine[0]}${lcolorEnd}"
-			# an env var may have no help description
-			if((${#lastrColumnsPerLine[@]} < 3));then lastrColumnsPerLine=("${lastrColumnsPerLine[0]}" "${lastrColumnsPerLine[1]-}" "");fi
-		fi
+		case "$strHelpType" in
+			param)
+				lastrColumnsPerLine[0]="${lcolorOptParameter}${lastrColumnsPerLine[0]}${lcolorEnd}"
+				# a param will have no default value column
+				if((${#lastrColumnsPerLine[@]} < 3));then lastrColumnsPerLine=("${lastrColumnsPerLine[0]}" "  " "${lastrColumnsPerLine[1]-}");fi
+				;;
+			env)
+				lastrColumnsPerLine[0]="${lcolorEnvVar}${lastrColumnsPerLine[0]}${lcolorEnd}"
+				# an env var may have no help description
+				if((${#lastrColumnsPerLine[@]} < 3));then lastrColumnsPerLine=("${lastrColumnsPerLine[0]}" "${lastrColumnsPerLine[1]-}" "");fi
+				;;
+			info)
+				lastrColumnsPerLine[0]="${lcolorInfo}${lastrColumnsPerLine[0]}${lcolorEnd}"
+				# an env var may have no help description
+				if((${#lastrColumnsPerLine[@]} < 3));then lastrColumnsPerLine=("${lastrColumnsPerLine[0]}" "  " "${lastrColumnsPerLine[1]-}");fi
+				;;
+			*) echo "[WARN] invalid strHelpType='$strHelpType'" >&2; continue;;
+		esac
+		#if [[ "${lastrColumnsPerLine[0]}" =~ ^\-.* ]];then
+			#lastrColumnsPerLine[0]="${lcolorOptParameter}${lastrColumnsPerLine[0]}${lcolorEnd}"
+			## a param will have no default value column
+			#if((${#lastrColumnsPerLine[@]} < 3));then lastrColumnsPerLine=("${lastrColumnsPerLine[0]}" "  " "${lastrColumnsPerLine[1]-}");fi
+		#else
+			#lastrColumnsPerLine[0]="${lcolorEnvVar}${lastrColumnsPerLine[0]}${lcolorEnd}"
+			## an env var may have no help description
+			#if((${#lastrColumnsPerLine[@]} < 3));then lastrColumnsPerLine=("${lastrColumnsPerLine[0]}" "${lastrColumnsPerLine[1]-}" "");fi
+		#fi
 		
 		# This fixes the double escaped \\E into \E to match lastrColumnsPerLine[2] below
 		lastrColumnsPerLine[0]="$(echo -e "${lastrColumnsPerLine[0]}")"
@@ -468,15 +519,16 @@ function SECFUNCshowHelpV2() { #help TODO WIP making it much easier to maintain!
 		else
 			if [[ -n "$lstrDefaultVar" ]];then
 				echo "[ERROR] invalid (potentialy dangerous) variable name '$lstrDefaultVar' to eval for value."
-				FUNCexit 1
+				exit 1
 			fi
 		fi
 		
-		if $lbIsParam;then
-			lastrColumnsAllLinesParam+=("${lastrColumnsPerLine[@]}")
-		else
-			lastrColumnsAllLinesEnv+=("${lastrColumnsPerLine[@]}")
-		fi
+		case "$strHelpType" in
+			param) lastrColumnsAllLinesParam+=("${lastrColumnsPerLine[@]}") ;;
+			env)   lastrColumnsAllLinesEnv+=("${lastrColumnsPerLine[@]}")   ;;
+			info)  lastrColumnsAllLinesInfo+=("${lastrColumnsPerLine[@]}")   ;;
+			*) echo "[WARN] invalid strHelpType='$strHelpType'" >&2; continue;;
+		esac
 		
 #		printf " %-${nHelpTableColWidth0}s %-${nHelpTableColWidth1}s %s\n" "${lastrColumnsPerLine[@]}"
 	done #| column -t -s $'\t' -W 2
@@ -495,6 +547,12 @@ function SECFUNCshowHelpV2() { #help TODO WIP making it much easier to maintain!
 	if((${#lastrColumnsAllLinesEnv[@]}>0));then echo " [ENV VARS:] (set like this to easy change on each execution ex.: bDummy1=true strDummy2=\"abc\" $0; #OR to set for the terminal export bDummy1=true; export strDummy2=\"abc\"; #Then later you just run: $0)";fi
 	for((i=0;i<${#lastrColumnsAllLinesEnv[@]};i+=3));do
 		local lastrColumnsPrint=("${lastrColumnsAllLinesEnv[i+0]}" "${lastrColumnsAllLinesEnv[i+1]}" "${lastrColumnsAllLinesEnv[i+2]}")
+		FUNChelpPrint
+	done
+	
+	if((${#lastrColumnsAllLinesInfo[@]}>0));then echo " [INFO:]";fi
+	for((i=0;i<${#lastrColumnsAllLinesInfo[@]};i+=3));do
+		local lastrColumnsPrint=("${lastrColumnsAllLinesInfo[i+0]}" "${lastrColumnsAllLinesInfo[i+1]}" "${lastrColumnsAllLinesInfo[i+2]}")
 		FUNChelpPrint
 	done
 	
@@ -580,23 +638,25 @@ function FUNCminiModInit() {
 	if [[ -L "$0" ]];then cd "$(dirname "$(readlink "$0")")";fi # a link at main mod root folder pointing to some minimod sub folder
 	if [[ ! -f "$(basename "$0")" ]];then cd "$(dirname "$0")";fi # in case run by using some relative or absolute path
 	
-	declare -g strPathThisModFolderFull="$(pwd)";declare -p strPathThisModFolderFull >&2
-	declare -g strPathThisModFolderBN="$(basename "${strPathThisModFolderFull}")";declare -p strPathThisModFolderBN >&2
+	declare -g strPathThisModFolderFull="$(pwd)";FUNCechoInfo "strPathThisModFolderFull='$strPathThisModFolderFull'" >&2
+	declare -g strPathThisModFolderBN="$(basename "${strPathThisModFolderFull}")";FUNCechoInfo "strPathThisModFolderBN='$strPathThisModFolderBN'" >&2
 	
 	#while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done
 	#declare -g strPathMainModFolder="$(pwd)"
 	
 	#source "./allMergerScriptsGenericConfig.sh"
 	
-	if [[ $# -gt 0 && "$1" == "--help" ]];then #help show this help
-		#egrep "[#]help" "./allMergerScriptsGenericConfig.sh" "$0" |sed -r -e 's@^[ \t]*@@'
-		SECFUNCshowHelpV2 "${strPathMainModFolder}/allMergerScriptsGenericConfig.sh"
-		SECFUNCshowHelpV2 "${strPathThisModFolderFull}/$(basename "$0")"
-		
-		: ${FUNCminiModInit_bExitOnHelpAtBaseInit:=true} #help
-		if $FUNCminiModInit_bExitOnHelpAtBaseInit;then FUNCexit;fi #this will not consume the param so it can be reused at main file
-		
-		: ${FUNCminiModInit_bConsumeParamHelp:=true} #help
-		if $FUNCminiModInit_bConsumeParamHelp;then shift;fi #if not, the param can be reused at main file
+	if [[ $# -gt 0 ]];then
+		if [[ "${1}" == "--help" ]];then #help show this help
+			#egrep "[#]help" "./allMergerScriptsGenericConfig.sh" "$0" |sed -r -e 's@^[ \t]*@@'
+			SECFUNCshowHelpV2 "${strPathMainModFolder}/allMergerScriptsGenericConfig.sh"
+			SECFUNCshowHelpV2 "${strPathThisModFolderFull}/$(basename "$0")"
+			
+			: ${FUNCminiModInit_bExitOnHelpAtBaseInit:=true} #help
+			if $FUNCminiModInit_bExitOnHelpAtBaseInit;then FUNCexit;fi #this will not consume the param so it can be reused at main file
+			
+			: ${FUNCminiModInit_bConsumeParamHelp:=true} #help
+			if $FUNCminiModInit_bConsumeParamHelp;then shift;fi #if not, the param can be reused at main file
+		fi
 	fi
 };export -f FUNCminiModInit

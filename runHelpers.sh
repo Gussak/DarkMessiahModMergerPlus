@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if [[ "${1-}" == "--help" ]];then #help ok
+	: #egrep "[#]help" "$0"
+fi
+
 pwd
 strSelfBN="$(basename "$0")"
 declare -p strSelfBN
@@ -11,7 +15,7 @@ strMainModFolder="$(pwd)"
 
 while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
 
-: ${bXtermAlready:=false} # self control use only
+: ${bXtermAlready:=false} # self internal use only
 if ! $bXtermAlready;then
 	: ${bXterm:=true} #help
 	if $bXterm;then
@@ -28,27 +32,27 @@ if which ScriptEchoColor;then
 	if [[ -f "Dark Messiah Might and Magic Single Player/mm.exe" ]];then
 		echo "Merged game folder already mounted..."
 	else
-		bSudoWithScript=true strUnionFSID=overlayfs secOverrideMultiLayerMountPoint.sh "Dark Messiah Might and Magic Single Player" #help depends on ScriptEchoColor
+		bSudoWithScript=true strUnionFSID=overlayfs secOverrideMultiLayerMountPoint.sh "Dark Messiah Might and Magic Single Player" #help @InfoID="secOverrideMultiLayerMountPoint.sh:MOUNT" Helper Script, depends on ScriptEchoColor
 	fi
 fi
 
-: ${bFixW=true} #help runs fixWindowAndDontStop.sh
+: ${bFixW:=true} #help runs fixWindowAndDontStop.sh
 if $bFixW;then
 	cd "${strMainModFolder}/"
-	./fixWindowAndDontStop.sh #waits game start
+	./fixWindowAndDontStop.sh #help @InfoID="fixWindowAndDontStop.sh" Helper Script, waits game start
 fi
 
 cd "${strMainModFolder}/"
-bPauseOnlyNoFocusInstance=true ./autoPauseAfterSaveGameIsLoaded.sh -m #endless loop
+bPauseOnlyNoFocusInstance=true ./autoPauseAfterSaveGameIsLoaded.sh -m #help @InfoID="autoPauseAfterSaveGameIsLoaded.sh" Helper Script, endless loop
 
 cd "${strMainModFolder}/"
-(xterm -e ./createFunctionalBkp.sh & disown) #run once, create configs small backup
+(xterm -e ./createFunctionalBkp.sh & disown) #help @InfoID="createFunctionalBkp.sh" Helper Script, run once, create configs small backup
 
 #cd "${strMainModFolder}/"
 #./gitgui.sh #run once
 
 cd "${strMainModFolder}/"
-./quickBkp.sh #endless loop to backup quick.sav
+./quickBkp.sh #help @InfoID="quickBkp.sh" Helper Script, endless loop to backup quick.sav
 
 ##################
 
@@ -57,6 +61,6 @@ if which ScriptEchoColor;then
 	read -n 1 -p "Umount?(y/...)" strResp;
 	if [[ "${strResp}" == y ]];then
 		cd "${strMainModFolder}/../"
-		bSudoWithScript=true strUnionFSID=overlayfs secOverrideMultiLayerMountPoint.sh -u "Dark Messiah Might and Magic Single Player" #help depends on ScriptEchoColor
+		bSudoWithScript=true strUnionFSID=overlayfs secOverrideMultiLayerMountPoint.sh -u "Dark Messiah Might and Magic Single Player" #help @InfoID="secOverrideMultiLayerMountPoint.sh:UMOUNT" Helper Script, depends on ScriptEchoColor
 	fi
 fi
