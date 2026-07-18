@@ -111,8 +111,8 @@ function FUNCappendNPCs() {
 			declare -p strOrigin
 		fi
 		
-		: ${bHiddenNpc:=false} #help
-		if $bHiddenNpc;then
+		: ${bApplyAsHiddenNpc:=false} #help
+		if $bApplyAsHiddenNpc;then
 			echo '
 hidden
 {
@@ -171,7 +171,7 @@ hidden
 		}
 	}
 ' >>"${lstrFl}.ToAppend.vmf"
-		if $bHiddenNpc;then
+		if $bApplyAsHiddenNpc;then
 			echo '
 }
 ' >>"${lstrFl}.ToAppend.vmf"
@@ -236,8 +236,8 @@ for strMap in "${astrMapList[@]}";do
 	#declare -p nInitLn
 	
 	nInitLn=1
-	#mapfile -t aEntLnList < <(echo "$strVmfData" |egrep '^\s*entity$' -n |sed -r -e 's@^([0-9]*):.*@\1@g')
-	mapfile -t aEntLnList < <(echo "$strVmfData" |egrep '^entity$' -n |sed -r -e 's@^([0-9]*):.*@\1@g') #only npc entities that are not hidden (they have no indentation)
+	mapfile -t aEntLnList < <(echo "$strVmfData" |egrep '^\s*entity$' -n |sed -r -e 's@^([0-9]*):.*@\1@g')
+	#mapfile -t aEntLnList < <(echo "$strVmfData" |egrep '^entity$' -n |sed -r -e 's@^([0-9]*):.*@\1@g') #only npc entities that are not hidden (they have no indentation)
 	nFirstNpcValidClassLn="$(echo "$strVmfData" |egrep "^\s*\"classname\"\s*\"(${strNPCallowedClassesRegex})\"$" -n |head -n 1 |sed -r -e 's@^([0-9]*):.*@\1@g')"
 	for nEntLn in "${aEntLnList[@]}";do
 		if((nEntLn>nFirstNpcValidClassLn));then
@@ -246,6 +246,7 @@ for strMap in "${astrMapList[@]}";do
 		fi
 		nEntLnPrev=$nEntLn
 	done
+	((nInitLn-=2))&&: #just in case it is a hidden entity
 	declare -p nInitLn
 	
 	: ${nDBGinitLn:=-1} #help
@@ -258,13 +259,20 @@ for strMap in "${astrMapList[@]}";do
 	nFound=0
 	strFlDB="$(mktemp)"
 	#nEntLnIndex=0
+	nLnHiddenNpc=-1
 	echo "$strVmfData" |tail -n +"${nInitLn}" |while read strLn;do
 		((nLn++))&&:
 		#declare -p strLn
 		#nEntLn=${aEntLnList[$nEntLnIndex]}
 		
-		#if [[ "$strLn" =~ ^[\t]*entity$ ]];then
-		if [[ "$strLn" =~ ^entity$ ]];then #only npc entities that are not hidden (they have no indentation)
+		if [[ "$strLn" =~ ^[\t]*hidden$ ]];then
+			nLnHiddenNpc=$nLn
+			continue
+		fi
+		
+		if [[ "$strLn" =~ ^[\t]*entity$ ]];then
+		#if [[ "$strLn" =~ ^entity$ ]];then #only npc entities that are not hidden (they have no indentation)
+			if(( nLnHiddenNpc == (nLn-2) ));then continue;fi # skip hidden NPCs
 			nEntInitLn="$nLn"
 			iSkipSubNesting=-1 # the next line with '{' is from "entity"
 			continue
