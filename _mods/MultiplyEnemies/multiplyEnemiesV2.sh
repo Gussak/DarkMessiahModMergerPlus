@@ -167,7 +167,7 @@ function FUNCappendNPCs() {
 			declare -p strOrigin
 		fi
 		
-		: ${bApplyAsHiddenNpc:=false} #help
+		: ${bApplyAsHiddenNpc:=false} #help hidden npcs required a triggered spawner?
 		if $bApplyAsHiddenNpc;then
 			echo '
 hidden
