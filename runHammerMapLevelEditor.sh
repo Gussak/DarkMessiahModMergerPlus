@@ -15,13 +15,13 @@ if [[ ! -f "./${strSelfBN}" ]];then
 	fi
 fi
 
-mkdir -vp "../Might and Magic Dark Messiah SDK"
-cd "../Might and Magic Dark Messiah SDK"
+mkdir -vp "../Tools/Might and Magic Dark Messiah SDK"
+cd "../Tools/Might and Magic Dark Messiah SDK"
 pwd
 
 : ${strBaseWindowsPath:='C:\Games'} #help
 : ${strWindowsPathDMMM:="${strBaseWindowsPath}"'\Dark Messiah Might and Magic Single Player'} #help
-: ${strWindowsPathSDK:="${strBaseWindowsPath}"'\Might and Magic Dark Messiah SDK'} #help
+: ${strWindowsPathSDK:="${strBaseWindowsPath}"'\Tools/Might and Magic Dark Messiah SDK'} #help
 
 echo 'INFO:
 	Based on instructions from: https://developer.valvesoftware.com/wiki/Dark_Messiah:_Single-Player_Level_Creation/SourceSDK
@@ -29,7 +29,7 @@ echo 'INFO:
 	The materials, models, scripts, shaders and resource folders are all the plain files from the full vpk extraction (I found no gcf files).
 		When coping the files asked there to the SDK, overwrite all!
 	From wine explorer.exe, navigate and copy the full path there into the GameConfig.txt (so no need to use windows env vars with %...%) like:
-		C:\Games\Might and Magic Dark Messiah SDK
+		C:\Games\Tools/Might and Magic Dark Messiah SDK
 		C:\Games\Dark Messiah Might and Magic Single Player
 	TODO: auto copy all files from these folders thru this script
 	
@@ -96,7 +96,7 @@ export WINEDLLOVERRIDES="d3d9=b" #needs this otherwise it crashes
 #export PROTON_USE_WINED3D=1
 # Define your game and hammer paths (Adjust the Steam path if you installed it elsewhere)
 #GAME_DIR="$HOME/Wine/DarkMessiahOfMightAndMagic.win32/drive_c/Games/Dark Messiah Might and Magic Single Player"
-#HAMMER_EXE="$HOME/Wine/DarkMessiahOfMightAndMagic.win32/drive_c/Games/Might and Magic Dark Messiah SDK/bin/hammer.exe"
+#HAMMER_EXE="$HOME/Wine/DarkMessiahOfMightAndMagic.win32/drive_c/Games/Tools/Might and Magic Dark Messiah SDK/bin/hammer.exe"
 # 1. Force native WineD3D (OpenGL translation) instead of Vulkan to fix frozen frames
 #export WINED3D_DISABLE_EXT_PALETTE=1
 # 2. Prevent window focus drops in Ubuntu's GNOME desktop environment
