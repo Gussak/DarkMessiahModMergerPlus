@@ -1,5 +1,7 @@
 #!/bin/bash
 
+read -p "ISSUE: can't find a way to easily patch the .bsp and .lmp files to have both increased spawns and community fixes... Multiple spawns will only show up if you disable .lmp files and then you lose the community fixes... How to properly patch this all???"
+
 while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
 
 : ${strPathSDK:="${strPathParent}/Might and Magic Dark Messiah SDK"} #help 
