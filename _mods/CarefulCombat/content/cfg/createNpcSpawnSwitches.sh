@@ -67,6 +67,8 @@ function FUNCalias() {
 	echo "alias gskCCnpcSpawn_${i} \"echo gskSpawnHint; getpos; getpos; echo ${strNPC}; ${strNPC}\"" #this way, it creates a reusable log to quickly place all NPCs again!!! OBS.: getpos 2 times is because the engine bugs and may not print one character some times
 }
 
+: ${strExecEdit:=geany} #help
+
 function FUNCvalidateNPC() {
 	local lstrChkNpc="$1";shift
 	local lstrFlCondump="$1";shift
@@ -80,9 +82,8 @@ function FUNCvalidateNPC() {
 		if [[ "$lstrNPC" == "$lstrChkNpc" ]];then lbFound=true;break;fi
 	done
 	if ! $lbFound;then
-		FUNCechoInfo "[ERROR:invalid] $lstrChkNpc ( the engine sometimes do not print some letters!!! :O )"
-		: ${strExecEdit:=geany} #help
-		"$strExecEdit" "$lstrFlCondump:$((lLn+1))"
+		FUNCechoInfo "[ERROR:invalidNPC] $lstrChkNpc ( the engine sometimes do not print some letters!!! :O )"
+		"$strExecEdit" "$lstrFlCondump:$((lLn+1))"  #editors begin in line 1 not 0
 		FUNCexit 1
 	fi
 }
@@ -90,26 +91,41 @@ function FUNCvalidateNPC() {
 if [[ "${1-}" == "-m" ]];then #help read last condump and prepare a cfg file to help fill a map with placed NPCs
 	strFlCondump="$(ls -1tr "${strGameInstallMainFolder}/${strGameSubRelatFolderWriteAllHere}/condump"* |tail -n 1)"
 	ls -l "$strFlCondump"
-	mapfile -t astrSpawnHintList < <(egrep "gskSpawnHint" "$strFlCondump" -A 2 |egrep -v "\--" |tr -d '\r')
+	#mapfile -t astrSpawnHintList < <(egrep "gskSpawnHint" "$strFlCondump" -A 2 |egrep -v "\--" |tr -d '\r')
+	mapfile -t astrAllLines < <(cat "$strFlCondump" |tr -d '\r')
 	#for strSpawnHint in "${astrSpawnHintList[@]}";do
 	iCount=0
-	iDataLines=3
+	iDataLines=4
 	echo
-	echo "// FILL MAP WITH NPCs, total $((${#astrSpawnHintList[@]}/iDataLines))"
+#	echo "// FILL MAP WITH NPCs, total $((${#astrSpawnHintList[@]}/iDataLines))"
+	echo "// FILL MAP WITH NPCs, total $(cat "$strFlCondump" |grep gskSpawnHint -c)"
 	echo "alias gskCCnpcSpawn_next gskCCnpcSpawn_000"
-	for((i=0;i<${#astrSpawnHintList[@]};i+=iDataLines));do
-		strPos="${astrSpawnHintList[$((i+1))]}"
-		strPosChk="${astrSpawnHintList[$((i+2))]}" #as engine may not print one char! :O
-		iLnNPC="$((i+3))"
-		strNPC="$( echo "${astrSpawnHintList[$iLnNPC]}" |awk '{print $1}')"
-		#declare -p strPos strNPC
-		FUNCvalidateNPC "$strNPC" "$strFlCondump" "$iLnNPC"
-		
-		strCount="$(      printf %03d $((iCount  )) )"
-		strCountPlus1="$( printf %03d $((iCount+1)) )"
-		
-		echo "alias gskCCnpcSpawn_${strCount} \"${strPos}; ${strNPC}; alias gskCCnpcSpawn_next gskCCnpcSpawn_${strCountPlus1}\""
-		((iCount++))&&:
+	#for((i=0;i<${#astrSpawnHintList[@]};i+=iDataLines));do
+	for((i=0;i<${#astrAllLines[@]};i++));do
+		strLine="${astrAllLines[$i]}"
+		if [[ "$strLine" =~ .*gskSpawnHint.* ]];then
+			iLnData=$i;#declare -p iLnData
+			((iLnData++))&&:;strPos="${astrAllLines[$iLnData]}"
+			((iLnData++))&&:;strPosChk="${astrAllLines[$iLnData]}" #as engine may not print one char! :O
+			if [[ "$strPos" != "$strPosChk" ]];then
+				declare -p strPos strPosChk
+				FUNCechoInfo "[ERROR:invalidPOS] ( the engine sometimes do not print some letters!!! :O )"
+				"$strExecEdit" "$strFlCondump:$((iLnData+1))" #editors begin in line 1 not 0
+				FUNCexit 1
+			fi
+			
+			((iLnData++))&&:;strNPC="$( echo "${astrAllLines[$iLnData]}" |awk '{print $1}')"
+			#declare -p strPos strNPC
+			FUNCvalidateNPC "$strNPC" "$strFlCondump" "$iLnData"
+			
+			strCount="$(      printf %03d $((iCount  )) )"
+			strCountPlus1="$( printf %03d $((iCount+1)) )"
+			
+			echo "alias gskCCnpcSpawn_${strCount} \"${strPos}; ${strNPC}; alias gskCCnpcSpawn_next gskCCnpcSpawn_${strCountPlus1}\""
+			((iCount++))&&:
+			
+			i=$iLnData
+		fi
 	done
 else
 	echo
