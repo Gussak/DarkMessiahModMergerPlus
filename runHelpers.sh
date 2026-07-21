@@ -19,8 +19,8 @@ while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./a
 if ! $bXtermAlready;then
 	: ${bXterm:=true} #help
 	if $bXterm;then
-		if pgrep -fa GSK_DMMM_Helpers;then exit 0;fi
-		(xterm -title GSK_DMMM_Helpers -e bash -c "while true;do ./${strSelfBN} --help; read -p PressEnterToRunHelpers&&:; bXtermAlready=true ./${strSelfBN};done" & disown)
+		if pgrep -fa DMMM_Helpers;then exit 0;fi
+		(xterm -title DMMM_Helpers -e bash -c "while true;do ./${strSelfBN} --help; read -p PressEnterToRunHelpers&&:; bXtermAlready=true ./${strSelfBN};done" & disown)
 		exit 0
 	fi
 fi

@@ -297,10 +297,10 @@ function FUNCpauseAfterLoad() {
 };export -f FUNCpauseAfterLoad;
 
 #set -x
-if ! pgrep -fa DarkMessiah_FUNCpauseAfterLoad;then
+if ! pgrep -fa DMMM_pauseAfterLoad;then
 	: ${bXterm:=true};export bXterm
 	if $bXterm;then
-		(xterm -maximized -title DarkMessiah_FUNCpauseAfterLoad -e bash -c "FUNCpauseAfterLoad" & disown);
+		(xterm -maximized -title DMMM_pauseAfterLoad -e bash -c "FUNCpauseAfterLoad" & disown);
 	else
 		FUNCpauseAfterLoad
 	fi

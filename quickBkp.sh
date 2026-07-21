@@ -84,6 +84,6 @@ function FUNCbkp() {
 	done
 };export -f FUNCbkp
 
-if ! pgrep -fa DarkMessiah_FUNCbkp;then
-	(xterm -title DarkMessiah_FUNCbkp -e bash -c "FUNCbkp" & disown);
+if ! pgrep -fa DMMM_quickBkpLoop;then
+	(xterm -title DMMM_quickBkpLoop -e bash -c "FUNCbkp" & disown);
 fi
