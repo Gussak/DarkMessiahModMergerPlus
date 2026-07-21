@@ -21,7 +21,7 @@ createNpcSpawnSwitches.sh -m:
 	After finishing placing foes type `condump`.
 	Running `./createNpcSpawnSwitches.sh -m` will read the newest condump.txt file and prepare a config file like "_mods/CarefulCombat/content/cfg/gskmap_L00.cfg" that can be applied hitting 'x' key.
 	Load that file in console like: exec gskmap_L00
-	Place each foe using 'x' key (on last one it stops placing them) (ISSUE: this may trigger area events..., how to prevent that???).
+	Place each foe using 'x' key (on last one it stops placing them) (ISSUE: this may trigger area events..., how to prevent that??? spawn an undead at L00 to fix quest progression).
 
 More power:
 	Every spell with adrenaline is very powerful now to match enemies huge HP.
