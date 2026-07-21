@@ -64,10 +64,11 @@ function FUNCalias() {
 	# alias name limit is 30 chars
 	strShortName="${strNPC#mm_npc_create_}"
 	echo "alias gskCCnpcSwitch_${i} \"developer 1; echo CFG_CREATE:${strShortName}; alias gskCCnpcSpawn gskCCnpcSpawn_${i}; alias +gskCCnpcSwitch gskCCnpcSwitch_${iNext}\""
-	echo "alias gskCCnpcSpawn_${i} \"echo gskSpawnHint; getpos; getpos; echo ${strNPC}; ${strNPC}\"" #this way, it creates a reusable log to quickly place all NPCs again!!! OBS.: getpos 2 times is because the engine bugs and may not print one character some times
+	echo "alias gskCCnpcSpawn_${i} \"echo gskSpawnHint; getpos; getpos; echo ${strNPC}; echo ${strNPC}; ${strNPC}\"" #this way, it creates a reusable log to quickly place all NPCs again!!! OBS.: getpos 2 times is because the engine bugs and may not print one character some times
 }
 
 : ${strExecEdit:=geany} #help
+: ${bAutoFixMissingChars:=true} #help :O
 
 function FUNCvalidateNPC() {
 	local lstrChkNpc="$1";shift
@@ -95,7 +96,7 @@ if [[ "${1-}" == "-m" ]];then #help read last condump and prepare a cfg file to 
 	mapfile -t astrAllLines < <(cat "$strFlCondump" |tr -d '\r')
 	#for strSpawnHint in "${astrSpawnHintList[@]}";do
 	iCount=0
-	iDataLines=4
+	#iDataLines=4
 	echo
 #	echo "// FILL MAP WITH NPCs, total $((${#astrSpawnHintList[@]}/iDataLines))"
 	echo "// FILL MAP WITH NPCs, total $(cat "$strFlCondump" |grep gskSpawnHint -c)"
@@ -108,14 +109,28 @@ if [[ "${1-}" == "-m" ]];then #help read last condump and prepare a cfg file to 
 			((iLnData++))&&:;strPos="${astrAllLines[$iLnData]}"
 			((iLnData++))&&:;strPosChk="${astrAllLines[$iLnData]}" #as engine may not print one char! :O
 			if [[ "$strPos" != "$strPosChk" ]];then
-				declare -p strPos strPosChk
-				FUNCechoInfo "[ERROR:invalidPOS] ( the engine sometimes do not print some letters!!! :O )"
-				"$strExecEdit" "$strFlCondump:$((iLnData+1))" #editors begin in line 1 not 0
-				FUNCexit 1
+				if $bAutoFixMissingChars;then
+					if((${#strPosChk} > ${#strPos}));then
+						strPos="$strPosChk"
+					fi
+				else
+					declare -p strPos strPosChk
+					FUNCechoInfo "[ERROR:invalidPOS] ( the engine sometimes do not print some letters!!! :O )"
+					"$strExecEdit" "$strFlCondump:$((iLnData+1))" #editors begin in line 1 not 0
+					FUNCexit 1
+				fi
 			fi
 			
-			((iLnData++))&&:;strNPC="$( echo "${astrAllLines[$iLnData]}" |awk '{print $1}')"
+			((iLnData++))&&:;strNPC="$(    echo "${astrAllLines[$iLnData]}" |awk '{print $1}')"
+			((iLnData++))&&:;strNPCchk="$( echo "${astrAllLines[$iLnData]}" |awk '{print $1}')"
 			#declare -p strPos strNPC
+			if [[ "$strNPC" != "$strNPCchk" ]];then
+				if $bAutoFixMissingChars;then
+					if((${#strNPCchk} > ${#strNPC}));then
+						strNPC="$strNPCchk"
+					fi
+				fi
+			fi
 			FUNCvalidateNPC "$strNPC" "$strFlCondump" "$iLnData"
 			
 			strCount="$(      printf %03d $((iCount  )) )"
@@ -127,6 +142,7 @@ if [[ "${1-}" == "-m" ]];then #help read last condump and prepare a cfg file to 
 			i=$iLnData
 		fi
 	done
+	echo "alias gskCCnpcSpawn_${strCountPlus1} \"echo FinishedSpawnings\"" #this also prevents continuing thru some previous list entries of a previous test run or map may be
 else
 	echo
 	echo "// Total ${#astrNPC[@]} NPCs"
