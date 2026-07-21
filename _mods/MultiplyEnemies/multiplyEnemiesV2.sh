@@ -1,6 +1,6 @@
 #!/bin/bash
 
-read -p "ISSUE: can't find a way to easily patch the .bsp and .lmp files to have both increased spawns and community fixes... Multiple spawns will only show up if you disable .lmp files and then you lose the community fixes... How to properly patch this all???"
+read -p "use CarefulCombat/createNpcSpawnSwitches.sh instead. ISSUE: can't find a way to easily patch the .bsp and .lmp files to have both increased spawns and community fixes... Multiple spawns will only show up if you disable .lmp files and then you lose the community fixes... How to properly patch this all??? just pasting entity data inside .lmp fails (yes, without 'entity' and '\t' and 'empty lines')"
 
 while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
 
