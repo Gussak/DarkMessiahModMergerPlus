@@ -94,11 +94,11 @@ function FUNCechoAndFillFile() {
 }
 
 if [[ "${1-}" == "-m" ]];then #help read last condump and prepare a cfg file to help fill a map with placed NPCs
-	strFlCondump="$(ls -1tr "${strGameInstallMainFolder}/${strGameSubRelatFolderWriteAllHere}/condump"* |tail -n 1)"
+	: ${strFlCondump:="$(ls -1tr "${strGameInstallMainFolder}/${strGameSubRelatFolderWriteAllHere}/condump"* |tail -n 1)"} #help can be the backup like "${strMapCfgFile}.condump.txt"
 	ls -l "$strFlCondump"
 	
 	# map     :  L00 at: -1385 x, -4444 y, 343 z
-	strMapName="$(egrep "^map\s*:\s*L.*" "$strFlCondump" |sed -r -e 's@^map\s*:\s*(L[a-zA-Z0-9_-]*).*@\1@g')"
+	: ${strMapName:="$(egrep "^map\s*:\s*L.*" "$strFlCondump" |sed -r -e 's@^map\s*:\s*(L[a-zA-Z0-9_-]*).*@\1@g')"} #help
 	if [[ -z "$strMapName" ]];then
 		FUNCechoInfo "[ERROR:noMapNameDetected]"
 		FUNCexit 1
@@ -124,6 +124,7 @@ if [[ "${1-}" == "-m" ]];then #help read last condump and prepare a cfg file to 
 	fi
 	FUNCechoAndFillFile "// AUTO GENERATED WITH $(basename "$0")"
 	FUNCechoAndFillFile "// FILL MAP WITH NPCs, total $nTot"
+	FUNCechoAndFillFile "alias gskCCnpcSpawn_helper \"gskEffect100; host_timescale 0.01; ai_disable 1\""
 	FUNCechoAndFillFile "alias gskCCnpcSpawn_next gskCCnpcSpawn_000"
 	#for((i=0;i<${#astrSpawnHintList[@]};i+=iDataLines));do
 	for((i=0;i<${#astrAllLines[@]};i++));do
@@ -160,13 +161,13 @@ if [[ "${1-}" == "-m" ]];then #help read last condump and prepare a cfg file to 
 			strCount="$(      printf %03d $((iCount  )) )"
 			strCountPlus1="$( printf %03d $((iCount+1)) )"
 			
-			FUNCechoAndFillFile "alias gskCCnpcSpawn_${strCount} \"${strPos}; ${strNPC}; gskEffect100; alias gskCCnpcSpawn_next gskCCnpcSpawn_${strCountPlus1}\""
+			FUNCechoAndFillFile "alias gskCCnpcSpawn_${strCount} \"${strPos}; ${strNPC}; gskCCnpcSpawn_helper; alias gskCCnpcSpawn_next gskCCnpcSpawn_${strCountPlus1}\""
 			((iCount++))&&:
 			
 			i=$iLnData
 		fi
 	done
-	FUNCechoAndFillFile "alias gskCCnpcSpawn_${strCountPlus1} \"echo FinishedSpawnings; gskEffectOFF; play *arkane/english/xana/l05_xana_pillardone.wav; ${strRestorePosInTheEnd};\"" #this also prevents continuing thru some previous list entries of a previous test run or map may be
+	FUNCechoAndFillFile "alias gskCCnpcSpawn_${strCountPlus1} \"echo FinishedSpawnings; gskEffectOFF; play *arkane/english/xana/l05_xana_pillardone.wav; ${strRestorePosInTheEnd}; host_timescale 1.0; ai_disable 0\"" #this also prevents continuing thru some previous list entries of a previous test run or map may be
 else # create spawner aliases
 	echo
 	echo "// Total ${#astrNPC[@]} NPCs"
