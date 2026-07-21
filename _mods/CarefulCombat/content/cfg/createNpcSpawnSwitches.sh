@@ -133,7 +133,7 @@ if [[ "${1-}" == "-m" ]];then #help read last condump and prepare a cfg file to 
 	fi
 	FUNCechoAndFillFile "// AUTO GENERATED WITH $(basename "$0")"
 	FUNCechoAndFillFile "// FILL MAP WITH NPCs, total $nTot"
-	FUNCechoAndFillFile "alias gskCCnpcSpawn_helper \"developer 1; gskEffect100; host_timescale 0.01; ai_disable\""
+	FUNCechoAndFillFile "alias gskCCnpcSpawn_helper \"developer 1; gskEffect100; host_timescale 0.01; noclip; ai_disable\""
 	FUNCechoAndFillFile "alias gskCCnpcSpawn_next gskCCnpcSpawn_000"
 	#for((i=0;i<${#astrSpawnHintList[@]};i+=iDataLines));do
 	for((i=0;i<${#astrAllLines[@]};i++));do
@@ -176,7 +176,7 @@ if [[ "${1-}" == "-m" ]];then #help read last condump and prepare a cfg file to 
 			i=$iLnData
 		fi
 	done
-	FUNCechoAndFillFile "alias gskCCnpcSpawn_${strCountPlus1} \"echo FinishedSpawnings; gskEffectOFF; play *arkane/english/xana/l05_xana_pillardone.wav; ${strRestorePosInTheEnd}; host_timescale 1.0; ai_disable; developer 0; \"" #this also prevents continuing thru some previous list entries of a previous test run or map may be
+	FUNCechoAndFillFile "alias gskCCnpcSpawn_${strCountPlus1} \"echo FinishedSpawnings; gskEffectOFF; play *arkane/english/xana/l05_xana_pillardone.wav; ${strRestorePosInTheEnd}; host_timescale 1.0; noclip; ai_disable; developer 0; \"" #this also prevents continuing thru some previous list entries of a previous test run or map may be
 	
 	if egrep "remove" -i "${strMapCfgFile}.condump.txt";then
 		FUNCechoInfo "[WARN] removes detected, better edit to remove from that line up to 'gskSpawnHint' and rerun!" #TODO this can be scripted easily if the echo on the console is like: RemoveAbove=1 or Remove=1 or RM1; echo RM1; echo rm2
