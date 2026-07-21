@@ -16,7 +16,7 @@ More Foes: (see createNpcSpawnSwitches.sh)
 createNpcSpawnSwitches.sh -m:
 	Slow: To 95% precisely add foes, move over the place, aim straight down hit F8.
 	Fast: To 75% precisely add foes, aim anywhere that has enough area around hit F8. Is just to place a bunch of foes, because `getpos` will output a look at angle that is not precisely restored with `setang`.
-	Before placing foes, type `clear;status` on console.
+	Before placing foes, type `clear;status;status` on console.
 	To place foes use 'n' key for `+gskHelpPlaceNPCsToggleHelper` then F7 and F8 (tip: if no do a mistake send a command like "echo RemoveAbove2Foes" or a more specific message, then you can edit the condump.txt before running `createNpcSpawnSwitches.sh -m`).
 	After finishing placing foes type `condump`.
 	Running `./createNpcSpawnSwitches.sh -m` will read the newest condump.txt file and prepare a config file like "_mods/CarefulCombat/content/cfg/gskmap_L00.cfg" that can be applied hitting 'x' key.

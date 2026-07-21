@@ -54,7 +54,7 @@ astrNPC=(
 	mm_npc_create_orc_sword_shield
 	mm_npc_create_servant_specter
 	mm_npc_create_spider
-	#mm_npc_create_spider_mini
+	#mm_npc_create_spider_mini #do not use this one, it will encumber AI and RAM too that is better for challenging NPCs
 	mm_npc_create_undead
 	#mm_npc_create_villager_undead
 	#mm_npc_create_wizard #this is friendly right?
