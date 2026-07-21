@@ -29,8 +29,10 @@
 #	OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 #	OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
+
 # beware: necroguards, necromancers and undead are the only ones of the same faction right? so only these can be placed together without beggining a fight.
-astr=(
+astrNPC=(
 	#mm_npc_create_aratrok
 	#mm_npc_create_cyclope
 	#mm_npc_create_death_knight
@@ -58,17 +60,66 @@ astr=(
 	#mm_npc_create_wizard #this is friendly right?
 )
 
-echo "${#astr[@]}"
-
 function FUNCalias() {
-	echo "alias gskCCnpcSwitch_${i} \"developer 1; echo CREATE:${str#mm_npc_create_}; alias gskCCnpcSpawn ${str}; alias +gskCCnpcSwitch gskCCnpcSwitch_${iNext}\""
+	# alias name limit is 30 chars
+	strShortName="${strNPC#mm_npc_create_}"
+	echo "alias gskCCnpcSwitch_${i} \"developer 1; echo CFG_CREATE:${strShortName}; alias gskCCnpcSpawn gskCCnpcSpawn_${i}; alias +gskCCnpcSwitch gskCCnpcSwitch_${iNext}\""
+	echo "alias gskCCnpcSpawn_${i} \"echo gskSpawnHint; getpos; getpos; echo ${strNPC}; ${strNPC}\"" #this way, it creates a reusable log to quickly place all NPCs again!!! OBS.: getpos 2 times is because the engine bugs and may not print one character some times
 }
 
-for((i=0;i<${#astr[@]};i++));do
-	str=${astr[$i]}
-	iNext=$((i+1))&&:
-	if(( i == (${#astr[@]}-1) ));then
-		iNext=0
+function FUNCvalidateNPC() {
+	local lstrChkNpc="$1";shift
+	local lstrFlCondump="$1";shift
+	local lLn="$1";shift
+	
+	local lbFound=false
+	local i
+	for((i=0;i<${#astrNPC[@]};i++));do
+		local lstrNPC="${astrNPC[$i]}"
+		#declare -p lstrNPC lstrChkNpc
+		if [[ "$lstrNPC" == "$lstrChkNpc" ]];then lbFound=true;break;fi
+	done
+	if ! $lbFound;then
+		FUNCechoInfo "[ERROR:invalid] $lstrChkNpc ( the engine sometimes do not print some letters!!! :O )"
+		: ${strExecEdit:=geany} #help
+		"$strExecEdit" "$lstrFlCondump:$((lLn+1))"
+		FUNCexit 1
 	fi
-	FUNCalias
-done
+}
+
+if [[ "${1-}" == "-m" ]];then #help read last condump and prepare a cfg file to help fill a map with placed NPCs
+	strFlCondump="$(ls -1tr "${strGameInstallMainFolder}/${strGameSubRelatFolderWriteAllHere}/condump"* |tail -n 1)"
+	ls -l "$strFlCondump"
+	mapfile -t astrSpawnHintList < <(egrep "gskSpawnHint" "$strFlCondump" -A 2 |egrep -v "\--" |tr -d '\r')
+	#for strSpawnHint in "${astrSpawnHintList[@]}";do
+	iCount=0
+	iDataLines=3
+	echo
+	echo "// FILL MAP WITH NPCs, total $((${#astrSpawnHintList[@]}/iDataLines))"
+	echo "alias gskCCnpcSpawn_next gskCCnpcSpawn_000"
+	for((i=0;i<${#astrSpawnHintList[@]};i+=iDataLines));do
+		strPos="${astrSpawnHintList[$((i+1))]}"
+		strPosChk="${astrSpawnHintList[$((i+2))]}" #as engine may not print one char! :O
+		iLnNPC="$((i+3))"
+		strNPC="$( echo "${astrSpawnHintList[$iLnNPC]}" |awk '{print $1}')"
+		#declare -p strPos strNPC
+		FUNCvalidateNPC "$strNPC" "$strFlCondump" "$iLnNPC"
+		
+		strCount="$(      printf %03d $((iCount  )) )"
+		strCountPlus1="$( printf %03d $((iCount+1)) )"
+		
+		echo "alias gskCCnpcSpawn_${strCount} \"${strPos}; ${strNPC}; alias gskCCnpcSpawn_next gskCCnpcSpawn_${strCountPlus1}\""
+		((iCount++))&&:
+	done
+else
+	echo
+	echo "// Total ${#astrNPC[@]} NPCs"
+	for((i=0;i<${#astrNPC[@]};i++));do
+		strNPC="${astrNPC[$i]}"
+		iNext=$((i+1))&&:
+		if(( i == (${#astrNPC[@]}-1) ));then
+			iNext=0
+		fi
+		FUNCalias
+	done
+fi
