@@ -65,3 +65,5 @@ _mods/*/content/scripts/*.txt
 
 //////////////////////// INCLUDE
 !*.Vanilla.cfg
+!_mods/BloodySummoner/content/cfg/bloodysummoner.cfg
+!_mods/CarefulCombat/content/cfg/gskmap_*.cfg

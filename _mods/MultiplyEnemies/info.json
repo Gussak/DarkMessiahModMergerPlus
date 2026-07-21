@@ -1,7 +1,7 @@
 {
   "name": "GSK - MultiplyEnemies",
   "version": "1.0",
-  "description": "Auto edit the map to place x10 (optional) more enemies everywhere.",
+  "description": "Auto edit the map to place x10 (optional) more enemies everywhere. WIP. ISSUE: unable to easily patch .bsp and .lmp, for now use CarefulCombat gskmap_...cfg files and bound keys: z x f7 f8.",
   "author": "GussakThor",
   "author_url": "",
   "website": "",

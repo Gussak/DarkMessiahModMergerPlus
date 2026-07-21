@@ -89,9 +89,27 @@ function FUNCvalidateNPC() {
 	fi
 }
 
+function FUNCechoAndFillFile() {
+	echo "$1" |tee -a "$strMapCfgFile"
+}
+
 if [[ "${1-}" == "-m" ]];then #help read last condump and prepare a cfg file to help fill a map with placed NPCs
 	strFlCondump="$(ls -1tr "${strGameInstallMainFolder}/${strGameSubRelatFolderWriteAllHere}/condump"* |tail -n 1)"
 	ls -l "$strFlCondump"
+	
+	# map     :  L00 at: -1385 x, -4444 y, 343 z
+	strMapName="$(egrep "^map\s*:\s*L.*" "$strFlCondump" |sed -r -e 's@^map\s*:\s*(L[a-zA-Z0-9_-]*).*@\1@g')"
+	if [[ -z "$strMapName" ]];then
+		FUNCechoInfo "[ERROR:noMapNameDetected]"
+		FUNCexit 1
+	fi
+	strMapCfgFile="gskmap_${strMapName}.cfg"
+	cp -v "$strMapCfgFile" "${strMapCfgFile}.bkp"&&:
+	cp -vf "$strFlCondump" "${strMapCfgFile}.condump.txt"&&:
+	echo -n >"$strMapCfgFile"
+	
+	strRestorePosInTheEnd="setpos $(egrep "^map\s*:\s*L.*" "$strFlCondump" |sed -r -e 's@^map\s*:\s*(L[a-zA-Z0-9_-]*)\s*at:\s*(.*)@\2@g' |tr -d 'xyz,\r')"
+	
 	#mapfile -t astrSpawnHintList < <(egrep "gskSpawnHint" "$strFlCondump" -A 2 |egrep -v "\--" |tr -d '\r')
 	mapfile -t astrAllLines < <(cat "$strFlCondump" |tr -d '\r')
 	#for strSpawnHint in "${astrSpawnHintList[@]}";do
@@ -99,12 +117,18 @@ if [[ "${1-}" == "-m" ]];then #help read last condump and prepare a cfg file to 
 	#iDataLines=4
 	echo
 #	echo "// FILL MAP WITH NPCs, total $((${#astrSpawnHintList[@]}/iDataLines))"
-	echo "// FILL MAP WITH NPCs, total $(cat "$strFlCondump" |grep gskSpawnHint -c)"
-	echo "alias gskCCnpcSpawn_next gskCCnpcSpawn_000"
+	nTot="$(cat "$strFlCondump" |grep "^gskSpawnHint" -c)"
+	if((nTot==0));then
+		FUNCechoInfo "[ERROR:spawnSomeFoes] use F7 F8 keys"
+		FUNCexit 1
+	fi
+	FUNCechoAndFillFile "// AUTO GENERATED WITH $(basename "$0")"
+	FUNCechoAndFillFile "// FILL MAP WITH NPCs, total $nTot"
+	FUNCechoAndFillFile "alias gskCCnpcSpawn_next gskCCnpcSpawn_000"
 	#for((i=0;i<${#astrSpawnHintList[@]};i+=iDataLines));do
 	for((i=0;i<${#astrAllLines[@]};i++));do
 		strLine="${astrAllLines[$i]}"
-		if [[ "$strLine" =~ .*gskSpawnHint.* ]];then
+		if [[ "$strLine" =~ ^gskSpawnHint.* ]];then
 			iLnData=$i;#declare -p iLnData
 			((iLnData++))&&:;strPos="${astrAllLines[$iLnData]}"
 			((iLnData++))&&:;strPosChk="${astrAllLines[$iLnData]}" #as engine may not print one char! :O
@@ -136,14 +160,14 @@ if [[ "${1-}" == "-m" ]];then #help read last condump and prepare a cfg file to 
 			strCount="$(      printf %03d $((iCount  )) )"
 			strCountPlus1="$( printf %03d $((iCount+1)) )"
 			
-			echo "alias gskCCnpcSpawn_${strCount} \"${strPos}; ${strNPC}; alias gskCCnpcSpawn_next gskCCnpcSpawn_${strCountPlus1}\""
+			FUNCechoAndFillFile "alias gskCCnpcSpawn_${strCount} \"${strPos}; ${strNPC}; gskEffect100; alias gskCCnpcSpawn_next gskCCnpcSpawn_${strCountPlus1}\""
 			((iCount++))&&:
 			
 			i=$iLnData
 		fi
 	done
-	echo "alias gskCCnpcSpawn_${strCountPlus1} \"echo FinishedSpawnings\"" #this also prevents continuing thru some previous list entries of a previous test run or map may be
-else
+	FUNCechoAndFillFile "alias gskCCnpcSpawn_${strCountPlus1} \"echo FinishedSpawnings; gskEffectOFF; play *arkane/english/xana/l05_xana_pillardone.wav; ${strRestorePosInTheEnd};\"" #this also prevents continuing thru some previous list entries of a previous test run or map may be
+else # create spawner aliases
 	echo
 	echo "// Total ${#astrNPC[@]} NPCs"
 	for((i=0;i<${#astrNPC[@]};i++));do
