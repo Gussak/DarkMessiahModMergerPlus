@@ -32,7 +32,7 @@
 while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
 
 function FUNCwindowHelper() {
-	set -x
+	#set -x
 	local lnWId=-1
 	: ${cmdRemoveWindowDecorations:="windowtweaks"} #help https://gist.github.com/AquariusPower/113f4559a4ac8ccb0225a89b9c74c0ea
 	: ${strWindowName:="Wine Desktop"} #help when set to emulate desktop on winecfg it is: "Wine Desktop"
@@ -53,20 +53,20 @@ function FUNCwindowHelper() {
 	
 	: ${bAutoClickRun:=false} #help this is not really necessary and may cause trouble if you try to use the mouse or button is not where it wants
 	if $bAutoClickRun;then
-		if which ScriptEchoColor;then echoc --say "don't touch your mouse please";fi
-		read -p "[blind wait the ModLauncher window show up]" -t 5 #TODO try `perceptualdiff` to check if the button is showing there
-		
-		# continue from ModLaucher button by using mods (blind click)
-		: ${nX:=683} #help where the mouse shall be placed to click on the ModLauncher continue button
-		: ${nY:=507} #help
-		xdotool mousemove $nX $nY;
-		xdotool click --window $lnWId 1
-		if which ScriptEchoColor;then echoc --say "thanks";fi
+	if which ScriptEchoColor;then echoc --say "don't touch your mouse please";fi
+	read -p "[blind wait the ModLauncher window show up]" -t 5 #TODO try `perceptualdiff` to check if the button is showing there
+	
+	# continue from ModLaucher button by using mods (blind click)
+	: ${nX:=683} #help where the mouse shall be placed to click on the ModLauncher continue button
+	: ${nY:=507} #help
+	xdotool mousemove $nX $nY;
+	xdotool click --window $lnWId 1
+	if which ScriptEchoColor;then echoc --say "thanks";fi
 	fi
 	
 	#read -p "[hit a key to exit]" -t 60
 };export -f FUNCwindowHelper;
 
 if ! pgrep -fa DMMM_windowHelper;then
-	(xterm -title DMMM_windowHelper -e bash -c "while true;do FUNCwindowHelper;done & disown)
+	(xterm -title DMMM_windowHelper -e bash -c "while true;do FUNCwindowHelper;done" & disown)
 fi
