@@ -98,17 +98,26 @@ if [[ "${1-}" == "-m" ]];then #help read last condump and prepare a cfg file to 
 	ls -l "$strFlCondump"
 	
 	# map     :  L00 at: -1385 x, -4444 y, 343 z
-	: ${strMapName:="$(egrep "^map\s*:\s*L.*" "$strFlCondump" |sed -r -e 's@^map\s*:\s*(L[a-zA-Z0-9_-]*).*@\1@g')"} #help
+	# map     :  l02_b1 at: -4902 x, -10930 y, 367 z
+	strRegexMapPos='^map\s*:\s*([a-zA-Z0-9_-]*)\s*at:\s*(.*)'
+	: ${strMapName:="$(ugrep "${strRegexMapPos}" "$strFlCondump" |head -n 1 |sed -r -e "s@${strRegexMapPos}@\1@g")"} #help
 	if [[ -z "$strMapName" ]];then
 		FUNCechoInfo "[ERROR:noMapNameDetected]"
 		FUNCexit 1
 	fi
 	strMapCfgFile="gskmap_${strMapName}.cfg"
-	cp -v "$strMapCfgFile" "${strMapCfgFile}.bkp"&&:
-	cp -vf "$strFlCondump" "${strMapCfgFile}.condump.txt"&&:
+	FUNCtrash "$strMapCfgFile"
+	if [[ ! -f "${strMapCfgFile}.condump.txt" ]];then
+		cp -v "$strFlCondump" "${strMapCfgFile}.condump.txt"
+	fi
 	echo -n >"$strMapCfgFile"
 	
-	strRestorePosInTheEnd="setpos $(egrep "^map\s*:\s*L.*" "$strFlCondump" |sed -r -e 's@^map\s*:\s*(L[a-zA-Z0-9_-]*)\s*at:\s*(.*)@\2@g' |tr -d 'xyz,\r')"
+	strPosRestore="$(ugrep "${strRegexMapPos}" "$strFlCondump" |sed -r -e "s@${strRegexMapPos}@\2@g" |tr -d 'xyz,\r')"
+	if [[ -z "$strPosRestore" ]];then
+		FUNCechoInfo "[ERROR:noPosToRestoreDetected]"
+		FUNCexit 1
+	fi
+	strRestorePosInTheEnd="setpos ${strPosRestore}"
 	
 	#mapfile -t astrSpawnHintList < <(egrep "gskSpawnHint" "$strFlCondump" -A 2 |egrep -v "\--" |tr -d '\r')
 	mapfile -t astrAllLines < <(cat "$strFlCondump" |tr -d '\r')
@@ -168,6 +177,12 @@ if [[ "${1-}" == "-m" ]];then #help read last condump and prepare a cfg file to 
 		fi
 	done
 	FUNCechoAndFillFile "alias gskCCnpcSpawn_${strCountPlus1} \"echo FinishedSpawnings; gskEffectOFF; play *arkane/english/xana/l05_xana_pillardone.wav; ${strRestorePosInTheEnd}; host_timescale 1.0; ai_disable 0; developer 0; \"" #this also prevents continuing thru some previous list entries of a previous test run or map may be
+	
+	if egrep "remove" -i "${strMapCfgFile}.condump.txt";then
+		FUNCechoInfo "[WARN] removes detected, better edit to remove from that line up to 'gskSpawnHint' and rerun!" #TODO this can be scripted easily if the echo on the console is like: RemoveAbove=1 or Remove=1 or RM1; echo RM1; echo rm2
+		echo "${strExecEdit} '${strMapCfgFile}.condump.txt'"
+		echo "strFlCondump='${strMapCfgFile}.condump.txt' $0 -m"
+	fi
 else # create spawner aliases
 	echo
 	echo "// Total ${#astrNPC[@]} NPCs"
