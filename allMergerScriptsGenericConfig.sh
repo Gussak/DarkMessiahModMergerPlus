@@ -667,3 +667,30 @@ function FUNCminiModInit() {
 		fi
 	fi
 };export -f FUNCminiModInit
+
+function FUNCgetNewestCondump() {
+	declare -g FUNCgetNewestCondump_strFlCondump="$(ls -1tr "${strGameInstallMainFolder}/${strGameSubRelatFolderWriteAllHere}/condump"* |tail -n 1)"} #help can be the backup like "${strMapCfgFile}.condump.txt"
+	ls -l "$strFlCondump" >&2 &&:
+};export -f FUNCgetNewestCondump
+function FUNCmapInfo() {
+	local lstrFlCondump="$1"
+	
+	# map     :  L00 at: -1385 x, -4444 y, 343 z
+	# map     :  l02_b1 at: -4902 x, -10930 y, 367 z
+	local lstrRegexMapPos='^map\s*:\s*([a-zA-Z0-9_-]*)\s*at:\s*(.*)'
+	local lstrMapStatus="$( ugrep "${lstrRegexMapPos}" "$lstrFlCondump" |awk 'length($0) > max { max = length($0); delete lines; lines[$0]; next } length($0) == max { lines[$0] } END { for (l in lines) print l }' )"
+	if(($(echo "$lstrMapStatus" |wc -l) != 1));then FUNCechoInfo "[ERROR:] 2 biggest lines conflicting";FUNCexit 1;fi
+	declare -g FUNCmapInfo_strMapName
+	: ${FUNCmapInfo_strMapName:="$(echo "$lstrMapStatus" |sed -r -e "s@${lstrRegexMapPos}@\1@g")"} #help
+	if [[ -z "$FUNCmapInfo_strMapName" ]];then
+		FUNCechoInfo "[ERROR:noMapNameDetected]"
+		FUNCexit 1
+	fi
+
+	declare -g FUNCmapInfo_strPosRestore="$(echo "$$lstrMapStatus" |sed -r -e "s@${lstrRegexMapPos}@\2@g" |tr -d 'xyz,\r')"
+	if [[ -z "$FUNCmapInfo_strPosRestore" ]];then
+		FUNCechoInfo "[ERROR:noPosToRestoreDetected]"
+		FUNCexit 1
+	fi
+	strRestorePosInTheEnd="setpos ${FUNCmapInfo_strPosRestore}"
+};declare -p FUNCmapInfo
