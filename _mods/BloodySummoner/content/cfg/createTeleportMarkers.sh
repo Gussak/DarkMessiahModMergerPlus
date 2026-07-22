@@ -143,7 +143,7 @@ if [[ "${1-}" == "-m" ]];then #help read last condump and prepare a cfg file to 
 			i=$iLnData
 		fi
 	done
-	FUNCechoAndFillFile "alias gskCCnpcSpawn_${strCountPlus1} \"echo FinishedSpawnings; gskEffectOFF; play *arkane/english/xana/l05_xana_pillardone.wav; ${strRestorePosInTheEnd}; host_timescale 1.0; noclip; ai_disable; developer 0; \"" #this also prevents continuing thru some previous list entries of a previous test run or map may be
+	FUNCechoAndFillFile "alias gskCCnpcSpawn_${strCountPlus1} \"echo FinishedSpawnings; gskEffectOFF; gskSndDONE; ${strRestorePosInTheEnd}; host_timescale 1.0; noclip; ai_disable; developer 0; \"" #this also prevents continuing thru some previous list entries of a previous test run or map may be
 	
 	if egrep "remove" -i "${strMapCfgFile}.condump.txt";then
 		FUNCechoInfo "[WARN] removes detected, better edit to remove from that line up to 'gskSpawnHint' and rerun!" #TODO this can be scripted easily if the echo on the console is like: RemoveAbove=1 or Remove=1 or RM1; echo RM1; echo rm2
