@@ -1,0 +1,1 @@
+_mods/CarefulCombat/content/cfg/createNpcSpawnSwitches.sh
