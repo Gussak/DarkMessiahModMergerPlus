@@ -60,10 +60,11 @@ astrNPC=(
 	#mm_npc_create_wizard #this is friendly right?
 )
 
-function FUNCalias() {
+function FUNCaliasNpcSpawner() {
+	local lstrInfo="$1"
 	# alias name limit is 30 chars
 	strShortName="${strNPC#mm_npc_create_}"
-	echo "alias gskCCnpcSwitch_${i} \"developer 1; echo CFG_CREATE:${strShortName}; alias gskCCnpcSpawn gskCCnpcSpawn_${i}; alias +gskCCnpcSwitch gskCCnpcSwitch_${iNext}\""
+	echo "alias gskCCnpcSwitch_${i} \"developer 1; echo CFG_CREATE${lstrInfo}:${strShortName}; alias gskCCnpcSpawn gskCCnpcSpawn_${i}; alias +gskCCnpcSwitch gskCCnpcSwitch_${iNext}\""
 	echo "alias gskCCnpcSpawn_${i} \"echo gskSpawnHint; getpos; getpos; echo ${strNPC}; echo ${strNPC}; ${strNPC}\"" #this way, it creates a reusable log to quickly place all NPCs again!!! OBS.: getpos 2 times is because the engine bugs and may not print one character some times
 }
 
@@ -93,31 +94,54 @@ function FUNCechoAndFillFile() {
 	echo "$1" |tee -a "$strMapCfgFile"
 }
 
-if [[ "${1-}" == "-m" ]];then #help read last condump and prepare a cfg file to help fill a map with placed NPCs
+bCreateSpawnsForCurrentMap=false
+strAppendMapName=""
+bUpdateCondump=false
+astrAllParams=("$@")
+while [[ $# -gt 0 && "${1:0:1}" == "-" ]];do
+	if [[ "${1-}" == "-d" ]];then #help update condump backup file
+		bUpdateCondump=true
+	elif [[ "${1-}" == "-m" ]];then #help read last condump and prepare a cfg file to help fill a map with placed NPCs
+		bCreateSpawnsForCurrentMap=true
+	elif [[ "${1-}" == "-M" ]];then #help <strAppendMapName> same as -m but 
+		bCreateSpawnsForCurrentMap=true
+		shift
+		strAppendMapName="_${1}"
+	else
+		FUNCechoInfo "[ERROR] invalid option: $@"
+		exit 1
+	fi
+	shift
+done
+
+if $bCreateSpawnsForCurrentMap;then
 	: ${strFlCondump:="$(ls -1tr "${strGameInstallMainFolder}/${strGameSubRelatFolderWriteAllHere}/condump"* |tail -n 1)"} #help can be the backup like "${strMapCfgFile}.condump.txt"
 	ls -l "$strFlCondump"
 	
-	# map     :  L00 at: -1385 x, -4444 y, 343 z
-	# map     :  l02_b1 at: -4902 x, -10930 y, 367 z
-	strRegexMapPos='^map\s*:\s*([a-zA-Z0-9_-]*)\s*at:\s*(.*)'
-	: ${strMapName:="$(ugrep "${strRegexMapPos}" "$strFlCondump" |head -n 1 |sed -r -e "s@${strRegexMapPos}@\1@g")"} #help
-	if [[ -z "$strMapName" ]];then
-		FUNCechoInfo "[ERROR:noMapNameDetected]"
-		FUNCexit 1
+	FUNCmapInfo "$strFlCondump"
+	## map     :  L00 at: -1385 x, -4444 y, 343 z
+	## map     :  l02_b1 at: -4902 x, -10930 y, 367 z
+	#strRegexMapPos='^map\s*:\s*([a-zA-Z0-9_-]*)\s*at:\s*(.*)'
+	#: ${strMapName:="$(ugrep "${strRegexMapPos}" "$strFlCondump" |head -n 1 |sed -r -e "s@${strRegexMapPos}@\1@g")"} #help
+	#if [[ -z "$strMapName" ]];then
+		#FUNCechoInfo "[ERROR:noMapNameDetected]"
+		#FUNCexit 1
+	#fi
+	#strMapCfgFile="gskmap_${strMapName}${strAppendMapName}.cfg"
+	strMapCfgFile="gskmap_${FUNCmapInfo_strMapName}${strAppendMapName}.cfg"
+	if $bUpdateCondump || [[ ! -f "${strMapCfgFile}.condump.txt" ]];then
+		cp -vf "$strFlCondump" "${strMapCfgFile}.condump.txt"
 	fi
-	strMapCfgFile="gskmap_${strMapName}.cfg"
-	FUNCtrash "$strMapCfgFile"
-	if [[ ! -f "${strMapCfgFile}.condump.txt" ]];then
-		cp -v "$strFlCondump" "${strMapCfgFile}.condump.txt"
-	fi
+	FUNCtrash "$strMapCfgFile" # like a temp backup
 	echo -n >"$strMapCfgFile"
 	
-	strPosRestore="$(ugrep "${strRegexMapPos}" "$strFlCondump" |head -n 1 |sed -r -e "s@${strRegexMapPos}@\2@g" |tr -d 'xyz,\r')"
-	if [[ -z "$strPosRestore" ]];then
-		FUNCechoInfo "[ERROR:noPosToRestoreDetected]"
-		FUNCexit 1
-	fi
-	strRestorePosInTheEnd="setpos ${strPosRestore}"
+	#strPosRestore="$(ugrep "${strRegexMapPos}" "$strFlCondump" |head -n 1 |sed -r -e "s@${strRegexMapPos}@\2@g" |tr -d 'xyz,\r')"
+	#if [[ -z "$strPosRestore" ]];then
+		#FUNCechoInfo "[ERROR:noPosToRestoreDetected]"
+		#FUNCexit 1
+	#fi
+	#strRestorePosInTheEnd="setpos ${strPosRestore}"
+	strRestorePosInTheEnd="setpos ${FUNCmapInfo_strPosRestore}"
 	
 	#mapfile -t astrSpawnHintList < <(egrep "gskSpawnHint" "$strFlCondump" -A 2 |egrep -v "\--" |tr -d '\r')
 	mapfile -t astrAllLines < <(cat "$strFlCondump" |tr -d '\r')
@@ -176,13 +200,15 @@ if [[ "${1-}" == "-m" ]];then #help read last condump and prepare a cfg file to 
 			i=$iLnData
 		fi
 	done
-	FUNCechoAndFillFile "alias gskCCnpcSpawn_${strCountPlus1} \"echo FinishedSpawnings; gskEffectOFF; play *arkane/english/xana/l05_xana_pillardone.wav; ${strRestorePosInTheEnd}; host_timescale 1.0; noclip; ai_disable; developer 0; \"" #this also prevents continuing thru some previous list entries of a previous test run or map may be
+	FUNCechoAndFillFile "alias gskCCnpcSpawn_${strCountPlus1} \"echo FinishedSpawnings; gskEffectOFF; gskSndDONE; ${strRestorePosInTheEnd}; host_timescale 1.0; noclip; ai_disable; developer 0; \"" #this also prevents continuing thru some previous list entries of a previous test run or map may be
 	
-	if egrep "remove" -i "${strMapCfgFile}.condump.txt";then
+	if egrep "rm[0-9]*" -i "${strMapCfgFile}.condump.txt";then #help just type rm1 rm3 etc, will not be recognized as a command but will be logged!
 		FUNCechoInfo "[WARN] removes detected, better edit to remove from that line up to 'gskSpawnHint' and rerun!" #TODO this can be scripted easily if the echo on the console is like: RemoveAbove=1 or Remove=1 or RM1; echo RM1; echo rm2
 		echo "${strExecEdit} '${strMapCfgFile}.condump.txt'"
-		echo "strFlCondump='${strMapCfgFile}.condump.txt' $0 -m"
+		echo "strFlCondump='${strMapCfgFile}.condump.txt' $0 ${astrAllParams[@]}"
 	fi
+	
+	ls -l "$strMapCfgFile"
 else # create spawner aliases
 	echo
 	echo "// Total ${#astrNPC[@]} NPCs"
@@ -192,6 +218,6 @@ else # create spawner aliases
 		if(( i == (${#astrNPC[@]}-1) ));then
 			iNext=0
 		fi
-		FUNCalias
+		FUNCaliasNpcSpawner "( $((i+1)) / ${#astrNPC[@]} )"
 	done
 fi
