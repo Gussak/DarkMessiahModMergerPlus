@@ -683,13 +683,13 @@ function FUNCmapInfo() {
 	declare -g FUNCmapInfo_strMapName
 	: ${FUNCmapInfo_strMapName:="$(echo "$lstrMapStatus" |sed -r -e "s@${lstrRegexMapPos}@\1@g")"} #help
 	if [[ -z "$FUNCmapInfo_strMapName" ]];then
-		FUNCechoInfo "[ERROR:noMapNameDetected]"
+		FUNCechoInfo "[ERROR:] no Map Name Detected "
 		FUNCexit 1
 	fi
 
 	declare -g FUNCmapInfo_strPosRestore="$(echo "$$lstrMapStatus" |sed -r -e "s@${lstrRegexMapPos}@\2@g" |tr -d 'xyz,\r')"
 	if [[ -z "$FUNCmapInfo_strPosRestore" ]];then
-		FUNCechoInfo "[ERROR:noPosToRestoreDetected]"
+		FUNCechoInfo "[ERROR:] no Pos To Restore Detected"
 		FUNCexit 1
 	fi
 	strRestorePosInTheEnd="setpos ${FUNCmapInfo_strPosRestore}"
