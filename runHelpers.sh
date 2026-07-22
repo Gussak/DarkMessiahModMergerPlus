@@ -32,6 +32,7 @@ if which ScriptEchoColor;then
 	if [[ -f "Dark Messiah Might and Magic Single Player/mm.exe" ]];then
 		echo "Merged game folder already mounted..."
 	else
+		declare -p strMainModFolder;echo "[IMPORTANT:] is the above correct? (otherwise hit Ctrl+c)";read -t 15 -n 1&&: # strResp&&:;if [[ "$strResp" != [yY] ]];then exit 1;fi
 		bSudoWithScript=true strUnionFSID=overlayfs secOverrideMultiLayerMountPoint.sh "Dark Messiah Might and Magic Single Player" #help @InfoID="secOverrideMultiLayerMountPoint.sh:MOUNT" Helper Script, depends on ScriptEchoColor
 	fi
 fi

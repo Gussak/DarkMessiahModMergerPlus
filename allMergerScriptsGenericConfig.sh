@@ -693,4 +693,4 @@ function FUNCmapInfo() {
 		FUNCexit 1
 	fi
 	strRestorePosInTheEnd="setpos ${FUNCmapInfo_strPosRestore}"
-};declare -p FUNCmapInfo
+};export -f FUNCmapInfo
