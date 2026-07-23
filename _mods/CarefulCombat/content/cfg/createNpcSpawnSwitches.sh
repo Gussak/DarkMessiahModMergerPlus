@@ -206,6 +206,9 @@ if $bCreateSpawnsForCurrentMap;then
 	done
 	FUNCechoAndFillFile "alias gskCCnpcSpawn_${strCountNext} \"echo FinishedSpawnings; gskSndDONE; ${strRestorePosInTheEnd}; ${strCmdsOFF}; \"" #this also prevents continuing thru some previous list entries of a previous test run or map may be
 	FUNCechoAndFillFile "clear" # before beggining each spawning, this is good
+	FUNCechoAndFillFile "echo \"Now, slowly and repeatedly press the key to spawn the next NPC.\""
+	FUNCechoAndFillFile "echo \"You will be in developer mode and carefully teleported to the location and rotation required for the spawning and without triggering anything.\""
+	FUNCechoAndFillFile "echo \"Obs.: your vision is blurred to the spawn and location be a surprise.\""
 	
 	if egrep "rm[0-9]*" -i "${strMapCfgFile}.condump.txt";then #help just type rm1 rm3 etc, will not be recognized as a command but will be logged!
 		FUNCechoInfo "[WARN] removes detected, better edit to remove from that line up to 'gskSpawnHint' and rerun!" #TODO this can be scripted easily if the echo on the console is like: RemoveAbove=1 or Remove=1 or RM1; echo RM1; echo rm2
