@@ -17,11 +17,11 @@ createNpcSpawnSwitches.sh -m:
 	Slow: To 95% precisely add foes, move over the place, aim straight down hit F8.
 	Fast: To 75% precisely add foes, aim anywhere that has enough area around hit F8. Is just to place a bunch of foes, because `getpos` will output a look at angle that is not precisely restored with `setang`.
 	Before placing foes, type `clear;status;status` on console.
-	To place foes use 'n' key for `+gskHelpPlaceNPCsToggleHelper` then F7 and F8 (tip: if no do a mistake send a command like "echo RemoveAbove2Foes" or a more specific message, then you can edit the condump.txt before running `createNpcSpawnSwitches.sh -m`).
+	To place foes use 'n' key for `+gskHelpPlaceNPCsToggleHelper` then F7 and F8 (tip: if you do a mistake send a command like "rm1" (or rm2 etc rm2s1 (skip last 1 and remove the 2 above)) or a more specific message beggining with "rm", it is not a recognized command by the engine but the script will detect it. For now you can just edit the condump.txt with your hints before running `createNpcSpawnSwitches.sh -m`).
 	After finishing placing foes type `condump`.
 	Running `./createNpcSpawnSwitches.sh -m` will read the newest condump.txt file and prepare a config file like "_mods/CarefulCombat/content/cfg/gskmap_L00.cfg" that can be applied hitting 'x' key.
 	Load that file in console like: exec gskmap_L00
-	Place each foe using 'x' key (on last one it stops placing them) (ISSUE: this may trigger area events..., how to prevent that??? spawn an undead at L00 to fix quest progression).
+	With gskHelpPlaceNPCsToggleHelper disabled, place each foe using 'x' key (on last one it stops placing them) (ISSUE: this may trigger area events..., how to prevent that??? spawn an undead at L00 to fix quest progression).
 
 More power:
 	Every spell with adrenaline is very powerful now to match enemies huge HP.

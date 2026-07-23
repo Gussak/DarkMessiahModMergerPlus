@@ -58,6 +58,7 @@ astrNPC=(
 	mm_npc_create_undead
 	#mm_npc_create_villager_undead
 	#mm_npc_create_wizard #this is friendly right?
+	mm_npc_create_facehugger # custom alias created now
 )
 
 function FUNCaliasNpcSpawner() {
@@ -157,22 +158,24 @@ if $bCreateSpawnsForCurrentMap;then
 	fi
 	FUNCechoAndFillFile "// AUTO GENERATED WITH $(basename "$0")"
 	FUNCechoAndFillFile "// FILL MAP WITH NPCs, total $nTot"
-	FUNCechoAndFillFile "alias gskCCnpcSpawn_helper \"developer 1; gskEffect100; host_timescale 0.01; noclip; ai_disable\""
-	FUNCechoAndFillFile "alias gskCCnpcSpawn_next gskCCnpcSpawn_000"
+	#FUNCechoAndFillFile "alias gskCCnpcSpawn_helper \"\""
+	strCmdsON=" developer 1; ai_disable; noclip; showtriggers 1; showtriggers_toggle; gskEffect100 " # do not use host_timescale 0.01 as it will mess teleporting
+	strCmdsOFF=" ai_disable; noclip; showtriggers 0; showtriggers_toggle; gskEffectOFF; developer 0 "
+	FUNCechoAndFillFile "alias gskCCnpcSpawn_next \"${strCmdsON}; gskCCnpcSpawn_000\"" # initializes with some dev toggles
 	#for((i=0;i<${#astrSpawnHintList[@]};i+=iDataLines));do
 	for((i=0;i<${#astrAllLines[@]};i++));do
 		strLine="${astrAllLines[$i]}"
 		if [[ "$strLine" =~ ^gskSpawnHint.* ]];then
 			iLnData=$i;#declare -p iLnData
-			((iLnData++))&&:;strPos="${astrAllLines[$iLnData]}"
-			((iLnData++))&&:;strPosChk="${astrAllLines[$iLnData]}" #as engine may not print one char! :O
-			if [[ "$strPos" != "$strPosChk" ]];then
+			((iLnData++))&&:;strSelfPosAngle="${astrAllLines[$iLnData]}"
+			((iLnData++))&&:;strSelfPosAngleChk="${astrAllLines[$iLnData]}" #as engine may not print one char! :O
+			if [[ "$strSelfPosAngle" != "$strSelfPosAngleChk" ]];then
 				if $bAutoFixMissingChars;then
-					if((${#strPosChk} > ${#strPos}));then
-						strPos="$strPosChk"
+					if((${#strSelfPosAngleChk} > ${#strSelfPosAngle}));then
+						strSelfPosAngle="$strSelfPosAngleChk"
 					fi
 				else
-					declare -p strPos strPosChk
+					declare -p strSelfPosAngle strSelfPosAngleChk
 					FUNCechoInfo "[ERROR:invalidPOS] ( the engine sometimes do not print some letters!!! :O )"
 					"$strExecEdit" "$strFlCondump:$((iLnData+1))" #editors begin in line 1 not 0
 					FUNCexit 1
@@ -181,7 +184,7 @@ if $bCreateSpawnsForCurrentMap;then
 			
 			((iLnData++))&&:;strNPC="$(    echo "${astrAllLines[$iLnData]}" |awk '{print $1}')"
 			((iLnData++))&&:;strNPCchk="$( echo "${astrAllLines[$iLnData]}" |awk '{print $1}')"
-			#declare -p strPos strNPC
+			#declare -p strSelfPosAngle strNPC
 			if [[ "$strNPC" != "$strNPCchk" ]];then
 				if $bAutoFixMissingChars;then
 					if((${#strNPCchk} > ${#strNPC}));then
@@ -191,16 +194,18 @@ if $bCreateSpawnsForCurrentMap;then
 			fi
 			FUNCvalidateNPC "$strNPC" "$strFlCondump" "$iLnData"
 			
-			strCount="$(      printf %03d $((iCount  )) )"
-			strCountPlus1="$( printf %03d $((iCount+1)) )"
+			strCount="$(     printf %03d $((iCount  )) )"
+			strCountShow="$( printf   %d $((iCount+1)) )" # begins in 1 and ends like 45/45 looks better
+			strCountNext="$( printf %03d $((iCount+1)) )"
 			
-			FUNCechoAndFillFile "alias gskCCnpcSpawn_${strCount} \"${strPos}; ${strNPC}; echo ${iCount}/${nTot}; gskCCnpcSpawn_helper; alias gskCCnpcSpawn_next gskCCnpcSpawn_${strCountPlus1}\""
+			FUNCechoAndFillFile "alias gskCCnpcSpawn_${strCount} \"${strSelfPosAngle}; ${strNPC}; echo Spawning:${strCountShow}/${nTot}:${strNPC#mm_npc_create_}; alias gskCCnpcSpawn_next gskCCnpcSpawn_${strCountNext}\""
 			((iCount++))&&:
 			
 			i=$iLnData
 		fi
 	done
-	FUNCechoAndFillFile "alias gskCCnpcSpawn_${strCountPlus1} \"echo FinishedSpawnings; gskEffectOFF; gskSndDONE; ${strRestorePosInTheEnd}; host_timescale 1.0; noclip; ai_disable; developer 0; \"" #this also prevents continuing thru some previous list entries of a previous test run or map may be
+	FUNCechoAndFillFile "alias gskCCnpcSpawn_${strCountNext} \"echo FinishedSpawnings; gskSndDONE; ${strRestorePosInTheEnd}; ${strCmdsOFF}; \"" #this also prevents continuing thru some previous list entries of a previous test run or map may be
+	FUNCechoAndFillFile "clear" # before beggining each spawning, this is good
 	
 	if egrep "rm[0-9]*" -i "${strMapCfgFile}.condump.txt";then #help just type rm1 rm3 etc, will not be recognized as a command but will be logged!
 		FUNCechoInfo "[WARN] removes detected, better edit to remove from that line up to 'gskSpawnHint' and rerun!" #TODO this can be scripted easily if the echo on the console is like: RemoveAbove=1 or Remove=1 or RM1; echo RM1; echo rm2
@@ -212,6 +217,7 @@ if $bCreateSpawnsForCurrentMap;then
 else # create spawner aliases
 	echo
 	echo "// Total ${#astrNPC[@]} NPCs"
+	echo "alias mm_npc_create_facehugger \"mm_npc_create npc_facehugger models/NPC/Facehugger/Npc_Facehugger.mdl\""
 	for((i=0;i<${#astrNPC[@]};i++));do
 		strNPC="${astrNPC[$i]}"
 		iNext=$((i+1))&&:
@@ -221,3 +227,4 @@ else # create spawner aliases
 		FUNCaliasNpcSpawner "( $((i+1)) / ${#astrNPC[@]} )"
 	done
 fi
+

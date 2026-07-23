@@ -135,4 +135,6 @@ astrOptList=(
 )
 
 #TODO the other instance must be run after the menu of mods show up and is loaded, or the json changes may cause problems, for now just wait manually
+set -x
 wine "$strExecutable" "${astrOptList[@]}"
+set +x

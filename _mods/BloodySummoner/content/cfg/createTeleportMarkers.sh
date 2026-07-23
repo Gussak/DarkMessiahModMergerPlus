@@ -45,6 +45,8 @@ fi
 echo -n >"$strMapCfgFile"
 ln -vsf "$strMapCfgFile" "gskTeleMarkers.cfg"
 
+#TODO this can also update a file gskFillCurrentMapWithNPCs.cfg based on the current map name and on available files at CarefulCombat! so at 'q' key to reload some cfgs, it will also load gskFillCurrentMapWithNPCs.cfg that is ready with the spawn NPC settings for current map!
+
 exit
 
 
