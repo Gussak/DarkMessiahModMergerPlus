@@ -29,3 +29,4 @@ More power:
 This tweak is only for hard mode, I won't balance it for easy mode.
 
 ISSUE: during the combat at the dock with the ship, some necroguards are spawning with 35HP that is based in what? Seems hardcoded? like leanna with 900000hp first encounter... From console (developer 1; ent_text) they spawn with correct HP*HardDifficultyNPCLifeMul. There are also others spawning with correct HP there tho. just use F7 F8.
+ISSUE: the necromancer above the bathroom is because it is impossibe to restore and auto place him inside it, the angle bug.
