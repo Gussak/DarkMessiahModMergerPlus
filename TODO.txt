@@ -30,7 +30,6 @@ MayBeOnlyPatchingTheEngineBinary
 - spikes on walls should hurt the player like does stepping on fire, they could kick us on it too
 - swap inventory should re-equip the items automatically or at least opening inventory should pause the game in a way that let we manage the inventory to re-equip stuff as pause prevents managing inventory.
 - player should be knock back and knock down too
-- create necromantic revival that is only countered by gore dismembering on corpses
 - lockpick minigame like in skyrim with breakable lockpicks. you have like 10. when one breaks, imagine that you take like 5mins to create a new one from scrap materials found everywhere. It auto refills 1 every 5mins up to 10.
 - let we throw everything in the direction we are actually looking at, and not just in front horizontally. sometimes it is impossible to hit an oil jar on enemy if it is on the ground below...
 - get we throw light things while crouched, may be not so far
@@ -45,6 +44,3 @@ MayBeNot
 DONE:
 - let small spiders attack
 - make spider poison last much longer requiring to use the antidote... like 100x longer
-
-THIS WORKS ALREADY:
-- make spiders jump like guards, and if possible hit on jump too
