@@ -91,6 +91,7 @@
 	declare -A anVanillaValues=()
 	declare -A astrFlVanillaScript=()
 	declare -A anMaxOtherModsValues=()
+	declare -A anOtherModsValues=()
 	for strFlWork in "${astrList[@]}";do
 		#echo "$strFlWork"
 		strFlRelat="$(echo "$strFlWork" |egrep -oi "(${strRegexKGMRF}).*" |cut -d"/" -f2- |cut -d: -f1)"&&:
@@ -106,6 +107,7 @@
 			if((nHPvalue > ${anMaxOtherModsValues[$strFlRelat]}));then
 				anMaxOtherModsValues[${strFlRelat}]=$nHPvalue
 			fi
+			anOtherModsValues[${strFlRelat}]="${anOtherModsValues[${strFlRelat}]-}, $nHPvalue"
 		else
 			anMaxOtherModsValues[${strFlRelat}]=$nHPvalue
 		fi
@@ -125,7 +127,7 @@
 	: ${nMultHP:=21} #help
 	
 	astrSpecialNpcsTmp=(
-		models/npc/leanna/npc_leanna.qct=Vanilla
+		models/npc/leanna/npc_leanna.qct=*11
 		models/npc/crow/npc_crow.qct=Vanilla
 		models/npc/dog/npc_dog.qct=Vanilla
 		models/npc/menelag/npc_menelag.qct=Vanilla
@@ -192,7 +194,7 @@
 		strHint2=""
 		if((${anMaxOtherModsValues[$strFlNpc]} > nNewHP));then strHint+="!";fi
 		if((${anVanillaValues[$strFlNpc]} == (nNewHP - 1) ));then strHint2+="!";fi
-		printf "$strFmt" "${anVanillaValues[$strFlNpc]}" "${anMaxOtherModsValues[$strFlNpc]}${strHint}" "${nNewHP}${strHint2}" "${strFlNpc}"
+		printf "$strFmt" "${anVanillaValues[$strFlNpc]}" "${anMaxOtherModsValues[$strFlNpc]}${strHint}" "${nNewHP}${strHint2}" "${strFlNpc}  # ${anOtherModsValues[${strFlNpc}]-}"
 		
 		strPathModPatch="${strPathThisModFolderFull}/content/$(dirname "${strFlNpc}")"
 		mkdir -p "${strPathModPatch}"
