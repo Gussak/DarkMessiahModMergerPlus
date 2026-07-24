@@ -71,7 +71,7 @@ function FUNCaliasNpcSpawner() {
 }
 
 : ${strExecEdit:=geany} #help
-: ${bAutoFixMissingChars:=true} #help :O
+: ${bAutoFixMissingChars:=true} #help the engine may not print all charaters in a line, so usually repeating the command will provide a 2nd line with the missing char
 
 function FUNCvalidateNPC() {
 	local lstrChkNpc="$1";shift
@@ -98,14 +98,14 @@ function FUNCechoAndFillFile() {
 
 bCreateSpawnsForCurrentMap=false
 strAppendMapName=""
-bUpdateCondump=false
+bUpdateCondumpBkp=false
 astrAllParams=("$@")
 while [[ $# -gt 0 && "${1:0:1}" == "-" ]];do
-	if [[ "${1-}" == "-d" ]];then #help update condump backup file
-		bUpdateCondump=true
-	elif [[ "${1-}" == "-m" ]];then #help read last condump and prepare a cfg file to help fill a map with placed NPCs
+	if [[ "${1}" == "-d" ]];then #help update condump backup file using latest condump
+		bUpdateCondumpBkp=true
+	elif [[ "${1}" == "-m" ]];then #help read last condump and prepare a cfg file to help fill a map with placed NPCs
 		bCreateSpawnsForCurrentMap=true
-	elif [[ "${1-}" == "-M" ]];then #help <strAppendMapName> same as -m but 
+	elif [[ "${1}" == "-M" ]];then #help <strAppendMapName> same as -m but you can prepare a smaller area in that map with loads of foes to not encumber the engine, ex.: "02_FrontYard_OK" for gskmap_l02_b1_02_FrontYard_OK.cfg
 		bCreateSpawnsForCurrentMap=true
 		shift
 		strAppendMapName="_${1}"
@@ -117,7 +117,7 @@ while [[ $# -gt 0 && "${1:0:1}" == "-" ]];do
 done
 
 if $bCreateSpawnsForCurrentMap;then
-	: ${strFlCondump:="$(ls -1tr "${strGameInstallMainFolder}/${strGameSubRelatFolderWriteAllHere}/condump"* |tail -n 1)"} #help can be the backup like "${strMapCfgFile}.condump.txt"
+	: ${strFlCondump:="$(ls -1tr "${strGameInstallMainFolder}/${strGameSubRelatFolderWriteAllHere}/condump"* |tail -n 1)"} #help can be the backup like ex.: "gskmap_l02_b1_02_FrontYard_OK.cfg.condump.txt"
 	ls -l "$strFlCondump"
 	
 	FUNCmapInfo "$strFlCondump"
@@ -131,7 +131,7 @@ if $bCreateSpawnsForCurrentMap;then
 	#fi
 	#strMapCfgFile="gskmap_${strMapName}${strAppendMapName}.cfg"
 	strMapCfgFile="gskmap_${FUNCmapInfo_strMapName}${strAppendMapName}.cfg"
-	if $bUpdateCondump || [[ ! -f "${strMapCfgFile}.condump.txt" ]];then
+	if $bUpdateCondumpBkp || [[ ! -f "${strMapCfgFile}.condump.txt" ]];then
 		cp -vf "$strFlCondump" "${strMapCfgFile}.condump.txt"
 	fi
 	FUNCtrash "$strMapCfgFile" # like a temp backup

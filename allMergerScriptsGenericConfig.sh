@@ -444,13 +444,13 @@ function SECFUNCshowHelpV2() { #help TODO WIP making it much easier to maintain!
 		
 		if [[ "${lstrHelp:0:1}" == ":" ]];then strHelpType=env;fi
 		
-		lstrHelp="$(echo "$lstrHelp" |sed -r -e 's@if *\[\[ *"\$\{1[-]*\}" *== *"(.*)" *\]\];then [#]help[_ ]*(.*)@\1\t\2@')" #clean param simple options like: if [[ "${1}" == "-a" ]];then
+		lstrHelp="$(echo "$lstrHelp" |sed -r -e 's@^\s*(if|elif) *\[\[ *"\$\{1[-]*\}" *== *"(.*)" *\]\];then [#]help[_ ]*(.*)@\2\t\3@')" #clean param simple options like: if [[ "${1}" == "-a" ]];then
 		FUNCverboseHelpCleanup $LINENO
 		
 		#lstrHelp="$(echo "$lstrHelp" |sed -r -e 's@if *\[\[ \$# -gt 0 && *"\$\{1[-]*\}" *== *"(.*)" *\]\];then [#]help[_ ]*(.*)@\1\t\2@')" #clean param simple options like: if [[ $# -gt 0 && "$1" == "--help" ]];then
 		#FUNCverboseHelpCleanup $LINENO
 		
-		lstrHelp="$(echo "$lstrHelp" |sed -r -e 's@(if|elif) *\[\[ *"\$[{]*1[}]*" *== *"(.*)" *\|\| *"\$[{]*1[}]*" *== *"(.*)" *\]\];then [#]help[_ ]*(.*)@\2 \3\t\4@')" #clean param options for options loop like: if [[ "${1}" == "-a" || "${1}" == "--alert"]];then
+		lstrHelp="$(echo "$lstrHelp" |sed -r -e 's@^\s*(if|elif) *\[\[ *"\$[{]*1[}]*" *== *"(.*)" *\|\| *"\$[{]*1[}]*" *== *"(.*)" *\]\];then [#]help[_ ]*(.*)@\2 \3\t\4@')" #clean param options for options loop like: if [[ "${1}" == "-a" || "${1}" == "--alert"]];then
 		FUNCverboseHelpCleanup $LINENO
 		
 		if [[ "${lstrHelp:0:1}" == "-" ]];then strHelpType=param;fi
@@ -562,7 +562,7 @@ function SECFUNCshowHelpV2() { #help TODO WIP making it much easier to maintain!
 	#declare -p lnColW1max
 	local i
 	
-	if((${#lastrColumnsAllLinesParam[@]}>0));then echo " [PARAMS:]";fi
+	if((${#lastrColumnsAllLinesParam[@]}>0));then echo " [OPTIONS:]";fi
 	for((i=0;i<${#lastrColumnsAllLinesParam[@]};i+=3));do
 		local lastrColumnsPrint=("${lastrColumnsAllLinesParam[i+0]}" "${lastrColumnsAllLinesParam[i+1]}" "${lastrColumnsAllLinesParam[i+2]}")
 		FUNChelpPrint
