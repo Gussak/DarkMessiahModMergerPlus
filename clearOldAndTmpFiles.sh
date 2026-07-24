@@ -5,9 +5,9 @@ while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./a
 (
 	cd "${strGameInstallMainFolder}/${strGameSubRelatFolderWriteAllHere}"
 
-	trash \
-		"demoheader.tmp.ID_"*".bkp" \
-		"demoheader.tmp.ID_"*".bkp.Strings.txt" \
+	FUNCtrash \
+		"demoheader.tmp.SnapShot_ID_"*".bkp" \
+		"demoheader.tmp.SnapShot_ID_"*".bkp.Strings.txt" \
 		"condump"*".txt" &&:
 
 	#set -x

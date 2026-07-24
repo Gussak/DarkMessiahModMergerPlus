@@ -62,15 +62,6 @@ done
 if [[ -z "$strScriptFileRelat" ]];then FUNCechoInfo "[invalid] strScriptFileRelat='' is empty"; FUNCexit 1;fi
 exec > >(tee "$strFinalMergedFolderContent/${strScriptFileRelat}.log") 2>&1
 
-FUNCchkDeps() {
-	while ! ${1+false};do
-		if ! which "$1";then
-			FUNCechoInfo "ERROR: missing dependency '$1'"
-			FUNCexit 1;
-		fi
-		shift
-	done
-}
 FUNCchkDeps jq colordiff patch
 
 astrWorkDB=()

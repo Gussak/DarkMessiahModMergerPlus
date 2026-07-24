@@ -31,6 +31,16 @@
 
 set -Eeu #use this specifically, not to everything or |grep results will fail...: set -o pipefail
 
+FUNCchkDeps() {
+	while ! ${1+false};do
+		if ! which "$1";then
+			FUNCechoInfo "ERROR: missing dependency '$1'"
+			FUNCexit 1;
+		fi
+		shift
+	done
+};export -f FUNCchkDeps
+
 FUNCask() { #use read cmd options
 	while read -t 0.1 -n 1;do :;done #clear key buffer
 	local lstrResp

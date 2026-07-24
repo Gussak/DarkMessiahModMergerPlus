@@ -66,7 +66,7 @@ function FUNCaliasNpcSpawner() {
 	# alias name limit is 30 chars
 	local lstrShortName="${strNPC#mm_npc_create_}"
 	local lstrBeginLoopHint="";if((i==0));then lstrBeginLoopHint=" <> <> <> <> <> <> <> <> <> <>";fi
-	echo "alias gskCCnpcSwitch_${i} \"developer 1; contimes 50; echo CFG_CREATE${lstrInfo}:${lstrShortName}${lstrBeginLoopHint}; alias gskCCnpcSpawn gskCCnpcSpawn_${i}; alias +gskCCnpcSwitch gskCCnpcSwitch_${iNext}\""
+	echo "alias gskCCnpcSwitch_${i} \"developer 1; contimes 50; echo CFG_CREATE${lstrInfo}:${lstrShortName}${lstrBeginLoopHint}; alias +gskCCnpcSpawn gskCCnpcSpawn_${i}; alias +gskCCnpcSwitch gskCCnpcSwitch_${iNext}\""
 	echo "alias gskCCnpcSpawn_${i} \"echo gskSpawnHint; getpos; getpos; echo ${strNPC}; echo ${strNPC}; ${strNPC}\"" #this way, it creates a reusable log to quickly place all NPCs again!!! OBS.: getpos 2 times is because the engine bugs and may not print one character some times
 }
 

@@ -4,7 +4,7 @@
 	"gskFixShieldsRemove": "#menu_controls_gskfixshieldsremove",
 	"gskFixShieldsAdd": "#menu_controls_gskfixshieldsadd",
 	"+gskCCnpcSwitch": "#menu_controls_gskccnpcswitch",
-	"gskCCnpcSpawn": "#menu_controls_gskccnpcspawn",
+	"+gskCCnpcSpawn": "#menu_controls_gskccnpcspawn",
 	"+gskDbgEntInfo": "#menu_controls_gskdbgentinfo",
 	"gskSummonSpiderMini": "#menu_controls_gsksummonspidermini",
 	"gskSummonSpiderRegular": "#menu_controls_gsksummonspiderregular",

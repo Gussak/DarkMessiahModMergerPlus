@@ -64,9 +64,10 @@ for strAlias in "${astrAliasList[@]}";do
 done
 
 strFlTmp="$(mktemp)"
-echo "${strMenuDataBegin}${strMenuDataEntries}${strMenuDataEnd}" >"$strFlTmp"
+echo "${strMenuDataBegin}${strMenuDataEntries}${strMenuDataEnd}" |unix2dos >>"$strFlTmp" #this grants CRLF #|sed 's@$@\r@'
 ls -l ../resource/mm_gskcustombinds_english.txt
-iconv -f $(file -b --mime-encoding "$strFlTmp") -t "UTF-16LE" "$strFlTmp" >../resource/mm_gskcustombinds_english.txt
+printf "\xFF\xFE" >../resource/mm_gskcustombinds_english.txt #this grants BOM
+iconv -f $(file -b --mime-encoding "$strFlTmp") -t "UTF-16LE" "$strFlTmp" >>../resource/mm_gskcustombinds_english.txt #finally is: UTF-16LE(With BOM)
 ls -l ../resource/mm_gskcustombinds_english.txt
 cat ../resource/mm_gskcustombinds_english.txt
 rm "$strFlTmp"
