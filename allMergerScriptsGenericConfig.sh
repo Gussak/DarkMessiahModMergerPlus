@@ -31,6 +31,16 @@
 
 set -Eeu #use this specifically, not to everything or |grep results will fail...: set -o pipefail
 
+shopt -s expand_aliases
+alias FUNCechoInfo='echo "[$(basename "$0"):${FUNCNAME[@]}:$LINENO]"'
+#function FUNCechoInfo() {
+	#echo "[$(basename "$0")] $@"
+#}
+
+
+################################# FUNCTIONS
+
+
 FUNCchkDeps() {
 	while ! ${1+false};do
 		if ! which "$1";then
@@ -80,6 +90,9 @@ FUNCexit() {
 };export -f FUNCexit
 trap 'echo "Ctrl+C pressed, exiting..." >&2; exit 1' INT
 #trap 'read -n 1 -p "Ctrl+C pressed, exiting..." >&2; exit 1' INT
+
+
+####################################### MAIN
 
 : ${bVerbose:=false} #help enable this to see auto configured variables thru `declare`
 exec 3>/dev/null   # Point FD 3 to /dev/null
@@ -222,12 +235,6 @@ strFinalDummyHelperFolder="${strMergedModsFolder}/dummy/"
 mkdir -vp "${strFinalDummyHelperFolder}"
 
 : ${strRegexFoldersToIgnore:="IGNORE_LAYER|Extracted.Quick.TMP|/_tmp/|/tmp/"} #help this is compatible with secOverrideMultiLayerMountPoint.sh that is using OverlayFS
-
-shopt -s expand_aliases
-alias FUNCechoInfo='echo "[$(basename "$0"):${FUNCNAME[@]}:$LINENO]"'
-#function FUNCechoInfo() {
-	#echo "[$(basename "$0")] $@"
-#}
 
 strFlFinalMergerModJson="$strMergedModsFolder/info.json"
 
