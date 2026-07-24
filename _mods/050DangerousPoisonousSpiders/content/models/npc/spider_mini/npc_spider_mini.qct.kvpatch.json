@@ -8,5 +8,8 @@
     "$keyvalues.entity_data.PlayerNoAttackDelayToGoBersekerMode": "2.0",
     "$keyvalues.entity_data.Poison_Damages": "0.5",
     "$keyvalues.entity_data.Poison_Duration": "200",
-    "$keyvalues.entity_data.poisoned": "0.6"
+    "$keyvalues.entity_data.poisoned": "0.6",
+    "__comments__": {
+        "$keyvalues.entity_data.Poison_Duration": "//one attack can kill if not treated"
+    }
 }

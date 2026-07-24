@@ -1,0 +1,10 @@
+{
+    "$keyvalues.entity_data.level_1.UsePoisonAttack": "1",
+    "$keyvalues.entity_data.life_tobeg": "0.0",
+    "$keyvalues.entity_data.life_toflee": "0.0",
+    "$keyvalues.entity_data.Poison_Damages": "0.5",
+    "$keyvalues.entity_data.Poison_Duration": "60",
+    "__comments__": {
+        "spelldatas.water_2.Damage_Factor": "// Damage delt per second. //TODO This overrides entity_data???"
+    }
+}
