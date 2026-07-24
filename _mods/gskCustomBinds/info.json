@@ -8,6 +8,6 @@
     "launch_parameters"     :   [],
     "gameinfo_parameters"   :   [],
     "modules"               :   [],
-    "game_configs"          :   [ "gskShowAllKeyBindings.cfg", "gskEnabledBinds.cfg" ],
+    "game_configs"          :   [ "gskShowAllKeyBindings.cfg" ],
     "autoexec_configs"      :   []
 }

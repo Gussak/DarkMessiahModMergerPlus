@@ -29,6 +29,8 @@
 #	OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 #	OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+#read -p "Press Enter to continue (Ctrl+C to abort)"
+
 if true;then
 	while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
 	
@@ -47,10 +49,13 @@ if true;then
 			#if ! egrep -q '"game_configs".*[.]cfg-"' "$strFlInfo";then
 			#if [[ ! "${lastrCfgsList[*]}" =~ .*[.]cfg-.* ]];then
 			#if ! egrep -q '"game_configs_bkp"' "$strFlInfo";then
-			if((${#lastrCfgsBkpList[*]}==0));then
-				cp -v "$strFlInfo" "${strFlInfo}.bkp"
-				FUNCjsonSetArray "$strFlInfo" game_configs_bkp "${lastrCfgsList[@]}"
-				FUNCjsonSetArray "$strFlInfo" game_configs     "" #"${lastrCfgsList[@]}"
+			: ${bPatchAllInfoJson:=false} #help This will edit all 'info.json' from all mods. It will move the array inside 'game_configs' into 'game_configs_bkp'.
+			if $bPatchAllInfoJson;then
+				if((${#lastrCfgsBkpList[*]}==0));then
+					cp -v "$strFlInfo" "${strFlInfo}.bkp"
+					FUNCjsonSetArray "$strFlInfo" game_configs_bkp "${lastrCfgsList[@]}"
+					FUNCjsonSetArray "$strFlInfo" game_configs     "" #"${lastrCfgsList[@]}"
+				fi
 			fi
 			
 			lastrCfgsAllList+=("${lastrCfgsList[@]}" "${lastrCfgsBkpList[@]}")
@@ -67,12 +72,12 @@ if true;then
 	declare -p lastrCfgsAllList
 
 	echo
-	echo "[EXISTING] at '$strMergedModsFolder'"
+	echo "[INFO] EXISTING config files being run at '$strMergedModsFolder'"
 	#egrep "exec " "${strPathSelf}/_mods/FinalMergedScriptsMaxPriority/content/cfg/game.cfg"
 	egrep "exec " "${strMergedModsFolder}/content/cfg/game.cfg"
 	
 	echo
-	echo "[MISSING?] append here at a 'content/cfg/game.cfg' copy from first match found (probably at Overhaul mod)"
+	echo "[INFO] (check if the below are missing) append here at a 'content/cfg/game.cfg'. copy from first match found (probably at Overhaul mod)."
 	for strFlCfg in "${lastrCfgsAllList[@]}";do
 		if [[ "$strFlCfg" =~ ^unlimitededition[.]cfg.* ]];then continue;fi # already at main game.cfg from Overhaul mod
 		echo "exec ${strFlCfg%-}"
