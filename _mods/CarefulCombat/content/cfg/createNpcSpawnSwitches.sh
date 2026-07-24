@@ -222,6 +222,12 @@ else # create spawner aliases
 	echo
 	echo "// Total ${#astrNPC[@]} NPCs"
 	echo "alias mm_npc_create_facehugger \"mm_npc_create npc_facehugger models/NPC/Facehugger/Npc_Facehugger.mdl\""
+	
+	# these could work but the engine do not allow it. The NPC is created but the special item (bread or potion) is badly positioned at feet and on death it just vanishes.
+	#  mm_npc_create npc_necro_guard_bow models/npc/Necroguard/npc_necroguard.mdl item_food_bread01_cooked weapon_arx_short_sword  weapon_arxcrossbow
+	#  mm_npc_create npc_necro_guard_bow models/npc/Necroguard/npc_necroguard.mdl item_potion_life weapon_arx_short_sword weapon_arxcrossbow
+	#  mm_npc_create npc_necro_guard models/npc/Necroguard/npc_necroguard.mdl item_potion_life item_potion_life weapon_arx_short_sword weapon_mm_shield_necroguard
+	
 	for((i=0;i<${#astrNPC[@]};i++));do
 		strNPC="${astrNPC[$i]}"
 		iNext=$((i+1))&&:
