@@ -31,5 +31,6 @@
 	"gskNpcFullyHeal": "#menu_controls_gsknpcfullyheal",
 	"+gskNpcTelepathy": "#menu_controls_gsknpctelepathy",
 	"+gskNpcMark": "#menu_controls_gsknpcmark",
-	"gskNpcMarkedTeleport": "#menu_controls_gsknpcmarkedteleport"
+	"gskNpcMarkedTeleport": "#menu_controls_gsknpcmarkedteleport",
+	"+gsk_zoom_cycle": "#menu_controls_gsk_zoom_cycle"
 }
