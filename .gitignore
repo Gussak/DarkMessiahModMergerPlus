@@ -42,8 +42,8 @@ tmp
 *.qct
 *.lst
 *.vmt
-*.cfg
-_mods/*/content/resource/*.txt
+_mods/*/content/cfg/game.cfg
+_mods/*/content/resource/closecaption_manifest.txt
 _mods/*/content/gameinfo.txt
 _mods/*/content/scripts/*.txt
 

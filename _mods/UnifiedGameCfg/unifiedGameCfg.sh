@@ -49,7 +49,7 @@ if true;then
 			#if ! egrep -q '"game_configs".*[.]cfg-"' "$strFlInfo";then
 			#if [[ ! "${lastrCfgsList[*]}" =~ .*[.]cfg-.* ]];then
 			#if ! egrep -q '"game_configs_bkp"' "$strFlInfo";then
-			: ${bPatchAllInfoJson:=false} #help This will edit all 'info.json' from all mods. It will move the array inside 'game_configs' into 'game_configs_bkp'.
+			: ${bPatchAllInfoJson:=false} #help This will edit all 'info.json' from all mods. It will move the array inside 'game_configs' into 'game_configs_bkp'. This way, every config file will be loaded thru the order that is configured inside the game.cfg file.
 			if $bPatchAllInfoJson;then
 				if((${#lastrCfgsBkpList[*]}==0));then
 					cp -v "$strFlInfo" "${strFlInfo}.bkp"
