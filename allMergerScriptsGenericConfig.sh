@@ -32,10 +32,10 @@
 set -Eeu #use this specifically, not to everything or |grep results will fail...: set -o pipefail
 
 shopt -s expand_aliases
-alias FUNCechoInfo='echo "[$(basename "$0"):${FUNCNAME[@]}:$LINENO]"'
 #function FUNCechoInfo() {
-	#echo "[$(basename "$0")] $@"
+	#echo "[$(basename "$0")] $@" >&2
 #}
+alias FUNCechoInfo='echo "[$(basename "$0"):${FUNCNAME[@]}:$LINENO]" >&2'
 
 
 ################################# FUNCTIONS
@@ -51,17 +51,18 @@ FUNCchkDeps() {
 	done
 };export -f FUNCchkDeps
 
-FUNCask() { #use read cmd options
-	while read -t 0.1 -n 1;do :;done #clear key buffer
-	local lstrResp
-	read "$@" lstrResp&&:;local lnRet=$?
-	echo "$lstrResp"
-	return $lnRet
-};export -f FUNCask
+#FUNCask() { #use read cmd options
+	#while read -t 0.1 -n 1;do :;done #clear key buffer
+	#local lstrResp
+	#read "$@" lstrResp&&:;local lnRet=$?
+	#echo "$lstrResp"
+	#return $lnRet
+#};export -f FUNCask
 FUNCaskYesNo() { # <questionForYesNo>. use like: if FUNCaskYesNo "oi?";then ...
 	while read -t 0.1 -n 1;do :;done #clear key buffer
 	local lstrResp
-	read -n 1 -p "${1}? (y/...)" lstrResp&&:
+	echo -n "${1}? (y/...)" >&2
+	read -n 1 lstrResp&&:
 	if [[ "$lstrResp" =~ [yY] ]];then return 0;fi
 	return 1
 };export -f FUNCaskYesNo

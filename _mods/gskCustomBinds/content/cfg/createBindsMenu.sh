@@ -46,11 +46,26 @@ strMenuDataEnd='
 }
 '
 strMenuDataEntries=""
+function FUNCgoodDesc() {
+	local lstrLN="$(grep "${lstrAlias}" gskEnabledBinds.DoNotEnable.cfg)"
+	if [[ "$lstrLN" =~ .*//.* ]];then
+		local lstrDesc="$(echo -n "$lstrLN" |sed -r -e 's@.*//(.*)@\1@g' |tr -d '\r')"
+		: ${lnMaxDescSize:=40} #help
+		if((${#lstrDesc} > lnMaxDescSize));then
+			FUNCechoInfo "[WARN] lstrDesc size is too big (${#lstrDesc} chars/$lnMaxDescSize) and will not fit in the menu for '$lstrDesc'"
+			if ! FUNCaskYesNo "continue anyway?";then exit 1;fi
+		fi
+		echo -n "$lstrDesc"
+		return 0
+	fi
+	return 1
+}
 function FUNClazyDesc() {
-	local lstrDesc="$1";
-	for((i=0;i<${#lstrDesc};i++));do
-		if [[ "${lstrDesc:$i:1}" =~ [A-Z] ]];then echo -n " ";fi
-		echo -n "${lstrDesc:$i:1}";
+	local lstrAlias="$1";
+	if FUNCgoodDesc "$lstrAlias";then return 0;fi
+	for((i=0;i<${#lstrAlias};i++));do
+		if [[ "${lstrAlias:$i:1}" =~ [A-Z] ]];then echo -n " ";fi
+		echo -n "${lstrAlias:$i:1}";
 	done
 }
 strKVPatches=""
