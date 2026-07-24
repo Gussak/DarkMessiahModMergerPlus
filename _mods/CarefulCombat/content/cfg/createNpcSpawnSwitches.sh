@@ -234,7 +234,7 @@ else # create spawner aliases
 		if(( i == (${#astrNPC[@]}-1) ));then
 			iNext=0
 		fi
-		FUNCaliasNpcSpawner "( $((i+1)) / ${#astrNPC[@]} )"
+		FUNCaliasNpcSpawner "( $i / $((${#astrNPC[@]} - 1)) )"
 	done
 fi
 
