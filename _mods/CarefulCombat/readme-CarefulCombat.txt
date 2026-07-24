@@ -25,7 +25,7 @@ createNpcSpawnSwitches.sh -m: (or use the files I prepared see Using Pre-made fi
 	Load that file in console like: exec gskmap_L00
 	With gskHelpPlaceNPCsToggleHelper disabled, place each foe using 'x' key (on last one it stops placing them).
 
-Using Pre-made files:
+Using Pre-made files: (MoreFoes keys)
 	Open console and type `status`, it will show the map name like "l02_b1".
 	Now type: exec gskmap_l02_b1_01_GuestHouse_OK
 	Obs.: Be careful to be in normal game mode, to have +gskHelpPlaceNPCsToggleHelper disabled, or it will mess the toggles (as we cant set them to ON or OFF, it is just the toggle of: buddha, noclip, notarget, ai_disable; so you can check if they are all normal by toggling again and that may get quite confusing requiring game app restart...)
