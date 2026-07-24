@@ -40,6 +40,9 @@ alias FUNCechoInfo='echo "[$(basename "$0"):${FUNCNAME[@]}:$LINENO]" >&2'
 
 ################################# FUNCTIONS
 
+function FUNCdtFlNm() {
+	date +'%Y_%m_%d-%H_%M_%S'
+};export FUNCdtFlNm
 
 FUNCchkDeps() {
 	while ! ${1+false};do

@@ -65,7 +65,7 @@ function FUNCbkp() {
 				touch -r "quick.sav" "quick.sav.7z"
 				touch -r "quick.tga" "quick.sav.7z"
 				
-				strDupItDtTm="$(date +"%Y_%m_%d-%H_%M_%S")" #the game stops auto duplicating after some time of playing...
+				strDupItDtTm="$(FUNCdtFlNm)" #the game stops auto duplicating after some time of playing...
 				cp "quick.sav" "mm-${strDupItDtTm}.sav"
 				cp "quick.tga" "mm-${strDupItDtTm}.tga"
 				
@@ -80,7 +80,7 @@ function FUNCbkp() {
 			fi
 		done
 		
-		read -t 5 -p "[$(date +"%Y_%m_%d-%H_%M_%S")][press a key to backup all again]"
+		read -t 5 -p "[$(FUNCdtFlNm)][press a key to backup all again]"
 	done
 };export -f FUNCbkp
 

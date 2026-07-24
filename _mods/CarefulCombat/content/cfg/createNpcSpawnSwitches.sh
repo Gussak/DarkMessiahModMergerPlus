@@ -134,6 +134,7 @@ if $bCreateSpawnsForCurrentMap;then
 	if $bUpdateCondumpBkp || [[ ! -f "${strMapCfgFile}.condump.txt" ]];then
 		cp -vf "$strFlCondump" "${strMapCfgFile}.condump.txt"
 	fi
+	cp -v "$strMapCfgFile" "${strMapCfgFile}.$(FUNCdtFlNm).bkp"&&:
 	FUNCtrash "$strMapCfgFile" # like a temp backup
 	echo -n >"$strMapCfgFile"
 	
@@ -148,7 +149,8 @@ if $bCreateSpawnsForCurrentMap;then
 	#mapfile -t astrSpawnHintList < <(egrep "gskSpawnHint" "$strFlCondump" -A 2 |egrep -v "\--" |tr -d '\r')
 	mapfile -t astrAllLines < <(cat "$strFlCondump" |tr -d '\r')
 	#for strSpawnHint in "${astrSpawnHintList[@]}";do
-	iCount=0
+	: ${iMoreFoesSpawnIndexBegin:=0} #help change this to help append indexes in an existing map cfg file. use like ex.: iMoreFoesSpawnIndexBegin=11 ./createNpcSpawnSwitches.sh -M temp
+	iCount=$iMoreFoesSpawnIndexBegin
 	#iDataLines=4
 	echo
 #	echo "// FILL MAP WITH NPCs, total $((${#astrSpawnHintList[@]}/iDataLines))"
@@ -162,7 +164,7 @@ if $bCreateSpawnsForCurrentMap;then
 	#FUNCechoAndFillFile "alias gskCCnpcSpawn_helper \"\""
 	strCmdsON=" developer 1; +duck; ai_disable; noclip; showtriggers 1; showtriggers_toggle; gskEffect100 " # do not use host_timescale 0.01 as it will mess teleporting. +duck is to help to fit yourself in smaller places causing less issues
 	strCmdsOFF=" -duck; ai_disable; noclip; showtriggers 0; showtriggers_toggle; gskEffectOFF; developer 0 "
-	FUNCechoAndFillFile "alias gskCCnpcSpawn_next \"${strCmdsON}; gskCCnpcSpawn_000\"" # initializes with some dev toggles
+	FUNCechoAndFillFile "alias gskCCnpcSpawn_next \"${strCmdsON}; gskCCnpcSpawn_$( printf %03d $((iCount)) )\"" # initializes with some dev toggles
 	#for((i=0;i<${#astrSpawnHintList[@]};i+=iDataLines));do
 	for((i=0;i<${#astrAllLines[@]};i++));do
 		strLine="${astrAllLines[$i]}"

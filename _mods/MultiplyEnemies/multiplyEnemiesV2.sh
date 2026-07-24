@@ -250,7 +250,7 @@ for strMap in "${astrMapList[@]}";do
 	strVmf="${strPathSDK}/mm_content/mapsrc/${strMap}.vmf"
 	declare -p strVmf
 	if ! [[ -f "$strVmf" ]];then continue;fi
-	#cp -v "$strVmf" "${strVmf}.$(date +'%Y_%m_%d-%H_%M_%S').bkp"
+	#cp -v "$strVmf" "${strVmf}.$(FUNCdtFlNm).bkp"
 	
 	if egrep "_${strMultToken}_" "$strVmf";then
 		ls -l "${strVmf}.BeforeMultiplyEnemies.vmf" "${strVmf}" &&:
