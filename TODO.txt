@@ -44,3 +44,5 @@ MayBeNot
 DONE:
 - let small spiders attack
 - make spider poison last much longer requiring to use the antidote... like 100x longer
+- npc_viewcone telepathy
+- alias gskDevRmNpcOnLift F8 lift ent_remove
