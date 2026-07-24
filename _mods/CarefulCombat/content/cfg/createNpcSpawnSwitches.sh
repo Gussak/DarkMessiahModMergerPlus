@@ -149,7 +149,7 @@ if $bCreateSpawnsForCurrentMap;then
 	#mapfile -t astrSpawnHintList < <(egrep "gskSpawnHint" "$strFlCondump" -A 2 |egrep -v "\--" |tr -d '\r')
 	mapfile -t astrAllLines < <(cat "$strFlCondump" |tr -d '\r')
 	#for strSpawnHint in "${astrSpawnHintList[@]}";do
-	: ${iMoreFoesSpawnIndexBegin:=0} #help change this to help append indexes in an existing map cfg file. use like ex.: iMoreFoesSpawnIndexBegin=11 ./createNpcSpawnSwitches.sh -M temp
+	: ${iMoreFoesSpawnIndexBegin:=0} #help change this to help append indexes in an existing map cfg file. also be careful with the `setpos` in the finishing last one. use like ex.: iMoreFoesSpawnIndexBegin=11 ./createNpcSpawnSwitches.sh -M temp;
 	iCount=$iMoreFoesSpawnIndexBegin
 	#iDataLines=4
 	echo
