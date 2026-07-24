@@ -9,7 +9,7 @@
 	"gskSummonSpiderMini": "#menu_controls_gsksummonspidermini",
 	"gskSummonSpiderRegular": "#menu_controls_gsksummonspiderregular",
 	"gskSummonFacehugger": "#menu_controls_gsksummonfacehugger",
-	"gskSummonCurePoison": "#menu_controls_gsksummoncurepoison",
+	"gskSummonPotionCurePoison": "#menu_controls_gsksummonpotioncurepoison",
 	"gskSummonPotionLife": "#menu_controls_gsksummonpotionlife",
 	"gskSummonPotionMana": "#menu_controls_gsksummonpotionmana",
 	"gskSummonPotionStone": "#menu_controls_gsksummonpotionstone",
