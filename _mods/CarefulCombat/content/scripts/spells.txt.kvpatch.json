@@ -10,6 +10,7 @@
         "spelldatas.fire_4.effect_adrenaline": "//Inferno damage done when adrenalised",
         "spelldatas.earth_2.cost": "//sanctuary: damage immunity very powerful. Use with slow motion but be careful. You can activate again to turn it OFF and ON before time expires, vanilla 25mana for 15s let you use mana for other things. But 100mana is more challenging to prepare and lasts equivalent to vanilla.",
         "spelldatas.earth_2.effect": "//sanctuary",
+        "spelldatas.water_2.Damage_Factor": "//TODO this overrides entity_data???",
         "spelldatas.water_3.cost": "// freeze: cant be resisted, overpowerful easy kill after using it, was 15.0",
         "spelldatas.water_4.cost": "// charm: use it wisely. It is over powerful as even after charm ends, the target may continue fighting against their friends! they cant resist your charm mmm..., so even a powerful enemy will create distraction for a long time. was 15.0 (just to force kvpatch creation)",
         "spelldatas.water_4.effect": "// charm: is over powerful if for too long as is granted foe getting killed. the foe will create an excellent distraction already so you can activate adrenaline and use powerful spells and skills on others but not for too long, and this foe will return against you later soon. almost vanilla value is enough to help. Is not like a thrall or raised zombie, is just a frenzy confusion.",
