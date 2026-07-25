@@ -86,6 +86,7 @@ for strAlias in "${astrAliasList[@]}";do
 done
 echo "TODO: Big identifiers may bug the engine? limit is 30 chars and is not checked? or the problem is the amount of menu entries that is causing errors and preventing some cutscenes being loaded?"
 declare -p iMaxMenuIdSz strMaxMenuIdSz
+echo "Total binds added: ${#astrAliasList[@]}"
 
 strFlTmp="$(mktemp)"
 echo "${strMenuDataBegin}${strMenuDataEntries}${strMenuDataEnd}" |unix2dos >>"$strFlTmp" #this grants CRLF #|sed 's@$@\r@'
