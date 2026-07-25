@@ -28,6 +28,7 @@
 	"+gskShowTriggers": "#menu_controls_gskshowtriggers",
 	"+gskCondump": "#menu_controls_gskcondump",
 	"+gskReloadCfgs": "#menu_controls_gskreloadcfgs",
+	"gskEffectOFF_devOnly": "#menu_controls_gskeffectoff_devonly",
 	"gskNpcFullyHeal": "#menu_controls_gsknpcfullyheal",
 	"+gskNpcTelepathy": "#menu_controls_gsknpctelepathy",
 	"+gskNpcMark": "#menu_controls_gsknpcmark",
