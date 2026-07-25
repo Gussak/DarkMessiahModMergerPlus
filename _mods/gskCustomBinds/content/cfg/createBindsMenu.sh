@@ -95,3 +95,12 @@ ls -l ../scripts/kb_act.lst.kvpatch.json
 echo -e "{\n${strKVPatches}\n}" >../scripts/kb_act.lst.kvpatch.json
 ls -l ../scripts/kb_act.lst.kvpatch.json
 cat ../scripts/kb_act.lst.kvpatch.json
+
+echo '
+now run: 
+trash ../resource/closecaption_manifest.txt; #will be auto recreated from vanilla + kvpatch
+trash ../scripts/kb_act.lst; #will be auto recreated from vanilla + kvpatch
+cd ../../../..
+./merge.sh -f resource/closecaption_manifest.txt;
+./merge.sh -f scripts/kb_act.lst;
+'
