@@ -139,6 +139,22 @@ if [[ ! -f "$strFlModLoadSett" ]];then
 	FUNCexit 1
 fi
 
+function FUNCmodLauncherIgnoredMod() {
+	local lstrLayer="$1"
+	local lstrModLauncherModFolder
+	for lstrModLauncherModFolder in "${astrModLauncherOrderList[@]}";do
+		if [[ "${lstrLayer}" =~ .*/_mods/${lstrModLauncherModFolder}/content/.* ]];then
+			local lstrModLauncherIgnoreFolder
+			for lstrModLauncherIgnoreFolder in "${astrModLauncherIgnoreList[@]}";do
+				if [[ "${lstrModLauncherModFolder}" == "${lstrModLauncherIgnoreFolder}" ]];then
+					return 0
+				fi
+			done
+		fi
+	done
+	return 1
+}
+
 mapfile -t astrModLauncherOrderList < <(
 	#FUNCjson "$strFlModLoadSett" ".load_order[]" |sed -r -e 's@^"@@' -e 's@"$@@'
 	FUNCjsonGetArray "$strFlModLoadSett" "load_order" |sed -r -e 's@^"@@' -e 's@"$@@'
@@ -149,12 +165,13 @@ mapfile -t astrModLauncherIgnoreList < <(
 )
 echo;declare -p astrModLauncherOrderList |sed -r -e "$strSedArrayNumToLn";echo
 astrListCurrent=()
+astrListFromModLauncher=()
 #set +x
 for strModLauncherModFolder in "${astrModLauncherOrderList[@]}";do
 #	for strLayer in "${astrListFoldersLayersOrder[@]}";do
 	for((i=0;i<${#astrListFoldersLayersOrder[@]};i++));do
 		strLayer="${astrListFoldersLayersOrder[i]}"
-		if [[ "${strLayer}" =~ .*/${strModLauncherModFolder}/.* ]];then
+		if [[ "${strLayer}" =~ .*/_mods/${strModLauncherModFolder}/content/.* ]];then
 			bIgnoreModFolder=false
 			for strModLauncherIgnoreFolder in "${astrModLauncherIgnoreList[@]}";do
 				if [[ "${strModLauncherModFolder}" == "${strModLauncherIgnoreFolder}" ]];then
@@ -163,7 +180,7 @@ for strModLauncherModFolder in "${astrModLauncherOrderList[@]}";do
 				fi
 			done
 			if ! $bIgnoreModFolder;then
-				astrListCurrent+=("${strLayer}")
+				astrListFromModLauncher+=("${strLayer}")
 			fi
 			unset astrListFoldersLayersOrder[$i]
 			break;
@@ -171,7 +188,9 @@ for strModLauncherModFolder in "${astrModLauncherOrderList[@]}";do
 	done
 	astrListFoldersLayersOrder=("${astrListFoldersLayersOrder[@]}") # clear unset indexes
 done
-astrListCurrent=("${astrListFoldersLayersOrder[@]}" "${astrListCurrent[@]}") # remaining folders at astrListFoldersLayersOrder will be overriden by the ones from ModLauncher list order
+echo;declare -p astrListFoldersLayersOrder |sed -r -e "$strSedArrayNumToLn";echo
+echo;declare -p astrListFromModLauncher |sed -r -e "$strSedArrayNumToLn";echo
+astrListCurrent=("${astrListFoldersLayersOrder[@]}" "${astrListFromModLauncher[@]}") # remaining folders at astrListFoldersLayersOrder will be overriden by the ones from ModLauncher list order
 echo
 FUNCechoInfo "[list with overriden by the ones from ModLauncher list order]"
 declare -p astrListCurrent |sed -r -e "$strSedArrayNumToLn";echo
@@ -190,7 +209,15 @@ if [[ -z "$bFollowFolderLayersOrder" ]];then
 	fi
 else
 	if $bFollowFolderLayersOrder;then
-		astrListCurrent=("${astrListFoldersLayersOrderOriginal[@]}")
+		astrListCurrent=()
+		astrListCurrentChk=("${astrListFoldersLayersOrderOriginal[@]}")
+		#for((i=0;i<${#astrListCurrent[@]};i++));do
+			#strChkLayer="${astrListCurrent[$i]}"
+		for strChkLayer in "${astrListCurrentChk[@]}";do
+			if ! FUNCmodLauncherIgnoredMod "$strChkLayer";then
+				astrListCurrent+=("$strChkLayer")
+			fi
+		done
 		echo
 		FUNCechoInfo "[list following Folders Layers Order]"
 		declare -p astrListCurrent |sed -r -e "$strSedArrayNumToLn";echo
