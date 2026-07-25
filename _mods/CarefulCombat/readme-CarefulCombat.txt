@@ -17,7 +17,7 @@ createNpcSpawnSwitches.sh -m: (or use the files I prepared see Using Pre-made fi
 	Slow: To 95% precisely add foes, move over the place, aim straight down hit F8.
 	Fast: To 75% precisely add foes, aim anywhere that has enough area around hit F8. Is just to place a bunch of foes, because `getpos` will output a look at angle that is not precisely restored with `setang`.
 	Before placing foes, type `clear;status;status` on console.
-	To place foes use 'n' key for `+gskHelpPlaceNPCsToggleHelper`.
+	To place foes use 'n' key for `+gskHelpPlaceNPCsToggleH`.
 	IMPORTANT!!! fly around carefully to not trigger any events (the yellow boxes)!!!
 	Then F7 and F8 (tip: if you do a mistake send a command like "rm1" (or rm2 etc rm2s1 (skip last 1 and remove the 2 above)) or a more specific message beggining with "rm", it is not a recognized command by the engine but the script will detect it. For now you can just edit the condump.txt with your hints before running `createNpcSpawnSwitches.sh -m`).
 	After finishing placing foes type `condump`.

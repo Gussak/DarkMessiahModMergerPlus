@@ -69,8 +69,11 @@ function FUNClazyDesc() {
 	done
 }
 strKVPatches=""
+iMaxMenuIdSz=0
+strMaxMenuIdSz=""
 for strAlias in "${astrAliasList[@]}";do
-	strMenuID="menu_controls_$(echo "$strAlias" |sed -r -e 's@[+]*(.*)@\1@g' |tr '[:upper:]' '[:lower:]')"
+	strMenuID="mc_$(echo "$strAlias" |sed -r -e 's@[+]*(.*)@\1@g' |tr '[:upper:]' '[:lower:]')"
+	if((iMaxMenuIdSz < ${#strMenuID}));then iMaxMenuIdSz=${#strMenuID}; strMaxMenuIdSz="$strMenuID";fi
 	strDescription="$(FUNClazyDesc "$strAlias" |sed -r -e 's@[+]*gsk (.*)@\1@g')"
 	strMenuDataEntries+='
         //# '"$strMenuID"'
@@ -81,6 +84,8 @@ for strAlias in "${astrAliasList[@]}";do
 	strKVPatches+="\t\"${strAlias}\": \"#${strMenuID}\""
 	#declare -p strAlias strMenuID strDescription
 done
+echo "TODO: Big identifiers may bug the engine? limit is 30 chars and is not checked? or the problem is the amount of menu entries that is causing errors and preventing some cutscenes being loaded?"
+declare -p iMaxMenuIdSz strMaxMenuIdSz
 
 strFlTmp="$(mktemp)"
 echo "${strMenuDataBegin}${strMenuDataEntries}${strMenuDataEnd}" |unix2dos >>"$strFlTmp" #this grants CRLF #|sed 's@$@\r@'
@@ -88,13 +93,17 @@ ls -l ../resource/mm_gskcustombinds_english.txt
 printf "\xFF\xFE" >../resource/mm_gskcustombinds_english.txt #this grants BOM
 iconv -f $(file -b --mime-encoding "$strFlTmp") -t "UTF-16LE" "$strFlTmp" >>../resource/mm_gskcustombinds_english.txt #finally is: UTF-16LE(With BOM)
 ls -l ../resource/mm_gskcustombinds_english.txt
-cat ../resource/mm_gskcustombinds_english.txt
+if $bVerbose;then
+	cat ../resource/mm_gskcustombinds_english.txt
+fi
 rm "$strFlTmp"
 
 ls -l ../scripts/kb_act.lst.kvpatch.json
 echo -e "{\n${strKVPatches}\n}" >../scripts/kb_act.lst.kvpatch.json
 ls -l ../scripts/kb_act.lst.kvpatch.json
-cat ../scripts/kb_act.lst.kvpatch.json
+if $bVerbose;then
+	cat ../scripts/kb_act.lst.kvpatch.json
+fi
 
 echo '
 now run: 
