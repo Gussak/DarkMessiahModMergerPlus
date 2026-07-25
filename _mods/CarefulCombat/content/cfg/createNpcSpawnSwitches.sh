@@ -151,7 +151,9 @@ if $bCreateSpawnsForCurrentMap;then
 	FUNCprepareCleanDataOriginBkp() {
 		if $bUsingCleanCondump;then return 0;fi
 		for((j=0;j<iTotEntryDataLines;j++));do
-			echo "${astrAllLines[$((iLnDataIni+j))]}" >>"$strFlCondumpClean"
+			local lstrLine="${astrAllLines[$((iLnDataIni+j))]}"
+			local lstrExtra="";if [[ "$lstrLine" =~ ^gskSpawnHint.* ]];then lstrExtra="  // ( $((iSpawnCount+1))/${nTotSpawns} )";fi
+			echo "${lstrLine}${lstrExtra}" >>"$strFlCondumpClean"
 		done
 	}
 	
@@ -171,21 +173,21 @@ if $bCreateSpawnsForCurrentMap;then
 	mapfile -t astrAllLines < <(cat "$strFlCondump" |tr -d '\r')
 	#for strSpawnHint in "${astrSpawnHintList[@]}";do
 	: ${iMoreFoesSpawnIndexBegin:=0} #help change this to help append indexes in an existing map cfg file. also be careful with the `setpos` in the finishing last one. use like ex.: iMoreFoesSpawnIndexBegin=11 ./createNpcSpawnSwitches.sh -M temp;
-	iCount=$iMoreFoesSpawnIndexBegin
+	iSpawnCount=$iMoreFoesSpawnIndexBegin
 	#iDataLines=4
 	echo
 #	echo "// FILL MAP WITH NPCs, total $((${#astrSpawnHintList[@]}/iDataLines))"
-	nTot="$(cat "$strFlCondump" |grep "^gskSpawnHint" -c)"
-	if((nTot==0));then
+	nTotSpawns="$(cat "$strFlCondump" |grep "^gskSpawnHint" -c)"
+	if((nTotSpawns==0));then
 		FUNCechoInfo "[ERROR:spawnSomeFoes] use F7 F8 keys"
 		FUNCexit 1
 	fi
 	FUNCechoAndFillFile "// AUTO GENERATED WITH $(basename "$0"). DO NOT PATCH! Patch the '${strFlCondumpClean}' file instead!"
-	FUNCechoAndFillFile "// FILL MAP WITH NPCs, total $nTot"
+	FUNCechoAndFillFile "// FILL MAP WITH NPCs, total $nTotSpawns"
 	#FUNCechoAndFillFile "alias gskCCnpcSpawn_helper \"\""
 	strCmdsON=" developer 1; +duck; ai_disable; noclip; showtriggers 1; showtriggers_toggle; gskEffect100 " # do not use host_timescale 0.01 as it will mess teleporting. +duck is to help to fit yourself in smaller places causing less issues
 	strCmdsOFF=" -duck; ai_disable; noclip; showtriggers 0; showtriggers_toggle; gskEffectOFF; developer 0 "
-	FUNCechoAndFillFile "alias gskCCnpcSpawn_next \"${strCmdsON}; gskCCnpcSpawn_$( printf %03d $((iCount)) )\"" # initializes with some dev toggles
+	FUNCechoAndFillFile "alias gskCCnpcSpawn_next \"${strCmdsON}; gskCCnpcSpawn_$( printf %03d $((iSpawnCount)) )\"" # initializes with some dev toggles
 	#for((i=0;i<${#astrSpawnHintList[@]};i+=iDataLines));do
 	for((i=0;i<${#astrAllLines[@]};i++));do
 		strLine="${astrAllLines[$i]}"
@@ -222,12 +224,12 @@ if $bCreateSpawnsForCurrentMap;then
 			fi
 			FUNCvalidateNPC "$strNPC" "$strFlCondump" "$iLnData"
 			
-			strCount="$(     printf %03d $((iCount  )) )"
-			strCountShow="$( printf   %d $((iCount+1)) )" # begins in 1 and ends like 45/45 looks better
-			strCountNext="$( printf %03d $((iCount+1)) )"
+			strCount="$(     printf %03d $((iSpawnCount  )) )"
+			strCountShow="$( printf   %d $((iSpawnCount+1)) )" # begins in 1 and ends like 45/45 looks better
+			strCountNext="$( printf %03d $((iSpawnCount+1)) )"
 			
-			FUNCechoAndFillFile "alias gskCCnpcSpawn_${strCount} \"$(FUNCfixPosAng "${strSelfPosAngle}"); ${strNPC}; echo Spawning:${strCountShow}/${nTot}:${strNPC#mm_npc_create_}; alias gskCCnpcSpawn_next gskCCnpcSpawn_${strCountNext}\""
-			((iCount++))&&:
+			FUNCechoAndFillFile "alias gskCCnpcSpawn_${strCount} \"$(FUNCfixPosAng "${strSelfPosAngle}"); ${strNPC}; echo Spawning:${strCountShow}/${nTotSpawns}:${strNPC#mm_npc_create_}; alias gskCCnpcSpawn_next gskCCnpcSpawn_${strCountNext}\""
+			((iSpawnCount++))&&:
 			
 			if(( iTotEntryDataLines != (iLnData - iLnDataIni + 1) ));then
 				FUNCechoInfo "[ERROR:DEV] invalid iTotEntryDataLines=$iTotEntryDataLines iLnData=$iLnData iLnDataIni=$iLnDataIni"
@@ -242,7 +244,7 @@ if $bCreateSpawnsForCurrentMap;then
 	FUNCechoAndFillFile "echo \"You will be in developer mode and carefully teleported to the location and rotation required for the spawning and without triggering anything.\""
 	FUNCechoAndFillFile "echo \"Obs.: your vision is blurred to the spawn and location be a surprise.\""
 	
-	if egrep "rm[0-9]*" -i "${strMapCfgFile}.condump.txt";then #help just type rm1 rm3 etc, will not be recognized as a command but will be logged!
+	if egrep "^Unknown command: rm[0-9]*" -i "${strMapCfgFile}.condump.txt";then #help just type rm1 rm3 etc, will not be recognized as a command but will be logged!
 		FUNCechoInfo "[WARN] removes detected, better edit to remove from that line up to 'gskSpawnHint' and rerun!" #TODO this can be scripted easily if the echo on the console is like: RemoveAbove=1 or Remove=1 or RM1; echo RM1; echo rm2
 		echo "${strExecEdit} '${strMapCfgFile}.condump.txt'"
 		echo "strFlCondump='${strMapCfgFile}.condump.txt' $0 ${astrAllParams[@]}"
