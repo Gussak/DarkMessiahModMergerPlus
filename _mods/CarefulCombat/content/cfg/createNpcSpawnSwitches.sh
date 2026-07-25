@@ -180,7 +180,7 @@ if $bCreateSpawnsForCurrentMap;then
 		FUNCechoInfo "[ERROR:spawnSomeFoes] use F7 F8 keys"
 		FUNCexit 1
 	fi
-	FUNCechoAndFillFile "// AUTO GENERATED WITH $(basename "$0"). DO NOT PATCH! Patch the CLEAN file instead!"
+	FUNCechoAndFillFile "// AUTO GENERATED WITH $(basename "$0"). DO NOT PATCH! Patch the '${strFlCondumpClean}' file instead!"
 	FUNCechoAndFillFile "// FILL MAP WITH NPCs, total $nTot"
 	#FUNCechoAndFillFile "alias gskCCnpcSpawn_helper \"\""
 	strCmdsON=" developer 1; +duck; ai_disable; noclip; showtriggers 1; showtriggers_toggle; gskEffect100 " # do not use host_timescale 0.01 as it will mess teleporting. +duck is to help to fit yourself in smaller places causing less issues

@@ -1,0 +1,7 @@
+mm_npc_create
+	mm_npc_create <model> [items...]
+	ex.:
+		mm_npc_create npc_necro_guard_bow models/npc/Necroguard/npc_necroguard.mdl weapon_arx_short_sword weapon_arxcrossbow
+			this enables the bow thinking mode (if you do not put weapon_arxcrossbow as last item it will use the last item as bow?)
+		mm_npc_create npc_necro_guard_bow models/npc/Necroguard/npc_necroguard.mdl item_food_bread01_cooked weapon_arx_short_sword  weapon_arxcrossbow
+			this will place the bread on the feet and wont drop it after death
