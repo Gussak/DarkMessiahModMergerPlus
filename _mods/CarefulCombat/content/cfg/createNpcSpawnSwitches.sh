@@ -185,8 +185,8 @@ if $bCreateSpawnsForCurrentMap;then
 	FUNCechoAndFillFile "// AUTO GENERATED WITH $(basename "$0"). DO NOT PATCH! Patch the '${strFlCondumpClean}' file instead!"
 	FUNCechoAndFillFile "// FILL MAP WITH NPCs, total $nTotSpawns"
 	#FUNCechoAndFillFile "alias gskCCnpcSpawn_helper \"\""
-	strCmdsON=" developer 1; +duck; ai_disable; noclip; showtriggers 1; showtriggers_toggle; gskEffect100 " # do not use host_timescale 0.01 as it will mess teleporting. +duck is to help to fit yourself in smaller places causing less issues
-	strCmdsOFF=" -duck; ai_disable; noclip; showtriggers 0; showtriggers_toggle; gskEffectOFF; developer 0 "
+	strCmdsON=" developer 1; +duck; gskDevGodModeToggles; gskEffect100 " # do not use host_timescale 0.01 as it will mess teleporting. +duck is to help to fit yourself in smaller places causing less issues
+	strCmdsOFF=" -duck; gskDevGodModeToggles; gskEffectOFF; developer 0 "
 	FUNCechoAndFillFile "alias gskCCnpcSpawn_next \"${strCmdsON}; gskCCnpcSpawn_$( printf %03d $((iSpawnCount)) )\"" # initializes with some dev toggles
 	#for((i=0;i<${#astrSpawnHintList[@]};i+=iDataLines));do
 	for((i=0;i<${#astrAllLines[@]};i++));do

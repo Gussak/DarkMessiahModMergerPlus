@@ -29,7 +29,7 @@ Using Pre-made files: (MoreFoes keys)
 	Open console and type `status`, it will show the map name like "l02_b1".
 	Now type: exec gskmap_l02_b1_01_GuestHouse_OK
 	Obs.: Be careful to be in normal game mode, to have +gskHelpPlaceNPCsToggleHelper disabled, or it will mess the toggles (as we cant set them to ON or OFF, it is just the toggle of: buddha, noclip, notarget, ai_disable; so you can check if they are all normal by toggling again and that may get quite confusing requiring game app restart...)
-	Now, in normal game mode press (default) 'x' to place each foe to fill that map area.
+	Now, in normal game mode press "MoreFoes: Create Next NPC" (gskCCnpcSpawn_next) to place each foe to fill that map area. Dont do it too fast, you will see the screen changing when you teleport, then press again.
 	When done you will be teleported back to initial location as configured in that file.
 	PS.: I was careful to fly around without triggering anything.
 
