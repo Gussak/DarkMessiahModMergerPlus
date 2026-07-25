@@ -61,6 +61,10 @@ astrNPC=(
 	mm_npc_create_facehugger # custom alias created now
 )
 
+function FUNCfixPosAng() {
+	./analyzeGetSetPosAngleDiscrepancy.sh -f "$1"
+}
+
 function FUNCaliasNpcSpawner() {
 	local lstrInfo="$1"
 	# alias name limit is 30 chars
@@ -98,12 +102,12 @@ function FUNCechoAndFillFile() {
 
 bCreateSpawnsForCurrentMap=false
 strAppendMapName=""
-bUpdateCondumpBkp=false
+#bUpdateCondumpBkp=false
 astrAllParams=("$@")
 while [[ $# -gt 0 && "${1:0:1}" == "-" ]];do
-	if [[ "${1}" == "-d" ]];then #help update condump backup file using latest condump
-		bUpdateCondumpBkp=true
-	elif [[ "${1}" == "-m" ]];then #help read last condump and prepare a cfg file to help fill a map with placed NPCs
+	#if [[ "${1}" == "-d" ]];then #help update condump backup file using latest condump
+		#bUpdateCondumpBkp=true
+	if [[ "${1}" == "-m" ]];then #help read last condump and prepare a cfg file to help fill a map with placed NPCs
 		bCreateSpawnsForCurrentMap=true
 	elif [[ "${1}" == "-M" ]];then #help <strAppendMapName> same as -m but you can prepare a smaller area in that map with loads of foes to not encumber the engine, ex.: "02_FrontYard_OK" for gskmap_l02_b1_02_FrontYard_OK.cfg
 		bCreateSpawnsForCurrentMap=true
@@ -131,9 +135,26 @@ if $bCreateSpawnsForCurrentMap;then
 	#fi
 	#strMapCfgFile="gskmap_${strMapName}${strAppendMapName}.cfg"
 	strMapCfgFile="gskmap_${FUNCmapInfo_strMapName}${strAppendMapName}.cfg"
-	if $bUpdateCondumpBkp || [[ ! -f "${strMapCfgFile}.condump.txt" ]];then
+	#if $bUpdateCondumpBkp || [[ ! -f "${strMapCfgFile}.condump.txt" ]];then
+	if [[ ! -f "${strMapCfgFile}.condump.txt" ]];then
 		cp -vf "$strFlCondump" "${strMapCfgFile}.condump.txt"
 	fi
+	
+	# clean condump file is good for git
+	strFlCondumpClean="${strMapCfgFile}.condump_CLEAN.txt"
+	bUsingCleanCondump=false;if [[ "$strFlCondump" == "$strFlCondumpClean" ]];then bUsingCleanCondump=true;fi
+	iTotEntryDataLines=5
+	if ! $bUsingCleanCondump;then
+		cp -vf "$strFlCondumpClean" "$strFlCondumpClean.$(FUNCdtFlNm).bkp"&&:
+		echo "$FUNCmapInfo_strMapStatus" >"$strFlCondumpClean"
+	fi
+	FUNCprepareCleanDataOriginBkp() {
+		if $bUsingCleanCondump;then return 0;fi
+		for((j=0;j<iTotEntryDataLines;j++));do
+			echo "${astrAllLines[$((iLnDataIni+j))]}" >>"$strFlCondumpClean"
+		done
+	}
+	
 	cp -v "$strMapCfgFile" "${strMapCfgFile}.$(FUNCdtFlNm).bkp"&&:
 	FUNCtrash "$strMapCfgFile" # like a temp backup
 	echo -n >"$strMapCfgFile"
@@ -159,7 +180,7 @@ if $bCreateSpawnsForCurrentMap;then
 		FUNCechoInfo "[ERROR:spawnSomeFoes] use F7 F8 keys"
 		FUNCexit 1
 	fi
-	FUNCechoAndFillFile "// AUTO GENERATED WITH $(basename "$0")"
+	FUNCechoAndFillFile "// AUTO GENERATED WITH $(basename "$0"). DO NOT PATCH! Patch the CLEAN file instead!"
 	FUNCechoAndFillFile "// FILL MAP WITH NPCs, total $nTot"
 	#FUNCechoAndFillFile "alias gskCCnpcSpawn_helper \"\""
 	strCmdsON=" developer 1; +duck; ai_disable; noclip; showtriggers 1; showtriggers_toggle; gskEffect100 " # do not use host_timescale 0.01 as it will mess teleporting. +duck is to help to fit yourself in smaller places causing less issues
@@ -169,7 +190,11 @@ if $bCreateSpawnsForCurrentMap;then
 	for((i=0;i<${#astrAllLines[@]};i++));do
 		strLine="${astrAllLines[$i]}"
 		if [[ "$strLine" =~ ^gskSpawnHint.* ]];then
-			iLnData=$i;#declare -p iLnData
+			iLnDataIni=$i
+			iLnData=$iLnDataIni;#declare -p iLnData
+			
+			FUNCprepareCleanDataOriginBkp
+			
 			((iLnData++))&&:;strSelfPosAngle="${astrAllLines[$iLnData]}"
 			((iLnData++))&&:;strSelfPosAngleChk="${astrAllLines[$iLnData]}" #as engine may not print one char! :O
 			if [[ "$strSelfPosAngle" != "$strSelfPosAngleChk" ]];then
@@ -201,10 +226,14 @@ if $bCreateSpawnsForCurrentMap;then
 			strCountShow="$( printf   %d $((iCount+1)) )" # begins in 1 and ends like 45/45 looks better
 			strCountNext="$( printf %03d $((iCount+1)) )"
 			
-			FUNCechoAndFillFile "alias gskCCnpcSpawn_${strCount} \"${strSelfPosAngle}; ${strNPC}; echo Spawning:${strCountShow}/${nTot}:${strNPC#mm_npc_create_}; alias gskCCnpcSpawn_next gskCCnpcSpawn_${strCountNext}\""
+			FUNCechoAndFillFile "alias gskCCnpcSpawn_${strCount} \"$(FUNCfixPosAng "${strSelfPosAngle}"); ${strNPC}; echo Spawning:${strCountShow}/${nTot}:${strNPC#mm_npc_create_}; alias gskCCnpcSpawn_next gskCCnpcSpawn_${strCountNext}\""
 			((iCount++))&&:
 			
-			i=$iLnData
+			if(( iTotEntryDataLines != (iLnData - iLnDataIni + 1) ));then
+				FUNCechoInfo "[ERROR:DEV] invalid iTotEntryDataLines=$iTotEntryDataLines iLnData=$iLnData iLnDataIni=$iLnDataIni"
+				exit 1
+			fi
+			i=$iLnData # jump skip, next loop will be +1
 		fi
 	done
 	FUNCechoAndFillFile "alias gskCCnpcSpawn_${strCountNext} \"echo FinishedSpawnings; gskSndDONE; ${strRestorePosInTheEnd}; ${strCmdsOFF}; \"" #this also prevents continuing thru some previous list entries of a previous test run or map may be

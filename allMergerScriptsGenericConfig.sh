@@ -699,16 +699,16 @@ function FUNCmapInfo() {
 	# map     :  L00 at: -1385 x, -4444 y, 343 z
 	# map     :  l02_b1 at: -4902 x, -10930 y, 367 z
 	local lstrRegexMapPos='^map\s*:\s*([a-zA-Z0-9_-]*)\s*at:\s*(.*)'
-	local lstrMapStatus="$( ugrep "${lstrRegexMapPos}" "$lstrFlCondump" |awk 'length($0) > max { max = length($0); delete lines; lines[$0]; next } length($0) == max { lines[$0] } END { for (l in lines) print l }' )"
-	if(($(echo "$lstrMapStatus" |wc -l) != 1));then FUNCechoInfo "[ERROR:] 2 biggest lines conflicting: $lstrMapStatus";FUNCexit 1;fi
+	declare -g FUNCmapInfo_strMapStatus="$( ugrep "${lstrRegexMapPos}" "$lstrFlCondump" |awk 'length($0) > max { max = length($0); delete lines; lines[$0]; next } length($0) == max { lines[$0] } END { for (l in lines) print l }' )"
+	if(($(echo "$FUNCmapInfo_strMapStatus" |wc -l) != 1));then FUNCechoInfo "[ERROR:] 2 biggest lines conflicting: $FUNCmapInfo_strMapStatus";FUNCexit 1;fi
 	declare -g FUNCmapInfo_strMapName
-	: ${FUNCmapInfo_strMapName:="$(echo "$lstrMapStatus" |sed -r -e "s@${lstrRegexMapPos}@\1@g")"} #help
+	: ${FUNCmapInfo_strMapName:="$(echo "$FUNCmapInfo_strMapStatus" |sed -r -e "s@${lstrRegexMapPos}@\1@g")"} #help
 	if [[ -z "$FUNCmapInfo_strMapName" ]];then
 		FUNCechoInfo "[ERROR:] no Map Name Detected "
 		FUNCexit 1
 	fi
 
-	declare -g FUNCmapInfo_strPosRestore="$(echo "${lstrMapStatus}" |sed -r -e "s@${lstrRegexMapPos}@\2@g" |tr -d 'xyz,\r')"
+	declare -g FUNCmapInfo_strPosRestore="$(echo "${FUNCmapInfo_strMapStatus}" |sed -r -e "s@${lstrRegexMapPos}@\2@g" |tr -d 'xyz,\r')"
 	if [[ -z "$FUNCmapInfo_strPosRestore" ]];then
 		FUNCechoInfo "[ERROR:] no Pos To Restore Detected"
 		FUNCexit 1
