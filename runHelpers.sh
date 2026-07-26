@@ -80,20 +80,25 @@ if $bRunBothInstances;then
 		acmd=("${astrSECdevEnv[@]}" bash -c "cd '${strGameInstallMainFolder}'; while true;do ${strEchoAlert} '$strWarnMsg'; ${strEchoWait} 'hit Enter to run DarkMessiahMM @{nul}Instance (${liInstanceIndex})@{-n-u-l}'&&:; pwd; ./fixWindowAndDontStop.sh; ./runDarkMessiahOMM_Launcher.sh -${liInstanceIndex}; done")
 		set -x;"${acmd[@]}";set +x;
 	};export -f FUNCrunInstance
-	strFlFuncExec="$(mktemp)"
-	type FUNCrunInstance |tail -n +2 >"$strFlFuncExec"
+	astrFlFuncExec=()
+	astrFlFuncExec+=("$(mktemp)")
+	astrFlFuncExec+=("$(mktemp)")
+	type FUNCrunInstance |tail -n +2 >"${astrFlFuncExec[0]}"
+	type FUNCrunInstance |tail -n +2 >"${astrFlFuncExec[1]}"
 	for((i=1;i<=2;i++));do
 		iInstanceIndex=$i
 		if ! pgrep -fa DMMM_Run${iInstanceIndex};then
 			#help @InfoID="[Run2instances]" Helper Script, will run 2 instances of the game for easy/quickly reloading a savegame, see bRunBothInstances
-			if false;then #which guakeAutoEnv.sh;then
-				set -x;(xterm -title DMMM_Run${iInstanceIndex} -e bash -c "source '$strFlFuncExec'; guakeAutoEnv.sh -ID_CMD game${iInstanceIndex} bash -c FUNCrunInstance ${iInstanceIndex};echoc -w -t 60 'Instance${iInstanceIndex}';" & disown);set +x
+			strFlSrc="${astrFlFuncExec[$((iInstanceIndex-1))]}"
+			strBashScript="echo \"Loading Source: ${strFlSrc}\"; cat \"${strFlSrc}\"; source \"${strFlSrc}\"; trash \"${strFlSrc}\"; FUNCrunInstance ${iInstanceIndex}"
+			if which guakeAutoEnv.sh;then
+				set -x;(xterm -title DMMM_Run${iInstanceIndex} -e bash -c "guakeAutoEnv.sh -ID_CMD game${iInstanceIndex} bash -c 
+				\"${strBashScript}; echoc -w -t 60 Instance${iInstanceIndex}\"" & disown);set +x
 			else
-				set -x;(xterm -title DMMM_Run${iInstanceIndex} -e bash -c "source '$strFlFuncExec'; FUNCrunInstance ${iInstanceIndex}; read -p PressEnterToEndInstance${iInstanceIndex} -t 60&&:;" & disown);set +x
+				set -x;(xterm -title DMMM_Run${iInstanceIndex} -e bash -c "${strBashScript}; read -p \"PressEnterToEnd(Instance${iInstanceIndex})\" -t 60&&:" & disown);set +x
 			fi
 		fi
 	done
-	FUNCtrash "$strFlFuncExec"
 fi
 
 ##################
