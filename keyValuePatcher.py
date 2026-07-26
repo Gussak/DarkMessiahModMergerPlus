@@ -1413,152 +1413,141 @@ def show_missing(missing_keys) -> None:
 
 
 def handle_apply(args) -> None:
-        """
-        Apply a patch JSON file onto a target config file.
-
-        Reads the patch and target, delegates line-by-line processing to
-        _apply_patches_to_lines, then handles the summary, missing-key
-        injection, prettification, and final write.
-
-        The patch file contains unquoted keys/values applied with proper
-        quotes to the target file.
-
-        For duplicate keys: new values are APPENDED after existing ones.
-        For dominant multi-keys: ALL originals are erased and replaced
-        exclusively by the patch values.
-        For removal directives: Keys with "//@KEYVALUE_REMOVE" comment are stripped.
-        """
-        if not os.path.exists(args.target):
-                Logger.error(f"Target file not found: {args.target}")
-                sys.exit(2)
-        if not os.path.exists(args.patch):
-                Logger.error(f"Patch file not found: {args.patch}")
-                sys.exit(2)
-
+    """
+    Apply a patch JSON file onto a target config file.
+    Reads the patch and target, delegates line-by-line processing to
+    _apply_patches_to_lines, then handles the summary, missing-key
+    injection, prettification, and final write.
+    The patch file contains unquoted keys/values applied with proper
+    quotes to the target file.
+    For duplicate keys: new values are APPENDED after existing ones.
+    For dominant multi-keys: ALL originals are erased and replaced
+    exclusively by the patch values.
+    For removal directives: Keys with "//@KEYVALUE_REMOVE" comment are stripped.
+    """
+    if not os.path.exists(args.target):
+        Logger.error(f"Target file not found: {args.target}")
+        sys.exit(2)
+    if not os.path.exists(args.patch):
+        Logger.error(f"Patch file not found: {args.patch}")
+        sys.exit(2)
+    try:
+        # Using object_pairs_hook=dict strictly forces Python to remember original JSON sequence
+        with open(args.patch, "r", encoding="utf-8") as f:
+            patches = json.load(f, object_pairs_hook=dict)
+    except json.JSONDecodeError as e:
+        Logger.error(f"Invalid JSON in patch file: {e}")
+        sys.exit(2)
+    except IOError as e:
+        Logger.error(f"Failed to read patch file: {e}")
+        sys.exit(2)
+    if not isinstance(patches, dict):
+        Logger.error("Patch file must contain a JSON object")
+        sys.exit(2)
+        
+    comment_patches: Dict[str, str] = patches.get("__comments__", {})
+    patches = {k: v for k, v in patches.items() if k != "__comments__"}
+    
+    # Track the exact original order of the patch keys from the JSON file
+    original_key_order = list(patches.keys())
+    
+    # Identify removal directives from comments
+    remove_paths = {k for k, v in comment_patches.items() if v.strip() == REMOVE_DIRECTIVE}
+    
+    # ── Handle empty patch ──
+    if not patches and not comment_patches:
+        Logger.info("Patch file is empty. Nothing to apply.")
+        if not args.output:
+            Logger.info("No output file specified, exiting.")
+            sys.exit(0)
+        Logger.info("Output file specified; will generate output (copy of target).")
+        
+    try:
+        with open(args.target, "r", encoding="utf-8", errors="ignore", newline="") as f:
+            lines = f.readlines()
+    except IOError as e:
+        Logger.error(f"Failed to read target file: {e}")
+        sys.exit(2)
+        
+    Logger.info(f"Applying patches from '{args.patch}' onto '{args.target}'...")
+    Logger.info(f"Duplicate keys to append (not overwrite): {', '.join(DUPLICATE_KEYS)}")
+    if DOMINANT_MULTI_KEYS:
+        Logger.info(f"Dominant multi-keys (erase originals, insert patch values): {', '.join(DOMINANT_MULTI_KEYS)}")
+    if remove_paths:
+        Logger.info(f"Removal directives ({len(remove_paths)}): {', '.join(remove_paths)}")
+    if verify_flags(LogConfig.DEBUG):
+        Logger.debug(f"Patches to apply: {patches}")
+        
+    output_lines, applied_keys = _apply_patches_to_lines(
+        lines, patches, comment_patches, remove_paths, args.target
+    )
+    
+    # PRESERVE ORDER: Filter the original ordered list instead of subtracting sets
+    missing_keys = [k for k in original_key_order if k not in applied_keys and k not in remove_paths]
+    
+    # Identify non-dominant duplicate keys that weren't matched in-place.
+    auto_append_dups = [
+        k for k in missing_keys
+        if len(k.split(".")) >= 2
+        and k.split(".")[-1].isdigit()
+        and k.split(".")[-2] in DUPLICATE_KEYS
+        and k.split(".")[-2] not in DOMINANT_MULTI_KEYS
+    ]
+    
+    # Print summary
+    print("\n" + "=" * 60)
+    print("PATCH EXECUTION SUMMARY")
+    print("=" * 60)
+    print(f"Total requested updates: {len(original_key_order):3d}")
+    print(f"Successfully modified: {len(applied_keys):3d}")
+    print(f"Missing items: {len(missing_keys):3d}")
+    print("=" * 60)
+    
+    if len(applied_keys) == 0 and original_key_order:
+        Logger.warning("No items were successfully patched!")
+        Logger.warning("This may indicate:")
+        Logger.warning(" - Target file structure differs from expected")
+        Logger.warning(" - Syntax issues in target file")
+        Logger.warning(" - Incompatible patch file")
+        
+    # Prepare combined missing patches while preserving original key sequence
+    auto_append_dict = {k: patches[k] for k in auto_append_dups}
+    remaining_missing = [k for k in missing_keys if k not in auto_append_dups]
+    append_remaining = len(remaining_missing) > 0 and args.append_missing
+    
+    if auto_append_dict or append_remaining:
+        combined_patches = dict(auto_append_dict)
+        if append_remaining:
+            combined_patches.update({k: patches[k] for k in remaining_missing})
+        Logger.info(f"Injecting missing options ({len(auto_append_dict)} duplicate, {len(remaining_missing)} structural)...")
         try:
-                with open(args.patch, "r", encoding="utf-8") as f:
-                        patches = json.load(f)
-        except json.JSONDecodeError as e:
-                Logger.error(f"Invalid JSON in patch file: {e}")
-                sys.exit(2)
-        except IOError as e:
-                Logger.error(f"Failed to read patch file: {e}")
-                sys.exit(2)
-
-        if not isinstance(patches, dict):
-                Logger.error("Patch file must contain a JSON object")
-                sys.exit(2)
-
-        comment_patches: Dict[str, str] = patches.get("__comments__", {})
-        patches = {k: v for k, v in patches.items() if k != "__comments__"}
-
-        # Identify removal directives from comments
-        remove_paths = {k for k, v in comment_patches.items() if v.strip() == REMOVE_DIRECTIVE}
-
-        # ── Handle empty patch ──
-        if not patches and not comment_patches:
-                Logger.info("Patch file is empty. Nothing to apply.")
-                if not args.output:
-                        Logger.info("No output file specified, exiting.")
-                        sys.exit(0)
-                Logger.info("Output file specified; will generate output (copy of target).")
-                # Fall through to normal processing & write path
-
-        try:
-                with open(args.target, "r", encoding="utf-8", errors="ignore", newline="") as f:
-                        lines = f.readlines()
-        except IOError as e:
-                Logger.error(f"Failed to read target file: {e}")
-                sys.exit(2)
-
-        Logger.info(f"Applying patches from '{args.patch}' onto '{args.target}'...")
-        Logger.info(
-                f"Duplicate keys to append (not overwrite): {', '.join(DUPLICATE_KEYS)}"
-        )
-        if DOMINANT_MULTI_KEYS:
-                Logger.info(
-                        f"Dominant multi-keys (erase originals, insert patch values): {', '.join(DOMINANT_MULTI_KEYS)}"
-                )
-        if remove_paths:
-                Logger.info(f"Removal directives ({len(remove_paths)}): {', '.join(remove_paths)}")
-
-        if verify_flags(LogConfig.DEBUG):
-                Logger.debug(f"Patches to apply: {patches}")
-
-        output_lines, applied_keys = _apply_patches_to_lines(
-                lines, patches, comment_patches, remove_paths, args.target
-        )
-
-        requested_keys = set(patches.keys())
-        missing_keys = requested_keys - applied_keys
-        # Exclude removal-only paths from missing keys report
-        missing_keys -= remove_paths
-
-        # Identify non-dominant duplicate keys that weren't matched in-place.
-        # These use indices in the patch (e.g., ".30") but should always be appended.
-        auto_append_dups = {
-            k for k in missing_keys
-            if len(k.split(".")) >= 2
-            and k.split(".")[-1].isdigit()
-            and k.split(".")[-2] in DUPLICATE_KEYS
-            and k.split(".")[-2] not in DOMINANT_MULTI_KEYS
-        }
-
-        # Print summary
-        print("\n" + "=" * 60)
-        print("PATCH EXECUTION SUMMARY")
-        print("=" * 60)
-        print(f"Total requested updates: {len(requested_keys):3d}")
-        print(f"Successfully modified:   {len(applied_keys):3d}")
-        print(f"Missing items:     {len(missing_keys):3d}")
-        print("=" * 60)
-
-        if len(applied_keys) == 0 and requested_keys:
-                Logger.warning("No items were successfully patched!")
-                Logger.warning("This may indicate:")
-                Logger.warning("  - Target file structure differs from expected")
-                Logger.warning("  - Syntax issues in target file")
-                Logger.warning("  - Incompatible patch file")
-
-        # Prepare combined missing patches
-        auto_append_dict = {k: patches[k] for k in auto_append_dups}
-        remaining_missing = missing_keys - auto_append_dups
-        append_remaining = remaining_missing and args.append_missing
-
-        if auto_append_dict or append_remaining:
-                combined_patches = dict(auto_append_dict)
-                if append_remaining:
-                        combined_patches.update({k: patches[k] for k in remaining_missing})
-
-                Logger.info(f"Injecting missing options ({len(auto_append_dict)} duplicate, {len(remaining_missing)} structural)...")
-                try:
-                        output_lines = append_nested_missing(output_lines, combined_patches, comment_patches)
-                        applied_keys.update(combined_patches.keys())
-                        Logger.info(f"Successfully appended {len(combined_patches)} missing option(s).")
-                except Exception as e:
-                        Logger.error(f"Failed to append missing options: {e}")
-                        sys.exit(2)
-        elif missing_keys:
-                if verify_flags(LogConfig.SHOW_MISSING):
-                        show_missing(missing_keys)
-                Logger.error("Operation aborted. Use --append-missing to inject missing keys.")
-                sys.exit(2)
-
-        # Apply prettification if requested
-        if args.prettify:
-                Logger.info("Prettifying output formatting...")
-                output_lines = prettify_output(output_lines)
-                Logger.info("Output prettified with correct indentation.")
-
-        output_destination = args.output if args.output else args.target
-        try:
-                with open(output_destination, "w", encoding="utf-8", newline="") as f:
-                        f.writelines(output_lines)
-        except IOError as e:
-                Logger.error(f"Failed to write output file: {e}")
-                sys.exit(2)
-
-        Logger.info(f"\nPatching complete. Output: {output_destination}")
+            output_lines = append_nested_missing(output_lines, combined_patches, comment_patches)
+            applied_keys.update(combined_patches.keys())
+            Logger.info(f"Successfully appended {len(combined_patches)} missing option(s).")
+        except Exception as e:
+            Logger.error(f"Failed to append missing options: {e}")
+            sys.exit(2)
+    elif missing_keys:
+        if verify_flags(LogConfig.SHOW_MISSING):
+            show_missing(missing_keys)
+        Logger.error("Operation aborted. Use --append-missing to inject missing keys.")
+        sys.exit(2)
+        
+    # Apply prettification if requested
+    if args.prettify:
+        Logger.info("Prettifying output formatting...")
+        output_lines = prettify_output(output_lines)
+        Logger.info("Output prettified with correct indentation.")
+        
+    output_destination = args.output if args.output else args.target
+    try:
+        with open(output_destination, "w", encoding="utf-8", newline="") as f:
+            f.writelines(output_lines)
+    except IOError as e:
+        Logger.error(f"Failed to write output file: {e}")
+        sys.exit(2)
+        
+    Logger.info(f"\nPatching complete. Output: {output_destination}")
 
 
 # ==========================================
