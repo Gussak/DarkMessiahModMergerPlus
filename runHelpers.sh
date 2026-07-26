@@ -56,7 +56,7 @@ if $bRunBothInstances;then
 		#cd "${strMainModFolder}/"
 		#./fixWindowAndDontStop.sh #help @InfoID="fixWindowAndDontStop.sh" Helper Script, waits game start
 	#fi
-	strWarnMsg="WAIT@{-n} THE other INSTANCE FINISH LOADING THE SAVEGAME OR BOTH may CRASH/FREEZE!!!"
+	#strWarnMsg="WAIT@{-n} THE other INSTANCE FINISH LOADING THE SAVEGAME OR BOTH may CRASH/FREEZE!!!"
 	#cd '${strPathMainModFolder}';
 	#if which guakeAutoEnv.sh;then # using ScriptEchoColor project
 		#guakeAutoEnv.sh \
@@ -73,11 +73,26 @@ if $bRunBothInstances;then
 	#fi
 	function FUNCrunInstance() {
 		local liInstanceIndex=$1
+		
 		export bBashAutoCmdOnStart=false
 		astrSECdevEnv=();if which secEnvDev.sh;then astrSECdevEnv=(secEnvDev.sh --clean);fi
-		strEchoAlert="echo";if which echoc;then strEchoAlert="echoc --alert";fi
-		strEchoWait="read -p";if which echoc;then strEchoAlert="echoc -w";fi
-		acmd=("${astrSECdevEnv[@]}" bash -c "cd '${strGameInstallMainFolder}'; while true;do ${strEchoAlert} '$strWarnMsg'; ${strEchoWait} 'hit Enter to run DarkMessiahMM @{nul}Instance (${liInstanceIndex})@{-n-u-l}'&&:; pwd; ./fixWindowAndDontStop.sh; ./runDarkMessiahOMM_Launcher.sh -${liInstanceIndex}; done")
+		FUNCrunLoop() {
+			strWarnMsg="WAIT@{-n} THE other INSTANCE FINISH LOADING THE SAVEGAME OR BOTH may CRASH/FREEZE!!!"
+			astrEchoAlert=(echo   );if which echoc;then astrEchoAlert=(echoc --alert);fi
+			astrEchoWait=( read -p);if which echoc;then astrEchoWait=( echoc -w     );fi
+			while true;do
+				${astrEchoAlert[@]} "$strWarnMsg";
+				${astrEchoWait[@]}  "hit Enter to run DarkMessiahMM @{nul}Instance (${liInstanceIndex})@{-n-u-l}" && :
+				pwd
+				cd "${strGameInstallMainFolder}"
+				./fixWindowAndDontStop.sh
+				./runDarkMessiahOMM_Launcher.sh -${liInstanceIndex}
+			done
+		};export -f FUNCrunLoop
+		acmd=(
+			"${astrSECdevEnv[@]}" 
+			bash -c "FUNCrunLoop"
+		)
 		set -x;"${acmd[@]}";set +x;
 	};export -f FUNCrunInstance
 	astrFlFuncExec=()
@@ -91,9 +106,9 @@ if $bRunBothInstances;then
 			#help @InfoID="[Run2instances]" Helper Script, will run 2 instances of the game for easy/quickly reloading a savegame, see bRunBothInstances
 			strFlSrc="${astrFlFuncExec[$((iInstanceIndex-1))]}"
 			strBashScript="echo \"Loading Source: ${strFlSrc}\"; cat \"${strFlSrc}\"; source \"${strFlSrc}\"; trash \"${strFlSrc}\"; FUNCrunInstance ${iInstanceIndex}"
-			if which guakeAutoEnv.sh;then
-				set -x;(xterm -title DMMM_Run${iInstanceIndex} -e bash -c "guakeAutoEnv.sh -ID_CMD game${iInstanceIndex} bash -c 
-				\"${strBashScript}; echoc -w -t 60 Instance${iInstanceIndex}\"" & disown);set +x
+			if false;then #which guakeAutoEnv.sh;then
+				#set -x;(xterm -title DMMM_Run${iInstanceIndex} -e bash -c "guakeAutoEnv.sh -ID_CMD game${iInstanceIndex} bash -c \"${strBashScript}; echoc -w -t 60 Instance${iInstanceIndex}\"" & disown);set +x
+				set -x;guakeAutoEnv.sh -ID_CMD game${iInstanceIndex} bash -c "${strBashScript}; echoc -w -t 60 \"Instance${iInstanceIndex}\"";set +x
 			else
 				set -x;(xterm -title DMMM_Run${iInstanceIndex} -e bash -c "${strBashScript}; read -p \"PressEnterToEnd(Instance${iInstanceIndex})\" -t 60&&:" & disown);set +x
 			fi
