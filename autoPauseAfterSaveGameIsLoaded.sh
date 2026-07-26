@@ -169,7 +169,7 @@ if [[ "${1-}" == "-m" ]];then shift;iMonCh=1;fi #help monitor changes and dump s
 if [[ "${1-}" == "-M" ]];then shift;iMonCh=2;fi #help monitor changes and dump strings
 case $iMonCh in
 	1)
-		if ! pgrep -fa DarkMessiah_FUNCmonitorChanges;then
+		if ! pgrep -fa DMMM_monitorChanges;then
 			(xterm -maximized -title DMMM_monitorChanges -e FUNCmonitorChanges & disown)
 		fi
 		;;
