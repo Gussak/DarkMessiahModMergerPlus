@@ -15,6 +15,7 @@ _mods/FinalMergedScriptsMaxPriority/*
 *.BKP
 *.NEWLY_PATCHED
 *.rej
+keyValuePatcher.AI.*.RealTabsToReUploadAsPDF.*
 
 // this skips temp dev backups
 _mods/FinalMergedScriptsTopPriority*/*

@@ -34,7 +34,6 @@ while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./a
 
 #help USAGE: <strScriptFileRelat>
 
-: ${bVerbose:=false} #help
 bRedoAllFiles=false;
 : ${bForceRePatch:=false} #help
 while [[ $# -gt 0 ]] && [[ "${1:0:1}" == "-" ]];do # checks if param is set
@@ -46,8 +45,6 @@ while [[ $# -gt 0 ]] && [[ "${1:0:1}" == "-" ]];do # checks if param is set
 		FUNCexit 0
 	elif [[ "$1" == "-f" || "$1" == "--forceRePatch" ]];then #help
 		bForceRePatch=true
-	elif [[ "$1" == "-v" || "$1" == "--verbose" ]];then #help shows more useful messages
-		bVerbose=true
 	elif [[ "$1" == --redoall ]];then #help REDO the work on all files at the Final merged folder
 		bRedoAllFiles=true
 	else

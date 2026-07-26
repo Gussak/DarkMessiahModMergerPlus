@@ -685,6 +685,9 @@ function FUNCminiModInit() {
 			
 			: ${FUNCminiModInit_bConsumeParamHelp:=true} #help
 			if $FUNCminiModInit_bConsumeParamHelp;then shift;fi #if not, the param can be reused at main file
+		elif [[ "${1}" == "-v" || "${1}" == "--verbose" ]];then #help
+			bVerbose=true
+			shift
 		fi
 	fi
 };export -f FUNCminiModInit

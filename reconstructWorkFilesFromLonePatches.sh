@@ -51,7 +51,6 @@ FUNCechoInfo "Then, using the already extracted vanilla (thru ex.: extractVanill
 	#bTrashReconstructed=true
 #fi
 
-#iVerboseLvl=0
 bRevalidate=false
 bTrashReconstructed=false
 while ! ${1+false} && [[ "${1:0:1}" == "-" ]];do # checks if param is set
@@ -65,9 +64,6 @@ while ! ${1+false} && [[ "${1:0:1}" == "-" ]];do # checks if param is set
 	elif [[ "$1" == "-t" || "$1" == "--trash-reconstructed" ]];then #help implies --revalidate. useful to apply to your mod before releasing just the patch files. Be sure to use the strFilter matching your mod base folder and check the files that will be trashed.
 		bRevalidate=true
 		bTrashReconstructed=true
-	#elif [[ "$1" == "-v" || "$1" == "--verbosity" ]];then #help <iVerboseLvl> shows more useful messages
-		#shift
-		#iVerboseLvl=$1
 	else
 		echo "[invalid option] '$1'"
 		$0 --help #$0 considers ./, works best anyway..

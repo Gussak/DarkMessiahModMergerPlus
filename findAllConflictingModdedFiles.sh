@@ -38,12 +38,6 @@ if [[ "${1-}" == "--help" ]];then #help
 	exit
 fi
 
-: ${bVerbose:=false} #help
-if [[ "${1-}" == "-v" ]];then #help verbose
-	bVerbose=true;
-	shift
-fi
-
 strRegex2=""
 strRegex1=""
 for strKGMRF in "${astrKnownGameModRelativeFolders[@]}";do

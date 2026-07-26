@@ -89,6 +89,7 @@ declare -p iMaxMenuIdSz strMaxMenuIdSz
 echo "Total binds added: ${#astrAliasList[@]}"
 
 strFlTmp="$(mktemp)"
+pwd
 echo "${strMenuDataBegin}${strMenuDataEntries}${strMenuDataEnd}" |unix2dos >>"$strFlTmp" #this grants CRLF #|sed 's@$@\r@'
 ls -l ../resource/mm_gskcustombinds_english.txt
 printf "\xFF\xFE" >../resource/mm_gskcustombinds_english.txt #this grants BOM
@@ -99,7 +100,8 @@ if $bVerbose;then
 fi
 rm "$strFlTmp"
 
-ls -l ../scripts/kb_act.lst.kvpatch.json
+pwd
+ls -l ../scripts/kb_act.lst.kvpatch.json&&:
 echo -e "{\n${strKVPatches}\n}" >../scripts/kb_act.lst.kvpatch.json
 ls -l ../scripts/kb_act.lst.kvpatch.json
 if $bVerbose;then
