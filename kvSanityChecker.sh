@@ -2,10 +2,17 @@
 
 # AI gen WIP
 
-: ${strFlIn:="${1-}"} #help
+TARGET_DIR="."
+strFlIn=""
+if [[ -f "${1-}" ]];then
+	strFlIn="$1" #help
+elif [[ -d "${1-}" ]];then
+	TARGET_DIR="$1"
+fi
+
 
 # Target directory defaults to current directory if not specified
-TARGET_DIR="${1:-.}"
+#TARGET_DIR="${1:-.}"
 
 echo "=================================================="
 echo "Scanning for Source Engine KeyValue errors in: $TARGET_DIR"
