@@ -200,8 +200,12 @@ declare -p strScriptsExtRegexEsc strScriptsExtRegexNorm >&3
 
 strPathSelf="$(pwd)"
 strPathMainModFolder="${strPathSelf}"
-if [[ ! -f "${strPathSelf}/$(basename "$0")" ]];then
-	echo "[ERROR] failed to determine ModMerger path: current path '$strPathSelf' doesnt contain $(basename "$0")"
+#if [[ ! -f "${strPathSelf}/$(basename "$0")" ]];then
+	#echo "[ERROR] failed to determine ModMerger path: current path '$strPathSelf' doesnt contain $(basename "$0")"
+	#FUNCexit 1
+#fi
+if [[ ! -f "${strPathSelf}/allMergerScriptsGenericConfig.sh" ]];then
+	echo "[ERROR] failed to determine Main ModMerger Root path: current path '$strPathSelf' doesnt contain 'allMergerScriptsGenericConfig.sh', exiting."
 	FUNCexit 1
 fi
 strPathParent="$(dirname "$strPathSelf")" #help This is the folder where all Layers are placed, it is the parent of game main folder. this is important to be detected like that in case this path is a symlink! when using '../' would navigate to the realpath!
