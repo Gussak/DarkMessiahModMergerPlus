@@ -466,6 +466,11 @@ done
 
 echo "$strFullLineVisualDelimiter"
 
+while ! ./kvSanityChecker.sh "$strFlWork";do
+	FUNCaskYesNo "Fix it (the right one) manually according to the sanity check above please (if not will just exit or the game may will crash)"
+	"$strExecMerger" "$strVanillaScriptFile" "$strFlWork"
+done
+
 : ${bShowFinalComparison:=true} #help compare vanilla with fully mods merged file after all mods merging end for it
 if $bShowFinalComparison;then
 	FUNCechoInfo "[Showing final merge comparison with vanilla]"

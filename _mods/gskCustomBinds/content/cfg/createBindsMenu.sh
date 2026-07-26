@@ -101,6 +101,8 @@ fi
 rm "$strFlTmp"
 
 pwd
+ls -l ../scripts/kb_act.lst&&:
+#HELPkeep but below there is instructions to to it manually... #FUNCtrash ../scripts/kb_act.lst #help this file needs to be trashed to let the reuse of vanilla+kvpatch to recreate it properly during merge.sh
 ls -l ../scripts/kb_act.lst.kvpatch.json&&:
 echo -e "{\n${strKVPatches}\n}" >../scripts/kb_act.lst.kvpatch.json
 ls -l ../scripts/kb_act.lst.kvpatch.json
@@ -113,6 +115,5 @@ now run:
 trash ../resource/closecaption_manifest.txt; #will be auto recreated from vanilla + kvpatch
 trash ../scripts/kb_act.lst; #will be auto recreated from vanilla + kvpatch
 cd ../../../..
-./merge.sh -f resource/closecaption_manifest.txt;
-./merge.sh -f scripts/kb_act.lst;
+./merge.sh -f resource/closecaption_manifest.txt; ./merge.sh -f scripts/kb_act.lst;
 '
