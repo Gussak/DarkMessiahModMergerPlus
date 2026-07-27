@@ -40,12 +40,20 @@ function FUNCwindowHelper() { #will look for one or more newly created windows, 
 	declare -p strFlCfg
 	if [[ -f "$strFlCfg" ]];then source "$strFlCfg";fi
 
+	: ${strWindowName:="Wine Desktop"} #help when set to emulate desktop on winecfg it is: "Wine Desktop"
 	mapfile -t alnWIdOLD < <(xdotool search "${strWindowName}")
+	declare -p alnWIdOLD
+	
+	function FUNCchkOld() {
+		for lnWIdOld in "${alnWIdOLD[@]}";do
+			if [[ "$lnWIdOld" == "${lnWId}" ]];then return 0;fi
+		done
+		return 1
+	}
 	
 	#set -x
 	local lnWId=-1
 	: ${cmdRemoveWindowDecorations:="windowtweaks"} #help https://gist.github.com/AquariusPower/113f4559a4ac8ccb0225a89b9c74c0ea
-	: ${strWindowName:="Wine Desktop"} #help when set to emulate desktop on winecfg it is: "Wine Desktop"
 	: ${bAutoClickRun:=true} #help this is not really necessary and may cause trouble if you try to use the mouse or button is not where it wants
 	while true;do
 		echo -n .
@@ -55,9 +63,7 @@ function FUNCwindowHelper() { #will look for one or more newly created windows, 
 		iFound=0
 		for lnWId in "${alnWId[@]}";do
 			if [[ -z "$lnWId" ]];then continue;fi
-			for lnWIdOld in "${alnWIdOLD[@]}";do
-				if [[ "$lnWIdOld" == "${lnWId}" ]];then continue;fi
-			done
+			if FUNCchkOld;then continue;fi
 			
 			if which "$cmdRemoveWindowDecorations";then
 				set -x;"${cmdRemoveWindowDecorations}" -d $lnWId;set +x
@@ -83,7 +89,7 @@ function FUNCwindowHelper() { #will look for one or more newly created windows, 
 				nY=$(echo "$strXYclick" |cut -d, -f2)
 				
 				if which ScriptEchoColor;then echoc --say "don't touch your mouse nor keyboard please";fi
-				read -p "[blind wait the ModLauncher window show up]" -t 5 #TODO try `perceptualdiff` to check if the button is showing there
+				read -p "[blind wait the ModLauncher window show up]" -t 7 #TODO try `perceptualdiff` to check if the button is showing there
 				
 				xdotool mousemove $nX $nY;
 				xdotool click --window $lnWId 1
@@ -106,6 +112,11 @@ function FUNCwindowHelper() { #will look for one or more newly created windows, 
 	read -p "[hit a key to exit(5s)]" -t 5
 };export -f FUNCwindowHelper;
 
+: ${bXterm:=true} #help
+if $bXterm;then
 #if ! pgrep -fa DMMM_windowHelper;then
 	(xterm -title DMMM_windowHelper -e bash -c "FUNCwindowHelper" & disown)
 #fi
+else 
+	FUNCwindowHelper
+fi

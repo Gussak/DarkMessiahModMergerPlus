@@ -31,6 +31,9 @@
 
 # AI gen WIP
 
+#help tip: run at least this only for crucial brackets: clear;bChkBOM=false bChkStdQuotes=false bChkCurlyQuotes=false ./kvSanityChecker.sh ../Dark\ Messiah\ Might\ and\ Magic\ Single\ Player/_mods/FinalMergedScriptsMaxPriority/
+#TODO try to auto fix problems thru the merger scripts?
+
 TARGET_DIR="."
 strFlIn=""
 if [[ -f "${1-}" ]];then
@@ -52,7 +55,7 @@ if [[ -f "$strFlIn" ]];then
 	astrFlList=("$strFlIn")
 else
 	# Find all common text/config extensions used by the Source Engine
-	mapfile -t astrFlList < <(find "$TARGET_DIR" -type f \( -name "*.cfg" -o -name "*.res" -o -name "*.txt" -o -name "*.vmt" -o -name "*.vcd" -o -name "*.qct" \))
+	mapfile -t astrFlList < <(find "$TARGET_DIR" -type f \( -name "*.cfg" -o -name "*.res" -o -name "*.txt" -o -name "*.vmt" -o -name "*.vcd" -o -name "*.qct" \) |egrep -v "demoheader.tmp.*")
 fi
 
 nTotErr=0

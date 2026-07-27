@@ -32,5 +32,6 @@
 	"+gskCondump": "#mc_gskcondump",
 	"+gskFixPauseBugHelper": "#mc_gskfixpausebughelper",
 	"gskFixShieldsRemove": "#mc_gskfixshieldsremove",
-	"gskFixShieldsAdd": "#mc_gskfixshieldsadd"
+	"gskFixShieldsAdd": "#mc_gskfixshieldsadd",
+	"+gskInvSwapPreventCrash": "#mc_gskinvswappreventcrash"
 }
