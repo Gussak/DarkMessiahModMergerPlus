@@ -31,6 +31,8 @@
 
 # AI gen WIP
 
+while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
+
 #help tip: run at least this only for crucial brackets: clear;bChkBOM=false bChkStdQuotes=false bChkCurlyQuotes=false ./kvSanityChecker.sh ../Dark\ Messiah\ Might\ and\ Magic\ Single\ Player/_mods/FinalMergedScriptsMaxPriority/
 #TODO try to auto fix problems thru the merger scripts?
 
@@ -46,9 +48,9 @@ fi
 # Target directory defaults to current directory if not specified
 #TARGET_DIR="${1:-.}"
 
-echo "=================================================="
-echo "Scanning for Source Engine KeyValue errors in: $TARGET_DIR"
-echo "=================================================="
+echo "==================================================" >&2
+echo "Scanning for Source Engine KeyValue errors in: $TARGET_DIR" >&2
+echo "==================================================" >&2
 
 astrFlList=()
 if [[ -f "$strFlIn" ]];then
@@ -59,6 +61,8 @@ else
 fi
 
 nTotErr=0
+astrFlProblemList=()
+astrFlPBracketList=()
 for file in "${astrFlList[@]}";do
     
 	# Flag to track if the current file has issues
@@ -112,25 +116,47 @@ for file in "${astrFlList[@]}";do
     if (( open_brackets != close_brackets )); then
         ((HAS_ERROR++))&&:
         ERROR_MSG+="\n  -> [SYNTAX] Mismatched curly brackets! (Found $open_brackets '{' and $close_brackets '}')"
+				astrFlPBracketList+=("${file}")
     fi
 	fi
 
 	# Print results if errors were caught
 	if [ $HAS_ERROR -gt 0 ]; then
-			echo -e "\n\033[0;31m[CRITICAL]\033[0m Issues found in: $file"
-			echo -e "$ERROR_MSG"
-			echo
+			echo -e "\n\033[0;31m[CRITICAL]\033[0m Issues found in:" >&2
+			echo "${file}" 
+			astrFlProblemList+=("${file}")
+			echo -e "$ERROR_MSG" >&2
+			echo >&2
 	else
 		#echo -ne "OK: $file <> <> <>\r"
-		echo -n .
+		echo -n . >&2
 	fi
 	
 	((nTotErr+=HAS_ERROR))&&:
 done
 
-echo -e "\n=================================================="
-echo "Scan complete (total errors $nTotErr)."
-echo "=================================================="
+#declare -p astrFlProblemList astrFlPBracketList >&2
+
+echo "Checking for fixed overrides:"
+for strFl in "${astrFlProblemList[@]}";do
+	strFlBN="$(basename "$strFl")"
+	echo "Checking: $strFlBN" >&2
+	if ! find "${strMergedModsFolder}/" -iname "$strFlBN" >/dev/null;then
+		echo "[WARN] this file may not have a fixed override:" >&2
+		echo "$strFl #IMPORTANT"
+	fi
+done
+#for strFl in "${astrFlPBracketList[@]}";do
+	#strFlBN="$(basename "$strFl")"
+	#if ! find "${strMergedModsFolder}/" -iname "$strFlBN";then
+		#echo "[WARN] this file may not have a fixed override:" >&2
+		#echo "$strFl"
+	#fi
+#done
+
+echo -e "\n==================================================" >&2
+echo "Scan complete (total errors $nTotErr)." >&2
+echo "==================================================" >&2
 
 if [ $HAS_ERROR -gt 0 ]; then
 	exit 1
