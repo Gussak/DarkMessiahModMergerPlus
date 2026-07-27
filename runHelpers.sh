@@ -51,69 +51,68 @@ cd "${strMainModFolder}/"
 
 : ${bRunBothInstances:=true} #help
 if $bRunBothInstances;then
-	#: ${bFixW:=false} #help runs fixWindowAndDontStop.sh
-	#if $bFixW;then
-		#cd "${strMainModFolder}/"
-		#./fixWindowAndDontStop.sh #help @InfoID="fixWindowAndDontStop.sh" Helper Script, waits game start
-	#fi
-	#strWarnMsg="WAIT@{-n} THE other INSTANCE FINISH LOADING THE SAVEGAME OR BOTH may CRASH/FREEZE!!!"
-	#cd '${strPathMainModFolder}';
-	#if which guakeAutoEnv.sh;then # using ScriptEchoColor project
-		#guakeAutoEnv.sh \
-			#-ID_CMD game cd "${strGameInstallMainFolder}" \
-			#-ID_CMD game bash -c "bBashAutoCmdOnStart=false secEnvDev.sh --clean bash -c 'while true;do echoc --alert \"$strWarnMsg\"; echoc -w \"hit Enter to run DarkMessiahMM\"; pwd; ./fixWindowAndDontStop.sh; ./runDarkMessiahOMM_Launcher.sh -1; done'" \
-			#\
-			#-ID_CMD game2 cd "${strGameInstallMainFolder}" \
-			#-ID_CMD game2 echoc --alert "Run a 2nd instance for quick resume playing after death, as load game is super slow." \
-			#-ID_CMD game2 bash -c "bBashAutoCmdOnStart=false secEnvDev.sh --clean bash -c 'while true;do echoc --alert \"$strWarnMsg\"; pwd; echoc -w \"hit Enter to run DarkMessiahMM @{nul}2nd Instance@{-n-u-l}\"; pwd; ./fixWindowAndDontStop.sh; ./runDarkMessiahOMM_Launcher.sh -2; done'"
-	#else
-		#for((i=1;i<=2;i++));do
-			#if ! pgrep -fa DMMM_Run${i};then (xterm -title DMMM_Run${i} -e bash -c "while true;do echo '$strWarnMsg'; read -p 'hit Enter to run DarkMessiahMM instance ${i}'&&:; pwd; ./fixWindowAndDontStop.sh; ./runDarkMessiahOMM_Launcher.sh -${i}; done" && disown);fi
-		#done
-	#fi
 	function FUNCrunInstance() {
 		local liInstanceIndex=$1
-		
-		export bBashAutoCmdOnStart=false
-		astrSECdevEnv=();if which secEnvDev.sh;then astrSECdevEnv=(secEnvDev.sh --clean);fi
-		FUNCrunLoop() {
-			strWarnMsg="WAIT@{-n} THE other INSTANCE FINISH LOADING THE SAVEGAME OR BOTH may CRASH/FREEZE!!!"
-			astrEchoAlert=(echo   );if which echoc;then astrEchoAlert=(echoc --alert);fi
-			astrEchoWait=( read -p);if which echoc;then astrEchoWait=( echoc -w     );fi
-			while true;do
-				${astrEchoAlert[@]} "$strWarnMsg";
-				${astrEchoWait[@]}  "hit Enter to run DarkMessiahMM @{nul}Instance (${liInstanceIndex})@{-n-u-l}" && :
-				pwd
-				cd "${strGameInstallMainFolder}"
-				./fixWindowAndDontStop.sh
-				./runDarkMessiahOMM_Launcher.sh -${liInstanceIndex}
-			done
-		};export -f FUNCrunLoop
-		acmd=(
-			"${astrSECdevEnv[@]}" 
-			bash -c "FUNCrunLoop"
-		)
-		set -x;"${acmd[@]}";set +x;
+		declare -p liInstanceIndex
+		while true;do
+			echo "[WAIT@{-n} THE other INSTANCE FINISH LOADING THE SAVEGAME OR BOTH may CRASH/FREEZE!!!]"
+			echo "[run Instance $liInstanceIndex]"
+			read -p
+			./fixWindowAndDontStop.sh
+			./runDarkMessiahOMM_Launcher.sh -${liInstanceIndex}
+		done
 	};export -f FUNCrunInstance
-	astrFlFuncExec=()
-	astrFlFuncExec+=("$(mktemp)")
-	astrFlFuncExec+=("$(mktemp)")
-	type FUNCrunInstance |tail -n +2 >"${astrFlFuncExec[0]}"
-	type FUNCrunInstance |tail -n +2 >"${astrFlFuncExec[1]}"
 	for((i=1;i<=2;i++));do
-		iInstanceIndex=$i
-		if ! pgrep -fa DMMM_Run${iInstanceIndex};then
-			#help @InfoID="[Run2instances]" Helper Script, will run 2 instances of the game for easy/quickly reloading a savegame, see bRunBothInstances
-			strFlSrc="${astrFlFuncExec[$((iInstanceIndex-1))]}"
-			strBashScript="echo \"Loading Source: ${strFlSrc}\"; cat \"${strFlSrc}\"; source \"${strFlSrc}\"; trash \"${strFlSrc}\"; FUNCrunInstance ${iInstanceIndex}"
-			if false;then #which guakeAutoEnv.sh;then
-				#set -x;(xterm -title DMMM_Run${iInstanceIndex} -e bash -c "guakeAutoEnv.sh -ID_CMD game${iInstanceIndex} bash -c \"${strBashScript}; echoc -w -t 60 Instance${iInstanceIndex}\"" & disown);set +x
-				set -x;guakeAutoEnv.sh -ID_CMD game${iInstanceIndex} bash -c "${strBashScript}; echoc -w -t 60 \"Instance${iInstanceIndex}\"";set +x
-			else
-				set -x;(xterm -title DMMM_Run${iInstanceIndex} -e bash -c "${strBashScript}; read -p \"PressEnterToEnd(Instance${iInstanceIndex})\" -t 60&&:" & disown);set +x
-			fi
-		fi
+		if pgrep -fa DMMM_Run${i};then continue;fi
+		(xterm -title DMMM_Run${i} -e bash -c "FUNCrunInstance $i;echoc -w" & disown)
 	done
+
+	#function FUNCrunInstance() {
+		#local liInstanceIndex=$1
+		#if pgrep -fa DMMM_Run${iInstanceIndex};then return 0;fi
+		
+		#export bBashAutoCmdOnStart=false
+		#astrSECdevEnv=();if which secEnvDev.sh;then astrSECdevEnv=(secEnvDev.sh --clean);fi
+		#FUNCrunLoop() {
+			#strWarnMsg="WAIT@{-n} THE other INSTANCE FINISH LOADING THE SAVEGAME OR BOTH may CRASH/FREEZE!!!"
+			#astrEchoAlert=(echo   );if which echoc;then astrEchoAlert=(echoc --alert);fi
+			#astrEchoWait=( read -p);if which echoc;then astrEchoWait=( echoc -w     );fi
+			#while true;do
+				#${astrEchoAlert[@]} "$strWarnMsg";
+				#${astrEchoWait[@]}  "hit Enter to run DarkMessiahMM @{nul}Instance (${liInstanceIndex})@{-n-u-l}" && :
+				#pwd
+				#cd "${strGameInstallMainFolder}"
+				#./fixWindowAndDontStop.sh
+				#./runDarkMessiahOMM_Launcher.sh -${liInstanceIndex}
+			#done
+		#};export -f FUNCrunLoop
+		#acmd=(
+			#"${astrSECdevEnv[@]}" 
+			#bash -c "FUNCrunLoop"
+		#)
+		#set -x;"${acmd[@]}";set +x;
+	#};export -f FUNCrunInstance
+	
+	#astrFlFuncExec=()
+	#astrFlFuncExec+=("$(mktemp)")
+	#astrFlFuncExec+=("$(mktemp)")
+	#type FUNCrunInstance |tail -n +2 >"${astrFlFuncExec[0]}"
+	#type FUNCrunInstance |tail -n +2 >"${astrFlFuncExec[1]}"
+	##help @InfoID="[Run2instances]" Helper Script, will run 2 instances of the game for easy/quickly reloading a savegame, see bRunBothInstances
+	#for((i=1;i<=2;i++));do
+		#FUNCrunInstance $i
+	
+		#iInstanceIndex=$i
+			#strFlSrc="${astrFlFuncExec[$((iInstanceIndex-1))]}"
+			#strBashScript="echo \"Loading Source: ${strFlSrc}\"; cat \"${strFlSrc}\"; source \"${strFlSrc}\"; trash -v \"${strFlSrc}\"; FUNCrunInstance ${iInstanceIndex}"
+			#if which guakeAutoEnv.sh;then
+				#set -x;(xterm -title DMMM_Run${iInstanceIndex} -e bash -c "guakeAutoEnv.sh -ID_CMD game${iInstanceIndex} bash -c \"${strBashScript}; echoc -w -t 60 Instance${iInstanceIndex}\"" & disown);set +x
+				##set -x;guakeAutoEnv.sh -ID_CMD game${iInstanceIndex} bash -c "${strBashScript}; echoc -w -t 60 \"Instance${iInstanceIndex}\"";set +x
+			#else
+				#set -x;(xterm -title DMMM_Run${iInstanceIndex} -e bash -c "${strBashScript}; read -p \"PressEnterToEnd(Instance${iInstanceIndex})\" -t 60&&:" & disown);set +x
+			#fi
+		#fi
+	#done
 fi
 
 ##################
