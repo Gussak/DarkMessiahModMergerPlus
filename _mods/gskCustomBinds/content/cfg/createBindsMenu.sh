@@ -49,7 +49,8 @@ strMenuDataEntries=""
 function FUNCgoodDesc() {
 	local lstrLN="$(grep "${lstrAlias}" gskEnabledBinds.DoNotEnable.cfg)"
 	if [[ "$lstrLN" =~ .*//.* ]];then
-		local lstrDesc="$(echo -n "$lstrLN" |sed -r -e 's@.*//(.*)@\1@g' |tr -d '\r')"
+		local lstrDesc="$(echo "$lstrLN" | sed -r -e 's@^[^/]*//@@' -e 's@ //.*$@@' -e 's@^[[:space:]]*@@; s@[[:space:]]*$@@')" # works with this to ignore the long description: aaa // short description // long description
+
 		: ${lnMaxDescSize:=40} #help
 		if((${#lstrDesc} > lnMaxDescSize));then
 			FUNCechoInfo "[WARN] lstrDesc size is too big (${#lstrDesc} chars/$lnMaxDescSize) and will not fit in the menu for '$lstrDesc'"
@@ -84,7 +85,6 @@ for strAlias in "${astrAliasList[@]}";do
 	strKVPatches+="\t\"${strAlias}\": \"#${strMenuID}\""
 	#declare -p strAlias strMenuID strDescription
 done
-echo "TODO: Big identifiers may bug the engine? limit is 30 chars and is not checked? or the problem is the amount of menu entries that is causing errors and preventing some cutscenes being loaded?"
 declare -p iMaxMenuIdSz strMaxMenuIdSz
 echo "Total binds added: ${#astrAliasList[@]}"
 
@@ -115,5 +115,6 @@ now run:
 trash ../resource/closecaption_manifest.txt; #will be auto recreated from vanilla + kvpatch
 trash ../scripts/kb_act.lst; #will be auto recreated from vanilla + kvpatch
 cd ../../../..
-./merge.sh -f resource/closecaption_manifest.txt; ./merge.sh -f scripts/kb_act.lst;
+./merge.sh -f resource/closecaption_manifest.txt;
+./merge.sh -f scripts/kb_act.lst;
 '

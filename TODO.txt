@@ -50,6 +50,9 @@ MayBeOnlyPatchingTheEngineBinary
 MayBeNot
 - physics traps should damage us as much it does on NPCs, last test was only 20 damage, could be 80?
 
+ETC:
+	Big identifiers may bug the engine? limit is 30 chars? what is causing errors and preventing some 3D realtime animated cutscenes being loaded? is only unmatched {} or "" in keyvalue files?
+
 DONE:
 - let small spiders attack
 - make spider poison last much longer requiring to use the antidote... like 100x longer
