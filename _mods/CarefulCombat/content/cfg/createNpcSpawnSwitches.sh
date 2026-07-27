@@ -147,6 +147,7 @@ if $bCreateSpawnsForCurrentMap;then
 	if ! $bUsingCleanCondump;then
 		cp -vf "$strFlCondumpClean" "$strFlCondumpClean.$(FUNCdtFlNm).bkp"&&:
 		echo "$FUNCmapInfo_strMapStatus" >"$strFlCondumpClean"
+		echo "$FUNCmapInfo_strMapStatus" >>"$strFlCondumpClean"
 	fi
 	FUNCprepareCleanDataOriginBkp() {
 		if $bUsingCleanCondump;then return 0;fi
