@@ -31,7 +31,7 @@
 
 echo "RUN THIS BEFORE RUNNING THE GAME!!! it will look ONLY for new windows!"
 
-while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
+while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do pwd;cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
 
 export strSelfName="$(basename "$0")"
 

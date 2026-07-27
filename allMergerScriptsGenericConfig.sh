@@ -120,7 +120,15 @@ fi
 : ${bDoPrivacyChecks:=true} #help
 if $bDoPrivacyChecks;then
 	#KEEPinfo: if egrep "$USER" * -iRnIa |egrep -v ".SUCCESS.cfg:|.log:";then #this may end weird
-	if egrep "$USER" * -iRnIa --exclude="*.SUCCESS.cfg" --exclude="*.log" --exclude="*.bkp" --exclude="*.pyc" || ls -lR |egrep "[-]>.*$USER";then
+	bPrivProb=false
+	#if egrep "$USER" * -iRnIa --exclude="*.SUCCESS.cfg" --exclude="*.log" --exclude="*.bkp" --exclude="*.pyc" || ls -lR |egrep "[-]>.*$USER";then
+	if [[ -d .git ]];then
+		echo "CHECKING FILES FOR GIT" >&2
+		mapfile -t astrFlList < <(git ls-tree -r --name-only HEAD)
+		if egrep "$USER" "${astrFlList[@]}";then bPrivProb=true;fi
+		if ls -lR |egrep "[-]>.*$USER";then bPrivProb=true;fi # symlinks with full absolute path
+	fi
+	if $bPrivProb;then
 		echo "[PROBLEM:] user name found in files that go to git"
 		
 		#strTimeStampRegex="[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}[.][0-9]{9} [+-][0-9]{4}"

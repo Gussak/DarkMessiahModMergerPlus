@@ -21,7 +21,7 @@ done
 declare -p strRegexExclude
 mapfile -t astrFlList < <(find ./ -type f -or -xtype f |egrep -v "${strRegexExclude}" |sort)
 
-strFlZ="GSK_ModMerger_AndMiniMods_FullBkp.7z"
+strFlZ="GSK_ModMerger_AndMiniMods_FullBkp.zip"
 
 ls -l "$strFlZ"&&:
 trash -v "$strFlZ"&&:

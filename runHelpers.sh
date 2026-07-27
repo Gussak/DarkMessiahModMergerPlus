@@ -13,7 +13,7 @@ fi
 pwd
 strMainModFolder="$(pwd)"
 
-while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
+while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do pwd;cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
 
 : ${bXtermAlready:=false} # self internal use only
 if ! $bXtermAlready;then
@@ -54,17 +54,38 @@ if $bRunBothInstances;then
 	function FUNCrunInstance() {
 		local liInstanceIndex=$1
 		declare -p liInstanceIndex
+		FUNCecho() {
+			if which ScriptEchoColor >/dev/null;then
+				echoc "$@"
+			else
+				while [[ $# -gt 0 && ${1:0:1} == "-" ]];do shift;done
+				echo "$1"
+			fi
+		}
 		while true;do
-			echo "[WAIT@{-n} THE other INSTANCE FINISH LOADING THE SAVEGAME OR BOTH may CRASH/FREEZE!!!]"
-			echo "[run Instance $liInstanceIndex]"
-			read -p
+			pwd
+			FUNCecho --info "Run a 2nd instance for quick resume playing after death, as load game is super slow."
+			FUNCecho --alert "[WAIT@{-n} THE other INSTANCE FINISH LOADING THE SAVEGAME OR BOTH may CRASH/FREEZE!!!]"
+			FUNCecho -w -t 0.1 "[run Instance $liInstanceIndex] press Enter";read -n 1&&:
 			./fixWindowAndDontStop.sh
 			./runDarkMessiahOMM_Launcher.sh -${liInstanceIndex}
 		done
 	};export -f FUNCrunInstance
 	for((i=1;i<=2;i++));do
-		if pgrep -fa DMMM_Run${i};then continue;fi
-		(xterm -title DMMM_Run${i} -e bash -c "FUNCrunInstance $i;echoc -w" & disown)
+		iInstanceIndex=$i
+		if pgrep -fa DMMM_Run${iInstanceIndex};then continue;fi
+		if which guakeAutoEnv.sh >/dev/null;then
+			strFlExec="$(mktemp)";declare -p strFlExec
+			echo "#!/bin/bash" >>"$strFlExec"
+			echo "cd '${strGameInstallMainFolder}';" >>"$strFlExec"
+			type FUNCrunInstance |tail -n +2 >>"$strFlExec";echo >>"$strFlExec"
+			echo "FUNCrunInstance ${iInstanceIndex};" >>"$strFlExec"
+			echo "trash -v $strFlExec;" >>"$strFlExec"
+			
+			guakeAutoEnv.sh -ID_CMD game${iInstanceIndex} bash -c "chmod +x '${strFlExec}'; ls -l '${strFlExec}'; cat '${strFlExec}'; bBashAutoCmdOnStart=false secEnvDev.sh --clean bash -c '${strFlExec}'"
+		else
+			(xterm -title DMMM_Run${iInstanceIndex} -e bash -c "FUNCrunInstance ${iInstanceIndex}" & disown)
+		fi
 	done
 
 	#function FUNCrunInstance() {
