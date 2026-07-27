@@ -5,6 +5,8 @@
     "$keyvalues.entity_data.Poison_Damages": "0.5",
     "$keyvalues.entity_data.Poison_Duration": "60",
     "__comments__": {
-        "spelldatas.water_2.Damage_Factor": "// Damage delt per second. //TODO This overrides entity_data???"
-    }
+        "spelldatas.water_2.Damage_Factor": "// Damage delt per second. // This overrides entity_data Poison_Damages"
+    },
+    "spelldatas.water_2.Damage_Factor": "0.5",
+    "spelldatas.water_2.Poison_Duration": "60"
 }

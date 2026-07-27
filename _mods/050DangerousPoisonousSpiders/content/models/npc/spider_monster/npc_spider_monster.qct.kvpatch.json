@@ -6,6 +6,8 @@
     "__comments__": {
         "$keyvalues.entity_data.Poison_Duration": "//avoid it at all costs or have 1 antidote at least",
         "spelldatas.water_2.Poison_Duration": "//TODO this overrides entity_data???",
-        "spelldatas.water_2.Damage_Factor": "// Damage delt per second. //TODO this overrides entity_data???"
-    }
+        "spelldatas.water_2.Damage_Factor": "// Damage delt per second. // This overrides entity_data Poison_Damages"
+    },
+    "spelldatas.water_2.Damage_Factor": "0.5",
+    "spelldatas.water_2.Poison_Duration": "799"
 }
