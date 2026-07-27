@@ -1,15 +1,31 @@
-tar -cvf GSK_ModMerger_AndMiniMods_FullBkp.tar \
-	--exclude='./.git' \
-	--exclude='./tmp' \
-	--exclude='./Extracted.Quick.TMP' \
-	--exclude='./GSK_ModMerger_AndMiniMods_Release.tar.7z' \
-	--exclude='./GSK_ModMerger_AndMiniMods_FullBkp.tar.7z' \
-	--exclude='./Dark Messiah Might and Magic Single Player.layer*' \
-	--exclude='__pycache__' \
-	--exclude='_SaveGamesWithNPCsAdded' \
-	.
-	
-ls -l GSK_ModMerger_AndMiniMods_FullBkp.tar
-7z a GSK_ModMerger_AndMiniMods_FullBkp.tar.7z GSK_ModMerger_AndMiniMods_FullBkp.tar
-ls -l GSK_ModMerger_AndMiniMods_FullBkp.tar.7z
-trash GSK_ModMerger_AndMiniMods_FullBkp.tar
+#!/bin/bash
+
+# 7z wont restore symlinks
+
+astrFlNot=(
+	'*.log' '*.bkp' "*.NEWLY_PATCHED"	"*.NEWLY_PATCHED.rej" '*.SUCCESS.cfg' # temp files
+	#	'*.qct' patched are ok like a backup
+	'./.git' 
+	'./tmp' 
+	'./Extracted.Quick.TMP' 
+	'./GSK_ModMerger_AndMiniMods_Release*' 
+	'./GSK_ModMerger_AndMiniMods_FullBkp*' 
+	'./Dark Messiah Might and Magic Single Player.layer*' 
+	'./__pycache__' 
+	'./_SaveGamesWithNPCsAdded' 
+)
+strRegexExclude="dummy"
+for strFlNot in "${astrFlNot[@]}";do
+	strRegexExclude+="|$(echo "${strFlNot}" |sed -r -e 's@[.]@[.]@g' -e 's@[*]@.*@g')"
+done
+declare -p strRegexExclude
+mapfile -t astrFlList < <(find ./ -type f -or -xtype f |egrep -v "${strRegexExclude}" |sort)
+
+strFlZ="GSK_ModMerger_AndMiniMods_FullBkp.7z"
+
+ls -l "$strFlZ"&&:
+trash -v "$strFlZ"&&:
+
+zip -y9 "$strFlZ" "${astrFlList[@]}"
+unzip -l "$strFlZ"
+ls -l "$strFlZ"
