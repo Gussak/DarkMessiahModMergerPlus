@@ -31,6 +31,8 @@ Using Pre-made files: (MoreFoes keys)
 	Be careful now:
 	- be sure to be standing up (as crouched help NPC placement as you become smaller and you will auto crouch)
 	- be sure to be in normal game mode, to have "[DEV]MoreFoes:ToggleGODmode to placeNPCs" (+gskHelpPlaceNPCsToggleH) disabled, or it will mess the toggles (as we cant set them to ON or OFF, it is just the toggle of: buddha@OFF, noclip@OFF, notarget@OFF, ai_disable@Enabled; so you can check if they are all normal by toggling again, look on console if they are as @expected)
+	- holster your weapon
+	- open inventory and keep it opened (you will be requested to drop some items that will be added to your inventory (to lure you xD and as reward))
 	Now, in normal game mode press "MoreFoes: Create Next NPC" (gskCCnpcSpawn_next) to place each foe to fill that map area. Dont do it too fast, you will see the screen changing when you teleport, lagging a bit and stabilizing animation, then press again.
 	When done you will be teleported back to initial location as configured in that file and restored to normal game mode.
 	PS.: I was careful to fly around without triggering anything when creating them.
