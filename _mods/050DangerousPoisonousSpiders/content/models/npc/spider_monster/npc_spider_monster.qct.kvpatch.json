@@ -1,13 +1,13 @@
 {
     "$keyvalues.entity_data.life_regen": "0.25",
-    "$keyvalues.entity_data.Poison_Damages": "0.5",
+    "$keyvalues.entity_data.Poison_Damages": "3.0",
     "$keyvalues.entity_data.Poison_Duration": "799",
     "$keyvalues.entity_data.poisoned": "1.0",
     "__comments__": {
-        "$keyvalues.entity_data.Poison_Duration": "//avoid it at all costs or have 1 antidote at least",
-        "spelldatas.water_2.Poison_Duration": "//TODO this overrides entity_data???",
-        "spelldatas.water_2.Damage_Factor": "// Damage delt per second. // This overrides entity_data Poison_Damages"
+        "$keyvalues.entity_data.Poison_Damages": "// was 0.5 for 799 duration",
+        "$keyvalues.entity_data.Poison_Duration": "//this doesnt work //avoid it at all costs or have 1 antidote at least",
+        "spelldatas.water_2.Poison_Duration": "//this doesnt work //this overrides entity_data",
+        "spelldatas.water_2.Damage_Factor": "// was 0.5 for 799 duration // Damage delt per second. // This overrides entity_data Poison_Damages"
     },
-    "spelldatas.water_2.Damage_Factor": "0.5",
     "spelldatas.water_2.Poison_Duration": "799"
 }

@@ -5,8 +5,12 @@
     "$keyvalues.entity_data.Poison_Damages": "0.5",
     "$keyvalues.entity_data.Poison_Duration": "60",
     "__comments__": {
-        "spelldatas.water_2.Damage_Factor": "// Damage delt per second. // This overrides entity_data Poison_Damages"
+        "$keyvalues.entity_data.Poison_Duration": "//this doesnt work",
+        "spelldatas.water_2.Damage_Factor": "// Damage delt per second. // This overrides entity_data Poison_Damages",
+        "spelldatas.water_2.Poison_Duration": "// doesnt work",
+        "spelldatas.water_2.effect_duration": "//this doesnt work"
     },
     "spelldatas.water_2.Damage_Factor": "0.5",
+    "spelldatas.water_2.effect_duration": "60",
     "spelldatas.water_2.Poison_Duration": "60"
 }

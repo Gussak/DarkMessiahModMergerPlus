@@ -6,10 +6,11 @@
     "$keyvalues.entity_data.AttackRythmMaxTime": "15.0",
     "$keyvalues.entity_data.AttackRythmMinTime": "10.0",
     "$keyvalues.entity_data.PlayerNoAttackDelayToGoBersekerMode": "2.0",
-    "$keyvalues.entity_data.Poison_Damages": "0.5",
+    "$keyvalues.entity_data.Poison_Damages": "1.5",
     "$keyvalues.entity_data.Poison_Duration": "399",
     "$keyvalues.entity_data.poisoned": "0.8",
     "__comments__": {
-        "$keyvalues.entity_data.Poison_Duration": "//at full hp100, will need to use one life100hp potion and will end almost dead"
+        "$keyvalues.entity_data.Poison_Damages": "// was 0.5 for 399 duration...",
+        "$keyvalues.entity_data.Poison_Duration": "//this doesnt work //at full hp100, will need to use one life100hp potion and will end almost dead"
     }
 }

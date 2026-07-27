@@ -10,6 +10,6 @@
     "$keyvalues.entity_data.Poison_Duration": "200",
     "$keyvalues.entity_data.poisoned": "0.6",
     "__comments__": {
-        "$keyvalues.entity_data.Poison_Duration": "//one attack can kill if not treated"
+        "$keyvalues.entity_data.Poison_Duration": "//this doesnt work //one attack can kill if not treated"
     }
 }

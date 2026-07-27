@@ -2,5 +2,8 @@
     "$keyvalues.entity_data.life_tobeg": "0.0",
     "$keyvalues.entity_data.life_toflee": "0.0",
     "$keyvalues.entity_data.Poison_Damages": "0.5",
-    "$keyvalues.entity_data.Poison_Duration": "30"
+    "$keyvalues.entity_data.Poison_Duration": "30",
+    "__comments__": {
+        "$keyvalues.entity_data.Poison_Duration": "//this doesnt work"
+    }
 }
