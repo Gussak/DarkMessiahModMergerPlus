@@ -89,10 +89,12 @@ function FUNCwindowHelper() { #will look for one or more newly created windows, 
 				nY=$(echo "$strXYclick" |cut -d, -f2)
 				
 				if which ScriptEchoColor;then echoc --say "don't touch your mouse nor keyboard please";fi
-				read -p "[blind wait the ModLauncher window show up]" -t 7 #TODO try `perceptualdiff` to check if the button is showing there
+				read -p "[blind wait the ModLauncher window show up]" -t 7&&: #TODO try `perceptualdiff` to check if the button is showing there
 				
 				xdotool mousemove $nX $nY;
 				xdotool click --window $lnWId 1
+				
+				if which ScriptEchoColor;then echoc --say "thanks";fi
 				
 				# for keys (Tab space), Wine needs windows tools like AutoHotkey
 				#FAIL: set -x;xdotool key --window $lnWId Tab space;set +x #this focus the first button and activate it

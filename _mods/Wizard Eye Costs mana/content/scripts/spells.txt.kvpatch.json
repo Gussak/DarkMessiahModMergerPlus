@@ -1,3 +1,6 @@
 {
-    "spelldatas.water_1.cost": "5"
+    "__comments__": {
+        "spelldatas.water_1.cost": "//minimum to cope with no mana regen patch"
+    },
+    "spelldatas.water_1.cost": "1"
 }

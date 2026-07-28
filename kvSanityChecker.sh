@@ -34,6 +34,7 @@
 while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
 
 #help tip: run at least this only for crucial brackets: clear;bChkBOM=false bChkStdQuotes=false bChkCurlyQuotes=false ./kvSanityChecker.sh ../Dark\ Messiah\ Might\ and\ Magic\ Single\ Player/_mods/FinalMergedScriptsMaxPriority/
+#help tip: symple check all layers with ./kvSanityChecker.sh .. #will log all possible problems (remember overrides only need fixing)
 #TODO try to auto fix problems thru the merger scripts?
 
 TARGET_DIR="."
@@ -44,6 +45,9 @@ elif [[ -d "${1-}" ]];then
 	TARGET_DIR="$1"
 fi
 
+strFlLog="$(basename "$0").log"
+FUNCtrash "$strFlLog"
+echo -n >"$strFlLog"
 
 # Target directory defaults to current directory if not specified
 #TARGET_DIR="${1:-.}"
@@ -56,8 +60,17 @@ astrFlList=()
 if [[ -f "$strFlIn" ]];then
 	astrFlList=("$strFlIn")
 else
+	: ${strMatchGlob:="*.ain|*.cfg|*.dat|*.gam|*.lst|*.qc|*.qct|*.rc|*.res|*.scr|*.smd|*.txt|*.vcd|*.vdf|*.vmt"} #help
+	: ${strExcludeGrepRegex:="demoheader.tmp.*|.Trash|condump*.txt"} #help
+	
+	acmdFind=()
+	mapfile -t -d '|' astrMathList < <(echo "$strMatchGlob")
+	for strMath in "${astrMathList[@]}";do
+		if((${#acmdFind[*]} > 0));then acmdFind+=(-o);fi
+		acmdFind+=(-name "$strMath")
+	done
 	# Find all common text/config extensions used by the Source Engine
-	mapfile -t astrFlList < <(find "$TARGET_DIR" -type f \( -name "*.cfg" -o -name "*.res" -o -name "*.txt" -o -name "*.vmt" -o -name "*.vcd" -o -name "*.qct" \) |egrep -v "demoheader.tmp.*")
+	mapfile -t astrFlList < <(find "$TARGET_DIR" -type f \( "${acmdFind[@]}" \) |egrep -v "$strExcludeGrepRegex")
 fi
 
 nTotErr=0
@@ -82,6 +95,7 @@ for file in "${astrFlList[@]}";do
 				else
 					((HAS_ERROR++))&&:
 					ERROR_MSG+="\n  -> [ENCODING] Invalid encoding format: '$file_type' (Engine requires ANSI/UTF-8 without BOM)"
+					echo "${file} # ERROR: ENCODING" >>"$strFlLog"
 				fi
     fi
   fi
@@ -94,6 +108,7 @@ for file in "${astrFlList[@]}";do
         ((HAS_ERROR++))&&:
         smart_lines=$(grep -n -P "[\x{201C}\x{201D}\x{2018}\x{2019}]" "$file" | awk -F: '{print $1}' | paste -sd, -)
         ERROR_MSG+="\n  -> [QUOTES] Smart/Curly quotes detected on line(s): $smart_lines"
+        echo "${file} # ERROR: [QUOTES] Smart/Curly" >>"$strFlLog"
     fi
 	fi
 	
@@ -105,6 +120,7 @@ for file in "${astrFlList[@]}";do
     if (( quote_count % 2 != 0 )); then
         ((HAS_ERROR++))&&:
         ERROR_MSG+="\n  -> [QUOTES] Uneven number of straight quotes ($quote_count total). An asset path is unclosed."
+        echo "${file} # ERROR: [QUOTES] Uneven $quote_count" >>"$strFlLog"
     fi
 	fi
 	
@@ -117,6 +133,7 @@ for file in "${astrFlList[@]}";do
         ((HAS_ERROR++))&&:
         ERROR_MSG+="\n  -> [SYNTAX] Mismatched curly brackets! (Found $open_brackets '{' and $close_brackets '}')"
 				astrFlPBracketList+=("${file}")
+				echo "${file} # ERROR(CRITICAL!): [SYNTAX] Mismatched curly brackets! (Found $open_brackets '{' and $close_brackets '}')" >>"$strFlLog"
     fi
 	fi
 

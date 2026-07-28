@@ -5,13 +5,28 @@ TODO
 	Crit dmg player and npcs x10 not just x2.
 	Phys traps dmg max possible, make them worth becoming useless after.
 
-MyMODS:
+MODS:
 	Clear;status;echo gskMarkTeleportTarget; Script create setpos at mm/gskTeleToMarked.cfg; Recall: exec gskTeleToMarked;hurtme 10
 	Alias gskKill "ent_remove;hurtme 99;adrenalineFull"
 	MoreFoes:NpcFill: Add mana potion, echo asking to drop it, pause, fadeout into red. showinfo cmd?
 	MoreFoes: gskrm1 gskdrop1 or just rm1 rm3 but for drop gskdropManaPotion, anything that is not detected as normal engine command will do
 	All food are identical. Chose the best looking ones like one of: some usable bread, meat, fruit.  All other that are spawnable (because they have names in the dll) change into useful things like: jar oil, stone to throw, breakable empty or water jar to call attention. So a useless item_bread_doug becomes a carriable oil jar! Try patch the dll into item_oiljar to lower confusion, just that the identifier name must have the exat same size or binary patching the dll will break. Backup the dll before patching.
-
+	Change mana regeneration skill into drain, if it fails just wipe it out at 0200bloodymana mod and zero it's cost. Add priotity to 0150carefulcmbt 
+	Carefulcmbt -> morefoes; Bloodyteleporter
+	Fix safe swapinv text, make ...v2 alias
+	Teleporter mark/recall: Press key to mark
+   alias gskTeleDrop "clear; status; status; status; condump"
+			prepareTeleRecall.sh
+			check if map changed 
+				 At map l00, clear all
+				 At map change clear the list
+			alias gskTeleRecallSelect #show index e coordinates max 3/3
+			alias +gskTeleRecallApply "exec gskTeleRecall.cfg"
+			alias -gskTeleRecallApply "setpos ...; hurtme 20; mm_player_unfreeze; gskWait5s;   mm_player_unfreeze"
+		Press key to recall
+	Mana rework: Disable all regen into 0.0
+		Remove manaregen (x4) module and skill cost spread into others
+		WizardEyeDarkVision spend 1 mana now
 
 AI:
 	key=value: at keyValuePatcher.py, allow for inbetween key value, to have like '=' or ':', letting it be used elsewhere too, prompt: on the attached code, patch it to allow the detection of a assignment char between "key" and "value" (like ex.: "key"="value") but allow it to have optional spaces/tabs like: "key"  = "value". And let it be configurable so it could be ":" instead of "=". Show immediately first the patches, explain later (to grant the patches will show up by conserving your AI tokens).
