@@ -3,6 +3,9 @@
 
 // not tested items (move tested to dev cfg, at least the ones that are useful, as many mix into a single thing like food)
 
+// egrep food * -iRIa --include="*.vmf" -h |tr -d ' \t\r' |sort -u |grep class -i |sed -r -e 's@.*""(.*)"@\1@g' |sort -u
+
+
 item_01
 item_02
 item_03
@@ -638,3 +641,4 @@ weapon_pistol
 weapon_smg
 Weapon_Polymorph
 item_battery
+give weapon_mm_weapon_generic

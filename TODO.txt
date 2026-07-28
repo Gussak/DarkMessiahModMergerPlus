@@ -27,6 +27,7 @@ MODS:
 	Mana rework: Disable all regen into 0.0
 		Remove manaregen (x4) module and skill cost spread into others
 		WizardEyeDarkVision spend 1 mana now
+	are there any dll injector for dark messia like nvse or skse? that Has any modding features like extra .qct keys or console commands that we can use to create gameplay mods? (not about visuals, but gameplay functinalities like jump, kick does, I want to be able to drop specific items and amount etc automatically thru console commands)
 
 AI:
 	key=value: at keyValuePatcher.py, allow for inbetween key value, to have like '=' or ':', letting it be used elsewhere too, prompt: on the attached code, patch it to allow the detection of a assignment char between "key" and "value" (like ex.: "key"="value") but allow it to have optional spaces/tabs like: "key"  = "value". And let it be configurable so it could be ":" instead of "=". Show immediately first the patches, explain later (to grant the patches will show up by conserving your AI tokens).
