@@ -1,11 +1,11 @@
 {
     "__comments__": {
         "spelldatas.air_2": "// Cure Wounds ok",
-        "spelldatas.air_2.cost": "//heal: see reason at cfg file. was 7 (non hardcore) Cure Wounds 1to1 conversion. no fill up mana and easily fill up HP fastly.",
+        "spelldatas.air_2.cost": "//restored to 10, but now module improved manaregen (x4) was disabled, no improved mana regen. this was to cope with manaregen: \"52\" //heal: see reason at cfg file. was 7 (non hardcore) Cure Wounds 1to1 conversion. no fill up mana and easily fill up HP fastly.",
         "spelldatas.air_2.effect": "//heal: (was 7, non hardcore)",
         "spelldatas.air_2.cure_poison": "//heal: as I had to increase the cost a lot to compensate for the HP vs Mana recovery on advanced mana regen, now this makes sense to at least help on curing poison."
     },
-    "spelldatas.air_2.cost": "52",
+    "spelldatas.air_2.cost": "10.0",
     "spelldatas.air_2.cure_poison": "1",
     "spelldatas.air_2.effect": "10",
     "spelldatas.air_2.recovery": "3"
