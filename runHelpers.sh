@@ -67,14 +67,14 @@ if $bRunBothInstances;then
 			FUNCecho --info "Run a 2nd instance for quick resume playing after death, as load game is super slow."
 			FUNCecho --alert "[WAIT@{-n} THE other INSTANCE FINISH LOADING THE SAVEGAME OR BOTH may CRASH/FREEZE!!!]"
 			FUNCecho -w -t 0.1 "[run Instance $liInstanceIndex] press Enter";read -n 1&&:
-			: ${bRunStartCrashWorkaroundLoop:=false} #help
-			if FUNCaskYesNo "Startup crashing too much? try the loop?";then bRunStartCrashWorkaroundLoop=true;fi
-			declare -p bRunStartCrashWorkaroundLoop
+			: ${bRunStartCrashWorkaroundLoop:=false} #help allows a quick retry start loop (fixed tho was nvidia issue)
 			if $bRunStartCrashWorkaroundLoop;then
-				while true;do
-					#./fixWindowAndDontStop.sh too slow just click normally
-					strAutoLoad=forceIgnore ./runDarkMessiahOMM_Launcher.sh -${liInstanceIndex}
-				done
+				if FUNCaskYesNo "Startup crashing too much? try the loop?";then
+					while true;do
+						#./fixWindowAndDontStop.sh too slow just click normally
+						strAutoLoad=forceIgnore ./runDarkMessiahOMM_Launcher.sh -${liInstanceIndex}
+					done
+				fi
 			else
 				./fixWindowAndDontStop.sh
 				./runDarkMessiahOMM_Launcher.sh -${liInstanceIndex}
