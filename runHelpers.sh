@@ -69,9 +69,10 @@ if $bRunBothInstances;then
 			FUNCecho -w -t 0.1 "[run Instance $liInstanceIndex] press Enter";read -n 1&&:
 			: ${bRunStartCrashWorkaroundLoop:=false} #help
 			if FUNCaskYesNo "Startup crashing too much? try the loop?";then bRunStartCrashWorkaroundLoop=true;fi
+			declare -p bRunStartCrashWorkaroundLoop
 			if $bRunStartCrashWorkaroundLoop;then
 				while true;do
-					./fixWindowAndDontStop.sh;
+					#./fixWindowAndDontStop.sh too slow just click normally
 					strAutoLoad=forceIgnore ./runDarkMessiahOMM_Launcher.sh -${liInstanceIndex}
 				done
 			else
@@ -87,6 +88,7 @@ if $bRunBothInstances;then
 			strFlExec="$(mktemp)";declare -p strFlExec
 			echo "#!/bin/bash" >>"$strFlExec"
 			echo "cd '${strGameInstallMainFolder}';" >>"$strFlExec"
+			type FUNCaskYesNo |tail -n +2 >>"$strFlExec";echo >>"$strFlExec"
 			type FUNCrunInstance |tail -n +2 >>"$strFlExec";echo >>"$strFlExec"
 			echo "FUNCrunInstance ${iInstanceIndex};" >>"$strFlExec"
 			echo "trash -v $strFlExec;" >>"$strFlExec"
