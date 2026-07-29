@@ -319,9 +319,15 @@ fi
 
 function FUNCexecMerger() {
 	local lastrParams=()
+	local lbAlert=false
 	while [[ $# -gt 0 ]];do
 		local lstrParam="$1"
 		shift
+		
+		if [[ "$lstrParam" == --alert ]];then
+			lbAlert=true
+			continue
+		fi
 		if [[ -f "$lstrParam" ]];then
 			lastrParams+=("$lstrParam")
 			local lstrEnc="$(file -bi "$lstrParam")"
@@ -343,6 +349,13 @@ function FUNCexecMerger() {
 			break;
 		fi
 	done
+	
+	if $lbAlert;then
+		FUNCsay "PROBLEM: Manual Merging Required"
+	else
+		FUNCsay "Merge result is ready to check."
+	fi
+	
 	if $bMB;then
 		FUNCechoInfo "[PROBLEM] wont open merger for '${strScriptFileRelat}', it can't handle that. Opening a robust text editor instead:"
 		: ${strExecRobustTextEditorEval:='declare -a astrExecRobustTextEditor=([0]="geany" [1]="--new-instance")'} #help
@@ -455,7 +468,7 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 				;;
 			2) 
 				FUNCechoInfo "[WARNING: diff trouble] try manually"; #this ever happens?
-				FUNCexecMerger "$strVanillaScriptFile" "$strFileToMerge";
+				FUNCexecMerger --alert "$strVanillaScriptFile" "$strFileToMerge";
 				;;
 			*) FUNCechoInfo "[ERROR: unrecognized diff return value]";FUNCexit 1;;
 		esac
@@ -496,7 +509,7 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 			chmod ugo-w "$strFileToMerge" #help this is important to prevent changing the mod file. The point is just to apply the changes on the final file!
 			cp -vf "$strFlWork" "$strFlWork.$nBkpIndex.bkp"
 			declare -p astrEasyLogReview |sed -r -e "${strSedArrayNumToLn}"
-			FUNCexecMerger "$strVanillaScriptFile" "$strFileToMerge" "$strFlWork" #help manual merge required. show vanilla on the left just to try to guess what to do.
+			FUNCexecMerger --alert "$strVanillaScriptFile" "$strFileToMerge" "$strFlWork" #help manual merge required. show vanilla on the left just to try to guess what to do.
 			FUNCechoInfo "nRet=$?"
 			bMergedManually=true
 		fi
@@ -523,8 +536,8 @@ done
 echo "$strFullLineVisualDelimiter"
 
 while ! ./kvSanityChecker.sh "$strFlWork";do
-	FUNCaskYesNo "Fix it (the right one) manually according to the sanity check above please (if not will just exit or the game may will crash)"
-	FUNCexecMerger "$strVanillaScriptFile" "$strFlWork"
+	FUNCaskYesNo "[PROBLEM] Fix it (the right one) manually according to the sanity check above please (if not will just exit or the game may will crash)"
+	FUNCexecMerger --alert "$strVanillaScriptFile" "$strFlWork"
 done
 
 : ${bShowFinalComparison:=true} #help compare vanilla with fully mods merged file after all mods merging end for it
@@ -535,15 +548,13 @@ if $bShowFinalComparison;then
 	FUNCexecMerger "$strVanillaScriptFile" "$strFlWork"
 fi
 
-declare -p strEncodingRestore strEncodingUTF16LE
-set -x
+#declare -p strEncodingRestore strEncodingUTF16LE
 if [[ "$strEncodingRestore" == "$strEncodingUTF16LE" ]];then
 	(iconv -f UTF-8 -t UTF-16LE "$strFlWork") |sponge "$strFlWork"
 	if FUNChasBOM "$strVanillaScriptFileOriginal";then
 		FUNCfixBOM "$strFlWork"
 	fi
 fi
-set +x
 
 if $bApplyEachPatch;then
 	astrListSUCCESS=("${astrListCurrent[@]}")

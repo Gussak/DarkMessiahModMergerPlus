@@ -754,3 +754,7 @@ function FUNCfixBOM() {
 		fi
 	fi
 };export -f FUNCfixBOM
+
+function FUNCsay() { #to help when you are far away
+	if which echoc >&2;then echoc --say "$1";fi
+};export -f FUNCsay
