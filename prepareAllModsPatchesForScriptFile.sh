@@ -249,23 +249,19 @@ chmod ugo-w "$strVanillaScriptFile"
 ls -l "$strVanillaScriptFile"
 strVanillaScriptFileOriginal="$strVanillaScriptFile"
 
-strEncodingVanilla="$(file -bi "$strVanillaScriptFile")"
-strEncodingRestore=""
-if [[ "$strEncodingVanilla" != "$strEncodingOK" ]];then
-	if [[ "$strEncodingVanilla" == "$strEncodingUTF16LE" ]];then
-		strEncodingRestore="$strEncodingUTF16LE"
-		iconv -f UTF-16 -t UTF-8 "$strVanillaScriptFile" > "${strVanillaScriptFile}.UTF-8"
-		strVanillaScriptFile="${strVanillaScriptFile}.UTF-8"
-	elif [[ "$strEncodingVanilla" == "$strEncodingISO_8859_1" ]];then
-		strEncodingRestore="$strEncodingUTF16LE"
-		iconv -f ISO-8859-1 -t UTF-8 "$strVanillaScriptFile" > "${strVanillaScriptFile}.ISO-8859-1"
-		strVanillaScriptFile="${strVanillaScriptFile}.ISO-8859-1"
-	else
+strEncodingVanilla="$(file -bi "$strVanillaScriptFile" |sed -r -e 's@text/plain; charset=(.*)$@\1@g')"
+case "$strEncodingVanilla" in
+	us-ascii|utf-16le|iso-8859-1)
+		strEncodingRestore="$strEncodingVanilla"
+		;;
+	*)
 		#FUNCechoInfo "[PROBLEM] may not work well with encodings different of '$strEncodingOK' and '$strEncodingUTF16LE', this vanilla is: '$strEncodingVanilla'"
 		FUNCechoInfo "[ERROR] encoding not supported yet: $strEncodingVanilla"
 		exit 1
-	fi
-fi
+		;;
+esac
+iconv -f "$strEncodingVanilla" -t UTF-8 "$strVanillaScriptFile" > "${strVanillaScriptFile}.UTF-8"
+strVanillaScriptFile="${strVanillaScriptFile}.UTF-8"
 
 nBkpIndex=0
 
@@ -335,11 +331,16 @@ function FUNCexecMerger() {
 		if [[ -f "$lstrParam" ]];then
 			lastrParams+=("$lstrParam")
 			local lstrEnc="$(file -bi "$lstrParam")"
-			if [[ "$lstrEnc" != "$strEncodingOK" ]];then
-				echo "'$lstrParam'"
-				ls -l "$lstrParam"
-				FUNCechoInfo "[ISSUE] may not work well with encodings different of '$strEncodingOK', this file above is: '$lstrEnc'"
-			fi
+			case "$strEncodingVanilla" in
+				us-ascii|utf-16le|iso-8859-1)
+					:
+					;;
+				*)
+					echo "'$lstrParam'"
+					ls -l "$lstrParam"
+					FUNCechoInfo "[WARN] not validated/patched encoding yet, this file above is: '$lstrEnc'"
+					;;
+			esac
 		fi
 	done
 	
@@ -553,20 +554,18 @@ if $bShowFinalComparison;then
 	FUNCexecMerger "$strVanillaScriptFile" "$strFlWork"
 fi
 
-#declare -p strEncodingRestore strEncodingUTF16LE
-if [[ "$strEncodingRestore" == "$strEncodingUTF16LE" ]];then
-	(iconv -f UTF-8 -t UTF-16LE "$strFlWork") |sponge "$strFlWork"
-fi
-if [[ "$strEncodingRestore" == "$strEncodingISO_8859_1" ]];then
-	(iconv -f UTF-8 -t ISO-8859-1 "$strFlWork") |sponge "$strFlWork"
-fi
+case "$strEncodingVanilla" in
+	us-ascii|utf-16le|iso-8859-1)
+		(iconv -f UTF-8 -t "$strEncodingVanilla" "$strFlWork") |sponge "$strFlWork"
+		;;
+esac
 if FUNChasBOM "$strVanillaScriptFileOriginal";then
 	FUNCfixBOM "$strFlWork"
 fi
 if [[ "$(file -bi "$strVanillaScriptFileOriginal")" != "$(file -bi "$strFlWork")" ]];then
 	FUNCechoInfo "[ERROR] restoring enconding failed"
-	echo "file -bi '$strVanillaScriptFileOriginal'"
-	echo "file -bi '$strFlWork'"
+	echo "file -bi '$strVanillaScriptFileOriginal';"
+	echo "file -bi '$strFlWork';"
 	exit 1
 fi
 

@@ -71,8 +71,12 @@ if true;then
 		IFS=$'\n' read -d '' -r -a astrList < <(cat findAllConflictingModdedFiles.sh.log |grep "${lstrWhat}" |sed -r -e 's@(.*) #INFO: .*@\1@g' |sort -u &&:)&&:
 		declare -p astrList |sed -r -e "$strSedArrayLn"
 	#	for strFl in "${astrList[@]}";do
+		: ${strIgnoreSomeFiles:=""} #help comma separated
+		mapfile -t astrIgnoreSomeFilesList < <(echo "$strIgnoreSomeFiles" |tr ',' '\n')
+		FUNCign() { for strIgn in "${astrIgnoreSomeFilesList[@]}";do if [[ "$1" == "$strIgn" ]];then return 0;fi;done; return 1; }
 		for((i=0;i<${#astrList[@]};i++));do
 			strFl="${astrList[i]}"
+			if FUNCign "$strFl";then continue;fi
 			echo
 			
 			: ${bClearTerminalOncePerFileMerged:=true} #help good to easily read all the specific file context in case the merger app is called for the user to take action. It will all be logged at final file location.
