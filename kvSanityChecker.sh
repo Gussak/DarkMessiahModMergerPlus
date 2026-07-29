@@ -84,22 +84,25 @@ for file in "${astrFlList[@]}";do
 
 	: ${bChkBOM:=true} #help
 	if $bChkBOM;then
-    # 1. Check for UTF-8 with BOM or UTF-16 Encoding
-    # Source Engine prefers plain ANSI or raw UTF-8 (without BOM)
-    hexBOM="$(head -c 2 "$file" | xxd -p)"
-    file_type=$(file -b "$file")
-    #if [[ "$file_type" == *"BOM"* || "$file_type" == *"UTF-16"* ]]; then
-    if [[ "$hexBOM" == "fffe" || "$file_type" == *"UTF-16"* ]]; then
-				if [[ "$file" =~ mm_.*_english.txt ]];then
+	 # 1. Check for UTF-8 with BOM or UTF-16 Encoding
+	 # Source Engine prefers plain ANSI or raw UTF-8 (without BOM)
+	 hexBOM="$(head -c 2 "$file" | xxd -p)"
+	 file_type=$(file -b "$file")
+	 
+	 # MODIFIED: Specifically ignore UTF-16 LE with BOM (fffe) as requested
+	 if [[ "$hexBOM" == "fffe" ]]; then
+			: # Do nothing, allow UTF-16 LE with BOM
+	 elif [[ "$file_type" == *"UTF-16"* ]]; then
+			if [[ "$file" =~ mm_.*_english.txt ]];then
 					:
-				else
+			else
 					((HAS_ERROR++))&&:
-					ERROR_MSG+="\n  -> [ENCODING] Invalid encoding format: '$file_type' (Engine requires ANSI/UTF-8 without BOM)"
+					ERROR_MSG+="\n -> [ENCODING] Invalid encoding format: '$file_type' (Engine requires ANSI/UTF-8 without BOM)"
 					echo "${file} # ERROR: ENCODING" >>"$strFlLog"
-				fi
-    fi
-  fi
-
+			fi
+	 fi
+	fi
+	  
 	: ${bChkCurlyQuotes:=true} #help
 	if $bChkCurlyQuotes;then
     # 2. Check for Smart/Curly Quotes (copied from browsers/Word)
