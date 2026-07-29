@@ -247,9 +247,19 @@ if [[ ! -f "$strVanillaScriptFile" ]];then
 fi
 chmod ugo-w "$strVanillaScriptFile"
 ls -l "$strVanillaScriptFile"
+
 strEncodingVanilla="$(file -bi "$strVanillaScriptFile")"
+strEncodingRestore=""
 if [[ "$strEncodingVanilla" != "$strEncodingOK" ]];then
-	FUNCechoInfo "[ISSUE] may not work well with encodings different of '$strEncodingOK', this vanilla is: '$strEncodingVanilla'"
+	if [[ "$strEncodingVanilla" == "$strEncodingUTF16LE" ]];then
+		strEncodingRestore="$strEncodingUTF16LE" #later: iconv -f UTF-8 -t UTF-16LE moddedfile.UTF8 > finalfile
+		iconv -f UTF-16 -t UTF-8 "$strVanillaScriptFile" > "${strVanillaScriptFile}.UTF8"
+		strVanillaScriptFile="${strVanillaScriptFile}.UTF8"
+	else
+		#FUNCechoInfo "[PROBLEM] may not work well with encodings different of '$strEncodingOK' and '$strEncodingUTF16LE', this vanilla is: '$strEncodingVanilla'"
+		FUNCechoInfo "[ERROR] encoding not supported yet: $strEncodingVanilla"
+		exit 1
+	fi
 fi
 
 nBkpIndex=0
@@ -369,22 +379,6 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 		if [[ -f "$strFileToMerge" ]];then
 			#strFlOrig=".tmp.fileOriginal.txt"
 			#strFlModd=".tmp.fileModded__.txt"
-			function FUNChasBOM() {
-				local lstrFl="$1";shift
-				if [[ "$(hexdump -n 2 -e '2/1 "%02x"' "$lstrFl")" == "fffe" ]]; then
-					return 0
-				fi
-				return 1
-			}
-			function FUNCfixBOM() {
-				local lstrFl="$1";shift
-				if ! FUNChasBOM "$lstrFl"; then
-					(printf '\xff\xfe'; cat "$lstrFl") | sponge "$lstrFl"
-				fi
-				if xxd -p -c 256 "$lstrFl" | grep -q "0d0a000d0a00";then
-					xxd -p -c 256 "$lstrFl" | sed 's/0d0a000d0a00/0d000a00/g' | xxd -r -p | sponge "$lstrFl"
-				fi
-			}
 			if $bKeyValueDiffMode;then
 				#KEEPinfo: this implicitly creates the same "${strFileToMerge}.kvpatch.json": "${strPathSelf}/keyValuePatcher.py" create <(iconv -f $(file -b --mime-encoding "$strVanillaScriptFile") -t UTF-8 "$strVanillaScriptFile") "$strFileToMerge"&&:;nDiffRet=$? #but the below is more clear and can handle mismatching encodings
 				set -x
@@ -427,9 +421,9 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 			fi
 			nDiffRet=0 # means there is no patch available
 			set -x;"${acmdPatch[@]}"&&:;nRetPatch=$?;set +x
-			if FUNChasBOM "$strVanillaScriptFile";then
-				FUNCfixBOM "${strFileToMerge}.RECREATED_MODDED"
-			fi
+			#if FUNChasBOM "$strVanillaScriptFile";then
+				#FUNCfixBOM "${strFileToMerge}.RECREATED_MODDED"
+			#fi
 			if((nRetPatch==0));then
 				mv -vf "${strFileToMerge}.RECREATED_MODDED" "${strFileToMerge}"
 				nDiffRet=1 # assuming success already in the past
@@ -483,9 +477,9 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 		#declare -p acmdPatch
 		ls -l "$strFlWork"
 		set -x;"${acmdPatch[@]}"&&:;nRetPatch=$?;set +x
-		if FUNChasBOM "$strVanillaScriptFile";then
-			FUNCfixBOM "${strFlWork}.NEWLY_PATCHED"
-		fi
+		#if FUNChasBOM "$strVanillaScriptFile";then
+			#FUNCfixBOM "${strFlWork}.NEWLY_PATCHED"
+		#fi
 		ls -l "$strFlWork"
 		if((nRetPatch==0));then
 			mv -vf "$strFlWork" "$strFlWork.$nBkpIndex.bkp"
@@ -538,6 +532,13 @@ if $bShowFinalComparison;then
 	echo "'$strVanillaScriptFile'"
 	echo "'$strFlWork'"
 	FUNCexecMerger "$strVanillaScriptFile" "$strFlWork"
+fi
+
+if [[ "$strEncodingRestore" == "$strEncodingUTF16LE" ]];then
+	(iconv -f UTF-8 -t UTF-16LE "$strFlWork") |sponge "$strFlWork"
+	if FUNChasBOM "$strVanillaScriptFile";then
+		FUNCfixBOM "$strFlWork"
+	fi
 fi
 
 if $bApplyEachPatch;then

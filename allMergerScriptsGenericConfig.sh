@@ -185,6 +185,7 @@ if [[ -z "$strOSEnvType" ]];then
 fi
 
 strEncodingOK="text/plain; charset=us-ascii"
+strEncodingUTF16LE="text/plain; charset=utf-16le"
 
 # sed to prettify arrays into multilines use like: declare -p astr |sed -r -e "$strSedArrayLn"  >&3
 strSedArrayLn='s@(\[[0-9]*\]=)@\n \1@g'
@@ -732,3 +733,23 @@ function FUNCmapInfo() {
 	fi
 	strRestorePosInTheEnd="setpos ${FUNCmapInfo_strPosRestore}"
 };export -f FUNCmapInfo
+
+function FUNChasBOM() {
+	local lstrFl="$1";shift
+	if [[ "$(hexdump -n 2 -e '2/1 "%02x"' "$lstrFl")" == "fffe" ]]; then
+		return 0
+	fi
+	return 1
+};export -f FUNChasBOM
+function FUNCfixBOM() {
+	local lstrFl="$1";shift
+	if ! FUNChasBOM "$lstrFl"; then
+		(printf '\xff\xfe'; cat "$lstrFl") | sponge "$lstrFl"
+	fi
+	: ${bFixUtf16leCRLF:=false} #help
+	if $bFixUtf16leCRLF;then
+		if xxd -p -c 256 "$lstrFl" | grep -q "0d0a000d0a00";then # dont know why this happens, from keyValuePatcher.py?
+			xxd -p -c 256 "$lstrFl" | sed 's/0d0a000d0a00/0d000a00/g' | xxd -r -p | sponge "$lstrFl"
+		fi
+	fi
+};export -f FUNCfixBOM
