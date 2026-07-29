@@ -229,6 +229,7 @@ for strLastOneWins in "${astrFlLastOneAlwaysWinList[@]}";do
 done
 
 strVanillaScriptFile="$(find -L "$strVanillaScriptsPath" -iregex "${strFindScriptFileRegex}")"
+strVanillaScriptFileOriginal="$strVanillaScriptFile"
 bDummyVanilla=false
 #bFlVanilla=false;if [[ -f "$strVanillaScriptFile" ]];then bFlVanilla=true;fi
 if [[ ! -f "$strVanillaScriptFile" ]];then
@@ -534,12 +535,15 @@ if $bShowFinalComparison;then
 	FUNCexecMerger "$strVanillaScriptFile" "$strFlWork"
 fi
 
+declare -p strEncodingRestore strEncodingUTF16LE
+set -x
 if [[ "$strEncodingRestore" == "$strEncodingUTF16LE" ]];then
 	(iconv -f UTF-8 -t UTF-16LE "$strFlWork") |sponge "$strFlWork"
-	if FUNChasBOM "$strVanillaScriptFile";then
+	if FUNChasBOM "$strVanillaScriptFileOriginal";then
 		FUNCfixBOM "$strFlWork"
 	fi
 fi
+set +x
 
 if $bApplyEachPatch;then
 	astrListSUCCESS=("${astrListCurrent[@]}")

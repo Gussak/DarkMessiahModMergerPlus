@@ -745,10 +745,11 @@ function FUNCfixBOM() {
 	local lstrFl="$1";shift
 	if ! FUNChasBOM "$lstrFl"; then
 		(printf '\xff\xfe'; cat "$lstrFl") | sponge "$lstrFl"
+		FUNCechoInfo "[EncBOM] Fixed Encoding BOM for '$lstrFl'"
 	fi
-	: ${bFixUtf16leCRLF:=false} #help
+	: ${bFixUtf16leCRLF:=false} #help DELETE MAY BE
 	if $bFixUtf16leCRLF;then
-		if xxd -p -c 256 "$lstrFl" | grep -q "0d0a000d0a00";then # dont know why this happens, from keyValuePatcher.py?
+		if xxd -p -c 256 "$lstrFl" | grep -q "0d0a000d0a00";then # dont know why this happens, from keyValuePatcher.py? not happening anymore?
 			xxd -p -c 256 "$lstrFl" | sed 's/0d0a000d0a00/0d000a00/g' | xxd -r -p | sponge "$lstrFl"
 		fi
 	fi
