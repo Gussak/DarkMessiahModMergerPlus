@@ -138,6 +138,7 @@ astrOptList=(
 )
 
 #TODO the other instance must be run after the menu of mods show up and is loaded, or the json changes may cause problems, for now just wait manually
+echo
 set -x
 export __GL_THREADED_OPTIMIZATIONS=0 # prevent NVidia multithread that may cause problems for this old 32bits game
 declare -p __GL_THREADED_OPTIMIZATIONS

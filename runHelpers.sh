@@ -58,7 +58,7 @@ if $bRunBothInstances;then
 			if which ScriptEchoColor >/dev/null;then
 				echoc "$@"
 			else
-				while [[ $# -gt 0 && ${1:0:1} == "-" ]];do shift;done
+				while [[ $# -gt 0 && ${1:0:1} == "-" ]];do shift;done # just ignore all params (bad trick..)
 				echo "$1"
 			fi
 		}
@@ -66,10 +66,12 @@ if $bRunBothInstances;then
 			pwd
 			FUNCecho --info "Run a 2nd instance for quick resume playing after death, as load game is super slow."
 			FUNCecho --alert "[WAIT@{-n} THE other INSTANCE FINISH LOADING THE SAVEGAME OR BOTH may CRASH/FREEZE!!!]"
-			FUNCecho -w -t 0.1 "[run Instance $liInstanceIndex] press Enter";read -n 1&&:
-			: ${bRunStartCrashWorkaroundLoop:=false} #help allows a quick retry start loop (fixed tho was nvidia issue)
+			FUNCecho -w -t 0.1 "[run Instance $liInstanceIndex] press Enter ('l' for quick loop, 'd' to drop caches)";read -n 1 strResp&&:
+			: ${bRunStartCrashWorkaroundLoop:=false} #help allows a quick retry start loop (sometimes it is better others it is worse...)
+			if [[ "$strResp" == [lL] ]];then bRunStartCrashWorkaroundLoop=true;fi
+			if [[ "$strResp" == [dD] ]];then bash -c sync && sudo dd if=/proc/3/stat of=/proc/sys/vm/drop_caches bs=1 count=1; FUNCecho --say 'drop caches';fi
 			if $bRunStartCrashWorkaroundLoop;then
-				if FUNCaskYesNo "Startup crashing too much? try the loop?";then
+				if FUNCaskYesNo "Startup crashing too much? try the quick loop?";then
 					while true;do
 						#./fixWindowAndDontStop.sh too slow just click normally
 						strAutoLoad=forceIgnore ./runDarkMessiahOMM_Launcher.sh -${liInstanceIndex}
