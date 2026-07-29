@@ -239,8 +239,9 @@ function FUNCexecMerger() {
 			lbAlert=true
 			continue
 		fi
-		#if [[ -f "$lstrParam" ]];then
-			#lastrParams+=("$lstrParam")
+		if [[ -f "$lstrParam" ]];then
+			lastrParams+=("$lstrParam")
+			
 			#local lstrEnc="$(file -bi "$lstrParam")"
 			#case "$strEncodingVanilla" in
 				#us-ascii|utf-16le|iso-8859-1)
@@ -252,7 +253,7 @@ function FUNCexecMerger() {
 					#FUNCechoInfo "[WARN] not validated/patched encoding yet, this file above is: '$lstrEnc'"
 					#;;
 			#esac
-		#fi
+		fi
 	done
 	
 	#: ${strMergerBlackList:="resource/mm_itemnames_english.txt"} #causes too much trouble on mergers, comma separated
@@ -278,31 +279,35 @@ function FUNCexecMerger() {
 		eval "$strExecRobustTextEditorEval"
 		"${astrExecRobustTextEditor[@]}" "${lastrParams[@]}"
 	else
-		"${strExecMerger}" "${lastrParams[@]}"
+		set -x;"${strExecMerger}" "${lastrParams[@]}";set +x
 	fi
 }
 
-function FUNCprePatchChk() { #help <lstrFlChkScriptRelat>
-	local lstrFlChkScriptRelat="$1"
+function FUNCprePatchChk() { #help <lstrFlChk>
+	local lstrFlChk="$1"
 	local lbPrePatchFail=false
-	while ! ./kvSanityChecker.sh "$lstrFlChkScriptRelat";do
+	while ! ./kvSanityChecker.sh "$lstrFlChk";do
 		local lstrPrePatchVanilla="$strPathMainModFolder/VanillaPrePatches/${strScriptFileRelat}.patch"
 		declare -p lstrPrePatchVanilla
-		if ! $lbPrePatchFail && [[ -f "$lstrPrePatchVanilla" ]];then
-			local lacmdPatch=(patch -F $nFuzzyPatch -i "${lstrPrePatchVanilla}" -o "${lstrFlChkScriptRelat}.PRE_PATCH" "$lstrFlChkScriptRelat") #patch [ORIGINAL_FILE] -i [PATCH_FILE] -o [OUTPUT_FILE]
-			FUNCechoInfo "[ExecPrePatch] ${lacmdPatch[*]}"
-			if "${lacmdPatch[@]}";then
-				chmod -v u+w "$lstrFlChkScriptRelat"
-				mv -vf "${lstrFlChkScriptRelat}.PRE_PATCH" "$lstrFlChkScriptRelat"
-				continue
+		if ! $lbPrePatchFail;then
+			if [[ -f "$lstrPrePatchVanilla" ]];then
+				local lacmdPatch=(patch -F $nFuzzyPatch -i "${lstrPrePatchVanilla}" -o "${lstrFlChk}.PRE_PATCH" "$lstrFlChk") #patch [ORIGINAL_FILE] -i [PATCH_FILE] -o [OUTPUT_FILE]
+				FUNCechoInfo "[ExecPrePatch] ${lacmdPatch[*]}"
+				if "${lacmdPatch[@]}";then
+					chmod -v u+w "$lstrFlChk"
+					mv -vf "${lstrFlChk}.PRE_PATCH" "$lstrFlChk"
+					continue
+				else
+					FUNCechoInfo "[WARN] prepatching failed: ${lacmdPatch[*]}"
+					lbPrePatchFail=true
+				fi
 			else
-				FUNCechoInfo "[WARN] prepatching failed: ${lacmdPatch[*]}"
-				lbPrePatchFail=true
+				FUNCechoInfo "[WARN] prepatch file not found: $lstrPrePatchVanilla"
 			fi
 		fi
 		FUNCsay "Database Sanity Failed"
 		FUNCaskYesNo "[PROBLEM] Fix it (the right one) manually according to the sanity check above please (if not will just exit or the game may will crash)"
-		FUNCexecMerger --alert "$strVanillaScriptFile" "$lstrFlChkScriptRelat"
+		FUNCexecMerger --alert "$strVanillaScriptFile" "$lstrFlChk"
 	done
 }
 
