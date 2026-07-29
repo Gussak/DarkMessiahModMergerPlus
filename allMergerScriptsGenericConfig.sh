@@ -186,6 +186,7 @@ fi
 
 strEncodingOK="text/plain; charset=us-ascii"
 strEncodingUTF16LE="text/plain; charset=utf-16le"
+strEncodingISO_8859_1="text/plain; charset=iso-8859-1"
 
 # sed to prettify arrays into multilines use like: declare -p astr |sed -r -e "$strSedArrayLn"  >&3
 strSedArrayLn='s@(\[[0-9]*\]=)@\n \1@g'

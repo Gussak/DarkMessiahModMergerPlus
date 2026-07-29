@@ -253,9 +253,13 @@ strEncodingVanilla="$(file -bi "$strVanillaScriptFile")"
 strEncodingRestore=""
 if [[ "$strEncodingVanilla" != "$strEncodingOK" ]];then
 	if [[ "$strEncodingVanilla" == "$strEncodingUTF16LE" ]];then
-		strEncodingRestore="$strEncodingUTF16LE" #later: iconv -f UTF-8 -t UTF-16LE moddedfile.UTF8 > finalfile
-		iconv -f UTF-16 -t UTF-8 "$strVanillaScriptFile" > "${strVanillaScriptFile}.UTF8"
-		strVanillaScriptFile="${strVanillaScriptFile}.UTF8"
+		strEncodingRestore="$strEncodingUTF16LE"
+		iconv -f UTF-16 -t UTF-8 "$strVanillaScriptFile" > "${strVanillaScriptFile}.UTF-8"
+		strVanillaScriptFile="${strVanillaScriptFile}.UTF-8"
+	elif [[ "$strEncodingVanilla" == "$strEncodingISO_8859_1" ]];then
+		strEncodingRestore="$strEncodingUTF16LE"
+		iconv -f ISO-8859-1 -t UTF-8 "$strVanillaScriptFile" > "${strVanillaScriptFile}.ISO-8859-1"
+		strVanillaScriptFile="${strVanillaScriptFile}.ISO-8859-1"
 	else
 		#FUNCechoInfo "[PROBLEM] may not work well with encodings different of '$strEncodingOK' and '$strEncodingUTF16LE', this vanilla is: '$strEncodingVanilla'"
 		FUNCechoInfo "[ERROR] encoding not supported yet: $strEncodingVanilla"
@@ -551,9 +555,12 @@ fi
 #declare -p strEncodingRestore strEncodingUTF16LE
 if [[ "$strEncodingRestore" == "$strEncodingUTF16LE" ]];then
 	(iconv -f UTF-8 -t UTF-16LE "$strFlWork") |sponge "$strFlWork"
-	if FUNChasBOM "$strVanillaScriptFileOriginal";then
-		FUNCfixBOM "$strFlWork"
-	fi
+fi
+if [[ "$strEncodingRestore" == "$strEncodingISO_8859_1" ]];then
+	(iconv -f UTF-8 -t ISO-8859-1 "$strFlWork") |sponge "$strFlWork"
+fi
+if FUNChasBOM "$strVanillaScriptFileOriginal";then
+	FUNCfixBOM "$strFlWork"
 fi
 
 if $bApplyEachPatch;then
