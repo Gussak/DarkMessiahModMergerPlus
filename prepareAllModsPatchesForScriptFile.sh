@@ -77,7 +77,6 @@ if [[ -f "$strFlWorkDatabase" ]];then
 fi
 
 : ${bShowDiffPerFile:=false} #help
-: ${strShowDiffCmd:="${strExecMerger}"} #help try also colordiff
 : ${nFuzzyPatch:=0} #help try nFuzzyPatch=1 This may help to make it easier to provide an initial auto merge? better just review the results...
 
 if $bForceRePatch;then
@@ -397,7 +396,7 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 			1) 
 				FUNCechoInfo "[Diff PATCH from MOD vs Vanilla creation (((OK))) ]"
 				if $bShowDiffPerFile;then
-					"$strShowDiffCmd" "$strVanillaScriptFile" "$strFileToMerge"
+					"${strExecMerger}" "$strVanillaScriptFile" "$strFileToMerge"
 				fi
 				;;
 			2) 
@@ -474,6 +473,8 @@ done
 : ${bShowFinalComparison:=true} #help compare vanilla with fully mods merged file after all mods merging end for it
 if $bShowFinalComparison;then
 	FUNCechoInfo "[Showing final merge comparison with vanilla]"
+	echo "'$strVanillaScriptFile'"
+	echo "'$strFlWork'"
 	"$strExecMerger" "$strVanillaScriptFile" "$strFlWork"
 fi
 

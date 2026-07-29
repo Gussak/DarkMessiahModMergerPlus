@@ -85,13 +85,12 @@ for file in "${astrFlList[@]}";do
 	# Read the file's BOM to see if it's UTF-16 LE
 	hexBOM="$(head -c 2 "$file" | xxd -p 2>/dev/null)"
 
-	# Create a temporary UTF-8 text stream for grep/tr/wc tools to process safely
+# Setup clean stream input depending on file type
 	if [[ "$hexBOM" == "fffe" ]]; then
-			# File is UTF-16 LE: Decode it to UTF-8 dynamically
-			file_content=$(iconv -f UTF-16LE -t UTF-8 "$file" 2>/dev/null)
+		# Decode UTF-16LE stream and strip carriage returns safely
+		SRC_STREAM_CMD="iconv -f UTF-16LE -t UTF-8 \"$file\" | tr -d '\r'"
 	else
-			# File is already standard: Read it as-is
-			file_content=$(cat "$file")
+		SRC_STREAM_CMD="tr -d '\r' < \"$file\""
 	fi
 
 	: ${bChkBOM:=true} #help
@@ -114,31 +113,31 @@ for file in "${astrFlList[@]}";do
 
 	: ${bChkCurlyQuotes:=true} #help
 	if $bChkCurlyQuotes;then
-	 # 2. Check for Smart/Curly Quotes in the sanitized content stream
-	 if echo "$file_content" | grep -q -P "[\x{201C}\x{201D}\x{2018}\x{2019}]" 2>/dev/null; then
-		 ((HAS_ERROR++))&&:
-		 smart_lines=$(echo "$file_content" | grep -n -P "[\x{201C}\x{201D}\x{2018}\x{2019}]" | awk -F: '{print $1}' | paste -sd, -)
-		 ERROR_MSG+="\n -> [QUOTES] Smart/Curly quotes detected on line(s): $smart_lines"
-		 echo "${file} # ERROR: [QUOTES] Smart/Curly" >>"$strFlLog"
-	 fi
+		# 2. Check for Smart/Curly Quotes directly using the clean stream command
+		if eval "$SRC_STREAM_CMD" | grep -q -P "[\x{201C}\x{201D}\x{2018}\x{2019}]" 2>/dev/null; then
+			((HAS_ERROR++))&&:
+			smart_lines=$(eval "$SRC_STREAM_CMD" | grep -n -P "[\x{201C}\x{201D}\x{2018}\x{2019}]" | awk -F: '{print $1}' | paste -sd, -)
+			ERROR_MSG+="\n -> [QUOTES] Smart/Curly quotes detected on line(s): $smart_lines"
+			echo "${file} # ERROR: [QUOTES] Smart/Curly" >>"$strFlLog"
+		fi
 	fi
 
 	: ${bChkStdQuotes:=true} #help
 	if $bChkStdQuotes;then
-	 # 3. Check for Odd Numbers of Standard Quotes using sanitized content stream
-	 quote_count=$(echo "$file_content" | tr -cd '"' | wc -c)
-	 if (( quote_count % 2 != 0 )); then
-		 ((HAS_ERROR++))&&:
-		 ERROR_MSG+="\n -> [QUOTES] Uneven number of straight quotes ($quote_count total). An asset path is unclosed."
-		 echo "${file} # ERROR: [QUOTES] Uneven $quote_count" >>"$strFlLog"
-	 fi
+		# 3. Check for Odd Numbers of Standard Quotes
+		quote_count=$(eval "$SRC_STREAM_CMD" | tr -cd '"' | wc -c)
+		if (( quote_count % 2 != 0 )); then
+			((HAS_ERROR++))&&:
+			ERROR_MSG+="\n -> [QUOTES] Uneven number of straight quotes ($quote_count total). An asset path is unclosed."
+			echo "${file} # ERROR: [QUOTES] Uneven $quote_count" >>"$strFlLog"
+		fi
 	fi
 
 	: ${bChkBracket:=true} #help
 	if $bChkBracket;then
-	 # 4. Check Bracket Balance using sanitized content stream
-	 open_brackets=$(echo "$file_content" | tr -cd '{' | wc -c)
-	 close_brackets=$(echo "$file_content" | tr -cd '}' | wc -c)
+	# 4. Check Bracket Balance 
+	open_brackets=$(eval "$SRC_STREAM_CMD" | tr -cd '{' | wc -c)
+	close_brackets=$(eval "$SRC_STREAM_CMD" | tr -cd '}' | wc -c)
 	 if (( open_brackets != close_brackets )); then
 		 ((HAS_ERROR++))&&:
 		 ERROR_MSG+="\n -> [SYNTAX] Mismatched curly brackets! (Found $open_brackets '{' and $close_brackets '}')"
