@@ -541,7 +541,21 @@ done
 
 echo "$strFullLineVisualDelimiter"
 
+bPrePatchFail=false
 while ! ./kvSanityChecker.sh "$strFlWork";do
+	strPrePatchVanilla="$strPathMainModFolder/VanillaPrePatches/${strScriptFileRelat}.patch"
+	declare -p strPrePatchVanilla
+	if ! $bPrePatchFail && [[ -f "$strPrePatchVanilla" ]];then
+		acmdPatch=(patch -F $nFuzzyPatch -i "${strPrePatchVanilla}" -o "${strFlWork}.PRE_PATCH" "$strFlWork") #patch [ORIGINAL_FILE] -i [PATCH_FILE] -o [OUTPUT_FILE]
+		FUNCechoInfo "[ExecPrePatch] ${acmdPatch[*]}"
+		if "${acmdPatch[@]}";then
+			mv -vf "${strFlWork}.PRE_PATCH" "$strFlWork"
+			continue
+		else
+			FUNCechoInfo "[WARN] prepatching failed: ${acmdPatch[*]}"
+			bPrePatchFail=true
+		fi
+	fi
 	FUNCsay "Database Sanity Failed"
 	FUNCaskYesNo "[PROBLEM] Fix it (the right one) manually according to the sanity check above please (if not will just exit or the game may will crash)"
 	FUNCexecMerger --alert "$strVanillaScriptFile" "$strFlWork"
