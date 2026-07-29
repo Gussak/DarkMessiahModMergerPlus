@@ -471,7 +471,8 @@ def parse_qct_to_dict(file_path: str, lines: Optional[List[str]] = None) -> Dict
         """
         if lines is None:
                 try:
-                        lines, _ = _detect_and_read_file(file_path)
+                        with open(file_path, "r", encoding="utf-8-sig", errors="ignore", newline="") as f:
+                                lines = f.readlines()
                 except IOError as e:
                         raise ConfigError(f"Cannot read file {file_path}: {e}")
 
@@ -582,7 +583,8 @@ def parse_qct_comments(file_path: str, lines: Optional[List[str]] = None) -> Dic
         """
         if lines is None:
                 try:
-                        lines, _ = _detect_and_read_file(file_path)
+                        with open(file_path, "r", encoding="utf-8-sig", errors="ignore", newline="") as f:
+                                lines = f.readlines()
                 except IOError as e:
                         raise ConfigError(f"Cannot read file {file_path}: {e}")
 
@@ -797,27 +799,6 @@ def _read_file_lines(file_path: str) -> List[str]:
     try:
         with open(file_path, "r", encoding="utf-8-sig", errors="ignore", newline="") as f:
             return f.readlines()
-    except IOError as e:
-        raise ConfigError(f"Cannot read file {file_path}: {e}")
-
-
-def _detect_and_read_file(file_path: str) -> tuple[list[str], str]:
-    """Detects encoding based on BOM and returns lines along with the encoding name."""
-    try:
-        # Check BOM in binary mode
-        with open(file_path, "rb") as f:
-            raw_bytes = f.read(4)
-        
-        # Determine encoding based on BOM bytes
-        if raw_bytes.startswith(b"\xff\xfe"):
-            encoding = "utf-16"  # Python's 'utf-16' codec automatically handles writing LE with BOM
-        elif raw_bytes.startswith(b"\xef\xbb\xbf"):
-            encoding = "utf-8-sig"
-        else:
-            encoding = "utf-8"
-
-        with open(file_path, "r", encoding=encoding, errors="ignore", newline="") as f:
-            return f.readlines(), encoding
     except IOError as e:
         raise ConfigError(f"Cannot read file {file_path}: {e}")
 
@@ -1557,16 +1538,10 @@ def handle_apply(args) -> None:
         Logger.info("Prettifying output formatting...")
         output_lines = prettify_output(output_lines)
         Logger.info("Output prettified with correct indentation.")
-    
+        
     output_destination = args.output if args.output else args.target
     try:
-        # 1. Quick binary check to see if the original file had the UTF-16LE BOM
-        with open(args.target, "rb") as f_check:
-            raw_bytes = f_check.read(2)
-        target_encoding = "utf-16" if raw_bytes == b"\xff\xfe" else "utf-8"
-
-        # 2. Save using that encoding (utf-16 will automatically prepend FF FE)
-        with open(output_destination, "w", encoding=target_encoding, newline="") as f:
+        with open(output_destination, "w", encoding="utf-8", newline="") as f:
             f.writelines(output_lines)
     except IOError as e:
         Logger.error(f"Failed to write output file: {e}")
