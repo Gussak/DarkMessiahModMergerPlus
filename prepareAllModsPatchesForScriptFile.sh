@@ -513,6 +513,7 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 			fi
 			chmod ugo-w "$strFileToMerge" #help this is important to prevent changing the mod file. The point is just to apply the changes on the final file!
 			cp -vf "$strFlWork" "$strFlWork.$nBkpIndex.bkp"
+			chmod -v u+w "$strFlWork"
 			declare -p astrEasyLogReview |sed -r -e "${strSedArrayNumToLn}"
 			FUNCexecMerger --alert "$strVanillaScriptFile" "$strFileToMerge" "$strFlWork" #help manual merge required. show vanilla on the left just to try to guess what to do.
 			FUNCechoInfo "nRet=$?"
