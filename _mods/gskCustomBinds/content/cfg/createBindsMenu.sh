@@ -72,10 +72,16 @@ function FUNClazyDesc() {
 strKVPatches=""
 iMaxMenuIdSz=0
 strMaxMenuIdSz=""
+astrDbg=()
 for strAlias in "${astrAliasList[@]}";do
 	strMenuID="mc_$(echo "$strAlias" |sed -r -e 's@[+]*(.*)@\1@g' |tr '[:upper:]' '[:lower:]')"
 	if((iMaxMenuIdSz < ${#strMenuID}));then iMaxMenuIdSz=${#strMenuID}; strMaxMenuIdSz="$strMenuID";fi
-	strDescription="$(FUNClazyDesc "$strAlias" |sed -r -e 's@[+]*gsk (.*)@\1@g')"
+	strAliasHurtmeRegex="[+-]*${strAlias}\s+.*hurtme\s*([0-9.]*).*"
+	mapfile -t anCost < <(egrep "${strAliasHurtmeRegex}" "$strGameInstallMainFolder"/* -iRIaoh --include="*.cfg" |sed -r -e 's@(.*)//.*@\1@' -e "s@${strAliasHurtmeRegex}@\1@g")
+	nCost=0;for nC in "${anCost[@]}";do ((nCost+=nC))&&:;done
+	strCost="";if((nCost>0));then strCost=" HP${nCost}";fi
+	strDescription="$(FUNClazyDesc "$strAlias" |sed -r -e 's@[+]*gsk (.*)@\1@g')${strCost}"
+	astrDbg+=("$(declare -p nCost strAlias strCost) $(egrep "[+-]*${strAlias}\s*.*hurtme\s*[0-9.]*" "$strGameInstallMainFolder"/* -iRIaoh --include="*.cfg")")&&:
 	strMenuDataEntries+='
         //# '"$strMenuID"'
         //~ '"$strMenuID"'
@@ -118,3 +124,5 @@ cd ../../../..
 ./merge.sh -f resource/closecaption_manifest.txt;
 ./merge.sh -f scripts/kb_act.lst;
 '
+
+#DEBUG: declare -p astrDbg |tr '[' '\n'
