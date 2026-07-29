@@ -322,7 +322,8 @@ function FUNCexecMerger() {
 		fi
 	done
 	
-	: ${strMergerBlackList:="resource/mm_itemnames_english.txt"} #causes too much trouble on mergers, comma separated
+	#: ${strMergerBlackList:="resource/mm_itemnames_english.txt"} #causes too much trouble on mergers, comma separated
+	: ${strMergerBlackList:=""} #causes too much trouble on mergers, comma separated
 	mapfile -t astrMergerBlackList < <(echo "$strMergerBlackList" |tr ',' '\n')
 	bMB=false
 	for strMB in "${astrMergerBlackList[@]}";do
@@ -379,6 +380,9 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 				local lstrFl="$1";shift
 				if ! FUNChasBOM "$lstrFl"; then
 					(printf '\xff\xfe'; cat "$lstrFl") | sponge "$lstrFl"
+				fi
+				if xxd -p -c 256 "$lstrFl" | grep -q "0d0a000d0a00";then
+					xxd -p -c 256 "$lstrFl" | sed 's/0d0a000d0a00/0d000a00/g' | xxd -r -p | sponge "$lstrFl"
 				fi
 			}
 			if $bKeyValueDiffMode;then
