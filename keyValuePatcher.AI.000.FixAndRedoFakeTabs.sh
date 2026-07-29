@@ -12,14 +12,19 @@ if [[ "${1-}" == --help ]];then
 	egrep "[#]help" $0
 	exit
 fi
+#if ! [[ "${1-}" == --xterm ]];then
+	#xterm -e "$0" --xterm
+	#exit
+#fi
 
-: ${strFlMainScriptName:="keyValuePatcher"} #help
-: ${strMergerTool:="meld"} #help
-
-if ! [[ "${1-}" == --xterm ]];then
-	xterm -e "$0" --xterm
-	exit
+if [[ $# -gt 0 ]] && [[ -f "$1" ]];then
+	if [[ "$1" =~ .*[.](sh|py)^ ]];then
+		strFlMainScriptName="$1"
+	fi
 fi
+
+: ${strFlMainScriptName:="keyValuePatcher"};export strFlMainScriptName #help
+: ${strMergerTool:="meld"};export strMergerTool #help
 
 FUNCkey() {
 	ls -l "$1"&&:
