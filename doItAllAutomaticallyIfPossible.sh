@@ -77,6 +77,10 @@ if true;then
 		: ${strIgnoreSomeFiles:=""} #help comma separated
 		mapfile -t astrIgnoreSomeFilesList < <(echo "$strIgnoreSomeFiles" |tr ',' '\n')
 		FUNCign() { for strIgn in "${astrIgnoreSomeFilesList[@]}";do if [[ "$1" == "$strIgn" ]];then return 0;fi;done; return 1; }
+		: ${bMultiThread:=false} #help
+		nMaxCores="$(lscpu -p |grep -v "^#"|cut -d, -f1)"
+		: ${nMultiThreadUsedCores:=$nMaxCores} #help you can limit it
+		if((nMultiThreadUsedCores > nMaxCores));then nMultiThreadUsedCores=$nMaxCores;fi
 		for((i=0;i<${#astrList[@]};i++));do
 			strFl="${astrList[i]}"
 			if FUNCign "$strFl";then continue;fi
@@ -93,7 +97,22 @@ if true;then
 			mkdir -vp "$(dirname "${strFlLog}")" #or tee will fail!
 			#declare -p strFlLog
 			#echo >"$strFlLog"
-			./prepareAllModsPatchesForScriptFile.sh ${lastrOpts[@]} "$strFl" #it is self loggin already now #|tee "$strFlLog"
+			#aCmd=()
+			#if $bMultiThread;then aCmd+=(xterm -title "DMMM_MTPatch_${i}" -e);fi
+			aCmd=(./prepareAllModsPatchesForScriptFile.sh ${lastrOpts[@]} "$strFl") #it is self loggin already now #|tee "$strFlLog"
+			if $bMultiThread;then
+				: ${strThreadBaseID:="DMMM_MTPatch_"} #help
+				while true;do
+					nMultiThreadsNow=$(wmctrl -l |egrep "${strThreadBaseID}[0-9]*" |wc -l)
+					if((nMultiThreadsNow < nMultiThreadUsedCores));then
+						FUNCechoInfo "[SpawningThreadJob:$i] $strFl"
+						(xterm -title "${strThreadBaseID}${i}_$(basename "${strFl}" |tr '.' '_')" -e "${aCmd[@]}" & disown)
+					fi
+					read -n 1 -t 1 -p "[SpawningThreads] jobs til now $i"&&:
+				done
+			else
+				"${aCmd[@]}"
+			fi
 			FUNCechoInfo "nRet=$?"
 		done
 	}
