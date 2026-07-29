@@ -228,22 +228,49 @@ for strLastOneWins in "${astrFlLastOneAlwaysWinList[@]}";do
 	fi
 done
 
+function FUNCprePatchChk() { #help <lstrFlChkScriptRelat>
+	local lstrFlChkScriptRelat="$1"
+	local lbPrePatchFail=false
+	while ! ./kvSanityChecker.sh "$lstrFlChkScriptRelat";do
+		local lstrPrePatchVanilla="$strPathMainModFolder/VanillaPrePatches/${strScriptFileRelat}.patch"
+		declare -p lstrPrePatchVanilla
+		if ! $lbPrePatchFail && [[ -f "$lstrPrePatchVanilla" ]];then
+			local lacmdPatch=(patch -F $nFuzzyPatch -i "${lstrPrePatchVanilla}" -o "${lstrFlChkScriptRelat}.PRE_PATCH" "$lstrFlChkScriptRelat") #patch [ORIGINAL_FILE] -i [PATCH_FILE] -o [OUTPUT_FILE]
+			FUNCechoInfo "[ExecPrePatch] ${lacmdPatch[*]}"
+			if "${lacmdPatch[@]}";then
+				chmod -v u+w "$lstrFlChkScriptRelat"
+				mv -vf "${lstrFlChkScriptRelat}.PRE_PATCH" "$lstrFlChkScriptRelat"
+				continue
+			else
+				FUNCechoInfo "[WARN] prepatching failed: ${lacmdPatch[*]}"
+				lbPrePatchFail=true
+			fi
+		fi
+		FUNCsay "Database Sanity Failed"
+		FUNCaskYesNo "[PROBLEM] Fix it (the right one) manually according to the sanity check above please (if not will just exit or the game may will crash)"
+		FUNCexecMerger --alert "$strVanillaScriptFile" "$lstrFlChkScriptRelat"
+	done
+}
+
 strVanillaScriptFile="$(find -L "$strVanillaScriptsPath" -iregex "${strFindScriptFileRegex}")"
 bDummyVanilla=false
+if [[ ! -f "$strVanillaScriptFile" ]];then bDummyVanilla=true;fi
+if ! $bDummyVanilla && ! ./kvSanityChecker.sh "$lstrFlChkScriptRelat";then bDummyVanilla=true;fi
 #bFlVanilla=false;if [[ -f "$strVanillaScriptFile" ]];then bFlVanilla=true;fi
-if [[ ! -f "$strVanillaScriptFile" ]];then
+if $bDummyVanilla;then
 	#FUNCechoInfo "[WARNING: There is no such Vanilla] create it there empty: '${strVanillaScriptsPath}/mm/$strScriptFileRelat'"
 	#FUNCechoInfo "[Merge existing one from mods anyway?] Ctrl+C to abort"
 	##read -n 1&&:
 	##FUNCexit 1
 	#bFlVanilla=false
-	bDummyVanilla=true
+	#bDummyVanilla=true
 	strVanillaScriptFile="${strFinalDummyHelperFolder}/${strScriptFileRelat}"
 	mkdir -vp "$(dirname "$strVanillaScriptFile")"
 	if [[ ! -f "$strVanillaScriptFile" ]];then
 		cp "${astrListCurrent[0]}" "$strVanillaScriptFile" # see info below for being the first file on the list
 	fi
 	FUNCechoInfo "[WARNING: There is no such Vanilla File] created a dummy one with the contents of the first one found '${strVanillaScriptFile}' in the list of MODs, it will be deleted later."
+	FUNCprePatchChk "$strVanillaScriptFile" #working on dummy
 fi
 chmod ugo-w "$strVanillaScriptFile"
 ls -l "$strVanillaScriptFile"
@@ -541,25 +568,32 @@ done
 
 echo "$strFullLineVisualDelimiter"
 
-bPrePatchFail=false
-while ! ./kvSanityChecker.sh "$strFlWork";do
-	strPrePatchVanilla="$strPathMainModFolder/VanillaPrePatches/${strScriptFileRelat}.patch"
-	declare -p strPrePatchVanilla
-	if ! $bPrePatchFail && [[ -f "$strPrePatchVanilla" ]];then
-		acmdPatch=(patch -F $nFuzzyPatch -i "${strPrePatchVanilla}" -o "${strFlWork}.PRE_PATCH" "$strFlWork") #patch [ORIGINAL_FILE] -i [PATCH_FILE] -o [OUTPUT_FILE]
-		FUNCechoInfo "[ExecPrePatch] ${acmdPatch[*]}"
-		if "${acmdPatch[@]}";then
-			mv -vf "${strFlWork}.PRE_PATCH" "$strFlWork"
-			continue
-		else
-			FUNCechoInfo "[WARN] prepatching failed: ${acmdPatch[*]}"
-			bPrePatchFail=true
-		fi
-	fi
+#bPrePatchFail=false
+#while ! ./kvSanityChecker.sh "$strFlWork";do
+	#strPrePatchVanilla="$strPathMainModFolder/VanillaPrePatches/${strScriptFileRelat}.patch"
+	#declare -p strPrePatchVanilla
+	#if ! $bPrePatchFail && [[ -f "$strPrePatchVanilla" ]];then
+		#acmdPatch=(patch -F $nFuzzyPatch -i "${strPrePatchVanilla}" -o "${strFlWork}.PRE_PATCH" "$strFlWork") #patch [ORIGINAL_FILE] -i [PATCH_FILE] -o [OUTPUT_FILE]
+		#FUNCechoInfo "[ExecPrePatch] ${acmdPatch[*]}"
+		#if "${acmdPatch[@]}";then
+			#mv -vf "${strFlWork}.PRE_PATCH" "$strFlWork"
+			#continue
+		#else
+			#FUNCechoInfo "[WARN] prepatching failed: ${acmdPatch[*]}"
+			#bPrePatchFail=true
+		#fi
+	#fi
+	#FUNCsay "Database Sanity Failed"
+	#FUNCaskYesNo "[PROBLEM] Fix it (the right one) manually according to the sanity check above please (if not will just exit or the game may will crash)"
+	#FUNCexecMerger --alert "$strVanillaScriptFile" "$strFlWork"
+#done
+#FUNCprePatchChk "$strFlWork"
+if ! ./kvSanityChecker.sh "$strFlWork";then
 	FUNCsay "Database Sanity Failed"
+	FUNCechoInfo "[WARN] It is better to create a VanillaPrePatches file."
 	FUNCaskYesNo "[PROBLEM] Fix it (the right one) manually according to the sanity check above please (if not will just exit or the game may will crash)"
 	FUNCexecMerger --alert "$strVanillaScriptFile" "$strFlWork"
-done
+fi
 
 : ${bShowFinalComparison:=true} #help compare vanilla with fully mods merged file after all mods merging end for it
 if $bShowFinalComparison;then
