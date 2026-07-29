@@ -247,6 +247,10 @@ if [[ ! -f "$strVanillaScriptFile" ]];then
 fi
 chmod ugo-w "$strVanillaScriptFile"
 ls -l "$strVanillaScriptFile"
+strEncodingVanilla="$(file -bi "$strVanillaScriptFile")"
+if [[ "$strEncodingVanilla" != "$strEncodingOK" ]];then
+	FUNCechoInfo "[ISSUE] may not work well with encodings different of '$strEncodingOK', this vanilla is: '$strEncodingVanilla'"
+fi
 
 nBkpIndex=0
 
@@ -302,6 +306,41 @@ if $bApplyEachPatch;then
 	FUNCtrash "$strFlPreviouslyPatched"&&:
 fi
 
+function FUNCexecMerger() {
+	local lastrParams=()
+	while [[ $# -gt 0 ]];do
+		local lstrParam="$1"
+		shift
+		if [[ -f "$lstrParam" ]];then
+			lastrParams+=("$lstrParam")
+			local lstrEnc="$(file -bi "$lstrParam")"
+			if [[ "$lstrEnc" != "$strEncodingOK" ]];then
+				echo "'$lstrParam'"
+				ls -l "$lstrParam"
+				FUNCechoInfo "[ISSUE] may not work well with encodings different of '$strEncodingOK', this file above is: '$lstrEnc'"
+			fi
+		fi
+	done
+	
+	: ${strMergerBlackList:="resource/mm_itemnames_english.txt"} #causes too much trouble on mergers, comma separated
+	mapfile -t astrMergerBlackList < <(echo "$strMergerBlackList" |tr ',' '\n')
+	bMB=false
+	for strMB in "${astrMergerBlackList[@]}";do
+		if [[ "$strScriptFileRelat" == "${strMB}" ]];then
+			bMB=true
+			break;
+		fi
+	done
+	if $bMB;then
+		FUNCechoInfo "[PROBLEM] wont open merger for '${strScriptFileRelat}', it can't handle that. Opening a robust text editor instead:"
+		: ${strExecRobustTextEditorEval:='declare -a astrExecRobustTextEditor=([0]="geany" [1]="--new-instance")'} #help
+		eval "$strExecRobustTextEditorEval"
+		"${astrExecRobustTextEditor[@]}" "${lastrParams[@]}"
+	else
+		"${strExecMerger}" "${lastrParams[@]}"
+	fi
+}
+
 echo
 #for strFileToMerge in "${astrListCurrent[@]}";do
 astrEasyLogReview=()
@@ -329,6 +368,19 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 		if [[ -f "$strFileToMerge" ]];then
 			#strFlOrig=".tmp.fileOriginal.txt"
 			#strFlModd=".tmp.fileModded__.txt"
+			function FUNChasBOM() {
+				local lstrFl="$1";shift
+				if [[ "$(hexdump -n 2 -e '2/1 "%02x"' "$lstrFl")" == "fffe" ]]; then
+					return 0
+				fi
+				return 1
+			}
+			function FUNCfixBOM() {
+				local lstrFl="$1";shift
+				if ! FUNChasBOM "$lstrFl"; then
+					(printf '\xff\xfe'; cat "$lstrFl") | sponge "$lstrFl"
+				fi
+			}
 			if $bKeyValueDiffMode;then
 				#KEEPinfo: this implicitly creates the same "${strFileToMerge}.kvpatch.json": "${strPathSelf}/keyValuePatcher.py" create <(iconv -f $(file -b --mime-encoding "$strVanillaScriptFile") -t UTF-8 "$strVanillaScriptFile") "$strFileToMerge"&&:;nDiffRet=$? #but the below is more clear and can handle mismatching encodings
 				set -x
@@ -371,6 +423,9 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 			fi
 			nDiffRet=0 # means there is no patch available
 			set -x;"${acmdPatch[@]}"&&:;nRetPatch=$?;set +x
+			if FUNChasBOM "$strVanillaScriptFile";then
+				FUNCfixBOM "${strFileToMerge}.RECREATED_MODDED"
+			fi
 			if((nRetPatch==0));then
 				mv -vf "${strFileToMerge}.RECREATED_MODDED" "${strFileToMerge}"
 				nDiffRet=1 # assuming success already in the past
@@ -396,12 +451,12 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 			1) 
 				FUNCechoInfo "[Diff PATCH from MOD vs Vanilla creation (((OK))) ]"
 				if $bShowDiffPerFile;then
-					"${strExecMerger}" "$strVanillaScriptFile" "$strFileToMerge"
+					FUNCexecMerger "$strVanillaScriptFile" "$strFileToMerge"
 				fi
 				;;
 			2) 
 				FUNCechoInfo "[WARNING: diff trouble] try manually"; #this ever happens?
-				"${strExecMerger}" "$strVanillaScriptFile" "$strFileToMerge";
+				FUNCexecMerger "$strVanillaScriptFile" "$strFileToMerge";
 				;;
 			*) FUNCechoInfo "[ERROR: unrecognized diff return value]";FUNCexit 1;;
 		esac
@@ -424,6 +479,9 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 		#declare -p acmdPatch
 		ls -l "$strFlWork"
 		set -x;"${acmdPatch[@]}"&&:;nRetPatch=$?;set +x
+		if FUNChasBOM "$strVanillaScriptFile";then
+			FUNCfixBOM "${strFlWork}.NEWLY_PATCHED"
+		fi
 		ls -l "$strFlWork"
 		if((nRetPatch==0));then
 			mv -vf "$strFlWork" "$strFlWork.$nBkpIndex.bkp"
@@ -439,7 +497,7 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 			chmod ugo-w "$strFileToMerge" #help this is important to prevent changing the mod file. The point is just to apply the changes on the final file!
 			cp -vf "$strFlWork" "$strFlWork.$nBkpIndex.bkp"
 			declare -p astrEasyLogReview |sed -r -e "${strSedArrayNumToLn}"
-			"$strExecMerger" "$strVanillaScriptFile" "$strFileToMerge" "$strFlWork" #help manual merge required. show vanilla on the left just to try to guess what to do.
+			FUNCexecMerger "$strVanillaScriptFile" "$strFileToMerge" "$strFlWork" #help manual merge required. show vanilla on the left just to try to guess what to do.
 			FUNCechoInfo "nRet=$?"
 			bMergedManually=true
 		fi
@@ -450,9 +508,9 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 		if ! $bMergedManually && $bShow3wayDiffAfterEachPatch;then
 			: ${bCompareVanillaInTheMiddle:=false} #help otherwise will put in the middle the previously patched file so you can see each difference per patching step that is better to understand what is happening.
 			if $bCompareVanillaInTheMiddle;then
-				"$strExecMerger" "$strFileToMerge" "$strVanillaScriptFile" "$strFlWork"
+				FUNCexecMerger "$strFileToMerge" "$strVanillaScriptFile" "$strFlWork"
 			else
-				"$strExecMerger" "$strFileToMerge" "$strFlPreviouslyPatched" "$strFlWork"
+				FUNCexecMerger "$strFileToMerge" "$strFlPreviouslyPatched" "$strFlWork"
 			fi
 		fi
 		
@@ -467,7 +525,7 @@ echo "$strFullLineVisualDelimiter"
 
 while ! ./kvSanityChecker.sh "$strFlWork";do
 	FUNCaskYesNo "Fix it (the right one) manually according to the sanity check above please (if not will just exit or the game may will crash)"
-	"$strExecMerger" "$strVanillaScriptFile" "$strFlWork"
+	FUNCexecMerger "$strVanillaScriptFile" "$strFlWork"
 done
 
 : ${bShowFinalComparison:=true} #help compare vanilla with fully mods merged file after all mods merging end for it
@@ -475,7 +533,7 @@ if $bShowFinalComparison;then
 	FUNCechoInfo "[Showing final merge comparison with vanilla]"
 	echo "'$strVanillaScriptFile'"
 	echo "'$strFlWork'"
-	"$strExecMerger" "$strVanillaScriptFile" "$strFlWork"
+	FUNCexecMerger "$strVanillaScriptFile" "$strFlWork"
 fi
 
 if $bApplyEachPatch;then

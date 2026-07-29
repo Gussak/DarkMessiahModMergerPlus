@@ -184,6 +184,8 @@ if [[ -z "$strOSEnvType" ]];then
 	esac
 fi
 
+strEncodingOK="text/plain; charset=us-ascii"
+
 # sed to prettify arrays into multilines use like: declare -p astr |sed -r -e "$strSedArrayLn"  >&3
 strSedArrayLn='s@(\[[0-9]*\]=)@\n \1@g'
 strSedArrayNumToLn="$strSedArrayLn"
