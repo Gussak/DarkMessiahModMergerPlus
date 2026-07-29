@@ -68,8 +68,11 @@ if $bRunBothInstances;then
 			FUNCecho --alert "[WAIT@{-n} THE other INSTANCE FINISH LOADING THE SAVEGAME OR BOTH may CRASH/FREEZE!!!]"
 			FUNCecho -w -t 0.1 "[run Instance $liInstanceIndex] press Enter ('l' for quick loop, 'd' to drop caches)";read -n 1 strResp&&:
 			: ${bRunStartCrashWorkaroundLoop:=false} #help allows a quick retry start loop (sometimes it is better others it is worse...)
-			if [[ "$strResp" == [lL] ]];then bRunStartCrashWorkaroundLoop=true;fi
-			if [[ "$strResp" == [dD] ]];then bash -c sync && sudo dd if=/proc/3/stat of=/proc/sys/vm/drop_caches bs=1 count=1; FUNCecho --say 'drop caches';fi
+			if [[ "$strResp" == [lL] ]];then bRunStartCrashWorkaroundLoop=true;fi #help drop caches may help better tho
+			if [[ "$strResp" == [dD] ]];then
+				set -x;bash -c sync && sudo dd if=/proc/3/stat of=/proc/sys/vm/drop_caches bs=1 count=1;set +x;
+				FUNCecho --say 'drop caches';
+			fi
 			if $bRunStartCrashWorkaroundLoop;then
 				if FUNCaskYesNo "Startup crashing too much? try the quick loop?";then
 					while true;do
