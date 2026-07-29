@@ -540,6 +540,7 @@ done
 echo "$strFullLineVisualDelimiter"
 
 while ! ./kvSanityChecker.sh "$strFlWork";do
+	FUNCsay "Database Sanity Failed"
 	FUNCaskYesNo "[PROBLEM] Fix it (the right one) manually according to the sanity check above please (if not will just exit or the game may will crash)"
 	FUNCexecMerger --alert "$strVanillaScriptFile" "$strFlWork"
 done
