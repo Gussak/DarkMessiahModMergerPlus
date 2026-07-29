@@ -229,7 +229,6 @@ for strLastOneWins in "${astrFlLastOneAlwaysWinList[@]}";do
 done
 
 strVanillaScriptFile="$(find -L "$strVanillaScriptsPath" -iregex "${strFindScriptFileRegex}")"
-strVanillaScriptFileOriginal="$strVanillaScriptFile"
 bDummyVanilla=false
 #bFlVanilla=false;if [[ -f "$strVanillaScriptFile" ]];then bFlVanilla=true;fi
 if [[ ! -f "$strVanillaScriptFile" ]];then
@@ -248,6 +247,7 @@ if [[ ! -f "$strVanillaScriptFile" ]];then
 fi
 chmod ugo-w "$strVanillaScriptFile"
 ls -l "$strVanillaScriptFile"
+strVanillaScriptFileOriginal="$strVanillaScriptFile"
 
 strEncodingVanilla="$(file -bi "$strVanillaScriptFile")"
 strEncodingRestore=""
@@ -562,6 +562,12 @@ if [[ "$strEncodingRestore" == "$strEncodingISO_8859_1" ]];then
 fi
 if FUNChasBOM "$strVanillaScriptFileOriginal";then
 	FUNCfixBOM "$strFlWork"
+fi
+if [[ "$(file -bi "$strVanillaScriptFileOriginal")" != "$(file -bi "$strFlWork")" ]];then
+	FUNCechoInfo "[ERROR] restoring enconding failed"
+	echo "file -bi '$strVanillaScriptFileOriginal'"
+	echo "file -bi '$strFlWork'"
+	exit 1
 fi
 
 if $bApplyEachPatch;then
