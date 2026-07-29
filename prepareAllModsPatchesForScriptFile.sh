@@ -311,10 +311,34 @@ function FUNCprePatchChk() { #help <lstrFlChk>
 	done
 }
 
+strEncodingRestore=""
+FUNCconvEncoding() {
+	strEncodingVanilla="$(file -bi "$strVanillaScriptFile" |sed -r -e 's@text/plain; charset=(.*)$@\1@g')"
+	case "$strEncodingVanilla" in
+		us-ascii|utf-16le|iso-8859-1)
+			strEncodingRestore="$strEncodingVanilla"
+			;;
+		*)
+			#FUNCechoInfo "[PROBLEM] may not work well with encodings different of '$strEncodingOK' and '$strEncodingUTF16LE', this vanilla is: '$strEncodingVanilla'"
+			FUNCechoInfo "[ERROR] encoding not supported yet: $strEncodingVanilla"
+			exit 1
+			;;
+	esac
+	chmod -v u+w "${strVanillaScriptFile}.UTF-8"&&:
+	iconv -f "$strEncodingVanilla" -t UTF-8 "$strVanillaScriptFile" > "${strVanillaScriptFile}.UTF-8"
+	strVanillaScriptFile="${strVanillaScriptFile}.UTF-8"
+}
+
 strVanillaScriptFile="$(find -L "$strVanillaScriptsPath" -iregex "${strFindScriptFileRegex}")"
 bDummyVanilla=false
-if [[ ! -f "$strVanillaScriptFile" ]];then bDummyVanilla=true;fi
-if ! $bDummyVanilla && ! ./kvSanityChecker.sh "$strVanillaScriptFile";then bDummyVanilla=true;fi
+if [[ -f "$strVanillaScriptFile" ]];then
+	FUNCconvEncoding
+	if ! ./kvSanityChecker.sh "$strVanillaScriptFile";then
+		bDummyVanilla=true;
+	fi
+else
+	bDummyVanilla=true
+fi
 #bFlVanilla=false;if [[ -f "$strVanillaScriptFile" ]];then bFlVanilla=true;fi
 if $bDummyVanilla;then
 	#FUNCechoInfo "[WARNING: There is no such Vanilla] create it there empty: '${strVanillaScriptsPath}/mm/$strScriptFileRelat'"
@@ -327,6 +351,7 @@ if $bDummyVanilla;then
 	mkdir -vp "$(dirname "$strVanillaScriptFile")"
 	if [[ ! -f "$strVanillaScriptFile" ]];then
 		cp "${astrListCurrent[0]}" "$strVanillaScriptFile" # see info below for being the first file on the list
+		if [[ -z "$strEncodingRestore" ]];then FUNCconvEncoding;fi
 	fi
 	FUNCechoInfo "[WARNING: There is no such Vanilla File] created a dummy one with the contents of the first one found '${strVanillaScriptFile}' in the list of MODs, it will be deleted later."
 	FUNCprePatchChk "$strVanillaScriptFile" #working on dummy
@@ -334,20 +359,6 @@ fi
 chmod ugo-w "$strVanillaScriptFile"
 ls -l "$strVanillaScriptFile"
 strVanillaScriptFileOriginal="$strVanillaScriptFile"
-
-strEncodingVanilla="$(file -bi "$strVanillaScriptFile" |sed -r -e 's@text/plain; charset=(.*)$@\1@g')"
-case "$strEncodingVanilla" in
-	us-ascii|utf-16le|iso-8859-1)
-		strEncodingRestore="$strEncodingVanilla"
-		;;
-	*)
-		#FUNCechoInfo "[PROBLEM] may not work well with encodings different of '$strEncodingOK' and '$strEncodingUTF16LE', this vanilla is: '$strEncodingVanilla'"
-		FUNCechoInfo "[ERROR] encoding not supported yet: $strEncodingVanilla"
-		exit 1
-		;;
-esac
-iconv -f "$strEncodingVanilla" -t UTF-8 "$strVanillaScriptFile" > "${strVanillaScriptFile}.UTF-8"
-strVanillaScriptFile="${strVanillaScriptFile}.UTF-8"
 
 nBkpIndex=0
 
