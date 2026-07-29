@@ -51,7 +51,10 @@ if true;then
 
 	: ${bUpdateTodoList:=true} #help
 	if $bUpdateTodoList;then
-		./findAllConflictingModdedFiles.sh # checks and updates the TODO list log file
+		read -p "Skip updating (y/...)? (5s)" -n 1 -t 5 strResp&&:
+		if ! [[ "$strResp" =~ [yY] ]];then
+			./findAllConflictingModdedFiles.sh # checks and updates the TODO list log file
+		fi
 	fi
 
 	function FUNCdoItAll() {
