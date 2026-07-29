@@ -51,11 +51,11 @@ function FUNCgoodDesc() {
 	if [[ "$lstrLN" =~ .*//.* ]];then
 		local lstrDesc="$(echo "$lstrLN" | sed -r -e 's@^[^/]*//@@' -e 's@ //.*$@@' -e 's@^[[:space:]]*@@; s@[[:space:]]*$@@')" # works with this to ignore the long description: aaa // short description // long description
 
-		: ${lnMaxDescSize:=40} #help
-		if((${#lstrDesc} > lnMaxDescSize));then
-			FUNCechoInfo "[WARN] lstrDesc size is too big (${#lstrDesc} chars/$lnMaxDescSize) and will not fit in the menu for '$lstrDesc'"
-			if ! FUNCaskYesNo "continue anyway?";then exit 1;fi
-		fi
+		#: ${lnMaxDescSize:=40} #help
+		#if((${#lstrDesc} > lnMaxDescSize));then
+			#FUNCechoInfo "[WARN] lstrDesc size is too big (${#lstrDesc} chars/$lnMaxDescSize) and will not fit in the menu for '$lstrDesc'"
+			#if ! FUNCaskYesNo "continue anyway?";then exit 1;fi
+		#fi
 		echo -n "$lstrDesc"
 		return 0
 	fi
@@ -81,6 +81,13 @@ for strAlias in "${astrAliasList[@]}";do
 	nCost=0;for nC in "${anCost[@]}";do ((nCost+=nC))&&:;done
 	strCost="";if((nCost>0));then strCost=" HP${nCost}";fi
 	strDescription="$(FUNClazyDesc "$strAlias" |sed -r -e 's@[+]*gsk (.*)@\1@g')${strCost}"
+	
+	: ${nMaxDescSize:=40} #help
+	if((${#strDescription} > nMaxDescSize));then
+		FUNCechoInfo "[WARN] strDescription size is too big (${#strDescription} chars/$nMaxDescSize) and will not fit in the menu for '$strDescription'"
+		if ! FUNCaskYesNo "continue anyway?";then exit 1;fi
+	fi
+	
 	astrDbg+=("$(declare -p nCost strAlias strCost) $(egrep "[+-]*${strAlias}\s*.*hurtme\s*[0-9.]*" "$strGameInstallMainFolder"/* -iRIaoh --include="*.cfg")")&&:
 	strMenuDataEntries+='
         //# '"$strMenuID"'
