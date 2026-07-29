@@ -228,6 +228,60 @@ for strLastOneWins in "${astrFlLastOneAlwaysWinList[@]}";do
 	fi
 done
 
+function FUNCexecMerger() {
+	local lastrParams=()
+	local lbAlert=false
+	while [[ $# -gt 0 ]];do
+		local lstrParam="$1"
+		shift
+		
+		if [[ "$lstrParam" == --alert ]];then
+			lbAlert=true
+			continue
+		fi
+		#if [[ -f "$lstrParam" ]];then
+			#lastrParams+=("$lstrParam")
+			#local lstrEnc="$(file -bi "$lstrParam")"
+			#case "$strEncodingVanilla" in
+				#us-ascii|utf-16le|iso-8859-1)
+					#:
+					#;;
+				#*)
+					#echo "'$lstrParam'"
+					#ls -l "$lstrParam"
+					#FUNCechoInfo "[WARN] not validated/patched encoding yet, this file above is: '$lstrEnc'"
+					#;;
+			#esac
+		#fi
+	done
+	
+	#: ${strMergerBlackList:="resource/mm_itemnames_english.txt"} #causes too much trouble on mergers, comma separated
+	: ${strMergerBlackList:=""} #causes too much trouble on mergers, comma separated
+	mapfile -t astrMergerBlackList < <(echo "$strMergerBlackList" |tr ',' '\n')
+	bMB=false
+	for strMB in "${astrMergerBlackList[@]}";do
+		if [[ "$strScriptFileRelat" == "${strMB}" ]];then
+			bMB=true
+			break;
+		fi
+	done
+	
+	if $lbAlert;then
+		FUNCsay "PROBLEM: Manual Merging Required"
+	else
+		FUNCsay "Merge result is ready to check."
+	fi
+	
+	if $bMB;then
+		FUNCechoInfo "[PROBLEM] wont open merger for '${strScriptFileRelat}', it can't handle that. Opening a robust text editor instead:"
+		: ${strExecRobustTextEditorEval:='declare -a astrExecRobustTextEditor=([0]="geany" [1]="--new-instance")'} #help
+		eval "$strExecRobustTextEditorEval"
+		"${astrExecRobustTextEditor[@]}" "${lastrParams[@]}"
+	else
+		"${strExecMerger}" "${lastrParams[@]}"
+	fi
+}
+
 function FUNCprePatchChk() { #help <lstrFlChkScriptRelat>
 	local lstrFlChkScriptRelat="$1"
 	local lbPrePatchFail=false
@@ -255,7 +309,7 @@ function FUNCprePatchChk() { #help <lstrFlChkScriptRelat>
 strVanillaScriptFile="$(find -L "$strVanillaScriptsPath" -iregex "${strFindScriptFileRegex}")"
 bDummyVanilla=false
 if [[ ! -f "$strVanillaScriptFile" ]];then bDummyVanilla=true;fi
-if ! $bDummyVanilla && ! ./kvSanityChecker.sh "$lstrFlChkScriptRelat";then bDummyVanilla=true;fi
+if ! $bDummyVanilla && ! ./kvSanityChecker.sh "$strVanillaScriptFile";then bDummyVanilla=true;fi
 #bFlVanilla=false;if [[ -f "$strVanillaScriptFile" ]];then bFlVanilla=true;fi
 if $bDummyVanilla;then
 	#FUNCechoInfo "[WARNING: There is no such Vanilla] create it there empty: '${strVanillaScriptsPath}/mm/$strScriptFileRelat'"
@@ -343,60 +397,6 @@ if $bApplyEachPatch;then
 	
 	FUNCtrash "$strFlPreviouslyPatched"&&:
 fi
-
-function FUNCexecMerger() {
-	local lastrParams=()
-	local lbAlert=false
-	while [[ $# -gt 0 ]];do
-		local lstrParam="$1"
-		shift
-		
-		if [[ "$lstrParam" == --alert ]];then
-			lbAlert=true
-			continue
-		fi
-		if [[ -f "$lstrParam" ]];then
-			lastrParams+=("$lstrParam")
-			local lstrEnc="$(file -bi "$lstrParam")"
-			case "$strEncodingVanilla" in
-				us-ascii|utf-16le|iso-8859-1)
-					:
-					;;
-				*)
-					echo "'$lstrParam'"
-					ls -l "$lstrParam"
-					FUNCechoInfo "[WARN] not validated/patched encoding yet, this file above is: '$lstrEnc'"
-					;;
-			esac
-		fi
-	done
-	
-	#: ${strMergerBlackList:="resource/mm_itemnames_english.txt"} #causes too much trouble on mergers, comma separated
-	: ${strMergerBlackList:=""} #causes too much trouble on mergers, comma separated
-	mapfile -t astrMergerBlackList < <(echo "$strMergerBlackList" |tr ',' '\n')
-	bMB=false
-	for strMB in "${astrMergerBlackList[@]}";do
-		if [[ "$strScriptFileRelat" == "${strMB}" ]];then
-			bMB=true
-			break;
-		fi
-	done
-	
-	if $lbAlert;then
-		FUNCsay "PROBLEM: Manual Merging Required"
-	else
-		FUNCsay "Merge result is ready to check."
-	fi
-	
-	if $bMB;then
-		FUNCechoInfo "[PROBLEM] wont open merger for '${strScriptFileRelat}', it can't handle that. Opening a robust text editor instead:"
-		: ${strExecRobustTextEditorEval:='declare -a astrExecRobustTextEditor=([0]="geany" [1]="--new-instance")'} #help
-		eval "$strExecRobustTextEditorEval"
-		"${astrExecRobustTextEditor[@]}" "${lastrParams[@]}"
-	else
-		"${strExecMerger}" "${lastrParams[@]}"
-	fi
-}
 
 echo
 #for strFileToMerge in "${astrListCurrent[@]}";do
