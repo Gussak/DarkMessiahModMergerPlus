@@ -65,7 +65,7 @@ FUNCaskYesNo() { # <questionForYesNo>. use like: if FUNCaskYesNo "oi?";then ...
 	while read -t 0.1 -n 1;do :;done #clear key buffer
 	local lstrResp
 	echo -n "${1}? (y/...)" >&2
-	read -n 1 lstrResp&&:
+	read -n 1 lstrResp&&:;echo
 	if [[ "$lstrResp" =~ [yY] ]];then return 0;fi
 	return 1
 };export -f FUNCaskYesNo

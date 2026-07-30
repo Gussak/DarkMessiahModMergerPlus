@@ -251,6 +251,7 @@ function FUNCexecMerger() {
 			continue
 		fi
 		if [[ -f "$lstrParam" ]];then
+			FUNCcheckEncodingUTF8 "$lstrParam"
 			lastrParams+=("$lstrParam")
 			
 			#local lstrEnc="$(file -bi "$lstrParam")"
@@ -317,14 +318,26 @@ function FUNCprePatchChk() { #help <lstrFlChk>
 			fi
 		fi
 		FUNCsay "Database Sanity Failed"
-		FUNCaskYesNo "[PROBLEM] Fix it (the right one) manually according to the sanity check above please (if not will just exit or the game may will crash)"
+		FUNCaskYesNo "[PROBLEM:Ln$LINENO] Fix it (the right one) manually according to the sanity check above please (if not will just exit or the game may will crash)"
 		FUNCexecMerger --alert "$strVanillaScriptFile" "$lstrFlChk"
 	done
 }
 
+FUNCgetEncoding() { file -bi "$1" |sed -r -e 's@text/plain; charset=(.*)$@\1@g'; }
+
+FUNCcheckEncodingUTF8() { #help <file>
+	while [[ $# -gt 0 ]];do
+		if [[ "$(FUNCgetEncoding "$1")" != "utf-8" ]];then
+			FUNCechoInfo "[ERROR_BUG:${FUNCNAME[@]}] shall only work with UTF-8: found $(FUNCgetEncoding "$1") at '$1'"
+			exit 1;
+		fi; 
+	done
+	return 0
+}
+
 strEncodingRestore=""
 FUNCconvEncoding() {
-	strEncodingVanilla="$(file -bi "$strVanillaScriptFile" |sed -r -e 's@text/plain; charset=(.*)$@\1@g')"
+	strEncodingVanilla="$(FUNCgetEncoding "$strVanillaScriptFile")"
 	case "$strEncodingVanilla" in
 		us-ascii|utf-16le|iso-8859-1)
 			strEncodingRestore="$strEncodingVanilla"
@@ -622,9 +635,9 @@ echo "$strFullLineVisualDelimiter"
 #done
 #FUNCprePatchChk "$strFlWork"
 if ! ./kvSanityChecker.sh "$strFlWork";then
-	FUNCsay "Database Sanity Failed"
+	FUNCsay "Ln$LINENO: Database Sanity Failed"
 	FUNCechoInfo "[WARN] It is better to create a VanillaPrePatches file."
-	FUNCaskYesNo "[PROBLEM] Fix it (the right one) manually according to the sanity check above please (if not will just exit or the game may will crash)"
+	FUNCaskYesNo "[PROBLEM:Ln$LINENO] Fix it (the right one) manually according to the sanity check above please (if not will just exit or the game may will crash)"
 	FUNCexecMerger --alert "$strVanillaScriptFile" "$strFlWork"
 fi
 
@@ -633,8 +646,14 @@ if $bShowFinalComparison;then
 	FUNCechoInfo "[Showing final merge comparison with vanilla]"
 	echo "'$strVanillaScriptFile'"
 	echo "'$strFlWork'"
+	FUNCcheckEncodingUTF8 "$strVanillaScriptFile" "$strFlWork"
 	FUNCexecMerger "$strVanillaScriptFile" "$strFlWork"
 fi
+
+
+##################################################################################
+##################### RESTORE ENCODING, be careful below here ####################
+##################################################################################
 
 case "$strEncodingVanilla" in
 	us-ascii|utf-16le|iso-8859-1)
@@ -644,7 +663,7 @@ esac
 if FUNChasBOM "$strVanillaScriptFileOriginal";then
 	FUNCfixBOM "$strFlWork"
 fi
-if [[ "$(file -bi "$strVanillaScriptFileOriginal")" != "$(file -bi "$strFlWork")" ]];then
+if [[ "$(FUNCgetEncoding "$strVanillaScriptFileOriginal")" != "$(FUNCgetEncoding "$strFlWork")" ]];then
 	FUNCechoInfo "[ERROR] restoring enconding failed"
 	echo "file -bi '$strVanillaScriptFileOriginal';"
 	echo "file -bi '$strFlWork';"
@@ -652,6 +671,7 @@ if [[ "$(file -bi "$strVanillaScriptFileOriginal")" != "$(file -bi "$strFlWork")
 fi
 
 if $bApplyEachPatch;then
+	# prepare a status file confirming all went ok
 	astrListSUCCESS=("${astrListCurrent[@]}")
 	declare -p astrListSUCCESS >"$strFlSuccessCfg"
 	chmod -v ugo-w "$strFlSuccessCfg"
