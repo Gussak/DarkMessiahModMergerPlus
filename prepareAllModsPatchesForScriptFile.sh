@@ -389,8 +389,6 @@ if $bDummyVanilla;then
 	#bDummyVanilla=true
 	case "$strDummyMsgType" in
 		MissingVanilla) 
-			FUNCechoInfo "[WARNING: There is no such Vanilla File] created a dummy one with the contents of the first one found '${strVanillaScriptFile}' in the list of MODs, it will be deleted later." 
-			
 			strVanillaScriptFile="${strFinalDummyHelperFolder}/${strScriptFileRelat}"
 			mkdir -vp "$(dirname "$strVanillaScriptFile")"
 			#if [[ ! -f "$strVanillaScriptFile" ]];then #TODO redundant?
@@ -398,6 +396,9 @@ if $bDummyVanilla;then
 				#if [[ -z "$strEncodingRestore" ]];then FUNCconvEncoding;fi #TODO useless?
 			#fi
 			cp -v "${astrListCurrent[0]}" "$strVanillaScriptFile" # see info below for being the first file on the list
+			
+			FUNCechoInfo "[WARNING: There is no such Vanilla File] created a dummy one '${strVanillaScriptFile}' with the contents of the first one found '${astrListCurrent[0]}' in the list of MODs, it will be deleted later." 
+			
 			FUNCconvEncoding
 			;;
 		FailedSanityCheck)
