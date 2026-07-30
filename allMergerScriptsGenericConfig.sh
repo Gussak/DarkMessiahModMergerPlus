@@ -32,10 +32,12 @@
 set -Eeu #use this specifically, not to everything or |grep results will fail...: set -o pipefail
 
 shopt -s expand_aliases
-#function FUNCechoInfo() {
-	#echo "[$(basename "$0")] $@" >&2
-#}
-alias FUNCechoInfo='echo "[$(basename "$0"):${FUNCNAME[@]}:$LINENO]" >&2'
+function FUNCechoInfo_Work() { #help <LINENO> <MSG>
+	local lLn="$1";shift
+	echo "[$(basename "$0"):${FUNCNAME[@]}:CalledAtLn${lLn}] $@" >&2
+}
+#alias FUNCechoInfo='echo "[$(basename "$0"):${FUNCNAME[@]}:$LINENO]" >&2'
+alias FUNCechoInfo='FUNCechoInfo_Work $LINENO '
 
 
 ################################# FUNCTIONS

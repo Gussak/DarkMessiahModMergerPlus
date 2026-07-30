@@ -329,7 +329,7 @@ function FUNCcheckEncodingUTF8_Work() { #help <LINENO> <file>
 	local lLn="$1";shift
 	while [[ $# -gt 0 ]];do
 		if [[ "$(FUNCgetEncoding "$1")" != "utf-8" ]];then
-			echo "[ERROR_BUG:${FUNCNAME[@]}:CallerAtLn${lLn}] shall only work with UTF-8: found $(FUNCgetEncoding "$1") at '$1'" >&2
+			echo "[ERROR_BUG:${FUNCNAME[@]}:CalledAtLn${lLn}] shall only work with UTF-8: found $(FUNCgetEncoding "$1") at '$1'" >&2
 			exit 1;
 		fi;
 		shift
