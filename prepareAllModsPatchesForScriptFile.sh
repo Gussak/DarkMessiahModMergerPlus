@@ -347,6 +347,10 @@ function FUNCprePatchChk() { #help <lstrFlChk>
 	done
 }
 
+FUNCconvEncToUTF8BOM() { #help <strEncodingVanilla> <input> <output>
+	(printf '\xEF\xBB\xBF'; iconv -f "$1" -t UTF-8 "$2") |sponge "${3}.UTF-8" # this makes it UTF-8-BOM and is detected as UTF-8 by text editors and `file -bi ...`
+}
+
 strEncodingRestore=""
 FUNCconvEncoding() {
 	strEncodingVanilla="$(FUNCgetEncoding "$strVanillaScriptFile")"
@@ -361,7 +365,9 @@ FUNCconvEncoding() {
 			;;
 	esac
 	chmod -v u+w "${strVanillaScriptFile}.UTF-8"&&: # to easy overwrite if it exists
-	iconv -f "$strEncodingVanilla" -t UTF-8 "$strVanillaScriptFile" > "${strVanillaScriptFile}.UTF-8"
+	#iconv -f "$strEncodingVanilla" -t UTF-8 "$strVanillaScriptFile" > "${strVanillaScriptFile}.UTF-8"
+	#(printf '\xEF\xBB\xBF'; iconv -f "$strEncodingVanilla" -t UTF-8 "$strVanillaScriptFile") > "${strVanillaScriptFile}.UTF-8" # this makes it UTF-8-BOM and is detected as UTF-8 by text editors and `file -bi ...`
+	FUNCconvEncToUTF8BOM "$strEncodingVanilla" "$strVanillaScriptFile" "${strVanillaScriptFile}.UTF-8"
 	strVanillaScriptFile="${strVanillaScriptFile}.UTF-8"
 }
 
