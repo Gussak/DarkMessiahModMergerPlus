@@ -255,7 +255,8 @@ function FUNCcheckEncodingUTF8_Work() { #help <LINENO> <file>
 		FUNCwait "[ERROR:${FUNCNAME[@]}:CalledAtLn${lLn}] invalid file '$1'"
 	fi
 	while [[ $# -gt 0 ]];do
-		if [[ "$(FUNCgetEncoding "$1")" != "utf-8" ]];then
+		local lstrEnc="$(FUNCgetEncoding "$1")"
+		if [[ "$lstrEnc" != "utf-8" ]] && [[ "$lstrEnc" != "us-ascii" ]];then # us-ascii is a 127 bytes subset of utf8 and `file -bi` will not return as utf-8
 			echo "[ERROR_BUG:${FUNCNAME[@]}:CalledAtLn${lLn}] shall only work with UTF-8: found '$(FUNCgetEncoding "$1")' at '$1'" >&2
 			exit 1;
 		fi;
