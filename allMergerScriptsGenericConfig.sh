@@ -72,16 +72,16 @@ FUNCaskYesNo() { # <questionForYesNo>. use like: if FUNCaskYesNo "oi?";then ...
 	return 1
 };export -f FUNCaskYesNo
 
-FUNCwaitSeconds() {
+FUNCwaitSeconds() { #help <Delay> [CustomMSG]
 	read -t $1 -n 1 -p "[WAITING:${1}s] ${2-} (press a key to continue)"
 };export -f FUNCwaitSeconds
-FUNCwait() {
+FUNCwait() { #help [CustomMSG]
 	FUNCwaitSeconds $((60*60*24*31*12)) "${1-}"
 };export -f FUNCwait
-FUNCwait10s() {
+FUNCwait10s() { #help [CustomMSG]
 	FUNCwaitSeconds 10 "${1-}"
 };export -f FUNCwait10s
-FUNCwait60s() {
+FUNCwait60s() { #help [CustomMSG]
 	FUNCwaitSeconds 60 "${1-}"
 };export -f FUNCwait10s
 

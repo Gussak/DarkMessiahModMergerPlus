@@ -105,8 +105,8 @@ if true;then
 			if $bMultiThread;then
 				while true;do
 					FUNCgetMT
-					echo -ne "[SpawningThreads] jobs til now $i (MT=${nMultiThreadsNow})\r"
-					: ${nDelayBetweenSpawningMTjobs:=0.25} #help
+					echo -ne "[SpawningThreads] jobs til now $i (MT=${nMultiThreadsNow}) $(date)\r"
+					: ${nDelayBetweenSpawningMTjobs:=0.25} #help may cause problems if too low
 					read -n 1 -t ${nDelayBetweenSpawningMTjobs} && :
 					if((nMultiThreadsNow < nMultiThreadUsedCores));then
 						FUNCechoInfo "[SpawningThreadJob:$i] MT=${nMultiThreadsNow} $strFl"
