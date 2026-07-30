@@ -50,6 +50,32 @@ ln -vsf "$strMapCfgFile" "gskTeleMarkers.cfg"
 exit
 
 
+Press key to mark
+   alias gskTeleDrop "clear; status; status; status; echo gskTeleDropMarker; condump"
+
+Open console type: gsktelenm some Nice name
+
+
+
+prepareTeleRecall.sh
+
+Use keu "u" to "status;status;status;codump", this will ask a map tele list update: copy existing ex gskTeleMarkers_L00.cfg to gskTeleMarkers_Current.cfg
+
+alias gskTeleRecallSelect "exec gskTeleMarkers_Current.cfg; ..."#show index , nome completo , coordenadas, sem limite
+
+alias +gskTeleRecallApply "exec gskTeleRecall.cfg"
+alias -gskTeleRecallApply "setpos ...; hurtme 20; mm_player_unfreeze; gskWait5s;   mm_player_unfreeze"
+
+alias gskTeleDeleteCurrent (gerado pelo tele select tb) ou gakteledel (digita no console)
+
+
+Press key to recall
+
+
+Total 
+duas keybinds extras: mark recall, uma comum dev de condump
+Dois comandos: gsktelenm gskteledel
+
 
 
 
