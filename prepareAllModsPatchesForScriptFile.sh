@@ -346,9 +346,11 @@ if [[ -f "$strVanillaScriptFile" ]];then
 	FUNCconvEncoding
 	if ! ./kvSanityChecker.sh "$strVanillaScriptFile";then
 		bDummyVanilla=true;
+		strDummyMsgType=FailedSanityCheck
 	fi
 else
 	bDummyVanilla=true
+	strDummyMsgType=MissingVanilla
 fi
 #bFlVanilla=false;if [[ -f "$strVanillaScriptFile" ]];then bFlVanilla=true;fi
 if $bDummyVanilla;then
@@ -364,7 +366,11 @@ if $bDummyVanilla;then
 		cp "${astrListCurrent[0]}" "$strVanillaScriptFile" # see info below for being the first file on the list
 		if [[ -z "$strEncodingRestore" ]];then FUNCconvEncoding;fi
 	fi
-	FUNCechoInfo "[WARNING: There is no such Vanilla File] created a dummy one with the contents of the first one found '${strVanillaScriptFile}' in the list of MODs, it will be deleted later."
+	case "$strDummyMsgType" in
+		MissingVanilla) FUNCechoInfo "[WARNING: There is no such Vanilla File] created a dummy one with the contents of the first one found '${strVanillaScriptFile}' in the list of MODs, it will be deleted later." ;;
+		FailedSanityCheck) FUNCechoInfo "[WARNING: Failed Sanity Check] created a dummy one to fix it '${strVanillaScriptFile}' in the list of MODs, it will be deleted later." ;;
+		*) FUNCechoInfo "[DEV_ERROR_BUG] reason not specified";;
+	esac
 	FUNCprePatchChk "$strVanillaScriptFile" #working on dummy
 fi
 chmod ugo-w "$strVanillaScriptFile"
