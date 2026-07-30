@@ -111,12 +111,12 @@ for file in "${astrFlList[@]}";do
 	 fi
 	fi
 
-	: ${bChkCurlyQuotes:=true} #help
+	: ${bChkCurlyQuotes:=false} #help it checks for these “ ” ‘ ’ TODO: but should be about "key" "value" and still allow these inside the value at least as nice text formatting
 	if $bChkCurlyQuotes;then
 		# 2. Check for Smart/Curly Quotes directly using the clean stream command
 		if eval "$SRC_STREAM_CMD" | grep -q -P "[\x{201C}\x{201D}\x{2018}\x{2019}]" 2>/dev/null; then
 			((HAS_ERROR++))&&:
-			smart_lines=$(eval "$SRC_STREAM_CMD" | grep -n -P "[\x{201C}\x{201D}\x{2018}\x{2019}]" | awk -F: '{print $1}' | paste -sd, -)
+			smart_lines=$(eval "$SRC_STREAM_CMD" | grep -n -P "[\x{201C}\x{201D}\x{2018}\x{2019}]" | awk -F: '{print $1}' | paste -sd, - |sed -r -e 's@,@ @g')
 			ERROR_MSG+="\n -> [QUOTES] Smart/Curly quotes detected on line(s): $smart_lines"
 			echo "${file} # ERROR: [QUOTES] Smart/Curly" >>"$strFlLog"
 		fi

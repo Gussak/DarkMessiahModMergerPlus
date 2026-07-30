@@ -43,6 +43,9 @@ if((nDBGforceHoldTimeOnExit > 0));then
 	trap "read -n 1 -t $nDBGforceHoldTimeOnExit -p DebugWaitExit${nDBGforceHoldTimeOnExit}s && :; exit 0" EXIT
 fi
 
+: ${strExecRobustTextEditorEval:='declare -a astrExecRobustTextEditor=([0]="geany" [1]="--new-instance")'} #help
+eval "$strExecRobustTextEditorEval";declare -p astrExecRobustTextEditor
+
 #help USAGE: <strScriptFileRelat>
 
 #bRedoAllFiles=false;
@@ -239,6 +242,19 @@ for strLastOneWins in "${astrFlLastOneAlwaysWinList[@]}";do
 	fi
 done
 
+function FUNCgetEncoding() { file -bi "$1" |sed -r -e 's@text/plain; charset=(.*)$@\1@g'; };export -f FUNCgetEncoding
+function FUNCcheckEncodingUTF8_Work() { #help <LINENO> <file>
+	local lLn="$1";shift
+	while [[ $# -gt 0 ]];do
+		if [[ "$(FUNCgetEncoding "$1")" != "utf-8" ]];then
+			echo "[ERROR_BUG:${FUNCNAME[@]}:CalledAtLn${lLn}] shall only work with UTF-8: found $(FUNCgetEncoding "$1") at '$1'" >&2
+			exit 1;
+		fi;
+		shift
+	done
+	return 0
+};export -f FUNCcheckEncodingUTF8_Work;alias FUNCcheckEncodingUTF8='FUNCcheckEncodingUTF8_Work $LINENO '
+
 function FUNCexecMerger() {
 	local lastrParams=()
 	local lbAlert=false
@@ -287,8 +303,6 @@ function FUNCexecMerger() {
 	
 	if $bMB;then
 		FUNCechoInfo "[PROBLEM] wont open merger for '${strScriptFileRelat}', it can't handle that. Opening a robust text editor instead:"
-		: ${strExecRobustTextEditorEval:='declare -a astrExecRobustTextEditor=([0]="geany" [1]="--new-instance")'} #help
-		eval "$strExecRobustTextEditorEval"
 		"${astrExecRobustTextEditor[@]}" "${lastrParams[@]}"
 	else
 		set -x;"${strExecMerger}" "${lastrParams[@]}";set +x
@@ -319,23 +333,10 @@ function FUNCprePatchChk() { #help <lstrFlChk>
 		fi
 		FUNCsay "Database Sanity Failed"
 		FUNCaskYesNo "[PROBLEM:Ln$LINENO] Fix it (the right one) manually according to the sanity check above please (if not will just exit or the game may will crash)"
-		FUNCexecMerger --alert "$strVanillaScriptFile" "$lstrFlChk"
+		#FUNCexecMerger --alert "$strVanillaScriptFile" "$lstrFlChk"
+		"${astrExecRobustTextEditor[@]}" "$strVanillaScriptFile" "$lstrFlChk" # an editor that can fold nestings and detect their open/close is better for this
 	done
 }
-
-FUNCgetEncoding() { file -bi "$1" |sed -r -e 's@text/plain; charset=(.*)$@\1@g'; }
-
-function FUNCcheckEncodingUTF8_Work() { #help <LINENO> <file>
-	local lLn="$1";shift
-	while [[ $# -gt 0 ]];do
-		if [[ "$(FUNCgetEncoding "$1")" != "utf-8" ]];then
-			echo "[ERROR_BUG:${FUNCNAME[@]}:CalledAtLn${lLn}] shall only work with UTF-8: found $(FUNCgetEncoding "$1") at '$1'" >&2
-			exit 1;
-		fi;
-		shift
-	done
-	return 0
-};export -f FUNCcheckEncodingUTF8_Work;alias FUNCcheckEncodingUTF8='FUNCcheckEncodingUTF8_Work $LINENO '
 
 strEncodingRestore=""
 FUNCconvEncoding() {
@@ -359,9 +360,11 @@ strVanillaScriptFile="$(find -L "$strVanillaScriptsPath" -iregex "${strFindScrip
 bDummyVanilla=false
 if [[ -f "$strVanillaScriptFile" ]];then
 	FUNCconvEncoding
+	FUNCcheckEncodingUTF8 "$strVanillaScriptFile"
 	if ! ./kvSanityChecker.sh "$strVanillaScriptFile";then
 		bDummyVanilla=true;
 		strDummyMsgType=FailedSanityCheck
+		FUNCcheckEncodingUTF8 "$strVanillaScriptFile"
 	fi
 else
 	bDummyVanilla=true
@@ -376,15 +379,22 @@ if $bDummyVanilla;then
 	##FUNCexit 1
 	#bFlVanilla=false
 	#bDummyVanilla=true
-	strVanillaScriptFile="${strFinalDummyHelperFolder}/${strScriptFileRelat}"
-	mkdir -vp "$(dirname "$strVanillaScriptFile")"
-	if [[ ! -f "$strVanillaScriptFile" ]];then
-		cp "${astrListCurrent[0]}" "$strVanillaScriptFile" # see info below for being the first file on the list
-		if [[ -z "$strEncodingRestore" ]];then FUNCconvEncoding;fi
-	fi
 	case "$strDummyMsgType" in
-		MissingVanilla) FUNCechoInfo "[WARNING: There is no such Vanilla File] created a dummy one with the contents of the first one found '${strVanillaScriptFile}' in the list of MODs, it will be deleted later." ;;
-		FailedSanityCheck) FUNCechoInfo "[WARNING: Failed Sanity Check] created a dummy one to fix it '${strVanillaScriptFile}' in the list of MODs, it will be deleted later." ;;
+		MissingVanilla) 
+			FUNCechoInfo "[WARNING: There is no such Vanilla File] created a dummy one with the contents of the first one found '${strVanillaScriptFile}' in the list of MODs, it will be deleted later." 
+			
+			strVanillaScriptFile="${strFinalDummyHelperFolder}/${strScriptFileRelat}"
+			mkdir -vp "$(dirname "$strVanillaScriptFile")"
+			#if [[ ! -f "$strVanillaScriptFile" ]];then #TODO redundant?
+				#cp "${astrListCurrent[0]}" "$strVanillaScriptFile" # see info below for being the first file on the list
+				#if [[ -z "$strEncodingRestore" ]];then FUNCconvEncoding;fi #TODO useless?
+			#fi
+			cp -v "${astrListCurrent[0]}" "$strVanillaScriptFile" # see info below for being the first file on the list
+			FUNCconvEncoding
+			;;
+		FailedSanityCheck)
+			FUNCechoInfo "[WARNING: Failed Sanity Check] created a dummy one to fix it '${strVanillaScriptFile}' in the list of MODs, it will be deleted later." 
+			;;
 		*) FUNCechoInfo "[DEV_ERROR_BUG] reason not specified";;
 	esac
 	FUNCcheckEncodingUTF8 "$strVanillaScriptFile"
