@@ -667,6 +667,16 @@ if $bApplyEachPatch;then
 	
 	### JSON ###
 	strFlJson="$strFlFinalMergerModJson"
+	
+	# create json lock to prevent multithread concurrency
+	strFlJsonLock="${strFlJson}.lock"
+	strFlJsonLockSelfID="${strFlJson}.lock.$$"
+	while ! ln -s "$strFlJson" "${strFlJsonLock}";do
+		echo -ne "[INFO] $(date) Trying to acquire: ${strFlJsonLock}\r"
+		sleep 1
+	done
+	ln -sf "${strFlJsonLock}" "$strFlJsonLockSelfID" #this is to help kill the right PID (this $$)
+	
 	#FUNCjsonSetArray() {
 		#local lstrID="$1";shift
 		#local lastrCfgsList=("$@")
@@ -717,6 +727,7 @@ if $bApplyEachPatch;then
 	FUNCjsonSetArrayByExt autoexec_configs ""
 	ls -l "$strFlJson"
 	cat "$strFlJson"
+	rm "${strFlJsonLock}" "$strFlJsonLockSelfID" # clean json lock
 	
 	echo;FUNCechoInfo "[Final merge SUCCESS!!!]"
 fi
