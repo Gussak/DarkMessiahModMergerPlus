@@ -45,7 +45,7 @@ fi
 
 #help USAGE: <strScriptFileRelat>
 
-bRedoAllFiles=false;
+#bRedoAllFiles=false;
 : ${bForceRePatch:=false} #help
 while [[ $# -gt 0 ]] && [[ "${1:0:1}" == "-" ]];do # checks if param is set
 	if [[ "$1" == "--help" ]];then #help show this help
@@ -56,8 +56,8 @@ while [[ $# -gt 0 ]] && [[ "${1:0:1}" == "-" ]];do # checks if param is set
 		FUNCexit 0
 	elif [[ "$1" == "-f" || "$1" == "--forceRePatch" ]];then #help
 		bForceRePatch=true
-	elif [[ "$1" == --redoall ]];then #help REDO the work on all files at the Final merged folder
-		bRedoAllFiles=true
+	#elif [[ "$1" == --redoall ]];then #help REDO the work on all files at the Final merged folder
+		#bRedoAllFiles=true
 	else
 		FUNCechoInfo "[invalid option] '$1'"
 		$0 --help #$0 considers ./, works best anyway..
@@ -72,20 +72,20 @@ exec > >(tee "$strFinalMergedFolderContent/${strScriptFileRelat}.log") 2>&1
 
 FUNCchkDeps jq colordiff patch
 
-astrWorkDB=()
-strFlWorkDatabase="$(basename "$0").cfg"
-if [[ -f "$strFlWorkDatabase" ]];then
-	source "$strFlWorkDatabase"
-	if $bVerbose;then declare -p astrWorkDB |sed -r -e "$strSedArrayNumToLn";fi
-	if $bRedoAllFiles;then
-		for strFlWDB in "${astrWorkDB[@]}";do
-			FUNCechoInfo "[WorkDB] '$strFlWDB'"
-			read -n 1&&:
-			bForceRePatch=true "$0" "$strFlWDB"
-		done
-		FUNCexit
-	fi
-fi
+#astrWorkDB=()
+#strFlWorkDatabase="$(basename "$0").cfg"
+#if [[ -f "$strFlWorkDatabase" ]];then
+	#source "$strFlWorkDatabase"
+	#if $bVerbose;then declare -p astrWorkDB |sed -r -e "$strSedArrayNumToLn";fi
+	#if $bRedoAllFiles;then
+		#for strFlWDB in "${astrWorkDB[@]}";do
+			#FUNCechoInfo "[WorkDB] '$strFlWDB'"
+			#read -n 1&&:
+			#bForceRePatch=true "$0" "$strFlWDB"
+		#done
+		#FUNCexit
+	#fi
+#fi
 
 : ${bShowDiffPerFile:=false} #help
 : ${nFuzzyPatch:=0} #help try nFuzzyPatch=1 This may help to make it easier to provide an initial auto merge? better just review the results...
@@ -414,12 +414,12 @@ if $bApplyEachPatch;then
 	fi
 	
 	FUNCtrash "$strFlWork" "$strFlSuccessCfg"&&:
-	for((i=0;i<${#astrWorkDB[@]};i++));do
-		if [[ "${astrWorkDB[i]}" == "$strScriptFileRelat" ]];then
-			unset astrWorkDB[$i]
-			break;
-		fi
-	done
+	#for((i=0;i<${#astrWorkDB[@]};i++));do
+		#if [[ "${astrWorkDB[i]}" == "$strScriptFileRelat" ]];then
+			#unset astrWorkDB[$i]
+			#break;
+		#fi
+	#done
 	
 	# init final work file
 	mkdir -vp "$(dirname "$strFlWork")"
@@ -657,9 +657,9 @@ if $bApplyEachPatch;then
 	chmod -v ugo-w "$strFlSuccessCfg"
 	ls -l "$strFlSuccessCfg"
 	
-	astrWorkDB+=("$strScriptFileRelat")
-	mapfile -t astrWorkDB < <(for strFl in "${astrWorkDB[@]}";do echo "$strFl";done |sort -u)
-	declare -p astrWorkDB >"$strFlWorkDatabase"
+	#astrWorkDB+=("$strScriptFileRelat")
+	#mapfile -t astrWorkDB < <(for strFl in "${astrWorkDB[@]}";do echo "$strFl";done |sort -u)
+	#declare -p astrWorkDB >"$strFlWorkDatabase"
 	
 	if $bDummyVanilla;then
 		FUNCtrash "$strVanillaScriptFile"
