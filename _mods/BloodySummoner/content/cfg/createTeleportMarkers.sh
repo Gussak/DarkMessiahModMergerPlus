@@ -31,27 +31,51 @@
 
 while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
 
-FUNCgetNewestCondump
-: ${strFlCondump:="$FUNCgetNewestCondump_strFlCondump"} #help
+strFlCondumpPrev=""
+while true;do
+	FUNCgetNewestCondump
+	strFlCondump="$FUNCgetNewestCondump_strFlCondump"
+	
+	if [[ "$strFlCondumpPrev" != "$strFlCondump" ]];then
+		if ugrep -q "gskTeleMarkerDrop" "$strFlCondump";then
+			FUNCmapInfo "$strFlCondump"
+			
+			strPos="$FUNCmapInfo_strPosRestore"
+			strPosCmd="setpos ${strPos}"
+			
+			strMapCfgFile="gskTeleMarkers_${FUNCmapInfo_strMapName}.cfg"
+			
+			echo "Now set this teleport marker name like: gskTeleMarkerName someNiceName, or gsktn someNiceName, or echo gsktn someNiceName, by typing it in the console."
+			while ! ugrep -i "^(gskTeleMarkerName |Unknown command: gskTeleMarkerName|gsktn|Unknown command: gsktn)";do
+				echo -ne "waiting Teleport marker name."
+			done
+			
+			declare -p strPos strMapCfgFile FUNCmapInfo_strPosRestore strPosCmd
+			
+			if false;then
+				FUNCtrash "$strMapCfgFile"
+				#if [[ ! -f "${strMapCfgFile}.condump.txt" ]];then
+					#cp -v "$lstrFlCondump" "${strMapCfgFile}.condump.txt"
+				#fi
+				echo -n >"$strMapCfgFile"
+				ln -vsf "$strMapCfgFile" "gskTeleMarkers.cfg"
+			fi
+		fi
+		
+		strFlCondumpPrev="$strFlCondump"
+	else
+		echo -ne "$(date) Waiting new condump.\r"
+	fi
 
-set -x
-FUNCmapInfo "$strFlCondump"
-strAliasID="$(echo "$FUNCmapInfo_strPosRestore" |tr -d '-\r' |tr ' ' '_')"
-strMapCfgFile="gskTeleMarkers_${FUNCmapInfo_strMapName}.cfg"
-FUNCtrash "$strMapCfgFile"
-if [[ ! -f "${strMapCfgFile}.condump.txt" ]];then
-	cp -v "$lstrFlCondump" "${strMapCfgFile}.condump.txt"
-fi
-echo -n >"$strMapCfgFile"
-ln -vsf "$strMapCfgFile" "gskTeleMarkers.cfg"
-
-#TODO this can also update a file gskFillCurrentMapWithNPCs.cfg based on the current map name and on available files at CarefulCombat! so at 'q' key to reload some cfgs, it will also load gskFillCurrentMapWithNPCs.cfg that is ready with the spawn NPC settings for current map!
+	#TODO this can also update a file gskFillCurrentMapWithNPCs.cfg based on the current map name and on available files at CarefulCombat! so at 'q' key to reload some cfgs, it will also load gskFillCurrentMapWithNPCs.cfg that is ready with the spawn NPC settings for current map!
+	sleep 1
+done
 
 exit
 
 
 Press key to mark
-   alias gskTeleDrop "clear; status; status; status; echo gskTeleDropMarker; condump"
+   alias gskTeleDrop "clear; status; status; status; echo gskTeleMarkerDrop; condump"
 
 Open console type: gsktelenm some Nice name
 
