@@ -325,15 +325,17 @@ function FUNCprePatchChk() { #help <lstrFlChk>
 
 FUNCgetEncoding() { file -bi "$1" |sed -r -e 's@text/plain; charset=(.*)$@\1@g'; }
 
-FUNCcheckEncodingUTF8() { #help <file>
+function FUNCcheckEncodingUTF8_Work() { #help <LINENO> <file>
+	local lLn="$1";shift
 	while [[ $# -gt 0 ]];do
 		if [[ "$(FUNCgetEncoding "$1")" != "utf-8" ]];then
-			FUNCechoInfo "[ERROR_BUG:${FUNCNAME[@]}] shall only work with UTF-8: found $(FUNCgetEncoding "$1") at '$1'"
+			echo "[ERROR_BUG:${FUNCNAME[@]}:CallerAtLn${lLn}] shall only work with UTF-8: found $(FUNCgetEncoding "$1") at '$1'" >&2
 			exit 1;
-		fi; 
+		fi;
+		shift
 	done
 	return 0
-}
+};export -f FUNCcheckEncodingUTF8_Work;alias FUNCcheckEncodingUTF8='FUNCcheckEncodingUTF8_Work $LINENO '
 
 strEncodingRestore=""
 FUNCconvEncoding() {
@@ -348,7 +350,7 @@ FUNCconvEncoding() {
 			exit 1
 			;;
 	esac
-	chmod -v u+w "${strVanillaScriptFile}.UTF-8"&&:
+	chmod -v u+w "${strVanillaScriptFile}.UTF-8"&&: # to easy overwrite if it exists
 	iconv -f "$strEncodingVanilla" -t UTF-8 "$strVanillaScriptFile" > "${strVanillaScriptFile}.UTF-8"
 	strVanillaScriptFile="${strVanillaScriptFile}.UTF-8"
 }
@@ -365,6 +367,7 @@ else
 	bDummyVanilla=true
 	strDummyMsgType=MissingVanilla
 fi
+FUNCcheckEncodingUTF8 "$strVanillaScriptFile"
 #bFlVanilla=false;if [[ -f "$strVanillaScriptFile" ]];then bFlVanilla=true;fi
 if $bDummyVanilla;then
 	#FUNCechoInfo "[WARNING: There is no such Vanilla] create it there empty: '${strVanillaScriptsPath}/mm/$strScriptFileRelat'"
@@ -384,6 +387,7 @@ if $bDummyVanilla;then
 		FailedSanityCheck) FUNCechoInfo "[WARNING: Failed Sanity Check] created a dummy one to fix it '${strVanillaScriptFile}' in the list of MODs, it will be deleted later." ;;
 		*) FUNCechoInfo "[DEV_ERROR_BUG] reason not specified";;
 	esac
+	FUNCcheckEncodingUTF8 "$strVanillaScriptFile"
 	FUNCprePatchChk "$strVanillaScriptFile" #working on dummy
 fi
 chmod ugo-w "$strVanillaScriptFile"
