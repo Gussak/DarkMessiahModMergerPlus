@@ -209,7 +209,7 @@ function FUNCpauseAndResumeAtom() {
 	if [[ -z "${anPidGm[@]-}" ]];then eval "$strExportArrays";fi #could be a mktemp file thru source but is equivalent...
 	
 	set -x;kill -SIGSTOP $lnPidGm;set +x
-	if which ScriptEchoColor;then echoc --say "Game Loaded";fi
+	if which ScriptEchoColor >/dev/null;then echoc --say "Game Loaded";fi
 	#while ! yad --title="DarkMessiah:helper" --text="Dark Messiah of MM\n Game Finished Loading\n SigStopped\n Continue NOW?" --geometry=1x1+$nScrWhalf+0 --undecorated;do :;done; # not --on-top because it cant be too small :(
 	#while ! yad --geometry=1x1+$nScrWhalf+0 --title="DarkMessiah:helper" --center --no-buttons;do :;done; # not --on-top because it cant be too small :(
 	

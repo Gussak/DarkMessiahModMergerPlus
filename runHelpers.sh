@@ -27,7 +27,7 @@ fi
 
 #set -x
 
-if which ScriptEchoColor;then
+if which ScriptEchoColor >/dev/null;then
 	cd ..;pwd
 	if [[ -f "Dark Messiah Might and Magic Single Player/mm.exe" ]];then
 		echo "Merged game folder already mounted..."
@@ -154,7 +154,7 @@ fi
 
 ##################
 
-if which ScriptEchoColor;then
+if which ScriptEchoColor >/dev/null;then
 	echo "you may try to just drop_caches or remount, secOverrideMultiLayerMountPoint.sh helps on it too"
 	read -n 1 -p "Umount?(y/...)" strResp;
 	if [[ "${strResp}" == y ]];then
