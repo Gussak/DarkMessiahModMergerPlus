@@ -78,16 +78,18 @@ if true;then
 		mapfile -t astrIgnoreSomeFilesList < <(echo "$strIgnoreSomeFiles" |tr ',' '\n')
 		FUNCign() { for strIgn in "${astrIgnoreSomeFilesList[@]}";do if [[ "$1" == "$strIgn" ]];then return 0;fi;done; return 1; }
 		: ${bMultiThread:=false} #help
-		nMaxCores="$(lscpu -p |grep -v "^#"|cut -d, -f1)"
+		nMaxCores="$(lscpu -p |grep -v "^#" |cut -d, -f1 |wc -l)"
 		: ${nMultiThreadUsedCores:=$nMaxCores} #help you can limit it
 		if((nMultiThreadUsedCores > nMaxCores));then nMultiThreadUsedCores=$nMaxCores;fi
+		: ${strThreadBaseID:="DMMM_MTPatch_"} #help
+		function FUNCgetMT() { nMultiThreadsNow=$(wmctrl -l |egrep "${strThreadBaseID}[0-9]*" |wc -l); return 0; }
 		for((i=0;i<${#astrList[@]};i++));do
 			strFl="${astrList[i]}"
 			if FUNCign "$strFl";then continue;fi
 			echo
 			
 			: ${bClearTerminalOncePerFileMerged:=true} #help good to easily read all the specific file context in case the merger app is called for the user to take action. It will all be logged at final file location.
-			if $bClearTerminalOncePerFileMerged;then clear;fi
+			if ! $bMultiThread && $bClearTerminalOncePerFileMerged;then clear;fi
 			
 			FUNCechoInfo ">>>>>>>>>>>>>>>>>>>>>>>>>>> [$i/${#astrList[@]}] $strFl <<<<<<<<<<<<<<<<<<<<<<<<<"
 			
@@ -101,20 +103,33 @@ if true;then
 			#if $bMultiThread;then aCmd+=(xterm -title "DMMM_MTPatch_${i}" -e);fi
 			aCmd=(./prepareAllModsPatchesForScriptFile.sh ${lastrOpts[@]} "$strFl") #it is self loggin already now #|tee "$strFlLog"
 			if $bMultiThread;then
-				: ${strThreadBaseID:="DMMM_MTPatch_"} #help
 				while true;do
-					nMultiThreadsNow=$(wmctrl -l |egrep "${strThreadBaseID}[0-9]*" |wc -l)
+					FUNCgetMT
+					echo -ne "[SpawningThreads] jobs til now $i (MT=${nMultiThreadsNow})\r"
+					: ${nDelayBetweenSpawningMTjobs:=0.25} #help
+					read -n 1 -t ${nDelayBetweenSpawningMTjobs} && :
 					if((nMultiThreadsNow < nMultiThreadUsedCores));then
-						FUNCechoInfo "[SpawningThreadJob:$i] $strFl"
-						(xterm -title "${strThreadBaseID}${i}_$(basename "${strFl}" |tr '.' '_')" -e "${aCmd[@]}" & disown)
+						FUNCechoInfo "[SpawningThreadJob:$i] MT=${nMultiThreadsNow} $strFl"
+						(xterm -title "${strThreadBaseID}${i}of${#astrList[@]}_$(basename "${strFl}" |tr '.' '_')" -e "${aCmd[@]}" & disown)
+						break
 					fi
-					read -n 1 -t 1 -p "[SpawningThreads] jobs til now $i"&&:
 				done
 			else
 				"${aCmd[@]}"
 			fi
 			FUNCechoInfo "nRet=$?"
 		done
+		
+		if $bMultiThread;then
+			while true;do
+				FUNCgetMT
+				if((nMultiThreadsNow == 0));then break;fi
+				echo -ne "[INFO] Waiting MT=${nMultiThreadsNow} end, $(date).\r"
+				read -n 1 -t 1&&:
+			done
+		fi
+		
+		return 0
 	}
 
 	FUNCdoItAll "TODO" ""

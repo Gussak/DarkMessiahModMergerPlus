@@ -32,6 +32,17 @@
 export FUNCminiModInit_bConsumeParamHelp=false
 while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
 
+#: ${nWaitBeforeExiting:=0} #help
+#read -n 1 -p "Press a key to exit..." -t $nWaitBeforeExiting&&:
+#: ${bDBGforceHoldOnExit:=false} #help
+#if $bDBGforceHoldOnExit;then
+	#trap 'read -n 1 -p DebugWaitExit&&:;exit 0' EXIT
+#fi
+: ${nDBGforceHoldTimeOnExit:=0} #help
+if((nDBGforceHoldTimeOnExit > 0));then
+	trap "read -n 1 -t $nDBGforceHoldTimeOnExit -p DebugWaitExit${nDBGforceHoldTimeOnExit}s && :; exit 0" EXIT
+fi
+
 #help USAGE: <strScriptFileRelat>
 
 bRedoAllFiles=false;
@@ -706,4 +717,8 @@ fi
 
 FUNCtrash "$strFinalDummyHelperFolder"
 FUNCechoInfo "nRet=$?"
+
+#: ${nWaitBeforeExiting:=0} #help
+#read -n 1 -p "Press a key to exit..." -t $nWaitBeforeExiting&&:
+
 FUNCexit 0
