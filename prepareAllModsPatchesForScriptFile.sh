@@ -242,14 +242,18 @@ for strLastOneWins in "${astrFlLastOneAlwaysWinList[@]}";do
 	fi
 done
 
-function FUNCgetEncoding() {
+function FUNCgetEncoding_Work() {
+	local lLn="$1";shift
 	if ! [[ -f "$1" ]];then
-		FUNCwait "[ERROR] invalid file '$1'"
+		FUNCwait "[ERROR:${FUNCNAME[@]}:CalledAtLn${lLn}] invalid file '$1'"
 	fi
 	file -bi "$1" |sed -r -e 's@text/plain; charset=(.*)$@\1@g'; 
-};export -f FUNCgetEncoding
+};export -f FUNCgetEncoding_Work;alias FUNCgetEncoding='FUNCgetEncoding_Work $LINENO '
 function FUNCcheckEncodingUTF8_Work() { #help <LINENO> <file>
 	local lLn="$1";shift
+	if ! [[ -f "$1" ]];then
+		FUNCwait "[ERROR:${FUNCNAME[@]}:CalledAtLn${lLn}] invalid file '$1'"
+	fi
 	while [[ $# -gt 0 ]];do
 		if [[ "$(FUNCgetEncoding "$1")" != "utf-8" ]];then
 			echo "[ERROR_BUG:${FUNCNAME[@]}:CalledAtLn${lLn}] shall only work with UTF-8: found '$(FUNCgetEncoding "$1")' at '$1'" >&2
@@ -375,7 +379,6 @@ else
 	bDummyVanilla=true
 	strDummyMsgType=MissingVanilla
 fi
-FUNCcheckEncodingUTF8 "$strVanillaScriptFile"
 #bFlVanilla=false;if [[ -f "$strVanillaScriptFile" ]];then bFlVanilla=true;fi
 if $bDummyVanilla;then
 	#FUNCechoInfo "[WARNING: There is no such Vanilla] create it there empty: '${strVanillaScriptsPath}/mm/$strScriptFileRelat'"
