@@ -65,7 +65,7 @@ FUNCkey() {
 strKeyWTabsDown=""
 strKeyWTabsUp=""
 while true;do
-	echo "JUST PRESS ENTER"
+	echo "[INFO]  <> <> <> JUST PRESS ENTER <> <> <>"
 	
 	strKeyWTabsDownNew="$(FUNCkey "${strFlMainScriptName}.AI.010.FakeTabs.RAW.${strFlMainScriptExt}")"
 	if [[ "$strKeyWTabsDownNew" != "$strKeyWTabsDown" ]];then #detects file changed
