@@ -420,6 +420,7 @@ FUNCconvEncoding() {
 strVanillaScriptFile="$(find -L "$strVanillaScriptsPath" -iregex "${strFindScriptFileRegex}")"
 bDummyVanilla=false
 if [[ -f "$strVanillaScriptFile" ]];then
+	strVanillaScriptFileOriginal="$strVanillaScriptFile"
 	FUNCconvEncoding
 	FUNCcheckEncodingUTF8 "$strVanillaScriptFile"
 	if ! ./kvSanityChecker.sh "$strVanillaScriptFile";then
@@ -448,6 +449,7 @@ if $bDummyVanilla;then
 				#if [[ -z "$strEncodingRestore" ]];then FUNCconvEncoding;fi #TODO useless?
 			#fi
 			cp -v "${astrListCurrent[0]}" "$strVanillaScriptFile" # see info below for being the first file on the list
+			strVanillaScriptFileOriginal="$strVanillaScriptFile"
 			
 			FUNCechoInfo "[WARNING: There is no such Vanilla File] created a dummy one '${strVanillaScriptFile}' with the contents of the first one found '${astrListCurrent[0]}' in the list of MODs, it will be deleted later." 
 			
@@ -463,7 +465,7 @@ if $bDummyVanilla;then
 fi
 chmod ugo-w "$strVanillaScriptFile"
 ls -l "$strVanillaScriptFile"
-strVanillaScriptFileOriginal="$strVanillaScriptFile"
+#strVanillaScriptFileOriginal="$strVanillaScriptFile"
 
 nBkpIndex=0
 
@@ -744,7 +746,11 @@ FUNCcompareEncoding() {
 
 case "$strEncodingVanilla" in
 	us-ascii|utf-16le|iso-8859-1)
+		#set -x
+		file -bi "$strFlWork"
 		(iconv -f UTF-8 -t "$strEncodingVanilla" "$strFlWork") |sponge "$strFlWork"
+		file -bi "$strFlWork"
+		#set +x
 		;;
 esac
 if FUNChasBOM "$strVanillaScriptFileOriginal";then
@@ -752,8 +758,11 @@ if FUNChasBOM "$strVanillaScriptFileOriginal";then
 fi
 if [[ "$(FUNCgetEncoding "$strVanillaScriptFileOriginal")" != "$(FUNCgetEncoding "$strFlWork")" ]];then
 	FUNCechoInfo "[ERROR] restoring enconding failed"
-	echo "file -bi '$strVanillaScriptFileOriginal';"
-	echo "file -bi '$strFlWork';"
+	set -x
+	file -bi "$strVanillaScriptFileOriginal"
+	file -bi "$strFlWork"
+	set +x
+	echo "iconv -f UTF-8 -t '$strEncodingVanilla' '$strFlWork' >'${strFlWork}.$strEncodingVanilla'; file -bi '${strFlWork}.$strEncodingVanilla' #Try this"
 	exit 1
 fi
 
