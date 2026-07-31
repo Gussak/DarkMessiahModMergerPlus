@@ -27,7 +27,8 @@
 //	OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 //	OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-//AI GENERATED:
+// This was AI GENERATED.
+// What it does? Basically, tries to detect the window creation before it has a chance to be shown, and minimize it.
 
 // Compile with: g++ -O3 launchappminimized.cpp -o launchappminimized -lX11
 #include <iostream>
@@ -161,7 +162,7 @@ int main(int argc, char* argv[]) {
         }
 
         kill(pid, SIGCONT);
-        usleep(100);
+        usleep(100); //this is microseconds, dont lower it to not mess X
     }
 
     XCloseDisplay(display);
