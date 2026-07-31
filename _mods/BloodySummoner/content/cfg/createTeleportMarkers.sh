@@ -95,6 +95,7 @@ while true;do
 			echo "alias gskTeleMarkerRecall gskTeleMarker000" >>"$strMapCfgFile"
 			echo "alias gskTeleMarkerSelectNext gskTeleMarkerSelect000" >>"$strMapCfgFile"
 			for strMarkerID in "${!astrMarkerID_Name[@]}";do
+				echo >>"$strMapCfgFile"
 				echo "echo \"${strMarkerID} '${astrMarkerID_Name[$strMarkerID]}' ${astrMarkerID_Pos[$strMarkerID]}\"" >>"$strMapCfgFile"
 				nIndex="${astrMarkerID_Index[$strMarkerID]}"
 				strIndex="$(printf %03d $nIndex)"
@@ -111,11 +112,13 @@ while true;do
 				echo "alias ${strAliasForID} \"setpos ${astrMarkerID_Pos[$strMarkerID]}; $strEcho\"" >>"$strMapCfgFile"
 				
 				if((nIndex != nIndexMax));then
-					echo "alias gskTeleMarkerSelect${strIndex} \"alias gskTeleMarkerRecall ${strAliasForID}; alias gskTeleMarkerSelectNext gskTeleMarkerSelect${strIndexNext}\""
+					echo "alias gskTeleMarkerSelect${strIndex} \"alias gskTeleMarkerRecall ${strAliasForID}; alias gskTeleMarkerSelectNext gskTeleMarkerSelect${strIndexNext}\"" >>"$strMapCfgFile"
 				else
-					echo "alias gskTeleMarkerSelect${strIndex} \"alias gskTeleMarkerRecall gskTeleMarker000; alias gskTeleMarkerSelectNext gskTeleMarkerSelect000\""
+					echo "alias gskTeleMarkerSelect${strIndex} \"alias gskTeleMarkerRecall ${strAliasForID}; alias gskTeleMarkerSelectNext gskTeleMarkerSelect000\"" >>"$strMapCfgFile"
 				fi
 			done
+			#echo >>"$strMapCfgFile"
+			#echo "alias gskTeleMarkerSelect$( printf %03d $((nIndexNext+1)) ) \"alias gskTeleMarkerRecall gskTeleMarker000; alias gskTeleMarkerSelectNext gskTeleMarkerSelect000\"" >>"$strMapCfgFile"
 			#if [[ ! -f "${strMapCfgFile}.condump.txt" ]];then
 				#cp -v "$lstrFlCondump" "${strMapCfgFile}.condump.txt"
 			#fi
