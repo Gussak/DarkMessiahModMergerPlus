@@ -83,6 +83,8 @@ if true;then
 		echo "exec ${strFlCfg%-}"
 	done
 	
+	geany --new-instance "${strMergedModsFolder}/content/cfg/game.cfg"
+	
 	#mapfile -t astrList < <(
 		#find "${strPathParent}/" -iname "info.json" -exec egrep "game_configs" '{}' \; \
 			#|grep -o '"[^"]*.cfg"' \
