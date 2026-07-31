@@ -47,7 +47,7 @@ fi
 #fi
 
 if [[ $# -gt 0 ]] && [[ -f "$1" ]];then
-	if [[ "$1" =~ .*[.](sh|py)$ ]];then
+	if [[ "$1" =~ .*[.](sh|py|cpp)$ ]];then
 		strFlFullScriptName="$1"
 		shift
 		strFlMainScriptName="$(echo "$strFlFullScriptName" |sed -r -e 's@(.*)[.]([^.]*)@\1@g')"
