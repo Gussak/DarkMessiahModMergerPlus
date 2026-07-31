@@ -1,3 +1,8 @@
+# Usage:
+# make #you only need this tho
+# sudo make install
+# make clean
+
 # Compiler configuration
 CXX      = g++
 CXXFLAGS = -O3 -Wall -Wextra -std=c++17
