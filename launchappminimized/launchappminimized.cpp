@@ -27,11 +27,12 @@
 //	OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 //	OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-// This was AI GENERATED.
 // What it does? Basically, tries to detect the window creation before it has a chance to be shown, and minimize it.
 // TESTS:
-//  make clean; make; for((i=0;i<20;i++));do ./launchappminimized --fast xterm -title TEST_Minimized;done; read -p HitAKeyToKill; pkill -fe TEST_Minimized #this works best
-//  make clean; make; for((i=0;i<10;i++));do ./launchappminimized gnome-terminal --title TEST_Minimized;done # you cant kill only these with pkill...
+//  make clean; make; for((i=0;i<20;i++));do ./launchappminimized --fast xterm -title TEST_Minimized;done; read -p HitAKeyToKill; pkill -fe TEST_Minimized # this works best for terminals and may never steal focus
+//  make clean; make; for((i=0;i<10;i++));do ./launchappminimized gnome-terminal --title TEST_Minimized;done # you cant kill only these with pkill... and this is much slower and may still breathly steal focus
+
+// This code was AI GENERATED.
 
 // Compile with: g++ -O3 launchappminimized.cpp -o launchappminimized -lX11
 
