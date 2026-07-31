@@ -28,6 +28,7 @@
 //	OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 //AI GENERATED: faster than wmctrl and xdotool to search a window by name
+//TEST: g++ -O3 find_window.cpp -o find_window -lX11; if ./find_window --help;then for((i=0;i<500;i++));do ./find_window --oldonly "DMMM_monitorChanges" 1>/dev/null 2>/dev/null;done; fi
 
 // Compile with: g++ -O3 find_window.cpp -o find_window -lX11
 #include <iostream>
@@ -43,23 +44,42 @@ enum class SearchMode {
     OLD_ONLY
 };
 
+void print_help(const char* prog_name) {
+    std::printf("Usage: %s [options] <window_name>\n\n", prog_name);
+    std::printf("Options:\n");
+    std::printf("  --both       Search using both modern and legacy protocols (default)\n");
+    std::printf("  --newonly    Search only modern UTF-8 windows (_NET_WM_NAME)\n");
+    std::printf("  --oldonly    Search only legacy applications like xterm (XA_WM_NAME)\n");
+    std::printf("  --help       Show this help message\n");
+}
+
 int main(int argc, char* argv[]) {
     SearchMode mode = SearchMode::BOTH;
-    std::string_view target_title = "DMMM_Helpers"; // Default fallback
+    std::string_view target_title = ""; 
 
     // Parse options and identify the target title
     for (int i = 1; i < argc; ++i) {
         std::string_view arg(argv[i]);
-        if (arg == "--newonly") {
+        if (arg == "--help" || arg == "-h") {
+            print_help(argv[0]);
+            return 0;
+        } else if (arg == "--newonly") {
             mode = SearchMode::NEW_ONLY;
         } else if (arg == "--oldonly") {
             mode = SearchMode::OLD_ONLY;
         } else if (arg == "--both") {
             mode = SearchMode::BOTH;
         } else {
-            // If it doesn't match a flag, treat it as the target window name
+            // Treat anything else as the target window name
             target_title = arg;
         }
+    }
+
+    // Complain if the user didn't specify a window title
+    if (target_title.empty()) {
+        std::fprintf(stderr, "Error: Missing target window name parameter.\n");
+        print_help(argv[0]);
+        return 1;
     }
 
     // 1. Establish connection to the X Server
