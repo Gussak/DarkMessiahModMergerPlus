@@ -31,10 +31,12 @@
 // What it does? Basically, tries to detect the window creation before it has a chance to be shown, and minimize it.
 
 // Compile with: g++ -O3 launchappminimized.cpp -o launchappminimized -lX11
+
 #include <iostream>
 #include <vector>
 #include <cstdio>
 #include <cstdlib>
+#include <string_view>
 #include <unistd.h>
 #include <signal.h>
 #include <sys/types.h>
@@ -50,7 +52,6 @@ unsigned long get_window_pid(Display* display, Window win, Atom pid_atom) {
     unsigned long bytes_after;
     unsigned char* data = nullptr;
     unsigned long win_pid = 0;
-
     if (XGetWindowProperty(display, win, pid_atom, 0, 1, False,
                            XA_CARDINAL, &actual_type, &actual_format,
                            &num_items, &bytes_after, &data) == Success && data) {
@@ -62,8 +63,8 @@ unsigned long get_window_pid(Display* display, Window win, Atom pid_atom) {
     return win_pid;
 }
 
-// Scans X11 windows strictly matching the target Process ID
-Window find_window_by_pid(Display* display, Atom client_list_atom, Atom pid_atom, pid_t target_pid) {
+// Smart Lookup: Tries PID first, falls back to Class Name matching for apps like gnome-terminal
+Window find_window_universal(Display* display, Atom client_list_atom, Atom pid_atom, pid_t target_pid, const std::string& fallback_class) {
     Window root = DefaultRootWindow(display);
     Atom actual_type;
     int actual_format;
@@ -80,12 +81,66 @@ Window find_window_by_pid(Display* display, Atom client_list_atom, Atom pid_atom
     Window* windows = reinterpret_cast<Window*>(data);
     Window found_window = 0;
 
-    for (unsigned long i = 0; i < num_windows; ++i) {
-        if (get_window_pid(display, windows[i], pid_atom) == (unsigned long)target_pid) {
-            found_window = windows[i];
-            break;
-        }
-    }
+		// Target lookup code snippet
+		XClassHint chint;
+		XWMHints* wmhints;
+		Atom wm_role_atom = XInternAtom(display, "WM_WINDOW_ROLE", False);
+
+		// Loop through your open X11 windows array...
+		for (unsigned long i = 0; i < num_windows; ++i) {
+				// 1. Try your lightning-fast PID lookup method first
+				if (get_window_pid(display, windows[i], pid_atom) == (unsigned long)target_pid) {
+						found_window = windows[i];
+						break;
+				}
+
+				// 2. Fallback: Check for your custom unique window role property string
+				unsigned char* role_data = nullptr;
+				unsigned long role_len = 0;
+				Atom actual_type;
+				int actual_format;
+				unsigned long bytes_after;
+
+				if (XGetWindowProperty(display, windows[i], wm_role_atom, 0, 1024, False,
+															 XA_STRING, &actual_type, &actual_format,
+															 &role_len, &bytes_after, &role_data) == Success && role_data) {
+						
+						std::string_view current_role(reinterpret_cast<char*>(role_data), role_len);
+						if (current_role == custom_unique_role_string) {
+								found_window = windows[i];
+								XFree(role_data);
+								break;
+						}
+						XFree(role_data);
+				}
+		}
+
+    //for (unsigned long i = 0; i < num_windows; ++i) {
+        //// Strategy 1: Fast PID lookup
+        //if (get_window_pid(display, windows[i], pid_atom) == (unsigned long)target_pid) {
+            //found_window = windows[i];
+            //break;
+        //}
+
+        //// Strategy 2: Fallback Class Name parsing for DBus / Client-Server applications
+        //XClassHint chint;
+        //if (XGetClassInstanceHint(display, windows[i], &chint) != 0) {
+            //std::string_view res_class(chint.res_class ? chint.res_class : "");
+            //std::string_view res_name(chint.res_name ? chint.res_name : "");
+
+            //// If the window class contains "gnome-terminal" or matches our executable name
+            //if (res_class.find(fallback_class) != std::string_view::npos || 
+                //res_name.find(fallback_class) != std::string_view::npos) {
+                //found_window = windows[i];
+                //if (chint.res_name) XFree(chint.res_name);
+                //if (chint.res_class) XFree(chint.res_class);
+                //break;
+            //}
+
+            //if (chint.res_name) XFree(chint.res_name);
+            //if (chint.res_class) XFree(chint.res_class);
+        //}
+    //}
 
     XFree(data);
     return found_window;
@@ -102,21 +157,15 @@ void minimize_window(Display* display, Window win) {
     xev.xclient.message_type = wm_change_state;
     xev.xclient.format = 32;
     xev.xclient.data.l[0] = IconicState;
-
     XSendEvent(display, root, False, SubstructureRedirectMask | SubstructureNotifyMask, &xev);
     XFlush(display);
 }
 
-// 1. Add this error handler function right above your main()
-int handle_x11_errors(Display* display, XErrorEvent* error) {
-    // If the error is BadWindow (code 3), ignore it silently and let the loop proceed
-    if (error->error_code == BadWindow) {
-        return 0; 
+// Handle asynchronous X11 communication drops gracefully
+int handle_x11_errors(Display*, XErrorEvent* error) {
+    if (error->error_code == BadWindow || error->error_code == BadDrawable) {
+        return 0; // Ignore missing or closed temporary windows quietly
     }
-    // Let other critical system errors print normally
-    char error_text[1024];
-    XGetErrorText(display, error->error_code, error_text, sizeof(error_text));
-    std::fprintf(stderr, "[X11 Error]: %s\n", error_text);
     return 0;
 }
 
@@ -126,17 +175,21 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    // Open connection to X Server immediately to cache Atoms
+    // Save the executable name string (e.g. "gnome-terminal") to use as fallback criteria
+    std::string app_name = argv[1];
+    size_t last_slash = app_name.find_last_of("/");
+    if (last_slash != std::string::npos) {
+        app_name = app_name.substr(last_slash + 1);
+    }
+
     Display* display = XOpenDisplay(nullptr);
     if (!display) return 1;
     
-    // 2. Intercept X11 communication failures immediately after opening the display
     XSetErrorHandler(handle_x11_errors);
     
     Atom client_list_atom = XInternAtom(display, "_NET_CLIENT_LIST", False);
     Atom pid_atom = XInternAtom(display, "_NET_WM_PID", False);
 
-    // Fork and execute natively
     pid_t pid = fork();
     if (pid < 0) {
         std::perror("Fork failed");
@@ -145,7 +198,6 @@ int main(int argc, char* argv[]) {
     }
 
     if (pid == 0) {
-        // Child: Assemble dynamically passed user binary configurations
         std::vector<char*> exec_args;
         for (int i = 1; i < argc; ++i) {
             exec_args.push_back(argv[i]);
@@ -161,14 +213,15 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    // Parent control loop
     Window target_win = 0;
     std::printf("[INFO] Tracking execution (PID: %d)...\n", pid);
 
     while (true) {
-        kill(pid, SIGSTOP); // Instantly trap app initialization sequence
+        // Freeze process to trap initialization steps
+        kill(pid, SIGSTOP);
 
-        target_win = find_window_by_pid(display, client_list_atom, pid_atom, pid);
+        // Run lookup passing both PID and string fallback details
+        target_win = find_window_universal(display, client_list_atom, pid_atom, pid, app_name);
 
         if (target_win != 0) {
             std::printf("[INFO] Window 0x%08lx captured! Minimizing...\n", target_win);
@@ -178,11 +231,9 @@ int main(int argc, char* argv[]) {
         }
 
         kill(pid, SIGCONT);
-        usleep(100); //this is microseconds, dont lower it to not mess X
+        usleep(100); 
     }
 
     XCloseDisplay(display);
     return 0;
 }
-
-
