@@ -258,7 +258,7 @@ function FUNCcheckEncodingUTF8_Work() { #help <LINENO> <file>
 	while [[ $# -gt 0 ]];do
 		local lstrEnc="$(FUNCgetEncoding "$lFl")"
 		if [[ "$lstrEnc" != "utf-8" ]] && [[ "$lstrEnc" != "us-ascii" ]];then # us-ascii is a 127 bytes subset of utf8 and `file -bi` will not return as utf-8
-			echo "[ERROR_BUG:${FUNCNAME[@]}:CalledAtLn${lLn}] shall only work with UTF-8: found '$(FUNCgetEncoding "$lFl")' at '$lFl'" >&2
+			echo "[ERROR_BUG:${FUNCNAME[@]}:CalledAtLn${lLn}] shall only work with UTF-8: found '${lstrEnc}' at '$lFl'" >&2
 			exit 1;
 		fi;
 		shift
@@ -360,6 +360,17 @@ FUNCconvEncToUTF8BOM() { #help <lEncFrom> <lstrFlIn>
 	echo "$lstrFlOut"
 }
 
+FUNCconvEncToUTF8() { #help <lEncFrom> <lstrFlIn>
+	local lEncFrom="$1";shift
+	local lstrFlIn="$1";shift
+	
+	local lstrFlOut="${lstrFlIn}.UTF-8";shift
+	if [[ -f "${lstrFlOut}" ]];then chmod -v u+w "${lstrFlOut}" >&2;fi # to easy overwrite if it exists
+	(iconv -f "$lEncFrom" -t UTF-8 "$lstrFlIn") |sponge "${lstrFlOut}" # tho `file -bi` may still detect it as us-ascii ...
+	
+	echo "$lstrFlOut"
+}
+
 strEncodingRestore=""
 FUNCconvEncoding() {
 	strEncodingVanilla="$(FUNCgetEncoding "$strVanillaScriptFile")"
@@ -376,7 +387,8 @@ FUNCconvEncoding() {
 	#chmod -v u+w "${strVanillaScriptFile}.UTF-8"&&: # to easy overwrite if it exists
 	#iconv -f "$strEncodingVanilla" -t UTF-8 "$strVanillaScriptFile" > "${strVanillaScriptFile}.UTF-8"
 	#(printf '\xEF\xBB\xBF'; iconv -f "$strEncodingVanilla" -t UTF-8 "$strVanillaScriptFile") > "${strVanillaScriptFile}.UTF-8" # this makes it UTF-8-BOM and is detected as UTF-8 by text editors and `file -bi ...`
-	strVanillaScriptFile="$(FUNCconvEncToUTF8BOM "$strEncodingVanilla" "${strVanillaScriptFile}")"
+#	strVanillaScriptFile="$(FUNCconvEncToUTF8BOM "$strEncodingVanilla" "${strVanillaScriptFile}")"
+	strVanillaScriptFile="$(FUNCconvEncToUTF8 "$strEncodingVanilla" "${strVanillaScriptFile}")"
 }
 
 strVanillaScriptFile="$(find -L "$strVanillaScriptsPath" -iregex "${strFindScriptFileRegex}")"
@@ -687,6 +699,18 @@ if $bShowFinalComparison;then
 	FUNCexecMerger "$strVanillaScriptFile" "$strFlWork"
 fi
 
+FUNCcompareEncoding() {
+	local lstrEnc1="$(FUNCgetEncoding "$1")";shift
+	local lstrEnc2="$(FUNCgetEncoding "$1")";shift
+	if [[ "$lstrEnc1" == "$lstrEnc2" ]];then return 0;fi
+	if [[ "$lstrEnc1" == "us-ascii" ]];then
+		if [[ "$lstrEnc2" == "utf-8" ]];then return 0;fi
+	fi
+	if [[ "$lstrEnc1" == "utf-8" ]];then
+		if [[ "$lstrEnc2" == "us-ascii" ]];then return 0;fi
+	fi
+	return 1
+}
 
 ##################################################################################
 ##################### RESTORE ENCODING, be careful below here ####################
