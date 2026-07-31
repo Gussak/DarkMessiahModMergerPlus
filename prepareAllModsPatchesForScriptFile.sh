@@ -251,13 +251,14 @@ function FUNCgetEncoding_Work() {
 };export -f FUNCgetEncoding_Work;alias FUNCgetEncoding='FUNCgetEncoding_Work $LINENO '
 function FUNCcheckEncodingUTF8_Work() { #help <LINENO> <file>
 	local lLn="$1";shift
-	if ! [[ -f "$1" ]];then
-		FUNCwait "[ERROR:${FUNCNAME[@]}:CalledAtLn${lLn}] invalid file '$1'"
+	local lFl="$1";shift
+	if ! [[ -f "$lFl" ]];then
+		FUNCwait "[ERROR:${FUNCNAME[@]}:CalledAtLn${lLn}] invalid file '$lFl'"
 	fi
 	while [[ $# -gt 0 ]];do
-		local lstrEnc="$(FUNCgetEncoding "$1")"
+		local lstrEnc="$(FUNCgetEncoding "$lFl")"
 		if [[ "$lstrEnc" != "utf-8" ]] && [[ "$lstrEnc" != "us-ascii" ]];then # us-ascii is a 127 bytes subset of utf8 and `file -bi` will not return as utf-8
-			echo "[ERROR_BUG:${FUNCNAME[@]}:CalledAtLn${lLn}] shall only work with UTF-8: found '$(FUNCgetEncoding "$1")' at '$1'" >&2
+			echo "[ERROR_BUG:${FUNCNAME[@]}:CalledAtLn${lLn}] shall only work with UTF-8: found '$(FUNCgetEncoding "$lFl")' at '$lFl'" >&2
 			exit 1;
 		fi;
 		shift
@@ -348,8 +349,15 @@ function FUNCprePatchChk() { #help <lstrFlChk>
 	done
 }
 
-FUNCconvEncToUTF8BOM() { #help <strEncodingVanilla> <input> <output>
-	(printf '\xEF\xBB\xBF'; iconv -f "$1" -t UTF-8 "$2") |sponge "${3}.UTF-8" # this makes it UTF-8-BOM and is detected as UTF-8 by text editors and `file -bi ...`
+FUNCconvEncToUTF8BOM() { #help <lEncFrom> <lstrFlIn>
+	local lEncFrom="$1";shift
+	local lstrFlIn="$1";shift
+	
+	local lstrFlOut="${lstrFlIn}.UTF-8";shift
+	if [[ -f "${lstrFlOut}" ]];then chmod -v u+w "${lstrFlOut}" >&2;fi # to easy overwrite if it exists
+	(printf '\xEF\xBB\xBF'; iconv -f "$lEncFrom" -t UTF-8 "$lstrFlIn") |sponge "${lstrFlOut}" # this makes it UTF-8-BOM and is detected as UTF-8 by text editors and `file -bi ...`
+	
+	echo "$lstrFlOut"
 }
 
 strEncodingRestore=""
@@ -365,11 +373,10 @@ FUNCconvEncoding() {
 			exit 1
 			;;
 	esac
-	chmod -v u+w "${strVanillaScriptFile}.UTF-8"&&: # to easy overwrite if it exists
+	#chmod -v u+w "${strVanillaScriptFile}.UTF-8"&&: # to easy overwrite if it exists
 	#iconv -f "$strEncodingVanilla" -t UTF-8 "$strVanillaScriptFile" > "${strVanillaScriptFile}.UTF-8"
 	#(printf '\xEF\xBB\xBF'; iconv -f "$strEncodingVanilla" -t UTF-8 "$strVanillaScriptFile") > "${strVanillaScriptFile}.UTF-8" # this makes it UTF-8-BOM and is detected as UTF-8 by text editors and `file -bi ...`
-	FUNCconvEncToUTF8BOM "$strEncodingVanilla" "$strVanillaScriptFile" "${strVanillaScriptFile}.UTF-8"
-	strVanillaScriptFile="${strVanillaScriptFile}.UTF-8"
+	strVanillaScriptFile="$(FUNCconvEncToUTF8BOM "$strEncodingVanilla" "${strVanillaScriptFile}")"
 }
 
 strVanillaScriptFile="$(find -L "$strVanillaScriptsPath" -iregex "${strFindScriptFileRegex}")"

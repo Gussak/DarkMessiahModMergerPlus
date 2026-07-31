@@ -74,7 +74,7 @@ FUNCaskYesNo() { # <questionForYesNo>. use like: if FUNCaskYesNo "oi?";then ...
 
 FUNCwaitSeconds() { #help <Delay> [CustomMSG]
 	local lnSec=$1;shift
-	read -t $lnSec -n 1 -p "[WAITING:${1}s] ${*-} (press a key to continue)"
+	read -t $lnSec -n 1 -p "[WAITING:${lnSec}s] ${*-} (press a key to continue)"
 };export -f FUNCwaitSeconds
 FUNCwait() { #help [CustomMSG]
 	FUNCwaitSeconds $((60*60*24*31*12)) "${*-}"
