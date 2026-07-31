@@ -43,8 +43,13 @@ if((nDBGforceHoldTimeOnExit > 0));then
 	trap "read -n 1 -t $nDBGforceHoldTimeOnExit -p DebugWaitExit${nDBGforceHoldTimeOnExit}s && :; exit 0" EXIT
 fi
 
-: ${strExecRobustTextEditorEval:='declare -a astrExecRobustTextEditor=([0]="geany" [1]="--new-instance")'} #help
-eval "$strExecRobustTextEditorEval";declare -p astrExecRobustTextEditor
+astrExecRobustTextEditor=()
+if which geany >/dev/null;then
+	astrExecRobustTextEditor=(geany --new-instance)
+else
+	echo "please install 'geany' to easily fix files. (or suggest another, or edit this script)"
+	exit 1
+fi
 
 #help USAGE: <strScriptFileRelat>
 
@@ -322,10 +327,11 @@ function FUNCexecMerger() {
 
 function FUNCprePatchChk() { #help <lstrFlChk>
 	local lstrFlChk="$1"
+	
 	local lbPrePatchFail=false
+	local lstrPrePatchVanilla="$strPathMainModFolder/VanillaPrePatches/${strScriptFileRelat}.patch"
+	declare -p lstrPrePatchVanilla
 	while ! ./kvSanityChecker.sh "$lstrFlChk";do
-		local lstrPrePatchVanilla="$strPathMainModFolder/VanillaPrePatches/${strScriptFileRelat}.patch"
-		declare -p lstrPrePatchVanilla
 		if ! $lbPrePatchFail;then
 			if [[ -f "$lstrPrePatchVanilla" ]];then
 				local lacmdPatch=(patch -F $nFuzzyPatch -i "${lstrPrePatchVanilla}" -o "${lstrFlChk}.PRE_PATCH" "$lstrFlChk") #patch [ORIGINAL_FILE] -i [PATCH_FILE] -o [OUTPUT_FILE]
@@ -345,7 +351,27 @@ function FUNCprePatchChk() { #help <lstrFlChk>
 		FUNCsay "Database Sanity Failed"
 		FUNCaskYesNo "[PROBLEM:Ln$LINENO] Fix it (the right one) manually according to the sanity check above please (if not will just exit or the game may will crash)"
 		#FUNCexecMerger --alert "$strVanillaScriptFile" "$lstrFlChk"
-		"${astrExecRobustTextEditor[@]}" "$strVanillaScriptFile" "$lstrFlChk" # an editor that can fold nestings and detect their open/close is better for this
+		#"${astrExecRobustTextEditor[@]}" "$strVanillaScriptFile" "$lstrFlChk" # an editor that can fold nestings and detect their open/close is better for this
+		"${astrExecRobustTextEditor[@]}" "${lstrFlChk}" # an editor that can fold nestings and detect their open/close is better for this
+		# create vanilla patch
+		mkdir -vp "$(dirname "${lstrPrePatchVanilla}")"
+		( # prepare the patch using relative path to remove user name
+			cd "${strPathParent}"
+			set -x
+			set -o pipefail # so the diff exit value will be captured with $? if using |tee
+			diff -u "$strVanillaScriptFile" "$lstrFlChk" >"${lstrPrePatchVanilla}"&&:;nRet=$?
+			#KEEPinfo: too much unnecessary log: #					|tee "${strFlPatch}";nRet=$?
+			set +o pipefail # to not mess other things like grep
+			declare -p nRet
+			set +x
+			exit $nRet #KeepInfo dont use FUNCexit for captured exit values on subshells!
+		)&&:;nDiffRet=$?
+		case $nDiffRet in
+			0) FUNCechoInfo "[Identical] Skip";;
+			1) FUNCechoInfo "[Diff PATCH from MOD vs Vanilla creation (((OK))) ]";;
+			2) FUNCwait "[ERROR: diff trouble] what happened? (this ever happens?)";;
+			*) FUNCwait "[ERROR: unrecognized diff return value] $nDiffRet";;
+		esac
 	done
 }
 
