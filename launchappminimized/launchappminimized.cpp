@@ -38,6 +38,7 @@
 #include <cstdlib>
 #include <string_view>
 #include <chrono>
+#include <cstring>
 #include <unistd.h>
 #include <signal.h>
 #include <sys/types.h>
@@ -64,8 +65,8 @@ unsigned long get_window_pid(Display* display, Window win, Atom pid_atom) {
     return win_pid;
 }
 
-// Smart Lookup: Tries PID first, falls back to an exact custom Window Role match
-Window find_window_universal(Display* display, Atom client_list_atom, Atom pid_atom, pid_t target_pid, const std::string& target_role) {
+// Optimized Search Engine
+Window find_window_universal(Display* display, Atom client_list_atom, Atom pid_atom, pid_t target_pid, const std::string& target_role, bool fast_mode) {
     Window root = DefaultRootWindow(display);
     Atom actual_type;
     int actual_format;
@@ -81,30 +82,32 @@ Window find_window_universal(Display* display, Atom client_list_atom, Atom pid_a
 
     Window* windows = reinterpret_cast<Window*>(data);
     Window found_window = 0;
-    Atom wm_role_atom = XInternAtom(display, "WM_WINDOW_ROLE", False);
+    Atom wm_role_atom = fast_mode ? 0 : XInternAtom(display, "WM_WINDOW_ROLE", False);
 
     for (unsigned long i = 0; i < num_windows; ++i) {
-        // Strategy 1: Try lightning-fast PID lookup first
+        // Strategy 1: Fast PID lookup (Always active)
         if (get_window_pid(display, windows[i], pid_atom) == (unsigned long)target_pid) {
             found_window = windows[i];
             break;
         }
 
-        // Strategy 2: Fallback to verification via our unique injected role string
-        unsigned char* role_data = nullptr;
-        unsigned long role_len = 0;
+        // Strategy 2: Fallback to role check (Completely skipped in --fast mode!)
+        if (!fast_mode) {
+            unsigned char* role_data = nullptr;
+            unsigned long role_len = 0;
 
-        if (XGetWindowProperty(display, windows[i], wm_role_atom, 0, 1024, False,
-                               XA_STRING, &actual_type, &actual_format,
-                               &role_len, &bytes_after, &role_data) == Success && role_data) {
-            
-            std::string_view current_role(reinterpret_cast<char*>(role_data), role_len);
-            if (current_role == target_role) {
-                found_window = windows[i];
+            if (XGetWindowProperty(display, windows[i], wm_role_atom, 0, 1024, False,
+                                   XA_STRING, &actual_type, &actual_format,
+                                   &role_len, &bytes_after, &role_data) == Success && role_data) {
+                
+                std::string_view current_role(reinterpret_cast<char*>(role_data), role_len);
+                if (current_role == target_role) {
+                    found_window = windows[i];
+                    XFree(role_data);
+                    break;
+                }
                 XFree(role_data);
-                break;
             }
-            XFree(role_data);
         }
     }
 
@@ -137,21 +140,37 @@ int handle_x11_errors(Display*, XErrorEvent* error) {
 
 int main(int argc, char* argv[]) {
     if (argc < 2) {
-        std::fprintf(stderr, "Usage: %s <command> [args...]\n", argv[0]);
+        std::fprintf(stderr, "Usage: %s [--fast] <command> [args...]\n", argv[0]);
         return 1;
     }
 
+    bool fast_mode = false;
+    int command_start_index = 1;
+
+    // Check for the fast option flag
+    if (std::strcmp(argv[1], "--fast") == 0) {
+        if (argc < 3) {
+            std::fprintf(stderr, "Error: Missing command parameter after --fast.\n");
+            return 1;
+        }
+        fast_mode = true;
+        command_start_index = 2;
+    }
+
     // Isolate executable name
-    std::string app_name = argv[1];
+    std::string app_name = argv[command_start_index];
     size_t last_slash = app_name.find_last_of("/");
     if (last_slash != std::string::npos) {
         app_name = app_name.substr(last_slash + 1);
     }
 
-    // Generate a unique window role string using a microsecond timestamp string
-    auto now = std::chrono::high_resolution_clock::now().time_since_epoch();
-    unsigned long microseconds = std::chrono::duration_cast<std::chrono::microseconds>(now).count();
-    std::string unique_role = "launch_minimized_" + std::to_string(microseconds);
+    // Generate unique role (Only if not running in fast mode to preserve allocations)
+    std::string unique_role = "";
+    if (!fast_mode) {
+        auto now = std::chrono::high_resolution_clock::now().time_since_epoch();
+        unsigned long microseconds = std::chrono::duration_cast<std::chrono::microseconds>(now).count();
+        unique_role = "launch_minimized_" + std::to_string(microseconds);
+    }
 
     Display* display = XOpenDisplay(nullptr);
     if (!display) return 1;
@@ -169,19 +188,16 @@ int main(int argc, char* argv[]) {
     }
 
     if (pid == 0) {
-        // Child: Build argument array configurations dynamically
         std::vector<char*> exec_args;
-        exec_args.push_back(argv[1]);
+        exec_args.push_back(argv[command_start_index]);
 
-        // Auto-inject unique window roles specifically targeting multi-instance server managers
+        // Auto-inject unique window roles specifically targeting gnome-terminal when not in fast mode
         std::string role_flag = "--role=" + unique_role;
-        bool is_gnome_terminal = (app_name == "gnome-terminal");
-        
-        if (is_gnome_terminal) {
+        if (!fast_mode && app_name == "gnome-terminal") {
             exec_args.push_back(const_cast<char*>(role_flag.c_str()));
         }
 
-        for (int i = 2; i < argc; ++i) {
+        for (int i = command_start_index + 1; i < argc; ++i) {
             exec_args.push_back(argv[i]);
         }
         exec_args.push_back(nullptr);
@@ -199,10 +215,10 @@ int main(int argc, char* argv[]) {
     std::printf("[INFO] Tracking execution (PID: %d)...\n", pid);
 
     while (true) {
-        kill(pid, SIGSTOP); // Freeze process execution sequences
+        kill(pid, SIGSTOP); // Freeze process sequence
 
-        // Check using fast PID matching or fallback to exact injected unique window role fingerprinting
-        target_win = find_window_universal(display, client_list_atom, pid_atom, pid, unique_role);
+        // Run lookup passing our performance selection switches
+        target_win = find_window_universal(display, client_list_atom, pid_atom, pid, unique_role, fast_mode);
 
         if (target_win != 0) {
             std::printf("[INFO] Window 0x%08lx captured! Minimizing...\n", target_win);
