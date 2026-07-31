@@ -29,6 +29,9 @@
 
 // This was AI GENERATED.
 // What it does? Basically, tries to detect the window creation before it has a chance to be shown, and minimize it.
+// TESTS:
+//  make clean; make; for((i=0;i<20;i++));do ./launchappminimized --fast xterm -title TEST_Minimized;done; read -p HitAKeyToKill; pkill -fe TEST_Minimized #this works best
+//  make clean; make; for((i=0;i<10;i++));do ./launchappminimized gnome-terminal --title TEST_Minimized;done # you cant kill only these with pkill...
 
 // Compile with: g++ -O3 launchappminimized.cpp -o launchappminimized -lX11
 
