@@ -359,7 +359,7 @@ function FUNCprePatchChk() { #help <lstrFlChk>
 			cd "${strPathParent}"
 			set -x
 			set -o pipefail # so the diff exit value will be captured with $? if using |tee
-			diff -u "$strVanillaScriptFile" "$lstrFlChk" >"${lstrPrePatchVanilla}"&&:;nRet=$?
+			diff -u <(cat "$strVanillaScriptFileOriginal") <(cat "$lstrFlChk") >"${lstrPrePatchVanilla}"&&:;nRet=$?
 			#KEEPinfo: too much unnecessary log: #					|tee "${strFlPatch}";nRet=$?
 			set +o pipefail # to not mess other things like grep
 			declare -p nRet

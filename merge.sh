@@ -18,7 +18,8 @@ if true;then
 		#export nMultiThreadUsedCores=3 #has auto limit tho # for ./doItAllAutomaticallyIfPossible.sh
 		#export nWaitBeforeExiting=10 # for (./doItAllAutomaticallyIfPossible.sh ->)./prepareAllModsPatchesForScriptFile.sh:
 		./doItAllAutomaticallyIfPossible.sh "$@"
-		FUNCechoInfo "[IMPORTANT] Now run: ./unifiedGameCfg.sh"
+		#FUNCechoInfo "[IMPORTANT] Now run: ./unifiedGameCfg.sh"
+		echo "[IMPORTANT] Now run: ./unifiedGameCfg.sh"
 	else
 		export bShowFinalComparison=true
 		./prepareAllModsPatchesForScriptFile.sh -f "$@"
