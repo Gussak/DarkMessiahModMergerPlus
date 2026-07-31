@@ -43,7 +43,9 @@ while true;do
 			strPos="$FUNCmapInfo_strPosRestore"
 			strPosCmd="setpos ${strPos}"
 			
-			strMapCfgFile="gskTeleMarkers_${FUNCmapInfo_strMapName}.cfg"
+			strCfgPath="${strGameInstallMainFolder}/${strGameSubRelatFolderWriteAllHere}/cfg"
+			strMapCfgFile="${strCfgPath}/gskTeleMarkers_${FUNCmapInfo_strMapName}.cfg"
+			strTeleCurrentCfgFile="${strCfgPath}/gskTeleMarkers.cfg"
 			
 			declare -p strPos strMapCfgFile FUNCmapInfo_strPosRestore strPosCmd
 			
@@ -123,8 +125,8 @@ while true;do
 				#cp -v "$lstrFlCondump" "${strMapCfgFile}.condump.txt"
 			#fi
 			
-			ln -vsf "$strMapCfgFile" "gskTeleMarkers.cfg"
-			cat "gskTeleMarkers.cfg"
+			ln -vsf "$strMapCfgFile" "$strTeleCurrentCfgFile"
+			cat "${strTeleCurrentCfgFile}"
 		fi
 		
 		strFlCondumpPrev="$strFlCondump"
