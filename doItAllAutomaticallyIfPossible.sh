@@ -57,6 +57,17 @@ if true;then
 		fi
 	fi
 
+	strTerm=""
+	if which kitty >/dev/null;then #help kitty works much better (but not perfect as still briefly steals focus) for interactive multithread, install it.
+		strTerm=kitty
+	elif which xterm >/dev/null;then
+		strTerm=xterm
+	fi
+	if [[ -z "$strTerm" ]];then
+		echo "please install 'kitty' or at least 'xterm' for interactive multithread."
+		exit 1
+	fi
+
 	function FUNCdoItAll() {
 		#local lbJustList=false;if [[ "$1" == --justlist ]];then lbJustList=true;shift;fi
 		local lstrWhat="$1";shift
@@ -82,7 +93,11 @@ if true;then
 		: ${nMultiThreadUsedCores:=$nMaxCores} #help you can limit it
 		if((nMultiThreadUsedCores > nMaxCores));then nMultiThreadUsedCores=$nMaxCores;fi
 		: ${strThreadBaseID:="DMMM_MTPatch_"} #help
-		function FUNCgetMT() { nMultiThreadsNow=$(wmctrl -l |egrep "${strThreadBaseID}[0-9]*" |wc -l); return 0; }
+		function FUNCgetMT() {
+			#this may cause errors: nMultiThreadsNow=$(wmctrl -l |egrep "${strThreadBaseID}[0-9]*" |wc -l);
+			nMultiThreadsNow=$(pgrep -fa "${strTerm}.*${strThreadBaseID}[0-9]*" |wc -l);
+			return 0;
+		}
 		for((i=0;i<${#astrList[@]};i++));do
 			strFl="${astrList[i]}"
 			if FUNCign "$strFl";then continue;fi
@@ -105,12 +120,20 @@ if true;then
 			if $bMultiThread;then
 				while true;do
 					FUNCgetMT
-					echo -ne "[SpawningThreads] jobs til now $i (MT=${nMultiThreadsNow}) $(date)\r"
+					echo -ne "[SpawningThreads] jobs til now $i/${#astrList[@]} (MT=${nMultiThreadsNow}) $(date)\r"
 					: ${nDelayBetweenSpawningMTjobs:=0.25} #help may cause problems if too low
 					read -n 1 -t ${nDelayBetweenSpawningMTjobs} && :
 					if((nMultiThreadsNow < nMultiThreadUsedCores));then
 						FUNCechoInfo "[SpawningThreadJob:$i] MT=${nMultiThreadsNow} $strFl"
-						(xterm -title "${strThreadBaseID}${i}of${#astrList[@]}_$(basename "${strFl}" |tr '.' '_')" -e "${aCmd[@]}" & disown)
+						local lstrTermTitle="${strThreadBaseID}${i}of${#astrList[@]}_$(basename "${strFl}" |tr '.' '_')"
+						local laCmdTerm=()
+						case $strTerm in
+							kitty) laCmdTerm=(kitty --title "$lstrTermTitle" --start-as=minimized -e "${aCmd[@]}") ;;
+							xterm) laCmdTerm=(xterm -title "$lstrTermTitle" -e "${aCmd[@]}") ;;
+							*) echo "ERROR Ln$LINENO";exit 1;;
+						esac
+						#(xterm -title "" -e "${aCmd[@]}" & disown)
+						("${laCmdTerm[@]}" & disown)
 						break
 					fi
 				done
