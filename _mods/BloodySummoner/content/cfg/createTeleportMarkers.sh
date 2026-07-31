@@ -42,6 +42,10 @@ while true;do
 	strFlCondump="$FUNCgetNewestCondump_strFlCondump"
 	
 	if [[ "$strFlCondumpPrev" != "$strFlCondump" ]];then
+		bRecreateCfgFile=false
+		if ugrep -q "gskTeleMarkerDelete|gsktd" "$strFlCondump";then #help to delete a marker type like this on console: gsktd UniqueTeleporterMarkerID #TODO create a key bindable alias to delete current one selected
+			:
+		fi
 		if ugrep -q "gskTeleMarkerDrop" "$strFlCondump";then
 			FUNCmapInfo "$strFlCondump"
 			
@@ -54,7 +58,7 @@ while true;do
 			
 			declare -p strPos strMapCfgFile FUNCmapInfo_strPosRestore strPosCmd
 			
-			echo "Now set this teleport marker name like: gskTeleMarkerName someNiceName, or gsktn some Nice Name, or echo gsktn someNiceName, by typing it in the console. Then also type condump."
+			echo "Now set this teleport marker name like: gskTeleMarkerName someNiceName, or gsktn some Nice Name, or echo gsktn someNiceName, by typing it in the console. Then also type condump." #help
 			strRegextMatchTeleName="^(gskTeleMarkerName|Unknown command: gskTeleMarkerName|gsktn|Unknown command: gsktn) (.*)"
 			while ! ugrep -i "$strRegextMatchTeleName" "$strFlCondump";do
 				echo -ne "$(date) waiting Teleport marker name.\r"
@@ -63,13 +67,19 @@ while true;do
 			strTeleName="$(ugrep -i "$strRegextMatchTeleName" "$strFlCondump" |tail -n 1 |tr -d '\r' |sed -r -e "s@${strRegextMatchTeleName}@\2@g")"
 			declare -p strTeleName
 			
+			bRecreateCfgFile=true;
+		fi
+		
+		if $bRecreateCfgFile;then
 			astrMarkerID=()
 			astrMarkerName=()
 			astrMarkerPos=()
 			declare -A astrMarkerID_Index=()
 			declare -A astrMarkerID_Name=()
 			declare -A astrMarkerID_Pos=()
-			if [[ -f "$strMapCfgFile" ]];then  #retrieve existing markers
+			
+			#retrieve existing markers
+			if [[ -f "$strMapCfgFile" ]];then
 				# ex.: // "GuestHouse" -4900  -10927  332
 				strRegexMatchIDNamePos="^echo \"([^ ]*) '(.*)' (.*)\"$"
 				mapfile -t astrMarkerID   < <(cat "$strMapCfgFile" |ugrep "$strRegexMatchIDNamePos" |sed -r -e "s@${strRegexMatchIDNamePos}@\1@g")

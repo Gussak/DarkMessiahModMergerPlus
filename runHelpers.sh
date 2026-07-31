@@ -69,11 +69,13 @@ if $bRunBothInstances;then
 		}
 		while true;do
 			pwd
+			: ${bRunStartCrashWorkaroundLoop:=false} #help allows a quick retry start loop (sometimes it is better others it is worse...)
+			: ${bAutoClickRun=true} #help on ModLauncher run button, this is recognized by ./fixWindowAndDontStop.sh
 			FUNCecho --info "Run a 2nd instance for quick resume playing after death, as load game is super slow."
 			FUNCecho --alert "[WAIT@{-n} THE other INSTANCE FINISH LOADING THE SAVEGAME OR BOTH may CRASH/FREEZE!!!]"
-			FUNCecho -w -t 0.1 "[run Instance $liInstanceIndex] press Enter ('l' for quick loop, 'd' to drop caches)";read -n 1 strResp&&:
-			: ${bRunStartCrashWorkaroundLoop:=false} #help allows a quick retry start loop (sometimes it is better others it is worse...)
+			FUNCecho -w -t 0.1 "[run Instance $liInstanceIndex] press Enter or 'l' for quick loop, 'd' to drop caches, 'a' auto click RUN ($bAutoClickRun)";read -n 1 strResp&&:
 			if [[ "$strResp" == [lL] ]];then bRunStartCrashWorkaroundLoop=true;fi #help drop caches may help better tho
+			if [[ "$strResp" == [aA] ]];then bAutoClickRun=false;fi #help drop caches may help better tho
 			if [[ "$strResp" == [dD] ]];then
 				set -x;bash -c sync && sudo dd if=/proc/3/stat of=/proc/sys/vm/drop_caches bs=1 count=1;set +x;
 				FUNCecho --say 'drop caches';
