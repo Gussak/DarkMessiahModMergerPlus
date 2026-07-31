@@ -49,6 +49,11 @@ cd "${strMainModFolder}/"
 cd "${strMainModFolder}/"
 ./quickBkp.sh #help @InfoID="quickBkp.sh" Helper Script, endless loop to backup quick.sav
 
+cd "${strMainModFolder}/_mods/BloodySummoner/content/cfg/"
+./createTeleportMarkers.sh #help @InfoID="createTeleportMarkers.sh" Helper Script, endless loop to create teleport markers
+
+cd "${strMainModFolder}/" # just to be sure...
+
 : ${bRunBothInstances:=true} #help
 if $bRunBothInstances;then
 	function FUNCrunInstance() {

@@ -47,7 +47,7 @@ while true;do
 			
 			declare -p strPos strMapCfgFile FUNCmapInfo_strPosRestore strPosCmd
 			
-			echo "Now set this teleport marker name like: gskTeleMarkerName someNiceName, or gsktn someNiceName, or echo gsktn someNiceName, by typing it in the console."
+			echo "Now set this teleport marker name like: gskTeleMarkerName someNiceName, or gsktn some Nice Name, or echo gsktn someNiceName, by typing it in the console. Then also type condump."
 			strRegextMatchTeleName="^(gskTeleMarkerName|Unknown command: gskTeleMarkerName|gsktn|Unknown command: gsktn) (.*)"
 			while ! ugrep -i "$strRegextMatchTeleName" "$strFlCondump";do
 				echo -ne "$(date) waiting Teleport marker name.\r"
@@ -167,6 +167,12 @@ Dois comandos: gsktelenm gskteledel
 
 
 
+
+
+
+
+
+dicas de outro script:
 
 function FUNCalias() {
 	# alias name limit is 30 chars
