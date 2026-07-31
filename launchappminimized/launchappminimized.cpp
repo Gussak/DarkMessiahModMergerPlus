@@ -107,6 +107,19 @@ void minimize_window(Display* display, Window win) {
     XFlush(display);
 }
 
+// 1. Add this error handler function right above your main()
+int handle_x11_errors(Display* display, XErrorEvent* error) {
+    // If the error is BadWindow (code 3), ignore it silently and let the loop proceed
+    if (error->error_code == BadWindow) {
+        return 0; 
+    }
+    // Let other critical system errors print normally
+    char error_text[1024];
+    XGetErrorText(display, error->error_code, error_text, sizeof(error_text));
+    std::fprintf(stderr, "[X11 Error]: %s\n", error_text);
+    return 0;
+}
+
 int main(int argc, char* argv[]) {
     if (argc < 2) {
         std::fprintf(stderr, "Usage: %s <command> [args...]\n", argv[0]);
@@ -116,6 +129,9 @@ int main(int argc, char* argv[]) {
     // Open connection to X Server immediately to cache Atoms
     Display* display = XOpenDisplay(nullptr);
     if (!display) return 1;
+    
+    // 2. Intercept X11 communication failures immediately after opening the display
+    XSetErrorHandler(handle_x11_errors);
     
     Atom client_list_atom = XInternAtom(display, "_NET_CLIENT_LIST", False);
     Atom pid_atom = XInternAtom(display, "_NET_WM_PID", False);
@@ -168,3 +184,5 @@ int main(int argc, char* argv[]) {
     XCloseDisplay(display);
     return 0;
 }
+
+
