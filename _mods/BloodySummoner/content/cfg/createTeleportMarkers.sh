@@ -53,7 +53,7 @@ while true;do
 				echo -ne "$(date) waiting Teleport marker name.\r"
 				sleep 1
 			done
-			strTeleName="$(ugrep -i "$strRegextMatchTeleName" "$strFlCondump" |tr -d '\r' |sed -r -e "s@${strRegextMatchTeleName}@\2@g")"
+			strTeleName="$(ugrep -i "$strRegextMatchTeleName" "$strFlCondump" |tail -n 1 |tr -d '\r' |sed -r -e "s@${strRegextMatchTeleName}@\2@g")"
 			declare -p strTeleName
 			
 			astrMarkerID=()
@@ -65,9 +65,9 @@ while true;do
 			if [[ -f "$strMapCfgFile" ]];then  #retrieve existing markers
 				# ex.: // "GuestHouse" -4900  -10927  332
 				strRegexMatchIDNamePos="^echo \"([^ ]*) '(.*)' (.*)\"$"
-				mapfile -t astrMarkerID   < <(cat "$strMapCfgFile" |sed -r -e "s@${strRegexMatchIDNamePos}@\1@g")
-				mapfile -t astrMarkerName < <(cat "$strMapCfgFile" |sed -r -e "s@${strRegexMatchIDNamePos}@\2@g")
-				mapfile -t astrMarkerPos  < <(cat "$strMapCfgFile" |sed -r -e "s@${strRegexMatchIDNamePos}@\3@g")
+				mapfile -t astrMarkerID   < <(cat "$strMapCfgFile" |ugrep "$strRegexMatchIDNamePos" |sed -r -e "s@${strRegexMatchIDNamePos}@\1@g")
+				mapfile -t astrMarkerName < <(cat "$strMapCfgFile" |ugrep "$strRegexMatchIDNamePos" |sed -r -e "s@${strRegexMatchIDNamePos}@\2@g")
+				mapfile -t astrMarkerPos  < <(cat "$strMapCfgFile" |ugrep "$strRegexMatchIDNamePos" |sed -r -e "s@${strRegexMatchIDNamePos}@\3@g")
 				cp -v "$strMapCfgFile" "${strMapCfgFile}.$(FUNCdtFlNm).bkp" #TODO FUNCtrash "$strMapCfgFile" ?
 			fi
 			astrMarkerID+=("$(echo "${strTeleName}" |tr -d ' ')")
