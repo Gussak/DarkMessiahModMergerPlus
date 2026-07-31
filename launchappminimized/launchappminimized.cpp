@@ -37,6 +37,7 @@
 #include <cstdio>
 #include <cstdlib>
 #include <string_view>
+#include <chrono>
 #include <unistd.h>
 #include <signal.h>
 #include <sys/types.h>
@@ -63,8 +64,8 @@ unsigned long get_window_pid(Display* display, Window win, Atom pid_atom) {
     return win_pid;
 }
 
-// Smart Lookup: Tries PID first, falls back to Class Name matching for apps like gnome-terminal
-Window find_window_universal(Display* display, Atom client_list_atom, Atom pid_atom, pid_t target_pid, const std::string& fallback_class) {
+// Smart Lookup: Tries PID first, falls back to an exact custom Window Role match
+Window find_window_universal(Display* display, Atom client_list_atom, Atom pid_atom, pid_t target_pid, const std::string& target_role) {
     Window root = DefaultRootWindow(display);
     Atom actual_type;
     int actual_format;
@@ -80,67 +81,32 @@ Window find_window_universal(Display* display, Atom client_list_atom, Atom pid_a
 
     Window* windows = reinterpret_cast<Window*>(data);
     Window found_window = 0;
+    Atom wm_role_atom = XInternAtom(display, "WM_WINDOW_ROLE", False);
 
-		// Target lookup code snippet
-		XClassHint chint;
-		XWMHints* wmhints;
-		Atom wm_role_atom = XInternAtom(display, "WM_WINDOW_ROLE", False);
+    for (unsigned long i = 0; i < num_windows; ++i) {
+        // Strategy 1: Try lightning-fast PID lookup first
+        if (get_window_pid(display, windows[i], pid_atom) == (unsigned long)target_pid) {
+            found_window = windows[i];
+            break;
+        }
 
-		// Loop through your open X11 windows array...
-		for (unsigned long i = 0; i < num_windows; ++i) {
-				// 1. Try your lightning-fast PID lookup method first
-				if (get_window_pid(display, windows[i], pid_atom) == (unsigned long)target_pid) {
-						found_window = windows[i];
-						break;
-				}
+        // Strategy 2: Fallback to verification via our unique injected role string
+        unsigned char* role_data = nullptr;
+        unsigned long role_len = 0;
 
-				// 2. Fallback: Check for your custom unique window role property string
-				unsigned char* role_data = nullptr;
-				unsigned long role_len = 0;
-				Atom actual_type;
-				int actual_format;
-				unsigned long bytes_after;
-
-				if (XGetWindowProperty(display, windows[i], wm_role_atom, 0, 1024, False,
-															 XA_STRING, &actual_type, &actual_format,
-															 &role_len, &bytes_after, &role_data) == Success && role_data) {
-						
-						std::string_view current_role(reinterpret_cast<char*>(role_data), role_len);
-						if (current_role == custom_unique_role_string) {
-								found_window = windows[i];
-								XFree(role_data);
-								break;
-						}
-						XFree(role_data);
-				}
-		}
-
-    //for (unsigned long i = 0; i < num_windows; ++i) {
-        //// Strategy 1: Fast PID lookup
-        //if (get_window_pid(display, windows[i], pid_atom) == (unsigned long)target_pid) {
-            //found_window = windows[i];
-            //break;
-        //}
-
-        //// Strategy 2: Fallback Class Name parsing for DBus / Client-Server applications
-        //XClassHint chint;
-        //if (XGetClassInstanceHint(display, windows[i], &chint) != 0) {
-            //std::string_view res_class(chint.res_class ? chint.res_class : "");
-            //std::string_view res_name(chint.res_name ? chint.res_name : "");
-
-            //// If the window class contains "gnome-terminal" or matches our executable name
-            //if (res_class.find(fallback_class) != std::string_view::npos || 
-                //res_name.find(fallback_class) != std::string_view::npos) {
-                //found_window = windows[i];
-                //if (chint.res_name) XFree(chint.res_name);
-                //if (chint.res_class) XFree(chint.res_class);
-                //break;
-            //}
-
-            //if (chint.res_name) XFree(chint.res_name);
-            //if (chint.res_class) XFree(chint.res_class);
-        //}
-    //}
+        if (XGetWindowProperty(display, windows[i], wm_role_atom, 0, 1024, False,
+                               XA_STRING, &actual_type, &actual_format,
+                               &role_len, &bytes_after, &role_data) == Success && role_data) {
+            
+            std::string_view current_role(reinterpret_cast<char*>(role_data), role_len);
+            if (current_role == target_role) {
+                found_window = windows[i];
+                XFree(role_data);
+                break;
+            }
+            XFree(role_data);
+        }
+    }
 
     XFree(data);
     return found_window;
@@ -164,7 +130,7 @@ void minimize_window(Display* display, Window win) {
 // Handle asynchronous X11 communication drops gracefully
 int handle_x11_errors(Display*, XErrorEvent* error) {
     if (error->error_code == BadWindow || error->error_code == BadDrawable) {
-        return 0; // Ignore missing or closed temporary windows quietly
+        return 0; 
     }
     return 0;
 }
@@ -175,12 +141,17 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    // Save the executable name string (e.g. "gnome-terminal") to use as fallback criteria
+    // Isolate executable name
     std::string app_name = argv[1];
     size_t last_slash = app_name.find_last_of("/");
     if (last_slash != std::string::npos) {
         app_name = app_name.substr(last_slash + 1);
     }
+
+    // Generate a unique window role string using a microsecond timestamp string
+    auto now = std::chrono::high_resolution_clock::now().time_since_epoch();
+    unsigned long microseconds = std::chrono::duration_cast<std::chrono::microseconds>(now).count();
+    std::string unique_role = "launch_minimized_" + std::to_string(microseconds);
 
     Display* display = XOpenDisplay(nullptr);
     if (!display) return 1;
@@ -198,8 +169,19 @@ int main(int argc, char* argv[]) {
     }
 
     if (pid == 0) {
+        // Child: Build argument array configurations dynamically
         std::vector<char*> exec_args;
-        for (int i = 1; i < argc; ++i) {
+        exec_args.push_back(argv[1]);
+
+        // Auto-inject unique window roles specifically targeting multi-instance server managers
+        std::string role_flag = "--role=" + unique_role;
+        bool is_gnome_terminal = (app_name == "gnome-terminal");
+        
+        if (is_gnome_terminal) {
+            exec_args.push_back(const_cast<char*>(role_flag.c_str()));
+        }
+
+        for (int i = 2; i < argc; ++i) {
             exec_args.push_back(argv[i]);
         }
         exec_args.push_back(nullptr);
@@ -217,11 +199,10 @@ int main(int argc, char* argv[]) {
     std::printf("[INFO] Tracking execution (PID: %d)...\n", pid);
 
     while (true) {
-        // Freeze process to trap initialization steps
-        kill(pid, SIGSTOP);
+        kill(pid, SIGSTOP); // Freeze process execution sequences
 
-        // Run lookup passing both PID and string fallback details
-        target_win = find_window_universal(display, client_list_atom, pid_atom, pid, app_name);
+        // Check using fast PID matching or fallback to exact injected unique window role fingerprinting
+        target_win = find_window_universal(display, client_list_atom, pid_atom, pid, unique_role);
 
         if (target_win != 0) {
             std::printf("[INFO] Window 0x%08lx captured! Minimizing...\n", target_win);
