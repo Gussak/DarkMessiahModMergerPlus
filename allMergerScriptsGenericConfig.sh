@@ -44,7 +44,7 @@ alias FUNCechoInfo='FUNCechoInfo_Work $LINENO '
 
 function FUNCdtFlNm() {
 	date +'%Y_%m_%d-%H_%M_%S'
-};export FUNCdtFlNm
+};export -f FUNCdtFlNm
 
 FUNCchkDeps() {
 	while ! ${1+false};do
