@@ -29,54 +29,17 @@
 
 //AI GENERATED:
 
-// Compile with: g++ -O3 launchappminimized.cpp -o launchappminimized -lX11 -lstdc++fs
+// Compile with: g++ -O3 launchappminimized.cpp -o launchappminimized -lX11
 #include <iostream>
-#include <string_view>
 #include <vector>
 #include <cstdio>
 #include <cstdlib>
-#include <fstream>
-#include <filesystem>
-#include <algorithm>
 #include <unistd.h>
 #include <signal.h>
 #include <sys/types.h>
 #include <X11/Xlib.h>
 #include <X11/Xatom.h>
 #include <X11/Xutil.h>
-
-namespace fs = std::filesystem;
-
-enum class LookupMode {
-    PID_BASED, // Default: ultra fast, works for 95% of modern apps
-    UTF8_NAME, // Manual override via --utf8
-    LEGACY_NAME // Manual override via --legacy
-};
-
-// Pure C++ function to search /proc for matching commands (excluding our own PID)
-bool is_process_running(const std::string& cmd_keyword) {
-    pid_t my_pid = getpid();
-    for (const auto& entry : fs::directory_iterator("/proc")) {
-        if (!entry.is_directory()) continue;
-        std::string filename = entry.path().filename().string();
-        if (!std::all_of(filename.begin(), filename.end(), ::isdigit)) continue;
-
-        pid_t pid = std::stoi(filename);
-        if (pid == my_pid) continue;
-
-        std::ifstream cmd_file(entry.path() / "cmdline", std::ios::binary);
-        if (!cmd_file) continue;
-
-        std::string cmdline((std::istreambuf_iterator<char>(cmd_file)),
-                             std::istreambuf_iterator<char>());
-        std::replace(cmdline.begin(), cmdline.end(), '\0', ' ');
-
-        if (cmdline.find(cmd_keyword) != std::string::npos) {
-            return true;
-        }
-    }
-    return false;
-}
 
 // Helper to look up a window's PID property (_NET_WM_PID)
 unsigned long get_window_pid(Display* display, Window win, Atom pid_atom) {
@@ -98,8 +61,8 @@ unsigned long get_window_pid(Display* display, Window win, Atom pid_atom) {
     return win_pid;
 }
 
-// Universal window query function
-Window find_window(Display* display, Atom client_list_atom, LookupMode mode, pid_t target_pid, const std::string& target_string) {
+// Scans X11 windows strictly matching the target Process ID
+Window find_window_by_pid(Display* display, Atom client_list_atom, Atom pid_atom, pid_t target_pid) {
     Window root = DefaultRootWindow(display);
     Atom actual_type;
     int actual_format;
@@ -116,36 +79,10 @@ Window find_window(Display* display, Atom client_list_atom, LookupMode mode, pid
     Window* windows = reinterpret_cast<Window*>(data);
     Window found_window = 0;
 
-    // Cache Atoms depending on user flag choice to protect frame timings
-    Atom pid_atom = (mode == LookupMode::PID_BASED) ? XInternAtom(display, "_NET_WM_PID", False) : 0;
-    Atom name_atom = 0;
-    if (mode == LookupMode::UTF8_NAME) name_atom = XInternAtom(display, "_NET_WM_NAME", False);
-    else if (mode == LookupMode::LEGACY_NAME) name_atom = XA_WM_NAME;
-
     for (unsigned long i = 0; i < num_windows; ++i) {
-        if (mode == LookupMode::PID_BASED) {
-            if (get_window_pid(display, windows[i], pid_atom) == (unsigned long)target_pid) {
-                found_window = windows[i];
-                break;
-            }
-        } else {
-            // String properties lookup matching your ultra fast design
-            unsigned char* name_data = nullptr;
-            unsigned long name_len = 0;
-            Atom requested_type = (mode == LookupMode::UTF8_NAME) ? XInternAtom(display, "UTF8_STRING", False) : AnyPropertyType;
-
-            if (XGetWindowProperty(display, windows[i], name_atom, 0, 1024, False,
-                                   requested_type, &actual_type, &actual_format,
-                                   &name_len, &bytes_after, &name_data) == Success && name_data) {
-                
-                std::string_view current_title(reinterpret_cast<char*>(name_data), name_len);
-                if (current_title == target_string) {
-                    found_window = windows[i];
-                    XFree(name_data);
-                    break;
-                }
-                XFree(name_data);
-            }
+        if (get_window_pid(display, windows[i], pid_atom) == (unsigned long)target_pid) {
+            found_window = windows[i];
+            break;
         }
     }
 
@@ -163,7 +100,7 @@ void minimize_window(Display* display, Window win) {
     xev.xclient.window = win;
     xev.xclient.message_type = wm_change_state;
     xev.xclient.format = 32;
-    xev.xclient.data.l[0] = IconicState; // Fixed: Target the first index of the long array
+    xev.xclient.data.l[0] = IconicState;
 
     XSendEvent(display, root, False, SubstructureRedirectMask | SubstructureNotifyMask, &xev);
     XFlush(display);
@@ -171,38 +108,18 @@ void minimize_window(Display* display, Window win) {
 
 int main(int argc, char* argv[]) {
     if (argc < 2) {
-        std::fprintf(stderr, "Usage: %s [--utf8 name | --legacy name] <command> [args...]\n", argv[0]);
+        std::fprintf(stderr, "Usage: %s <command> [args...]\n", argv[0]);
         return 1;
     }
 
-    LookupMode mode = LookupMode::PID_BASED;
-    std::string search_string = "";
-    int command_start_index = 1;
-
-    // Parse configuration flags
-    std::string_view first_arg(argv[1]);
-    if (first_arg == "--utf8" || first_arg == "--legacy") {
-        if (argc < 4) {
-            std::fprintf(stderr, "Error: Missing window name argument for mode selector.\n");
-            return 1;
-        }
-        mode = (first_arg == "--utf8") ? LookupMode::UTF8_NAME : LookupMode::LEGACY_NAME;
-        search_string = argv[2];
-        command_start_index = 3;
-    }
-
-    // Safety guard checking if target binary execution phrase is running
-    //std::string binary_name = argv[command_start_index];
-    //if (is_process_running(binary_name)) {
-        //std::fprintf(stderr, "[ERROR] App '%s' is already running.\n", binary_name.c_str());
-        //return 1;
-    //}
-
+    // Open connection to X Server immediately to cache Atoms
     Display* display = XOpenDisplay(nullptr);
     if (!display) return 1;
+    
     Atom client_list_atom = XInternAtom(display, "_NET_CLIENT_LIST", False);
+    Atom pid_atom = XInternAtom(display, "_NET_WM_PID", False);
 
-    // Fork and execute anything natively
+    // Fork and execute natively
     pid_t pid = fork();
     if (pid < 0) {
         std::perror("Fork failed");
@@ -213,7 +130,7 @@ int main(int argc, char* argv[]) {
     if (pid == 0) {
         // Child: Assemble dynamically passed user binary configurations
         std::vector<char*> exec_args;
-        for (int i = command_start_index; i < argc; ++i) {
+        for (int i = 1; i < argc; ++i) {
             exec_args.push_back(argv[i]);
         }
         exec_args.push_back(nullptr);
@@ -229,12 +146,12 @@ int main(int argc, char* argv[]) {
 
     // Parent control loop
     Window target_win = 0;
-    std::printf("[INFO] Tracking execution (PID: %d)... \n", pid);
+    std::printf("[INFO] Tracking execution (PID: %d)...\n", pid);
 
     while (true) {
         kill(pid, SIGSTOP); // Instantly trap app initialization sequence
 
-        target_win = find_window(display, client_list_atom, mode, pid, search_string);
+        target_win = find_window_by_pid(display, client_list_atom, pid_atom, pid);
 
         if (target_win != 0) {
             std::printf("[INFO] Window 0x%08lx captured! Minimizing...\n", target_win);
