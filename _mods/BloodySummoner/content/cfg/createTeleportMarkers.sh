@@ -77,6 +77,7 @@ while true;do
 		fi
 		
 		if $bRecreateCfgFile;then
+			astrMarkerIndex=()
 			astrMarkerID=()
 			astrMarkerName=()
 			astrMarkerPos=()
@@ -87,12 +88,14 @@ while true;do
 			#retrieve existing markers
 			if [[ -f "$strMapCfgFile" ]];then
 				# ex.: // "GuestHouse" -4900  -10927  332
-				strRegexMatchIDNamePos="^echo \"([^ ]*) '(.*)' (.*)\"$"
-				mapfile -t astrMarkerID   < <(cat "$strMapCfgFile" |ugrep "$strRegexMatchIDNamePos" |sed -r -e "s@${strRegexMatchIDNamePos}@\1@g")
-				mapfile -t astrMarkerName < <(cat "$strMapCfgFile" |ugrep "$strRegexMatchIDNamePos" |sed -r -e "s@${strRegexMatchIDNamePos}@\2@g")
-				mapfile -t astrMarkerPos  < <(cat "$strMapCfgFile" |ugrep "$strRegexMatchIDNamePos" |sed -r -e "s@${strRegexMatchIDNamePos}@\3@g")
+				strRegexMatchIDNamePos="^echo \"([0-9]*) ([^ ]*) '(.*)' (.*)\"$"
+				mapfile -t astrMarkerIndex < <(cat "$strMapCfgFile" |ugrep "$strRegexMatchIDNamePos" |sed -r -e "s@${strRegexMatchIDNamePos}@\1@g") #this is dummy tho.
+				mapfile -t astrMarkerID    < <(cat "$strMapCfgFile" |ugrep "$strRegexMatchIDNamePos" |sed -r -e "s@${strRegexMatchIDNamePos}@\2@g")
+				mapfile -t astrMarkerName  < <(cat "$strMapCfgFile" |ugrep "$strRegexMatchIDNamePos" |sed -r -e "s@${strRegexMatchIDNamePos}@\3@g")
+				mapfile -t astrMarkerPos   < <(cat "$strMapCfgFile" |ugrep "$strRegexMatchIDNamePos" |sed -r -e "s@${strRegexMatchIDNamePos}@\4@g")
 				cp -v "$strMapCfgFile" "${strMapCfgFile}.$(FUNCdtFlNm).bkp" #TODO FUNCtrash "$strMapCfgFile" ?
 			fi
+			# astrMarkerIndex will be reindexed if needed.
 			astrMarkerID+=("$(echo "${strTeleName}" |tr -d ' ')")
 			astrMarkerName+=("${strTeleName}")
 			astrMarkerPos+=("${strPos}")
@@ -114,34 +117,41 @@ while true;do
 			declare -p astrMarkerID_Name astrMarkerID_Pos
 			
 			# prepare cfg file
-			echo -n >"$strMapCfgFile"
+			echo -n >"$strMapCfgFile" #trunc
 			echo "alias gskTeleMarkerRecall gskTeleMarker000" >>"$strMapCfgFile"
-			echo "alias gskTeleMarkerSelectNext gskTeleMarkerSelect000" >>"$strMapCfgFile"
+			echo "alias +gskTeleMarkerSelectNext gskTeleMarkerSelect000" >>"$strMapCfgFile"
+			echo "alias -gskTeleMarkerSelectNext \"developer 0\"" >>"$strMapCfgFile"
+			echo >>"$strMapCfgFile"
+			echo "echo \"Teleport Markers List for ${FUNCmapInfo_strMapName}:\"" >>"$strMapCfgFile"
+			echo >>"$strMapCfgFile"
 			for strMarkerID in "${!astrMarkerID_Name[@]}";do
-				echo >>"$strMapCfgFile"
-				echo "echo \"${strMarkerID} '${astrMarkerID_Name[$strMarkerID]}' ${astrMarkerID_Pos[$strMarkerID]}\"" >>"$strMapCfgFile"
 				nIndex="${astrMarkerID_Index[$strMarkerID]}"
 				strIndex="$(printf %03d $nIndex)"
 				nIndexNext="$((nIndex+1))"&&:
 				strIndexNext="$(printf %03d $nIndexNext)"
+				echo "echo \"${strIndex} ${strMarkerID} '${astrMarkerID_Name[$strMarkerID]}' ${astrMarkerID_Pos[$strMarkerID]}\"" >>"$strMapCfgFile"
 				
 				#strAliasForID="gskTeleMarker_${strIndex}_${strMarkerID}"
 				strAliasForID="gskTeleMarker${strIndex}"
 				strAliasForIDNext="gskTeleMarker${strIndexNext}"
 				#strAliasForID="gskTeleMarker_${strMarkerID}"
 				#if((${#strAliasForID} > 30));then strAliasForID="${strAliasForID:0:30}";fi # if name is too big, trunc it, but the index will be the same always even if there is a trunc name clash
-				strEcho="echo Teleporting To ${strIndex} ${strMarkerID} ${astrMarkerID_Name[$strMarkerID]} at ${astrMarkerID_Pos[$strMarkerID]}"
+				strEcho="developer 1; echo Teleport to ${strIndex} ${strMarkerID} ${astrMarkerID_Name[$strMarkerID]} at ${astrMarkerID_Pos[$strMarkerID]}"
+				#strEcho="echo Teleport to ${strIndex} ${strMarkerID} ${astrMarkerID_Name[$strMarkerID]} at ${astrMarkerID_Pos[$strMarkerID]}"
 				#strEcho="echo Teleporting To ${strMarkerID} '${astrMarkerID_Name[$strMarkerID]}' at ${astrMarkerID_Pos[$strMarkerID]}"
 				echo "alias ${strAliasForID} \"setpos ${astrMarkerID_Pos[$strMarkerID]}; $strEcho\"" >>"$strMapCfgFile"
 				
 				if((nIndex != nIndexMax));then
-					echo "alias gskTeleMarkerSelect${strIndex} \"alias gskTeleMarkerRecall ${strAliasForID}; alias gskTeleMarkerSelectNext gskTeleMarkerSelect${strIndexNext}\"" >>"$strMapCfgFile"
+					echo "alias gskTeleMarkerSelect${strIndex} \"alias gskTeleMarkerRecall ${strAliasForID}; alias +gskTeleMarkerSelectNext gskTeleMarkerSelect${strIndexNext}; ${strEcho}\"" >>"$strMapCfgFile"
 				else
-					echo "alias gskTeleMarkerSelect${strIndex} \"alias gskTeleMarkerRecall ${strAliasForID}; alias gskTeleMarkerSelectNext gskTeleMarkerSelect000\"" >>"$strMapCfgFile"
+					echo "alias gskTeleMarkerSelect${strIndex} \"alias gskTeleMarkerRecall ${strAliasForID}; alias +gskTeleMarkerSelectNext gskTeleMarkerSelect000; ${strEcho}\"" >>"$strMapCfgFile"
 				fi
+				#echo "alias -gskTeleMarkerSelect${strIndex} \"developer 0\"" >>"$strMapCfgFile"
+				
+				echo >>"$strMapCfgFile"
 			done
 			#echo >>"$strMapCfgFile"
-			#echo "alias gskTeleMarkerSelect$( printf %03d $((nIndexNext+1)) ) \"alias gskTeleMarkerRecall gskTeleMarker000; alias gskTeleMarkerSelectNext gskTeleMarkerSelect000\"" >>"$strMapCfgFile"
+			#echo "alias gskTeleMarkerSelect$( printf %03d $((nIndexNext+1)) ) \"alias gskTeleMarkerRecall gskTeleMarker000; alias +gskTeleMarkerSelectNext gskTeleMarkerSelect000\"" >>"$strMapCfgFile"
 			#if [[ ! -f "${strMapCfgFile}.condump.txt" ]];then
 				#cp -v "$lstrFlCondump" "${strMapCfgFile}.condump.txt"
 			#fi
