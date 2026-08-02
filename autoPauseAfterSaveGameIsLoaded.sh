@@ -170,7 +170,7 @@ if [[ "${1-}" == "-M" ]];then shift;iMonCh=2;fi #help monitor changes and dump s
 case $iMonCh in
 	1)
 		if ! pgrep -fa DMMM_monitorChanges;then
-			(xterm -maximized -title DMMM_monitorChanges -e FUNCmonitorChanges & disown)
+			(FUNCxterm -maximized -title DMMM_monitorChanges -e FUNCmonitorChanges & disown)
 		fi
 		;;
 	2) FUNCmonitorChanges;exit;;
@@ -275,7 +275,7 @@ function FUNCpauseAfterLoad() {
 				for nPidGm in "${anPidGm[@]}";do #use case for 2 instances only
 					if FUNCisPidStopped $nPidGm;then continue;fi
 					# this is good to let it stop both instances, being run as child process
-					(xterm -title "DarkMessiah_FUNCpauseAndResumeAtom" -geometry 100x10+1+1 -e bash -c "FUNCpauseAndResumeAtom $nPidGm;FUNCwait60s" &) #no "& disown" to grant it cascade kills with this script. this thru xterm gets the focus and break the gameplay if focused, there is no way to auto minimize xterm? only thru title match like with the popup.. but that brief miliseconds may still break the gameplay... why it hasnt just a -minimize???
+					(FUNCxterm -title "DarkMessiah_FUNCpauseAndResumeAtom" -geometry 100x10+1+1 -e bash -c "FUNCpauseAndResumeAtom $nPidGm;FUNCwait60s" &) #no "& disown" to grant it cascade kills with this script. this thru xterm gets the focus and break the gameplay if focused, there is no way to auto minimize xterm? only thru title match like with the popup.. but that brief miliseconds may still break the gameplay... why it hasnt just a -minimize???
 				done
 			else
 				if $bPauseOnlyNoFocusInstance;then
@@ -300,7 +300,7 @@ function FUNCpauseAfterLoad() {
 if ! pgrep -fa DMMM_pauseAfterLoad;then
 	: ${bXterm:=true};export bXterm
 	if $bXterm;then
-		(xterm -maximized -title DMMM_pauseAfterLoad -e bash -c "FUNCpauseAfterLoad" & disown);
+		(FUNCxterm -maximized -title DMMM_pauseAfterLoad -e bash -c "FUNCpauseAfterLoad" & disown);
 	else
 		FUNCpauseAfterLoad
 	fi

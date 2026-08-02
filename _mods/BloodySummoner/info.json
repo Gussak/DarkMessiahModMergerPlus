@@ -1,7 +1,7 @@
 {
     "name"                  :   "BloodySummoner",
     "version"               :   "1.0",
-    "description"           :   "Convert HP into Spider, mini spider",
+    "description"           :   "Convert HP into NPCs and items. This is based on player initial default HP=100 TODO: but I still dont know where to set it as override...",
     "author"                :   "GussakThor",
     "author_url"            :   "",
     "website"               :   "",

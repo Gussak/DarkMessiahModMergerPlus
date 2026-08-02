@@ -58,10 +58,14 @@ if true;then
 	fi
 
 	strTerm=""
-	if which kitty >/dev/null;then #help kitty works much better (but not perfect as still briefly steals focus) for interactive multithread, install it.
-		strTerm=kitty
-	elif which xterm >/dev/null;then
+	if which launchappminimized >/dev/null;then #help thru launchappminimized, xterm runs much better than kitty
 		strTerm=xterm
+	else
+		if which kitty >/dev/null;then #help kitty works much better (but not perfect as still briefly steals focus) for interactive multithread, install it.
+			strTerm=kitty
+		elif which xterm >/dev/null;then
+			strTerm=xterm
+		fi
 	fi
 	if [[ -z "$strTerm" ]];then
 		echo "please install 'kitty' or at least 'xterm' for interactive multithread."
@@ -129,10 +133,10 @@ if true;then
 						local laCmdTerm=()
 						case $strTerm in
 							kitty) laCmdTerm=(kitty --title "$lstrTermTitle" --start-as=minimized -e "${aCmd[@]}") ;;
-							xterm) laCmdTerm=(xterm -title "$lstrTermTitle" -e "${aCmd[@]}") ;;
+							xterm) laCmdTerm=(FUNCxterm -title "$lstrTermTitle" -e "${aCmd[@]}") ;;
 							*) echo "ERROR Ln$LINENO";exit 1;;
 						esac
-						#(xterm -title "" -e "${aCmd[@]}" & disown)
+						#(FUNCxterm -title "" -e "${aCmd[@]}" & disown)
 						("${laCmdTerm[@]}" & disown)
 						break
 					fi

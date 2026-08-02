@@ -85,5 +85,5 @@ function FUNCbkp() {
 };export -f FUNCbkp
 
 if ! pgrep -fa DMMM_quickBkpLoop;then
-	(xterm -title DMMM_quickBkpLoop -e bash -c "FUNCbkp" & disown);
+	(FUNCxterm -title DMMM_quickBkpLoop -e bash -c "FUNCbkp" & disown);
 fi

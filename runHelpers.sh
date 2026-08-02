@@ -19,8 +19,8 @@ while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do pwd;cd ..;done; source 
 if ! $bXtermAlready;then
 	: ${bXterm:=true} #help
 	if $bXterm;then
-		if pgrep -fa DMMM_Helpers;then exit 0;fi
-		(xterm -title DMMM_Helpers -e bash -c "while true;do ./${strSelfBN} --help; read -p PressEnterToRunHelpers&&:; bXtermAlready=true ./${strSelfBN};done" & disown)
+		if pgrep -fa "DMMM_Helpers";then exit 0;fi
+		(FUNCxterm -title DMMM_Helpers -e bash -c "while true;do ./${strSelfBN} --help; read -p PressEnterToRunHelpers&&:; bXtermAlready=true ./${strSelfBN};done" & disown)
 		exit 0
 	fi
 fi
@@ -41,7 +41,7 @@ cd "${strMainModFolder}/"
 bPauseOnlyNoFocusInstance=true ./autoPauseAfterSaveGameIsLoaded.sh -m #help @InfoID="autoPauseAfterSaveGameIsLoaded.sh" Helper Script, endless loop
 
 cd "${strMainModFolder}/"
-(xterm -e ./createFunctionalBkp.sh & disown) #help @InfoID="createFunctionalBkp.sh" Helper Script, run once, create configs small backup
+(FUNCxterm -e ./createFunctionalBkp.sh & disown) #help @InfoID="createFunctionalBkp.sh" Helper Script, run once, create configs small backup
 
 #cd "${strMainModFolder}/"
 #./gitgui.sh #run once
@@ -70,7 +70,7 @@ if $bRunBothInstances;then
 		while true;do
 			pwd
 			: ${bRunStartCrashWorkaroundLoop:=false} #help allows a quick retry start loop (sometimes it is better others it is worse...)
-			: ${bAutoClickRun=true} #help on ModLauncher run button, this is recognized by ./fixWindowAndDontStop.sh
+			: ${bAutoClickRun=true};export bAutoClickRun #help on ModLauncher run button, this is recognized by ./fixWindowAndDontStop.sh
 			FUNCecho --info "Run a 2nd instance for quick resume playing after death, as load game is super slow."
 			FUNCecho --alert "[WAIT@{-n} THE other INSTANCE FINISH LOADING THE SAVEGAME OR BOTH may CRASH/FREEZE!!!]"
 			FUNCecho -w -t 0.1 "[run Instance $liInstanceIndex] press Enter or 'l' for quick loop, 'd' to drop caches, 'a' auto click RUN ($bAutoClickRun)";read -n 1 strResp&&:
@@ -107,7 +107,7 @@ if $bRunBothInstances;then
 			
 			guakeAutoEnv.sh -ID_CMD game${iInstanceIndex} bash -c "chmod +x '${strFlExec}'; ls -l '${strFlExec}'; cat '${strFlExec}'; bBashAutoCmdOnStart=false secEnvDev.sh --clean bash -c '${strFlExec}'"
 		else
-			(xterm -title DMMM_Run${iInstanceIndex} -e bash -c "FUNCrunInstance ${iInstanceIndex}" & disown)
+			(FUNCxterm -title DMMM_Run${iInstanceIndex} -e bash -c "FUNCrunInstance ${iInstanceIndex}" & disown)
 		fi
 	done
 

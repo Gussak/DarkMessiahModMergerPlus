@@ -117,7 +117,7 @@ function FUNCwindowHelper() { #will look for one or more newly created windows, 
 : ${bXterm:=true} #help
 if $bXterm;then
 #if ! pgrep -fa DMMM_windowHelper;then
-	(xterm -title DMMM_windowHelper -e bash -c "FUNCwindowHelper" & disown)
+	(FUNCxterm -title DMMM_windowHelper -e bash -c "FUNCwindowHelper" & disown)
 #fi
 else 
 	FUNCwindowHelper

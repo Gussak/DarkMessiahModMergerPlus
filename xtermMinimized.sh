@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo "see 'allMergerScriptsGenericConfig.sh/FUNCxterm/launchappminimized' instead"
+exit
+
 strTitle="$1";shift
 aParams=("$@")
 

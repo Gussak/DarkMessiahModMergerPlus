@@ -32,7 +32,7 @@
 while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
 
 if ! pgrep -fa DMMM_teleportMarkersCreation;then
-	(xterm -title DMMM_teleportMarkersCreation -e "$0" & disown);
+	(FUNCxterm -title DMMM_teleportMarkersCreation -e "$0" & disown);
 	exit 0
 fi
 
