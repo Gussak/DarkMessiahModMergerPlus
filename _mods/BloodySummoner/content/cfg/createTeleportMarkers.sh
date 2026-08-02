@@ -38,26 +38,30 @@ if $bXterm && ! pgrep -fa DMMM_teleportMarkersCreation;then
 fi
 
 strFlCondumpPrev=""
+strCfgPath="${strGameInstallMainFolder}/${strGameSubRelatFolderWriteAllHere}/cfg"
+strTeleCurrentCfgFile="${strCfgPath}/gskTeleMarkers.cfg"
 while true;do
 	strFlCondump="$(FUNCgetNewestCondump)"
 	
 	if [[ "$strFlCondumpPrev" != "$strFlCondump" ]];then
 		bRecreateCfgFile=false
 		strDeleteMarker=""
+		#bTeleMarkerDrop=false
 		
-		if ugrep -q "gskTeleMarkerDelete|gsktd" "$strFlCondump";then #help delete current one selected (you can just type it on console too)
-			strDeleteMarker="$(ugrep -q "+gskTeleMarkerSelectNext : gskTeleMarkerSelect[0-9]*" |awk '{print $3}')"
-		fi
-		if ugrep -q "gskTeleMarkerDrop" "$strFlCondump";then
+		if ugrep -q "gskTeleMarkerDelete=CurrentOneSelected|gsktdc" "$strFlCondump";then #help delete current one selected (you can just type it on console too)
+			strDeleteMarker="$(ugrep "^[+]gskTeleMarkerSelectNext : gskTeleMarkerSelect[0-9]*" "$strFlCondump" |tail -n 1 |awk '{print $3}')"
+			
+			FUNCmapInfo "$strFlCondump"
+			strMapCfgFile="${strCfgPath}/gskTeleMarkers_${FUNCmapInfo_strMapName}.cfg"
+			
+			bRecreateCfgFile=true;
+		elif ugrep -q "gskTeleMarkerDrop" "$strFlCondump";then
 			#while true;do ! FUNCmapInfo "$strFlCondump";do FUNCwaitSeconds 3 "condump needs map info status data";done
 			FUNCmapInfo "$strFlCondump"
+			strMapCfgFile="${strCfgPath}/gskTeleMarkers_${FUNCmapInfo_strMapName}.cfg"
 			
 			strPos="$FUNCmapInfo_strPosRestore"
 			strPosCmd="setpos ${strPos}"
-			
-			strCfgPath="${strGameInstallMainFolder}/${strGameSubRelatFolderWriteAllHere}/cfg"
-			strMapCfgFile="${strCfgPath}/gskTeleMarkers_${FUNCmapInfo_strMapName}.cfg"
-			strTeleCurrentCfgFile="${strCfgPath}/gskTeleMarkers.cfg"
 			
 			declare -p strPos strMapCfgFile FUNCmapInfo_strPosRestore strPosCmd
 			
