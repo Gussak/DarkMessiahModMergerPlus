@@ -144,22 +144,22 @@ while true;do
 				astrMarkerID_Name[$strMarkerID]="$strMarkerName"
 				astrMarkerID_Pos[$strMarkerID]="$strMarkerPos"
 			done
-			nIndexMax=0
-			astrMarkerID_IndexChk=("${astrMarkerID_Index[@]}")
-			#declare -p astrMarkerID_Index
-			for((i=0;i<${#astrMarkerID_IndexChk[@]};i++));do
-				#declare -p nIndexMax i
-				if((i != ${astrMarkerID_IndexChk[$i]}));then
-					FUNCechoInfo "[DEV_ERROR] inconsistent indexing."
-					declare -p astrMarkerID_Index astrMarkerID_IndexChk
-					FUNCexit 1
-				fi
-				if((nIndexMax<i));then
-					nIndexMax="$i"
-				fi
-			done
-			#nIndexMax=$(( ${#astrMarkerID[@]} - 1))&&:
-			declare -p astrMarkerID astrMarkerID_Name astrMarkerID_Pos astrMarkerID_Index nIndexMax
+			#nIndexMax=0
+			#astrMarkerID_IndexChk=("${astrMarkerID_Index[@]}")
+			##declare -p astrMarkerID_Index
+			#for((i=0;i<${#astrMarkerID_IndexChk[@]};i++));do
+				##declare -p nIndexMax i
+				#if((i != ${astrMarkerID_IndexChk[$i]}));then
+					#FUNCechoInfo "[DEV_ERROR] inconsistent indexing."
+					#declare -p astrMarkerID_Index astrMarkerID_IndexChk
+					#FUNCexit 1
+				#fi
+				#if((nIndexMax<i));then
+					#nIndexMax="$i"
+				#fi
+			#done
+			##nIndexMax=$(( ${#astrMarkerID[@]} - 1))&&:
+			declare -p astrMarkerID astrMarkerID_Name astrMarkerID_Pos astrMarkerID_Index #nIndexMax
 			
 			# prepare cfg file
 			echo -n >"$strMapCfgFile" #trunc
@@ -170,8 +170,9 @@ while true;do
 			echo >>"$strMapCfgFile"
 			echo "echo \"Teleport Markers List for ${FUNCmapInfo_strMapName}:\"" >>"$strMapCfgFile"
 			echo >>"$strMapCfgFile"
+			nIndexCount=0
 			for strMarkerID in "${!astrMarkerID_Name[@]}";do
-				nIndex="${astrMarkerID_Index[$strMarkerID]}"
+				nIndex=$((nIndexCount++))&&: #"${astrMarkerID_Index[$strMarkerID]}"
 				strIndex="$(printf %03d $nIndex)"
 				nIndexNext="$((nIndex+1))"&&:
 				strIndexNext="$(printf %03d $nIndexNext)"
@@ -185,9 +186,10 @@ while true;do
 				strEcho="developer 1; echo Teleport to ${strIndex} ${strMarkerID} ${astrMarkerID_Name[$strMarkerID]} at ${astrMarkerID_Pos[$strMarkerID]}"
 				#strEcho="echo Teleport to ${strIndex} ${strMarkerID} ${astrMarkerID_Name[$strMarkerID]} at ${astrMarkerID_Pos[$strMarkerID]}"
 				#strEcho="echo Teleporting To ${strMarkerID} '${astrMarkerID_Name[$strMarkerID]}' at ${astrMarkerID_Pos[$strMarkerID]}"
-				echo "alias ${strAliasForID} \"setpos ${astrMarkerID_Pos[$strMarkerID]}; $strEcho\"" >>"$strMapCfgFile"
+				echo "alias ${strAliasForID} \"setpos ${astrMarkerID_Pos[$strMarkerID]}; gskTeleMarkerRecallEffects; $strEcho\"" >>"$strMapCfgFile"
 				
-				if((nIndex != nIndexMax));then
+				#if((nIndex != nIndexMax));then
+				if(( nIndex != (${#astrMarkerID_Name[@]} - 1) ));then
 					echo "alias gskTeleMarkerSelect${strIndex} \"alias gskTeleMarkerRecall ${strAliasForID}; alias +gskTeleMarkerSelectNext gskTeleMarkerSelect${strIndexNext}; ${strEcho}\"" >>"$strMapCfgFile"
 				else
 					echo "alias gskTeleMarkerSelect${strIndex} \"alias gskTeleMarkerRecall ${strAliasForID}; alias +gskTeleMarkerSelectNext gskTeleMarkerSelect000; ${strEcho}\" //LOOP" >>"$strMapCfgFile"
