@@ -166,6 +166,7 @@ while true;do
 			echo "alias gskTeleMarkerRecall gskTeleMarker000" >>"$strMapCfgFile"
 			echo "alias +gskTeleMarkerSelectNext gskTeleMarkerSelect000" >>"$strMapCfgFile"
 			echo "alias -gskTeleMarkerSelectNext \"developer 0\"" >>"$strMapCfgFile"
+			echo "alias gskTeleMarkerSelect000 \"exec gskTeleMarkers; echo List is Empty\" //this will be overriden if there is anything tho" >>"$strMapCfgFile"
 			echo >>"$strMapCfgFile"
 			echo "echo \"Teleport Markers List for ${FUNCmapInfo_strMapName}:\"" >>"$strMapCfgFile"
 			echo >>"$strMapCfgFile"
@@ -200,9 +201,16 @@ while true;do
 			#if [[ ! -f "${strMapCfgFile}.condump.txt" ]];then
 				#cp -v "$lstrFlCondump" "${strMapCfgFile}.condump.txt"
 			#fi
+			echo "echo \"Total: ${#astrMarkerID[@]}\"" >>"$strMapCfgFile"
 			
 			ln -vsf "$strMapCfgFile" "$strTeleCurrentCfgFile"
 			cat "${strTeleCurrentCfgFile}"
+			
+			if((${#astrMarkerID[@]}==0));then
+				FUNCsay "Teleporter markers list is empty."
+			else
+				FUNCsay "Teleporter markers list is ready."
+			fi
 		fi
 		
 		strFlCondumpPrev="$strFlCondump"
@@ -213,153 +221,3 @@ while true;do
 	#TODO this can also update a file gskFillCurrentMapWithNPCs.cfg based on the current map name and on available files at CarefulCombat! so at 'q' key to reload some cfgs, it will also load gskFillCurrentMapWithNPCs.cfg that is ready with the spawn NPC settings for current map!
 	sleep 1
 done
-
-exit
-
-
-Press key to mark
-   alias gskTeleDrop "clear; status; status; status; echo gskTeleMarkerDrop; condump"
-
-Open console type: gsktelenm some Nice name
-
-
-
-prepareTeleRecall.sh
-
-Use keu "u" to "status;status;status;codump", this will ask a map tele list update: copy existing ex gskTeleMarkers_L00.cfg to gskTeleMarkers_Current.cfg
-
-alias gskTeleRecallSelect "exec gskTeleMarkers_Current.cfg; ..."#show index , nome completo , coordenadas, sem limite
-
-alias +gskTeleRecallApply "exec gskTeleRecall.cfg"
-alias -gskTeleRecallApply "setpos ...; hurtme 20; mm_player_unfreeze; gskWait5s;   mm_player_unfreeze"
-
-alias gskTeleDeleteCurrent (gerado pelo tele select tb) ou gakteledel (digita no console)
-
-
-Press key to recall
-
-
-Total 
-duas keybinds extras: mark recall, uma comum dev de condump
-Dois comandos: gsktelenm gskteledel
-
-
-
-
-
-
-
-
-dicas de outro script:
-
-function FUNCalias() {
-	# alias name limit is 30 chars
-	strShortName="${strNPC#mm_npc_create_}"
-	echo "alias gskCCnpcSwitch_${i} \"developer 1; echo CFG_CREATE:${strShortName}; alias gskCCnpcSpawn gskCCnpcSpawn_${i}; alias +gskCCnpcSwitch gskCCnpcSwitch_${iNext}\""
-	echo "alias gskCCnpcSpawn_${i} \"echo gskSpawnHint; getpos; getpos; echo ${strNPC}; echo ${strNPC}; ${strNPC}\"" #this way, it creates a reusable log to quickly place all NPCs again!!! OBS.: getpos 2 times is because the engine bugs and may not print one character some times
-}
-
-: ${strExecEdit:=geany} #help
-: ${bAutoFixMissingChars:=true} #help :O
-
-function FUNCvalidateNPC() {
-	local lstrChkNpc="$1";shift
-	local lstrFlCondump="$1";shift
-	local lLn="$1";shift
-	
-	local lbFound=false
-	local i
-	for((i=0;i<${#astrNPC[@]};i++));do
-		local lstrNPC="${astrNPC[$i]}"
-		#declare -p lstrNPC lstrChkNpc
-		if [[ "$lstrNPC" == "$lstrChkNpc" ]];then lbFound=true;break;fi
-	done
-	if ! $lbFound;then
-		FUNCechoInfo "[ERROR:invalidNPC] $lstrChkNpc ( the engine sometimes do not print some letters!!! :O )"
-		"$strExecEdit" "$lstrFlCondump:$((lLn+1))"  #editors begin in line 1 not 0
-		FUNCexit 1
-	fi
-}
-
-function FUNCechoAndFillFile() {
-	echo "$1" |tee -a "$strMapCfgFile"
-}
-
-if [[ "${1-}" == "-m" ]];then #help read last condump and prepare a cfg file to help fill a map with placed NPCs
-	
-	#mapfile -t astrSpawnHintList < <(egrep "gskSpawnHint" "$strFlCondump" -A 2 |egrep -v "\--" |tr -d '\r')
-	mapfile -t astrAllLines < <(cat "$strFlCondump" |tr -d '\r')
-	#for strSpawnHint in "${astrSpawnHintList[@]}";do
-	iCount=0
-	#iDataLines=4
-	echo
-#	echo "// FILL MAP WITH NPCs, total $((${#astrSpawnHintList[@]}/iDataLines))"
-	nTot="$(cat "$strFlCondump" |grep "^gskSpawnHint" -c)"
-	if((nTot==0));then
-		FUNCechoInfo "[ERROR:spawnSomeFoes] use F7 F8 keys"
-		FUNCexit 1
-	fi
-	FUNCechoAndFillFile "// AUTO GENERATED WITH $(basename "$0")"
-	FUNCechoAndFillFile "// FILL MAP WITH NPCs, total $nTot"
-	FUNCechoAndFillFile "alias gskCCnpcSpawn_helper \"developer 1; gskEffect100; host_timescale 0.01; noclip; ai_disable\""
-	FUNCechoAndFillFile "alias gskCCnpcSpawn_next gskCCnpcSpawn_000"
-	#for((i=0;i<${#astrSpawnHintList[@]};i+=iDataLines));do
-	for((i=0;i<${#astrAllLines[@]};i++));do
-		strLine="${astrAllLines[$i]}"
-		if [[ "$strLine" =~ ^gskSpawnHint.* ]];then
-			iLnData=$i;#declare -p iLnData
-			((iLnData++))&&:;strPos="${astrAllLines[$iLnData]}"
-			((iLnData++))&&:;strPosChk="${astrAllLines[$iLnData]}" #as engine may not print one char! :O
-			if [[ "$strPos" != "$strPosChk" ]];then
-				if $bAutoFixMissingChars;then
-					if((${#strPosChk} > ${#strPos}));then
-						strPos="$strPosChk"
-					fi
-				else
-					declare -p strPos strPosChk
-					FUNCechoInfo "[ERROR:invalidPOS] ( the engine sometimes do not print some letters!!! :O )"
-					"$strExecEdit" "$strFlCondump:$((iLnData+1))" #editors begin in line 1 not 0
-					FUNCexit 1
-				fi
-			fi
-			
-			((iLnData++))&&:;strNPC="$(    echo "${astrAllLines[$iLnData]}" |awk '{print $1}')"
-			((iLnData++))&&:;strNPCchk="$( echo "${astrAllLines[$iLnData]}" |awk '{print $1}')"
-			#declare -p strPos strNPC
-			if [[ "$strNPC" != "$strNPCchk" ]];then
-				if $bAutoFixMissingChars;then
-					if((${#strNPCchk} > ${#strNPC}));then
-						strNPC="$strNPCchk"
-					fi
-				fi
-			fi
-			FUNCvalidateNPC "$strNPC" "$strFlCondump" "$iLnData"
-			
-			strCount="$(      printf %03d $((iCount  )) )"
-			strCountPlus1="$( printf %03d $((iCount+1)) )"
-			
-			FUNCechoAndFillFile "alias gskCCnpcSpawn_${strCount} \"${strPos}; ${strNPC}; echo ${iCount}/${nTot}; gskCCnpcSpawn_helper; alias gskCCnpcSpawn_next gskCCnpcSpawn_${strCountPlus1}\""
-			((iCount++))&&:
-			
-			i=$iLnData
-		fi
-	done
-	FUNCechoAndFillFile "alias gskCCnpcSpawn_${strCountPlus1} \"echo FinishedSpawnings; gskEffectOFF; gskSndDONE; ${strRestorePosInTheEnd}; host_timescale 1.0; noclip; ai_disable; developer 0; \"" #this also prevents continuing thru some previous list entries of a previous test run or map may be
-	
-	if egrep "remove" -i "${strMapCfgFile}.condump.txt";then
-		FUNCechoInfo "[WARN] removes detected, better edit to remove from that line up to 'gskSpawnHint' and rerun!" #TODO this can be scripted easily if the echo on the console is like: RemoveAbove=1 or Remove=1 or RM1; echo RM1; echo rm2
-		echo "${strExecEdit} '${strMapCfgFile}.condump.txt'"
-		echo "strFlCondump='${strMapCfgFile}.condump.txt' $0 -m"
-	fi
-else # create spawner aliases
-	echo
-	echo "// Total ${#astrNPC[@]} NPCs"
-	for((i=0;i<${#astrNPC[@]};i++));do
-		strNPC="${astrNPC[$i]}"
-		iNext=$((i+1))&&:
-		if(( i == (${#astrNPC[@]}-1) ));then
-			iNext=0
-		fi
-		FUNCalias
-	done
-fi

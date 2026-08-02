@@ -776,3 +776,11 @@ function FUNCxterm() {
 		xterm "$@"
 	fi
 }
+
+function FUNCsay() {
+	if which echoc >/dev/null;then
+		echoc --say "$@"
+	else
+		echo "SAY: $@"
+	fi
+}
