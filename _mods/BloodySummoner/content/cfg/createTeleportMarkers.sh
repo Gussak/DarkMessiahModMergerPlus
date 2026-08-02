@@ -46,6 +46,7 @@ while true;do
 	if [[ "$strFlCondumpPrev" != "$strFlCondump" ]];then
 		bRecreateCfgFile=false
 		strDeleteMarker=""
+		strTeleName=""
 		#bTeleMarkerDrop=false
 		
 		if ugrep -q "gskTeleMarkerDelete=CurrentOneSelected|gsktdc" "$strFlCondump";then #help delete current one selected (you can just type it on console too)
@@ -103,6 +104,7 @@ while true;do
 			fi
 			
 			if [[ -n "$strDeleteMarker" ]];then
+				declare -p astrMarkerID
 				for((i=0;i<${#astrMarkerID[@]};i++));do
 					strMarkerID="${astrMarkerID[$i]}"
 					if [[ "$strDeleteMarker" == "${strMarkerID}" ]];then
@@ -110,8 +112,10 @@ while true;do
 						break
 					fi
 				done
-				astrMarkerID=("${#astrMarkerID[@]}")
-			else
+				astrMarkerID=("${astrMarkerID[@]}")
+				declare -p astrMarkerID
+			fi
+			if [[ -n "$strTeleName" ]];then
 				# astrMarkerIndex will be reindexed if needed.
 				astrMarkerID+=("$(echo "${strTeleName}" |tr -d ' ')")
 				astrMarkerName+=("${strTeleName}")
