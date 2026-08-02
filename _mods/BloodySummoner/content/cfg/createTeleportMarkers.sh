@@ -39,8 +39,7 @@ fi
 
 strFlCondumpPrev=""
 while true;do
-	FUNCgetNewestCondump
-	strFlCondump="$FUNCgetNewestCondump_strFlCondump"
+	strFlCondump="$(FUNCgetNewestCondump)"
 	
 	if [[ "$strFlCondumpPrev" != "$strFlCondump" ]];then
 		bRecreateCfgFile=false
@@ -48,7 +47,8 @@ while true;do
 			:
 		fi
 		if ugrep -q "gskTeleMarkerDrop" "$strFlCondump";then
-			while ! FUNCmapInfo "$strFlCondump";do FUNCwaitSeconds 3 "condump needs map info status data";done
+			#while true;do ! FUNCmapInfo "$strFlCondump";do FUNCwaitSeconds 3 "condump needs map info status data";done
+			FUNCmapInfo "$strFlCondump"
 			
 			strPos="$FUNCmapInfo_strPosRestore"
 			strPosCmd="setpos ${strPos}"
@@ -60,15 +60,15 @@ while true;do
 			declare -p strPos strMapCfgFile FUNCmapInfo_strPosRestore strPosCmd
 			
 			echo "Now set this teleport marker name like: gskTeleMarkerName Some Nice Name, or gsktn Some Nice Name, or echo gsktn someNiceName, by typing it in the console. Then also type condump after the name prints" #help
-			strRegextMatchTeleName="^(gskTeleMarkerName|Unknown command: gskTeleMarkerName|\] gskTeleMarkerName|gsktn|Unknown command: gsktn|\] gsktn) (.*)"
+			strRegextMatchTeleName="^(gskTeleMarkerName|Unknown command: gskTeleMarkerName|\] gskTeleMarkerName|gsktn|Unknown command: gsktn|\] gsktn) ([^;]*).*"
 			while true;do
-				set -x
+				#set -x
 				strFlCondumpForName="$(FUNCgetNewestCondump)"
 				if ugrep -i "$strRegextMatchTeleName" "$strFlCondumpForName";then
 					strTeleName="$(ugrep -i "$strRegextMatchTeleName" "$strFlCondumpForName" |tail -n 1 |tr -d '\r' |sed -r -e "s@${strRegextMatchTeleName}@\2@g")"
 					declare -p strTeleName
 					bRecreateCfgFile=true;
-					set +x
+					#set +x
 					break;
 				fi
 				echo -ne "$(date) waiting Teleport marker name.\r"
