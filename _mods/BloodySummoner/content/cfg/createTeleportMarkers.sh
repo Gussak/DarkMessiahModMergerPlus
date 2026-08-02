@@ -50,7 +50,8 @@ while true;do
 		#bTeleMarkerDrop=false
 		
 		if ugrep -q "gskTeleMarkerDelete=CurrentOneSelected|gsktdc" "$strFlCondump";then #help delete current one selected (you can just type it on console too)
-			strDeleteMarker="$(ugrep "^[+]gskTeleMarkerSelectNext : gskTeleMarkerSelect[0-9]*" "$strFlCondump" |tail -n 1 |awk '{print $3}')"
+			#strDeleteMarker="$(ugrep "^[+]gskTeleMarkerSelectNext : gskTeleMarkerSelect[0-9]*" "$strFlCondump" |tail -n 1 |awk '{print $3}')"
+			strDeleteMarker="$(ugrep "^gskTeleMarkerRecall : gskTeleMarker[0-9]*" "$strFlCondump" |tail -n 1 |awk '{print $3}')"
 			
 			FUNCmapInfo "$strFlCondump"
 			strMapCfgFile="${strCfgPath}/gskTeleMarkers_${FUNCmapInfo_strMapName}.cfg"
@@ -96,7 +97,7 @@ while true;do
 			if [[ -f "$strMapCfgFile" ]];then
 				# ex.: // "GuestHouse" -4900  -10927  332
 				strRegexMatchIDNamePos="^echo \"([0-9]*) ([^ ]*) '(.*)' (.*)\"$"
-				mapfile -t astrMarkerIndex < <(cat "$strMapCfgFile" |ugrep "$strRegexMatchIDNamePos" |sed -r -e "s@${strRegexMatchIDNamePos}@\1@g") #this is dummy tho.
+				mapfile -t astrMarkerIndex < <(cat "$strMapCfgFile" |ugrep "$strRegexMatchIDNamePos" |sed -r -e "s@${strRegexMatchIDNamePos}@\1@g")
 				mapfile -t astrMarkerID    < <(cat "$strMapCfgFile" |ugrep "$strRegexMatchIDNamePos" |sed -r -e "s@${strRegexMatchIDNamePos}@\2@g")
 				mapfile -t astrMarkerName  < <(cat "$strMapCfgFile" |ugrep "$strRegexMatchIDNamePos" |sed -r -e "s@${strRegexMatchIDNamePos}@\3@g")
 				mapfile -t astrMarkerPos   < <(cat "$strMapCfgFile" |ugrep "$strRegexMatchIDNamePos" |sed -r -e "s@${strRegexMatchIDNamePos}@\4@g")
@@ -104,10 +105,17 @@ while true;do
 			fi
 			
 			if [[ -n "$strDeleteMarker" ]];then
-				declare -p astrMarkerID
+				#strDeleteMarkerIndex="$(echo "$strDeleteMarker" |sed -r -e 's@gskTeleMarkerSelect([0-9]*)@\1@g')"
+				strDeleteMarkerIndex="$(echo "$strDeleteMarker" |sed -r -e 's@gskTeleMarker([0-9]*)@\1@g')"
+				declare -p astrMarkerID strDeleteMarker strDeleteMarkerIndex
+				#iDeleteMarkerIndex="$( echo $(( 10#${strDeleteMarkerIndex} - 1 )) )"
+				#strDeleteMarkerIndexFixed="$(printf %03d $iDeleteMarkerIndex)"
 				for((i=0;i<${#astrMarkerID[@]};i++));do
 					strMarkerID="${astrMarkerID[$i]}"
-					if [[ "$strDeleteMarker" == "${strMarkerID}" ]];then
+					strMarkerIndex="${astrMarkerIndex[$i]}"
+					#if [[ "$strDeleteMarker" == "${strMarkerID}" ]];then
+					#if [[ "${strDeleteMarkerIndexFixed}" == "${strMarkerIndex}" ]];then
+					if [[ "${strDeleteMarkerIndex}" == "${strMarkerIndex}" ]];then
 						unset astrMarkerID[$i]
 						break
 					fi
@@ -116,6 +124,7 @@ while true;do
 				declare -p astrMarkerID
 			fi
 			if [[ -n "$strTeleName" ]];then
+				declare -p strTeleName
 				# astrMarkerIndex will be reindexed if needed.
 				astrMarkerID+=("$(echo "${strTeleName}" |tr -d ' ')")
 				astrMarkerName+=("${strTeleName}")
