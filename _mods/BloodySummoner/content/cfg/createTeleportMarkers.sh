@@ -43,8 +43,10 @@ while true;do
 	
 	if [[ "$strFlCondumpPrev" != "$strFlCondump" ]];then
 		bRecreateCfgFile=false
-		if ugrep -q "gskTeleMarkerDelete|gsktd" "$strFlCondump";then #help to delete a marker type like this on console: gsktd UniqueTeleporterMarkerID #TODO create a key bindable alias to delete current one selected
-			:
+		strDeleteMarker=""
+		
+		if ugrep -q "gskTeleMarkerDelete|gsktd" "$strFlCondump";then #help delete current one selected (you can just type it on console too)
+			strDeleteMarker="$(ugrep -q "+gskTeleMarkerSelectNext : gskTeleMarkerSelect[0-9]*" |awk '{print $3}')"
 		fi
 		if ugrep -q "gskTeleMarkerDrop" "$strFlCondump";then
 			#while true;do ! FUNCmapInfo "$strFlCondump";do FUNCwaitSeconds 3 "condump needs map info status data";done
@@ -95,26 +97,41 @@ while true;do
 				mapfile -t astrMarkerPos   < <(cat "$strMapCfgFile" |ugrep "$strRegexMatchIDNamePos" |sed -r -e "s@${strRegexMatchIDNamePos}@\4@g")
 				cp -v "$strMapCfgFile" "${strMapCfgFile}.$(FUNCdtFlNm).bkp" #TODO FUNCtrash "$strMapCfgFile" ?
 			fi
-			# astrMarkerIndex will be reindexed if needed.
-			astrMarkerID+=("$(echo "${strTeleName}" |tr -d ' ')")
-			astrMarkerName+=("${strTeleName}")
-			astrMarkerPos+=("${strPos}")
-			declare -p astrMarkerID astrMarkerName astrMarkerPos
+			
+			if [[ -n "$strDeleteMarker" ]];then
+				for((i=0;i<${#astrMarkerID[@]};i++));do
+					strMarkerID="${astrMarkerID[$i]}"
+					if [[ "$strDeleteMarker" == "${strMarkerID}" ]];then
+						unset astrMarkerID[$i]
+						break
+					fi
+				done
+				astrMarkerID=("${#astrMarkerID[@]}")
+			else
+				# astrMarkerIndex will be reindexed if needed.
+				astrMarkerID+=("$(echo "${strTeleName}" |tr -d ' ')")
+				astrMarkerName+=("${strTeleName}")
+				astrMarkerPos+=("${strPos}")
+				declare -p astrMarkerID astrMarkerName astrMarkerPos
+			fi
 			
 			#make markers unique (last one wins)
+			#iIndexCount=0
 			for((i=0;i<${#astrMarkerID[@]};i++));do 
+				#declare -p i iIndexCount
 				strMarkerID="${astrMarkerID[$i]}"
 				if [[ -z "$strMarkerID" ]];then continue;fi
 				strMarkerName="${astrMarkerName[$i]}"
 				strMarkerPos="${astrMarkerPos[$i]}"
 				declare -p strMarkerID strMarkerName strMarkerPos
 				
-				astrMarkerID_Index[$strMarkerID]="$i"
+				astrMarkerID_Index[$strMarkerID]="$i" #$((iIndexCount++))"&&:
 				astrMarkerID_Name[$strMarkerID]="$strMarkerName"
 				astrMarkerID_Pos[$strMarkerID]="$strMarkerPos"
 			done
 			nIndexMax=$(( ${#astrMarkerID[@]} - 1))&&:
-			declare -p astrMarkerID_Name astrMarkerID_Pos
+			declare -p astrMarkerID astrMarkerID_Name astrMarkerID_Pos astrMarkerID_Index
+			#exit
 			
 			# prepare cfg file
 			echo -n >"$strMapCfgFile" #trunc
@@ -144,7 +161,7 @@ while true;do
 				if((nIndex != nIndexMax));then
 					echo "alias gskTeleMarkerSelect${strIndex} \"alias gskTeleMarkerRecall ${strAliasForID}; alias +gskTeleMarkerSelectNext gskTeleMarkerSelect${strIndexNext}; ${strEcho}\"" >>"$strMapCfgFile"
 				else
-					echo "alias gskTeleMarkerSelect${strIndex} \"alias gskTeleMarkerRecall ${strAliasForID}; alias +gskTeleMarkerSelectNext gskTeleMarkerSelect000; ${strEcho}\"" >>"$strMapCfgFile"
+					echo "alias gskTeleMarkerSelect${strIndex} \"alias gskTeleMarkerRecall ${strAliasForID}; alias +gskTeleMarkerSelectNext gskTeleMarkerSelect000; ${strEcho}\" //LOOP" >>"$strMapCfgFile"
 				fi
 				#echo "alias -gskTeleMarkerSelect${strIndex} \"developer 0\"" >>"$strMapCfgFile"
 				
