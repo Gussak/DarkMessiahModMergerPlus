@@ -116,22 +116,33 @@ while true;do
 			fi
 			
 			#make markers unique (last one wins)
-			#iIndexCount=0
 			for((i=0;i<${#astrMarkerID[@]};i++));do 
-				#declare -p i iIndexCount
 				strMarkerID="${astrMarkerID[$i]}"
 				if [[ -z "$strMarkerID" ]];then continue;fi
 				strMarkerName="${astrMarkerName[$i]}"
 				strMarkerPos="${astrMarkerPos[$i]}"
 				declare -p strMarkerID strMarkerName strMarkerPos
 				
-				astrMarkerID_Index[$strMarkerID]="$i" #$((iIndexCount++))"&&:
+				astrMarkerID_Index[$strMarkerID]="${astrMarkerID_Index[$strMarkerID]-$i}" #this means: if that strMarkerID already exists, the next one found will replace it LEAST it's new RE-INDEX!
 				astrMarkerID_Name[$strMarkerID]="$strMarkerName"
 				astrMarkerID_Pos[$strMarkerID]="$strMarkerPos"
 			done
-			nIndexMax=$(( ${#astrMarkerID[@]} - 1))&&:
-			declare -p astrMarkerID astrMarkerID_Name astrMarkerID_Pos astrMarkerID_Index
-			#exit
+			nIndexMax=0
+			astrMarkerID_IndexChk=("${astrMarkerID_Index[@]}")
+			#declare -p astrMarkerID_Index
+			for((i=0;i<${#astrMarkerID_IndexChk[@]};i++));do
+				#declare -p nIndexMax i
+				if((i != ${astrMarkerID_IndexChk[$i]}));then
+					FUNCechoInfo "[DEV_ERROR] inconsistent indexing."
+					declare -p astrMarkerID_Index astrMarkerID_IndexChk
+					FUNCexit 1
+				fi
+				if((nIndexMax<i));then
+					nIndexMax="$i"
+				fi
+			done
+			#nIndexMax=$(( ${#astrMarkerID[@]} - 1))&&:
+			declare -p astrMarkerID astrMarkerID_Name astrMarkerID_Pos astrMarkerID_Index nIndexMax
 			
 			# prepare cfg file
 			echo -n >"$strMapCfgFile" #trunc
