@@ -124,7 +124,7 @@ if $bCreateSpawnsForCurrentMap;then
 	: ${strFlCondump:="$(ls -1tr "${strGameInstallMainFolder}/${strGameSubRelatFolderWriteAllHere}/condump"* |tail -n 1)"} #help can be the backup like ex.: "gskmap_l02_b1_02_FrontYard_OK.cfg.condump.txt"
 	ls -l "$strFlCondump"
 	
-	FUNCmapInfo "$strFlCondump"
+	while ! FUNCmapInfo "$strFlCondump";do FUNCwaitSeconds 3 "condump needs map info status data";done
 	## map     :  L00 at: -1385 x, -4444 y, 343 z
 	## map     :  l02_b1 at: -4902 x, -10930 y, 367 z
 	#strRegexMapPos='^map\s*:\s*([a-zA-Z0-9_-]*)\s*at:\s*(.*)'

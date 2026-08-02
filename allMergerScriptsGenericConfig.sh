@@ -74,7 +74,8 @@ FUNCaskYesNo() { # <questionForYesNo>. use like: if FUNCaskYesNo "oi?";then ...
 
 FUNCwaitSeconds() { #help <Delay> [CustomMSG]
 	local lnSec=$1;shift
-	read -t $lnSec -n 1 -p "[WAITING:${lnSec}s] ${*-} (press a key to continue)"
+	echo "[WAITING:${lnSec}s] ${*-} (press a key to continue)" >&2
+	read -t $lnSec -n 1&&:
 };export -f FUNCwaitSeconds
 FUNCwait() { #help [CustomMSG]
 	FUNCwaitSeconds $((60*60*24*31*12)) "${*-}"
@@ -708,8 +709,10 @@ function FUNCminiModInit() {
 };export -f FUNCminiModInit
 
 function FUNCgetNewestCondump() {
-	declare -g FUNCgetNewestCondump_strFlCondump="$(ls -1tr "${strGameInstallMainFolder}/${strGameSubRelatFolderWriteAllHere}/condump"* |tail -n 1)" #help can be the backup like "${strMapCfgFile}.condump.txt"
+	declare -g FUNCgetNewestCondump_strFlCondump="$(ls -1tr "${strGameInstallMainFolder}/${strGameSubRelatFolderWriteAllHere}/condump"* |tail -n 1)" &&: #help can be the backup like "${strMapCfgFile}.condump.txt"
 	#ls -l "${FUNCgetNewestCondump_strFlCondump}" >&2 &&:
+	echo "$FUNCgetNewestCondump_strFlCondump"
+	return 0
 };export -f FUNCgetNewestCondump
 function FUNCmapInfo() {
 	local lstrFlCondump="$1"
@@ -718,20 +721,26 @@ function FUNCmapInfo() {
 	# map     :  l02_b1 at: -4902 x, -10930 y, 367 z
 	local lstrRegexMapPos='^map\s*:\s*([a-zA-Z0-9_-]*)\s*at:\s*(.*)'
 	declare -g FUNCmapInfo_strMapStatus="$( ugrep "${lstrRegexMapPos}" "$lstrFlCondump" |tail -n 2 |awk 'length($0) > max { max = length($0); delete lines; lines[$0]; next } length($0) == max { lines[$0] } END { for (l in lines) print l }' )" #grab last 2 map info dumps, so no need to clean console log
-	if(($(echo "$FUNCmapInfo_strMapStatus" |wc -l) != 1));then FUNCechoInfo "[ERROR:] 2 biggest lines conflicting: $FUNCmapInfo_strMapStatus (because usually the biggest one is the right one)";FUNCexit 1;fi
+	if(($(echo "$FUNCmapInfo_strMapStatus" |wc -l) != 1));then
+		FUNCechoInfo "[ERROR:] 2 biggest lines conflicting: $FUNCmapInfo_strMapStatus (because usually the biggest one is the right one)";
+		return 1;
+	fi
+	
 	declare -g FUNCmapInfo_strMapName
 	: ${FUNCmapInfo_strMapName:="$(echo "$FUNCmapInfo_strMapStatus" |sed -r -e "s@${lstrRegexMapPos}@\1@g")"} #help
 	if [[ -z "$FUNCmapInfo_strMapName" ]];then
 		FUNCechoInfo "[ERROR:] no Map Name Detected "
-		FUNCexit 1
+		return 1
 	fi
 
 	declare -g FUNCmapInfo_strPosRestore="$(echo "${FUNCmapInfo_strMapStatus}" |sed -r -e "s@${lstrRegexMapPos}@\2@g" |tr -d 'xyz,\r')"
 	if [[ -z "$FUNCmapInfo_strPosRestore" ]];then
 		FUNCechoInfo "[ERROR:] no Pos To Restore Detected"
-		FUNCexit 1
+		return 1
 	fi
 	strRestorePosInTheEnd="setpos ${FUNCmapInfo_strPosRestore}"
+	
+	return 0
 };export -f FUNCmapInfo
 
 function FUNChasBOM() {

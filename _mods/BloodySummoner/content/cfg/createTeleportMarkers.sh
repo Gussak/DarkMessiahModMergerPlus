@@ -31,7 +31,8 @@
 
 while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
 
-if ! pgrep -fa DMMM_teleportMarkersCreation;then
+: ${bXterm=true} #help
+if $bXterm && ! pgrep -fa DMMM_teleportMarkersCreation;then
 	(FUNCxterm -title DMMM_teleportMarkersCreation -e "$0" & disown);
 	exit 0
 fi
@@ -47,7 +48,7 @@ while true;do
 			:
 		fi
 		if ugrep -q "gskTeleMarkerDrop" "$strFlCondump";then
-			FUNCmapInfo "$strFlCondump"
+			while ! FUNCmapInfo "$strFlCondump";do FUNCwaitSeconds 3 "condump needs map info status data";done
 			
 			strPos="$FUNCmapInfo_strPosRestore"
 			strPosCmd="setpos ${strPos}"
@@ -58,16 +59,21 @@ while true;do
 			
 			declare -p strPos strMapCfgFile FUNCmapInfo_strPosRestore strPosCmd
 			
-			echo "Now set this teleport marker name like: gskTeleMarkerName someNiceName, or gsktn some Nice Name, or echo gsktn someNiceName, by typing it in the console. Then also type condump." #help
-			strRegextMatchTeleName="^(gskTeleMarkerName|Unknown command: gskTeleMarkerName|gsktn|Unknown command: gsktn) (.*)"
-			while ! ugrep -i "$strRegextMatchTeleName" "$strFlCondump";do
+			echo "Now set this teleport marker name like: gskTeleMarkerName Some Nice Name, or gsktn Some Nice Name, or echo gsktn someNiceName, by typing it in the console. Then also type condump after the name prints" #help
+			strRegextMatchTeleName="^(gskTeleMarkerName|Unknown command: gskTeleMarkerName|\] gskTeleMarkerName|gsktn|Unknown command: gsktn|\] gsktn) (.*)"
+			while true;do
+				set -x
+				strFlCondumpForName="$(FUNCgetNewestCondump)"
+				if ugrep -i "$strRegextMatchTeleName" "$strFlCondumpForName";then
+					strTeleName="$(ugrep -i "$strRegextMatchTeleName" "$strFlCondumpForName" |tail -n 1 |tr -d '\r' |sed -r -e "s@${strRegextMatchTeleName}@\2@g")"
+					declare -p strTeleName
+					bRecreateCfgFile=true;
+					set +x
+					break;
+				fi
 				echo -ne "$(date) waiting Teleport marker name.\r"
 				sleep 1
 			done
-			strTeleName="$(ugrep -i "$strRegextMatchTeleName" "$strFlCondump" |tail -n 1 |tr -d '\r' |sed -r -e "s@${strRegextMatchTeleName}@\2@g")"
-			declare -p strTeleName
-			
-			bRecreateCfgFile=true;
 		fi
 		
 		if $bRecreateCfgFile;then
