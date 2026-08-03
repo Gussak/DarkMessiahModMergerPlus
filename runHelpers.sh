@@ -106,6 +106,9 @@ if $bRunBothInstances;then
 					[tT])
 						trash -v ~/.cache/mesa_shader_cache ~/.nv/ComputeCache/ ~/.nv/GLCache ~/.cache/nvidia/GLCache &&:
 						;;
+					"") # Enter key
+						bBreakQuestion=true
+						;;
 					*)
 						echo "not recognized option: strResp='$strResp'"
 						;;
@@ -144,53 +147,6 @@ if $bRunBothInstances;then
 			(FUNCxterm -title DMMM_Run${iInstanceIndex} -e bash -c "FUNCrunInstance ${iInstanceIndex}" & disown)
 		fi
 	done
-
-	#function FUNCrunInstance() {
-		#local liInstanceIndex=$1
-		#if pgrep -fa DMMM_Run${iInstanceIndex};then return 0;fi
-		
-		#export bBashAutoCmdOnStart=false
-		#astrSECdevEnv=();if which secEnvDev.sh;then astrSECdevEnv=(secEnvDev.sh --clean);fi
-		#FUNCrunLoop() {
-			#strWarnMsg="WAIT@{-n} THE other INSTANCE FINISH LOADING THE SAVEGAME OR BOTH may CRASH/FREEZE!!!"
-			#astrEchoAlert=(echo   );if which echoc;then astrEchoAlert=(echoc --alert);fi
-			#astrEchoWait=( read -p);if which echoc;then astrEchoWait=( echoc -w     );fi
-			#while true;do
-				#${astrEchoAlert[@]} "$strWarnMsg";
-				#${astrEchoWait[@]}  "hit Enter to run DarkMessiahMM @{nul}Instance (${liInstanceIndex})@{-n-u-l}" && :
-				#pwd
-				#cd "${strGameInstallMainFolder}"
-				#./fixWindowAndDontStop.sh
-				#./runDarkMessiahOMM_Launcher.sh -${liInstanceIndex}
-			#done
-		#};export -f FUNCrunLoop
-		#acmd=(
-			#"${astrSECdevEnv[@]}" 
-			#bash -c "FUNCrunLoop"
-		#)
-		#set -x;"${acmd[@]}";set +x;
-	#};export -f FUNCrunInstance
-	
-	#astrFlFuncExec=()
-	#astrFlFuncExec+=("$(mktemp)")
-	#astrFlFuncExec+=("$(mktemp)")
-	#type FUNCrunInstance |tail -n +2 >"${astrFlFuncExec[0]}"
-	#type FUNCrunInstance |tail -n +2 >"${astrFlFuncExec[1]}"
-	##help @InfoID="[Run2instances]" Helper Script, will run 2 instances of the game for easy/quickly reloading a savegame, see bRunBothInstances
-	#for((i=1;i<=2;i++));do
-		#FUNCrunInstance $i
-	
-		#iInstanceIndex=$i
-			#strFlSrc="${astrFlFuncExec[$((iInstanceIndex-1))]}"
-			#strBashScript="echo \"Loading Source: ${strFlSrc}\"; cat \"${strFlSrc}\"; source \"${strFlSrc}\"; trash -v \"${strFlSrc}\"; FUNCrunInstance ${iInstanceIndex}"
-			#if which guakeAutoEnv.sh;then
-				#set -x;(xterm -title DMMM_Run${iInstanceIndex} -e bash -c "guakeAutoEnv.sh -ID_CMD game${iInstanceIndex} bash -c \"${strBashScript}; echoc -w -t 60 Instance${iInstanceIndex}\"" & disown);set +x
-				##set -x;guakeAutoEnv.sh -ID_CMD game${iInstanceIndex} bash -c "${strBashScript}; echoc -w -t 60 \"Instance${iInstanceIndex}\"";set +x
-			#else
-				#set -x;(xterm -title DMMM_Run${iInstanceIndex} -e bash -c "${strBashScript}; read -p \"PressEnterToEnd(Instance${iInstanceIndex})\" -t 60&&:" & disown);set +x
-			#fi
-		#fi
-	#done
 fi
 
 ##################
