@@ -96,7 +96,7 @@ if $bRunBothInstances;then
 		'l' for quick loop,
 		'd' to drop caches,
 		'a' auto click RUN ($bAutoClickRun),
-		's' trash shader caches,
+		't' trash files that may cause problems and can be recreated like user shader caches,
 		'p' restart pulseaudio (this breaks running instance audio),
 	"
 				read -n 1 strResp&&:
@@ -119,7 +119,7 @@ if $bRunBothInstances;then
 						fi
 						set +x;
 						;;
-					[sS])
+					[tT])
 						trash -v \
 							~/.cache/mesa_shader_cache \
 							~/.nv/ComputeCache/ \

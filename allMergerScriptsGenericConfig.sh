@@ -784,3 +784,13 @@ function FUNCsay() {
 		echo "SAY: $@"
 	fi
 }
+
+function FUNCbackupSpecialFilesForGoodLoading() {
+	local lstrDT="$(date +'%Y_%m_%d-%H_%M_%S')"
+	local lstrSuffix="BKP_GOOD_LOADING"
+	local lstrDtSuffix=".${lstrDT}.${lstrSuffix}"
+	
+	cp -v "${strGameInstallMainFolder}/bin/vidcfg.bin" "${strGameInstallMainFolder}/bin/vidcfg.bin.${lstrDtSuffix}" #help without this file it will crash with "terminate called after throwing an instance of 'dxvk::DxvkError'"
+	cp -vf "${strGameInstallMainFolder}/bin/vidcfg.bin.${lstrDtSuffix}" "${strGameInstallMainFolder}/bin/vidcfg.bin.${lstrSuffix}" #to help backup latest
+	
+}
