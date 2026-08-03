@@ -1,7 +1,7 @@
 {
     "name"                  :   "[MERGE] NoFreeHealings",
     "version"               :   "1.0",
-    "description"           :   "Prevents all easy healing sources like Leanna magic. Or at least not that super easy.",
+    "description"           :   "[MERGE] Prevents all easy healing sources like Leanna magic. Or at least not that super easy.",
     "author"                :   "GussakThor",
     "author_url"            :   "",
     "website"               :   "",

@@ -1,7 +1,7 @@
 {
   "name": "[MERGE] Auto Generated Key Bindings",
     "version"               :   "1.0",
-  "description": "Edit the database at 'gskEnabledBinds.DoNotEnable.cfg' and run 'createBindsMenu.sh' to auto generate.",
+  "description": "[MERGE] Edit the database at 'gskEnabledBinds.DoNotEnable.cfg' and run 'createBindsMenu.sh' to auto generate.",
     "author"                :   "GussakThor",
     "author_url"            :   "",
     "website"               :   "",
