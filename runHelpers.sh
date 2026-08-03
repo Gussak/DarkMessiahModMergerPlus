@@ -104,7 +104,7 @@ if $bRunBothInstances;then
 						set +x;
 						;;
 					[tT])
-						trash -v ~/.cache/mesa_shader_cache ~/.nv/ComputeCache/ ~/.nv/GLCache &&:
+						trash -v ~/.cache/mesa_shader_cache ~/.nv/ComputeCache/ ~/.nv/GLCache ~/.cache/nvidia/GLCache &&:
 						;;
 					*)
 						echo "not recognized option: strResp='$strResp'"
