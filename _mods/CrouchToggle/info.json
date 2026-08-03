@@ -1,5 +1,5 @@
 {
-    "name"                  :   "CrouchToggle",
+  "name": "[CanMerge] CrouchToggle",
     "version"               :   "1.0",
     "description"           :   "Do rebind (replace) crouch key with crouch toggle. But during merge you can keep both if you want.",
     "author"                :   "GussakThor",

@@ -1,5 +1,5 @@
 {
-    "name"                  :   "Bloody Adrenaline",
+  "name": "[CanMerge] Bloody Adrenaline",
     "version"               :   "1.0",
     "description"           :   "Convert HP into Adrenaline, bound key. DependsOn:000gskBaseLib",
     "author"                :   "GussakThor",

@@ -1,5 +1,5 @@
 {
-    "name"                  :   "Wizard Eye costs mana",
+    "name"                  :   "[MERGE] Wizard Eye costs mana",
     "version"               :   "1.0",
     "description"           :   "for the challenge of managing mana. EngineBug(?): Try to not deactivate it or it will spend mana twice",
     "author"                :   "GussakThor",

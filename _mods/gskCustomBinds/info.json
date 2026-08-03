@@ -1,7 +1,7 @@
 {
-    "name"                  :   "My Custom Key Bindings",
+  "name": "[MERGE] Auto Generated Key Bindings",
     "version"               :   "1.0",
-    "description"           :   "Only enable this if they do not conflict with your keybindings, check on 'condump*.txt'. Open gskEnabledBinds.cfg and comment all OR rename that file to gskEnabledBinds.cfg.bkp OR remove it from game_configs below (at info.json file). TODO: add a config menu entry to bind each key one day?",
+  "description": "Edit the database at 'gskEnabledBinds.DoNotEnable.cfg' and run 'createBindsMenu.sh' to auto generate.",
     "author"                :   "GussakThor",
     "author_url"            :   "",
     "website"               :   "",
