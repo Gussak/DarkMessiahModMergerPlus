@@ -71,20 +71,54 @@ if $bRunBothInstances;then
 			pwd
 			: ${bRunStartCrashWorkaroundLoop:=false} #help allows a quick retry start loop (sometimes it is better others it is worse...)
 			: ${bAutoClickRun=true};export bAutoClickRun #help on ModLauncher run button, this is recognized by ./fixWindowAndDontStop.sh
-			FUNCecho --info "Run a 2nd instance for quick resume playing after death, as load game is super slow."
-			FUNCecho --alert "[WAIT@{-n} THE other INSTANCE FINISH LOADING THE SAVEGAME OR BOTH may CRASH/FREEZE!!!]"
-			FUNCecho -w -t 0.1 "[run Instance $liInstanceIndex] press Enter or 'l' for quick loop, 'd' to drop caches, 'a' auto click RUN ($bAutoClickRun)";read -n 1 strResp&&:
-			if [[ "$strResp" == [lL] ]];then bRunStartCrashWorkaroundLoop=true;fi #help drop caches may help better tho
-			if [[ "$strResp" == [aA] ]];then bAutoClickRun=false;fi #help drop caches may help better tho
-			if [[ "$strResp" == [dD] ]];then
-				set -x;bash -c sync && sudo dd if=/proc/3/stat of=/proc/sys/vm/drop_caches bs=1 count=1;set +x;
-				FUNCecho --say 'drop caches';
-			fi
+			while true;do
+				bBreakQuestion=false
+				FUNCecho --info "Run a 2nd instance for quick resume playing after death, as load game is super slow."
+				FUNCecho --alert "[WAIT@{-n} THE other INSTANCE FINISH LOADING THE SAVEGAME OR BOTH may CRASH/FREEZE!!!]"
+				FUNCecho -w -t 0.1 "[run Instance $liInstanceIndex] press
+		Enter or
+		'l' for quick loop,
+		'd' to drop caches,
+		'a' auto click RUN ($bAutoClickRun),
+		't' trash shader caches,
+		'p' restart pulseaudio (this breaks running instance audio),
+	"
+				read -n 1 strResp&&:
+				case "$strResp" in
+					[aA])
+						bAutoClickRun=false #help drop caches may help better tho
+						;;
+					[dD])
+						set -x;bash -c sync && sudo dd if=/proc/3/stat of=/proc/sys/vm/drop_caches bs=1 count=1;set +x;
+						FUNCecho --say 'drop caches';
+						;;
+					[lL])
+						bRunStartCrashWorkaroundLoop=true #help drop caches may help better tho
+						bBreakQuestion=true
+						;;
+					[pP])
+						set -x;
+						if ! systemctl --user restart pipewire pipewire-pulse;then
+							pulseaudio -k && pulseaudio --start
+						fi
+						set +x;
+						;;
+					[tT])
+						trash -v ~/.cache/mesa_shader_cache ~/.nv/ComputeCache/ ~/.nv/GLCache &&:
+						;;
+					*)
+						echo "not recognized option: strResp='$strResp'"
+						;;
+				esac
+				if $bBreakQuestion;then break;fi
+			done
+			
 			if $bRunStartCrashWorkaroundLoop;then
 				if FUNCaskYesNo "Startup crashing too much? try the quick loop?";then
 					while true;do
 						#./fixWindowAndDontStop.sh too slow just click normally
 						strAutoLoad=forceIgnore ./runDarkMessiahOMM_Launcher.sh -${liInstanceIndex}
+						echo "press 'b' to break this mini quick loop";read -t 1 -n 1 strResp&&:;if [[ "$strResp" == [bB] ]];then break;fi
 					done
 				fi
 			else
