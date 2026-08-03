@@ -809,11 +809,10 @@ function FUNCbackupSpecialFilesForGoodLoading() {
 
 function FUNCfindBrokenSymlinks() {
 	echo "[INFO] ${FUNCNAME[@]}"
-	if find -type l -xtype l;then #use this instead? find -L -type l -xtype l
-		pwd
-		echo "[ERROR] broken symlinks found above"
+	if(( $(find -type l -xtype l |tee /dev/stderr |wc -l) > 0 ));then #use this instead? find -L -type l -xtype l
+		echo "[ERROR] broken symlinks found above at '$(pwd)'"
 		read -n 1&&:
-		return 1
+		return 0
 	fi
-	return 0
+	return 1
 }

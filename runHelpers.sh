@@ -86,8 +86,8 @@ if $bRunBothInstances;then
 				bBreakQuestion=false
 				FUNCecho --info "Run a 2nd instance for quick resume playing after death, as load game is super slow."
 				FUNCecho --alert "[WAIT@{-n} THE other INSTANCE FINISH LOADING THE SAVEGAME OR BOTH may CRASH/FREEZE!!!]"
-				FUNCecho -w -t 0.1 "[run Instance $liInstanceIndex] press
-		Enter or
+				FUNCecho -w -t 0.1 "[Instance $liInstanceIndex] press
+		'Enter' to RUN,
 		'l' for quick loop,
 		'd' to drop caches,
 		'a' auto click RUN ($bAutoClickRun),
