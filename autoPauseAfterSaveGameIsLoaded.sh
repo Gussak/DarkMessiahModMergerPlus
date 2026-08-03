@@ -171,6 +171,8 @@ case $iMonCh in
 	1)
 		if ! pgrep -fa DMMM_monitorChanges;then
 			(FUNCxterm -maximized -title DMMM_monitorChanges -e FUNCmonitorChanges & disown)
+		else
+			FUNCechoInfo "Already running."
 		fi
 		;;
 	2) FUNCmonitorChanges;exit;;
@@ -305,7 +307,7 @@ if ! pgrep -fa DMMM_pauseAfterLoad;then
 	if $bXterm;then
 		(FUNCxterm -maximized -title DMMM_pauseAfterLoad -e bash -c "FUNCpauseAfterLoad" & disown);
 	else
-		FUNCpauseAfterLoad
+		bash -c "echo DMMM_pauseAfterLoad; FUNCpauseAfterLoad" #pgrep will see DMMM_pauseAfterLoad!
 	fi
 else
 	echo "already running"

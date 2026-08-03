@@ -53,19 +53,14 @@ cd "${strMainModFolder}/_mods/BloodySummoner/content/cfg/"
 ./createTeleportMarkers.sh #help @InfoID="createTeleportMarkers.sh" Helper Script, endless loop to create teleport markers
 
 cd "${strGameInstallMainFolder}"
-if find -type l -xtype l;then
-	pwd
-	echo "[ERROR] broken symlinks found"
-	read -n 1&&:
-	exit 1
-fi
+if FUNCfindBrokenSymlinks;then echo "${FUNCNAME[@]}:Ln$LINENO";exit 1;fi
 
 cd "${strPathParent}"
-if find -type l -xtype l;then #use this instead? find -L -type l -xtype l
-	pwd
-	echo "[ERROR] broken symlinks found"
-	read -n 1&&:
-	exit 1
+if FUNCfindBrokenSymlinks;then
+	echo "${FUNCNAME[@]}:Ln$LINENO"
+	if ! FUNCaskYesNo "these may not cause trouble to run the game, continue anyway?";then
+		exit 1
+	fi
 fi
 
 cd "${strMainModFolder}/" # just to be sure...

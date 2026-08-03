@@ -769,12 +769,24 @@ function FUNCsay() { #to help when you are far away
 	if which ScriptEchoColor >/dev/null;then echoc --say "$1";fi
 };export -f FUNCsay
 
-function FUNCxterm() {
-	if which launchappminimized >/dev/null;then
-		launchappminimized --fast xterm "$@"
+function FUNCxterm() { 
+	#too messy support morethan one terminal.. <title> [otherParams]
+	#local lstrTitle="$1";shift
+	if which launchappminimized >/dev/null;then # is better than kitty
+		#launchappminimized --fast xterm -title "$lstrTitle" "$@" >/dev/null
+		launchappminimized --fast xterm "$@" >/dev/null
 	else
-		xterm "$@"
+		#if which kitty >/dev/null;then #is better than xterm w/o launchappminimized
+			#kitty --title "$lstrTitle" --start-as=minimized "$@"
+		if which xterm >/dev/null;then
+			#xterm -title "$lstrTitle" "$@"
+			xterm "$@"
+		else
+			FUNCechoInfo "[PROBLEM] no supported windowed terminal app found."
+			exit 1
+		fi
 	fi
+	return 0
 }
 
 function FUNCsay() {
@@ -793,4 +805,15 @@ function FUNCbackupSpecialFilesForGoodLoading() {
 	cp -v "${strGameInstallMainFolder}/bin/vidcfg.bin" "${strGameInstallMainFolder}/bin/vidcfg.bin.${lstrDtSuffix}" #help without this file it will crash with "terminate called after throwing an instance of 'dxvk::DxvkError'"
 	cp -vf "${strGameInstallMainFolder}/bin/vidcfg.bin.${lstrDtSuffix}" "${strGameInstallMainFolder}/bin/vidcfg.bin.${lstrSuffix}" #to help backup latest
 	
+}
+
+function FUNCfindBrokenSymlinks() {
+	echo "[INFO] ${FUNCNAME[@]}"
+	if find -type l -xtype l;then #use this instead? find -L -type l -xtype l
+		pwd
+		echo "[ERROR] broken symlinks found above"
+		read -n 1&&:
+		return 1
+	fi
+	return 0
 }
