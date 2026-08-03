@@ -52,6 +52,22 @@ cd "${strMainModFolder}/"
 cd "${strMainModFolder}/_mods/BloodySummoner/content/cfg/"
 ./createTeleportMarkers.sh #help @InfoID="createTeleportMarkers.sh" Helper Script, endless loop to create teleport markers
 
+cd "${strGameInstallMainFolder}"
+if find -type l -xtype l;then
+	pwd
+	echo "[ERROR] broken symlinks found"
+	read -n 1&&:
+	exit 1
+fi
+
+cd "${strPathParent}"
+if find -type l -xtype l;then #use this instead? find -L -type l -xtype l
+	pwd
+	echo "[ERROR] broken symlinks found"
+	read -n 1&&:
+	exit 1
+fi
+
 cd "${strMainModFolder}/" # just to be sure...
 
 : ${bRunBothInstances:=true} #help
@@ -80,7 +96,7 @@ if $bRunBothInstances;then
 		'l' for quick loop,
 		'd' to drop caches,
 		'a' auto click RUN ($bAutoClickRun),
-		't' trash shader caches,
+		's' trash shader caches,
 		'p' restart pulseaudio (this breaks running instance audio),
 	"
 				read -n 1 strResp&&:
@@ -103,8 +119,14 @@ if $bRunBothInstances;then
 						fi
 						set +x;
 						;;
-					[tT])
-						trash -v ~/.cache/mesa_shader_cache ~/.nv/ComputeCache/ ~/.nv/GLCache ~/.cache/nvidia/GLCache &&:
+					[sS])
+						trash -v \
+							~/.cache/mesa_shader_cache \
+							~/.nv/ComputeCache/ \
+							~/.nv/GLCache \
+							~/.cache/nvidia/GLCache \
+							"${strGameInstallMainFolder}/mm.dxvk-cache" \
+							&&:
 						;;
 					"") # Enter key
 						bBreakQuestion=true

@@ -3,7 +3,11 @@
 while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
 
 (
-	cd "${strGameInstallMainFolder}/${strGameSubRelatFolderWriteAllHere}"
+	if [[ -d "${strGameInstallMainFolder}/${strGameSubRelatFolderWriteAllHere}" ]];then
+		cd "${strGameInstallMainFolder}/${strGameSubRelatFolderWriteAllHere}"
+	else
+		cd "${strGameInstallMainFolder}.0.WriteLayer/${strGameSubRelatFolderWriteAllHere}"
+	fi
 
 	FUNCtrash \
 		"demoheader.tmp.SnapShot_ID_"*".bkp" \
