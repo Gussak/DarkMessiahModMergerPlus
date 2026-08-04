@@ -40,7 +40,8 @@ while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./a
 	#exit 0
 #fi
 strSelfXtermInstanceID=DMMM_teleportMarkersCreation
-: ${bXterm=true};if $bXterm && bXterm=false FUNCxtermChild $strSelfXtermInstanceID -e "$0" "$@";then echo ChildReady; exit 0; fi #help
+: ${bXterm:=true} #help
+if $bXterm && bXterm=false FUNCxtermChild $strSelfXtermInstanceID -e "$0" "$@";then echo ChildReady; exit 0; fi
 #set +x
 
 function FUNCgskCmd() { # <lstrFlCondump> <lstrCmdFull> <lstrCmdShort> <lnGetParamIndex>
@@ -76,7 +77,7 @@ while true;do
 			strDeleteMarker="$(ugrep "^gskTeleMarkerRecall : gskTeleMarker[0-9]*" "$strFlCondump" |tail -n 1 |awk '{print $3}')"
 			
 			bRecreateCfgFile=true;
-		elif ugrep -q "${strMatchRename}" "$strFlCondump";then #help use like (just ctrl+C the pos from console, 'from' must be the Teleporter ID that have no spaces): gsktrn POS_x-234_y587_z2354 Some Nice Pretty Name
+		elif ugrep -q "${strMatchRename}" "$strFlCondump";then #help @InfoID="gskTeleMarkerRename" use like (just ctrl+C the pos from console, 'from' must be the Teleporter ID that have no spaces) ex.: clear; status; status; gsktrn POS_x-234_y587_z2354 Some Nice Pretty Name; condump //TODO let it be just the current one selected to be renamed
 			FUNCmapInfo "$strFlCondump"
 			strMapCfgFile="${strCfgPath}/gskTeleMarkers_${FUNCmapInfo_strMapName}.cfg"
 			
