@@ -33,12 +33,15 @@ while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./a
 
 FUNCchkDeps unix2dos iconv file
 
+: ${strAliasPrefix:=gsk} #help
+
+
 if [[ ! -f "${strGameInstallMainFolder}/mm.exe" ]];then
 	echo "[PROBLEM] Please mount '${strGameInstallMainFolder}' to be sure what is active to properly prepare the keybindings."
 	exit 1
 fi
 
-mapfile -t astrAliasList < <(cat gskEnabledBinds.DoNotEnable.cfg |grep "^bind" |egrep -v '"' |awk '{print $3}' |egrep "^[+]*gsk" |tr -d '\r')
+mapfile -t astrAliasList < <(cat gskEnabledBinds.DoNotEnable.cfg |grep "^bind" |egrep -v '"' |awk '{print $3}' |egrep "^[+]*${strAliasPrefix}" |tr -d '\r')
 strMenuDataBegin='
 "lang"
 {
@@ -52,7 +55,9 @@ strMenuDataEnd='
 '
 strMenuDataEntries=""
 function FUNCgoodDesc() {
-	local lstrLN="$(grep "${lstrAlias}" gskEnabledBinds.DoNotEnable.cfg)"
+	local lstrAlias="$1";shift
+	
+	local lstrLN="$(grep " ${lstrAlias} " gskEnabledBinds.DoNotEnable.cfg)"
 	if [[ "$lstrLN" =~ .*//.* ]];then
 		local lstrDesc="$(echo "$lstrLN" | sed -r -e 's@^[^/]*//@@' -e 's@ //.*$@@' -e 's@^[[:space:]]*@@; s@[[:space:]]*$@@')" # works with this to ignore the long description: aaa // short description // long description
 
@@ -67,12 +72,18 @@ function FUNCgoodDesc() {
 	return 1
 }
 function FUNClazyDesc() {
-	local lstrAlias="$1";
+	local lstrAlias="$1";shift
+	
 	if FUNCgoodDesc "$lstrAlias";then return 0;fi
+	
+	local lstrLazyDesc=""
+	local i
 	for((i=0;i<${#lstrAlias};i++));do
-		if [[ "${lstrAlias:$i:1}" =~ [A-Z] ]];then echo -n " ";fi
-		echo -n "${lstrAlias:$i:1}";
+		if [[ "${lstrAlias:$i:1}" =~ [A-Z] ]];then lstrLazyDesc+=" ";fi
+		lstrLazyDesc+="${lstrAlias:$i:1}";
 	done
+	
+	echo -n "$lstrLazyDesc" |sed -r -e "s@[+]*${strAliasPrefix} (.*)@\1@g"
 }
 #set -x
 strKVPatches=""
@@ -90,11 +101,11 @@ for((iAlias=0;iAlias<${#astrAliasList[@]};iAlias++));do
 	mapfile -t anCost < <(egrep "${strAliasHurtmeRegex}" "$strGameInstallMainFolder"/ -iRIaoh --include="*.cfg" |sed -r -e 's@(.*)//.*@\1@' -e "s@${strAliasHurtmeRegex}@\1@g")
 	nCost=0;for nC in "${anCost[@]}";do ((nCost+=nC))&&:;done
 	strCost="";if((nCost>0));then strCost=" HP${nCost}";fi
-	strDescription="$(FUNClazyDesc "$strAlias" |sed -r -e 's@[+]*gsk (.*)@\1@g')${strCost}"
+	strDescription="$(FUNClazyDesc "$strAlias")${strCost}"
 	
 	: ${nMaxDescSize:=40} #help
 	if((${#strDescription} > nMaxDescSize));then
-		FUNCechoInfo "[WARN] strDescription size is too big (${#strDescription} chars/$nMaxDescSize) and will not fit in the menu for '$strDescription'"
+		FUNCechoInfo "[WARN] strDescription size is too big (chars ${#strDescription} max $nMaxDescSize) and will not fit in the menu for '$strDescription'"
 		if ! FUNCaskYesNo "continue anyway?";then exit 1;fi
 	fi
 	

@@ -82,22 +82,27 @@ if $bRunBothInstances;then
 			pwd
 			: ${bRunStartCrashWorkaroundLoop:=false} #help allows a quick retry start loop (sometimes it is better others it is worse...)
 			: ${bAutoClickRun=true};export bAutoClickRun #help on ModLauncher run button, this is recognized by ./fixWindowAndDontStop.sh
+			export bMMAutoConfigFlag=false
 			while true;do
 				bBreakQuestion=false
 				FUNCecho --info "Run a 2nd instance for quick resume playing after death, as load game is super slow."
 				FUNCecho --alert "[WAIT@{-n} THE other INSTANCE FINISH LOADING THE SAVEGAME OR BOTH may CRASH/FREEZE!!!]"
 				FUNCecho -w -t 0.1 "[Instance $liInstanceIndex] press
-		'Enter' to RUN,
-		'l' for quick loop,
-		'd' to drop caches,
-		'a' auto click RUN ($bAutoClickRun),
-		't' trash files that may cause problems and can be recreated like user shader caches,
-		'p' restart pulseaudio (this breaks running instance audio),
-	"
+	'Enter' to RUN,
+	'a' auto click RUN (bAutoClickRun=$bAutoClickRun)
+	'c' use once: mm.exe -autoconfig
+	'd' to drop caches
+	'l' for quick loop
+	'p' restart pulseaudio (this breaks running instance audio)
+	't' trash files that may cause problems and can be recreated like user shader caches
+"
 				read -n 1 strResp&&:
 				case "$strResp" in
 					[aA])
 						bAutoClickRun=false #help drop caches may help better tho
+						;;
+					[cC])
+						bMMAutoConfigFlag=true #help mm.exe -autoconfig
 						;;
 					[dD])
 						set -x;bash -c sync && sudo dd if=/proc/3/stat of=/proc/sys/vm/drop_caches bs=1 count=1;set +x;

@@ -119,7 +119,14 @@ astrOptList=(
 	-noborder
 	
 	-novid #faster start time?
-	
+)
+
+: ${bMMAutoConfigFlag:=false} #help -autoconfig
+if $bMMAutoConfigFlag;then
+	astrOptList+=(-autoconfig)
+fi
+
+astrOptList+=(
 	# performance and no crashes. 32bits is limited to 2GB, heapsize increase stability also with the 4gb executable patcher
 	-heapsize 2097152 +datacachesize "128" #helps with stability to avoid crashes? these smaller are not good?: 524288 1572864
 	+map_background none #prevents loading startupscreen heavy data
