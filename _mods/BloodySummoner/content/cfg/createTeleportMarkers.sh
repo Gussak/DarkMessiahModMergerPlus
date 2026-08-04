@@ -43,10 +43,21 @@ strSelfXtermInstanceID=DMMM_teleportMarkersCreation
 : ${bXterm=true};if $bXterm && bXterm=false FUNCxtermChild $strSelfXtermInstanceID -e "$0" "$@";then echo ChildReady; exit 0; fi #help
 #set +x
 
+function FUNCgskCmd() { # <lstrFlCondump> <lstrCmdFull> <lstrCmdShort> <lnGetParamIndex>
+	local lstrFlCondump="$1";shift
+	local lstrCmdFull="$1";shift
+	local lstrCmdShort="$1";shift
+	local lnGetParamIndex="$1";shift
+	
+	((lnGetParamIndex++))&&: # because the first () is just for the ors '|'
+	local lstrRegexMatch="^(${lstrCmdFull}|Unknown command: ${lstrCmdFull}|\] ${lstrCmdFull}|${lstrCmdShort}|Unknown command: ${lstrCmdShort}|\] ${lstrCmdShort}) ([^; ]*)[; ]*(.*)"
+	
+	ugrep -i "$lstrRegexMatch" "$lstrFlCondump" |tail -n 1 |tr -d '\r' |sed -r -e "s@${lstrRegexMatch}@\${lnGetParamIndex}@g" #|awk '{print $1}'
+}
 strFlCondumpPrev=""
 strCfgPath="${strGameInstallMainFolder}/${strGameSubRelatFolderWriteAllHere}/cfg"
 strTeleCurrentCfgFile="${strCfgPath}/gskTeleMarkers.cfg"
-strMatchRename=".*(gskTeleMarkerRename|gsktrn)\s*([^\s]*)\s*(.*)"
+strMatchRename=".*(gskTeleMarkerRename|gsktrn)[ ]*([^ ]*)[ ]*(.*)"
 while true;do
 	strFlCondump="$(FUNCgetNewestCondump)"
 	
@@ -58,16 +69,22 @@ while true;do
 		#bTeleMarkerDrop=false
 		
 		if ugrep -q "gskTeleMarkerDelete=CurrentOneSelected|gsktdc" "$strFlCondump";then #help delete current one selected (you can just type it on console too)
-			#strDeleteMarker="$(ugrep "^[+]gskTeleMarkerSelectNext : gskTeleMarkerSelect[0-9]*" "$strFlCondump" |tail -n 1 |awk '{print $3}')"
-			strDeleteMarker="$(ugrep "^gskTeleMarkerRecall : gskTeleMarker[0-9]*" "$strFlCondump" |tail -n 1 |awk '{print $3}')"
-			
 			FUNCmapInfo "$strFlCondump"
 			strMapCfgFile="${strCfgPath}/gskTeleMarkers_${FUNCmapInfo_strMapName}.cfg"
 			
+			#strDeleteMarker="$(ugrep "^[+]gskTeleMarkerSelectNext : gskTeleMarkerSelect[0-9]*" "$strFlCondump" |tail -n 1 |awk '{print $3}')"
+			strDeleteMarker="$(ugrep "^gskTeleMarkerRecall : gskTeleMarker[0-9]*" "$strFlCondump" |tail -n 1 |awk '{print $3}')"
+			
 			bRecreateCfgFile=true;
 		elif ugrep -q "${strMatchRename}" "$strFlCondump";then #help use like (just ctrl+C the pos from console, 'from' must be the Teleporter ID that have no spaces): gsktrn POS_x-234_y587_z2354 Some Nice Pretty Name
-			strTeleReNameFromID="$(      ugrep "gskTeleMarkerRename|gsktrn" "$strFlCondump" |tail -n 1 |sed -r -e "s@${strMatchRename}@\1@g")"
-			strTeleReNameToPrettyName="$(ugrep "gskTeleMarkerRename|gsktrn" "$strFlCondump" |tail -n 1 |sed -r -e "s@${strMatchRename}@\2@g")"
+			FUNCmapInfo "$strFlCondump"
+			strMapCfgFile="${strCfgPath}/gskTeleMarkers_${FUNCmapInfo_strMapName}.cfg"
+			
+			strTeleReNameFromID="$(      ugrep "gskTeleMarkerRename|gsktrn" "$strFlCondump" |tail -n 1 |sed -r -e "s@${strMatchRename}@\2@g")"
+			strTeleReNameToPrettyName="$(ugrep "gskTeleMarkerRename|gsktrn" "$strFlCondump" |tail -n 1 |sed -r -e "s@${strMatchRename}@\3@g")"
+			declare -p strTeleReNameFromID strTeleReNameToPrettyName
+			#exit
+			
 			bRecreateCfgFile=true;
 		elif ugrep -q "gskTeleMarkerDrop" "$strFlCondump";then
 			#while true;do ! FUNCmapInfo "$strFlCondump";do FUNCwaitSeconds 3 "condump needs map info status data";done
@@ -82,9 +99,13 @@ while true;do
 			echo "Now set this teleport marker name like: gskTeleMarkerName Some Nice Name, or gsktn Some Nice Name, or echo gsktn someNiceName, by typing it in the console. Then also type condump after the name prints" #help
 			strRegextMatchTeleName="^(gskTeleMarkerName|Unknown command: gskTeleMarkerName|\] gskTeleMarkerName|gsktn|Unknown command: gsktn|\] gsktn) ([^;]*).*"
 			function FUNCteleName() {
-				ugrep -i "$strRegextMatchTeleName" "$strFlCondumpForName" |tail -n 1 |tr -d '\r' |sed -r -e "s@${strRegextMatchTeleName}@\2@g"
+				local lstrFl="$1";shift
+				#set -x
+				ugrep -i "$strRegextMatchTeleName" "$lstrFl" |tail -n 1 |tr -d '\r' |sed -r -e "s@${strRegextMatchTeleName}@\2@g" #|awk '{print $1}'
+				#set +x
 			}
-			if [[ "$(FUNCteleName)" == "_AUTOMATIC_" ]];then
+			#FUNCteleName "${strFlCondump}"&&:;exit
+			if [[ "$(FUNCteleName "${strFlCondump}" |tr -d ' ')" == "_AUTOMATIC_" ]];then
 				strTeleName="_AUTOMATIC_"
 				declare -p strTeleName
 				bRecreateCfgFile=true;
@@ -92,8 +113,9 @@ while true;do
 				while true;do
 					#set -x
 					strFlCondumpForName="$(FUNCgetNewestCondump)"
-					if ugrep -i "$strRegextMatchTeleName" "$strFlCondumpForName";then
-						strTeleName="$(ugrep -i "$strRegextMatchTeleName" "$strFlCondumpForName" |tail -n 1 |tr -d '\r' |sed -r -e "s@${strRegextMatchTeleName}@\2@g")"
+					#if ugrep -i "$strRegextMatchTeleName" "$strFlCondumpForName";then
+					if strTeleName="$(FUNCteleName "${strFlCondumpForName}")";then
+						#strTeleName="$(ugrep -i "$strRegextMatchTeleName" "$strFlCondumpForName" |tail -n 1 |tr -d '\r' |sed -r -e "s@${strRegextMatchTeleName}@\2@g")"
 						declare -p strTeleName
 						bRecreateCfgFile=true;
 						#set +x
