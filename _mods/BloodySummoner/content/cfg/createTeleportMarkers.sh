@@ -32,17 +32,21 @@
 while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
 
 #set -x
-: ${bXterm=true} #help
-if $bXterm;then
-	if pgrep -fa DMMM_teleportMarkersCreation;then exit 0;fi
-	(FUNCxterm -title DMMM_teleportMarkersCreation -e "$0" & disown);
-	exit 0
-fi
+#: ${bXterm=true} #help
+#if $bXterm;then
+	#if pgrep -fa DMMM_teleportMarkersCreation;then exit 0;fi
+	##(FUNCxterm -title DMMM_teleportMarkersCreation -e "$0" & disown);
+	#FUNCxterm -title DMMM_teleportMarkersCreation -e "$0"
+	#exit 0
+#fi
+strSelfXtermInstanceID=DMMM_teleportMarkersCreation
+: ${bXterm=true};if $bXterm && bXterm=false FUNCxtermChild $strSelfXtermInstanceID -e "$0" "$@";then echo ChildReady; exit 0; fi #help
 #set +x
 
 strFlCondumpPrev=""
 strCfgPath="${strGameInstallMainFolder}/${strGameSubRelatFolderWriteAllHere}/cfg"
 strTeleCurrentCfgFile="${strCfgPath}/gskTeleMarkers.cfg"
+strMatchRename=".*(gskTeleMarkerRename|gsktrn)\s*([^\s]*)\s*(.*)"
 while true;do
 	strFlCondump="$(FUNCgetNewestCondump)"
 	
@@ -50,6 +54,7 @@ while true;do
 		bRecreateCfgFile=false
 		strDeleteMarker=""
 		strTeleName=""
+		strTeleReNameFromID="";strTeleReNameToPrettyName=""
 		#bTeleMarkerDrop=false
 		
 		if ugrep -q "gskTeleMarkerDelete=CurrentOneSelected|gsktdc" "$strFlCondump";then #help delete current one selected (you can just type it on console too)
@@ -59,6 +64,10 @@ while true;do
 			FUNCmapInfo "$strFlCondump"
 			strMapCfgFile="${strCfgPath}/gskTeleMarkers_${FUNCmapInfo_strMapName}.cfg"
 			
+			bRecreateCfgFile=true;
+		elif ugrep -q "${strMatchRename}" "$strFlCondump";then #help use like (just ctrl+C the pos from console, 'from' must be the Teleporter ID that have no spaces): gsktrn POS_x-234_y587_z2354 Some Nice Pretty Name
+			strTeleReNameFromID="$(      ugrep "gskTeleMarkerRename|gsktrn" "$strFlCondump" |tail -n 1 |sed -r -e "s@${strMatchRename}@\1@g")"
+			strTeleReNameToPrettyName="$(ugrep "gskTeleMarkerRename|gsktrn" "$strFlCondump" |tail -n 1 |sed -r -e "s@${strMatchRename}@\2@g")"
 			bRecreateCfgFile=true;
 		elif ugrep -q "gskTeleMarkerDrop" "$strFlCondump";then
 			#while true;do ! FUNCmapInfo "$strFlCondump";do FUNCwaitSeconds 3 "condump needs map info status data";done
@@ -134,8 +143,17 @@ while true;do
 				done
 				astrMarkerID=("${astrMarkerID[@]}")
 				declare -p astrMarkerID
-			fi
-			if [[ -n "$strTeleName" ]];then
+			elif [[ -n "$strTeleReNameFromID" ]] && [[ -n "$strTeleReNameToPrettyName" ]];then
+				declare -p strTeleReNameFromID strTeleReNameToPrettyName
+				for((i=0;i<${#astrMarkerID[@]};i++));do
+					strMarkerID="${astrMarkerID[$i]}"
+					if [[ "${strTeleReNameFromID}" == "${strMarkerID}" ]];then
+						astrMarkerID[$i]="$(echo "${strTeleReNameToPrettyName}" |tr -d ' ')"
+						astrMarkerName[$i]="${strTeleReNameToPrettyName}"
+						break
+					fi
+				done
+			elif [[ -n "$strTeleName" ]];then
 				declare -p strTeleName
 				# astrMarkerIndex will be reindexed if needed.
 				if [[ "$strTeleName" == "_AUTOMATIC_" ]];then

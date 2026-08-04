@@ -769,6 +769,28 @@ function FUNCsay() { #to help when you are far away
 	if which ScriptEchoColor >/dev/null;then echoc --say "$1";fi
 };export -f FUNCsay
 
+function FUNCxtermChild() {
+	local lstrTitle="$1";shift
+	
+	if pgrep -fa "$lstrTitle";then 
+		FUNCechoInfo "[INFO] '$lstrTitle' already running"
+		return 0
+	fi
+	
+	if ! which xterm >/dev/null;then
+		FUNCechoInfo "[PROBLEM] xterm not installed."
+		return 1
+	fi
+	
+	local laCmd=(xterm -title "$lstrTitle" "$@")
+	if which launchappminimized >/dev/null;then # is better than kitty
+		(launchappminimized --fast "${laCmd[@]}" & disown)
+	else
+		("${laCmd[@]}" & disown)
+	fi
+	
+	return 0
+}
 function FUNCxterm() { 
 	#too messy support morethan one terminal.. <title> [otherParams]
 	#local lstrTitle="$1";shift
