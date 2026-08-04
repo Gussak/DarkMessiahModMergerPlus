@@ -31,12 +31,14 @@
 
 while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
 
+#set -x
 : ${bXterm=true} #help
 if $bXterm;then
 	if pgrep -fa DMMM_teleportMarkersCreation;then exit 0;fi
 	(FUNCxterm -title DMMM_teleportMarkersCreation -e "$0" & disown);
 	exit 0
 fi
+#set +x
 
 strFlCondumpPrev=""
 strCfgPath="${strGameInstallMainFolder}/${strGameSubRelatFolderWriteAllHere}/cfg"
@@ -70,19 +72,28 @@ while true;do
 			
 			echo "Now set this teleport marker name like: gskTeleMarkerName Some Nice Name, or gsktn Some Nice Name, or echo gsktn someNiceName, by typing it in the console. Then also type condump after the name prints" #help
 			strRegextMatchTeleName="^(gskTeleMarkerName|Unknown command: gskTeleMarkerName|\] gskTeleMarkerName|gsktn|Unknown command: gsktn|\] gsktn) ([^;]*).*"
-			while true;do
-				#set -x
-				strFlCondumpForName="$(FUNCgetNewestCondump)"
-				if ugrep -i "$strRegextMatchTeleName" "$strFlCondumpForName";then
-					strTeleName="$(ugrep -i "$strRegextMatchTeleName" "$strFlCondumpForName" |tail -n 1 |tr -d '\r' |sed -r -e "s@${strRegextMatchTeleName}@\2@g")"
-					declare -p strTeleName
-					bRecreateCfgFile=true;
-					#set +x
-					break;
-				fi
-				echo -ne "$(date) waiting Teleport marker name.\r"
-				sleep 1
-			done
+			function FUNCteleName() {
+				ugrep -i "$strRegextMatchTeleName" "$strFlCondumpForName" |tail -n 1 |tr -d '\r' |sed -r -e "s@${strRegextMatchTeleName}@\2@g"
+			}
+			if [[ "$(FUNCteleName)" == "_AUTOMATIC_" ]];then
+				strTeleName="_AUTOMATIC_"
+				declare -p strTeleName
+				bRecreateCfgFile=true;
+			else
+				while true;do
+					#set -x
+					strFlCondumpForName="$(FUNCgetNewestCondump)"
+					if ugrep -i "$strRegextMatchTeleName" "$strFlCondumpForName";then
+						strTeleName="$(ugrep -i "$strRegextMatchTeleName" "$strFlCondumpForName" |tail -n 1 |tr -d '\r' |sed -r -e "s@${strRegextMatchTeleName}@\2@g")"
+						declare -p strTeleName
+						bRecreateCfgFile=true;
+						#set +x
+						break;
+					fi
+					echo -ne "$(date) waiting Teleport marker name.\r"
+					sleep 1
+				done
+			fi
 		fi
 		
 		if $bRecreateCfgFile;then
@@ -127,6 +138,9 @@ while true;do
 			if [[ -n "$strTeleName" ]];then
 				declare -p strTeleName
 				# astrMarkerIndex will be reindexed if needed.
+				if [[ "$strTeleName" == "_AUTOMATIC_" ]];then
+					strTeleName="$(echo "${strPos}" |sed -r -e "s@\s*([0-9-]*)\s*([0-9-]*)\s*([0-9-]*)\s*@POS_x\1_y\2_z\3@g")"
+				fi
 				astrMarkerID+=("$(echo "${strTeleName}" |tr -d ' ')")
 				astrMarkerName+=("${strTeleName}")
 				astrMarkerPos+=("${strPos}")

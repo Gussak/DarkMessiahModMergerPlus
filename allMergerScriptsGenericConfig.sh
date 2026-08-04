@@ -774,7 +774,7 @@ function FUNCxterm() {
 	#local lstrTitle="$1";shift
 	if which launchappminimized >/dev/null;then # is better than kitty
 		#launchappminimized --fast xterm -title "$lstrTitle" "$@" >/dev/null
-		launchappminimized --fast xterm "$@" >/dev/null
+		launchappminimized --fast xterm "$@" #>/dev/null
 	else
 		#if which kitty >/dev/null;then #is better than xterm w/o launchappminimized
 			#kitty --title "$lstrTitle" --start-as=minimized "$@"
