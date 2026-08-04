@@ -80,6 +80,7 @@ if true;then
 	echo "[INFO] (check if the below are missing) append here at a 'content/cfg/game.cfg'. copy from first match found (probably at Overhaul mod)."
 	for strFlCfg in "${lastrCfgsAllList[@]}";do
 		if [[ "$strFlCfg" =~ ^unlimitededition[.]cfg.* ]];then continue;fi # already at main game.cfg from Overhaul mod
+		if [[ "$strFlCfg" =~ ^game[.]cfg.* ]];then continue;fi # prevent recursive crash
 		echo "exec ${strFlCfg%-}"
 	done
 	
