@@ -741,6 +741,14 @@ function FUNCmapInfo() {
 		FUNCechoInfo "[ERROR:] no Pos To Restore Detected"
 		return 1
 	fi
+	#mapfile -t anPosRestoreXYZ < <(echo "$FUNCmapInfo_strPosRestore" |sed -r -e 's@[ ]*@ @g' -e 's@^ *@@' -e 's@ *$@@' |tr ' ' '\n')
+	mapfile -t anPosRestoreXYZ < <(echo "$FUNCmapInfo_strPosRestore" |tr ' ' '\n' |egrep -v "^\s*$")
+	#declare -p anPosRestoreXYZ;exit
+	declare -gA FUNCmapInfo_anPosRestoreXYZ
+	FUNCmapInfo_anPosRestoreXYZ[x]="${anPosRestoreXYZ[0]}"
+	FUNCmapInfo_anPosRestoreXYZ[y]="${anPosRestoreXYZ[1]}"
+	FUNCmapInfo_anPosRestoreXYZ[z]="${anPosRestoreXYZ[2]}"
+	#declare -p FUNCmapInfo_anPosRestoreXYZ;exit
 	strRestorePosInTheEnd="setpos ${FUNCmapInfo_strPosRestore}"
 	
 	return 0

@@ -67,6 +67,7 @@ while true;do
 		strDeleteMarker=""
 		strTeleName=""
 		strTeleReNameFromID="";strTeleReNameToPrettyName=""
+		strTeleportUpAlias="" #bTeleportUp=false; strTeleportUpAlias=""
 		#bTeleMarkerDrop=false
 		
 		if ugrep -q "gskTeleMarkerDelete=CurrentOneSelected|gsktdc" "$strFlCondump";then #help delete current one selected (you can just type it on console too)
@@ -75,6 +76,16 @@ while true;do
 			
 			#strDeleteMarker="$(ugrep "^[+]gskTeleMarkerSelectNext : gskTeleMarkerSelect[0-9]*" "$strFlCondump" |tail -n 1 |awk '{print $3}')"
 			strDeleteMarker="$(ugrep "^gskTeleMarkerRecall : gskTeleMarker[0-9]*" "$strFlCondump" |tail -n 1 |awk '{print $3}')"
+			
+			bRecreateCfgFile=true;
+		elif ugrep -q "gskTeleportUpPrepareHint" "$strFlCondump";then #help
+			FUNCmapInfo "$strFlCondump"
+			strMapCfgFile="${strCfgPath}/gskTeleMarkers_${FUNCmapInfo_strMapName}.cfg"
+			
+			declare -p FUNCmapInfo_anPosRestoreXYZ
+			((FUNCmapInfo_anPosRestoreXYZ[z]+=600))&&:
+			strTeleportUpAlias="alias gskTeleportUpApply \"setpos ${FUNCmapInfo_anPosRestoreXYZ[x]} ${FUNCmapInfo_anPosRestoreXYZ[y]} ${FUNCmapInfo_anPosRestoreXYZ[z]} \""
+			declare -p strTeleportUpAlias
 			
 			bRecreateCfgFile=true;
 		elif ugrep -q "${strMatchRename}" "$strFlCondump";then #help @InfoID="gskTeleMarkerRename" use like (just ctrl+C the pos from console, 'from' must be the Teleporter ID that have no spaces) ex.: clear; status; status; gsktrn POS_x-234_y587_z2354 Some Nice Pretty Name; condump //TODO let it be just the current one selected to be renamed
@@ -186,6 +197,8 @@ while true;do
 				astrMarkerName+=("${strTeleName}")
 				astrMarkerPos+=("${strPos}")
 				declare -p astrMarkerID astrMarkerName astrMarkerPos
+			#elif $bTeleportUp;then
+				#strTeleportUpAlias="alias gskTeleportUpApply "
 			fi
 			
 			#make markers unique (last one wins)
@@ -260,6 +273,8 @@ while true;do
 				#cp -v "$lstrFlCondump" "${strMapCfgFile}.condump.txt"
 			#fi
 			echo "echo \"Total: ${#astrMarkerID[@]}\"" >>"$strMapCfgFile"
+			echo >>"$strMapCfgFile"
+			echo "$strTeleportUpAlias" >>"$strMapCfgFile"
 			
 			ln -vsf "$strMapCfgFile" "$strTeleCurrentCfgFile"
 			cat "${strTeleCurrentCfgFile}"
