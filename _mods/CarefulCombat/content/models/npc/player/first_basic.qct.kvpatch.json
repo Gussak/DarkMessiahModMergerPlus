@@ -1,0 +1,20 @@
+{
+    "__comments__": {
+        "combatmovedatas.layer_throw_daggers_out_adrenaline.HitPow": "//60 //is this x30 ? seems to damage about 1800",
+        "combatmovedatas.layer_throw_daggers_out_adrenaline.cutheadflag": "//0",
+        "combatmovedatas.layer_throw_daggers_out_adrenaline.impalflag": "//0",
+        "combatmovedatas.layer_throw_daggers_out_adrenaline.backstabflag": "//0",
+        "combatmovedatas.layer_throw_daggers_out_adrenaline.disarmflag": "//0",
+        "combatmovedatas.layer_throw_daggers_out_adrenaline.push": "//0",
+        "combatmovedatas.layer_throw_daggers_out_adrenaline.alwayspush": "//0",
+        "combatmovedatas.layer_throw_daggers_out_adrenaline.chancetostun": "//0.8"
+    },
+    "combatmovedatas.layer_throw_daggers_out_adrenaline.alwayspush": "1",
+    "combatmovedatas.layer_throw_daggers_out_adrenaline.backstabflag": "1",
+    "combatmovedatas.layer_throw_daggers_out_adrenaline.chancetostun": "1.0",
+    "combatmovedatas.layer_throw_daggers_out_adrenaline.cutheadflag": "1",
+    "combatmovedatas.layer_throw_daggers_out_adrenaline.disarmflag": "1",
+    "combatmovedatas.layer_throw_daggers_out_adrenaline.HitPow": "200",
+    "combatmovedatas.layer_throw_daggers_out_adrenaline.impalflag": "1",
+    "combatmovedatas.layer_throw_daggers_out_adrenaline.push": "1"
+}
