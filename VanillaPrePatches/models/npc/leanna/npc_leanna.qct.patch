@@ -1,0 +1,12 @@
+--- /dev/fd/63	2026-07-29 02:55:47.152210625 -0300
++++ /dev/fd/62	2026-07-29 02:55:47.152210625 -0300
+@@ -141,7 +141,8 @@
+ 
+ }
+ 
+-"spelldatas" {
++"spelldatas"
++{
+ 	"air_2"						// Spell: Cure wounds.
+ 	{		
+ 		"effect"		"60"		// Life points healed or taken.

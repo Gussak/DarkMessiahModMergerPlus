@@ -1,10 +1,17 @@
 {
+    "$keyvalues.spelldatas.air_2.attachment": "RightHand",
+    "$keyvalues.spelldatas.air_2.effect": "500",
+    "$keyvalues.spelldatas.air_2.range_max": "50",
+    "$keyvalues.spelldatas.air_2.range_min": "0",
+    "$keyvalues.spelldatas.air_2.recovery": "180",
+    "$keyvalues.spelldatas.air_2.trigger": "0.95",
     "__comments__": {
-        "air_2.recovery": "//60 Time before casting is possible again (in seconds).",
-        "air_2.range_max": "//Like healing touch. Maximum effective range for the spell (in inches)."
-    },
-    "air_2.effect": "500",
-    "air_2.range_max": "50",
-    "air_2.recovery": "180",
-    "air_2.trigger": "0.95"
+        "$keyvalues.spelldatas.air_2": "// Spell: Cure wounds.",
+        "$keyvalues.spelldatas.air_2.effect": "// Life points healed or taken.",
+        "$keyvalues.spelldatas.air_2.range_max": "//Like healing touch. Maximum effective range for the spell (in inches).",
+        "$keyvalues.spelldatas.air_2.range_min": "// Minimum effective range for the spell (in inches).",
+        "$keyvalues.spelldatas.air_2.recovery": "//60 Time before casting is possible again (in seconds).",
+        "$keyvalues.spelldatas.air_2.trigger": "// Percentage of the target's life needed for the spell to be cast.",
+        "$keyvalues.spelldatas.air_2.attachment": "// Attachment point for the spell effect."
+    }
 }
