@@ -101,6 +101,7 @@ for((iAlias=0;iAlias<${#astrAliasList[@]};iAlias++));do
 	mapfile -t anCost < <(egrep "${strAliasHurtmeRegex}" "$strGameInstallMainFolder"/ -iRIaoh --include="*.cfg" |sed -r -e 's@(.*)//.*@\1@' -e "s@${strAliasHurtmeRegex}@\1@g")
 	nCost=0;for nC in "${anCost[@]}";do ((nCost+=nC))&&:;done
 	strCost="";if((nCost>0));then strCost=" HP${nCost}";fi
+	#declare -p strCost
 	strDescription="$(FUNClazyDesc "$strAlias")${strCost}"
 	
 	: ${nMaxDescSize:=40} #help
@@ -153,6 +154,7 @@ trash ../scripts/kb_act.lst; #will be auto recreated from vanilla + kvpatch
 cd ../../../..
 ./merge.sh -f resource/closecaption_manifest.txt;
 ./merge.sh -f scripts/kb_act.lst;
+# Obs.: if it did not update, means OverlayFS needs drop_caches to sync with modified files.
 '
 
 if $bDBG;then
