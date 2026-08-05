@@ -8,6 +8,6 @@
   "launch_parameters": [],
   "gameinfo_parameters": [],
   "modules": [],
-  "game_configs": [],
+  "game_configs": [ "MoreFoes.cfg" ],
   "autoexec_configs": []
 }
