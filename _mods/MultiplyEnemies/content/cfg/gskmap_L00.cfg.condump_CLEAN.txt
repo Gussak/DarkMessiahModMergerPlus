@@ -147,5 +147,3 @@ mm_npc_create_spider
 gskMapDevDropPotionLifeHint 
 setpos -596.461670 -4100.278320 300.863770;setang 76.988541 -175.267120 -0.000845
 setpos -596.461670 -4100.278320 300.863770;setang 76.988541 -175.267120 -0.000845
-dummy
-dummy

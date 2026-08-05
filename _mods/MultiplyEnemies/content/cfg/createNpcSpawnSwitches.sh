@@ -120,8 +120,12 @@ while [[ $# -gt 0 && "${1:0:1}" == "-" ]];do
 	shift
 done
 
+#help @InfoID="Usage Info" you can edit just the CLEAN file if you know what you are doing
+#help @InfoID="Usage Example" strFlCondump="gskmap_L00.cfg.condump_CLEAN.txt" ./createNpcSpawnSwitches.sh -m
+#help @InfoID="Usage Example" strFlCondump="gskmap_l02_b1_01_GuestHouse_OK.cfg.condump_CLEAN.txt" ./createNpcSpawnSwitches.sh -M "01_GuestHouse_OK"
+
 if $bCreateSpawnsForCurrentMap;then
-	: ${strFlCondump:="$(ls -1tr "${strGameInstallMainFolder}/${strGameSubRelatFolderWriteAllHere}/condump"* |tail -n 1)"} #help can be the backup like ex.: "gskmap_l02_b1_02_FrontYard_OK.cfg.condump.txt"
+	: ${strFlCondump:="$(ls -1tr "${strGameInstallMainFolder}/${strGameSubRelatFolderWriteAllHere}/condump"* |tail -n 1)"} #help instead of being automatically the newest file, it can be the backup file like ex.: "gskmap_l02_b1_02_FrontYard_OK.cfg.condump.txt" or even the clean file ex.: "gskmap_l02_b1_02_FrontYard_OK.cfg.condump_CLEAN.txt"
 	ls -l "$strFlCondump"
 	
 	while ! FUNCmapInfo "$strFlCondump";do FUNCwaitSeconds 3 "condump needs map info status data";done
@@ -143,7 +147,6 @@ if $bCreateSpawnsForCurrentMap;then
 	# clean condump file is good for git
 	strFlCondumpClean="${strMapCfgFile}.condump_CLEAN.txt"
 	bUsingCleanCondump=false;if [[ "$strFlCondump" == "$strFlCondumpClean" ]];then bUsingCleanCondump=true;fi
-	iTotEntryDataLines=5
 	if ! $bUsingCleanCondump;then
 		cp -vf "$strFlCondumpClean" "$strFlCondumpClean.$(FUNCdtFlNm).bkp"&&:
 		echo "$FUNCmapInfo_strMapStatus" >"$strFlCondumpClean"
@@ -191,8 +194,25 @@ if $bCreateSpawnsForCurrentMap;then
 	FUNCechoAndFillFile "alias gskCCnpcSpawn_next \"${strCmdsON}; gskCCnpcSpawn_$( printf %03d $((iSpawnCount)) )\"" # initializes with some dev toggles
 	#for((i=0;i<${#astrSpawnHintList[@]};i+=iDataLines));do
 	for((i=0;i<${#astrAllLines[@]};i++));do
+		strMODE=SpawnNPC
+		iTotEntryDataLines=5
 		strLine="${astrAllLines[$i]}"
 		if [[ "$strLine" =~ ^gskSpawnHint.* ]];then
+			strCount="$(     printf %03d $((iSpawnCount  )) )"
+			strCountShow="$( printf   %d $((iSpawnCount+1)) )" # begins in 1 and ends like 45/45 looks better
+			strCountNext="$( printf %03d $((iSpawnCount+1)) )"
+			
+			if [[ "$strLine" =~ ^gskSpawnHint_DropPotion.* ]];then
+				iTotEntryDataLines=3
+				if [[ "$strLine" =~ ^gskSpawnHint_DropPotionLife.* ]];then
+					strMODE=DropItem
+					strDropItem="gskMapDevDropPotionLife"
+				fi
+				if [[ "$strLine" =~ ^gskSpawnHint_DropPotionMana.* ]];then
+					strDropItem="gskMapDevDropPotionMana"
+				fi
+			fi
+			
 			iLnDataIni=$i
 			iLnData=$iLnDataIni;#declare -p iLnData
 			
@@ -213,23 +233,30 @@ if $bCreateSpawnsForCurrentMap;then
 				fi
 			fi
 			
-			((iLnData++))&&:;strNPC="$(    echo "${astrAllLines[$iLnData]}" |awk '{print $1}')"
-			((iLnData++))&&:;strNPCchk="$( echo "${astrAllLines[$iLnData]}" |awk '{print $1}')"
-			#declare -p strSelfPosAngle strNPC
-			if [[ "$strNPC" != "$strNPCchk" ]];then
-				if $bAutoFixMissingChars;then
-					if((${#strNPCchk} > ${#strNPC}));then
-						strNPC="$strNPCchk"
+			strAliasValue=""
+			strAliasValue+="$(FUNCfixPosAng "${strSelfPosAngle}"); "
+			strAliasInfo="echo Spawning:${strCountShow}/${nTotSpawns}"
+			case "$strMODE" in
+				SpawnNPC)
+					((iLnData++))&&:;strNPC="$(    echo "${astrAllLines[$iLnData]}" |awk '{print $1}')"
+					((iLnData++))&&:;strNPCchk="$( echo "${astrAllLines[$iLnData]}" |awk '{print $1}')"
+					if [[ "$strNPC" != "$strNPCchk" ]];then
+						if $bAutoFixMissingChars;then
+							if((${#strNPCchk} > ${#strNPC}));then
+								strNPC="$strNPCchk"
+							fi
+						fi
 					fi
-				fi
-			fi
-			FUNCvalidateNPC "$strNPC" "$strFlCondump" "$iLnData"
+					FUNCvalidateNPC "$strNPC" "$strFlCondump" "$iLnData"
+					strAliasValue+="${strNPC}; ${strAliasInfo}:${strNPC#mm_npc_create_}; "
+					;;
+				DropItem)
+					strAliasValue+="${strDropItem}; ${strAliasInfo}:${strDropItem}; "
+					;;
+			esac
+			strAliasValue+="alias gskCCnpcSpawn_next gskCCnpcSpawn_${strCountNext}"
+			FUNCechoAndFillFile "alias gskCCnpcSpawn_${strCount} \"${strAliasValue}\""
 			
-			strCount="$(     printf %03d $((iSpawnCount  )) )"
-			strCountShow="$( printf   %d $((iSpawnCount+1)) )" # begins in 1 and ends like 45/45 looks better
-			strCountNext="$( printf %03d $((iSpawnCount+1)) )"
-			
-			FUNCechoAndFillFile "alias gskCCnpcSpawn_${strCount} \"$(FUNCfixPosAng "${strSelfPosAngle}"); ${strNPC}; echo Spawning:${strCountShow}/${nTotSpawns}:${strNPC#mm_npc_create_}; alias gskCCnpcSpawn_next gskCCnpcSpawn_${strCountNext}\""
 			((iSpawnCount++))&&:
 			
 			if(( iTotEntryDataLines != (iLnData - iLnDataIni + 1) ));then
