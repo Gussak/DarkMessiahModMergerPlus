@@ -34,6 +34,19 @@
 if true;then
 	while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
 	
+	: ${strFlGameCfg:=""}
+	if ! ls -l "$strFlGameCfg";then
+		mapfile -t astrGameCfgFile < <(find ../ -iname "game.cfg" |egrep -v "/dummy/|[.]bkp/|IGNORE_LAYER|/${strGameMainFolderBasename}/|/${strPathMainModFolderBasename}/")
+		if((${#astrGameCfgFile[@]} > 1));then
+			FUNCechoInfo "Unable to determine the main 'game.cfg' file, please configure it as: export strFlGameCfg='...'"
+			exit 1
+		else
+			strFlGameCfg="${astrGameCfgFile[0]}"
+		fi
+	fi
+	mkdir -vp "${strFinalMergedFolderContent}/cfg/"
+	cp -vf "${strFlGameCfg}" "${strFinalMergedFolderContent}/cfg/game.cfg"
+	
 	mapfile -t astrFlInfoList < <(find -L "${strPathParent}/" -iregex ".*[.]layer.*/info.json" |grep -v IGNORE_LAYER |sort -u)
 	#declare -p astrFlInfoList
 	lastrCfgsAllList=()
@@ -42,7 +55,7 @@ if true;then
 		declare -p strFlInfo
 #		if egrep -q '"game_configs".*[.]cfg"' "$strFlInfo";then #this will match all "...cfg" but will ignored patched files with "...cfg-"
 		#if egrep -q '"game_configs".*[.]cfg' "$strFlInfo";then
-		mapfile -t lastrCfgsList < <(FUNCjsonGetArray "$strFlInfo" game_configs)
+		mapfile -t lastrCfgsList    < <(FUNCjsonGetArray "$strFlInfo" game_configs    )
 		mapfile -t lastrCfgsBkpList < <(FUNCjsonGetArray "$strFlInfo" game_configs_bkp)
 		declare -p lastrCfgsList lastrCfgsBkpList
 		if [[ "${lastrCfgsList[*]}" =~ .*[.]cfg.* ]] || [[ "${lastrCfgsBkpList[*]}" =~ .*[.]cfg.* ]];then

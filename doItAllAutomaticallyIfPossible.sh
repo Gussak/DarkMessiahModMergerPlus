@@ -91,7 +91,7 @@ if true;then
 	#	for strFl in "${astrList[@]}";do
 		: ${strIgnoreSomeFiles:=""} #help comma separated
 		mapfile -t astrIgnoreSomeFilesList < <(echo "$strIgnoreSomeFiles" |tr ',' '\n')
-		FUNCign() { for strIgn in "${astrIgnoreSomeFilesList[@]}";do if [[ "$1" == "$strIgn" ]];then return 0;fi;done; return 1; }
+		FUNCign() { for strIgn in "${astrIgnoreSomeFilesList[@]}";do if [[ "$1" == "$strIgn" ]];then FUNCechoInfo "Ignoring '$strIgn'"; return 0;fi;done; return 1; }
 		: ${bMultiThread:=false} #help
 		nMaxCores="$(lscpu -p |grep -v "^#" |cut -d, -f1 |wc -l)"
 		: ${nMultiThreadUsedCores:=$nMaxCores} #help you can limit it

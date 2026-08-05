@@ -213,6 +213,7 @@ declare -p strScriptsExtRegexEsc strScriptsExtRegexNorm >&3
 
 strPathSelf="$(pwd)"
 strPathMainModFolder="${strPathSelf}"
+strPathMainModFolderBasename="$(basename "${strPathSelf}")"
 #if [[ ! -f "${strPathSelf}/$(basename "$0")" ]];then
 	#echo "[ERROR] failed to determine ModMerger path: current path '$strPathSelf' doesnt contain $(basename "$0")"
 	#FUNCexit 1
@@ -225,7 +226,8 @@ strPathParent="$(dirname "$strPathSelf")" #help This is the folder where all Lay
 
 : ${strGameSubRelatFolderWriteAllHere:="WriteNewDataHereOnly"};export strGameSubRelatFolderWriteAllHere #help I know of: mm custom AddOn(overhaul mod) and my new one WriteNewDataHereOnly
 
-: ${strGameInstallMainFolder:="${strPathParent}/Dark Messiah Might and Magic Single Player"} #help vanilla game installed main folder
+: ${strGameMainFolderBasename:="Dark Messiah Might and Magic Single Player"} #help
+: ${strGameInstallMainFolder:="${strPathParent}/${strGameMainFolderBasename}"} #help vanilla game installed main folder
 
 : ${strVanillaLayer:="$(ls -d "${strGameInstallMainFolder}"*VanillaGameFiles*)"} #help vanilla game installed files' folder
 if [[ ! -d "$strVanillaLayer" ]];then
