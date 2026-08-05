@@ -34,6 +34,8 @@
 	"+gskHelpPlaceNPCsToggleH": "#mc_gskhelpplacenpcstoggleh",
 	"+gskShowTriggers": "#mc_gskshowtriggers",
 	"+gskReloadCfgs": "#mc_gskreloadcfgs",
+	"+gskSkillsErase": "#mc_gskskillserase",
+	"+gskSkillsAdd1Point": "#mc_gskskillsadd1point",
 	"gskSkillPointAdd": "#mc_gskskillpointadd",
 	"gskSkillPointRemove": "#mc_gskskillpointremove",
 	"+gskCCnpcSwitch": "#mc_gskccnpcswitch",
