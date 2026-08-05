@@ -247,6 +247,7 @@ for strLastOneWins in "${astrFlLastOneAlwaysWinList[@]}";do
 	fi
 done
 
+shopt -s expand_aliases #TODO just use ${BASH_LINENO[0]} instead...
 function FUNCgetEncoding_Work() {
 	local lLn="$1";shift
 	if ! [[ -f "$1" ]];then
