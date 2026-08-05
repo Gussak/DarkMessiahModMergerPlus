@@ -1,7 +1,9 @@
 {
     "lang.Tokens.skilldesc_fast_metabolism": "Once upon a time, it used to allow your Health to regenerate. Not anymore.",
+    "lang.Tokens.skilldesc_mechanism": "Allows you to detect traps. (you can already lockpick the otherwise invencible doors, but roleplay trying to find the key first, and use MoreFoes mod to grant a challenging lockpicking)",
     "lang.Tokens.skilldesc_poison_recovery": "Once upon a time, it used to make you more resistant to poison effects. Not anymore.",
     "lang.Tokens.skillname_extra_damage": "Strength But Not",
     "lang.Tokens.skillname_fast_metabolism": "Vitality But Not",
+    "lang.Tokens.skillname_mechanism": "Detect Traps",
     "lang.Tokens.skillname_poison_recovery": "Poison Resistance But Not"
 }

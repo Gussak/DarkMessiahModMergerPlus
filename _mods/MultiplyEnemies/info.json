@@ -1,7 +1,7 @@
 {
-  "name": "GSK - MultiplyEnemies",
+  "name": "GSK - More Foes",
   "version": "1.0",
-  "description": "Auto edit the map to place x10 (optional) more enemies everywhere. WIP. ISSUE: unable to easily patch .bsp and .lmp, for now use CarefulCombat gskmap_...cfg files and bound keys: z x f7 f8.",
+  "description": "Use the cfg files for each map just after arriving on it, type 'status' in console and load it with ex.: exec gskmap_L00.cfg. multiplyEnemiesV2.sh auto edit the map to place x10 (optional) more enemies everywhere. WIP. ISSUE: after multiplyEnemiesV2.sh still unable to easily patch .bsp and .lmp, for now use CarefulCombat gskmap_...cfg files and bound keys: z x f7 f8.",
   "author": "GussakThor",
   "author_url": "",
   "website": "",

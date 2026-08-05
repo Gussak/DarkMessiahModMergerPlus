@@ -1,0 +1,11 @@
+--- /dev/fd/63	2026-07-31 03:34:53.053353828 -0300
++++ /dev/fd/62	2026-07-31 03:34:53.053353828 -0300
+@@ -32,3 +32,8 @@
+ //Required if using Unlimited Edition Mod:
+ exec unlimitededition
+ 
++//The only way to grant evey cfg will be loaded in order is in this file? so better append it all here thru patches.
++//MERGE at the end of game.cfg as override
++exec MoreFoes.cfg
++
++echo "DEBUG:./Dark Messiah Might and Magic Single Player.layer993.GSK_ModMerger_AndMiniMods/_mods/CarefulCombat/content/cfg/game.cfg"

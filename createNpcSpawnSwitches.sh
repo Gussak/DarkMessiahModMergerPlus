@@ -1,1 +1,1 @@
-_mods/CarefulCombat/content/cfg/createNpcSpawnSwitches.sh
+_mods/MultiplyEnemies/content/cfg/createNpcSpawnSwitches.sh
