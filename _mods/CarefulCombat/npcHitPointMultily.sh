@@ -135,7 +135,7 @@
 		models/npc/orc/npc_orc.qct=*210
 		models/npc/orc_chief/npc_orc_chief.qct=*42
 		models/npc/necromancer/npc_necromancer.qct=*210
-		models/npc/necromancer_lord/npc_necromancer_lord.qct=*42
+		models/npc/necromancer_lord/npc_necromancer_lord.qct=*210
 		models/npc/necroguard/npc_necroguard.qct=*210
 		models/npc/necroguard_undead/npc_necroguard_undead.qct=*126
 		models/npc/necrocivilian/npc_necrocivilian.qct=*63
@@ -212,6 +212,8 @@
 		fi
 		
 		if $bApplyHP;then
+			strLifeToBeg="" ;if [[ "${strFlNpc}" =~ .*undead.* ]];then strLifeToBeg="0.0";fi
+			strLifeToFlee="";if [[ "${strFlNpc}" =~ .*undead.* ]];then strLifeToFlee="0.0";fi
 			strKVPatch='
 {
     "$keyvalues.entity_data.difficulty": "1.0",
@@ -219,8 +221,12 @@
     "$keyvalues.entity_data.level_1.difficulty": "1.0",
     "$keyvalues.entity_data.level_1.npc_health": "'"${nNewHP}"'",
     "$keyvalues.entity_data.level_1.ThrowPrecisionNbShootToIn": "2",
-    "$keyvalues.entity_data.life_stopflee": "1.0",
-    "$keyvalues.entity_data.life_tobeg": "0.1",
+    "$keyvalues.entity_data.life_stopflee": "1.0",'
+			if [[ -n "$strLifeToBeg" ]];then strKVPatch+='
+    "$keyvalues.entity_data.life_tobeg": "'"${strLifeToBeg}"'",';fi
+			if [[ -n "$strLifeToFlee" ]];then strKVPatch+='
+    "$keyvalues.entity_data.life_toflee": "'"${strLifeToFlee}"'",';fi
+			strKVPatch+='
     "$keyvalues.entity_data.npc_health": "'"${nNewHP}"'",
     "$keyvalues.entity_data.TimeKnockedDownByPhysics": "10"
 }
