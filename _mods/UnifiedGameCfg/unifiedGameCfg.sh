@@ -34,18 +34,24 @@
 if true;then
 	while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
 	
-	: ${strFlGameCfg:=""}
-	if ! ls -l "$strFlGameCfg";then
-		mapfile -t astrGameCfgFile < <(find ../ -iname "game.cfg" |egrep -v "/dummy/|[.]bkp/|IGNORE_LAYER|/${strGameMainFolderBasename}/|/${strPathMainModFolderBasename}/")
-		if((${#astrGameCfgFile[@]} > 1));then
-			FUNCechoInfo "Unable to determine the main 'game.cfg' file, please configure it as: export strFlGameCfg='...'"
+	: ${strFlGameCfgOriginal:=""}
+	if ! ls -l "$strFlGameCfgOriginal";then
+		pwd
+		#declare -p strPathParent
+		mapfile -t astrGameCfgFile < <(find "${strPathParent}/" -iname "game.cfg" |egrep -v "/dummy/|[.]bkp/|IGNORE_LAYER|/${strGameMainFolderBasename}/|/${strPathMainModFolderBasename}/")
+		if (( ${#astrGameCfgFile[@]} > 1 ));then
+			declare -p astrGameCfgFile |sed -r -e 's@\[@\n@g'
+			FUNCechoInfo "Unable to determine the main 'game.cfg' file, please configure it as: export strFlGameCfgOriginal='...'" #FAIL!!!
 			exit 1
 		else
-			strFlGameCfg="${astrGameCfgFile[0]}"
+			strFlGameCfgOriginal="${astrGameCfgFile[0]}"
 		fi
 	fi
 	mkdir -vp "${strFinalMergedFolderContent}/cfg/"
-	cp -vf "${strFlGameCfg}" "${strFinalMergedFolderContent}/cfg/game.cfg"
+	strGameCfgTarget="${strFinalMergedFolderContent}/cfg/game.cfg"
+	if ! ls -l "${strGameCfgTarget}";then
+		cp -vf "${strFlGameCfgOriginal}" "${strGameCfgTarget}"
+	fi
 	
 	mapfile -t astrFlInfoList < <(find -L "${strPathParent}/" -iregex ".*[.]layer.*/info.json" |grep -v IGNORE_LAYER |sort -u)
 	#declare -p astrFlInfoList
@@ -91,6 +97,8 @@ if true;then
 	
 	echo
 	echo "[INFO] (check if the below are missing) append here at a 'content/cfg/game.cfg'. copy from first match found (probably at Overhaul mod)."
+	echo
+	echo "// Below list auto generated with: $(basename "$0")"
 	for strFlCfg in "${lastrCfgsAllList[@]}";do
 		if [[ "$strFlCfg" =~ ^unlimitededition[.]cfg.* ]];then continue;fi # already at main game.cfg from Overhaul mod
 		if [[ "$strFlCfg" =~ ^game[.]cfg.* ]];then continue;fi # prevent recursive crash

@@ -31,16 +31,19 @@
 
 set -Eeu #use this specifically, not to everything or |grep results will fail...: set -o pipefail
 
-shopt -s expand_aliases
-function FUNCechoInfo_Work() { #help <LINENO> <MSG>
-	local lLn="$1";shift
-	echo "[$(basename "$0"):${FUNCNAME[@]}:CalledAtLn${lLn}] $@" >&2
-}
-#alias FUNCechoInfo='echo "[$(basename "$0"):${FUNCNAME[@]}:$LINENO]" >&2'
-alias FUNCechoInfo='FUNCechoInfo_Work $LINENO '
-
-
 ################################# FUNCTIONS
+
+#shopt -s expand_aliases
+#function FUNCechoInfo_Work() { #help <LINENO> <MSG>
+	#local lLn="$1";shift
+	#echo "[$(basename "$0"):${FUNCNAME[@]}:CalledAtLn${lLn}] $@" >&2
+#};export -f FUNCechoInfo_Work
+##alias FUNCechoInfo='echo "[$(basename "$0"):${FUNCNAME[@]}:$LINENO]" >&2'
+#alias FUNCechoInfo='FUNCechoInfo_Work $LINENO '
+function FUNCechoInfo() { #help <LINENO> <MSG>
+    local lLn="${BASH_LINENO[0]}" # ${BASH_LINENO[0]} automatically captures the exact line number where this function was called in the parent script!
+    echo "[$(basename "$0"):${FUNCNAME[@]}:CalledAtLn${lLn}] $@" >&2
+};export -f FUNCechoInfo
 
 function FUNCdtFlNm() {
 	date +'%Y_%m_%d-%H_%M_%S'
