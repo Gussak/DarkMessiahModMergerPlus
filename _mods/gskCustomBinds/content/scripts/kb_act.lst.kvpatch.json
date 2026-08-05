@@ -4,7 +4,7 @@
 	"gskMapDevDropPotionLife": "#mc_gskmapdevdroppotionlife",
 	"+gskKillTarget": "#mc_gskkilltarget",
 	"gskNpcFullyHeal": "#mc_gsknpcfullyheal",
-	"+gskNpcTelepathy": "#mc_gsknpctelepathy",
+	"+gskNpcMarkedTelepathy": "#mc_gsknpcmarkedtelepathy",
 	"+gskNpcMark": "#mc_gsknpcmark",
 	"gskNpcMarkedTeleport": "#mc_gsknpcmarkedteleport",
 	"gskSummonSeagull": "#mc_gsksummonseagull",
