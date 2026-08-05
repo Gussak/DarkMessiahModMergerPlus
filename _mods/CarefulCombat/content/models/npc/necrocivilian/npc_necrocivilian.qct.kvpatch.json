@@ -4,8 +4,6 @@
     "$keyvalues.entity_data.level_1.difficulty": "1.0",
     "$keyvalues.entity_data.level_1.npc_health": "315",
     "$keyvalues.entity_data.level_1.ThrowPrecisionNbShootToIn": "2",
-    "$keyvalues.entity_data.life_stopflee": "1.0",
-    "$keyvalues.entity_data.life_tobeg": "0.1",
     "$keyvalues.entity_data.npc_health": "315",
     "$keyvalues.entity_data.TimeKnockedDownByPhysics": "10"
 }

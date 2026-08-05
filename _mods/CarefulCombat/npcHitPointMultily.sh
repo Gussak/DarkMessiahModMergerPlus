@@ -209,11 +209,10 @@
 		if [[ ! -f "${strFlModded}" ]];then
 			cp "${astrFlVanillaScript[$strFlNpc]}" "${strPathModPatch}/"
 			chmod u+w "$strFlModded"
+			ln -vsf "./$(basename "${strFlNpc}")" "${strFlModded}.DO_NOT_EDIT.AUTOGEN"
 		fi
 		
 		if $bApplyHP;then
-			strLifeToBeg="" ;if [[ "${strFlNpc}" =~ .*undead.* ]];then strLifeToBeg="0.0";fi
-			strLifeToFlee="";if [[ "${strFlNpc}" =~ .*undead.* ]];then strLifeToFlee="0.0";fi
 			strKVPatch='
 {
     "$keyvalues.entity_data.difficulty": "1.0",
@@ -221,16 +220,19 @@
     "$keyvalues.entity_data.level_1.difficulty": "1.0",
     "$keyvalues.entity_data.level_1.npc_health": "'"${nNewHP}"'",
     "$keyvalues.entity_data.level_1.ThrowPrecisionNbShootToIn": "2",
-    "$keyvalues.entity_data.life_stopflee": "1.0",'
-			if [[ -n "$strLifeToBeg" ]];then strKVPatch+='
-    "$keyvalues.entity_data.life_tobeg": "'"${strLifeToBeg}"'",';fi
-			if [[ -n "$strLifeToFlee" ]];then strKVPatch+='
-    "$keyvalues.entity_data.life_toflee": "'"${strLifeToFlee}"'",';fi
-			strKVPatch+='
     "$keyvalues.entity_data.npc_health": "'"${nNewHP}"'",
-    "$keyvalues.entity_data.TimeKnockedDownByPhysics": "10"
+    "$keyvalues.entity_data.TimeKnockedDownByPhysics": "10"'
+			if [[ "${strFlNpc}" =~ .*undead.* ]];then
+				strKVPatch+=',
+    "$keyvalues.entity_data.life_stopflee": "1.0",
+    "$keyvalues.entity_data.life_tobeg": "0.0",
+    "$keyvalues.entity_data.life_toflee": "0.0"'
+				#declare -p strKVPatch strFlNpc;read
+			fi
+				strKVPatch+='
 }
-'
+';
+
 			# this is like manually typing the value there. Could may be use a json data created here to apply thru keyValuePatcher.py instead, may ne more robust (less prone to fail).
 			#sed -i.bkp -r -e 's@(.*npc_health[^0-9]*)([0-9]*)(.*)@\1'"${nNewHP}"'\3@' "$strFlModded" #|grep npc_health
 			#set -x
