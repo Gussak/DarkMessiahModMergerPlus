@@ -21,7 +21,9 @@ if true;then
 		#export nWaitBeforeExiting=10 # for (./doItAllAutomaticallyIfPossible.sh ->)./prepareAllModsPatchesForScriptFile.sh:
 		./doItAllAutomaticallyIfPossible.sh "$@"
 		#FUNCechoInfo "[IMPORTANT] Now run: ./unifiedGameCfg.sh"
-		echo "[IMPORTANT] Now run: ./unifiedGameCfg.sh"
+		echo
+		echo "[IMPORTANT] Now running: ./unifiedGameCfg.sh"
+		./unifiedGameCfg.sh
 	else
 		export bShowFinalComparison=true
 		./prepareAllModsPatchesForScriptFile.sh -f "$@"
