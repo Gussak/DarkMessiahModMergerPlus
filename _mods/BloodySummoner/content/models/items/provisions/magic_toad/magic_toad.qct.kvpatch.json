@@ -1,0 +1,7 @@
+{
+    "$keyvalues.entity_data.give_health": "1000",
+    "$keyvalues.entity_data.give_mana": "1000",
+    "__comments__": {
+        "$keyvalues": "//give item_food_magic_toad"
+    }
+}

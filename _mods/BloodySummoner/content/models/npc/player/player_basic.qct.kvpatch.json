@@ -1,0 +1,13 @@
+{
+    "$keyvalues.skills.player_constitution_1": "11",
+    "$keyvalues.skills.player_constitution_2": "20",
+    "$keyvalues.skills.player_constitution_3": "35",
+    "$keyvalues.skills.player_constitution_4": "50",
+    "__comments__": {
+        "$keyvalues.skills.player_constitution_0": "// player never has constition 0 right?",
+        "$keyvalues.skills.player_constitution_1": "//5 //This is a multiplier. This cannot be float, must be integer. It multiplies 10*this. For a default of 100HP at the beggining, it must be 10. But to cope with bloody magic, will be 11 = 110HP (just as a bit more as possible to cope with healing potion of 100HP).",
+        "$keyvalues.skills.player_constitution_2": "//\"6\" //this is the 1st Endurance level for 200HP",
+        "$keyvalues.skills.player_constitution_3": "//\"7\" //this is the 1nd Endurance level for 350HP",
+        "$keyvalues.skills.player_constitution_4": "//\"8\" //this is the 3rd Endurance level for 500HP, copes with Overhaul AddOn mod balance, but also balanced to bloody magic."
+    }
+}
