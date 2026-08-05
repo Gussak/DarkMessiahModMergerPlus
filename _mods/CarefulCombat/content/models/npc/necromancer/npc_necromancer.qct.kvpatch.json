@@ -9,6 +9,7 @@
     "$keyvalues.entity_data.npc_health": "7350",
     "$keyvalues.entity_data.TimeKnockedDownByPhysics": "10",
     "__comments__": {
+        "spelldatas": "//despite we can configure many, they seem hardcoded to only use a few, so normal necromancer can't use resurect?",
         "spelldatas.resurect": "// Resurrect Black Guard as an Undead",
         "spelldatas.resurect.recovery": "// Time before casting is possible again (in seconds).",
         "spelldatas.resurect.range_max": "// Maximum effective range for the spell (in inches).",

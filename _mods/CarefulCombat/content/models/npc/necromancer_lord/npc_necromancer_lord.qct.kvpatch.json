@@ -9,6 +9,7 @@
     "$keyvalues.entity_data.npc_health": "3360",
     "$keyvalues.entity_data.TimeKnockedDownByPhysics": "10",
     "__comments__": {
+        "spelldatas": "//despite we can configure many, they seem hardcoded to only use a few, so normal necromancer can't use resurect?",
         "spelldatas.resurect": "// Resurrect Black Guard as an Undead",
         "spelldatas.water_3.effect": "// Duration",
         "spelldatas.fire_3": "// Spell: Fireball.",
