@@ -251,7 +251,7 @@ if $bCreateSpawnsForCurrentMap;then
 					strAliasValue+="${strNPC}; ${strAliasInfo}:${strNPC#mm_npc_create_}; "
 					;;
 				DropItem)
-					strAliasValue+="${strDropItem}; ${strAliasInfo}:${strDropItem}; "
+					strAliasValue+="${strDropItem}; ${strAliasInfo}:${strDropItem#gskMapDevDrop}; "
 					;;
 			esac
 			strAliasValue+="alias gskCCnpcSpawn_next gskCCnpcSpawn_${strCountNext}"
