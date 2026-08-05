@@ -716,6 +716,7 @@ function FUNCminiModInit() {
 
 function FUNCgetNewestCondump() {
 	declare -g FUNCgetNewestCondump_strFlCondump="$(ls -1tr "${strGameInstallMainFolder}/${strGameSubRelatFolderWriteAllHere}/condump"* |grep -v ".NoCR." |tail -n 1)" &&: #help can be the backup like "${strMapCfgFile}.condump.txt"
+	if [[ ! -f "$FUNCgetNewestCondump_strFlCondump" ]];then return 1;fi
 	cat "$FUNCgetNewestCondump_strFlCondump" |tr -d '\r' >"${FUNCgetNewestCondump_strFlCondump}.NoCR.txt"
 	FUNCgetNewestCondump_strFlCondump="${FUNCgetNewestCondump_strFlCondump}.NoCR.txt"
 	#ls -l "${FUNCgetNewestCondump_strFlCondump}" >&2 &&:

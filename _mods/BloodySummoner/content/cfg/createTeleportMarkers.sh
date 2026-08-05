@@ -59,8 +59,13 @@ strFlCondumpPrev=""
 strCfgPath="${strGameInstallMainFolder}/${strGameSubRelatFolderWriteAllHere}/cfg"
 strTeleCurrentCfgFile="${strCfgPath}/gskTeleMarkers.cfg"
 strMatchRename=".*(gskTeleMarkerRename|gsktrn)[ ]*([^ ]*)[ ]*(.*)"
+: ${nLoopSleep:=0.33} #help
 while true;do
-	strFlCondump="$(FUNCgetNewestCondump)"
+	if ! strFlCondump="$(FUNCgetNewestCondump)";then
+		echo -ne "$(date) Waiting new condump.\r"
+		sleep $nLoopSleep
+		continue
+	fi
 	
 	if [[ "$strFlCondumpPrev" != "$strFlCondump" ]];then
 		bRecreateCfgFile=false
@@ -292,6 +297,5 @@ while true;do
 	fi
 
 	#TODO this can also update a file gskFillCurrentMapWithNPCs.cfg based on the current map name and on available files at CarefulCombat! so at 'q' key to reload some cfgs, it will also load gskFillCurrentMapWithNPCs.cfg that is ready with the spawn NPC settings for current map!
-	: ${nLoopSleep:=0.33} #help
 	sleep $nLoopSleep
 done

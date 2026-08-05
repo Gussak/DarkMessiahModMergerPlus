@@ -9,6 +9,8 @@
 	"gskNpcMarkedTeleport": "#mc_gsknpcmarkedteleport",
 	"gskSummonSeagull": "#mc_gsksummonseagull",
 	"gskSummonDog": "#mc_gsksummondog",
+	"gskSummonCrow": "#mc_gsksummoncrow",
+	"gskSummonPig": "#mc_gsksummonpig",
 	"gskSummonSpiderMini": "#mc_gsksummonspidermini",
 	"gskSummonSpiderRegular": "#mc_gsksummonspiderregular",
 	"gskSummonFacehugger": "#mc_gsksummonfacehugger",
