@@ -12,7 +12,7 @@ if true;then
 	if [[ "${1-}" == "--all" ]];then #help (work on all files possible) every other params after this go for ./doItAllAutomaticallyIfPossible.sh. Without this option, all params go for ./prepareAllModsPatchesForScriptFile.sh to process a single file with some default settings.
 		shift
 		
-		#TODO just copy first file to final merged folder to let the script ./unifiedGameCfg.sh improve it #export strIgnoreSomeFiles="cfg/game.cfg" # for ./doItAllAutomaticallyIfPossible.sh: see ./unifiedGameCfg.sh
+		export strIgnoreSomeFiles="cfg/game.cfg" # for ./doItAllAutomaticallyIfPossible.sh: see ./unifiedGameCfg.sh #TODO just copy first file to final merged folder to let the script ./unifiedGameCfg.sh improve it ?
 		
 		export bShowFinalComparison=false # for (./doItAllAutomaticallyIfPossible.sh ->)./prepareAllModsPatchesForScriptFile.sh: this should be set to 'true', but for a quick test is false. it is important to check all auto merged final result files to grant nothing weird is placed there.
 		#allowing updating is more reliable #export bUpdateTodoList=false # for doItAllAutomaticallyIfPossible.sh->findAllConflictingModdedFiles.sh: no need to update it that often. If already merged it will be quickly skipped. Only if mods' order changes or a new one is added, then run it once.

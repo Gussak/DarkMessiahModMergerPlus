@@ -56,7 +56,7 @@ echo
 ####################################
 FUNCechoInfo "[INFO] find all text and script files only from mod folders" 
 IFS=$'\n' read -d '' -r -a astrList < <(find -L "${strGameInstallMainFolder}"* -type f -iregex "$strScriptsExtRegexEsc" \
-	|egrep -vi "(${strGameInstallMainFolder}/|${strWriteLayer}|${strVanillaLayer}|${strMergedModsFolder}|IGNORE_LAYER)" \
+	|egrep -vi "(${strGameInstallMainFolder}/|${strWriteLayer}|${strVanillaLayer}|${strMergedModsFolder}|IGNORE_LAYER|.*[.]sh)" \
 	|egrep -i  "(.*/_mods/.*/content/.*|${strRegex2})" \
 )&&:
 : ${strDebugFilter:=""} #help just shows the full list but filtered to easy debug
