@@ -14,7 +14,7 @@
     "combatmovedatas.layer_throw_daggers_out_adrenaline.chancetostun": "1.0",
     "combatmovedatas.layer_throw_daggers_out_adrenaline.cutheadflag": "1",
     "combatmovedatas.layer_throw_daggers_out_adrenaline.disarmflag": "1",
-    "combatmovedatas.layer_throw_daggers_out_adrenaline.HitPow": "200",
+    "combatmovedatas.layer_throw_daggers_out_adrenaline.HitPow": "1000",
     "combatmovedatas.layer_throw_daggers_out_adrenaline.impalflag": "1",
     "combatmovedatas.layer_throw_daggers_out_adrenaline.push": "1"
 }
