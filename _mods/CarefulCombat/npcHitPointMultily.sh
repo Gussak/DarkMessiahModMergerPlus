@@ -200,17 +200,17 @@
 		mkdir -p "${strPathModPatch}"
 		
 		strFlModded="${strPathModPatch}/$(basename "${strFlNpc}")"
-		if [[ -f "${strFlModded}" ]];then
-			: ${bForceRecreate:=false} #help this will delete the copy of vanilla file that was patched and copy again from vanilla before repatching
-			if $bForceRecreate;then 
+		#if [[ -f "${strFlModded}" ]];then
+			#: ${bForceRecreate:=false} #help this will delete the copy of vanilla file that was patched and copy again from vanilla before repatching
+			#if $bForceRecreate;then 
 				FUNCtrash "${strFlModded}"
-			fi
-		fi
-		if [[ ! -f "${strFlModded}" ]];then
+			#fi
+		#fi
+		#if [[ ! -f "${strFlModded}" ]];then
 			cp "${astrFlVanillaScript[$strFlNpc]}" "${strPathModPatch}/"
 			chmod u+w "$strFlModded"
 			ln -vsf "./$(basename "${strFlNpc}")" "${strFlModded}.DO_NOT_EDIT.AUTOGEN"
-		fi
+		#fi
 		
 		if $bApplyHP;then
 			strKVPatch='
@@ -233,15 +233,12 @@
 }
 ';
 
-			# this is like manually typing the value there. Could may be use a json data created here to apply thru keyValuePatcher.py instead, may ne more robust (less prone to fail).
-			#sed -i.bkp -r -e 's@(.*npc_health[^0-9]*)([0-9]*)(.*)@\1'"${nNewHP}"'\3@' "$strFlModded" #|grep npc_health
-			#set -x
+			#help this is like manually typing the value there. Could may be use a json data created here to apply thru keyValuePatcher.py instead, may ne more robust (less prone to fail).
+			# 1st apply a mini patch on the vanilla
 			"${strPathMainModFolder}/keyValuePatcher.py" apply "${strFlModded}" <(echo "$strKVPatch") --prettify --append-missing
-			#set +x
-			#exit
-			
+			#sed -i.bkp -r -e 's@(.*npc_health[^0-9]*)([0-9]*)(.*)@\1'"${nNewHP}"'\3@' "$strFlModded" #|grep npc_health
 			"${strPathMainModFolder}/keyValuePatcher.py" create "${astrFlVanillaScript[$strFlNpc]}" "${strFlModded}"&&:;nRet=$?
-			#exit
+			
 			case $nRet in
 				0) FUNCechoInfo "[Identical]";;
 				1) 
