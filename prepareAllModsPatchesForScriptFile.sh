@@ -75,7 +75,7 @@ while [[ $# -gt 0 ]] && [[ "${1:0:1}" == "-" ]];do # checks if param is set
 done
 
 strFlScriptFileTmp=""
-if [[ "${1-}" =~ ^/.* ]];then #help @InfoID="SmartFileRefDetect" absolute path smart file detection, you can just paste an existing .patch or kvpatch.json and the correct file reference will be guessed
+if [[ "${1-}" =~ ^/.* ]];then #help @InfoID="SmartFileRefDetect" absolute path smart file detection, you can just paste an existing .patch or kvpatch.json even without quotes, and it will try to guess the correct file reference
 	FUNCechoInfo "[INFO] smart trying to prepare file"
 	strFlScriptFileTmp="$*";while [[ $# -gt 0 ]];do shift;done
 	if [[ -f "${strFlScriptFileTmp}" ]];then
