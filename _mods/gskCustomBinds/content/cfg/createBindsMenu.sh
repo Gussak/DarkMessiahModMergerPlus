@@ -41,6 +41,8 @@ if [[ ! -f "${strGameInstallMainFolder}/mm.exe" ]];then
 	exit 1
 fi
 
+FUNCrefreshMount # if it did not update, means OverlayFS needs refresing to sync with modified files.
+
 mapfile -t astrAliasList < <(cat gskEnabledBinds.DoNotEnable.cfg |grep "^bind" |egrep -v '"' |awk '{print $3}' |egrep "^[+]*${strAliasPrefix}" |tr -d '\r')
 strMenuDataBegin='
 "lang"
@@ -154,7 +156,6 @@ trash ../scripts/kb_act.lst; #will be auto recreated from vanilla + kvpatch
 cd ../../../..
 ./merge.sh -f resource/closecaption_manifest.txt;
 ./merge.sh -f scripts/kb_act.lst;
-# Obs.: if it did not update, means OverlayFS needs refresing to sync with modified files.
 '
 
 if $bDBG;then

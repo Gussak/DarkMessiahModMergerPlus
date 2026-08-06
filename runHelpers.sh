@@ -91,9 +91,9 @@ if $bRunBothInstances;then
 	'Enter' to RUN,
 	'a' auto click RUN (bAutoClickRun=$bAutoClickRun)
 	'c' use once: mm.exe -autoconfig
-	'd' to drop caches
 	'l' for quick loop
 	'p' restart pulseaudio (this breaks running instance audio)
+	'r' refresh merged folder mount point (to grant changes will sync)
 	't' trash files that may cause problems and can be recreated like user shader caches
 "
 				read -n 1 strResp&&:
@@ -104,9 +104,12 @@ if $bRunBothInstances;then
 					[cC])
 						bMMAutoConfigFlag=true #help mm.exe -autoconfig
 						;;
-					[dD])
-						set -x;bash -c sync && sudo dd if=/proc/3/stat of=/proc/sys/vm/drop_caches bs=1 count=1;set +x;
-						FUNCecho --say 'drop caches';
+					#[dD])
+						#set -x;bash -c sync && sudo dd if=/proc/3/stat of=/proc/sys/vm/drop_caches bs=1 count=1;set +x;
+						#FUNCecho --say 'drop caches';
+						#;;
+					[rR])
+						FUNCrefreshMount # if it did not update, means OverlayFS needs refresing to sync with modified files.
 						;;
 					[lL])
 						bRunStartCrashWorkaroundLoop=true #help drop caches may help better tho
