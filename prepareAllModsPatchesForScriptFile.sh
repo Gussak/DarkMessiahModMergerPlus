@@ -452,7 +452,7 @@ if $bDummyVanilla;then
 			cp -v "${astrListCurrent[0]}" "$strVanillaScriptFile" # see info below for being the first file on the list
 			strVanillaScriptFileOriginal="$strVanillaScriptFile"
 			
-			FUNCechoInfo "[WARNING: There is no such Vanilla File] created a dummy one '${strVanillaScriptFile}' with the contents of the first one found '${astrListCurrent[0]}' in the list of MODs, it will be deleted later." 
+			FUNCechoInfo "[WARNING: There is no such Vanilla File] created a dummy one '${strVanillaScriptFile}' with the contents of the first one found '${astrListCurrent[0]}' in the list of MODs, it will be deleted later."
 			
 			FUNCconvEncoding
 			;;
@@ -598,7 +598,7 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 				mv -vf "${strFileToMerge}.RECREATED_MODDED" "${strFileToMerge}"
 				nDiffRet=1 # assuming success already in the past
 			else
-				FUNCechoInfo "[ERROR] unable to recreate the modded file by applying the patch using the vanilla file, modded would be: '${strFileToMerge}'"
+				FUNCechoInfo "[ERROR:nRetPatch=$nRetPatch] unable to recreate the modded file by applying the patch using the vanilla file, modded would be: '${strFileToMerge}'"
 				echo -n >>"${strFileToMerge}" # creates and empty "modded" file if it doesnt exist ...
 				nDiffRet=2 #... to help open merger tool later
 			fi
@@ -623,10 +623,10 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 				fi
 				;;
 			2) 
-				FUNCechoInfo "[WARNING: diff trouble] try manually"; #this ever happens?
+				FUNCechoInfo "[WARNING: diff trouble] try manually (check the log, if the patch file was edited manually there may have some mistake on it (usually like a wrong ','))"; #this ever happens?
 				FUNCexecMerger --alert "$strVanillaScriptFile" "$strFileToMerge";
 				;;
-			*) FUNCechoInfo "[ERROR: unrecognized diff return value]";FUNCexit 1;;
+			*) FUNCechoInfo "[DEV_ERROR: unrecognized diff return value]"; FUNCaskYesNo "ask dev to fix this script"; FUNCexit 1;;
 		esac
 		
 		ls -l "${strFlPatch}"

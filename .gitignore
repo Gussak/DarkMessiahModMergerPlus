@@ -46,6 +46,7 @@ tmp
 *.vmt
 _mods/*/content/cfg/game.cfg
 _mods/*/content/resource/closecaption_manifest.txt
+_mods/*/content/resource/mm_itemnames_english.txt
 _mods/*/content/gameinfo.txt
 _mods/*/content/scripts/*.txt
 
