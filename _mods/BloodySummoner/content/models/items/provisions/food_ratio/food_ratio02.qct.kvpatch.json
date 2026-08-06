@@ -1,3 +1,4 @@
 {
-    "$keyvalues.entity_data.give_health": "10"
+    "$keyvalues.entity_data.give_health": "10",
+    "$keyvalues.entity_data.give_mana": "10"
 }

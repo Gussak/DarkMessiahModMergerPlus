@@ -854,3 +854,26 @@ function FUNCfindBrokenSymlinks() {
 	fi
 	return 1
 }
+
+function FUNCrefreshMount() {
+	(
+		cd "${strPathParent}";pwd
+		if which ScriptEchoColor >/dev/null;then
+			local lstrFlRemount="/usr/local/bin/secSudoWithScript.secOverrideMultiLayerMountPoint.overlayfs_DarkMessiahMightandMagicSinglePlayer_UmountRemount.sh"
+			if [[ -f "$lstrFlRemount" ]];then
+				secSudoWithScript.sh "$lstrFlRemount"
+			else
+				bSudoWithScript=true secOverrideMultiLayerMountPoint.sh -u "Dark Messiah Might and Magic Single Player"
+			fi
+		else
+			set -x
+			if FUNCaskYesNo "remount? (otherwise will drop_caches (overkill))";then
+				sudo mount -o remount "$strGameMainFolderBasename"
+			else
+				bash -c sync && sudo dd if=/proc/3/stat of=/proc/sys/vm/drop_caches bs=1 count=1
+				FUNCsay "drop caches" #help overkill tho
+			fi
+			set +x
+		fi
+	)
+}

@@ -154,7 +154,7 @@ trash ../scripts/kb_act.lst; #will be auto recreated from vanilla + kvpatch
 cd ../../../..
 ./merge.sh -f resource/closecaption_manifest.txt;
 ./merge.sh -f scripts/kb_act.lst;
-# Obs.: if it did not update, means OverlayFS needs drop_caches to sync with modified files.
+# Obs.: if it did not update, means OverlayFS needs refresing to sync with modified files.
 '
 
 if $bDBG;then
