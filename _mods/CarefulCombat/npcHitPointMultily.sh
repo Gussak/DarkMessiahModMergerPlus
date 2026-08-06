@@ -260,6 +260,8 @@ done
 ##\
 	#|egrep -vi "${strDownloadedModFilesRel}|${strDisabledTmpTestFolderRel}|ModLauncher|AdvancedSDK|OverlayFSworkDirDontTouchThis|IGNORE_LAYER|${strWriteLayer}|${strVanillaLayer}|${strMergedModsFolder}|${strGameInstallMainFolder}"
 
-if ! $bApplyHP;then
+if $bApplyHP;then
+	FUNCrefreshMount # if it did not update, means OverlayFS needs refresing to sync with modified files.
+else
 	echo "[INFO] !!! Now run it with param --apply to generate the modded files and patches. !!!"
 fi
