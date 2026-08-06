@@ -74,7 +74,23 @@ while [[ $# -gt 0 ]] && [[ "${1:0:1}" == "-" ]];do # checks if param is set
 	shift&&:
 done
 
-: ${strScriptFileRelat:="${1-}"} #help provide a relative path (as mods may implement variants in other sub paths, like arena mod, that shall not affect the main game) ex.: "scripts/spells.txt" will be prepended with "*/" becoming "*/scripts/spells.txt" and matching like _mods folder like ".../content/scripts/spells.txt", main game like ".../mm/scripts/spells.txt"
+strFlScriptFileTmp=""
+if [[ "${1-}" =~ ^/.* ]];then #help @InfoID="SmartFileRefDetect" absolute path smart file detection, you can just paste an existing .patch or kvpatch.json and the correct file reference will be guessed
+	FUNCechoInfo "[INFO] smart trying to prepare file"
+	strFlScriptFileTmp="$*";while [[ $# -gt 0 ]];do shift;done
+	if [[ -f "${strFlScriptFileTmp}" ]];then
+		strFlScriptFileTmp="$(echo "${strFlScriptFileTmp}" |sed -r -e 's@^/.*/content/(.*)@\1@g')"
+		strFlScriptFileTmp="${strFlScriptFileTmp%.patch}"
+		strFlScriptFileTmp="${strFlScriptFileTmp%.kvpatch.json}"
+		declare -p strFlScriptFileTmp
+	else
+		FUNCechoInfo "[ERROR] invalid file '$strFlScriptFileTmp'"
+		exit 1
+	fi
+fi
+
+: ${strScriptFileRelat:="${1-${strFlScriptFileTmp}}"} #help provide a relative path (as mods may implement variants in other sub paths, like arena mod, that shall not affect the main game) ex.: "scripts/spells.txt" will be prepended with "*/" becoming "*/scripts/spells.txt" and matching like _mods folder like ".../content/scripts/spells.txt", main game like ".../mm/scripts/spells.txt"
+
 if [[ -z "$strScriptFileRelat" ]];then FUNCechoInfo "[invalid] strScriptFileRelat='' is empty"; FUNCexit 1;fi
 exec > >(tee "$strFinalMergedFolderContent/${strScriptFileRelat}.log") 2>&1
 
