@@ -78,15 +78,19 @@ strFlScriptFileTmp=""
 if [[ "${1-}" =~ ^/.* ]];then #help @InfoID="SmartFileRefDetect" absolute path smart file detection, you can just paste an existing .patch or kvpatch.json even without quotes, and it will try to guess the correct file reference
 	FUNCechoInfo "[INFO] smart trying to prepare file"
 	strFlScriptFileTmp="$*";while [[ $# -gt 0 ]];do shift;done
-	if [[ -f "${strFlScriptFileTmp}" ]];then
+	if ! echo "$strFlScriptFileTmp" |egrep -q "content";then
+		FUNCechoInfo "[ERROR] invalid '$strFlScriptFileTmp'"
+		exit 1
+	fi
+	#if [[ -f "${strFlScriptFileTmp}" ]];then
 		strFlScriptFileTmp="$(echo "${strFlScriptFileTmp}" |sed -r -e 's@^/.*/content/(.*)@\1@g')"
 		strFlScriptFileTmp="${strFlScriptFileTmp%.patch}"
 		strFlScriptFileTmp="${strFlScriptFileTmp%.kvpatch.json}"
 		declare -p strFlScriptFileTmp
-	else
-		FUNCechoInfo "[ERROR] invalid file '$strFlScriptFileTmp'"
-		exit 1
-	fi
+	#else
+		#FUNCechoInfo "[ERROR] invalid file '$strFlScriptFileTmp'"
+		#exit 1
+	#fi
 fi
 
 : ${strScriptFileRelat:="${1-${strFlScriptFileTmp}}"} #help provide a relative path (as mods may implement variants in other sub paths, like arena mod, that shall not affect the main game) ex.: "scripts/spells.txt" will be prepended with "*/" becoming "*/scripts/spells.txt" and matching like _mods folder like ".../content/scripts/spells.txt", main game like ".../mm/scripts/spells.txt"

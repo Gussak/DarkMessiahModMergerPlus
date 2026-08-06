@@ -203,13 +203,13 @@
 		#if [[ -f "${strFlModded}" ]];then
 			#: ${bForceRecreate:=false} #help this will delete the copy of vanilla file that was patched and copy again from vanilla before repatching
 			#if $bForceRecreate;then 
-				FUNCtrash "${strFlModded}"
+				FUNCtrash "${strFlModded}" >/dev/null
 			#fi
 		#fi
 		#if [[ ! -f "${strFlModded}" ]];then
 			cp "${astrFlVanillaScript[$strFlNpc]}" "${strPathModPatch}/"
 			chmod u+w "$strFlModded"
-			ln -vsf "./$(basename "${strFlNpc}")" "${strFlModded}.DO_NOT_EDIT.AUTOGEN"
+			ln -sf "./$(basename "${strFlNpc}")" "${strFlModded}.DO_NOT_EDIT.AUTOGEN"
 		#fi
 		
 		if $bApplyHP;then
