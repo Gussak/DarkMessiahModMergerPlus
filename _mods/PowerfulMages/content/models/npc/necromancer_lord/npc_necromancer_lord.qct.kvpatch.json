@@ -2,7 +2,7 @@
     "$keyvalues.entity_data.difficulty": "1.0",
     "$keyvalues.entity_data.level_1.difficulty": "1.0",
     "__comments__": {
-        "spelldatas": "//nothing happens for these (better disable as the AI seems to lose time on them): summon spider earth_3 recovery 10 cast_spider 3, this destroys invisibility: stone skin earth_1 effect 0.5 recovery 30",
+        "spelldatas": "//nothing happens for these (better disable as the AI seems to lose time on them): summon spider earth_3 recovery 10 cast_spider 3, this destroys invisibility: stone skin earth_1 effect 0.5 recovery 30, ISSUE: there is a hidden spell that summons a weak undead that doesnt read the npc_undead.qct :(",
         "spelldatas.resurect": "// Resurrect Black Guard as an Undead",
         "spelldatas.water_3.effect": "// Duration",
         "spelldatas.air_3.effect": "// Damage multiplier. True Damage.",
@@ -12,7 +12,6 @@
         "spelldatas.fire_4.adrenaline_boost_time": "//time adrenalised when npc hit",
         "spelldatas.fire_4.effect": "//normal damage",
         "spelldatas.fire_4.effect_adrenaline": "//Inferno damage done when adrenalised",
-        "spelldatas.invisibility": "// use only this or earth_1 stone skin, as both breaks invisibility",
         "spelldatas.earth_3": ""
     },
     "spelldatas.air_2.effect": "3000",
@@ -36,6 +35,8 @@
     "spelldatas.earth_2.range_min": "0",
     "spelldatas.earth_2.recovery": "180",
     "spelldatas.earth_2.shield_radius": "60",
+    "spelldatas.earth_3.cast_spider": "3",
+    "spelldatas.earth_3.recovery": "60",
     "spelldatas.earth_4.attachment": "RightHand",
     "spelldatas.earth_4.effect": "33",
     "spelldatas.earth_4.range_max": "100",
