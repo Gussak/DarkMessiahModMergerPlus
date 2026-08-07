@@ -1,11 +1,6 @@
 {
     "$keyvalues.entity_data.difficulty": "1.0",
-    "$keyvalues.entity_data.dodge_on_kick_init_chance": "0.25",
     "$keyvalues.entity_data.level_1.difficulty": "1.0",
-    "$keyvalues.entity_data.level_1.npc_health": "7350",
-    "$keyvalues.entity_data.level_1.ThrowPrecisionNbShootToIn": "2",
-    "$keyvalues.entity_data.npc_health": "7350",
-    "$keyvalues.entity_data.TimeKnockedDownByPhysics": "10",
     "__comments__": {
         "spelldatas": "//nothing happens for this (better disable as the AI seems to lose time on them): summon spider earth_3 cast_spider 1 recovery 180, This is destroyed by stoneskin: invisibility effect 15 recovery 300",
         "spelldatas.air_2.attachment": "// Attachment point for the spell effect.",

@@ -1,11 +1,6 @@
 {
     "$keyvalues.entity_data.difficulty": "1.0",
-    "$keyvalues.entity_data.dodge_on_kick_init_chance": "0.25",
     "$keyvalues.entity_data.level_1.difficulty": "1.0",
-    "$keyvalues.entity_data.level_1.npc_health": "16800",
-    "$keyvalues.entity_data.level_1.ThrowPrecisionNbShootToIn": "2",
-    "$keyvalues.entity_data.npc_health": "16800",
-    "$keyvalues.entity_data.TimeKnockedDownByPhysics": "10",
     "__comments__": {
         "spelldatas": "//nothing happens for these (better disable as the AI seems to lose time on them): summon spider earth_3 recovery 10 cast_spider 3, this destroys invisibility: stone skin earth_1 effect 0.5 recovery 30",
         "spelldatas.resurect": "// Resurrect Black Guard as an Undead",
