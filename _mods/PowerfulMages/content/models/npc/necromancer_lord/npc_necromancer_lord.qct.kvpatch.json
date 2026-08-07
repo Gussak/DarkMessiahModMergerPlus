@@ -12,6 +12,7 @@
         "spelldatas.fire_4.adrenaline_boost_time": "//time adrenalised when npc hit",
         "spelldatas.fire_4.effect": "//normal damage",
         "spelldatas.fire_4.effect_adrenaline": "//Inferno damage done when adrenalised",
+        "spelldatas.invisibility.effect": "//duration? but he attacks and loses it right?",
         "spelldatas.earth_3": ""
     },
     "spelldatas.air_2.effect": "3000",
@@ -62,9 +63,9 @@
     "spelldatas.fire_4.range_min": "0",
     "spelldatas.fire_4.recovery": "30",
     "spelldatas.invisibility.attachment": "RightHand",
-    "spelldatas.invisibility.effect": "15",
+    "spelldatas.invisibility.effect": "300",
     "spelldatas.invisibility.range_max": "1000",
     "spelldatas.invisibility.range_min": "200",
-    "spelldatas.invisibility.recovery": "30",
+    "spelldatas.invisibility.recovery": "10",
     "spelldatas.water_3.effect": "15"
 }
