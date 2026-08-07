@@ -857,7 +857,7 @@ function FUNCfindBrokenSymlinks() {
 
 function FUNCrefreshMount() {  # if it did not update, means OverlayFS needs refresing to sync with modified files, it is what this is for
 	(
-		cd "${strPathParent}";pwd
+		cd "${strPathParent}" #pwd
 		if which ScriptEchoColor >/dev/null;then
 			local lstrFlRemount="/usr/local/bin/secSudoWithScript.secOverrideMultiLayerMountPoint.overlayfs_DarkMessiahMightandMagicSinglePlayer_UmountRemount.sh"
 			if [[ -f "$lstrFlRemount" ]];then

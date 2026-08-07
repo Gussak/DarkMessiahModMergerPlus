@@ -35,13 +35,13 @@ FUNCchkDeps unix2dos iconv file
 
 : ${strAliasPrefix:=gsk} #help
 
-
 if [[ ! -f "${strGameInstallMainFolder}/mm.exe" ]];then
 	echo "[PROBLEM] Please mount '${strGameInstallMainFolder}' to be sure what is active to properly prepare the keybindings."
 	exit 1
 fi
 
-FUNCrefreshMount
+declare -A astrMD5["../resource/closecaption_manifest.txt"]="$(md5sum "../resource/closecaption_manifest.txt")"
+declare -A astrMD5["../scripts/kb_act.lst"]="$(md5sum "../scripts/kb_act.lst")"
 
 mapfile -t astrAliasList < <(cat gskEnabledBinds.DoNotEnable.cfg |grep "^bind" |egrep -v '"' |awk '{print $3}' |egrep "^[+]*${strAliasPrefix}" |tr -d '\r')
 strMenuDataBegin='
@@ -149,14 +149,19 @@ if $bVerbose;then
 	cat ../scripts/kb_act.lst.kvpatch.json
 fi
 
-echo '
-now run: 
-trash ../resource/closecaption_manifest.txt; #will be auto recreated from vanilla + kvpatch
-trash ../scripts/kb_act.lst; #will be auto recreated from vanilla + kvpatch
-cd ../../../..
-./merge.sh -f resource/closecaption_manifest.txt;
-./merge.sh -f scripts/kb_act.lst;
-'
+for strMD5id in "${!astrMD5[@]}";do
+	if [[ "$(md5sum "${strMD5id}")" != "${astrMD5[$strMD5id]}" ]];then
+		echo "
+	trash ${strMD5id}; #will be auto recreated from vanilla + kvpatch
+	cd "'"${strPathMainModFolder}"'"
+	./merge.sh -f ${strMD5id#../};
+"
+	else
+		FUNCechoInfo "[INFO] '${strMD5id}' didn't change."
+	fi
+done
+
+FUNCrefreshMount
 
 if $bDBG;then
 	declare -p astrDbg |tr '[' '\n'
