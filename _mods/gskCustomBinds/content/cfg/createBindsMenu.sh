@@ -63,7 +63,7 @@ function FUNCgoodDesc() {
 	
 	local lstrLN="$(grep " ${lstrAlias} " gskEnabledBinds.DoNotEnable.cfg)"
 	if [[ "$lstrLN" =~ .*//.* ]];then
-		local lstrDesc="$(echo "$lstrLN" | sed -r -e 's@^[^/]*//@@' -e 's@ //.*$@@' -e 's@^[[:space:]]*@@; s@[[:space:]]*$@@')" # works with this to ignore the long description: aaa // short description // long description
+		local lstrDesc="$(echo "$lstrLN" | sed -r -e 's@^[^/]*//@@' -e 's@ //.*$@@' -e 's@^[[:space:]]*@@; s@[[:space:]]*$@@')" # works with this to ignore the long description: aaa // short description // long description #TODO just append the full description, with the short first and the long after. It will now show in-game but the user may find that file and just read it. Or create an antomatic readme-KeyBindingFullDescriptions.txt
 
 		#: ${lnMaxDescSize:=40} #help
 		#if((${#lstrDesc} > lnMaxDescSize));then
