@@ -7,7 +7,7 @@
     "$keyvalues.entity_data.npc_health": "7350",
     "$keyvalues.entity_data.TimeKnockedDownByPhysics": "10",
     "__comments__": {
-        "spelldatas": "//nothing happens for this (better disable as the AI seems to lose time on them): \"earth_3\" {\t\t\"attachment\"\t\t\"RightHand\"\t\t\"cast_spider\"\t\t\"1\"\t\t\"effect\"\t\t\"10\"\t\t\"range_max\"\t\t\"1000\"\t\t\"range_min\"\t\t\"90\"\t\t\"recovery\"\t\t\"180\"\t}; This is destroyed by stoneskin: \"invisibility\"\t{\t\t\"attachment\"\t\t\"RightHand\"\t\t\"effect\"\t\t\"15\"\t\t\"range_max\"\t\t\"1000\"\t\t\"range_min\"\t\t\"200\"\t\t\"recovery\"\t\t\"300\"\t}",
+        "spelldatas": "//nothing happens for this (better disable as the AI seems to lose time on them): summon spider earth_3 cast_spider 1 recovery 180, This is destroyed by stoneskin: invisibility effect 15 recovery 300",
         "spelldatas.air_2.attachment": "// Attachment point for the spell effect.",
         "spelldatas.air_2.effect": "// Life points healed or taken.",
         "spelldatas.air_2.range_max": "// Maximum effective range for the spell (in inches).",

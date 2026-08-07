@@ -7,7 +7,7 @@
     "$keyvalues.entity_data.npc_health": "16800",
     "$keyvalues.entity_data.TimeKnockedDownByPhysics": "10",
     "__comments__": {
-        "spelldatas": "//nothing happens for these (better disable as the AI seems to lose time on them): \"earth_3\"\t{\t\t\"effect\"\t\t\"10\"\t\t\"recovery\"\t\t\"10\"\t\t\"range_max\"\t\t\"1000\"\t\t\"range_min\"\t\t\"90\"\t\t\"attachment\"\t\t\"RightHand\"\t\t\"cast_spider\" \"3\"\t}; this destroys invisibility: \t\"earth_1\" \t{\t\t\"attachment\"\t\t\"RightHand\"\t\t\"effect\"\t\t\"0.5\"\t\t\"range_max\"\t\t\"250\"\t\t\"range_min\"\t\t\"0\"\t\t\"recovery\"\t\t\"30\"\t}",
+        "spelldatas": "//nothing happens for these (better disable as the AI seems to lose time on them): summon spider earth_3 recovery 10 cast_spider 3, this destroys invisibility: stone skin earth_1 effect 0.5 recovery 30",
         "spelldatas.resurect": "// Resurrect Black Guard as an Undead",
         "spelldatas.water_3.effect": "// Duration",
         "spelldatas.air_3.effect": "// Damage multiplier. True Damage.",

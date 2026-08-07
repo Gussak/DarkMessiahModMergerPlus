@@ -8,13 +8,13 @@
     "$keyvalues.entity_data.weapon_takable_6": "weapon_arxkatana",
     "$keyvalues.entity_data.weapon_takable_7": "weapon_arxorcleaver",
     "$keyvalues.entity_data.weapon_takable_8": "weapon_arxclub",
-    "$keyvalues.entity_data.weapon_takable_9": "weapon_mm_shield_gob",
-    "$keyvalues.entity_data.weapon_takable_10": "weapon_mm_weapon_generic",
+    "$keyvalues.entity_data.weapon_takable_9": "weapon_arx_sword_of_misery",
+    "$keyvalues.entity_data.weapon_takable_10": "weapon_mm_specter_knife",
     "$keyvalues.entity_data.weapon_takable_11": "weapon_sword_souldrinker",
     "$keyvalues.entity_data.weapon_takable_12": "weapon_arx_sword_collector",
     "$keyvalues.entity_data.weapon_takable_13": "weapon_arx_sword_of_fire",
     "$keyvalues.entity_data.weapon_takable_14": "weapon_mm_shield_lava",
-    "$keyvalues.entity_data.weapon_takable_15": "weapon_mm_shield_magic",
+    "$keyvalues.entity_data.weapon_takable_15": "weapon_arx_orc_chief_cleaver",
     "$keyvalues.entity_data.weapon_takable_16": "weapon_mm_shield_necroguard",
     "$keyvalues.entity_data.weapon_takable_17": "weapon_mm_shield_orc",
     "$keyvalues.entity_data.weapon_takable_18": "weapon_mm_shield_deathknight",
@@ -28,7 +28,17 @@
     "$keyvalues.entity_data.weapon_takable_26": "weapon_mm_bow_explosive",
     "$keyvalues.entity_data.weapon_takable_27": "weapon_arxcrossbow",
     "$keyvalues.entity_data.weapon_takable_28": "weapon_arxorccleaver",
-    "$keyvalues.entity_data.weapon_takable_29": "weapon_arx_orc_chief_cleaver",
-    "$keyvalues.entity_data.weapon_takable_30": "weapon_arx_sword_of_misery",
-    "$keyvalues.entity_data.weapon_takable_31": "weapon_mm_specter_knife"
+    "__comments__": {
+        "$keyvalues.entity_data.checkforweapons": "// Check for weapons if it does not have one. linux tip: sort -V ... Obs.: the limit seems to be 28?",
+        "$keyvalues.entity_data.weapon_takable_1": "// Type of weapon it looks for.",
+        "$keyvalues.entity_data.weapon_takable_2": "// Type of weapon it looks for.",
+        "$keyvalues.entity_data.weapon_takable_3": "// Type of weapon it looks for.",
+        "$keyvalues.entity_data.weapon_takable_4": "// Type of weapon it looks for.",
+        "$keyvalues.entity_data.weapon_takable_5": "// Type of weapon it looks for.",
+        "$keyvalues.entity_data.weapon_takable_6": "// Type of weapon it looks for.",
+        "$keyvalues.entity_data.weapon_takable_7": "// Type of weapon it looks for.",
+        "$keyvalues.entity_data.weapon_takable_9": "//shields can prevent the use of bows \"weapon_mm_shield_gob\"",
+        "$keyvalues.entity_data.weapon_takable_10": "//this seems invalid \"weapon_mm_weapon_generic\"",
+        "$keyvalues.entity_data.weapon_takable_15": "//shields can prevent the use of bows \"weapon_mm_shield_magic\""
+    }
 }
