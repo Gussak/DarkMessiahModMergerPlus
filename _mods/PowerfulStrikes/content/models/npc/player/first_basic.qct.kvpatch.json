@@ -1,5 +1,6 @@
 {
     "__comments__": {
+        "combatmovedatas.layer_throw_daggers_out_adrenaline": "//it seems to bug sometimes? the animation freezes in the air and the NPC stays with 1hp or immortal but innofensive...",
         "combatmovedatas.layer_throw_daggers_out_adrenaline.HitPow": "//60 //is this x30 ? seems to damage about 1800",
         "combatmovedatas.layer_throw_daggers_out_adrenaline.cutheadflag": "//better not use, nothing happens",
         "combatmovedatas.layer_throw_daggers_out_adrenaline.impalflag": "//do not use, it bugs",
