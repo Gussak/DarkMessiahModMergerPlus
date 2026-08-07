@@ -23,6 +23,13 @@
     "$keyvalues.entity_data.weapon_takable_28": "weapon_arxorccleaver",
     "__comments__": {
         "$keyvalues.entity_data.checkforweapons": "// Check for weapons if it does not have one. linux tip: sort -V ... Obs.: the limit seems to be 28?",
+        "$keyvalues.entity_data.weapon_takable_1": "// guards drop this one",
+        "$keyvalues.entity_data.weapon_takable_2": "//.",
+        "$keyvalues.entity_data.weapon_takable_3": "//.",
+        "$keyvalues.entity_data.weapon_takable_4": "//.",
+        "$keyvalues.entity_data.weapon_takable_5": "// this is identical to weapon_arx_short_sword",
+        "$keyvalues.entity_data.weapon_takable_6": "//.",
+        "$keyvalues.entity_data.weapon_takable_7": "//.",
         "$keyvalues.entity_data.weapon_takable_9": "//shields can prevent the use of bows \"weapon_mm_shield_gob\"",
         "$keyvalues.entity_data.weapon_takable_10": "//this seems invalid \"weapon_mm_weapon_generic\"",
         "$keyvalues.entity_data.weapon_takable_15": "//shields can prevent the use of bows \"weapon_mm_shield_magic\""
