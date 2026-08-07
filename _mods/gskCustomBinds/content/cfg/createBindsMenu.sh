@@ -40,8 +40,10 @@ if [[ ! -f "${strGameInstallMainFolder}/mm.exe" ]];then
 	exit 1
 fi
 
-declare -A astrMD5["../resource/closecaption_manifest.txt"]="$(md5sum "../resource/closecaption_manifest.txt")"
-declare -A astrMD5["../scripts/kb_act.lst"]="$(md5sum "../scripts/kb_act.lst")"
+FUNCrefreshMount # before changes to detect them in the merged folder!!!
+
+#declare -A astrMD5["../resource/closecaption_manifest.txt.kvpatch.json"]="$(md5sum "../resource/closecaption_manifest.txt.kvpatch.json")"
+#declare -A astrMD5["../scripts/kb_act.lst.kvpatch.json"]="$(md5sum "../scripts/kb_act.lst.kvpatch.json")"
 
 mapfile -t astrAliasList < <(cat gskEnabledBinds.DoNotEnable.cfg |grep "^bind" |egrep -v '"' |awk '{print $3}' |egrep "^[+]*${strAliasPrefix}" |tr -d '\r')
 strMenuDataBegin='
@@ -137,6 +139,7 @@ ls -l ../resource/mm_gskcustombinds_english.txt
 if $bVerbose;then
 	cat ../resource/mm_gskcustombinds_english.txt
 fi
+ln -vsf "./mm_gskcustombinds_english.txt" "../resource/mm_gskcustombinds_english.txt.DO_NOT_EDIT.AUTOGEN"
 rm "$strFlTmp"
 
 pwd
@@ -148,21 +151,26 @@ ls -l ../scripts/kb_act.lst.kvpatch.json
 if $bVerbose;then
 	cat ../scripts/kb_act.lst.kvpatch.json
 fi
+ln -vsf "./kb_act.lst" "../scripts/kb_act.lst.DO_NOT_EDIT.AUTOGEN"
 
-for strMD5id in "${!astrMD5[@]}";do
-	if [[ "$(md5sum "${strMD5id}")" != "${astrMD5[$strMD5id]}" ]];then
-		echo "
-	trash ${strMD5id}; #will be auto recreated from vanilla + kvpatch
-	cd "'"${strPathMainModFolder}"'"
-	./merge.sh -f ${strMD5id#../};
-"
-	else
-		FUNCechoInfo "[INFO] '${strMD5id}' didn't change."
-	fi
-done
+#for strMD5id in "${!astrMD5[@]}";do
+	#if [[ "$(md5sum "${strMD5id}")" != "${astrMD5[$strMD5id]}" ]];then
+		#echo "
+	#trash ${strMD5id}; #will be auto recreated from vanilla + kvpatch
+	#cd "'"${strPathMainModFolder}"'"
+	#./merge.sh -f ${strMD5id#../};
+#"
+	#else
+		#FUNCechoInfo "[INFO] '${strMD5id}' didn't change."
+	#fi
+#done
 
-FUNCrefreshMount
+FUNCrefreshMount # after changes
 
 if $bDBG;then
 	declare -p astrDbg |tr '[' '\n'
 fi
+
+echo "NOW RUN THIS:"
+echo "(trash \"../scripts/kb_act.lst\"; cd \"${strPathMainModFolder}\"; ./merge.sh -f \"scripts/kb_act.lst\")"
+
