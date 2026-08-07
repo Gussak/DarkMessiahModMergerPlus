@@ -297,5 +297,10 @@ else # create spawner aliases
 		fi
 		FUNCaliasNpcSpawner "( $i / $((${#astrNPC[@]} - 1)) )"
 	done
+	
+	echo "// NOW COPY THE ABOVE INTO THE CONFIG FILE //TODO auto replace the section"
+	read
 fi
+
+FUNCrefreshMount
 

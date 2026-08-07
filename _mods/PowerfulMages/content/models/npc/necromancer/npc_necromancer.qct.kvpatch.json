@@ -2,7 +2,7 @@
     "$keyvalues.entity_data.difficulty": "1.0",
     "$keyvalues.entity_data.level_1.difficulty": "1.0",
     "__comments__": {
-        "spelldatas": "//nothing happens for this (better disable as the AI seems to lose time on them): summon spider earth_3 cast_spider 1 recovery 180, This is destroyed by stoneskin: invisibility effect 15 recovery 300",
+        "spelldatas": "//nothing happens for this: summon spider earth_3 cast_spider 1 recovery 180, This effect is destroyed by stoneskin: invisibility effect 15 recovery 300",
         "spelldatas.air_2.attachment": "// Attachment point for the spell effect.",
         "spelldatas.air_2.effect": "// Life points healed or taken.",
         "spelldatas.air_2.range_max": "// Maximum effective range for the spell (in inches).",

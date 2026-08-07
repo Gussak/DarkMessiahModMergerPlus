@@ -2,7 +2,7 @@
     "$keyvalues.entity_data.difficulty": "1.0",
     "$keyvalues.entity_data.level_1.difficulty": "1.0",
     "__comments__": {
-        "spelldatas": "//nothing happens for these (better disable as the AI seems to lose time on them): summon spider earth_3 recovery 10 cast_spider 3, this destroys invisibility: stone skin earth_1 effect 0.5 recovery 30, ISSUE: there is a hidden spell that summons a weak undead that doesnt read the npc_undead.qct :(",
+        "spelldatas": "//nothing happens for this: summon spider earth_3 recovery 10 cast_spider 3, this destroys invisibility effect: stone skin earth_1 effect 0.5 recovery 30, ISSUE: there is a hidden spell that summons a weak undead that doesnt read the npc_undead.qct?",
         "spelldatas.resurect": "// Resurrect Black Guard as an Undead",
         "spelldatas.water_3.effect": "// Duration",
         "spelldatas.air_3.effect": "// Damage multiplier. True Damage.",
