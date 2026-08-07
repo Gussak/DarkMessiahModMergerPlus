@@ -41,7 +41,7 @@ if [[ ! -f "${strGameInstallMainFolder}/mm.exe" ]];then
 	exit 1
 fi
 
-FUNCrefreshMount # if it did not update, means OverlayFS needs refresing to sync with modified files.
+FUNCrefreshMount
 
 mapfile -t astrAliasList < <(cat gskEnabledBinds.DoNotEnable.cfg |grep "^bind" |egrep -v '"' |awk '{print $3}' |egrep "^[+]*${strAliasPrefix}" |tr -d '\r')
 strMenuDataBegin='

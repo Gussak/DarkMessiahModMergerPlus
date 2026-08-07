@@ -261,7 +261,7 @@ done
 	#|egrep -vi "${strDownloadedModFilesRel}|${strDisabledTmpTestFolderRel}|ModLauncher|AdvancedSDK|OverlayFSworkDirDontTouchThis|IGNORE_LAYER|${strWriteLayer}|${strVanillaLayer}|${strMergedModsFolder}|${strGameInstallMainFolder}"
 
 if $bApplyHP;then
-	FUNCrefreshMount # if it did not update, means OverlayFS needs refresing to sync with modified files.
+	FUNCrefreshMount
 	echo "[INFO] You should run `./merge.sh --all` now or ex.: `./merge.sh -f models/npc/necroguard/npc_necroguard.qct` for each you want to apply on the final merged folder."
 else
 	echo "[INFO] !!! Now run it with param --apply to generate the modded files and patches. !!!"

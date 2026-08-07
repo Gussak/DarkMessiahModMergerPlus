@@ -27,7 +27,7 @@ if true;then
 	else
 		export bShowFinalComparison=true
 		./prepareAllModsPatchesForScriptFile.sh -f "$@"
-		FUNCrefreshMount # if it did not update, means OverlayFS needs refresing to sync with modified files.
+		FUNCrefreshMount
 	fi
 
 fi

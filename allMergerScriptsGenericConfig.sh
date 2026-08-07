@@ -855,7 +855,7 @@ function FUNCfindBrokenSymlinks() {
 	return 1
 }
 
-function FUNCrefreshMount() {
+function FUNCrefreshMount() {  # if it did not update, means OverlayFS needs refresing to sync with modified files, it is what this is for
 	(
 		cd "${strPathParent}";pwd
 		if which ScriptEchoColor >/dev/null;then
