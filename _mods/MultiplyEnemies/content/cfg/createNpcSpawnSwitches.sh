@@ -146,20 +146,42 @@ if $bCreateSpawnsForCurrentMap;then
 	
 	# clean condump file is good for git
 	strFlCondumpClean="${strMapCfgFile}.condump_CLEAN.txt"
-	bUsingCleanCondump=false;if [[ "$strFlCondump" == "$strFlCondumpClean" ]];then bUsingCleanCondump=true;fi
-	if ! $bUsingCleanCondump;then
+	if [[ "$strFlCondump" == "$strFlCondumpClean" ]];then
+		strUseThisCondump="${strFlCondumpClean}.TMP.txt"
+		cp -vf "$strFlCondumpClean" "${strUseThisCondump}"&&:
+		strFlCondump="$strUseThisCondump"
+	fi
+	#if ! $bUsingCleanCondump;then
 		cp -vf "$strFlCondumpClean" "$strFlCondumpClean.$(FUNCdtFlNm).bkp"&&:
 		echo "$FUNCmapInfo_strMapStatus" >"$strFlCondumpClean"
 		echo "$FUNCmapInfo_strMapStatus" >>"$strFlCondumpClean"
-	fi
+	#fi
 	FUNCprepareCleanDataOriginBkp() {
-		if $bUsingCleanCondump;then return 0;fi
+		#if $bUsingCleanCondump;then return 0;fi
 		for((j=0;j<iTotEntryDataLines;j++));do
 			local lstrLine="${astrAllLines[$((iLnDataIni+j))]}"
-			local lstrExtra="";if [[ "$lstrLine" =~ ^gskSpawnHint.* ]];then lstrExtra="  // ( $((iSpawnCount+1))/${nTotSpawns} )";fi
-			echo "${lstrLine}${lstrExtra}" >>"$strFlCondumpClean"
+			local lstrExtra=""
+			if [[ "$lstrLine" =~ ^gskSpawnHint.* ]];then 
+				lstrExtra="  // ( $((iSpawnCount+1))/${nTotSpawns} )";
+			fi
+			lstrLine="$(echo "${lstrLine}" |sed -r -e 's@(^gskSpawnHint[^ ]*).*@\1@g')"
+			echo "${lstrLine} ${lstrExtra}" >>"$strFlCondumpClean"
 		done
 	}
+	#bUsingCleanCondump=false;if [[ "$strFlCondump" == "$strFlCondumpClean" ]];then bUsingCleanCondump=true;fi
+	#if ! $bUsingCleanCondump;then
+		#cp -vf "$strFlCondumpClean" "$strFlCondumpClean.$(FUNCdtFlNm).bkp"&&:
+		#echo "$FUNCmapInfo_strMapStatus" >"$strFlCondumpClean"
+		#echo "$FUNCmapInfo_strMapStatus" >>"$strFlCondumpClean"
+	#fi
+	#FUNCprepareCleanDataOriginBkp() {
+		#if $bUsingCleanCondump;then return 0;fi
+		#for((j=0;j<iTotEntryDataLines;j++));do
+			#local lstrLine="${astrAllLines[$((iLnDataIni+j))]}"
+			#local lstrExtra="";if [[ "$lstrLine" =~ ^gskSpawnHint.* ]];then lstrExtra="  // ( $((iSpawnCount+1))/${nTotSpawns} )";fi
+			#echo "${lstrLine}${lstrExtra}" >>"$strFlCondumpClean"
+		#done
+	#}
 	
 	cp -v "$strMapCfgFile" "${strMapCfgFile}.$(FUNCdtFlNm).bkp"&&:
 	FUNCtrash "$strMapCfgFile" # like a temp backup
