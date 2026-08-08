@@ -1,310 +1,310 @@
 map     :  l02_b1 at: -4900 x, -10927 y, 332 z
 map     :  l02_b1 at: -4900 x, -10927 y, 332 z
-gskSpawnHint   // ( 1/57 )  // ( 1/64 )
-setpos -4626.779785 -10826.064453 223.036713;setang 84.776039 99.015793 -0000260
-setpos -4626.779785 -10826.064453 223.036713;setang 84.776039 99.015793 -0.000260
+gskSpawnHint   // ( 1/64 )
+setpos -4626.779785 -10826.064453 223.036713;setang 84.776039 99.015793 -0000260 
+setpos -4626.779785 -10826.064453 223.036713;setang 84.776039 99.015793 -0.000260 
+mm_npc_create_necro_guard_bow  
+mm_npc_create_necro_guard_bow  
+gskSpawnHint   // ( 2/64 )
+setpos -4453.351563 -10850.365234 226.395416;setng 89.000000 90.633865 0.000029 
+setpos -4453.351563 -10850.365234 226.395416;setang 89.000000 90.633865 0.000029 
+mm_npc_create_undead  
+mm_npc_create_undead  
+gskSpawnHint   // ( 3/64 )
+setpos -4588.954102 -10842.239258 283.227325;setang 89.000000 85.353638 0.000099 
+setpos -4588.954102 -10842.239258 283.227325;setang 89.000000 85.353638 0.000099 
+mm_npc_create_undead  
+mm_npc_create_undead  
+gskSpawnHint   // ( 4/64 )
+setpos -4536.481934 -10786.977539 192.504776;setang 75.866638 -85.518814 -0.000901 
+setpos -4536.481934 -10786.977539 192.504776;setang 75.866638 -85.518814 -0.000901 
+mm_npc_create_necromancer  
+mm_npc_create_necromancer  
+gskSpawnHint   // ( 5/64 )
+setpos -4012.548584 -10912.959961 191.029388;setang 49.669525 28.458937 -0.000494 
+setpos -4012.548584 -10912.959961 191.029388;setang 49.669525 28.458937 -0.000494 
+mm_npc_create_necro_guard_bow  
+mm_npc_create_necro_guard_bow  
+gskSpawnHint   // ( 6/64 )
+setpos -4011.695068 -10919.017578 190.761292;setang 51.517048 -14.704785 -0.000645 
+setpos -4011.695068 -10919.017578 190.761292;setang 51.517048 -14.704785 -0.000645 
 mm_npc_create_necro_guard_bow 
-mm_npc_create_necro_guard_bow 
-gskSpawnHint   // ( 2/57 )  // ( 2/64 )
-setpos -4453.351563 -10850.365234 226.395416;setng 89.000000 90.633865 0.000029
-setpos -4453.351563 -10850.365234 226.395416;setang 89.000000 90.633865 0.000029
+mm_npc_create_necro_guard_bow  
+gskSpawnHint   // ( 7/64 )
+setpos -4532.730957 -10878.944336 270.469513;setang 69.795311 -87.302559 -0.001154 
+setpos -4532.730957 -10878.944336 270.469513;setang 69.795311 -87.302559 -0.001154 
+mm_npc_create_necro_guard_shield  
+mm_npc_create_necro_guard_shield  
+gskSpawnHint   // ( 8/64 )
+setpos -4981.756348 -11914.394531 607.243835;setang 89.000000 -105.449615 -0.000085 
+setpos -4981.756348 -11914.394531 607.243835;setang 89.000000 -105.449615 -0.000085 
+mm_npc_create_necromancer  
+mm_npc_create_necromancer  
+gskSpawnHint   // ( 9/64 )
+setpos -5008.853027 -11773.268555 521.423706;setang 89.000008 133.109161 -0.000010 
+setpos -5008.853027 -11773.268555 521.423706;setang 89.000008 133.109161 -0.000010 
+mm_npc_create_necro_guard_bow  
+mm_npc_create_necro_guard_bow  
+gskSpawnHint   // ( 10/64 )
+setpos -4731.986816 -11562.286133 521.898865;setang 88.934021 129.479080 0.000055 
+setpos -4731.986816 -11562.286133 521.898865;setang 88.934021 129.479080 0.000055 
+mm_npc_create_necro_guard_bow  
+mm_npc_create_necro_guard_bow  
+gskSpawnHint   // ( 11/64 )
+setpos -5054.087402 -11935.033203 510.516907;setang 84.116112 128.489120 -0.000403 
+setpos -5054.087402 -11935.033203 510.516907;setang 84.116112 128.489120 -0.000403 
+mm_npc_create_undead  
+mm_npc_create_undead  
+gskSpawnHint   // ( 12/64 )
+setpos -5047.782227 -11933.021484 510.834808;setang 82.136040 86.314888 -0.00057 
+setpos -5047.782227 -11933.021484 510.834808;setang 82.136040 86.314888 -0.000573 
+mm_npc_create_undead  
+mm_npc_create_undead  
+gskSpawnHint   // ( 13/64 )
+setpos -5043.453125 -11934.381836 511.451965;setang 78.308228 57.868465 -0.000791 
+setpos -5043.453125 -11934.381836 511.451965;setang 78.308228 57.868465 -0.000791 
+mm_npc_create_undead  
+mm_npc_create_undead  
+gskSpawnHint   // ( 14/64 )
+setpos -4943.967773 -12001.460938 512.176819;setang 73.820656 86.446129 -0.001027 
+setpos -4943.967773 -12001.460938 512.176819;setang 73.820656 86.46129 -0.001027 
+mm_npc_create_undead  
+mm_npc_create_undead  
+gskSpawnHint   // ( 15/64 )
+setpos -4938.859375 -12003.384766 511.451996;setang 78.308121 52.126499 -0.000796 
+setpos -4938.859375 -12003.384766 511.451996;setang 78.308121 52.126499 -0.000796 
+mm_npc_create_undead  
+mm_npc_create_undead  
+gskSpawnHint   // ( 16/64 )
+setpos -4314.116211 -11982.422852 506.301331;setang 70.058861 42.555527 -0.001141 
+setpos -4314.116211 -11982.422852 506.301331;setang 70.058861 42.555527 -0.001141 
+mm_npc_create_necro_guard_bow  
+mm_npc_create_necro_guard_bow  
+gskSpawnHint   // ( 17/64 )
+setpos -4483.912598 -12324.453125 515.739075;setang 56.003311 -28.065987 -0.000954 
+setpos -4483.912598 -12324.453125 515.73905;setang 56.003311 -28.065987 -0.000954 
+mm_npc_create_necro_guard_bow  
+mm_npc_create_necro_guard_bow  
+gskSpawnHint   // ( 18/64 )
+setpos -4812.811035 -12749.130859 342.774017;setang 62.865685 -160.394836 -0.001180 
+setpos -4812.811035 -12749.130859 342.774017;setang 62.865685 -160.394836 -0.001180 
+mm_npc_create_necro_guard_bow  
+mm_npc_create_necro_guard_bow  
+gskSpawnHint   // ( 19/64 )
+setpos -4459.510254 -12793.373047 320.757751;setang 89.000000 -1.494212 -0.000001 
+setpos -4459.510254 -12793.373047 320.757751;setang 89.000000 -1.494212 -0.000001 
+mm_npc_create_necro_guard_bow  
+mm_npc_create_necro_guard_bow  
+gskSpawnHint   // ( 20/64 )
+setpos -4556.900879 -12209.421875 517.694031;setang 72.896927 133.408249 -0.001052 
+setpos -4556.900879 -12209.421875 517.69401;setang 72.896927 133.408249 -0.001052 
+mm_npc_create_necro_guard_bow  
+mm_npc_create_necro_guard_bow  
+gskSpawnHint   // ( 21/64 )
+setpos -4553.961426 -12207.536133 517.502380;setang 74.084808 111.628334 -0.001035 
+setpos -4553.961426 -12207.536133 517.502380;setang 74.084808 111.628334 -0.001035 
+mm_npc_create_necro_guard_bow  
+mm_npc_create_necro_guard_bow  
+gskSpawnHint   // ( 22/64 )
+setpos -4550.613770 -12206.876953 517.214661;setang 75.866615 90.376549 -0.000911 
+setpos -4550.613770 -12206.876953 517.214661;setang 75.866615 90.376549-0.000911 
+mm_npc_create_necro_guard_bow  
+mm_npc_create_necro_guard_bow  
+gskSpawnHint   // ( 23/64 )
+setpos -4547.077148 -12207.557617 516.798828;setang 78.440361 67.936806 -0.000790 
+setpos -4547.077148 -12207.557617 516.798828;setang 78.440361 67.936806 -0.000790 
+mm_npc_create_necro_guard_bow  
+mm_npc_create_necro_guard_bow  
+gskSpawnHint   // ( 24/64 )
+setpos -4542.295898 -12212.005859 516.383606;setang 81.014153 26.555050 -0.000624 
+setpos -4542.295898 -12212.005859 516.383606;setang 81.014153 26.555050 -0.000624 
+mm_npc_create_necro_guard_bow  
+mm_npc_create_necro_guard_bow  
+gskSpawnHint   // ( 25/64 )
+setpos -4541.871094 -12219.198242 516.118164;setang 82.663986 -19.446798 -0.000531 
+setpos -4541.871094 -12219.198242 516.118164;setang 82.663986 -19.446798 -0.000531 
+mm_npc_create_necro_guard_bow  
+mm_npc_create_necro_guard_bow  
+gskSpawnHint   // ( 26/64 )
+setpos -4546.666504 -12224.511719 516.458069;setang 80.552109 -65.118988 -0.000616 
+setpos -4546.666504 -12224.511719 516.458069;setang 80.552109 -65.118988 -0.000616 
+mm_npc_create_necro_guard_bow  
+mm_npc_create_necr_guard_bow  
+gskSpawnHint   // ( 27/64 )
+setpos -4553.263672 -12224.948242 516.288025;setang 81.607941 -107.094948 -0.000602 
+setpos -4553.263672 -12224.948242 516.288025;setang 81.607941 -107.094948 -0.000602 
+mm_npc_create_necro_guard_bow  
+mm_npc_create_necro_guard_bow  
+gskSpawnHint   // ( 28/64 )
+setpos -4558.374512 -12221.068359 516.681702;setang 79.166031 -147.751221 -0.000728 
+setpos -4558.374512 -12221.068359 516.681702;setang 79.166031 -147.751221 -0.000728 
+mm_npc_create_necro_guard_bow  
+mm_npc_create_necro_guard_bow  
+gskSpawnHint   // ( 29/64 )
+setpos -4559.229492 -12212.959961 517.672791;setang 73.028511 159.910065 -0.001027 
+setpos -4559.229492 -12212.959961 517.672791;setang 73.028511 159.910065 -0.001027 
+mm_npc_create_necro_guard_bow  
+mm_npc_create_necro_guard_bow  
+gskSpawnHint   // ( 30/64 )
+setpos -4314.287598 -12143.102539 485.321991;setang 71.576599 24.837856 -0.001110 
+setpos -4314.287598 -12143.102539 485.321991;setang 71.576599 24.837856 -0.001110 
+mm_npc_create_necro_guard_shield  
+mm_npc_create_necro_guard_shield  
+gskSpawnHint   // ( 31/64 )
+setpos -4315.958008 -12153.266602 485.629486;setang 69.662804 -43.208393 -0.001150 
+setpos -4315.958008 -12153.266602 485.629486;setang 69.662804 -43.208393 -0.001150 
+mm_npc_create_necro_guard_shield  
+mm_npc_create_necro_guard_shield  
+gskSpawnHint   // ( 32/64 )
+setpos -5158.293945 -13216.721680 338.333618;setang 80.750252 -173.557541 -0.000616 
+setpos -5158.293945 -13216.721680 338.333618;setang 80.750252 -173.557541 -0.000616 
+mm_npc_create_necromancer_lord  
+mm_npc_create_necromancer_lord  
+gskSpawnHint   // ( 33/64 )
+setpos -5155.722656 -13222.122070 339.803497;setang 71.643044 -135.740417 -0.001111 
+setpos -5155.722656 -13222.122070 339.803497;setang 71.643044 -135.740417 -0.001111 
+mm_npc_create_undead  
+mm_npc_create_undead  
+gskSpawnHint   // ( 34/64 )
+setpos -5152.363770 -13224.354492 339.132782;stang 75.800606 -110.527885 -0.000910 
+setpos -5152.363770 -13224.354492 339.132782;setang 75.800606 -110.527885 -0.000910 
+mm_npc_create_undead  
+mm_npc_create_undead  
+gskSpawnHint   // ( 35/64 )
+setpos -5086.947266 -12867.625000 318.403748;setang 61.282429 172.483887 -0.001152 
+setpos -5086.947266 -12867.625000 318.403748;setang 61.282429 172.483887 -0.001152 
+mm_npc_create_undead  
+mm_npc_create_undead  
+gskSpawnHint   // ( 36/64 )
+setpos -5086.131348 -12872.552734 318.598419;setang 60.028664 -154.912262 -0.001124 
+setos -5086.131348 -12872.552734 318.598419;setang 60.028664 -154.912262 -0.001124 
+mm_npc_create_undead  
+mm_npc_create_undead  
+gskSpawnHint   // ( 37/64 )
+setpos -5096.000000 -12160.503906 238.543793;setang 56.399471 146.809387 -0.000962 
+setpos -5096.000000 -12160.503906 238.543793;setang 56.399471 146.809387 -0.000962 
+mm_npc_create_undead  
+mm_npc_create_undead  
+gskSpawnHint   // ( 38/64 )
+setpos -5097.543457 -12166.629883 237.823792;setang 61.084484 -171.148087 -0.001144 
+setpos -5097.543457 -12166.629883 237.823792;setang 61.084484 -17.148087 -0.001144 
+mm_npc_create_undead  
+mm_npc_create_undead  
+gskSpawnHint   // ( 39/64 )
+setpos -5097.480957 -12533.238281 234.769684;setang 45.512459 154.134048 -0.000065 
+setpos -5097.480957 -12533.238281 234.769684;setang 45.512459 154.134048 -0.000065 
+mm_npc_create_undead  
+mm_npc_create_undead  
+gskSpawnHint   // ( 40/64 )
+setpos -5098.385254 -12538.482422 234.220795;setang 49.405289 -167.453415 -0.000469 
+setpos -5098.385254 -12538.482422 234.220795;setang 49.405289 -167.453415 -0.000469 
+mm_npc_create_undead  
 mm_npc_create_undead 
-mm_npc_create_undead 
-gskSpawnHint   // ( 3/57 )  // ( 3/64 )
-setpos -4588.954102 -10842.239258 283.227325;setang 89.000000 85.353638 0.000099
-setpos -4588.954102 -10842.239258 283.227325;setang 89.000000 85.353638 0.000099
-mm_npc_create_undead 
-mm_npc_create_undead 
-gskSpawnHint   // ( 4/57 )  // ( 4/64 )
-setpos -4536.481934 -10786.977539 192.504776;setang 75.866638 -85.518814 -0.000901
-setpos -4536.481934 -10786.977539 192.504776;setang 75.866638 -85.518814 -0.000901
-mm_npc_create_necromancer 
-mm_npc_create_necromancer 
-gskSpawnHint   // ( 5/57 )  // ( 5/64 )
-setpos -4012.548584 -10912.959961 191.029388;setang 49.669525 28.458937 -0.000494
-setpos -4012.548584 -10912.959961 191.029388;setang 49.669525 28.458937 -0.000494
-mm_npc_create_necro_guard_bow 
-mm_npc_create_necro_guard_bow 
-gskSpawnHint   // ( 6/57 )  // ( 6/64 )
-setpos -4011.695068 -10919.017578 190.761292;setang 51.517048 -14.704785 -0.000645
-setpos -4011.695068 -10919.017578 190.761292;setang 51.517048 -14.704785 -0.000645
-mm_npc_create_necro_guard_bow
-mm_npc_create_necro_guard_bow 
-gskSpawnHint   // ( 7/57 )  // ( 7/64 )
-setpos -4532.730957 -10878.944336 270.469513;setang 69.795311 -87.302559 -0.001154
-setpos -4532.730957 -10878.944336 270.469513;setang 69.795311 -87.302559 -0.001154
-mm_npc_create_necro_guard_shield 
-mm_npc_create_necro_guard_shield 
-gskSpawnHint   // ( 8/57 )  // ( 8/64 )
-setpos -4981.756348 -11914.394531 607.243835;setang 89.000000 -105.449615 -0.000085
-setpos -4981.756348 -11914.394531 607.243835;setang 89.000000 -105.449615 -0.000085
-mm_npc_create_necromancer 
-mm_npc_create_necromancer 
-gskSpawnHint   // ( 9/57 )  // ( 9/64 )
-setpos -5008.853027 -11773.268555 521.423706;setang 89.000008 133.109161 -0.000010
-setpos -5008.853027 -11773.268555 521.423706;setang 89.000008 133.109161 -0.000010
-mm_npc_create_necro_guard_bow 
-mm_npc_create_necro_guard_bow 
-gskSpawnHint   // ( 10/57 )  // ( 10/64 )
-setpos -4731.986816 -11562.286133 521.898865;setang 88.934021 129.479080 0.000055
-setpos -4731.986816 -11562.286133 521.898865;setang 88.934021 129.479080 0.000055
-mm_npc_create_necro_guard_bow 
-mm_npc_create_necro_guard_bow 
-gskSpawnHint   // ( 11/57 )  // ( 11/64 )
-setpos -5054.087402 -11935.033203 510.516907;setang 84.116112 128.489120 -0.000403
-setpos -5054.087402 -11935.033203 510.516907;setang 84.116112 128.489120 -0.000403
-mm_npc_create_undead 
-mm_npc_create_undead 
-gskSpawnHint   // ( 12/57 )  // ( 12/64 )
-setpos -5047.782227 -11933.021484 510.834808;setang 82.136040 86.314888 -0.00057
-setpos -5047.782227 -11933.021484 510.834808;setang 82.136040 86.314888 -0.000573
-mm_npc_create_undead 
-mm_npc_create_undead 
-gskSpawnHint   // ( 13/57 )  // ( 13/64 )
-setpos -5043.453125 -11934.381836 511.451965;setang 78.308228 57.868465 -0.000791
-setpos -5043.453125 -11934.381836 511.451965;setang 78.308228 57.868465 -0.000791
-mm_npc_create_undead 
-mm_npc_create_undead 
-gskSpawnHint   // ( 14/57 )  // ( 14/64 )
-setpos -4943.967773 -12001.460938 512.176819;setang 73.820656 86.446129 -0.001027
-setpos -4943.967773 -12001.460938 512.176819;setang 73.820656 86.46129 -0.001027
-mm_npc_create_undead 
-mm_npc_create_undead 
-gskSpawnHint   // ( 15/57 )  // ( 15/64 )
-setpos -4938.859375 -12003.384766 511.451996;setang 78.308121 52.126499 -0.000796
-setpos -4938.859375 -12003.384766 511.451996;setang 78.308121 52.126499 -0.000796
-mm_npc_create_undead 
-mm_npc_create_undead 
-gskSpawnHint   // ( 16/57 )  // ( 16/64 )
-setpos -4314.116211 -11982.422852 506.301331;setang 70.058861 42.555527 -0.001141
-setpos -4314.116211 -11982.422852 506.301331;setang 70.058861 42.555527 -0.001141
-mm_npc_create_necro_guard_bow 
-mm_npc_create_necro_guard_bow 
-gskSpawnHint   // ( 17/57 )  // ( 17/64 )
-setpos -4483.912598 -12324.453125 515.739075;setang 56.003311 -28.065987 -0.000954
-setpos -4483.912598 -12324.453125 515.73905;setang 56.003311 -28.065987 -0.000954
-mm_npc_create_necro_guard_bow 
-mm_npc_create_necro_guard_bow 
-gskSpawnHint   // ( 18/57 )  // ( 18/64 )
-setpos -4812.811035 -12749.130859 342.774017;setang 62.865685 -160.394836 -0.001180
-setpos -4812.811035 -12749.130859 342.774017;setang 62.865685 -160.394836 -0.001180
-mm_npc_create_necro_guard_bow 
-mm_npc_create_necro_guard_bow 
-gskSpawnHint   // ( 19/57 )  // ( 19/64 )
-setpos -4459.510254 -12793.373047 320.757751;setang 89.000000 -1.494212 -0.000001
-setpos -4459.510254 -12793.373047 320.757751;setang 89.000000 -1.494212 -0.000001
-mm_npc_create_necro_guard_bow 
-mm_npc_create_necro_guard_bow 
-gskSpawnHint   // ( 20/57 )  // ( 20/64 )
-setpos -4556.900879 -12209.421875 517.694031;setang 72.896927 133.408249 -0.001052
-setpos -4556.900879 -12209.421875 517.69401;setang 72.896927 133.408249 -0.001052
-mm_npc_create_necro_guard_bow 
-mm_npc_create_necro_guard_bow 
-gskSpawnHint   // ( 21/57 )  // ( 21/64 )
-setpos -4553.961426 -12207.536133 517.502380;setang 74.084808 111.628334 -0.001035
-setpos -4553.961426 -12207.536133 517.502380;setang 74.084808 111.628334 -0.001035
-mm_npc_create_necro_guard_bow 
-mm_npc_create_necro_guard_bow 
-gskSpawnHint   // ( 22/57 )  // ( 22/64 )
-setpos -4550.613770 -12206.876953 517.214661;setang 75.866615 90.376549 -0.000911
-setpos -4550.613770 -12206.876953 517.214661;setang 75.866615 90.376549-0.000911
-mm_npc_create_necro_guard_bow 
-mm_npc_create_necro_guard_bow 
-gskSpawnHint   // ( 23/57 )  // ( 23/64 )
-setpos -4547.077148 -12207.557617 516.798828;setang 78.440361 67.936806 -0.000790
-setpos -4547.077148 -12207.557617 516.798828;setang 78.440361 67.936806 -0.000790
-mm_npc_create_necro_guard_bow 
-mm_npc_create_necro_guard_bow 
-gskSpawnHint   // ( 24/57 )  // ( 24/64 )
-setpos -4542.295898 -12212.005859 516.383606;setang 81.014153 26.555050 -0.000624
-setpos -4542.295898 -12212.005859 516.383606;setang 81.014153 26.555050 -0.000624
-mm_npc_create_necro_guard_bow 
-mm_npc_create_necro_guard_bow 
-gskSpawnHint   // ( 25/57 )  // ( 25/64 )
-setpos -4541.871094 -12219.198242 516.118164;setang 82.663986 -19.446798 -0.000531
-setpos -4541.871094 -12219.198242 516.118164;setang 82.663986 -19.446798 -0.000531
-mm_npc_create_necro_guard_bow 
-mm_npc_create_necro_guard_bow 
-gskSpawnHint   // ( 26/57 )  // ( 26/64 )
-setpos -4546.666504 -12224.511719 516.458069;setang 80.552109 -65.118988 -0.000616
-setpos -4546.666504 -12224.511719 516.458069;setang 80.552109 -65.118988 -0.000616
-mm_npc_create_necro_guard_bow 
-mm_npc_create_necr_guard_bow 
-gskSpawnHint   // ( 27/57 )  // ( 27/64 )
-setpos -4553.263672 -12224.948242 516.288025;setang 81.607941 -107.094948 -0.000602
-setpos -4553.263672 -12224.948242 516.288025;setang 81.607941 -107.094948 -0.000602
-mm_npc_create_necro_guard_bow 
-mm_npc_create_necro_guard_bow 
-gskSpawnHint   // ( 28/57 )  // ( 28/64 )
-setpos -4558.374512 -12221.068359 516.681702;setang 79.166031 -147.751221 -0.000728
-setpos -4558.374512 -12221.068359 516.681702;setang 79.166031 -147.751221 -0.000728
-mm_npc_create_necro_guard_bow 
-mm_npc_create_necro_guard_bow 
-gskSpawnHint   // ( 29/57 )  // ( 29/64 )
-setpos -4559.229492 -12212.959961 517.672791;setang 73.028511 159.910065 -0.001027
-setpos -4559.229492 -12212.959961 517.672791;setang 73.028511 159.910065 -0.001027
-mm_npc_create_necro_guard_bow 
-mm_npc_create_necro_guard_bow 
-gskSpawnHint   // ( 30/57 )  // ( 30/64 )
-setpos -4314.287598 -12143.102539 485.321991;setang 71.576599 24.837856 -0.001110
-setpos -4314.287598 -12143.102539 485.321991;setang 71.576599 24.837856 -0.001110
-mm_npc_create_necro_guard_shield 
-mm_npc_create_necro_guard_shield 
-gskSpawnHint   // ( 31/57 )  // ( 31/64 )
-setpos -4315.958008 -12153.266602 485.629486;setang 69.662804 -43.208393 -0.001150
-setpos -4315.958008 -12153.266602 485.629486;setang 69.662804 -43.208393 -0.001150
-mm_npc_create_necro_guard_shield 
-mm_npc_create_necro_guard_shield 
-gskSpawnHint   // ( 32/57 )  // ( 32/64 )
-setpos -5158.293945 -13216.721680 338.333618;setang 80.750252 -173.557541 -0.000616
-setpos -5158.293945 -13216.721680 338.333618;setang 80.750252 -173.557541 -0.000616
-mm_npc_create_necromancer_lord 
-mm_npc_create_necromancer_lord 
-gskSpawnHint   // ( 33/57 )  // ( 33/64 )
-setpos -5155.722656 -13222.122070 339.803497;setang 71.643044 -135.740417 -0.001111
-setpos -5155.722656 -13222.122070 339.803497;setang 71.643044 -135.740417 -0.001111
-mm_npc_create_undead 
-mm_npc_create_undead 
-gskSpawnHint   // ( 34/57 )  // ( 34/64 )
-setpos -5152.363770 -13224.354492 339.132782;stang 75.800606 -110.527885 -0.000910
-setpos -5152.363770 -13224.354492 339.132782;setang 75.800606 -110.527885 -0.000910
-mm_npc_create_undead 
-mm_npc_create_undead 
-gskSpawnHint   // ( 35/57 )  // ( 35/64 )
-setpos -5086.947266 -12867.625000 318.403748;setang 61.282429 172.483887 -0.001152
-setpos -5086.947266 -12867.625000 318.403748;setang 61.282429 172.483887 -0.001152
-mm_npc_create_undead 
-mm_npc_create_undead 
-gskSpawnHint   // ( 36/57 )  // ( 36/64 )
-setpos -5086.131348 -12872.552734 318.598419;setang 60.028664 -154.912262 -0.001124
-setos -5086.131348 -12872.552734 318.598419;setang 60.028664 -154.912262 -0.001124
-mm_npc_create_undead 
-mm_npc_create_undead 
-gskSpawnHint   // ( 37/57 )  // ( 37/64 )
-setpos -5096.000000 -12160.503906 238.543793;setang 56.399471 146.809387 -0.000962
-setpos -5096.000000 -12160.503906 238.543793;setang 56.399471 146.809387 -0.000962
-mm_npc_create_undead 
-mm_npc_create_undead 
-gskSpawnHint   // ( 38/57 )  // ( 38/64 )
-setpos -5097.543457 -12166.629883 237.823792;setang 61.084484 -171.148087 -0.001144
-setpos -5097.543457 -12166.629883 237.823792;setang 61.084484 -17.148087 -0.001144
-mm_npc_create_undead 
-mm_npc_create_undead 
-gskSpawnHint   // ( 39/57 )  // ( 39/64 )
-setpos -5097.480957 -12533.238281 234.769684;setang 45.512459 154.134048 -0.000065
-setpos -5097.480957 -12533.238281 234.769684;setang 45.512459 154.134048 -0.000065
-mm_npc_create_undead 
-mm_npc_create_undead 
-gskSpawnHint   // ( 40/57 )  // ( 40/64 )
-setpos -5098.385254 -12538.482422 234.220795;setang 49.405289 -167.453415 -0.000469
-setpos -5098.385254 -12538.482422 234.220795;setang 49.405289 -167.453415 -0.000469
-mm_npc_create_undead 
-mm_npc_create_undead
-gskSpawnHint   // ( 41/57 )  // ( 41/64 )
-setpos -5241.479492 -11345.629883 342.552795;setang 85.106056 124.138649 -0.000270
-setpos -5241.479492 -11345.629883 342.552795;setang 85.106056 124.138649 -0.000270
-mm_npc_create_undead 
-mm_npc_create_undead 
-gskSpawnHint   // ( 42/57 )  // ( 42/64 )
-setpos -5239.977051 -11361.707031 343.401245;setang 79.826172 -113.167679 -0.000730
-setpos -5239.977051 -11361.707031 343.401245;setang 79.826172 -113.167679 -0.000730
-mm_npc_create_undead 
-mm_npc_create_undead 
-gskSpawnHint   // ( 43/57 )  // ( 43/64 )
-setpos -5208.976563 -10966.410156 337.147339;setang 88.999992 63.860096 -0.006697
-setpos -5208.976563 -10966.410156 337.147339;setang 88.999992 63.860096 -0.006697
-mm_npc_create_undead 
-mm_npc_create_undead 
-gskSpawnHint   // ( 44/57 )  // ( 44/64 )
-setpos -5191.017578 -10992.135742 279.523499;setang 68.409340 138.326920 -0.001165
-setpos -5191.017578 -10992.135742 279.523499;setang 68.409340 138.326920 -0.001165
-mm_npc_create_undead 
-mm_npc_create_undead 
-gskSpawnHint   // ( 45/57 )  // ( 45/64 )
-setpos -5191.736816 -11003.564453 278.312592;setang 75.932495 -144.782074 -0.000906
-setpos -191.736816 -11003.564453 278.312592;setang 75.932495 -144.782074 -0.000906
-mm_npc_create_undead 
-mm_npc_create_undead 
-gskSpawnHint   // ( 46/57 )  // ( 46/64 )
-setpos -4473.582031 -11553.166016 466.462738;setang 78.638252 -35.419491 -0.000761
-setpos -4473.582031 -11553.166016 466.462738;setang 78.638252 -35.419491 -0.000761
-mm_npc_create_undead 
-mm_npc_create_undead 
-gskSpawnHint   // ( 47/57 )  // ( 47/64 )
-setpos -3835.701416 -10884.903320 549.343994;setang 89.000000 96.316299 -0.000056
-setpos -3835.701416 -10884.903320 549.343994;setang 89.000000 96.316299 -0.000056
-mm_npc_create_necromancer_lord 
-mm_npc_create_necromancer_lord 
-gskSpawnHint   // ( 48/57 )  // ( 48/64 )
-setpos -3836.312012 -11014.861328 463.885498;setang 89.000000 -92.903427 0.000121
-setpos -3836.312012 -11014.861328463.885498;setang 89.000000 -92.903427 0.000121
-mm_npc_create_necromancer 
-mm_npc_create_necromancer 
-gskSpawnHint   // ( 49/57 )  // ( 49/64 )
-setpos -3964.872803 -13320.165039 253.093216;setang 84.380089 -89.964012 -0.000352
-setpos -3964.872803 -13320.165039 253.093216;setang 84.380089 -89.964012 -0.000352
-mm_npc_create_necro_guard_shield 
-mm_npc_create_necro_guard_shield 
-gskSpawnHint   // ( 50/57 )  // ( 50/64 )
-setpos -4049.853760 -13001.880859 260.042603;setang 8.406013 -92.831299 0.000104
-setpos -4049.853760 -13001.880859 260.042603;setang 88.406013 -92.831299 0.000104
-mm_npc_create_necromancer_lord 
-mm_npc_create_necromancer_lord 
-gskSpawnHint   // ( 51/57 )  // ( 51/64 )
-setpos -4042.731445 -12999.227539 262.375122;setang 73.886856 -43.794922 -0.001036
-setpos -4042.731445 -12999.227539 262.375122;setang 73.88686 -43.794922 -0.001036
-mm_npc_create_undead 
-mm_npc_create_undead 
-gskSpawnHint   // ( 52/57 )  // ( 52/64 )
-setpos -4046.587158 -13001.627930 262.492218;setang 73.160896 -72.240990 -0.001030
-setpos -4046.587158 -13001.627930 262.492218;setang 73.160896 -72.240990 -0.001030
-mm_npc_create_undead 
-mm_npc_create_undead 
-gskSpawnHint   // ( 53/57 )  // ( 53/64 )
-setpos -4051.052002 -13001.893555 262.821686;setang 71.115067 -100.291229 -0.001117
-setpos -4051.052002 -13001.893555 262.821686;setang 71.115067 -100.291229 -0.001117
-mm_npc_create_undead 
-mm_npc_create_unead 
-gskSpawnHint   // ( 54/57 )  // ( 54/64 )
-setpos -4055.461670 -12999.766602 262.864136;setang 70.851028 -131.113358 -0.001136
-setpos -4055.461670 -12999.766602 262.864136;setang 70.851028 -131.113358 -0.001136
-mm_npc_create_undead 
-mm_npc_create_undead 
-gskSpawnHint   // ( 55/57 )  // ( 55/64 )
-setpos -3293.886963 -13050.579102 298.985809;setang 88.999992 3.236782 -0.006552
-setpos -3293.886963 -13050.579102 298.985809;setang 88.999992 3.236782 -0.006552
-mm_npc_create_necro_guard_bow 
-mm_npc_create_necro_guard_bow 
-gskSpawnHint   // ( 56/57 )  // ( 56/64 )
-setpos -3612.725830 -13126.771484 436.806213;setang 65.703163 -134.840042 -0.001198
-setpos -3612.725830 -13126.771484 436.806213;setang 65.703163 -134.840042 -0.001198
-mm_npc_create_necro_guard_shield 
-mm_npc_create_necro_guard_shield 
+gskSpawnHint   // ( 41/64 )
+setpos -5241.479492 -11345.629883 342.552795;setang 85.106056 124.138649 -0.000270 
+setpos -5241.479492 -11345.629883 342.552795;setang 85.106056 124.138649 -0.000270 
+mm_npc_create_undead  
+mm_npc_create_undead  
+gskSpawnHint   // ( 42/64 )
+setpos -5239.977051 -11361.707031 343.401245;setang 79.826172 -113.167679 -0.000730 
+setpos -5239.977051 -11361.707031 343.401245;setang 79.826172 -113.167679 -0.000730 
+mm_npc_create_undead  
+mm_npc_create_undead  
+gskSpawnHint   // ( 43/64 )
+setpos -5208.976563 -10966.410156 337.147339;setang 88.999992 63.860096 -0.006697 
+setpos -5208.976563 -10966.410156 337.147339;setang 88.999992 63.860096 -0.006697 
+mm_npc_create_undead  
+mm_npc_create_undead  
+gskSpawnHint   // ( 44/64 )
+setpos -5191.017578 -10992.135742 279.523499;setang 68.409340 138.326920 -0.001165 
+setpos -5191.017578 -10992.135742 279.523499;setang 68.409340 138.326920 -0.001165 
+mm_npc_create_undead  
+mm_npc_create_undead  
+gskSpawnHint   // ( 45/64 )
+setpos -5191.736816 -11003.564453 278.312592;setang 75.932495 -144.782074 -0.000906 
+setpos -191.736816 -11003.564453 278.312592;setang 75.932495 -144.782074 -0.000906 
+mm_npc_create_undead  
+mm_npc_create_undead  
+gskSpawnHint   // ( 46/64 )
+setpos -4473.582031 -11553.166016 466.462738;setang 78.638252 -35.419491 -0.000761 
+setpos -4473.582031 -11553.166016 466.462738;setang 78.638252 -35.419491 -0.000761 
+mm_npc_create_undead  
+mm_npc_create_undead  
+gskSpawnHint   // ( 47/64 )
+setpos -3835.701416 -10884.903320 549.343994;setang 89.000000 96.316299 -0.000056 
+setpos -3835.701416 -10884.903320 549.343994;setang 89.000000 96.316299 -0.000056 
+mm_npc_create_necromancer_lord  
+mm_npc_create_necromancer_lord  
+gskSpawnHint   // ( 48/64 )
+setpos -3836.312012 -11014.861328 463.885498;setang 89.000000 -92.903427 0.000121 
+setpos -3836.312012 -11014.861328463.885498;setang 89.000000 -92.903427 0.000121 
+mm_npc_create_necromancer  
+mm_npc_create_necromancer  
+gskSpawnHint   // ( 49/64 )
+setpos -3964.872803 -13320.165039 253.093216;setang 84.380089 -89.964012 -0.000352 
+setpos -3964.872803 -13320.165039 253.093216;setang 84.380089 -89.964012 -0.000352 
+mm_npc_create_necro_guard_shield  
+mm_npc_create_necro_guard_shield  
+gskSpawnHint   // ( 50/64 )
+setpos -4049.853760 -13001.880859 260.042603;setang 8.406013 -92.831299 0.000104 
+setpos -4049.853760 -13001.880859 260.042603;setang 88.406013 -92.831299 0.000104 
+mm_npc_create_necromancer_lord  
+mm_npc_create_necromancer_lord  
+gskSpawnHint   // ( 51/64 )
+setpos -4042.731445 -12999.227539 262.375122;setang 73.886856 -43.794922 -0.001036 
+setpos -4042.731445 -12999.227539 262.375122;setang 73.88686 -43.794922 -0.001036 
+mm_npc_create_undead  
+mm_npc_create_undead  
+gskSpawnHint   // ( 52/64 )
+setpos -4046.587158 -13001.627930 262.492218;setang 73.160896 -72.240990 -0.001030 
+setpos -4046.587158 -13001.627930 262.492218;setang 73.160896 -72.240990 -0.001030 
+mm_npc_create_undead  
+mm_npc_create_undead  
+gskSpawnHint   // ( 53/64 )
+setpos -4051.052002 -13001.893555 262.821686;setang 71.115067 -100.291229 -0.001117 
+setpos -4051.052002 -13001.893555 262.821686;setang 71.115067 -100.291229 -0.001117 
+mm_npc_create_undead  
+mm_npc_create_unead  
+gskSpawnHint   // ( 54/64 )
+setpos -4055.461670 -12999.766602 262.864136;setang 70.851028 -131.113358 -0.001136 
+setpos -4055.461670 -12999.766602 262.864136;setang 70.851028 -131.113358 -0.001136 
+mm_npc_create_undead  
+mm_npc_create_undead  
+gskSpawnHint   // ( 55/64 )
+setpos -3293.886963 -13050.579102 298.985809;setang 88.999992 3.236782 -0.006552 
+setpos -3293.886963 -13050.579102 298.985809;setang 88.999992 3.236782 -0.006552 
+mm_npc_create_necro_guard_bow  
+mm_npc_create_necro_guard_bow  
+gskSpawnHint   // ( 56/64 )
+setpos -3612.725830 -13126.771484 436.806213;setang 65.703163 -134.840042 -0.001198 
+setpos -3612.725830 -13126.771484 436.806213;setang 65.703163 -134.840042 -0.001198 
+mm_npc_create_necro_guard_shield  
+mm_npc_create_necro_guard_shield  
 gskSpawnHint   // ( 57/64 )
-setpos -3320.267822 -12722.666016 168.716705;setang 50.101864 -101.631798 -0.000531
-setpos -3320.267822 -12722.666016 168.716705;setang 50.101864 -101.631798 -0.000531
-mm_npc_create_necro_guard_bow 
-mm_npc_create_necro_guard_bow 
+setpos -3320.267822 -12722.666016 168.716705;setang 50.101864 -101.631798 -0.000531 
+setpos -3320.267822 -12722.666016 168.716705;setang 50.101864 -101.631798 -0.000531 
+mm_npc_create_necro_guard_bow  
+mm_npc_create_necro_guard_bow  
 gskSpawnHint   // ( 58/64 )
-setpos -2956.556396 -12694.718750 97.332367;setang 30.171421 -167.600891 0.001467
-setpos -2956.556396 -12694.718750 97.332367;setang 30.171421 -167.600891 0.001467
-mm_npc_create_necro_guard_bow 
-mm_npc_create_necro_guard_bow 
+setpos -2956.556396 -12694.718750 97.332367;setang 30.171421 -167.600891 0.001467 
+setpos -2956.556396 -12694.718750 97.332367;setang 30.171421 -167.600891 0.001467 
+mm_npc_create_necro_guard_bow  
+mm_npc_create_necro_guard_bow  
 gskSpawnHint_DropPotionLife   // ( 59/64 )
-setpos -4697.656738 -10843.512695 201.592621;setang 86.360123 -173.704742 -0.000285
-setpos -4697.656738 -10843.512695 201.592621;setang 86.360123 -173.704742 -0.000285
+setpos -4697.656738 -10843.512695 201.592621;setang 86.360123 -173.704742 -0.000285 
+setpos -4697.656738 -10843.512695 201.592621;setang 86.360123 -173.704742 -0.000285 
 gskSpawnHint_DropPotionLife   // ( 60/64 )
-setpos -3900.435791 -10806.970703 182.581970;setang 88.933990 41.125370 0.000039
-setpos -3900.435791 -10806.970703 182.581970;setang 88.933990 41.125370 0.000039
+setpos -3900.435791 -10806.970703 182.581970;setang 88.933990 41.125370 0.000039 
+setpos -3900.435791 -10806.970703 182.581970;setang 88.933990 41.125370 0.000039 
 gskSpawnHint_DropPotionLife   // ( 61/64 )
-setpos -4875.092773 -12740.258789 194.647720;setang 63.150043 137.383636 -0.007260
-setpos -4875.092773 -12740.258789 194.647720;setang 63.150043 137.383636 -0.007260
+setpos -4875.092773 -12740.258789 194.647720;setang 63.150043 137.383636 -0.007260 
+setpos -4875.092773 -12740.258789 194.647720;setang 63.150043 137.383636 -0.007260 
 gskSpawnHint_DropPotionLife   // ( 62/64 )
-setpos -5035.353516 -11744.473633 260.056396;setang 51.982651 -36.796513 -0.006772
-setpos -5035.353516 -11744.473633 260.056396;setang 51.982651 -36.796513 -0.006772
+setpos -5035.353516 -11744.473633 260.056396;setang 51.982651 -36.796513 -0.006772 
+setpos -5035.353516 -11744.473633 260.056396;setang 51.982651 -36.796513 -0.006772 
 gskSpawnHint_DropPotionLife   // ( 63/64 )
-setpos -4984.613281 -12017.908203 446.153809;setang 75.769501 94.336403 -0.006973
-setpos -4984.613281 -12017.908203 446.153809;setang 75.769501 94.336403 -0.006973
+setpos -4984.613281 -12017.908203 446.153809;setang 75.769501 94.336403 -0.006973 
+setpos -4984.613281 -12017.908203 446.153809;setang 75.769501 94.336403 -0.006973 
 gskSpawnHint_DropPotionLife   // ( 64/64 )
-setpos -4537.792480 -10815.091797 149.831589;setang 85.369995 -141.546585 -0.006998
-setpos -4537.792480 -10815.091797 149.831589;setang 85.369995 -141.546585 -0.006998
+setpos -4537.792480 -10815.091797 149.831589;setang 85.369995 -141.546585 -0.006998 
+setpos -4537.792480 -10815.091797 149.831589;setang 85.369995 -141.546585 -0.006998 
