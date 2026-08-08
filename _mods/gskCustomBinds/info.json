@@ -1,13 +1,16 @@
 {
   "name": "[MERGE] Auto Generated Key Bindings",
-    "version"               :   "1.0",
-  "description": "[MERGE] Edit the database at 'gskEnabledBinds.DoNotEnable.cfg' and run 'createBindsMenu.sh' to auto generate.",
-    "author"                :   "GussakThor",
-    "author_url"            :   "",
-    "website"               :   "",
-    "launch_parameters"     :   [],
-    "gameinfo_parameters"   :   [],
-    "modules"               :   [],
-    "game_configs"          :   [ "gskShowAllKeyBindings.cfg" ],
-    "autoexec_configs"      :   []
+  "version": "1.0",
+  "description": "[MERGE] Edit the database at 'gskBindsDatabase.DoNotEnable.cfg' and run 'createBindsMenu.sh' to auto generate.",
+  "author": "GussakThor",
+  "author_url": "",
+  "website": "",
+  "launch_parameters": [],
+  "gameinfo_parameters": [],
+  "modules": [],
+  "game_configs": [],
+  "autoexec_configs": [],
+  "game_configs_bkp": [
+    "gskShowAllKeyBindings.cfg"
+  ]
 }

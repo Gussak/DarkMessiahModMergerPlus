@@ -45,7 +45,10 @@ FUNCrefreshMount # before changes to detect them in the merged folder!!!
 #declare -A astrMD5["../resource/closecaption_manifest.txt.kvpatch.json"]="$(md5sum "../resource/closecaption_manifest.txt.kvpatch.json")"
 #declare -A astrMD5["../scripts/kb_act.lst.kvpatch.json"]="$(md5sum "../scripts/kb_act.lst.kvpatch.json")"
 
-mapfile -t astrAliasList < <(cat gskEnabledBinds.DoNotEnable.cfg |grep "^bind" |egrep -v '"' |awk '{print $3}' |egrep "^[+]*${strAliasPrefix}" |tr -d '\r')
+sedRemoveComments="s@(.*)//.*(//.*)?@\1@g" # the 2nd comment may not exist so "(...)?"
+mapfile -t astrAliasList < <(cat gskBindsDatabase.DoNotEnable.cfg |grep "^bind" |sed -r -e "$sedRemoveComments" |egrep -v '"' |awk '{print $3}' |egrep "^[+]*${strAliasPrefix}" |tr -d '\r')
+declare -p astrAliasList |sed -r -e "$strSedArrayNumToLn"
+
 strMenuDataBegin='
 "lang"
 {
@@ -61,7 +64,8 @@ strMenuDataEntries=""
 function FUNCgoodDesc() {
 	local lstrAlias="$1";shift
 	
-	local lstrLN="$(grep " ${lstrAlias} " gskEnabledBinds.DoNotEnable.cfg)"
+	if [[ "${lstrAlias:0:1}" == "+" ]];then lstrAlias="[+]${lstrAlias:1}";fi
+	local lstrLN="$(grep "^bind[ ]*[^ ]*[ ]*${lstrAlias} " gskBindsDatabase.DoNotEnable.cfg)"
 	if [[ "$lstrLN" =~ .*//.* ]];then
 		local lstrDesc="$(echo "$lstrLN" | sed -r -e 's@^[^/]*//@@' -e 's@ //.*$@@' -e 's@^[[:space:]]*@@; s@[[:space:]]*$@@')" # works with this to ignore the long description: aaa // short description // long description #TODO just append the full description, with the short first and the long after. It will now show in-game but the user may find that file and just read it. Or create an antomatic readme-KeyBindingFullDescriptions.txt
 
