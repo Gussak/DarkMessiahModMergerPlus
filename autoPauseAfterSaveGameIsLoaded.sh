@@ -163,14 +163,21 @@ function FUNCmonitorChanges() {
 		sleep ${lfLoopDelay};
 	done
 };export -f FUNCmonitorChanges
-
+#set -x
 iMonCh=0
-if [[ "${1-}" == "-m" ]];then shift;iMonCh=1;fi #help monitor changes and dump strings xterm
-if [[ "${1-}" == "-M" ]];then shift;iMonCh=2;fi #help monitor changes and dump strings
+while [[ $# -gt 0 ]];do
+	if [[ "${1}" == "-m" ]];then #help monitor changes and dump strings xterm
+		iMonCh=1;
+	elif [[ "${1}" == "-M" ]];then #help monitor changes and dump strings
+		iMonCh=2;
+	fi
+	shift;
+done
 case $iMonCh in
 	1)
 		if ! pgrep -fa DMMM_monitorChanges;then
-			(FUNCxterm -maximized -title DMMM_monitorChanges -e FUNCmonitorChanges & disown)
+			#(FUNCxterm -maximized -title DMMM_monitorChanges -e FUNCmonitorChanges & disown)
+			FUNCxtermChild DMMM_monitorChanges -maximized -e FUNCmonitorChanges
 		else
 			FUNCechoInfo "Already running."
 		fi
@@ -280,7 +287,10 @@ function FUNCpauseAfterLoad() {
 				for nPidGm in "${anPidGm[@]}";do #use case for 2 instances only
 					if FUNCisPidStopped $nPidGm;then continue;fi
 					# this is good to let it stop both instances, being run as child process
-					(FUNCxterm -title "DarkMessiah_FUNCpauseAndResumeAtom" -geometry 100x10+1+1 -e bash -c "FUNCpauseAndResumeAtom $nPidGm;FUNCwait60s" &) #no "& disown" to grant it cascade kills with this script. this thru xterm gets the focus and break the gameplay if focused, there is no way to auto minimize xterm? only thru title match like with the popup.. but that brief miliseconds may still break the gameplay... why it hasnt just a -minimize???
+					
+					#(FUNCxterm -title "DarkMessiah_FUNCpauseAndResumeAtom" -geometry 100x10+1+1 -e bash -c "FUNCpauseAndResumeAtom $nPidGm;FUNCwait60s" &) #no "& disown" to grant it cascade kills with this script. this thru xterm gets the focus and break the gameplay if focused, there is no way to auto minimize xterm? only thru title match like with the popup.. but that brief miliseconds may still break the gameplay... why it hasnt just a -minimize???
+					
+					FUNCxtermChild DarkMessiah_FUNCpauseAndResumeAtom_${nPidGm} -geometry 100x10+1+1 -e bash -c "FUNCpauseAndResumeAtom $nPidGm;FUNCwait60s"
 				done
 			else
 				if $bPauseOnlyNoFocusInstance;then
@@ -305,7 +315,8 @@ function FUNCpauseAfterLoad() {
 if ! pgrep -fa DMMM_pauseAfterLoad;then
 	: ${bXterm:=true};export bXterm
 	if $bXterm;then
-		(FUNCxterm -maximized -title DMMM_pauseAfterLoad -e bash -c "FUNCpauseAfterLoad" & disown);
+		#(FUNCxterm -maximized -title DMMM_pauseAfterLoad -e bash -c "FUNCpauseAfterLoad" & disown);
+		FUNCxtermChild DMMM_pauseAfterLoad -maximized -e bash -c "FUNCpauseAfterLoad"
 	else
 		bash -c "echo DMMM_pauseAfterLoad; FUNCpauseAfterLoad" #pgrep will see DMMM_pauseAfterLoad!
 	fi
