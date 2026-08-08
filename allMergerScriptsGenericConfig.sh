@@ -349,7 +349,7 @@ echo  >&3
 declare -p strMergedModsFolder strDisabledTmpTestFolderRel strDownloadedModFilesRel strVanillaLayer strVanillaScriptsPath strWriteLayer strFinalMergedFolderContent strFinalDummyHelperFolder strFlFinalMergerModJson astrKnownGameModRelativeFolders strRegexKGMRF >&3
 echo >&3
 
-FUNCtrash() {
+function FUNCtrash() {
 	#while ! ${1+false} && [[ "${1:0:1}" == "-" ]];do # checks if param is set
 	while ! ${1+false};do
 		if [[ -f "$1" ]];then
@@ -654,7 +654,7 @@ function FUNCjson() {
 	
 	return 0;
 };export -f FUNCjson
-FUNCjsonSet() {
+function FUNCjsonSet() {
 	local lstrFlJson="$1";shift
 	FUNCjson "$lstrFlJson" ".${1} = \"${2}\"" |sponge "$lstrFlJson"
 };export -f FUNCjsonSet
@@ -663,7 +663,7 @@ function FUNCjsonGetArray() {
 	local lstrID="$1";shift
 	FUNCjson --ignoremissing "$lstrFlJson" ".${lstrID}[]" |sed -r -e 's@^"@@' -e 's@"$@@' |sort -u
 };export -f FUNCjsonGetArray
-FUNCjsonSetArray() {
+function FUNCjsonSetArray() {
 	local lstrFlJson="$1";shift
 	local lstrID="$1";shift
 	local lastrCfgsList=("$@")
@@ -836,7 +836,7 @@ function FUNCsay() {
 	else
 		echo "SAY: $@"
 	fi
-}
+};export -f FUNCsay
 
 function FUNCbackupSpecialFilesForGoodLoading() {
 	local lstrDT="$(date +'%Y_%m_%d-%H_%M_%S')"
@@ -846,7 +846,7 @@ function FUNCbackupSpecialFilesForGoodLoading() {
 	cp -v "${strGameInstallMainFolder}/bin/vidcfg.bin" "${strGameInstallMainFolder}/bin/vidcfg.bin.${lstrDtSuffix}" #help without this file it will crash with "terminate called after throwing an instance of 'dxvk::DxvkError'"
 	cp -vf "${strGameInstallMainFolder}/bin/vidcfg.bin.${lstrDtSuffix}" "${strGameInstallMainFolder}/bin/vidcfg.bin.${lstrSuffix}" #to help backup latest
 	
-}
+};export -f FUNCbackupSpecialFilesForGoodLoading
 
 function FUNCfindBrokenSymlinks() {
 	echo "[INFO] ${FUNCNAME[@]}"
@@ -856,7 +856,7 @@ function FUNCfindBrokenSymlinks() {
 		return 0
 	fi
 	return 1
-}
+};export -f FUNCfindBrokenSymlinks
 
 function FUNCrefreshMount() {  # if it did not update, means OverlayFS needs refresing to sync with modified files, it is what this is for
 	(
@@ -879,4 +879,4 @@ function FUNCrefreshMount() {  # if it did not update, means OverlayFS needs ref
 			set +x
 		fi
 	)
-}
+};export -f FUNCrefreshMount
