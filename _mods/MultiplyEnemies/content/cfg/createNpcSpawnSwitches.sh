@@ -202,7 +202,7 @@ if $bCreateSpawnsForCurrentMap;then
 			strCountShow="$( printf   %d $((iSpawnCount+1)) )" # begins in 1 and ends like 45/45 looks better
 			strCountNext="$( printf %03d $((iSpawnCount+1)) )"
 			
-			if [[ "$strLine" =~ ^gskSpawnHint_DropPotion.* ]];then
+			if [[ "$strLine" =~ ^gskSpawnHint_DropPotion.* ]];then #help @InfoID="DroppingItems" prefer to place these at the end of the file to not mess NPCs placement and to let the player be prepared to drop them carefully: press NextNPC, receive DropMsg, press Pause (to unpause), keep the inventory opened and drop one potion etc as requested.
 				iTotEntryDataLines=3
 				if [[ "$strLine" =~ ^gskSpawnHint_DropPotionLife.* ]];then
 					strMODE=DropItem
