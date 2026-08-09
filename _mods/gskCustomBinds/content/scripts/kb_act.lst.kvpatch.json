@@ -3,6 +3,7 @@
 	"gskCCnpcSpawn_next": "#mc_gskccnpcspawn_next",
 	"gskMapDevDropPotionLife": "#mc_gskmapdevdroppotionlife",
 	"+gskKillTarget": "#mc_gskkilltarget",
+	"+gskKillTargetPiercing": "#mc_gskkilltargetpiercing",
 	"gskNpcFullyHeal": "#mc_gsknpcfullyheal",
 	"+gskNpcMarkedTelepathy": "#mc_gsknpcmarkedtelepathy",
 	"+gskNpcMark": "#mc_gsknpcmark",
