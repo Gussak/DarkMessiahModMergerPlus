@@ -1,7 +1,9 @@
 # DarkMessiahModMergerPlus
 Scripts to help merging DarkMessiahMM on Linux or expectedly CygWin too (for Windows). Plus mini mods.
 
-Main idea is no free powers for the challenge. As I found no way to spend mana, all costs goes to HP thru `hurtme` cmd.
+Main idea is no free powers for the challenge. As I found no way to spend mana, all costs goes to HP thru `hurtme` cmd.    
+You have to roleplay a highly challenging scenario, because you end up with access to full developer commands, so if you can't hold yourself about cheating, do not use this mod.    
+Every map will be chaotic requiring careful resources management and sometime thinking on the best tactics (and several reloads muahaha xD).   
 
 (This is WIP. The work scripts are being tested yet. If you have problems open an issue.)
 
