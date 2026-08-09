@@ -127,7 +127,7 @@ done
 #help @InfoID="Usage Info" you can edit just the CLEAN file if you know what you are doing
 #help @InfoID="Usage Example" strFlCondump="gskmap_L00.cfg.condump_CLEAN.txt" ./createNpcSpawnSwitches.sh -c #first time you use a newly generated condump by the game
 #help @InfoID="Usage Example" strFlCondump="gskmap_l02_b1-01_GuestHouse_OK.cfg.condump_CLEAN.txt" ./createNpcSpawnSwitches.sh -s "01_GuestHouse_OK" #setting the condump manually
-#help @InfoID="Usage Example" ./createNpcSpawnSwitches.sh -m l02_b2 01_BigRoomAndSpiders_OK #easiest for maintenance, auto detects existing cleaned condump
+#help @InfoID="Usage Example" ./createNpcSpawnSwitches.sh -m l02_b2 01_LowestBigRoom_OK #easiest for maintenance, auto detects existing cleaned condump
 #help @InfoID="Usage Example" ./createNpcSpawnSwitches.sh -m L02_A "" #this is for a small map that has no need for sectors
 
 function FUNCmapCfg() { #ex.: gskmap_l02_b1-01_GuestHouse_OK.cfg
