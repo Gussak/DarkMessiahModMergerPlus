@@ -82,9 +82,9 @@ while true;do
 	strTeleName=""
 	strTeleReNameFromID="";strTeleReNameToPrettyName=""
 	strTeleportUpAlias="" #bTeleportUp=false; strTeleportUpAlias=""
+	strTeleportTargetAlias=""
 	#bTeleMarkerDrop=false
 	
-	#TODO Test_CreateEntity prop_physics gskTeleportTargetCreateHint //this will dump the target position, just inc z by 100 ex.: prop at -3421 -11201 -100 missing modelname
 	if ugrep -q "gskTeleMarkerDelete=CurrentOneSelected|gsktdc" "$strFlCondump";then #help delete current one selected (you can just type it on console too)
 		FUNCmapInfo "$strFlCondump"
 		strMapCfgFile="${strCfgPath}/gskTeleMarkers_${FUNCmapInfo_strMapName}.cfg"
@@ -101,6 +101,17 @@ while true;do
 		((FUNCmapInfo_anPosRestoreXYZ[z]+=600))&&:
 		strTeleportUpAlias="alias gskTeleportUpApply \"setpos ${FUNCmapInfo_anPosRestoreXYZ[x]} ${FUNCmapInfo_anPosRestoreXYZ[y]} ${FUNCmapInfo_anPosRestoreXYZ[z]} \""
 		declare -p strTeleportUpAlias
+		
+		bRecreateCfgFile=true;
+	elif ugrep -q "gskTeleportTargetLocationPrepareHint" "$strFlCondump";then #help
+		#TODO Test_CreateEntity prop_physics gskTeleportTargetLocationPrepareHint //this will dump the target position, just inc z by 100 ex.: prop at -3421 -11201 -100 missing modelname
+		FUNCmapInfo "$strFlCondump"
+		strMapCfgFile="${strCfgPath}/gskTeleMarkers_${FUNCmapInfo_strMapName}.cfg"
+		
+		declare -p FUNCmapInfo_anPosRestoreXYZ
+		((FUNCmapInfo_anPosRestoreXYZ[z]+=60))&&:
+		strTeleportTargetAlias="alias gskTeleportTargetPosApply \"setpos ${FUNCmapInfo_anPosRestoreXYZ[x]} ${FUNCmapInfo_anPosRestoreXYZ[y]} ${FUNCmapInfo_anPosRestoreXYZ[z]} \""
+		declare -p strTeleportTargetAlias
 		
 		bRecreateCfgFile=true;
 	elif ugrep -q "${strMatchRename}" "$strFlCondump";then #help @InfoID="gskTeleMarkerRename" use like this in console ex.:    clear; status; status; echo gsktrn POS_x-234_y587_z2354 Some Nice Pretty Name; condump; gskWait5s; exec gskTeleMarkers  //it will auto wait and reload the config file (just copy the ID from console, 'from' must be the Teleporter ID that have no spaces) //TODO let it be just the current one selected to be renamed
@@ -290,6 +301,7 @@ while true;do
 		echo "echo \"Total at ${FUNCmapInfo_strMapName}: ${#astrMarkerID[@]}\"" >>"$strMapCfgFile"
 		echo >>"$strMapCfgFile"
 		echo "$strTeleportUpAlias" >>"$strMapCfgFile"
+		echo "$strTeleportTargetAlias" >>"$strMapCfgFile"
 		
 		ln -vsf "$strMapCfgFile" "$strTeleCurrentCfgFile"
 		cat "${strTeleCurrentCfgFile}" |egrep "^echo"

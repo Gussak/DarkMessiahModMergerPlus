@@ -739,7 +739,8 @@ function FUNCmapInfo() {
 	# map     :  L00 at: -1385 x, -4444 y, 343 z
 	# map     :  l02_b1 at: -4902 x, -10930 y, 367 z
 	local lstrRegexMapPos='^map\s*:\s*([a-zA-Z0-9_-]*)\s*at:\s*(.*)'
-	declare -g FUNCmapInfo_strMapStatus="$( ugrep "${lstrRegexMapPos}" "$lstrFlCondump" |tail -n 2 |awk 'length($0) > max { max = length($0); delete lines; lines[$0]; next } length($0) == max { lines[$0] } END { for (l in lines) print l }' )" #grab last 2 map info dumps, so no need to clean console log
+	local lstrAWKbiggestLine='length($0) > max { max = length($0); delete lines; lines[$0]; next } length($0) == max { lines[$0] } END { for (l in lines) print l }'
+	declare -g FUNCmapInfo_strMapStatus="$( ugrep "${lstrRegexMapPos}" "$lstrFlCondump" |tail -n 2 |awk "$lstrAWKbiggestLine" )" #grab last 2 map info dumps, so no need to clean console log
 	if(($(echo "$FUNCmapInfo_strMapStatus" |wc -l) != 1));then
 		FUNCechoInfo "[ERROR:] 2 biggest lines conflicting: $FUNCmapInfo_strMapStatus (because usually the biggest one is the right one)";
 		return 1;
@@ -751,8 +752,17 @@ function FUNCmapInfo() {
 		FUNCechoInfo "[ERROR:] no Map Name Detected "
 		return 1
 	fi
-
-	declare -g FUNCmapInfo_strPosRestore="$(echo "${FUNCmapInfo_strMapStatus}" |sed -r -e "s@${lstrRegexMapPos}@\2@g" |tr -d 'xyz,\r')"
+	
+	declare -g FUNCmapInfo_strPosRestore
+	local lstrSedTargetPosRegex="^prop at (.*) missing modelname$"
+	if egrep -q "${lstrSedTargetPosRegex}" "$lstrFlCondump";then #target mode
+		#FUNCmapInfo_strPosRestore="$(echo "${FUNCmapInfo_strMapStatus}" |sed -r -e "s@${lstrRegexMapPos}@\2@g" |tr -d '\r')"
+		FUNCmapInfo_strPosRestore="$(ugrep "${lstrSedTargetPosRegex}" "$lstrFlCondump" |tail -n 2 |awk "$lstrAWKbiggestLine" |sed -r -e "s@${lstrSedTargetPosRegex}@\1@g" |tr -d '\r')"
+		#prop at -3307 -12337 -222 missing modelname
+		#prop at -3307 -12337 -222 missing modelname
+	else
+		FUNCmapInfo_strPosRestore="$(echo "${FUNCmapInfo_strMapStatus}" |sed -r -e "s@${lstrRegexMapPos}@\2@g" |tr -d 'xyz,\r')"
+	fi
 	if [[ -z "$FUNCmapInfo_strPosRestore" ]];then
 		FUNCechoInfo "[ERROR:] no Pos To Restore Detected"
 		return 1
