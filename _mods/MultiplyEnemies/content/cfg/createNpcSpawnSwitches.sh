@@ -143,9 +143,18 @@ if $bCreateSpawnsForCurrentMap;then
 	if [[ -n "$lstrUseThisMap" ]];then
 		strFlCondump="$(FUNCmapCfg "${lstrUseThisMap}" "${lstrUseThisSector}").condump_CLEAN.txt"
 	fi
-	: ${strFlCondump:="$(ls -1tr "${strGameInstallMainFolder}/${strGameSubRelatFolderWriteAllHere}/condump"* |tail -n 1)"} #help instead of being automatically the newest file, it can be the backup file like ex.: "gskmap_l02_b1-02_FrontYard_OK.cfg.condump.txt" or even the clean file ex.: "gskmap_l02_b1-02_FrontYard_OK.cfg.condump_CLEAN.txt"
+	strFlCondumpNewest="$(ls -1tr "${strGameInstallMainFolder}/${strGameSubRelatFolderWriteAllHere}/condump"* |tail -n 1)"
+	: ${strFlCondump:="${strFlCondumpNewest}"} #help instead of being automatically the newest file, it can be the backup file like ex.: "gskmap_l02_b1-02_FrontYard_OK.cfg.condump.txt" or even the clean file ex.: "gskmap_l02_b1-02_FrontYard_OK.cfg.condump_CLEAN.txt"
 	declare -p strFlCondump
-	if ! ls -l "$strFlCondump";then FUNCechoInfo "[ERROR] condump file not found"; FUNCexit 1;fi
+	if ! ls -l "$strFlCondump";then
+		FUNCechoInfo "[ERROR] condump file not found '$strFlCondump'"; 
+		declare -p strFlCondumpNewest
+		if FUNCaskYesNo "use newest condump to create a new one?";then
+			strFlCondump="${strFlCondumpNewest}"
+		else
+			FUNCexit 1;
+		fi
+	fi
 	
 	while ! FUNCmapInfo "$strFlCondump";do FUNCwaitSeconds 3 "condump needs map info status data";done
 	## map     :  L00 at: -1385 x, -4444 y, 343 z
