@@ -39,11 +39,17 @@
 	#] clear
 
 # repeated a few times:
-strTestData='
+astrTestData[l02_b1]='
 setpos 2213.215332 -3293.702393 -67.647461;setang 48.241478 -70.745461 -0.008232
 setpos 2215.900146 -3301.388184 -2.175611;setang 48.246964 -70.745461 -0.007869
 setpos 2218.584961 -3309.074463 63.295425;setang 48.252453 -70.745461 -0.008057
 setpos 2221.270020 -3316.761230 128.765701;setang 48.257942 -70.745468 -0.007876
+'
+
+astrTestData[l02_b2]='
+setpos -3782.283447 -11133.138672 -88.090324;setang 41.272606 78.556099 -0.003627
+setpos -3780.784668 -11125.742188 -21.663368;setang 41.277138 78.547577 -0.003626
+setpos -3779.285400 -11118.345703 44.762939;setang 41.282627 78.542084 -0.003627
 '
 
 apX=()
@@ -53,7 +59,9 @@ aaX=()
 aaY=()
 aaZ=()
 
-mapfile -t astrLn < <(echo "$strTestData")
+for strMapIDchk in "${!strMapID[@]}";do echo strMapIDchk;done
+: ${strMapID:="l02_b1"} #help
+mapfile -t astrLn < <(echo "${astrTestData[${strMapID}]}")
 
 FUNCposAngXYZ() {
 	eval "$(echo "$1" |sed -r -e 's@setpos ([0-9.-]*) ([0-9.-]*) ([0-9.-]*);setang ([0-9.-]*) ([0-9.-]*) ([0-9.-]*)@declare -g pX=\1 pY=\2 pZ=\3 aX=\4 aY=\5 aZ=\6@g')"

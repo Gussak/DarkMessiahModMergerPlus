@@ -290,6 +290,7 @@ if $bCreateSpawnsForCurrentMap;then
 	done
 	FUNCechoAndFillFile "alias gskCCnpcSpawn_${strCountNext} \"echo FinishedSpawnings; gskSndDONE; ${strRestorePosInTheEnd}; ${strCmdsOFF}; \"" #this also prevents continuing thru some previous list entries of a previous test run or map may be
 	FUNCechoAndFillFile "clear" # before beggining each spawning, this is good
+	FUNCechoAndFillFile "echo \"PLEASE STAND UP NOW! (will auto crouch to help fit and positioning)\""
 	FUNCechoAndFillFile "echo \"Now, slowly and repeatedly press the key to spawn the next NPC.\""
 	FUNCechoAndFillFile "echo \"You will be in developer mode and carefully teleported to the location and rotation required for the spawning and without triggering anything.\""
 	FUNCechoAndFillFile "echo \"Obs.: your vision is blurred to the spawn and location be a surprise.\""
