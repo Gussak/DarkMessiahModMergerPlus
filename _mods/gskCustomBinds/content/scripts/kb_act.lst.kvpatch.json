@@ -33,6 +33,7 @@
 	"gskTeleMarkerRecall": "#mc_gsktelemarkerrecall",
 	"+gskTeleMarkerDelete": "#mc_gsktelemarkerdelete",
 	"+gskTeleportUp": "#mc_gskteleportup",
+	"+gskTeleportTargetPos": "#mc_gskteleporttargetpos",
 	"+gskMoveThruWall": "#mc_gskmovethruwall",
 	"+gskDestroyToMana": "#mc_gskdestroytomana",
 	"+gskFixMana": "#mc_gskfixmana",
