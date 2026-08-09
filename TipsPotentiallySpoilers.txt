@@ -10,3 +10,8 @@ Fire source anywhere
 Messing with big boss
 - to get the crystal, dont free the prisioners imediatelly, use charm on guards, but run away as you will be hunted, and use the caves
 
+Teleporting at target location
+- enable the developer GOD mode, and fly where you want to teleport (be sure to not trigger anything, the yellow regions)
+- Use the Teleport Mark key
+- move back where you were (better mark this place too)
+- select and use the Teleport Recall key
