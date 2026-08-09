@@ -84,6 +84,7 @@ while true;do
 	strTeleportUpAlias="" #bTeleportUp=false; strTeleportUpAlias=""
 	#bTeleMarkerDrop=false
 	
+	#TODO Test_CreateEntity prop_physics gskTeleportTargetCreateHint //this will dump the target position, just inc z by 100 ex.: prop at -3421 -11201 -100 missing modelname
 	if ugrep -q "gskTeleMarkerDelete=CurrentOneSelected|gsktdc" "$strFlCondump";then #help delete current one selected (you can just type it on console too)
 		FUNCmapInfo "$strFlCondump"
 		strMapCfgFile="${strCfgPath}/gskTeleMarkers_${FUNCmapInfo_strMapName}.cfg"
