@@ -82,6 +82,7 @@
     "spelldatas.fire_4.recovery": "30",
     "spelldatas.resurect.attachment": "RightHand",
     "spelldatas.resurect.class_resurect_1": "npc_necro_guard",
+    "spelldatas.resurect.class_resurect_2": "npc_villager_male",
     "spelldatas.resurect.range_max": "500",
     "spelldatas.resurect.range_min": "0",
     "spelldatas.resurect.recovery": "180"

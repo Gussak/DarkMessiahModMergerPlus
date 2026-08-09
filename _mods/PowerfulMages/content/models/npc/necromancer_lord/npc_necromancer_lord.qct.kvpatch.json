@@ -67,5 +67,6 @@
     "spelldatas.invisibility.range_max": "1000",
     "spelldatas.invisibility.range_min": "200",
     "spelldatas.invisibility.recovery": "10",
+    "spelldatas.resurect.class_resurect_2": "npc_villager_male",
     "spelldatas.water_3.effect": "15"
 }
