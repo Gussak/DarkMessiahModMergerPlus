@@ -102,7 +102,7 @@ while true;do
 		declare -p strTeleportUpAlias
 		
 		bRecreateCfgFile=true;
-	elif ugrep -q "${strMatchRename}" "$strFlCondump";then #help @InfoID="gskTeleMarkerRename" use like (just ctrl+C the pos from console, 'from' must be the Teleporter ID that have no spaces) ex.: clear; status; status; gsktrn POS_x-234_y587_z2354 Some Nice Pretty Name; condump //TODO let it be just the current one selected to be renamed
+	elif ugrep -q "${strMatchRename}" "$strFlCondump";then #help @InfoID="gskTeleMarkerRename" use like this in console ex.:    clear; status; status; echo gsktrn POS_x-234_y587_z2354 Some Nice Pretty Name; condump; gskWait5s; exec gskTeleMarkers  //it will auto wait and reload the config file (just copy the ID from console, 'from' must be the Teleporter ID that have no spaces) //TODO let it be just the current one selected to be renamed
 		FUNCmapInfo "$strFlCondump"
 		strMapCfgFile="${strCfgPath}/gskTeleMarkers_${FUNCmapInfo_strMapName}.cfg"
 		
