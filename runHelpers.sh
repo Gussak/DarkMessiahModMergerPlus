@@ -99,7 +99,8 @@ if $bRunBothInstances;then
 				read -n 1 strResp&&:
 				case "$strResp" in
 					[aA])
-						bAutoClickRun=false #help drop caches may help better tho
+						if   $bAutoClickRun;then bAutoClickRun=false;fi #help drop caches may help better tho
+						if ! $bAutoClickRun;then bAutoClickRun=true ;fi
 						;;
 					[cC])
 						bMMAutoConfigFlag=true #help mm.exe -autoconfig
