@@ -199,14 +199,15 @@ strSedArrayIDsToLn='s@(\[[a-zA-Z0-9_/.]*\]=)@\n \1@g'
 
 # all text file extensions
 astrScriptsExt=()
-astrScriptsExt+=("txt" "vmt" "cfg" "vmf" "res" "qc" "nut" "vdf" "vcd" "scr" "lst" "smd" "vmap" "vmat" "vpcf" "vcfg" "vsndevts" "qct") #from AI question
-astrScriptsExt+=(js tag ttj ahk ain bat bns cfg css dat fgd gam html inf ini js lst md org php qc qct rad rc res scr sh smd tga txt vbsp vcd vdf vmf vmt) #clear;find . -mount -type f -exec bash -c 'file -b --mime-type "$1" | grep -q "^text/"' _ {} \; -print | awk -F. 'NF>1 {print $NF}' | sort -u #vpk is not 
+astrScriptsExt+=(cfg lst nut qc qct res scr smd txt vcd vcfg vdf vmap vmat vmf vmt vpcf vsndevts) #from AI question #|tr -d '"' |tr ' ' '\n' |sort -u |tr '\n' ' '
+astrScriptsExt+=(ahk ain bat bns cfg css dat fgd gam html inf ini js lst md org php qc qct rad rc res scr smd tag tga ttj txt vbsp vcd vdf vmf vmt) #clear;find . -mount -type f -exec bash -c 'file -b --mime-type "$1" | grep -q "^text/"' _ {} \; -print | awk -F. 'NF>1 {print $NF}' | sort -u #vpk is not 
 astrScriptsExt=($(echo "${astrScriptsExt[@]}" |tr ' ' '\n' |sort -u))
 #declare -p astrScriptsExt |tr '[' '\n' >&3
 strScriptsExtRegexEsc=".*[.]\($(echo "${astrScriptsExt[@]}" |sed -r -e 's@ @\\|@g')\)$"
 strScriptsExtRegexNorm=".*[.]($(echo "${astrScriptsExt[@]}" |sed -r -e 's@ @|@g'))$"
 strJustExtRegexEsc="$(echo "${astrScriptsExt[@]}" |sed -r -e 's@ @\\|@g')$"
 strJustExtRegex="$(echo "${astrScriptsExt[@]}" |sed -r -e 's@ @|@g')$"
+: ${strExtRegexReviewed:="lst|qct|txt|vmt"} #help what extensions are compatible with .kvpatch.json #TODO 'res' requires allowing '/' in block name, but that demands pre-patching all that may not use double quotes "...", otherwise it may detect a block name as comment (despite it doesnt accept spaces... mmm, it could just ignore '/' and restrict it at next space!)
 astrGrepIncludesExt=()
 for strExt in "${astrScriptsExt[@]}";do
 	astrGrepIncludesExt+=(--include="*.${strExt}")
@@ -303,18 +304,27 @@ function FUNCpatchMode() {
 	if [[ "$lstrFileToMerge" =~ .*/gameinfo[.]txt$ ]];then
 		lstrExt="ForceCodePatchMode"
 	fi
-	case $lstrExt in
-		lst|qct|txt|vmt)
-			lbKeyValueDiffMode=true
-			strFlPatch="${lstrFileToMerge}.kvpatch.json" # OBS.: using default patch.json would automatically create the same file but it is not output there, so if it changes there at keyValuPatcher.py, will miss here
-			;;
-		#KEEPinfo: cfg) # see *) uses generic code patcher way
+	
+	if [[ "$lstrExt" =~ ^${strExtRegexReviewed}$ ]];then
+		lbKeyValueDiffMode=true
+		strFlPatch="${lstrFileToMerge}.kvpatch.json" # OBS.: using default patch.json would automatically create the same file but it is not output there, so if it changes there at keyValuPatcher.py, will miss here
+	else
+		lbKeyValueDiffMode=false
+		strFlPatch="${lstrFileToMerge}.patch"
+	fi #;declare -p lstrExt lbKeyValueDiffMode strFlPatch >&2;read -p test;exit 1
+	#case $lstrExt in
+		#lst|qct|txt|vmt|res)
+			#lbKeyValueDiffMode=true
+			#strFlPatch="${lstrFileToMerge}.kvpatch.json" # OBS.: using default patch.json would automatically create the same file but it is not output there, so if it changes there at keyValuPatcher.py, will miss here
 			#;;
-		*) #ForcePatchMode
-			lbKeyValueDiffMode=false
-			strFlPatch="${lstrFileToMerge}.patch"
-			;;
-	esac
+		##KEEPinfo: cfg) # see *) uses generic code patcher way
+			##;;
+		#*) #ForcePatchMode
+			#lbKeyValueDiffMode=false
+			#strFlPatch="${lstrFileToMerge}.patch"
+			#;;
+	#esac
+	
 	# special files that keys are meant to happen more than once in the same hierarchy nesting depth
 	astrSpecialCodePatchingModeFiles=(
 		# no need, .kvpatch.json supports it now: "resource/closecaption_manifest.txt$"

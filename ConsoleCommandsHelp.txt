@@ -1,3 +1,5 @@
+Guesses from tests:
+
 mm_npc_create
 	mm_npc_create <model> [items...]
 	ex.:

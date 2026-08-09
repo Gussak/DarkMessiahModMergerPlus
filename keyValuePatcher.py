@@ -138,6 +138,8 @@ def toggle_flag(flag: LogConfig):
 # Compiled regex patterns for reuse
 KV_PATTERN = re.compile(r'^("[^"]*")\s+("[^"]*")$')
 # Updated: Removed '0-9' exclusion to allow digits in block names (e.g., air_2)
+#TODO BLOCK_PATTERN = re.compile(r'^\s*"?([^"\s]+)"?\s*$') #TODO check: comments '//' shall be stripped before trying any matches #TODO it should not check if the block name is inside "", a pre-patch (before running this pythong script) should just fix the block name.
+#TODO BLOCK_PATTERN_EXTENDED = re.compile(r'^\s*"?([^"\s]+)"?\s*$') #TODO is '{}' really necessary? it is checking inside the "" and this script doesnt detect '{' on the same line of the block name requiring a pre-patch anyway...
 BLOCK_PATTERN = re.compile(r'^\s*"?([^"\s//]+)"?\s*$') 
 BLOCK_PATTERN_EXTENDED = re.compile(r'^\s*"?([^"\s//{}]+)"?\s*$') 
 VALUE_REPLACEMENT_PATTERN = re.compile(r'(\s*"[^"]+"\s+)("[^"]*")(.*)')
