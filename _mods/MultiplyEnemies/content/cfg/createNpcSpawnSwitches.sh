@@ -101,18 +101,22 @@ function FUNCechoAndFillFile() {
 }
 
 bCreateSpawnsForCurrentMap=false
-strAppendMapName=""
+lstrUseThisSector=""
 #bUpdateCondumpBkp=false
 astrAllParams=("$@")
+lstrUseThisMap=""
 while [[ $# -gt 0 && "${1:0:1}" == "-" ]];do
 	#if [[ "${1}" == "-d" ]];then #help update condump backup file using latest condump
 		#bUpdateCondumpBkp=true
-	if [[ "${1}" == "-m" ]];then #help read last condump and prepare a cfg file to help fill a map with placed NPCs
+	if [[ "${1}" == "-c" ]];then #help read last condump and prepare a cfg file to help fill a map with placed NPCs
 		bCreateSpawnsForCurrentMap=true
-	elif [[ "${1}" == "-M" ]];then #help <strAppendMapName> same as -m but you can prepare a smaller area in that map with loads of foes to not encumber the engine, ex.: "02_FrontYard_OK" for gskmap_l02_b1_02_FrontYard_OK.cfg
+	elif [[ "${1}" == "-m" ]];then #help <lstrUseThisMap> <lstrUseThisSector> specify a map like 'l02_b1' and a sector like '02_FrontYard_OK', now it will look for a cleaned condump file for it. lstrUseThisSector can be empty like "" if there is no sector because the map is too small.
+		shift;lstrUseThisMap="${1}"
+		shift;lstrUseThisSector="${1}"
 		bCreateSpawnsForCurrentMap=true
-		shift
-		strAppendMapName="_${1}"
+	elif [[ "${1}" == "-s" ]];then #help <lstrUseThisSector> same as -c but you can prepare a smaller SECTOR area in that map with loads of foes to not encumber the engine, ex.: "02_FrontYard_OK" for gskmap_l02_b1-02_FrontYard_OK.cfg
+		shift;lstrUseThisSector="${1}"
+		bCreateSpawnsForCurrentMap=true
 	else
 		FUNCechoInfo "[ERROR] invalid option: $@"
 		exit 1
@@ -121,12 +125,27 @@ while [[ $# -gt 0 && "${1:0:1}" == "-" ]];do
 done
 
 #help @InfoID="Usage Info" you can edit just the CLEAN file if you know what you are doing
-#help @InfoID="Usage Example" strFlCondump="gskmap_L00.cfg.condump_CLEAN.txt" ./createNpcSpawnSwitches.sh -m
-#help @InfoID="Usage Example" strFlCondump="gskmap_l02_b1_01_GuestHouse_OK.cfg.condump_CLEAN.txt" ./createNpcSpawnSwitches.sh -M "01_GuestHouse_OK"
+#help @InfoID="Usage Example" strFlCondump="gskmap_L00.cfg.condump_CLEAN.txt" ./createNpcSpawnSwitches.sh -c #first time you use a newly generated condump by the game
+#help @InfoID="Usage Example" strFlCondump="gskmap_l02_b1-01_GuestHouse_OK.cfg.condump_CLEAN.txt" ./createNpcSpawnSwitches.sh -s "01_GuestHouse_OK" #setting the condump manually
+#help @InfoID="Usage Example" ./createNpcSpawnSwitches.sh -m l02_b2 01_BigRoomAndSpiders_OK #easiest for maintenance, auto detects existing cleaned condump
+#help @InfoID="Usage Example" ./createNpcSpawnSwitches.sh -m L02_A "" #this is for a small map that has no need for sectors
+
+function FUNCmapCfg() { #ex.: gskmap_l02_b1-01_GuestHouse_OK.cfg
+	local lstr="gskmap_${1}"
+	if [[ -n "${2}" ]];then
+		lstr+="-${2}"
+	fi
+	lstr+=".cfg"
+	echo "$lstr"
+}
 
 if $bCreateSpawnsForCurrentMap;then
-	: ${strFlCondump:="$(ls -1tr "${strGameInstallMainFolder}/${strGameSubRelatFolderWriteAllHere}/condump"* |tail -n 1)"} #help instead of being automatically the newest file, it can be the backup file like ex.: "gskmap_l02_b1_02_FrontYard_OK.cfg.condump.txt" or even the clean file ex.: "gskmap_l02_b1_02_FrontYard_OK.cfg.condump_CLEAN.txt"
-	ls -l "$strFlCondump"
+	if [[ -n "$lstrUseThisMap" ]];then
+		strFlCondump="$(FUNCmapCfg "${lstrUseThisMap}" "${lstrUseThisSector}").condump_CLEAN.txt"
+	fi
+	: ${strFlCondump:="$(ls -1tr "${strGameInstallMainFolder}/${strGameSubRelatFolderWriteAllHere}/condump"* |tail -n 1)"} #help instead of being automatically the newest file, it can be the backup file like ex.: "gskmap_l02_b1-02_FrontYard_OK.cfg.condump.txt" or even the clean file ex.: "gskmap_l02_b1-02_FrontYard_OK.cfg.condump_CLEAN.txt"
+	declare -p strFlCondump
+	if ! ls -l "$strFlCondump";then FUNCechoInfo "[ERROR] condump file not found"; FUNCexit 1;fi
 	
 	while ! FUNCmapInfo "$strFlCondump";do FUNCwaitSeconds 3 "condump needs map info status data";done
 	## map     :  L00 at: -1385 x, -4444 y, 343 z
@@ -137,12 +156,18 @@ if $bCreateSpawnsForCurrentMap;then
 		#FUNCechoInfo "[ERROR:noMapNameDetected]"
 		#FUNCexit 1
 	#fi
-	#strMapCfgFile="gskmap_${strMapName}${strAppendMapName}.cfg"
-	strMapCfgFile="gskmap_${FUNCmapInfo_strMapName}${strAppendMapName}.cfg"
+	#strMapCfgFile="gskmap_${strMapName}_${lstrUseThisSector}.cfg"
+	#strMapCfgFile="gskmap_${FUNCmapInfo_strMapName}"
+	#if [[ -n "${lstrUseThisSector}" ]];then
+		#strMapCfgFile+="-${lstrUseThisSector}"
+	#fi
+	#strMapCfgFile+=".cfg"
+	strMapCfgFile="$(FUNCmapCfg "${FUNCmapInfo_strMapName}" "${lstrUseThisSector}")"
 	#if $bUpdateCondumpBkp || [[ ! -f "${strMapCfgFile}.condump.txt" ]];then
-	if [[ ! -f "${strMapCfgFile}.condump.txt" ]];then
-		cp -vf "$strFlCondump" "${strMapCfgFile}.condump.txt"
+	if [[ -f "${strMapCfgFile}.condump.txt" ]];then
+		cp -v "${strMapCfgFile}.condump.txt" "${strMapCfgFile}.condump.txt.$(FUNCdtFlNm).bkp"
 	fi
+	cp -vf "$strFlCondump" "${strMapCfgFile}.condump.txt"
 	
 	# clean condump file is good for git
 	strFlCondumpClean="${strMapCfgFile}.condump_CLEAN.txt"
@@ -198,7 +223,7 @@ if $bCreateSpawnsForCurrentMap;then
 	#mapfile -t astrSpawnHintList < <(egrep "gskSpawnHint" "$strFlCondump" -A 2 |egrep -v "\--" |tr -d '\r')
 	mapfile -t astrAllLines < <(cat "$strFlCondump" |tr -d '\r')
 	#for strSpawnHint in "${astrSpawnHintList[@]}";do
-	: ${iMoreFoesSpawnIndexBegin:=0} #help change this to help append indexes in an existing map cfg file. also be careful with the `setpos` in the finishing last one. use like ex.: iMoreFoesSpawnIndexBegin=11 ./createNpcSpawnSwitches.sh -M temp;
+	: ${iMoreFoesSpawnIndexBegin:=0} #help change this to help append indexes in an existing map cfg file. also be careful with the `setpos` in the finishing last one. use like ex.: iMoreFoesSpawnIndexBegin=11 ./createNpcSpawnSwitches.sh -s temp;
 	iSpawnCount=$iMoreFoesSpawnIndexBegin
 	#iDataLines=4
 	echo
@@ -288,7 +313,9 @@ if $bCreateSpawnsForCurrentMap;then
 			i=$iLnData # jump skip, next loop will be +1
 		fi
 	done
-	FUNCechoAndFillFile "alias gskCCnpcSpawn_${strCountNext} \"echo FinishedSpawnings; gskSndDONE; ${strRestorePosInTheEnd}; ${strCmdsOFF}; \"" #this also prevents continuing thru some previous list entries of a previous test run or map may be
+	FUNCechoAndFillFile "alias gskCCnpcSpawn_${strCountNext} \"echo FinishedSpawnings; gskSndDONE; ${strRestorePosInTheEnd}; ${strCmdsOFF}; alias gskCCnpcSpawn_next +gskCCnpcSpawn_Finished; \"" #this also prevents continuing thru some previous list entries of a previous test run or map may be
+	FUNCechoAndFillFile "alias +gskCCnpcSpawn_Finished \"gskEchoOn; echo Finished Spawnings Already for this map $FUNCmapInfo_strMapName\""
+	FUNCechoAndFillFile "alias -gskCCnpcSpawn_Finished \"gskEchoOff\""
 	FUNCechoAndFillFile "clear" # before beggining each spawning, this is good
 	FUNCechoAndFillFile "echo \"PLEASE STAND UP NOW! (will auto crouch to help fit and positioning)\""
 	FUNCechoAndFillFile "echo \"Now, slowly and repeatedly press the key to spawn the next NPC.\""
