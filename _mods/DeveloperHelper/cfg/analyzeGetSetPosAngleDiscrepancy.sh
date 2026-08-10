@@ -68,6 +68,10 @@ FUNCposAngXYZ() {
 }
 
 FUNCfixLine() {
+	# NEVER CHANGE THESE VALUES!!! or all prepared spawnings may require to be re-tested!!!
+	# To use new values, better create a version in the spawning files like "..._FixPosAngV001.cfg"
+	
+	# this would be "..._FixPosAngV000.cfg"
 	pX="$(bc <<< "${pX} -  2.685")"
 	pY="$(bc <<< "${pY} +  7.686")"
 	pZ="$(bc <<< "${pZ} - 65.471")"

@@ -156,6 +156,7 @@ while [[ $# -gt 0 && "${1:0:1}" == "-" ]];do
 	shift
 done
 
+#help @InfoID="Spawining Issue" Sometimes it may be impossible to find a good location and rotation for you to stay and that will be correctly restored later. The tip is: just replace the rotation (setang) for a spawn that is failing, with a rotation that is working (dont move, just rotate until it works)!
 #help @InfoID="Usage Info" you can edit just the CLEAN file if you know what you are doing
 #help @InfoID="Usage Example" strFlCondump="gskmap_L00.cfg.condump_CLEAN.txt" ./createNpcSpawnSwitches.sh -c #first time you use a newly generated condump by the game
 #help @InfoID="Usage Example" strFlCondump="gskmap_l02_b1-01_GuestHouse_OK.cfg.condump_CLEAN.txt" ./createNpcSpawnSwitches.sh -s "01_GuestHouse_OK" #setting the condump manually
