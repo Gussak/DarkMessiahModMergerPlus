@@ -45,6 +45,7 @@ MayBeEasy
 - backstab and wirlwind: could be available from beggining without having to wait to gather all the skills on the tree, as they add veteran features
 
 MayBeOnlyPatchingTheEngineBinary
+- breakable levers: at l02_b2 has a grate door with lever on both sides. NPCs should use them and we should be able to break one of them on their side.
 - make enemies predict where you are going to be, for melee and jumps also
 - necromancers should resist charm like 75% at least chance
 - let bows shoot thru grate gates (I guess it is a model issue, gates could have a hollow collider that just prevents NPCs and player going thru by being a bit smaller than them, this could also let magic targetting thru as they already see thru, aim and shoot!)

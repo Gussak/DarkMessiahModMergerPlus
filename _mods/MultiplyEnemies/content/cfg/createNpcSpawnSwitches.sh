@@ -143,7 +143,7 @@ if $bCreateSpawnsForCurrentMap;then
 	if [[ -n "$lstrUseThisMap" ]];then
 		strFlCondump="$(FUNCmapCfg "${lstrUseThisMap}" "${lstrUseThisSector}").condump_CLEAN.txt"
 	fi
-	strFlCondumpNewest="$(ls -1tr "${strGameInstallMainFolder}/${strGameSubRelatFolderWriteAllHere}/condump"* |tail -n 1)"
+	: ${strFlCondumpNewest:="$(ls -1tr "${strGameInstallMainFolder}/${strGameSubRelatFolderWriteAllHere}/condump"* |tail -n 1)"} #help
 	: ${strFlCondump:="${strFlCondumpNewest}"} #help instead of being automatically the newest file, it can be the backup file like ex.: "gskmap_l02_b1-02_FrontYard_OK.cfg.condump.txt" or even the clean file ex.: "gskmap_l02_b1-02_FrontYard_OK.cfg.condump_CLEAN.txt"
 	declare -p strFlCondump
 	if ! ls -l "$strFlCondump";then
@@ -176,7 +176,9 @@ if $bCreateSpawnsForCurrentMap;then
 	if [[ -f "${strMapCfgFile}.condump.txt" ]];then
 		cp -v "${strMapCfgFile}.condump.txt" "${strMapCfgFile}.condump.txt.$(FUNCdtFlNm).bkp"
 	fi
-	cp -vf "$strFlCondump" "${strMapCfgFile}.condump.txt"
+	if ! cmp "$strFlCondump" "${strMapCfgFile}.condump.txt";then
+		cp -vf "$strFlCondump" "${strMapCfgFile}.condump.txt"
+	fi
 	
 	# clean condump file is good for git
 	strFlCondumpClean="${strMapCfgFile}.condump_CLEAN.txt"
