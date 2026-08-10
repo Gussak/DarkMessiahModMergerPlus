@@ -12,10 +12,10 @@
         "spelldatas.earth_2.effect": "//sanctuary",
         "spelldatas.water_2.Damage_Factor": "//TODO this overrides entity_data???",
         "spelldatas.water_3.cost": "// freeze: cant be resisted, overpowerful easy kill after using it, was 15.0",
-        "spelldatas.water_4.cost": "// charm: use it wisely. It is over powerful as even after charm ends, the target may continue fighting against their friends! they cant resist your charm mmm..., so even a powerful enemy will create distraction for a long time. was 15.0 (just to force kvpatch creation)",
-        "spelldatas.water_4.effect": "// charm: is over powerful if for too long as is granted foe getting killed. the foe will create an excellent distraction already so you can activate adrenaline and use powerful spells and skills on others but not for too long, and this foe will return against you later soon. almost vanilla value is enough to help. Is not like a thrall or raised zombie, is just a frenzy confusion.",
-        "spelldatas.water_4.effect_adrenaline": "// charm: long time, but he will just probably get killed (this works? NO, seems only for spells that do damage...)",
-        "spelldatas.water_4.adrenaline_add": "// charm: this is just to try to let effect_adrenaline kick in..."
+        "spelldatas.water_4.cost": "//Charm: use it wisely. It is over powerful as even after charm ends, the target may continue fighting against their friends! they cant resist your charm mmm..., so even a powerful enemy will create distraction for a long time. was 15.0 (just to force kvpatch creation)",
+        "spelldatas.water_4.effect": "//Charm: was 30, upped because necromancers raised zombies will also be charmed creating a friendly army with the gskSpawnCorpse. Is over powerful if for too long as is granted charmed foe getting killed. the foe will create an excellent distraction already so you can activate adrenaline and use powerful spells and skills on others but not for too long, and this foe will return against you later soon. almost vanilla value is enough to help. Is not like a thrall or raised zombie, is just a frenzy confusion.",
+        "spelldatas.water_4.effect_adrenaline": "//Charm: long time, but he will just probably get killed (this works? NO, seems only for spells that do damage...)",
+        "spelldatas.water_4.adrenaline_add": "//Charm: this is just to try to let effect_adrenaline kick in..."
     },
     "spelldatas.air_3.effect_adrenaline": "5001",
     "spelldatas.air_4.weaken_damage_multiplicator": "100",
@@ -30,6 +30,6 @@
     "spelldatas.water_3.cost": "30",
     "spelldatas.water_4.adrenaline_add": "0.1",
     "spelldatas.water_4.cost": "50",
-    "spelldatas.water_4.effect": "30",
+    "spelldatas.water_4.effect": "45",
     "spelldatas.water_4.effect_adrenaline": "3600"
 }
