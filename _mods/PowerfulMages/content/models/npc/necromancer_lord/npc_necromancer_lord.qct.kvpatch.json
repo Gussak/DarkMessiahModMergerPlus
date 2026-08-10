@@ -4,6 +4,7 @@
     "__comments__": {
         "spelldatas": "//nothing happens for this: summon spider earth_3 recovery 10 cast_spider 3, this destroys invisibility effect: stone skin earth_1 effect 0.5 recovery 30, ISSUE: there is a hidden spell that summons a weak undead that doesnt read the npc_undead.qct?",
         "spelldatas.resurect": "// Resurrect Black Guard as an Undead",
+        "spelldatas.resurect.class_resurect_1": "//ISSUE: class_resurect_* doesnt work for npc_villager_male into npc_villager_undead, may be the link that makes npc_necro_guard become npc_necroguard_undead is hardcoded...",
         "spelldatas.water_3.effect": "// Duration",
         "spelldatas.air_3.effect": "// Damage multiplier. True Damage.",
         "spelldatas.air_3.lightning_damage": "// Total possible damage.",
