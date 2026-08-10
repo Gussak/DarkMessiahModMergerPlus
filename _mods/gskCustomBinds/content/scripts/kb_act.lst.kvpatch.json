@@ -30,6 +30,8 @@
 	"+gskShowSummonKeyBindsHelp": "#mc_gskshowsummonkeybindshelp",
 	"+gskSummonVillager": "#mc_gsksummonvillager",
 	"+gskSummonCorpse": "#mc_gsksummoncorpse",
+	"+gskSummonSpawn": "#mc_gsksummonspawn",
+	"+gskSummonSwitch": "#mc_gsksummonswitch",
 	"+gskMagicTorch": "#mc_gskmagictorch",
 	"+gskTeleMark": "#mc_gsktelemark",
 	"+gskTeleMarkerSelectNext": "#mc_gsktelemarkerselectnext",

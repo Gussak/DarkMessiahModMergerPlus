@@ -195,7 +195,7 @@ fi
 # sed to prettify arrays into multilines use like: declare -p astr |sed -r -e "$strSedArrayLn"  >&3
 strSedArrayLn='s@(\[[0-9]*\]=)@\n \1@g'
 strSedArrayNumToLn="$strSedArrayLn"
-strSedArrayIDsToLn='s@(\[[a-zA-Z0-9_/.]*\]=)@\n \1@g'
+strSedArrayIDsToLn='s@(\[[+]*[a-zA-Z0-9_/.]*\]=)@\n \1@g'
 
 # all text file extensions
 astrScriptsExt=()
@@ -900,3 +900,15 @@ function FUNCrefreshMount() {  # if it did not update, means OverlayFS needs ref
 		fi
 	)
 };export -f FUNCrefreshMount
+
+function FUNCcostHP() {
+	local lstrAlias="$1"
+	local lstrAliasHurtmeRegex="[+-]*${lstrAlias}\s+.*hurtme\s*([0-9.]*).*"
+	local lanCost
+	mapfile -t lanCost < <(egrep "${lstrAliasHurtmeRegex}" "$strGameInstallMainFolder"/ -iRIaoh --include="*.cfg" |sed -r -e 's@(.*)//.*@\1@' -e "s@${lstrAliasHurtmeRegex}@\1@g")
+	local lnCost=0;for nC in "${lanCost[@]}";do ((lnCost+=nC))&&:;done
+	local lstrCost="";if((lnCost>0));then lstrCost=" HP${lnCost}";fi
+	declare -g FUNCcostHP_nCost="$lnCost"
+	echo "$lstrCost"
+};export -f FUNCcostHP
+

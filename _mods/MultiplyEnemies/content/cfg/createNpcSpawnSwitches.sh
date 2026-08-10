@@ -31,8 +31,21 @@
 
 while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
 
-# beware: necroguards, necromancers and undead are the only ones of the same faction right? so only these can be placed together without beggining a fight.
-astrNPC=(
+: ${strSpawnerMode:=MoreFoes} #help <MoreFoes|Summoning>
+declare -A astrNPCsummonings
+mapfile -t astrNPCsummoningsLines < <(cd "$strPathParent"; egrep "^alias [+]*gskSummon" * -iRnIah --include="*.cfg" |egrep -v "Spawn|Switch"|sort -u)
+if [[ "$strSpawnerMode" == Summoning ]];then
+	for strLnData in "${astrNPCsummoningsLines[@]}";do
+		strAliasSummon="$(echo "$strLnData" |awk '{print $2}')"
+		FUNCcostHP "${strAliasSummon}"
+		astrNPCsummonings["$strAliasSummon"]="${FUNCcostHP_nCost}"
+	done
+fi
+#mapfile -t astrNPCsummonings < <(for strLnData in "${astrNPCsummoningsLines[@]}";do echo "$strLnData";done |awk '{print $2}' |sort -u)
+declare -p astrNPCsummonings |sed -r -e "$strSedArrayIDsToLn"
+
+# beware: necroguards, necromancers and undead are the only ones of the same faction right? so only these can be placed together without beggining a fight. TODO: there is a factions config file
+astrNPCmoreFoes=( # shall be game commands or my configured alisases (that will look like a game command)
 	#mm_npc_create_aratrok
 	#mm_npc_create_cyclope
 	#mm_npc_create_death_knight
@@ -66,12 +79,14 @@ function FUNCfixPosAng() {
 }
 
 function FUNCaliasNpcSpawner() {
-	local lstrInfo="$1"
+	local lstrType="$1";shift
+	local lstrShortName="$1";shift
+	local lstrInfo="$1";shift
 	# alias name limit is 30 chars
-	local lstrShortName="${strNPC#mm_npc_create_}"
+
 	local lstrBeginLoopHint="";if((i==0));then lstrBeginLoopHint=" <> <> <> <> <> <> <> <> <> <>";fi
-	echo "alias gskCCnpcSwitch_${i} \"developer 1; contimes 50; echo CFG_CREATE${lstrInfo}:${lstrShortName}${lstrBeginLoopHint}; alias +gskCCnpcSpawn gskCCnpcSpawn_${i}; alias +gskCCnpcSwitch gskCCnpcSwitch_${iNext}\""
-	echo "alias gskCCnpcSpawn_${i} \"echo gskSpawnHint; getpos; getpos; echo ${strNPC}; echo ${strNPC}; ${strNPC}\"" #this way, it creates a reusable log to quickly place all NPCs again!!! OBS.: getpos 2 times is because the engine bugs and may not print one character some times
+	echo "alias gsk${lstrType}Switch_${i} \"gskEchoOn; contimes 50; echo CFG_CREATE${lstrInfo}:${lstrShortName}${lstrBeginLoopHint}; alias +gsk${lstrType}Spawn gsk${lstrType}Spawn_${i}; alias +gsk${lstrType}Switch gsk${lstrType}Switch_${iNext}\""
+	echo "alias gsk${lstrType}Spawn_${i} \"echo gskSpawnHint; getpos; getpos; echo ${strNPC}; echo ${strNPC}; ${strNPC}\"" #this way, it creates a reusable log to quickly place all NPCs again!!! OBS.: getpos 2 times is because the engine bugs and may not print one character some times
 }
 
 : ${strExecEdit:=geany} #help
@@ -84,8 +99,8 @@ function FUNCvalidateNPC() {
 	
 	local lbFound=false
 	local i
-	for((i=0;i<${#astrNPC[@]};i++));do
-		local lstrNPC="${astrNPC[$i]}"
+	for((i=0;i<${#astrNPCmoreFoes[@]};i++));do
+		local lstrNPC="${astrNPCmoreFoes[$i]}"
 		#declare -p lstrNPC lstrChkNpc
 		if [[ "$lstrNPC" == "$lstrChkNpc" ]];then lbFound=true;break;fi
 	done
@@ -247,8 +262,8 @@ if $bCreateSpawnsForCurrentMap;then
 	FUNCechoAndFillFile "// AUTO GENERATED WITH $(basename "$0"). DO NOT PATCH! Patch the '${strFlCondumpClean}' file instead!"
 	FUNCechoAndFillFile "// FILL MAP WITH NPCs, total $nTotSpawns"
 	#FUNCechoAndFillFile "alias gskCCnpcSpawn_helper \"\""
-	strCmdsON=" developer 1; +duck; gskDevGodModeToggles; gskEffect100 " # do not use host_timescale 0.01 as it will mess teleporting. +duck is to help to fit yourself in smaller places causing less issues
-	strCmdsOFF=" -duck; gskDevGodModeToggles; gskEffectOFF; developer 0 "
+	strCmdsON=" gskEchoOn; +duck; gskDevGodModeToggles; gskEffect100 " # do not use host_timescale 0.01 as it will mess teleporting. +duck is to help to fit yourself in smaller places causing less issues
+	strCmdsOFF=" -duck; gskDevGodModeToggles; gskEffectOFF; gskEchoOff "
 	FUNCechoAndFillFile "alias gskCCnpcSpawn_next \"${strCmdsON}; gskCCnpcSpawn_$( printf %03d $((iSpawnCount)) )\"" # initializes with some dev toggles
 	#for((i=0;i<${#astrSpawnHintList[@]};i+=iDataLines));do
 	for((i=0;i<${#astrAllLines[@]};i++));do
@@ -341,6 +356,19 @@ if $bCreateSpawnsForCurrentMap;then
 	
 	ls -l "$strMapCfgFile"
 else # create spawner aliases
+	strAliasMode=""
+	case "$strSpawnerMode" in
+		MoreFoes)
+			astrNPC=("${astrNPCmoreFoes[@]}")
+			strAliasMode="CCnpc" #CreateChaos NPCs
+			;;
+		Summoning)
+			astrNPC=("${!astrNPCsummonings[@]}")
+			strAliasMode="GPSmn" #GamePlay Summoning
+			;;
+		*) echo "invalid strSpawnerMode='$strSpawnerMode'"; exit 1;;
+	esac
+	
 	echo
 	echo "// Total ${#astrNPC[@]} NPCs"
 	echo "alias mm_npc_create_facehugger \"mm_npc_create npc_facehugger models/NPC/Facehugger/Npc_Facehugger.mdl\""
@@ -356,7 +384,16 @@ else # create spawner aliases
 		if(( i == (${#astrNPC[@]}-1) ));then
 			iNext=0
 		fi
-		FUNCaliasNpcSpawner "( $i / $((${#astrNPC[@]} - 1)) )"
+		case "$strSpawnerMode" in
+			MoreFoes)
+				strShortName="${strNPC#mm_npc_create_}"
+				;;
+			Summoning)
+				strShortName="$(echo "${strNPC}" |sed -r -e 's@[+]*gskSummon(.*)@\1@g') HP${astrNPCsummonings[${strNPC}]}"
+				;;
+			*) echo "invalid strSpawnerMode='$strSpawnerMode'"; exit 1;;
+		esac
+		FUNCaliasNpcSpawner "${strAliasMode}" "${strShortName}" "( $i / $((${#astrNPC[@]} - 1)) )"
 	done
 	
 	echo "// NOW COPY THE ABOVE INTO THE CONFIG FILE //TODO auto replace the section"

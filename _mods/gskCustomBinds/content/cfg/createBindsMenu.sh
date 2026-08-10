@@ -105,11 +105,8 @@ for((iAlias=0;iAlias<${#astrAliasList[@]};iAlias++));do
 	echo "Working with [$iAlias/${#astrAliasList[@]}]: $strAlias"
 	strMenuID="mc_$(echo "$strAlias" |sed -r -e 's@[+]*(.*)@\1@g' |tr '[:upper:]' '[:lower:]')"
 	if((iMaxMenuIdSz < ${#strMenuID}));then iMaxMenuIdSz=${#strMenuID}; strMaxMenuIdSz="$strMenuID";fi
-	strAliasHurtmeRegex="[+-]*${strAlias}\s+.*hurtme\s*([0-9.]*).*"
-	mapfile -t anCost < <(egrep "${strAliasHurtmeRegex}" "$strGameInstallMainFolder"/ -iRIaoh --include="*.cfg" |sed -r -e 's@(.*)//.*@\1@' -e "s@${strAliasHurtmeRegex}@\1@g")
-	nCost=0;for nC in "${anCost[@]}";do ((nCost+=nC))&&:;done
-	strCost="";if((nCost>0));then strCost=" HP${nCost}";fi
-	#declare -p strCost
+	FUNCcostHP "${strAlias}"
+	strCost="";if((FUNCcostHP_nCost>0));then strCost=" HP${FUNCcostHP_nCost}";fi
 	strDescription="$(FUNClazyDesc "$strAlias")${strCost}"
 	
 	: ${nMaxDescSize:=40} #help
