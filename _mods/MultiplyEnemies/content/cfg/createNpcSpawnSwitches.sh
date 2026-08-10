@@ -31,7 +31,7 @@
 
 while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
 
-: ${strSpawnerMode:=MoreFoes} #help <MoreFoes|Summoning>
+: ${strSpawnerMode:=MoreFoes} #help "MoreFoes" or "Summoning"
 declare -A astrNPCsummonings
 mapfile -t astrNPCsummoningsLines < <(cd "$strPathParent"; egrep "^alias [+]*gskSummon" * -iRnIah --include="*.cfg" |egrep -v "Spawn|Switch"|sort -u)
 if [[ "$strSpawnerMode" == Summoning ]];then
@@ -79,14 +79,31 @@ function FUNCfixPosAng() {
 }
 
 function FUNCaliasNpcSpawner() {
+	local liCurrentIndex="$1";shift
 	local lstrType="$1";shift
 	local lstrShortName="$1";shift
-	local lstrInfo="$1";shift
+	local liTot="$1";shift
+	
+	local liMaxIndex="$((liTot-1))"
+	local lstrInfo="( $i / $liMaxIndex )"
 	# alias name limit is 30 chars
 
-	local lstrBeginLoopHint="";if((i==0));then lstrBeginLoopHint=" <> <> <> <> <> <> <> <> <> <>";fi
-	echo "alias gsk${lstrType}Switch_${i} \"gskEchoOn; contimes 50; echo CFG_CREATE${lstrInfo}:${lstrShortName}${lstrBeginLoopHint}; alias +gsk${lstrType}Spawn gsk${lstrType}Spawn_${i}; alias +gsk${lstrType}Switch gsk${lstrType}Switch_${iNext}\""
-	echo "alias gsk${lstrType}Spawn_${i} \"echo gskSpawnHint; getpos; getpos; echo ${strNPC}; echo ${strNPC}; ${strNPC}\"" #this way, it creates a reusable log to quickly place all NPCs again!!! OBS.: getpos 2 times is because the engine bugs and may not print one character some times
+	local lstrBeginLoopHint="";if((liCurrentIndex==0));then lstrBeginLoopHint=" <> <> <> <> <> <> <> <> <> <>";fi
+	local iPrevious=$((liCurrentIndex-1));if((iPrevious==-1));then iPrevious=$liMaxIndex;fi
+	echo "alias gsk${lstrType}Switch_${liCurrentIndex} \"\
+gskEchoOn; \
+contimes 50; \
+echo CFG_CREATE${lstrInfo}:${lstrShortName}${lstrBeginLoopHint}; \
+alias +gsk${lstrType}Spawn      gsk${lstrType}Spawn_${liCurrentIndex}; \
+alias +gsk${lstrType}SwitchPrev gsk${lstrType}Switch_${iPrevious}; \
+alias +gsk${lstrType}Switch     gsk${lstrType}Switch_${iNext}; \
+\""
+	echo "alias gsk${lstrType}Spawn_${liCurrentIndex} \"\
+echo gskSpawnHint; \
+getpos; getpos; \
+echo ${strNPC}; echo ${strNPC}; \
+${strNPC}; \
+\"" #this way, it creates a reusable log to quickly place all NPCs again!!! OBS.: getpos 2 times is because the engine bugs and may not print one character some times
 }
 
 : ${strExecEdit:=geany} #help
@@ -393,7 +410,7 @@ else # create spawner aliases
 				;;
 			*) echo "invalid strSpawnerMode='$strSpawnerMode'"; exit 1;;
 		esac
-		FUNCaliasNpcSpawner "${strAliasMode}" "${strShortName}" "( $i / $((${#astrNPC[@]} - 1)) )"
+		FUNCaliasNpcSpawner "${i}" "${strAliasMode}" "${strShortName}" "${#astrNPC[@]}"
 	done
 	
 	echo "// NOW COPY THE ABOVE INTO THE CONFIG FILE //TODO auto replace the section"

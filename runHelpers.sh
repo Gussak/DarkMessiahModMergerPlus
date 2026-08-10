@@ -106,7 +106,7 @@ if $bRunBothInstances;then
 						;;
 					#[dD])
 						#set -x;bash -c sync && sudo dd if=/proc/3/stat of=/proc/sys/vm/drop_caches bs=1 count=1;set +x;
-						#FUNCecho --say 'drop caches';
+						#FUNCecho --say 'drop caches'; #is overkill
 						#;;
 					[rR])
 						FUNCrefreshMount # if it did not update, means OverlayFS needs refresing to sync with modified files.
