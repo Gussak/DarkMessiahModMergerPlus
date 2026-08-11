@@ -223,6 +223,7 @@ while [[ $# -gt 0 && "${1:0:1}" == "-" ]];do
 	shift
 done
 
+#help @InfoID="Log flood Issue workaround" having to save many condumps and merge them (as they have a size limit) due to flooded unstoppable warn log messages, after merging them all there may happen several dup spawns, use this (it will turn all multine entry into a single line, sort it unique and restore it into multiline) ex.: clear;cat gskmap_l02_b2-04_ThroneRoom.cfg.condump_CLEAN.txt |egrep -v "^map" |sed -r -e 's@(gskSpawnHint).*@\1 @g' |tr -d '\n' |sed -r -e 's@gskSpawnHint@\n&@g'|sort -u |sed -r -e 's@setpos@\nsetpos@g' -e 's@mm_npc@\nmm_npc@g' #Tho the best way is to just find a previous save where there is no flood on the log (as I couldnt determine the cause of the problem).
 #help @InfoID="Spawining Issue" Sometimes it may be impossible to find a good location and rotation for you to stay and that will be correctly restored later. The tip is: just replace the rotation (setang) for a spawn that is failing, with a rotation that is working (dont move, just rotate until it works)!
 #help @InfoID="Usage Info" you can edit just the CLEAN file if you know what you are doing
 #help @InfoID="Usage Example" strFlCondump="gskmap_L00.cfg.condump_CLEAN.txt" ./createNpcSpawnSwitches.sh -c #first time you use a newly generated condump by the game
@@ -487,4 +488,5 @@ else # create spawner aliases
 fi
 
 FUNCrefreshMount
+
 
