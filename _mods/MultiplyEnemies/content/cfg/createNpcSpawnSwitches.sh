@@ -230,6 +230,7 @@ done
 #help @InfoID="Usage Example" strFlCondump="gskmap_l02_b1-01_GuestHouse_OK.cfg.condump_CLEAN.txt" ./createNpcSpawnSwitches.sh -s "01_GuestHouse_OK" #setting the condump manually
 #help @InfoID="Usage Example" ./createNpcSpawnSwitches.sh -m l02_b2 01_LowestBigRoom_OK #easiest for maintenance, auto detects existing cleaned condump
 #help @InfoID="Usage Example" ./createNpcSpawnSwitches.sh -m L02_A "" #this is for a small map that has no need for sectors
+#help @InfoID="Hint" when you find 2 or more crows, that is when you can apply the next gskmap morefoes (after you clean the room)
 
 function FUNCmapCfg() { #ex.: gskmap_l02_b1-01_GuestHouse_OK.cfg
 	local lstr="gskmap_${1}"
