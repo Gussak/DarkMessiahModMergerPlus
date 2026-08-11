@@ -45,6 +45,7 @@ MayBeEasy
 - backstab and wirlwind: could be available from beggining without having to wait to gather all the skills on the tree, as they add veteran features
 
 MayBeOnlyPatchingTheEngineBinary
+- arrows stuck in our body should lower movement speed and cause damage when moving, on removing should cause bleeding
 - breakable levers: at l02_b2 has a grate door with lever on both sides. NPCs should use them and we should be able to break one of them on their side.
 - make enemies predict where you are going to be, for melee and jumps also
 - necromancers should resist charm like 75% at least chance
