@@ -903,10 +903,11 @@ function FUNCrefreshMount() {  # if it did not update, means OverlayFS needs ref
 
 function FUNCcostHP() {
 	local lstrAlias="$1"
-	local lstrAliasHurtmeRegex="[+-]*${lstrAlias}\s+.*hurtme\s*([0-9.]*).*"
+	#local lstrAliasHurtmeRegex="[+-]*${lstrAlias}\s+.*hurtme\s*([0-9.]*).*"
+	local lstrAliasHurtmeRegex="[+-]*${lstrAlias}\s+.*gskHurtme([0-9.]*).*"
 	local lanCost
 	mapfile -t lanCost < <(egrep "${lstrAliasHurtmeRegex}" "$strGameInstallMainFolder"/ -iRIaoh --include="*.cfg" |sed -r -e 's@(.*)//.*@\1@' -e "s@${lstrAliasHurtmeRegex}@\1@g")
-	local lnCost=0;for nC in "${lanCost[@]}";do ((lnCost+=nC))&&:;done
+	local lnC;local lnCost=0;for lnC in "${lanCost[@]}";do (( lnCost += 10#${lnC} ))&&:;done
 	local lstrCost="";if((lnCost>0));then lstrCost=" HP${lnCost}";fi
 	declare -g FUNCcostHP_nCost="$lnCost"
 	echo "$lstrCost"
