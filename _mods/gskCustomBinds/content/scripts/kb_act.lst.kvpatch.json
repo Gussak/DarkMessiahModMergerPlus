@@ -1,6 +1,6 @@
 {
 	"+gsk_zoom_cycle": "#mc_gsk_zoom_cycle",
-	"gskCCnpcSpawn_next": "#mc_gskccnpcspawn_next",
+	"+gskCCnpcSpawn_next": "#mc_gskccnpcspawn_next",
 	"gskMapDevDropPotionLife": "#mc_gskmapdevdroppotionlife",
 	"+gskKillTarget": "#mc_gskkilltarget",
 	"+gskKillTargetPiercing": "#mc_gskkilltargetpiercing",
@@ -42,6 +42,8 @@
 	"+gskTeleportTargetPos": "#mc_gskteleporttargetpos",
 	"+gskMoveThruWall": "#mc_gskmovethruwall",
 	"+gskDestroyToMana": "#mc_gskdestroytomana",
+	"+gskSkipCutscenes0500": "#mc_gskskipcutscenes0500",
+	"+gskSkipCutscenes1000": "#mc_gskskipcutscenes1000",
 	"+gskFixMana": "#mc_gskfixmana",
 	"+gskHelpPlaceNPCsToggleH": "#mc_gskhelpplacenpcstoggleh",
 	"+gskShowTriggers": "#mc_gskshowtriggers",
