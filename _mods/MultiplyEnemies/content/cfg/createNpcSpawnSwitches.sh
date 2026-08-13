@@ -255,7 +255,7 @@ done
 #help @InfoID="Usage Example" ./createNpcSpawnSwitches.sh -m l02_b2 01_LowestBigRoom_OK #easiest for maintenance, auto detects existing cleaned condump
 #help @InfoID="Usage Example" ./createNpcSpawnSwitches.sh -m L02_A "" #this is for a small map that has no need for sectors
 #help @InfoID="Hint" when you find 2 or more crows, that is when you can apply the next gskmap morefoes (after you clean the room)
-#help @InfoID="Hint" when you find a seagull, it means there is some secret in that wall/floor/ceiling etc, that can only be reached thru +gskMoveThruWall
+#help @InfoID="Hint" when you find a seagull, it means there is some secret in that wall/floor/ceiling etc, that can only be reached thru +gskMoveThruWall. Be sure to crouch before using it as the space behind the wall may only fit if you are crouched. Anyway it auto saves before you teleport so you can just reload.
 
 function FUNCmapCfg() { #ex.: gskmap_l02_b1-01_GuestHouse_OK.cfg
 	local lstr="gskmap_${1}"
@@ -453,7 +453,8 @@ if $bCreateSpawnsForCurrentMap;then
 			i=$iLnData # jump skip, next loop will be +1
 		fi
 	done
-	FUNCechoAndFillFile "alias gskCCnpcSpawn_${strCountNext} \"echo FinishedSpawnings; gskSndDONE; ${strRestorePosInTheEnd}; ${strCmdsOFF}; alias gskCCnpcSpawn_next +gskCCnpcSpawn_Finished; \"" #this also prevents continuing thru some previous list entries of a previous test run or map may be
+	FUNCechoAndFillFile "alias +gskCCnpcSpawn_${strCountNext} \"echo FinishedSpawnings; gskSndDONE; ${strRestorePosInTheEnd}; ${strCmdsOFF}; alias gskCCnpcSpawn_next +gskCCnpcSpawn_Finished; \"" #this also prevents continuing thru some previous list entries of a previous test run or map may be
+	FUNCechoAndFillFile "alias -gskCCnpcSpawn_${strCountNext} \"\""
 	FUNCechoAndFillFile "alias +gskCCnpcSpawn_Finished \"gskEchoOn; echo Finished Spawnings Already for this map $FUNCmapInfo_strMapName\""
 	FUNCechoAndFillFile "alias -gskCCnpcSpawn_Finished \"gskEchoOff\""
 	FUNCechoAndFillFile "clear" # before beggining each spawning, this is good
