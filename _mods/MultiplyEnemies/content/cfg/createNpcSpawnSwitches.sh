@@ -29,6 +29,7 @@
 #	OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 #	OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+lstrUseThisSector=""
 while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
 
 : ${strSpawnerMode:=MoreFoes} #help "MoreFoes" or "Summoning"
@@ -200,7 +201,6 @@ function FUNCechoAndFillFile() {
 }
 
 bCreateSpawnsForCurrentMap=false
-lstrUseThisSector=""
 #bUpdateCondumpBkp=false
 astrAllParams=("$@")
 lstrUseThisMap=""
@@ -231,6 +231,7 @@ done
 #help @InfoID="Usage Example" ./createNpcSpawnSwitches.sh -m l02_b2 01_LowestBigRoom_OK #easiest for maintenance, auto detects existing cleaned condump
 #help @InfoID="Usage Example" ./createNpcSpawnSwitches.sh -m L02_A "" #this is for a small map that has no need for sectors
 #help @InfoID="Hint" when you find 2 or more crows, that is when you can apply the next gskmap morefoes (after you clean the room)
+#help @InfoID="Hint" when you find a seagull, it means there is some secret in that wall/floor/ceiling etc, that can only be reached thru +gskMoveThruWall
 
 function FUNCmapCfg() { #ex.: gskmap_l02_b1-01_GuestHouse_OK.cfg
 	local lstr="gskmap_${1}"
@@ -409,7 +410,7 @@ if $bCreateSpawnsForCurrentMap;then
 						fi
 					fi
 					FUNCvalidateNPC "$strNPC" "$strFlCondump" "$iLnData"
-					strAliasValue+="${strNPC}; ${strAliasInfo}:${strNPC#mm_npc_create_}; "
+					strAliasValue+="${strNPC}; ent_setname gs${strCount}; ${strAliasInfo}:${strNPC#mm_npc_create_}; " #gs = gsk spawn
 					;;
 				DropItem)
 					strAliasValue+="${strDropItem}; ${strAliasInfo}:${strDropItem#gskMapDevDrop}; "
@@ -431,10 +432,13 @@ if $bCreateSpawnsForCurrentMap;then
 	FUNCechoAndFillFile "alias +gskCCnpcSpawn_Finished \"gskEchoOn; echo Finished Spawnings Already for this map $FUNCmapInfo_strMapName\""
 	FUNCechoAndFillFile "alias -gskCCnpcSpawn_Finished \"gskEchoOff\""
 	FUNCechoAndFillFile "clear" # before beggining each spawning, this is good
-	FUNCechoAndFillFile "echo \"PLEASE STAND UP NOW! (will auto crouch to help fit and positioning)\""
-	FUNCechoAndFillFile "echo \"Now, slowly and repeatedly press the key to spawn the next NPC.\""
+	FUNCechoAndFillFile "echo \"DO THESE NOW PLEASE!!!\""
+	FUNCechoAndFillFile "echo \" - Stand up (will auto crouch to help fit and positioning).\""
+	FUNCechoAndFillFile "echo \" - Enable and disable gskDevGodModeToggles and read the final status for each power, just to be sure all toggles are reset (as unfortunately we can't set them (right?)... only toggle... or NPC deployment may go out of control).\""
+	FUNCechoAndFillFile "echo \" - Hide your weapon (optional).\""
+	FUNCechoAndFillFile "echo \"Now, slowly(?) and repeatedly press the key to spawn the next NPC: gskCCnpcSpawn_next\""
 	FUNCechoAndFillFile "echo \"You will be in developer mode and carefully teleported to the location and rotation required for the spawning and without triggering anything.\""
-	FUNCechoAndFillFile "echo \"Obs.: your vision is blurred to the spawn and location be a surprise.\""
+	FUNCechoAndFillFile "echo \"Obs.: your vision is blurred to the spawn and location be a surprise.\"" #TODO fadeout to completely hide spawnings? will make it impossible to detect issues tho.
 	
 	if egrep "^Unknown command: rm[0-9]*" -i "${strMapCfgFile}.condump.txt";then #help just type rm1 rm3 etc, will not be recognized as a command but will be logged!
 		FUNCechoInfo "[WARN] removes detected, better edit to remove from that line up to 'gskSpawnHint' and rerun!" #TODO this can be scripted easily if the echo on the console is like: RemoveAbove=1 or Remove=1 or RM1; echo RM1; echo rm2
