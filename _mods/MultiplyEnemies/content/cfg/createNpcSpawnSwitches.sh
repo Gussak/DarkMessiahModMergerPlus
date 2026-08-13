@@ -158,17 +158,20 @@ function FUNCaliasNpcSpawner() {
 gskEchoOn; \
 contimes 50; \
 echo CFG_CREATE${lstrInfo}:${lstrShortName}${lstrBeginLoopHint}; \
-alias +gsk${lstrType}Spawn      gsk${lstrType}Spawn_${liCurrentIndex}; \
+alias +gsk${lstrType}Spawn      +gsk${lstrType}Spawn_${liCurrentIndex}; \
+alias -gsk${lstrType}Spawn      -gsk${lstrType}Spawn_${liCurrentIndex}; \
 alias +gsk${lstrType}SwitchPrev gsk${lstrType}Switch_${iPrevious}; \
 alias +gsk${lstrType}Switch     gsk${lstrType}Switch_${iNext}; \
 \""
-	echo "alias gsk${lstrType}Spawn_${liCurrentIndex} \"\
+	echo "alias +gsk${lstrType}Spawn_${liCurrentIndex} \"\
 echo gskSpawnHint; \
 getpos; getpos; \
 echo ${strNPC}; echo ${strNPC}; \
 ${strNPC}; \
-ent_setname gskSpawnNameOk; \
 \"" #this way, it creates a reusable log to quickly place all NPCs again!!! OBS.: getpos 2 times is because the engine bugs and may not print one character some times
+	echo "alias -gsk${lstrType}Spawn_${liCurrentIndex} \"\
+ent_setname gskSpawnNameOk; \
+\"" #it is important to wait the spawn happen before assigning a name to it
 }
 
 : ${strExecEdit:=geany} #help
@@ -214,9 +217,29 @@ while [[ $# -gt 0 && "${1:0:1}" == "-" ]];do
 		shift;lstrUseThisMap="${1}"
 		shift;lstrUseThisSector="${1}"
 		bCreateSpawnsForCurrentMap=true
+	elif [[ "${1}" == "-M" ]];then #help like -m but a single string like l02_b2-05_Library_OK will become lstrUseThisMap=l02_b2 and lstrUseThisSector=05_Library_OK. You can use just the filename also like gskmap_l02_b2-05_Library_OK.cfg
+		shift;lstrMapSector="${1}"
+		lstrMapSector="${lstrMapSector#gskmap_}"
+		lstrMapSector="${lstrMapSector%.cfg}"
+		lstrUseThisMap="$(     echo "$lstrMapSector" |sed -r -e 's@(.*)-(.*)@\1@g')"
+		if [[ "$lstrMapSector" =~ .*[-].* ]];then
+			lstrUseThisSector="$(echo "$lstrMapSector" |sed -r -e 's@(.*)-(.*)@\2@g')"
+		else
+			lstrUseThisSector=""
+		fi
+		bCreateSpawnsForCurrentMap=true
 	elif [[ "${1}" == "-s" ]];then #help <lstrUseThisSector> same as -c but you can prepare a smaller SECTOR area in that map with loads of foes to not encumber the engine, ex.: "02_FrontYard_OK" for gskmap_l02_b1-02_FrontYard_OK.cfg
 		shift;lstrUseThisSector="${1}"
 		bCreateSpawnsForCurrentMap=true
+	elif [[ "${1}" == "--redoall" ]];then #help mainly to be used after patching this script
+		mapfile -t astrRedoAll < <(ls gskmap*.cfg |sed -r -e 's@gskmap_(.*)[.]cfg@\1@g')
+		for strRedo in "${astrRedoAll[@]}";do
+			echo
+			echo "=============== $strRedo ==============="
+			echo "=============== $strRedo ==============="
+			echo "=============== $strRedo ==============="
+			"$0" -M "$strRedo"
+		done
 	else
 		FUNCechoInfo "[ERROR] invalid option: $@"
 		exit 1
@@ -354,7 +377,7 @@ if $bCreateSpawnsForCurrentMap;then
 	strCmdsErasers="gskManaRegEraser; gskHMHurtmeEraser1of3; gskHMHurtmeEraser2of3; gskHMHurtmeEraser3of3; alias gskSmnWORK gskSmnWORKdev" #erasers are  to avoid messing the player HP and Mana pools and remove effects that slowdown things like placing more foes at least
 	strCmdsON=" gskEchoOn; +duck; gskDevGodModeToggles; gskEffect100; ${strCmdsErasers}; " # do not use host_timescale 0.01 as it will mess teleporting. +duck is to help to fit yourself in smaller places causing less issues
 	strCmdsOFF=" -duck; gskDevGodModeToggles; gskEffectOFF; gskEchoOff; +gskReloadCfgs " # +gskReloadCfgs is to restore what was erased
-	FUNCechoAndFillFile "alias gskCCnpcSpawn_next \"${strCmdsON}; gskCCnpcSpawn_$( printf %03d $((iSpawnCount)) )\"" # initializes with some dev toggles
+	FUNCechoAndFillFile "alias +gskCCnpcSpawn_next \"${strCmdsON}; +gskCCnpcSpawn_$( printf %03d $((iSpawnCount)) )\"" # initializes with some dev toggles
 	#for((i=0;i<${#astrSpawnHintList[@]};i+=iDataLines));do
 	for((i=0;i<${#astrAllLines[@]};i++));do
 		strMODE=SpawnNPC
@@ -411,14 +434,15 @@ if $bCreateSpawnsForCurrentMap;then
 						fi
 					fi
 					FUNCvalidateNPC "$strNPC" "$strFlCondump" "$iLnData"
-					strAliasValue+="${strNPC}; ent_setname gs${strCount}; ${strAliasInfo}:${strNPC#mm_npc_create_}; " #gs = gsk spawn
+					strAliasValue+="${strNPC}; ${strAliasInfo}:${strNPC#mm_npc_create_}; " #gs = gsk spawn
 					;;
 				DropItem)
 					strAliasValue+="${strDropItem}; ${strAliasInfo}:${strDropItem#gskMapDevDrop}; "
 					;;
 			esac
-			strAliasValue+="alias gskCCnpcSpawn_next gskCCnpcSpawn_${strCountNext}"
-			FUNCechoAndFillFile "alias gskCCnpcSpawn_${strCount} \"${strAliasValue}\""
+			strAliasValue+="alias +gskCCnpcSpawn_next +gskCCnpcSpawn_${strCountNext}; alias -gskCCnpcSpawn_next -gskCCnpcSpawn_${strCountNext}; "
+			FUNCechoAndFillFile "alias +gskCCnpcSpawn_${strCount} \"${strAliasValue}\""
+			FUNCechoAndFillFile "alias -gskCCnpcSpawn_${strCount} \"ent_setname gs${strCount}\""
 			
 			((iSpawnCount++))&&:
 			
@@ -436,8 +460,9 @@ if $bCreateSpawnsForCurrentMap;then
 	FUNCechoAndFillFile "echo \"DO THESE NOW PLEASE!!!\""
 	FUNCechoAndFillFile "echo \" - Stand up (will auto crouch to help fit and positioning).\""
 	FUNCechoAndFillFile "echo \" - Enable and disable gskDevGodModeToggles and read the final status for each power, just to be sure all toggles are reset (as unfortunately we can't set them (right?)... only toggle... or NPC deployment may go out of control).\""
+	FUNCechoAndFillFile "echo \" - Close the console. While you can bind +gskCCnpcSpawn_next to a key like F4 (that will work with the console opened), it will not work when releasing the key to execute -gskCCnpcSpawn_next.\""
 	FUNCechoAndFillFile "echo \" - Hide your weapon (optional).\""
-	FUNCechoAndFillFile "echo \"Now, slowly(?) and repeatedly press the key to spawn the next NPC: gskCCnpcSpawn_next\""
+	FUNCechoAndFillFile "echo \"Now, slowly(?) and repeatedly press the key to spawn the next NPC: +gskCCnpcSpawn_next\""
 	FUNCechoAndFillFile "echo \"You will be in developer mode and carefully teleported to the location and rotation required for the spawning and without triggering anything.\""
 	FUNCechoAndFillFile "echo \"Obs.: your vision is blurred to the spawn and location be a surprise.\"" #TODO fadeout to completely hide spawnings? will make it impossible to detect issues tho.
 	
