@@ -167,6 +167,7 @@ echo gskSpawnHint; \
 getpos; getpos; \
 echo ${strNPC}; echo ${strNPC}; \
 ${strNPC}; \
+ent_setname gskSpawnNameOk; \
 \"" #this way, it creates a reusable log to quickly place all NPCs again!!! OBS.: getpos 2 times is because the engine bugs and may not print one character some times
 }
 
