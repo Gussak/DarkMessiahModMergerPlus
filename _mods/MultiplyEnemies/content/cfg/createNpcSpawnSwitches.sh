@@ -381,7 +381,8 @@ if $bCreateSpawnsForCurrentMap;then
 	FUNCechoAndFillFile "// FILL MAP WITH NPCs, total $nTotSpawns"
 	#FUNCechoAndFillFile "alias gskCCnpcSpawn_helper \"\""
 	strCmdsErasers="gskManaRegEraser; gskHMHurtmeEraser1of3; gskHMHurtmeEraser2of3; gskHMHurtmeEraser3of3; alias gskSmnWORK gskSmnWORKmoreFoes" #erasers are  to avoid messing the player HP and Mana pools and remove effects that slowdown things like placing more foes at least
-	strCmdsON=" gskEchoOn; +duck; gskDevGodModeToggles; gskEffect100; ${strCmdsErasers}; alias gskWaitInteractDev gskWait333ms; " # do not use host_timescale 0.01 as it will mess teleporting. +duck is to help to fit yourself in smaller places causing less issues
+	#strCmdsON=" gskEchoOn; +duck; gskDevGodModeToggles; gskEffect100; ${strCmdsErasers}; alias gskWaitInteractDev gskWait333ms; " # do not use host_timescale 0.01 as it will mess teleporting. +duck is to help to fit yourself in smaller places causing less issues
+	strCmdsON=" gskEchoOn; +duck; gskDevGodModeToggles; gskEffect100; ${strCmdsErasers}; " # do not use host_timescale 0.01 as it will mess teleporting. +duck is to help to fit yourself in smaller places causing less issues
 	strCmdsOFF=" -duck; gskDevGodModeToggles; gskEffectOFF; gskEchoOff; +gskReloadCfgs " # +gskReloadCfgs is to restore what was erased
 	FUNCechoAndFillFile "alias +gskCCnpcSpawn_next \"${strCmdsON}; +gskCCnpcSpawn_$( printf %03d $((iSpawnCount)) )\"" # initializes with some dev toggles
 	#for((i=0;i<${#astrSpawnHintList[@]};i+=iDataLines));do
@@ -430,6 +431,7 @@ if $bCreateSpawnsForCurrentMap;then
 			strAliasValue+="$(FUNCfixPosAng "${strSelfPosAngle}"); "
 			strAliasValueLift=""
 			strAliasInfo="echo Spawning:${strCountShow}/${nTotSpawns}"
+			bSetName=true
 			case "$strMODE" in
 				SpawnNPC)
 					((iLnData++))&&:;strNPC="$(    echo "${astrAllLines[$iLnData]}" |awk '{print $1}')"
@@ -442,7 +444,7 @@ if $bCreateSpawnsForCurrentMap;then
 						fi
 					fi
 					
-					if [[ "$strNPC" == "+gskInteractUseDev" ]];then
+					if [[ "$strNPC" == "+gskInteractUseMoreFoes" ]];then
 						bSetName=false;
 						#strAliasValue+="mm_host_timescale 10; gskWait333ms; "
 					elif [[ "$strNPC" =~ ^dummy.* ]];then
@@ -471,6 +473,7 @@ if $bCreateSpawnsForCurrentMap;then
 			strAliasValue+="alias +gskCCnpcSpawn_next +gskCCnpcSpawn_${strCountNext}; alias -gskCCnpcSpawn_next -gskCCnpcSpawn_${strCountNext}; "
 			#FUNCechoAndFillFile "alias +gskCCnpcSpawn_${strCount} \"-gskInteractUseDev; ${strAliasValue}\"" #-gskInteractUseDev is to grant next +gskInteractUseDev wont break.
 			FUNCechoAndFillFile "alias +gskCCnpcSpawn_${strCount} \"${strAliasValue}\""
+			FUNCechoAndFillFile "alias -gskCCnpcSpawn_${strCount} \"\""
 			#if $bInteractUseMode;then
 				#FUNCechoAndFillFile "alias -gskCCnpcSpawn_${strCount} \"+gskInteractUseDev\"" #the action must happen after the teleport
 			#else
