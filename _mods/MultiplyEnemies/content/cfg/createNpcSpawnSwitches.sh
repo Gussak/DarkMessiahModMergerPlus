@@ -442,8 +442,14 @@ if $bCreateSpawnsForCurrentMap;then
 						fi
 					fi
 					FUNCvalidateNPC "$strNPC" "$strFlCondump" "$iLnData"
-					if [[ "$strNPC" == "+gskInteractUseDev" ]];then bInteractUseMode=true;fi
-					strAliasValue+="${strNPC}; ${strAliasInfo}:${strNPC#mm_npc_create_}; " #gs = gsk spawn
+					if [[ "$strNPC" == "+gskInteractUseDev" ]];then
+						strAliasInfo+=":+gskInteractUseDev; "
+						strAliasValue+="${strAliasInfo}; "
+						bInteractUseMode=true;
+					else
+						strAliasInfo+=":${strNPC#mm_npc_create_}; "
+						strAliasValue+="${strNPC}; ${strAliasInfo}; "
+					fi
 					;;
 				#InteractUse)
 					#strAliasValue+="+use; ${strAliasInfo}:${strDropItem#gskMapDevDrop}; "
@@ -453,11 +459,11 @@ if $bCreateSpawnsForCurrentMap;then
 					#;;
 			esac
 			strAliasValue+="alias +gskCCnpcSpawn_next +gskCCnpcSpawn_${strCountNext}; alias -gskCCnpcSpawn_next -gskCCnpcSpawn_${strCountNext}; "
-			FUNCechoAndFillFile "alias +gskCCnpcSpawn_${strCount} \"${strAliasValue}\""
+			FUNCechoAndFillFile "alias +gskCCnpcSpawn_${strCount} \"-gskInteractUseDev; ${strAliasValue}\"" #-gskInteractUseDev is to grant next +gskInteractUseDev wont break.
 			if $bInteractUseMode;then
-				FUNCechoAndFillFile "alias -gskCCnpcSpawn_${strCount} \"-gskInteractUseDev\""
+				FUNCechoAndFillFile "alias -gskCCnpcSpawn_${strCount} \"+gskInteractUseDev\"" #the action must happen after the teleport
 			else
-				FUNCechoAndFillFile "alias -gskCCnpcSpawn_${strCount} \"ent_setname gs${strCount}\""
+				FUNCechoAndFillFile "alias -gskCCnpcSpawn_${strCount} \"ent_setname gskSpawn${strCount}\""
 			fi
 			
 			((iSpawnCount++))&&:
@@ -469,7 +475,7 @@ if $bCreateSpawnsForCurrentMap;then
 			i=$iLnData # jump skip, next loop will be +1
 		fi
 	done
-	FUNCechoAndFillFile "alias +gskCCnpcSpawn_${strCountNext} \"echo FinishedSpawnings; gskSndDONE; ${strRestorePosInTheEnd}; ${strCmdsOFF}; alias gskCCnpcSpawn_next +gskCCnpcSpawn_Finished; \"" #this also prevents continuing thru some previous list entries of a previous test run or map may be
+	FUNCechoAndFillFile "alias +gskCCnpcSpawn_${strCountNext} \"echo FinishedSpawnings; gskSndDONE; ${strRestorePosInTheEnd}; ${strCmdsOFF}; -gskInteractUseDev; alias gskCCnpcSpawn_next +gskCCnpcSpawn_Finished; \"" #this also prevents continuing thru some previous list entries of a previous test run or map may be. -gskInteractUseDev is to grant next +gskInteractUseDev wont break.
 	FUNCechoAndFillFile "alias -gskCCnpcSpawn_${strCountNext} \"\""
 	FUNCechoAndFillFile "alias +gskCCnpcSpawn_Finished \"gskEchoOn; echo Finished Spawnings Already for this map $FUNCmapInfo_strMapName\""
 	FUNCechoAndFillFile "alias -gskCCnpcSpawn_Finished \"gskEchoOff\""
