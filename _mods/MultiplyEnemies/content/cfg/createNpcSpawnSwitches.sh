@@ -187,14 +187,15 @@ function FUNCvalidateNPC() {
 	for((i=0;i<${#astrNPCmoreFoes[@]};i++));do
 		local lstrNPC="${astrNPCmoreFoes[$i]}"
 		#declare -p lstrNPC lstrChkNpc
-		if [[ "$lstrNPC" == "$lstrChkNpc" ]];then lbFound=true;break;fi
+		if [[ "$lstrChkNpc" == "$lstrNPC" ]];then lbFound=true;break;fi
 	done
 	for((i=0;i<${#astrNPCsummon_ID[@]};i++));do
 		local lstrNPC="${astrNPCsummon_ID[$i]}"
-		if [[ "$lstrNPC" == "$lstrChkNpc" ]];then lbFound=true;break;fi
+		if [[ "$lstrChkNpc" == "$lstrNPC" ]];then lbFound=true;break;fi
 	done
+	if [[ "$lstrChkNpc" == "+gskInteractUseDev" ]];then lbFound=true;fi
 	if ! $lbFound;then
-		FUNCechoInfo "[ERROR:invalidNPC] $lstrChkNpc ( the engine sometimes do not print some letters!!! :O )"
+		FUNCechoInfo "[ERROR:invalidNPC] '$lstrChkNpc' ( the engine sometimes do not print some letters!!! :O )"
 		"$strExecEdit" "$lstrFlCondump:$((lLn+1))"  #editors begin in line 1 not 0
 		FUNCexit 1
 	fi
@@ -208,6 +209,7 @@ bCreateSpawnsForCurrentMap=false
 #bUpdateCondumpBkp=false
 astrAllParams=("$@")
 lstrUseThisMap=""
+bRedoAll=false
 while [[ $# -gt 0 && "${1:0:1}" == "-" ]];do
 	#if [[ "${1}" == "-d" ]];then #help update condump backup file using latest condump
 		#bUpdateCondumpBkp=true
@@ -232,14 +234,7 @@ while [[ $# -gt 0 && "${1:0:1}" == "-" ]];do
 		shift;lstrUseThisSector="${1}"
 		bCreateSpawnsForCurrentMap=true
 	elif [[ "${1}" == "--redoall" ]];then #help mainly to be used after patching this script
-		mapfile -t astrRedoAll < <(ls gskmap*.cfg |sed -r -e 's@gskmap_(.*)[.]cfg@\1@g')
-		for strRedo in "${astrRedoAll[@]}";do
-			echo
-			echo "=============== $strRedo ==============="
-			echo "=============== $strRedo ==============="
-			echo "=============== $strRedo ==============="
-			"$0" -M "$strRedo"
-		done
+		bRedoAll=true
 	else
 		FUNCechoInfo "[ERROR] invalid option: $@"
 		exit 1
@@ -247,6 +242,18 @@ while [[ $# -gt 0 && "${1:0:1}" == "-" ]];do
 	shift
 done
 
+if $bRedoAll;then
+	mapfile -t astrRedoAll < <(ls gskmap*.cfg |sed -r -e 's@gskmap_(.*)[.]cfg@\1@g')
+	for strRedo in "${astrRedoAll[@]}";do
+		echo
+		echo "=============== $strRedo ==============="
+		echo "=============== $strRedo ==============="
+		echo "=============== $strRedo ==============="
+		"$0" -M "$strRedo"
+	done
+	exit
+fi
+	
 #help @InfoID="Log flood Issue workaround" having to save many condumps and merge them (as they have a size limit) due to flooded unstoppable warn log messages, after merging them all there may happen several dup spawns, use this (it will turn all multine entry into a single line, sort it unique and restore it into multiline) ex.: clear;cat gskmap_l02_b2-04_ThroneRoom.cfg.condump_CLEAN.txt |egrep -v "^map" |sed -r -e 's@(gskSpawnHint).*@\1 @g' |tr -d '\n' |sed -r -e 's@gskSpawnHint@\n&@g'|sort -u |sed -r -e 's@setpos@\nsetpos@g' -e 's@mm_npc@\nmm_npc@g' #Tho the best way is to just find a previous save where there is no flood on the log (as I couldnt determine the cause of the problem).
 #help @InfoID="Spawining Issue" Sometimes it may be impossible to find a good location and rotation for you to stay and that will be correctly restored later. The tip is: just replace the rotation (setang) for a spawn that is failing, with a rotation that is working (dont move, just rotate until it works)!
 #help @InfoID="Usage Info" you can edit just the CLEAN file if you know what you are doing
@@ -255,7 +262,7 @@ done
 #help @InfoID="Usage Example" ./createNpcSpawnSwitches.sh -m l02_b2 01_LowestBigRoom_OK #easiest for maintenance, auto detects existing cleaned condump
 #help @InfoID="Usage Example" ./createNpcSpawnSwitches.sh -m L02_A "" #this is for a small map that has no need for sectors
 #help @InfoID="Hint" when you find 2 or more crows, that is when you can apply the next gskmap morefoes (after you clean the room)
-#help @InfoID="Hint" when you find a seagull, it means there is some secret in that wall/floor/ceiling etc, that can only be reached thru +gskMoveThruWall. Be sure to crouch before using it as the space behind the wall may only fit if you are crouched. Anyway it auto saves before you teleport so you can just reload.
+#help @InfoID="Hint" when you find a seagull, it means there is some secret in that wall/floor/ceiling etc, that can only be reached thru +gskMoveThruWall. Be sure to crouch before using it as the space behind the wall may only fit if you are crouched. Anyway it auto saves before you teleport so you can just reload. If the teleport doesnt work, come back later after you clean almost all foes spawned, it may be related to the extra lag they generate.
 
 function FUNCmapCfg() { #ex.: gskmap_l02_b1-01_GuestHouse_OK.cfg
 	local lstr="gskmap_${1}"
@@ -388,16 +395,16 @@ if $bCreateSpawnsForCurrentMap;then
 			strCountShow="$( printf   %d $((iSpawnCount+1)) )" # begins in 1 and ends like 45/45 looks better
 			strCountNext="$( printf %03d $((iSpawnCount+1)) )"
 			
-			if [[ "$strLine" =~ ^gskSpawnHint_DropPotion.* ]];then #help @InfoID="DroppingItems" prefer to place these at the end of the file to not mess NPCs placement and to let the player be prepared to drop them carefully: press NextNPC, receive DropMsg, press Pause (to unpause), keep the inventory opened and drop one potion etc as requested.
-				iTotEntryDataLines=3
-				if [[ "$strLine" =~ ^gskSpawnHint_DropPotionLife.* ]];then
-					strMODE=DropItem
-					strDropItem="gskMapDevDropPotionLife"
-				fi
-				if [[ "$strLine" =~ ^gskSpawnHint_DropPotionMana.* ]];then
-					strDropItem="gskMapDevDropPotionMana"
-				fi
-			fi
+			#if [[ "$strLine" =~ ^gskSpawnHint_DropPotion.* ]];then
+				#iTotEntryDataLines=3
+				#if [[ "$strLine" =~ ^gskSpawnHint_DropPotionLife.* ]];then
+					#strMODE=DropItem
+					#strDropItem="gskMapDevDropPotionLife"
+				#fi
+				#if [[ "$strLine" =~ ^gskSpawnHint_DropPotionMana.* ]];then
+					#strDropItem="gskMapDevDropPotionMana"
+				#fi
+			#fi
 			
 			iLnDataIni=$i
 			iLnData=$iLnDataIni;#declare -p iLnData
@@ -419,6 +426,7 @@ if $bCreateSpawnsForCurrentMap;then
 				fi
 			fi
 			
+			bInteractUseMode=false
 			strAliasValue=""
 			strAliasValue+="$(FUNCfixPosAng "${strSelfPosAngle}"); "
 			strAliasInfo="echo Spawning:${strCountShow}/${nTotSpawns}"
@@ -434,15 +442,23 @@ if $bCreateSpawnsForCurrentMap;then
 						fi
 					fi
 					FUNCvalidateNPC "$strNPC" "$strFlCondump" "$iLnData"
+					if [[ "$strNPC" == "+gskInteractUseDev" ]];then bInteractUseMode=true;fi
 					strAliasValue+="${strNPC}; ${strAliasInfo}:${strNPC#mm_npc_create_}; " #gs = gsk spawn
 					;;
-				DropItem)
-					strAliasValue+="${strDropItem}; ${strAliasInfo}:${strDropItem#gskMapDevDrop}; "
-					;;
+				#InteractUse)
+					#strAliasValue+="+use; ${strAliasInfo}:${strDropItem#gskMapDevDrop}; "
+					#;;
+				#DropItem) #help @Info ID="DroppingItems" prefer to place these at the end of the file to not mess NPCs placement
+					#strAliasValue+="${strDropItem}; ${strAliasInfo}:${strDropItem#gskMapDevDrop}; "
+					#;;
 			esac
 			strAliasValue+="alias +gskCCnpcSpawn_next +gskCCnpcSpawn_${strCountNext}; alias -gskCCnpcSpawn_next -gskCCnpcSpawn_${strCountNext}; "
 			FUNCechoAndFillFile "alias +gskCCnpcSpawn_${strCount} \"${strAliasValue}\""
-			FUNCechoAndFillFile "alias -gskCCnpcSpawn_${strCount} \"ent_setname gs${strCount}\""
+			if $bInteractUseMode;then
+				FUNCechoAndFillFile "alias -gskCCnpcSpawn_${strCount} \"-gskInteractUseDev\""
+			else
+				FUNCechoAndFillFile "alias -gskCCnpcSpawn_${strCount} \"ent_setname gs${strCount}\""
+			fi
 			
 			((iSpawnCount++))&&:
 			
