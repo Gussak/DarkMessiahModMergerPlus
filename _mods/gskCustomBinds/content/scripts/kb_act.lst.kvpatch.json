@@ -62,5 +62,6 @@
 	"+gskFixPauseBugHelper": "#mc_gskfixpausebughelper",
 	"gskFixShieldsRemove": "#mc_gskfixshieldsremove",
 	"gskFixShieldsAdd": "#mc_gskfixshieldsadd",
-	"+gskInvSwapPreventCrash": "#mc_gskinvswappreventcrash"
+	"+gskInvSwapPreventCrash": "#mc_gskinvswappreventcrash",
+	"+gskInteractUseDev": "#mc_gskinteractusedev"
 }

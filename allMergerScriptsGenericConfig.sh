@@ -94,7 +94,8 @@ FUNCwait60s() { #help [CustomMSG]
 FUNCexit() {
 	if [[ $* -gt 0 ]];then
 		if(($1 != 0));then
-			read -n 1 -p "[ERROR] $1" >&2 #because the script keeps running and wont stop not abruptly exit to terminal anymore!!!! :(, this is the only way to see problems now... :(
+			echo "[ERROR:${FUNCNAME[@]}:${BASH_LINENO[@]}] error=$1" >&2 #because the script keeps running and wont stop not abruptly exit to terminal anymore!!!! :(, this is the only way to see problems now... :(
+			read -n 1 >&2
 		fi
 		exit $1
 	fi

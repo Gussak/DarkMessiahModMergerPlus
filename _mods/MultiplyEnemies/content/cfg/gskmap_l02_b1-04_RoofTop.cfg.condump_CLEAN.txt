@@ -1,0 +1,32 @@
+map     :  l02_b1 at: -4021 x, -11632 y, 1519 z
+map     :  l02_b1 at: -4021 x, -11632 y, 1519 z
+gskSpawnHint   // ( 1/6 )
+setpos -4216.113770 -11822.559570 1514.265137;setang 52.175587 110.395851 -0.009750  
+setpos -4216.113770 -11822.559570 1514.265137;setang 52.175587 110.395851 -0.009750  
++gskInteractUseDev   
++gskInteractUseDev   
+gskSpawnHint   // ( 2/6 )
+setpos -4211.113770 -11822.251953 1514.187134;setang 52.703491 75.877899 -0.009712  
+setpos -4211.113770 -11822.251953 1514.187134;setang 52.703491 75.877899 -0.009712  
++gskInteractUseDev   
++gskInteractUseDev   
+gskSpawnHint   // ( 3/6 )
+setpos -4213.379395 -11821.275391 1511.609253;setang 69.333008 91.258263 -0.008153  
+setpos -4213.379395 -11821.275391 1511.609253;setang 69.333008 91.258263 -0.008153  
+mm_npc_create_necro_guard_bow   
+mm_npc_create_necro_guard_bow   
+gskSpawnHint   // ( 4/6 )
+setpos -4019.553223 -11634.036133 1523.386475;setang 41.089035 -158.392761 -0.00923  
+setpos -4019.553223 -11634.036133 1523.386475;setang 41.089035 -158.392761 -0.009623  
++gskInteractUseDev   
++gskInteractUseDev   
+gskSpawnHint   // ( 5/6 )
+setpos -4020.053223 -11629.279297 1523.052002;setang 43.597012 165.175079 -0.009963  
+setpos -4020.053223 -11629.279297 1523.052002;setang 43.597012 165.175079 -0.009963  
++gskInteractUseDev   
++gskInteractUseDev   
+gskSpawnHint   // ( 6/6 )
+setpos -4021.689697 -11632.059570 1519.266968;setang 68.805054 -175.021545 -0.008234  
+setpos -4021.689697 -11632.059570 1519.266968;setang 68.805054-175.021545 -0.008234  
+mm_npc_create_necro_guard_bow   
+mm_npc_create_necro_guard_bow   
