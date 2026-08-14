@@ -812,8 +812,8 @@ function FUNCxtermChild() { #help <lstrTitle> <OtherXtermParams>
 	local lstrTitle="$1";shift
 	
 	if pgrep -fa "$lstrTitle";then 
-		FUNCechoInfo "[INFO] '$lstrTitle' already running"
-		read -n 1 -t 60
+		FUNCechoInfo "[INFO] '$lstrTitle' already running (60s)"
+		#read -n 1 -t 60
 		return 0
 	fi
 	
