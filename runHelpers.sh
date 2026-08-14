@@ -20,7 +20,7 @@ if ! $bXtermAlready;then
 	: ${bXterm:=true} #help
 	if $bXterm;then
 		if pgrep -fa "DMMM_Helpers";then exit 0;fi
-		(FUNCxterm -title DMMM_Helpers -e bash -c "while true;do ./${strSelfBN} --help; read -p PressEnterToRunHelpers&&:; bXtermAlready=true ./${strSelfBN};done" & disown)
+		(FUNCxterm -maximized -title DMMM_Helpers -e bash -c "while true;do ./${strSelfBN} --help; read -p PressEnterToRunHelpers&&:; bXtermAlready=true ./${strSelfBN};done" & disown)
 		exit 0
 	fi
 fi
