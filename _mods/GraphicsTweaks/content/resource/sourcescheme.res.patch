@@ -1,0 +1,20 @@
+--- /dev/fd/63	2026-08-14 20:19:54.314784872 -0300
++++ /dev/fd/62	2026-08-14 20:19:54.314784872 -0300
+@@ -1436,8 +1436,8 @@
+ 		{
+ 			"1"
+ 			{
+-				"name"		"Lucida Console"
+-				"tall"		"10"
++				"name"		"Courier New" // "Lucida Console" not rendering well in Wine? too many broken letters.. and tall 10 is terrible in 1366x768
++				"tall"		"12" 
+ 				"weight"	"500"
+ 			}
+ 		}
+@@ -2098,4 +2098,4 @@
+ 		"4"		"resource/DM.ttf"
+ 		
+ 	}
+-}
+\ No newline at end of file
++}
