@@ -13,20 +13,24 @@ function FUNCerasers() {
 	for((i=lnFrom;i<=lnTo;i++));do
 		lstrEraser+="alias ${lstrToEraseBN}$(printf %03d $i);"
 	done
+	if [[ "$lstrMainEraser" == gskHMHurtmeEraser1of3 ]];then
+		lstrEraser+="alias gskHurtme500;"
+	fi
 	lstrEraser+="\""
 	echo "$lstrEraser"
 }
 
-echo
+echo "// from $(basename "$0")"
 for((i=1;i<=100;i++));do
 	echo "alias gskHurtme$(printf %03d $i) \"hurtme $i\""
 done
-FUNCerasers "gskHMHurtmeEraser1of3" "gskHurtme" 1  33
-FUNCerasers "gskHMHurtmeEraser2of3" "gskHurtme" 34  66
-FUNCerasers "gskHMHurtmeEraser3of3" "gskHurtme" 67 100
+echo "alias gskHurtme500 \"hurtme 500\""
+FUNCerasers gskHMHurtmeEraser1of3 "gskHurtme" 1  33
+FUNCerasers gskHMHurtmeEraser2of3 "gskHurtme" 34  66
+FUNCerasers gskHMHurtmeEraser3of3 "gskHurtme" 67 100
 
 ################
-echo
+echo "// from $(basename "$0")"
 for((i=1;i<=10;i++));do
 	echo "alias gskManaReg$(printf %03d $i) \"mm_player_time_to_add_mana 0.$(printf %02d $i)\""
 done
