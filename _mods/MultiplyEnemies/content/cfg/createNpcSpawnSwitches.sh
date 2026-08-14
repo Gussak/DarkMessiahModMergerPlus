@@ -193,7 +193,6 @@ function FUNCvalidateNPC() {
 		local lstrNPC="${astrNPCsummon_ID[$i]}"
 		if [[ "$lstrChkNpc" == "$lstrNPC" ]];then lbFound=true;break;fi
 	done
-	if [[ "$lstrChkNpc" == "+gskInteractUseDev" ]];then lbFound=true;fi
 	if ! $lbFound;then
 		FUNCechoInfo "[ERROR:invalidNPC] '$lstrChkNpc' ( the engine sometimes do not print some letters!!! :O )"
 		"$strExecEdit" "$lstrFlCondump:$((lLn+1))"  #editors begin in line 1 not 0
@@ -382,7 +381,7 @@ if $bCreateSpawnsForCurrentMap;then
 	FUNCechoAndFillFile "// FILL MAP WITH NPCs, total $nTotSpawns"
 	#FUNCechoAndFillFile "alias gskCCnpcSpawn_helper \"\""
 	strCmdsErasers="gskManaRegEraser; gskHMHurtmeEraser1of3; gskHMHurtmeEraser2of3; gskHMHurtmeEraser3of3; alias gskSmnWORK gskSmnWORKmoreFoes" #erasers are  to avoid messing the player HP and Mana pools and remove effects that slowdown things like placing more foes at least
-	strCmdsON=" gskEchoOn; +duck; gskDevGodModeToggles; gskEffect100; ${strCmdsErasers}; " # do not use host_timescale 0.01 as it will mess teleporting. +duck is to help to fit yourself in smaller places causing less issues
+	strCmdsON=" gskEchoOn; +duck; gskDevGodModeToggles; gskEffect100; ${strCmdsErasers}; alias gskWaitInteractDev gskWait333ms; " # do not use host_timescale 0.01 as it will mess teleporting. +duck is to help to fit yourself in smaller places causing less issues
 	strCmdsOFF=" -duck; gskDevGodModeToggles; gskEffectOFF; gskEchoOff; +gskReloadCfgs " # +gskReloadCfgs is to restore what was erased
 	FUNCechoAndFillFile "alias +gskCCnpcSpawn_next \"${strCmdsON}; +gskCCnpcSpawn_$( printf %03d $((iSpawnCount)) )\"" # initializes with some dev toggles
 	#for((i=0;i<${#astrSpawnHintList[@]};i+=iDataLines));do
@@ -429,6 +428,7 @@ if $bCreateSpawnsForCurrentMap;then
 			bInteractUseMode=false
 			strAliasValue=""
 			strAliasValue+="$(FUNCfixPosAng "${strSelfPosAngle}"); "
+			strAliasValueLift=""
 			strAliasInfo="echo Spawning:${strCountShow}/${nTotSpawns}"
 			case "$strMODE" in
 				SpawnNPC)
@@ -441,15 +441,25 @@ if $bCreateSpawnsForCurrentMap;then
 							fi
 						fi
 					fi
-					FUNCvalidateNPC "$strNPC" "$strFlCondump" "$iLnData"
+					
 					if [[ "$strNPC" == "+gskInteractUseDev" ]];then
-						strAliasInfo+=":+gskInteractUseDev; "
-						strAliasValue+="${strAliasInfo}; "
-						bInteractUseMode=true;
+						bSetName=false;
+						#strAliasValue+="mm_host_timescale 10; gskWait333ms; "
+					elif [[ "$strNPC" =~ ^dummy.* ]];then
+						bSetName=false;
 					else
-						strAliasInfo+=":${strNPC#mm_npc_create_}; "
-						strAliasValue+="${strNPC}; ${strAliasInfo}; "
+						FUNCvalidateNPC "$strNPC" "$strFlCondump" "$iLnData"
 					fi
+					#if [[ "$strNPC" == "+gskInteractUseDev" ]];then
+						#strAliasInfo+=":+gskInteractUseDev; "
+						#strAliasValue+="${strAliasInfo}; "
+						#bInteractUseMode=true;
+					#else
+						#strAliasInfo+=":${strNPC#mm_npc_create_}; "
+						#strAliasValue+="${strNPC}; ${strAliasInfo}; "
+					#fi
+					strAliasInfo+=":${strNPC#mm_npc_create_}; "
+					strAliasValue+="${strNPC}; ${strAliasInfo}; "
 					;;
 				#InteractUse)
 					#strAliasValue+="+use; ${strAliasInfo}:${strDropItem#gskMapDevDrop}; "
@@ -459,11 +469,13 @@ if $bCreateSpawnsForCurrentMap;then
 					#;;
 			esac
 			strAliasValue+="alias +gskCCnpcSpawn_next +gskCCnpcSpawn_${strCountNext}; alias -gskCCnpcSpawn_next -gskCCnpcSpawn_${strCountNext}; "
-			FUNCechoAndFillFile "alias +gskCCnpcSpawn_${strCount} \"-gskInteractUseDev; ${strAliasValue}\"" #-gskInteractUseDev is to grant next +gskInteractUseDev wont break.
-			if $bInteractUseMode;then
-				FUNCechoAndFillFile "alias -gskCCnpcSpawn_${strCount} \"+gskInteractUseDev\"" #the action must happen after the teleport
-			else
-				FUNCechoAndFillFile "alias -gskCCnpcSpawn_${strCount} \"ent_setname gskSpawn${strCount}\""
+			#FUNCechoAndFillFile "alias +gskCCnpcSpawn_${strCount} \"-gskInteractUseDev; ${strAliasValue}\"" #-gskInteractUseDev is to grant next +gskInteractUseDev wont break.
+			FUNCechoAndFillFile "alias +gskCCnpcSpawn_${strCount} \"${strAliasValue}\""
+			#if $bInteractUseMode;then
+				#FUNCechoAndFillFile "alias -gskCCnpcSpawn_${strCount} \"+gskInteractUseDev\"" #the action must happen after the teleport
+			#else
+			if $bSetName;then
+				FUNCechoAndFillFile "alias -gskCCnpcSpawn_${strCount} \"ent_setname gskSpawn${strCount}; ${strAliasValueLift}; \""
 			fi
 			
 			((iSpawnCount++))&&:
@@ -475,7 +487,8 @@ if $bCreateSpawnsForCurrentMap;then
 			i=$iLnData # jump skip, next loop will be +1
 		fi
 	done
-	FUNCechoAndFillFile "alias +gskCCnpcSpawn_${strCountNext} \"echo FinishedSpawnings; gskSndDONE; ${strRestorePosInTheEnd}; ${strCmdsOFF}; -gskInteractUseDev; alias gskCCnpcSpawn_next +gskCCnpcSpawn_Finished; \"" #this also prevents continuing thru some previous list entries of a previous test run or map may be. -gskInteractUseDev is to grant next +gskInteractUseDev wont break.
+	#FUNCechoAndFillFile "alias +gskCCnpcSpawn_${strCountNext} \"echo FinishedSpawnings; gskSndDONE; ${strRestorePosInTheEnd}; ${strCmdsOFF}; -gskInteractUseDev; alias gskCCnpcSpawn_next +gskCCnpcSpawn_Finished; \"" #this also prevents continuing thru some previous list entries of a previous test run or map may be. -gskInteractUseDev is to grant next +gskInteractUseDev wont break.
+	FUNCechoAndFillFile "alias +gskCCnpcSpawn_${strCountNext} \"echo FinishedSpawnings; gskSndDONE; ${strRestorePosInTheEnd}; ${strCmdsOFF}; alias gskCCnpcSpawn_next +gskCCnpcSpawn_Finished; \"" #this also prevents continuing thru some previous list entries of a previous test run or map may be.
 	FUNCechoAndFillFile "alias -gskCCnpcSpawn_${strCountNext} \"\""
 	FUNCechoAndFillFile "alias +gskCCnpcSpawn_Finished \"gskEchoOn; echo Finished Spawnings Already for this map $FUNCmapInfo_strMapName\""
 	FUNCechoAndFillFile "alias -gskCCnpcSpawn_Finished \"gskEchoOff\""
