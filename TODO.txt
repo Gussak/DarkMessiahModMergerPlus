@@ -1,26 +1,12 @@
 TODO
-	Main goal, make it more challenging but not impossible.
+	Main goal, make it much more challenging but not impossible.
 
-	allow Throw all objects up down like oil, not only useless props.
-	Crit dmg player and npcs x10 not just x2.
+	allow Throw all objects up down like oil, not only props.
+	Crit dmg functionality from crit chance of ring and skill, from player and from npcs x10 not just x2
 	Phys traps dmg max possible, make them worth becoming useless after.
 	
 MODS:
-	33hp tele npc, the challenge is to place them , may fail no available free ground, so not too much nor too little 33hp is ok.
-
-	L00 
-	- mini spiders x30 on begin
-	- 2hp potions
-	- summon staff, sword, 
-	- gskAdd1skillPoint for non default free wizard eye
-
-	Detect:
-	- gskMapMessage/gskmsg ... ; On the last repeat finished spawns msg.
-	- gskAdd1skillPoint (hint getpos getpos echo self x2)
-
 	Cycle BM command aliases, 3 keys, + - activate. prefix gskBMCmd...
-
-	Selecting an alias could host_timescale 0.001 (that is not pause), and activating it restores to host_timescale 1.000
 	
 	can_eat_corpse flag for qct NPCs was implemented at all?
 	(see summoning list of valid and invalid food) All food are identical. Chose the best looking ones like one of: some usable bread, meat, fruit.  All other that are spawnable (because they have names in the dll) change into useful things like: jar oil, stone to throw, breakable empty or water jar to call attention. So a useless item_bread_doug becomes a carriable oil jar! Try patch the dll into item_oiljar to lower confusion, just that the identifier name must have the exat same size or binary patching the dll will break. Backup the dll before patching.
@@ -86,6 +72,9 @@ ETC:
 FAIL:
 - (impossible, hurtme only accepts integer) Lower zoom hp dmg as 0.5 1 1.5 2 for 2x 4x 8x 16x
 
+NOT GOOD:
+	(player may want to not activate the selection and there is not way to timeout a restoring into 1.0) Selecting an alias could host_timescale 0.001 (that is not pause), and activating it restores to host_timescale 1.000
+
 DONE:
 - let small spiders attack
 - make spider poison last much longer requiring to use the antidote... like 100x longer
@@ -104,3 +93,12 @@ DONE:
 	gskKillDragon 500hp+500hp. Up each +1 110 210 360 510. 
 		For Dragon, cyclope, any other overly powerful foe boss. 
 		Renane other to gskKillNormalNpc 
+	33hp tele npc, the challenge is to place them , may fail no available free ground, so not too much nor too little 33hp is ok.
+	L00 
+		- mini spiders x30 on begin
+		- 2hp potions
+		- summon staff, sword, 
+		- gskAdd1skillPoint for non default free wizard eye
+	Detect:
+		- gskMapMessage/gskmsg ... ; On the last repeat finished spawns msg.
+		- gskAdd1skillPoint (hint getpos getpos echo self x2)
