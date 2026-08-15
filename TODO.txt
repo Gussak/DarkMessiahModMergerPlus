@@ -22,6 +22,7 @@ MODS:
 
 	Selecting an alias could host_timescale 0.001 (that is not pause), and activating it restores to host_timescale 1.000
 	
+	can_eat_corpse flag for qct NPCs was implemented at all?
 	(see summoning list of valid and invalid food) All food are identical. Chose the best looking ones like one of: some usable bread, meat, fruit.  All other that are spawnable (because they have names in the dll) change into useful things like: jar oil, stone to throw, breakable empty or water jar to call attention. So a useless item_bread_doug becomes a carriable oil jar! Try patch the dll into item_oiljar to lower confusion, just that the identifier name must have the exat same size or binary patching the dll will break. Backup the dll before patching.
 	Add priotity to 0150carefulcmbt 0200bloodymana ?
 	Fix safe swapinv text, make ...v2 alias

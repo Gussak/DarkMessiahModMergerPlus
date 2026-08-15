@@ -5,11 +5,34 @@
     "$keyvalues.entity_data.AttackCoolMinTime": "3.2",
     "$keyvalues.entity_data.AttackRythmMaxTime": "15.0",
     "$keyvalues.entity_data.AttackRythmMinTime": "10.0",
+    "$keyvalues.entity_data.can_eat_corpse": "1",
+    "$keyvalues.entity_data.can_eat_food": "1",
+    "$keyvalues.entity_data.Chance_to_be_returned_by_big_slash": "0.3",
+    "$keyvalues.entity_data.charmable": "1",
+    "$keyvalues.entity_data.Check_Corpse_Chance": "1",
+    "$keyvalues.entity_data.Corpse_Check_Dist": "25",
+    "$keyvalues.entity_data.deaf": "0",
+    "$keyvalues.entity_data.dont_open_door": "1",
+    "$keyvalues.entity_data.fielofviewzoffset": "50",
     "$keyvalues.entity_data.PlayerNoAttackDelayToGoBersekerMode": "2.0",
     "$keyvalues.entity_data.Poison_Damages": "0.5",
     "$keyvalues.entity_data.Poison_Duration": "200",
     "$keyvalues.entity_data.poisoned": "0.6",
+    "$keyvalues.entity_data.Scavenge_Duration": "20",
     "__comments__": {
-        "$keyvalues.entity_data.Poison_Duration": "//this doesnt work //one attack can kill if not treated"
-    }
+        "$keyvalues.entity_data.Poison_Duration": "//this doesnt work //one attack can kill if not treated",
+        "$keyvalues.entity_data.can_eat_food": "// NPC can eat object flagged as food.",
+        "$keyvalues.entity_data.can_eat_corpse": "// NPC can eat bodies flagged as corpse.",
+        "$keyvalues.entity_data.dont_open_door": "// NPC don't open door",
+        "$keyvalues.entity_data.deaf": "// 1: NPC is deaf, so player can make noise and it does not turn to him.",
+        "$keyvalues.entity_data.fielofviewzoffset": "// Z offset for view cone"
+    },
+    "combatmovedatas.attack_jump_strike.alwayspush": "2",
+    "combatmovedatas.attack_jump_strike.forcebreakparade": "1",
+    "combatmovedatas.attack_jump_strike.HitPow": "0.5",
+    "combatmovedatas.attack_jump_strike.impactdirX": "1",
+    "combatmovedatas.attack_jump_strike.impactdirY": "0",
+    "combatmovedatas.attack_jump_strike.impactdirZ": "0",
+    "combatmovedatas.attack_jump_strike.no_turn_head": "1",
+    "combatmovedatas.attack_jump_strike.versus": "0"
 }
