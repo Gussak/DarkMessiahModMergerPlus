@@ -202,7 +202,7 @@ if $bDBG;then
 	declare -p astrDbg |tr '[' '\n'
 fi
 
-split --additional-suffix .cfg -l 127 "$strFlGskBindDoc" "${strFlGskBindDocBN}_"
+split --additional-suffix .cfg -l 127 "$strFlGskBindDoc" "${strFlGskBindDocBN}_" #the engine wont echo more than 127 lines from a single exec cfg file
 ls -1 "${strFlGskBindDocBN}_"* |sed -r -e 's@.*@exec &@g' >"${strFlGskBindDocBN}_FULL.cfg"
 
 echo "NOW RUN THIS:"
