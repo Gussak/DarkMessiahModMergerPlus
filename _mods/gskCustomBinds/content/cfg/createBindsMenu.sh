@@ -203,7 +203,7 @@ if $bDBG;then
 fi
 
 split --additional-suffix .cfg -l 127 "$strFlGskBindDoc" "${strFlGskBindDocBN}_" #the engine wont echo more than 127 lines from a single exec cfg file
-ls -1 "${strFlGskBindDocBN}_"* |sed -r -e 's@.*@exec &@g' >"${strFlGskBindDocBN}_FULL.cfg"
+ls -1 "${strFlGskBindDocBN}_"* |egrep -v "_FULL.cfg" |sed -r -e 's@.*@exec &@g' >"${strFlGskBindDocBN}_FULL.cfg"
 
 echo "NOW RUN THIS:"
 echo "(trash \"../scripts/kb_act.lst\"; cd \"${strPathMainModFolder}\"; ./merge.sh -f \"scripts/kb_act.lst\")"

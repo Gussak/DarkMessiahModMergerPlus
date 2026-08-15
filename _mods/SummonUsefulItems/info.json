@@ -1,0 +1,13 @@
+{
+  "name": "Summon Useful Items",
+  "version": "1.0",
+    "description"           :   "This is a hack. It depends on unused spawnable item's slots. ex.: Oil Jar uses broken 'models/items/provisions/bread02/bread02_cooked...' just replaced with all oil jar data.",
+  "author": "GussakThor",
+  "author_url": "",
+  "website": "",
+  "launch_parameters": [],
+  "gameinfo_parameters": [],
+  "modules": [],
+  "game_configs": [],
+  "autoexec_configs": []
+}

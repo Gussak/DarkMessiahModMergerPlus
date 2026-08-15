@@ -699,7 +699,15 @@ function FUNCisPidStopped() { #help <pid>
 
 function FUNCminiModInit() {
 	# go to the path of the real file
-	if [[ -L "$0" ]];then cd "$(dirname "$(readlink "$0")")";fi # a link at main mod root folder pointing to some minimod sub folder
+	if [[ -L "$0" ]];then # a link at main mod root folder pointing to some minimod sub folder
+		cd "$(dirname "$(readlink "$0")")";
+	else
+		if [[ ! -f "$(basename "$0")" ]];then
+			FUNCechoInfo "[ERROR] There is no symlink to '$0' on the base path. These scripts are meant to be run at their path."
+			FUNCexit 1
+		fi
+	fi 
+	
 	if [[ ! -f "$(basename "$0")" ]];then cd "$(dirname "$0")";fi # in case run by using some relative or absolute path
 	
 	declare -g strPathThisModFolderFull="$(pwd)";FUNCechoInfo "strPathThisModFolderFull='$strPathThisModFolderFull'" >&2
