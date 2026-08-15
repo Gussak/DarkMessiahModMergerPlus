@@ -6,6 +6,7 @@ Adrenaline
 
 Fire source anywhere
 - there is some movable furniture that can only be kicked, but can be put on fire several times, what is great for fire arrows!
+- there is a few furniture that is indestructible with fire and can be picked up! like stool01.mdl
 
 Messing with big boss
 - to get the crystal, dont free the prisioners imediatelly, use charm on guards, but run away as you will be hunted, and use the caves

@@ -46,6 +46,10 @@ ConsoleCommandsFromSiteToEasyGrep.NoGit.txt
 *.lst
 *.vmt
 *.res
+*.vtx
+*.mdl
+*.phy
+*.vvd
 _mods/*/content/cfg/game.cfg
 _mods/*/content/resource/closecaption_manifest.txt
 _mods/*/content/resource/mm_itemnames_english.txt

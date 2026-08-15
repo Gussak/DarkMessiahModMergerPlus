@@ -247,6 +247,9 @@ fi
 : ${strVanillaScriptsPath:="$(ls -d "${strGameInstallMainFolder}"*VanillaExtractedTextFiles*/)"} #help after installing the game, use some vpk extractor (like thru one of the other bash scripts here)
 if [[ ! -d "$strVanillaScriptsPath" ]];then echo "ERROR: VanillaExtractedTextFiles layer not found";FUNCexit 1;fi
 
+: ${strVanillaAllExtractedFilesPath:="$(ls -d "${strGameInstallMainFolder}"*VanillaExtractedAllFilesFromVPK*/)"} #help after installing the game, use some vpk extractor (like thru one of the other bash scripts here), but extract ALL files
+if [[ ! -d "$strVanillaAllExtractedFilesPath" ]];then echo "WARNING: strVanillaAllExtractedFilesPath layer not found";fi
+
 : ${strWriteLayer:="${strGameInstallMainFolder}.0.WriteLayer"} #help write output thru OverlayFS
 
 : ${strDownloadedModFilesRel:=".modPackages"} #help
