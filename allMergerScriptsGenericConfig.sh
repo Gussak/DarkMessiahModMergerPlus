@@ -42,7 +42,7 @@ set -Eeu #use this specifically, not to everything or |grep results will fail...
 #alias FUNCechoInfo='FUNCechoInfo_Work $LINENO '
 function FUNCechoInfo() { #help <LINENO> <MSG>
     local lLn="${BASH_LINENO[0]}" # ${BASH_LINENO[0]} automatically captures the exact line number where this function was called in the parent script!
-    echo "[$(FUNCdtFlNm):$(basename "$0"):${FUNCNAME[@]}:CalledAtLn${lLn}] $@" >&2
+    echo "[$(FUNCdtFlNm):$(basename "$0"):${FUNCNAME[@]}:${BASH_LINENO[@]}:CalledAtLn${lLn}] $@" >&2
 };export -f FUNCechoInfo
 
 function FUNCdtFlNm() {
@@ -916,3 +916,13 @@ function FUNCcostHP() {
 	echo "$lstrCost"
 };export -f FUNCcostHP
 
+
+function FUNCvalidateConsoleEchoMsg() {
+	local lstr="$1"
+	if [[ "${lstr}" =~ .*(\"|//|[;]).* ]];then
+		declare -p lstr >&2
+		FUNCechoInfo "[ERROR:invalidMessage] your console echo message cannot contain: // \" ;"
+		return 1
+	fi
+	return 0
+};export -f FUNCvalidateConsoleEchoMsg

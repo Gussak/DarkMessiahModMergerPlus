@@ -61,13 +61,40 @@ strMenuDataEnd='
 }
 '
 strMenuDataEntries=""
+: ${strFlGskBindDocBN:="gskBindsDoc"} #help
+strFlGskBindDoc="${strFlGskBindDocBN}.cfg"} #help
+echo "echo AUTO GENERATED, DO NOT EDIT" >"${strFlGskBindDoc}" #trunc/init
+echo "echo" >>"${strFlGskBindDoc}"
+
+FUNCcreateInGameDoc() {
+	local lstrAlias="$1";shift
+	local lstrFlDB="$1";shift
+	local lstrDescShort="$1";shift
+	
+	echo "echo [ALIAS] ${lstrAlias}" >>"${strFlGskBindDoc}"
+	if [[ -n "$lstrDescShort" ]];then
+		echo -e "echo \t${lstrDescShort}" >>"${strFlGskBindDoc}"
+	fi
+	
+	local lstrLN="$(grep "^bind[ ]*[^ ]*[ ]*${lstrAlias} " "${lstrFlDB}")"
+	if [[ "$lstrLN" =~ .*FullNiceDescription.* ]];then
+		local lstrFullDesc="$(echo "$lstrLN" | sed -r -e 's@.*FullNiceDescription: (.*)@\1@')"
+		if ! FUNCvalidateConsoleEchoMsg "$lstrFullDesc";then FUNCexit 1;fi
+		lstrFullDesc="$(echo -n "${lstrFullDesc}" |tr -d '\r' |sed -r -e 's@\\n@;@g' |sed -r -e 's@;@\necho \t@g' |sed -r -e 's@\t@..@g')" #improve formatting (uses the invalid ';' as token). Begging spaces are trimmmed by console echo
+		#declare -p lstrFullDesc >&2;read
+		echo -e "echo \t${lstrFullDesc}" >>"$strFlGskBindDoc"
+	fi
+	echo "echo" >>"$strFlGskBindDoc"
+}
 function FUNCgoodDesc() {
 	local lstrAlias="$1";shift
 	
 	if [[ "${lstrAlias:0:1}" == "+" ]];then lstrAlias="[+]${lstrAlias:1}";fi
 	local lstrLN="$(grep "^bind[ ]*[^ ]*[ ]*${lstrAlias} " gskBindsDatabase.DoNotEnable.cfg)"
+	local lstrDesc=""
 	if [[ "$lstrLN" =~ .*//.* ]];then
-		local lstrDesc="$(echo "$lstrLN" | sed -r -e 's@^[^/]*//@@' -e 's@ //.*$@@' -e 's@^[[:space:]]*@@; s@[[:space:]]*$@@')" # works with this to ignore the long description: aaa // short description // long description #TODO just append the full description, with the short first and the long after. It will now show in-game but the user may find that file and just read it. Or create an antomatic readme-KeyBindingFullDescriptions.txt
+		lstrDesc="$(echo "$lstrLN" | sed -r -e 's@^[^/]*//@@' -e 's@ //.*$@@' -e 's@^[[:space:]]*@@; s@[[:space:]]*$@@')" # works with this to ignore the long description: aaa // short description // long description #TODO just append the full description, with the short first and the long after. It will now show in-game but the user may find that file and just read it. Or create an antomatic readme-KeyBindingFullDescriptions.txt
+		if ! FUNCvalidateConsoleEchoMsg "$lstrDesc";then FUNCexit 1;fi
 
 		#: ${lnMaxDescSize:=40} #help
 		#if((${#lstrDesc} > lnMaxDescSize));then
@@ -75,9 +102,12 @@ function FUNCgoodDesc() {
 			#if ! FUNCaskYesNo "continue anyway?";then exit 1;fi
 		#fi
 		echo -n "$lstrDesc"
-		return 0
+		nRet=0
+	else
+		nRet=1
 	fi
-	return 1
+	FUNCcreateInGameDoc "$lstrAlias" "gskBindsDatabase.DoNotEnable.cfg" "$lstrDesc"
+	return $nRet
 }
 function FUNClazyDesc() {
 	local lstrAlias="$1";shift
@@ -171,6 +201,9 @@ FUNCrefreshMount # after changes
 if $bDBG;then
 	declare -p astrDbg |tr '[' '\n'
 fi
+
+split --additional-suffix .cfg -l 127 "$strFlGskBindDoc" "${strFlGskBindDocBN}_"
+ls -1 "${strFlGskBindDocBN}_"* |sed -r -e 's@.*@exec &@g' >"${strFlGskBindDocBN}_FULL.cfg"
 
 echo "NOW RUN THIS:"
 echo "(trash \"../scripts/kb_act.lst\"; cd \"${strPathMainModFolder}\"; ./merge.sh -f \"scripts/kb_act.lst\")"

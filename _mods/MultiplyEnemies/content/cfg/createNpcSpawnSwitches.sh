@@ -402,9 +402,7 @@ if $bCreateSpawnsForCurrentMap;then
 	
 	mapfile -t astrFinalMessages < <(egrep "(gskMapMessage|gskmsg)\ .*" "$strFlCondump" |sed -r -e 's@.*(gskMapMessage|gskmsg) (.*)@\2@g')
 	for((iMsg=0;iMsg<${#astrFinalMessages[@]};iMsg++));do
-		if [[ "${astrFinalMessages[$iMsg]}" =~ .*(\"|//|[;]).* ]];then
-			declare -p strFinalMessages
-			FUNCechoInfo "[ERROR:invalidMessage] your message cannot contain: // \" ;"
+		if ! FUNCvalidateConsoleEchoMsg "${astrFinalMessages[$iMsg]}";then
 			FUNCexit 1
 		fi
 		strFinalMessages+="echo ${astrFinalMessages[$iMsg]}; "
