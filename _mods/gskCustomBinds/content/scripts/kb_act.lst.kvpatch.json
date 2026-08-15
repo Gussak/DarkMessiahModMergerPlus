@@ -2,6 +2,8 @@
 	"+gsk_zoom_cycle": "#mc_gsk_zoom_cycle",
 	"gskSuperJump": "#mc_gsksuperjump",
 	"gskSuperJumpMax": "#mc_gsksuperjumpmax",
+	"+gskSuperJumpDouble": "#mc_gsksuperjumpdouble",
+	"+gskSuperJumpMaxDouble": "#mc_gsksuperjumpmaxdouble",
 	"+gskCCnpcSpawn_next": "#mc_gskccnpcspawn_next",
 	"gskMapDevDropPotionLife": "#mc_gskmapdevdroppotionlife",
 	"+gskKillTarget": "#mc_gskkilltarget",
