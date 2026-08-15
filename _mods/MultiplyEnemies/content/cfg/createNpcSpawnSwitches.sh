@@ -322,11 +322,12 @@ if $bCreateSpawnsForCurrentMap;then
 	fi
 	#if ! $bUsingCleanCondump;then
 		cp -vf "$strFlCondumpClean" "$strFlCondumpClean.$(FUNCdtFlNm).bkp"&&:
-		echo "$FUNCmapInfo_strMapStatus" >"$strFlCondumpClean"
+		echo "$FUNCmapInfo_strMapStatus" >"$strFlCondumpClean" #trunc/init
 		echo "$FUNCmapInfo_strMapStatus" >>"$strFlCondumpClean"
 	#fi
 	FUNCprepareCleanDataOriginBkp() {
 		#if $bUsingCleanCondump;then return 0;fi
+		local j
 		for((j=0;j<iTotEntryDataLines;j++));do
 			local lstrLine="${astrAllLines[$((iLnDataIni+j))]}"
 			local lstrExtra=""
@@ -386,6 +387,20 @@ if $bCreateSpawnsForCurrentMap;then
 	strCmdsOFF=" -duck; gskDevGodModeToggles; gskEffectOFF; gskEchoOff; +gskReloadCfgs " # +gskReloadCfgs is to restore what was erased
 	FUNCechoAndFillFile "alias +gskCCnpcSpawn_next \"${strCmdsON}; +gskCCnpcSpawn_$( printf %03d $((iSpawnCount)) )\"" # initializes with some dev toggles
 	#for((i=0;i<${#astrSpawnHintList[@]};i+=iDataLines));do
+	astrFinalMessages=()
+	strFinalMessages=""
+	
+	mapfile -t astrFinalMessages < <(egrep "(gskMapMessage|gskmsg)\ .*" "$strFlCondump" |sed -r -e 's@.*(gskMapMessage|gskmsg) (.*)@\2@g')
+	for((iMsg=0;iMsg<${#astrFinalMessages[@]};iMsg++));do
+		if [[ "${astrFinalMessages[$iMsg]}" =~ .*(\"|//|[;]).* ]];then
+			declare -p strFinalMessages
+			FUNCechoInfo "[ERROR:invalidMessage] your message cannot contain: // \" ;"
+			FUNCexit 1
+		fi
+		strFinalMessages+="echo ${astrFinalMessages[$iMsg]}; "
+		echo "gskMapMessage ${astrFinalMessages[$iMsg]}" >>"$strFlCondumpClean"
+	done
+	
 	for((i=0;i<${#astrAllLines[@]};i++));do
 		strMODE=SpawnNPC
 		iTotEntryDataLines=5
@@ -447,7 +462,9 @@ if $bCreateSpawnsForCurrentMap;then
 					if [[ "$strNPC" == "+gskInteractUseMoreFoes" ]];then
 						bSetName=false;
 						#strAliasValue+="mm_host_timescale 10; gskWait333ms; "
-					elif [[ "$strNPC" =~ ^dummy.* ]];then
+					elif [[ "$strNPC" =~ ^dummy.* ]];then #help it usually comes with a hint like dummyJustTeleportHere
+						bSetName=false;
+					elif [[ "$strNPC" == "gskSkillPointAdd" ]];then
 						bSetName=false;
 					else
 						FUNCvalidateNPC "$strNPC" "$strFlCondump" "$iLnData"
@@ -491,9 +508,9 @@ if $bCreateSpawnsForCurrentMap;then
 		fi
 	done
 	#FUNCechoAndFillFile "alias +gskCCnpcSpawn_${strCountNext} \"echo FinishedSpawnings; gskSndDONE; ${strRestorePosInTheEnd}; ${strCmdsOFF}; -gskInteractUseDev; alias gskCCnpcSpawn_next +gskCCnpcSpawn_Finished; \"" #this also prevents continuing thru some previous list entries of a previous test run or map may be. -gskInteractUseDev is to grant next +gskInteractUseDev wont break.
-	FUNCechoAndFillFile "alias +gskCCnpcSpawn_${strCountNext} \"echo FinishedSpawnings; gskSndDONE; ${strRestorePosInTheEnd}; ${strCmdsOFF}; alias gskCCnpcSpawn_next +gskCCnpcSpawn_Finished; \"" #this also prevents continuing thru some previous list entries of a previous test run or map may be.
+	FUNCechoAndFillFile "alias +gskCCnpcSpawn_${strCountNext} \"echo FinishedSpawnings; gskSndDONE; ${strRestorePosInTheEnd}; ${strCmdsOFF}; alias +gskCCnpcSpawn_next +gskCCnpcSpawn_Finished; alias -gskCCnpcSpawn_next -gskCCnpcSpawn_Finished; \"" #this also prevents continuing thru some previous list entries of a previous test run or map may be.
 	FUNCechoAndFillFile "alias -gskCCnpcSpawn_${strCountNext} \"\""
-	FUNCechoAndFillFile "alias +gskCCnpcSpawn_Finished \"gskEchoOn; echo Finished Spawnings Already for this map $FUNCmapInfo_strMapName\""
+	FUNCechoAndFillFile "alias +gskCCnpcSpawn_Finished \"gskEchoOn; ${strFinalMessages}; echo Finished Spawnings Already for this map $FUNCmapInfo_strMapName\""
 	FUNCechoAndFillFile "alias -gskCCnpcSpawn_Finished \"gskEchoOff\""
 	FUNCechoAndFillFile "clear" # before beggining each spawning, this is good
 	FUNCechoAndFillFile "echo \"DO THESE NOW PLEASE!!!\""

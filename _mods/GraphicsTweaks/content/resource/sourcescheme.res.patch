@@ -1,5 +1,16 @@
---- /dev/fd/63	2026-08-14 20:19:54.314784872 -0300
-+++ /dev/fd/62	2026-08-14 20:19:54.314784872 -0300
+--- /dev/fd/63	2026-08-14 21:56:42.551713763 -0300
++++ /dev/fd/62	2026-08-14 21:56:42.552713795 -0300
+@@ -1306,8 +1306,8 @@
+ 		{
+ 			"1"
+ 			{
+-				"name"		"Lucida Console"
+-				"tall"		"10"
++				"name"		"Courier New" // "Lucida Console" not rendering well in Wine? too many broken letters.. and tall 10 is terrible in 1366x768
++				"tall"		"12" 
+ 				"weight"	"0"
+ 				"outline"	"1"
+ 			}
 @@ -1436,8 +1436,8 @@
  		{
  			"1"
@@ -11,6 +22,28 @@
  				"weight"	"500"
  			}
  		}
+@@ -1545,8 +1545,8 @@
+ 		{
+ 			"1"
+ 			{
+-				"name"		"Lucida Console"
+-				"tall"		"10"
++				"name"		"Courier New" // "Lucida Console" not rendering well in Wine? too many broken letters.. and tall 10 is terrible in 1366x768
++				"tall"		"12" 
+ 				"weight"	"0"
+ 			}
+ //			"1"
+@@ -1561,8 +1561,8 @@
+ 		{
+ 			"1"
+ 			{
+-				"name"		"Lucida Console"
+-				"tall"		"10"
++				"name"		"Courier New" // "Lucida Console" not rendering well in Wine? too many broken letters.. and tall 10 is terrible in 1366x768
++				"tall"		"12" 
+ 				"weight"	"0"
+ 				"dropshadow" "1"
+ 			}
 @@ -2098,4 +2098,4 @@
  		"4"		"resource/DM.ttf"
  		
