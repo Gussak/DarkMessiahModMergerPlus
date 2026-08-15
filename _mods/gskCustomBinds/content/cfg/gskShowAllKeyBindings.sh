@@ -58,10 +58,11 @@ done
 #to generate the full list check: console: 
 # clear;key_listboundkeys;condump
 mapfile -t aBindList < <(
-	cat "${strFlCondump}" |awk '{print $1}' |sed -r -e 's@.*@bind &; @g' # |tr -d '\n'
+	cat "${strFlCondump}" |awk '{print $1}'
+	echo {1..12} |tr ' ' '\n' |sed -r -e 's@.*@"F&"@g'
 	#echo {a..z} {0..9} "- = [ ] \ ' , . / ;" |tr ' ' '\n' |while read str;do echo "bind \"$str\"; ";done
-	echo {a..z} {1..9} 0 "- = [ ] \ ' , . / ;" |tr ' ' '\n' |egrep -v "^$" |while read str;do if [[ -n "$str" ]];then echo "bind \"$str\"; ";fi; done
+	echo {a..z} {1..9} 0 "- = [ ] \ ' , . / ;" |tr ' ' '\n' |egrep -v "^$" |while read str;do if [[ -n "$str" ]];then echo "\"$str\"";fi; done
 )
 nTot="$(
-for str in "${aBindList[@]}";do echo "$str";done |egrep -v "bind \"\"; " |sort -u |wc -l)"
-for str in "${aBindList[@]}";do echo "$str";done |egrep -v "bind \"\"; " |sort -u |tr -d '\n' |sed -r -e "s@.*@&; echo \"Total=${nTot} AUTO GENERATED WITH $(basename "$0")\"@g"
+for str in "${aBindList[@]}";do echo "bind $str; ";done |egrep -v "bind \"\"; " |sort -u |wc -l)"
+for str in "${aBindList[@]}";do echo "bind $str; ";done |egrep -v "bind \"\"; " |sort -u |tr -d '\n' |sed -r -e "s@.*@&; echo \"Total=${nTot} AUTO GENERATED WITH $(basename "$0")\"@g"
