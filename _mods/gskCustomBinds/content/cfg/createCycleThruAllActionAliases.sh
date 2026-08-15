@@ -29,7 +29,10 @@
 #	OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 #	OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
+
 if [[ "${1-}" != --update ]];then
+	echo "Preparing: gskAllCommandsListCycle.cfg"
 	$0 --update >gskAllCommandsListCycle.cfg
 	exit
 fi
@@ -77,8 +80,13 @@ for((i=0;i<${#astrBMCmd[@]};i++));do
 	echo "alias +${strFuncPrefix}_act_$(printf %03d $i) \"${astrBMCmd[$i]}\""
 	echo "alias -${strFuncPrefix}_act_$(printf %03d $i) \"${strKeyUpCmd}\""
 	
+	strExtra=""
+	if((i==0));then
+		strExtra=" <> <> <> <> (total ${#astrBMCmd[@]}) <> <> <> <> "
+	fi
+	
 	echo "alias +${strFuncPrefix}_sel_$(printf %03d $i) \"gskEchoOn; \
-echo CycleCMD(${i}/${nLastIndex}):${astrBMCmd[$i]}; \
+echo CycleCMD(${i}/${nLastIndex}):${astrBMCmd[$i]}$(FUNCcostHP "${astrBMCmd[$i]}") ${strExtra}; \
 alias +${strFuncPrefix}_previous +${strFuncPrefix}_sel_$(printf %03d $iPrev); \
 alias -${strFuncPrefix}_previous -${strFuncPrefix}_sel_$(printf %03d $iPrev); \
 alias +${strFuncPrefix}_activate +${strFuncPrefix}_act_$(printf %03d $i    ); \
@@ -97,3 +105,5 @@ echo "alias +${strFuncPrefix}_next     \"+${strFuncPrefix}_sel_000\""
 echo
 #echo "// usage:" >&2
 #echo "$(basename "$0") >gskAllCommandsListCycle.cfg" >&2
+
+FUNCrefreshMount # after changes

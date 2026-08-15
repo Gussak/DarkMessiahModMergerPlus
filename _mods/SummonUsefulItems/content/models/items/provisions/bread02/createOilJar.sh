@@ -44,7 +44,10 @@ for strFl in "${astrFl[@]}";do
 	cp -vf "${strPath}/$strFl" "$strFlTo"
 done
 
+FUNCrefreshMount # after changes
+
 echo
 echo "alias gskSummonOilJar \"Test_CreateEntity item_food_bread02_cooked\""
 echo
 echo "# now place the above alias in some mod, suggestion: BloodySummoner (will go to a summon list) and may be gskCustomBinds"
+

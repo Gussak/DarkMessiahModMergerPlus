@@ -156,38 +156,38 @@ OS_ENV=$(uname -s)
 if [[ -z "$strOSEnvType" ]];then
 	case "$OS_ENV" in
 		CYGWIN*)
-			echo "[Environment: Cygwin detected.]"
+			echo "[Environment: Cygwin detected.]" >&2
 			
 			# Example Windows path to convert
 			WIN_PATH="C:\Users\Public\Documents"
 			
 			# Convert Windows path to Unix format using cygpath
 			UNIX_PATH=$(cygpath -u "$WIN_PATH")
-			echo " Windows Path: $WIN_PATH"
-			echo " Unix Format: $UNIX_PATH"
+			echo " Windows Path: $WIN_PATH" >&2
+			echo " Unix Format: $UNIX_PATH" >&2
 			
 			strOSEnvType=cygwin #help
 			;;
 			
 		MSYS*|MINGW*)
-			echo "[Environment: Git Bash / MSYS / MinGW detected.]"
+			echo "[Environment: Git Bash / MSYS / MinGW detected.]" >&2
 			# Uses standard POSIX paths directly
 			strOSEnvType=mingw #help
 			;;
 			
 		Linux)
-			echo "[Environment: Linux detected.]"
+			echo "[Environment: Linux detected.]" >&2
 			strOSEnvType=linux #help
 			;;
 			
 		Darwin)
-			echo "[Environment: macOS detected.]"
+			echo "[Environment: macOS detected.]" >&2
 			strOSEnvType=macos #help
 			;;
 			
 		*)
-			echo "[Environment: Unknown ($OS_ENV)]"
-			echo "override strOSEnvType"
+			echo "[Environment: Unknown ($OS_ENV)]" >&2
+			echo "override strOSEnvType" >&2
 			FUNCexit 1
 			;;
 	esac
@@ -704,6 +704,7 @@ function FUNCminiModInit() {
 	else
 		if [[ ! -f "$(basename "$0")" ]];then
 			FUNCechoInfo "[ERROR] There is no symlink to '$0' on the base path. These scripts are meant to be run at their path."
+			echo "ln -s '$0' '${strPathThisModFolderFull}/'"
 			FUNCexit 1
 		fi
 	fi 
@@ -917,6 +918,7 @@ function FUNCrefreshMount() {  # if it did not update, means OverlayFS needs ref
 
 function FUNCcostHP() {
 	local lstrAlias="$1"
+	
 	#local lstrAliasHurtmeRegex="[+-]*${lstrAlias}\s+.*hurtme\s*([0-9.]*).*"
 	local lstrAliasHurtmeRegex="[+-]*${lstrAlias}\s+.*gskHurtme([0-9.]*).*"
 	local lanCost
