@@ -32,7 +32,7 @@
 lstrUseThisSector=""
 while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
 
-: ${strSpawnerMode:=MoreFoes} #help "MoreFoes" or "Summoning"
+: ${strSpawnerMode:=Summoning} #help "MoreFoes" or "Summoning"
 astrNPCsummonTmp_ID=()
 astrNPCsummonTmp_Cost=()
 astrNPCsummon_ID=()
@@ -533,6 +533,7 @@ else # create spawner aliases
 	strAliasMode=""
 	case "$strSpawnerMode" in
 		MoreFoes)
+			if ! FUNCaskYesNo "Do not use, prefer only the Summoning list. Continue anyway? Will be deprecated soon.";then exit;fi
 			astrNPC=("${astrNPCmoreFoes[@]}")
 			strAliasMode="CCnpc" #CreateChaos NPCs
 			;;
