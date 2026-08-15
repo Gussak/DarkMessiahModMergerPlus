@@ -21,4 +21,6 @@ while ! cd *GSK_ModMerger_AndMiniMods*;do cd ..;done
 	|sort -u \
 	|egrep -v "${strSkipRegex}" \
 	|tr '\n' ';' \
-	|sed -r -e 's@.*@alias +gskReloadCfgs "gskEchoOn; contimes 50; & echo ReloadedSomeCFGs; "@g'
+	|sed -r -e 's@.*@alias +gskReloadCfgs "gskEchoOn; contimes 50; & echo ReloadedSomeCFGs; "@g' \
+	|sed -r -e "s@.*@& // AUTO GENERATED WITH: $(basename "$0")@g" 
+	
