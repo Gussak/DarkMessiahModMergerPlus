@@ -33,80 +33,90 @@ lstrUseThisSector=""
 while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
 
 : ${strSpawnerMode:=Summoning} #help "MoreFoes" or "Summoning"
-astrNPCsummonTmp_ID=()
-astrNPCsummonTmp_Cost=()
-astrNPCsummon_ID=()
-astrNPCsummon_Cost=()
-astrNPCsummon_Type=()
-#declare -A astrNPCsummonings_Cost
-#declare -A astrNPCsummonings_CostTmp
-mapfile -t astrNPCsummoningsLines < <(cd "$strPathParent"; egrep "^alias [+]*gskSummon" * -iRIah --include="*.cfg" |egrep -v "Spawn|Switch|gskSummonFood" |sort -u) #gskSummonFood is a dup generic easy food spwning alias
-#if [[ "$strSpawnerMode" == Summoning ]];then
-if true;then
-	for strLnData in "${astrNPCsummoningsLines[@]}";do
-		strAliasSummon="$(echo "$strLnData" |awk '{print $2}')"
-		FUNCcostHP "${strAliasSummon}"
-		astrNPCsummonTmp_ID+=("${strAliasSummon}")
-		astrNPCsummonTmp_Cost+=("${FUNCcostHP_nCost}")
-		#astrNPCsummonings_CostTmp["$strAliasSummon"]="${FUNCcostHP_nCost}"
-	done
-	
-	# sort by type
-	FUNCfillByType_astrAlreadyUsed=()
-	function FUNCfillByType() {
-		#local lstrOptNot="";if [[ "$1" == --not ]];then lstrOptNot="-v";shift;fi
-		local lbOptNot=false;if [[ "$1" == --not ]];then lstrOptNot=true;shift;fi
-		local lstrTypeID="$1";shift
-		local lstrTypeRegex="$1";shift
-		
-		#declare -g FUNCfillByType_regexAlreadyUsed=""
-		#if [[ -n "${FUNCfillByType_regexAlreadyUsed}" ]];then
-			#FUNCfillByType_regexAlreadyUsed+="|"
-		#fi
-		#FUNCfillByType_regexAlreadyUsed+="$lstrTypeRegex"
-		
-		#for strAlias in "${!astrNPCsummonings_CostTmp[@]}";do
-		local i
-		for((i=0;i<${#astrNPCsummonTmp_ID[@]};i++));do
-			#if echo "$strAlias" |egrep -i "$lstrTypeRegex";then
-				#astrNPCsummonings_Cost[${strAlias}]="${astrNPCsummonings_CostTmp[${strAlias}]}"
-				#unset astrNPCsummonings_CostTmp[${strAlias}]
-			#fi
-			#if echo "${astrNPCsummonTmp_ID[$i]}" |egrep $lstrOptNot -i "$lstrTypeRegex";then
-			if echo "${astrNPCsummonTmp_ID[$i]}" |egrep -iq "$lstrTypeRegex";then
-				local lbAdd=true
-				#if $lbOptNot;then
-					local lstrChkNot
-					for lstrChkNot in "${FUNCfillByType_astrAlreadyUsed[@]}";do
-						if [[ "${astrNPCsummonTmp_ID[$i]}" == "$lstrChkNot" ]];then
-							lbAdd=false
-							break
-						fi
-					done
-				#fi
-				if $lbAdd;then
-					astrNPCsummon_ID+=("${astrNPCsummonTmp_ID[$i]}")
-					astrNPCsummon_Cost+=("${astrNPCsummonTmp_Cost[$i]}")
-					astrNPCsummon_Type+=("${lstrTypeID}")
-					FUNCfillByType_astrAlreadyUsed+=("${astrNPCsummonTmp_ID[$i]}")
-				fi
-			fi
+
+: ${strFlDBsummoningsTmp:=""} #help internal use
+if [[ -f "$strFlDBsummoningsTmp" ]];then
+	source "$strFlDBsummoningsTmp"
+else
+	astrNPCsummonTmp_ID=()
+	astrNPCsummonTmp_Cost=()
+	astrNPCsummon_ID=()
+	astrNPCsummon_Cost=()
+	astrNPCsummon_Type=()
+	#declare -A astrNPCsummonings_Cost
+	#declare -A astrNPCsummonings_CostTmp
+	mapfile -t astrNPCsummoningsLines < <(cd "$strPathParent"; egrep "^alias [+]*gskSummon" * -iRIah --include="*.cfg" |egrep -v "Spawn|Switch|gskSummonFood" |sort -u) #gskSummonFood is a dup generic easy food spwning alias
+	#if [[ "$strSpawnerMode" == Summoning ]];then
+	if true;then
+		for strLnData in "${astrNPCsummoningsLines[@]}";do
+			strAliasSummon="$(echo "$strLnData" |awk '{print $2}')"
+			FUNCcostHP "${strAliasSummon}"
+			astrNPCsummonTmp_ID+=("${strAliasSummon}")
+			astrNPCsummonTmp_Cost+=("${FUNCcostHP_nCost}")
+			#astrNPCsummonings_CostTmp["$strAliasSummon"]="${FUNCcostHP_nCost}"
 		done
-	}
-	# aliases size limit is 30. So better add these hints there: npc food etc...
-	FUNCfillByType "FriendlyNPCs"  "^[+]gskSummonGuardBow$|[+]gskSummonGuardMini$|villager" #friendly NPCs
-	FUNCfillByType "EtcNPCs"       "corpse" #etc NPCs
-	FUNCfillByType "FoeNPCs"       "necroguard|necromancer|spider|facehugger|undead" #foe NPCs
-	FUNCfillByType "POTIONS"       "potion"
-	FUNCfillByType "DummyNPCs"     "crow|seagull|dog|pig" #harmless NPCs
-	FUNCfillByType "FOOD"          "leek|bread|rib|fish|chicken|banana|food|fibs|garlic|ham|mushroom|pie" #food
-	FUNCfillByType "Weapons/Tools" "club|staff|sword" #tools/weapons
-	#FUNCfillByType --not "${FUNCfillByType_regexAlreadyUsed}" #everything else
-	FUNCfillByType --not "ETC" ".*" #everything else
+		
+		# sort by type
+		FUNCfillByType_astrAlreadyUsed=()
+		function FUNCfillByType() {
+			#local lstrOptNot="";if [[ "$1" == --not ]];then lstrOptNot="-v";shift;fi
+			local lbOptNot=false;if [[ "$1" == --not ]];then lstrOptNot=true;shift;fi
+			local lstrTypeID="$1";shift
+			local lstrTypeRegex="$1";shift
+			
+			#declare -g FUNCfillByType_regexAlreadyUsed=""
+			#if [[ -n "${FUNCfillByType_regexAlreadyUsed}" ]];then
+				#FUNCfillByType_regexAlreadyUsed+="|"
+			#fi
+			#FUNCfillByType_regexAlreadyUsed+="$lstrTypeRegex"
+			
+			#for strAlias in "${!astrNPCsummonings_CostTmp[@]}";do
+			local i
+			for((i=0;i<${#astrNPCsummonTmp_ID[@]};i++));do
+				#if echo "$strAlias" |egrep -i "$lstrTypeRegex";then
+					#astrNPCsummonings_Cost[${strAlias}]="${astrNPCsummonings_CostTmp[${strAlias}]}"
+					#unset astrNPCsummonings_CostTmp[${strAlias}]
+				#fi
+				#if echo "${astrNPCsummonTmp_ID[$i]}" |egrep $lstrOptNot -i "$lstrTypeRegex";then
+				if echo "${astrNPCsummonTmp_ID[$i]}" |egrep -iq "$lstrTypeRegex";then
+					local lbAdd=true
+					#if $lbOptNot;then
+						local lstrChkNot
+						for lstrChkNot in "${FUNCfillByType_astrAlreadyUsed[@]}";do
+							if [[ "${astrNPCsummonTmp_ID[$i]}" == "$lstrChkNot" ]];then
+								lbAdd=false
+								break
+							fi
+						done
+					#fi
+					if $lbAdd;then
+						astrNPCsummon_ID+=("${astrNPCsummonTmp_ID[$i]}")
+						astrNPCsummon_Cost+=("${astrNPCsummonTmp_Cost[$i]}")
+						astrNPCsummon_Type+=("${lstrTypeID}")
+						FUNCfillByType_astrAlreadyUsed+=("${astrNPCsummonTmp_ID[$i]}")
+					fi
+				fi
+			done
+		}
+		# aliases size limit is 30. So better add these hints there: npc food etc...
+		FUNCfillByType "FriendlyNPCs"  "^[+]gskSummonGuardBow$|[+]gskSummonGuardMini$|villager" #friendly NPCs
+		FUNCfillByType "EtcNPCs"       "corpse" #etc NPCs
+		FUNCfillByType "FoeNPCs"       "necroguard|necromancer|spider|facehugger|undead" #foe NPCs
+		FUNCfillByType "POTIONS"       "potion"
+		FUNCfillByType "DummyNPCs"     "crow|seagull|dog|pig" #harmless NPCs
+		FUNCfillByType "FOOD"          "leek|bread|rib|fish|chicken|banana|food|fibs|garlic|ham|mushroom|pie" #food
+		FUNCfillByType "Weapons/Tools" "club|staff|sword" #tools/weapons
+		#FUNCfillByType --not "${FUNCfillByType_regexAlreadyUsed}" #everything else
+		FUNCfillByType --not "ETC" ".*" #everything else
+	fi
+	#mapfile -t astrNPCsummonings_Cost < <(for strLnData in "${astrNPCsummoningsLines[@]}";do echo "$strLnData";done |awk '{print $2}' |sort -u)
+	#declare -p astrNPCsummonings_Cost |sed -r -e "$strSedArrayIDsToLn"
+	astrDBlist=(astrNPCsummoningsLines astrNPCsummonTmp_ID astrNPCsummon_Cost FUNCfillByType_astrAlreadyUsed astrNPCsummon_ID)
+	declare -p "${astrDBlist[@]}" |sed -r -e "$strSedArrayIDsToLn"
+	
+	export strFlDBsummoningsTmp="$(mktemp)"
+	declare -p "${astrDBlist[@]}" >"$strFlDBsummoningsTmp"
 fi
-#mapfile -t astrNPCsummonings_Cost < <(for strLnData in "${astrNPCsummoningsLines[@]}";do echo "$strLnData";done |awk '{print $2}' |sort -u)
-#declare -p astrNPCsummonings_Cost |sed -r -e "$strSedArrayIDsToLn"
-declare -p astrNPCsummoningsLines astrNPCsummonTmp_ID astrNPCsummon_Cost FUNCfillByType_astrAlreadyUsed astrNPCsummon_ID |sed -r -e "$strSedArrayIDsToLn"
 
 # beware: necroguards, necromancers and undead are the only ones of the same faction right? so only these can be placed together without beggining a fight. TODO: there is a factions config file
 astrNPCmoreFoes=( # shall be game commands or my configured alisases (that will look like a game command)
@@ -490,12 +500,13 @@ if $bCreateSpawnsForCurrentMap;then
 			strAliasValue+="alias +gskCCnpcSpawn_next +gskCCnpcSpawn_${strCountNext}; alias -gskCCnpcSpawn_next -gskCCnpcSpawn_${strCountNext}; "
 			#FUNCechoAndFillFile "alias +gskCCnpcSpawn_${strCount} \"-gskInteractUseDev; ${strAliasValue}\"" #-gskInteractUseDev is to grant next +gskInteractUseDev wont break.
 			FUNCechoAndFillFile "alias +gskCCnpcSpawn_${strCount} \"${strAliasValue}\""
-			FUNCechoAndFillFile "alias -gskCCnpcSpawn_${strCount} \"\""
 			#if $bInteractUseMode;then
 				#FUNCechoAndFillFile "alias -gskCCnpcSpawn_${strCount} \"+gskInteractUseDev\"" #the action must happen after the teleport
 			#else
 			if $bSetName;then
 				FUNCechoAndFillFile "alias -gskCCnpcSpawn_${strCount} \"ent_setname gskSpawn${strCount}; ${strAliasValueLift}; \""
+			else
+				FUNCechoAndFillFile "alias -gskCCnpcSpawn_${strCount} \"\""
 			fi
 			
 			((iSpawnCount++))&&:
@@ -508,17 +519,25 @@ if $bCreateSpawnsForCurrentMap;then
 		fi
 	done
 	#FUNCechoAndFillFile "alias +gskCCnpcSpawn_${strCountNext} \"echo FinishedSpawnings; gskSndDONE; ${strRestorePosInTheEnd}; ${strCmdsOFF}; -gskInteractUseDev; alias gskCCnpcSpawn_next +gskCCnpcSpawn_Finished; \"" #this also prevents continuing thru some previous list entries of a previous test run or map may be. -gskInteractUseDev is to grant next +gskInteractUseDev wont break.
-	FUNCechoAndFillFile "alias +gskCCnpcSpawn_${strCountNext} \"echo FinishedSpawnings; gskSndDONE; ${strRestorePosInTheEnd}; ${strCmdsOFF}; alias +gskCCnpcSpawn_next +gskCCnpcSpawn_Finished; alias -gskCCnpcSpawn_next -gskCCnpcSpawn_Finished; \"" #this also prevents continuing thru some previous list entries of a previous test run or map may be.
+	FUNCechoAndFillFile "alias +gskCCnpcSpawn_${strCountNext} \"echo FinishedSpawnings; gskSndDONE; ${strRestorePosInTheEnd}; ${strCmdsOFF}; alias +gskCCnpcSpawn_next +gskCCnpcSpawn_Finished; alias -gskCCnpcSpawn_next -gskCCnpcSpawn_Finished; save gskFinishedSpawnings_${FUNCmapInfo_strMapName}; \"" #this also prevents continuing thru some previous list entries of a previous test run or map may be.
 	FUNCechoAndFillFile "alias -gskCCnpcSpawn_${strCountNext} \"\""
 	FUNCechoAndFillFile "alias +gskCCnpcSpawn_Finished \"gskEchoOn; ${strFinalMessages}; echo Finished Spawnings Already for this map $FUNCmapInfo_strMapName\""
 	FUNCechoAndFillFile "alias -gskCCnpcSpawn_Finished \"gskEchoOff\""
 	FUNCechoAndFillFile "clear" # before beggining each spawning, this is good
-	FUNCechoAndFillFile "echo \"DO THESE NOW PLEASE!!!\""
-	FUNCechoAndFillFile "echo \" - Stand up (will auto crouch to help fit and positioning).\""
+	FUNCechoAndFillFile "echo \"DO THESE NOW PLEASE!!! (super important to avoid toggles getting unsynchronized)\""
+	FUNCechoAndFillFile "echo \"All below is to confirm you are in a normal gameplay mode, (each command you can double click, Ctrl+C, TAB, Ctrl+V, and run 1 or 2 times to be sure they are correct ). So you need to be sure:\""
+	FUNCechoAndFillFile "echo \"                                    COMMAND\""
+	FUNCechoAndFillFile "echo \" Be sure You are standing:          -duck\""
+	FUNCechoAndFillFile "echo \" Be sure You cannot fly (OFF):      NoClip\""
+	FUNCechoAndFillFile "echo \" Be sure Foes can detect you (OFF): NoTarget\""
+	FUNCechoAndFillFile "echo \" Be sure AI is (Enabled):           AI_Disable\""
+	FUNCechoAndFillFile "echo \" Be sure You are not immune (OFF):  Buddha\""
+	FUNCechoAndFillFile "echo \"A simple way is:\""
+	FUNCechoAndFillFile "echo \" - Stand up (as will auto crouch to help fit and positioning).\""
 	FUNCechoAndFillFile "echo \" - Enable and disable gskDevGodModeToggles and read the final status for each power, just to be sure all toggles are reset (as unfortunately we can't set them (right?)... only toggle... or NPC deployment may go out of control).\""
 	FUNCechoAndFillFile "echo \" - Close the console. While you can bind +gskCCnpcSpawn_next to a key like F4 (that will work with the console opened), it will not work when releasing the key to execute -gskCCnpcSpawn_next.\""
 	FUNCechoAndFillFile "echo \" - Hide your weapon (optional).\""
-	FUNCechoAndFillFile "echo \"Now, slowly(?) and repeatedly press the key to spawn the next NPC: +gskCCnpcSpawn_next\""
+	FUNCechoAndFillFile "echo \"Now, slowly (better not press too fast or it may crash, just complete patiently and quick save it, but I will custom save too) and repeatedly press the key to spawn the next NPC: +gskCCnpcSpawn_next\""
 	FUNCechoAndFillFile "echo \"You will be in developer mode and carefully teleported to the location and rotation required for the spawning and without triggering anything.\""
 	FUNCechoAndFillFile "echo \"Obs.: your vision is blurred to the spawn and location be a surprise.\"" #TODO fadeout to completely hide spawnings? will make it impossible to detect issues tho.
 	
