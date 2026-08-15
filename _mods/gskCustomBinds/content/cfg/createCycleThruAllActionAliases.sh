@@ -54,6 +54,7 @@ astrBMCmd=(
 	+gskTeleportTargetPos
 	+gskMoveThruWall
 	+gskDestroyToMana
+	gskCreateLifePotionFromOilJar
 )
 
 strFuncPrefix="gskAllCmds"
