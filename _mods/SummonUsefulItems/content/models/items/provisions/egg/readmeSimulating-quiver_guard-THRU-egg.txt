@@ -1,0 +1,5 @@
+declare -- lstrReplaceWhatCmdID="item_food_egg"
+declare -- lstrReplaceWhatModelBN="egg"
+declare -- lstrReplaceWhatFolder="models/items/provisions/egg/"
+declare -- lstrCopyFromModelFile="quiver_guard"
+declare -- lstrCopyFromRelatPath="models/items/weapons/quiver_guard/"

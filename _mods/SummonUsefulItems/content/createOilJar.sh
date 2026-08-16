@@ -53,16 +53,22 @@ function FUNCreplace() {
 		exit 1
 	fi
 
-	mapfile -t astrFl < <(ls -1 "${lstrPathVanillaAllFiles}/")
+	mapfile -t astrFl < <(cd "${lstrPathVanillaAllFiles}/"; find ./ -type f -maxdepth 1 -mindepth 1 |sed -r -e 's@^./(.*)@\1@g')
+	#declare -p astrFl;exit
 	local lstrFl
 	for lstrFl in "${astrFl[@]}";do
 		mkdir -vp "${lstrReplaceWhatFolder}"
 		local lstrFlTo="${lstrReplaceWhatFolder}/${lstrReplaceWhatModelBN}${lstrFl#${lstrCopyFromModelFile}}"
-		cp -f "${lstrPathVanillaAllFiles}/$lstrFl" "$lstrFlTo"
+		if ! cp -vf "${lstrPathVanillaAllFiles}/$lstrFl" "$lstrFlTo";then
+			declare -p lstrReplaceWhatCmdID lstrReplaceWhatModelBN lstrReplaceWhatFolder lstrCopyFromModelFile lstrCopyFromRelatPath
+			FUNCechoInfo "ERROR: '${lstrPathVanillaAllFiles}/$lstrFl' '$lstrFlTo'"
+			read -n 1
+			exit 1
+		fi
 	done
-	declare -p lstrReplaceWhatCmdID lstrReplaceWhatModelBN lstrReplaceWhatFolder lstrCopyFromModelFile lstrCopyFromRelatPath >"${lstrReplaceWhatFolder}/readme_Simulating_${lstrCopyFromModelFile}.txt"
+	declare -p lstrReplaceWhatCmdID lstrReplaceWhatModelBN lstrReplaceWhatFolder lstrCopyFromModelFile lstrCopyFromRelatPath >"${lstrReplaceWhatFolder}/readmeSimulating-${lstrCopyFromModelFile}-THRU-${lstrReplaceWhatModelBN}.txt"
 	
-	astrAliasList+=("alias gskCreateOilJar \"Test_CreateEntity ${lstrReplaceWhatCmdID}\"")
+	astrAliasList+=("alias gskCreate_${lstrCopyFromModelFile} \"Test_CreateEntity ${lstrReplaceWhatCmdID}\"")
 }
 
 #FUNCreplace \
@@ -75,17 +81,17 @@ function FUNCreplace() {
 
 nInputParamsSz=5
 
-astrInputParams=(
+astrInputParams=( #TODO remove the useless to free the very limited slots
 	#lstrReplaceWhatCmdID      lstrReplaceWhatModelBN	lstrReplaceWhatFolder	           lstrCopyFromModelFile	lstrCopyFromRelatPath
-	"item_food_bread02_cooked" "bread02_cooked"  "models/items/provisions/bread02/"    "l6_jar_oil" "models/props/furnitures/gob/l6_jar_oil/" 
-	"item_food_bread02_row"    "bread02_raw"     "models/items/provisions/bread02/"    "barrel01"   "models/props/furnitures/humans/"
-	"item_food_egg"            "egg"             "models/items/provisions/egg/"        "" ""
-	"item_food_food_ratio01"   "food_ratio01"    "models/items/provisions/food_ratio/" "" ""
-	"item_food_garlic_piece01" "garlic_b1"       "models/items/provisions/garlic/"     "" ""
-	"item_food_garlic_piece02" "garlic_b2"       "models/items/provisions/garlic/"     "" ""
-	"item_food_garlic_piece03" "garlic_b3"       "models/items/provisions/garlic/"     "" ""
-	"item_food_green_apple"    "green_apple"     "models/items/provisions/fruit/"      "" ""
-	"item_food_leek02"         "leek02"          "models/items/provisions/leeks/"      "" ""
+	"item_food_bread02_cooked" "bread02_cooked"  "models/items/provisions/bread02/"    "l6_jar_oil"   "models/props/furnitures/gob/l6_jar_oil/" 
+	"item_food_bread02_row"    "bread02_raw"     "models/items/provisions/bread02/"    "barrel01"     "models/props/furnitures/humans/"
+	"item_food_egg"            "egg"             "models/items/provisions/egg/"        "quiver_guard" "models/items/weapons/quiver_guard/"
+	"item_food_food_ratio01"   "food_ratio01"    "models/items/provisions/food_ratio/" "money01" "models/items/jewels/money/"
+	"item_food_garlic_piece01" "garlic_b1"       "models/items/provisions/garlic/"     "quiver_orc" "models/items/weapons/quiver_orc/"
+	"item_food_garlic_piece02" "garlic_b2"       "models/items/provisions/garlic/"     "arrow_bal_exp" "models/items/weapons/arrows/"
+	"item_food_garlic_piece03" "garlic_b3"       "models/items/provisions/garlic/"     "arrow_classic" "models/items/weapons/arrows/"
+	"item_food_green_apple"    "green_apple"     "models/items/provisions/fruit/"      "l11_coin" "models/props/archi/l11/"
+	"item_food_leek02"         "leek02"          "models/items/provisions/leeks/"      "l11_coin2" "models/props/archi/l11/"
 	"item_food_leek03"         "leek03"          "models/items/provisions/leeks/"      "" ""
 	"item_food_leeks"          "leeks"           "models/items/provisions/leeks/"      "" ""
 	"item_food_mushroom_medium" "mushroom_medium" "models/items/provisions/mushroom/"  "" ""
