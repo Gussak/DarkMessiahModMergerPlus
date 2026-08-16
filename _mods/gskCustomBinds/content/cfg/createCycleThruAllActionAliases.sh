@@ -34,6 +34,7 @@ while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./a
 if [[ "${1-}" != --update ]];then
 	echo "Preparing: gskAllCommandsListCycle.cfg"
 	$0 --update >gskAllCommandsListCycle.cfg
+	cat gskAllCommandsListCycle.cfg
 	exit
 fi
 
@@ -41,21 +42,23 @@ astrBMCmd=(
 	+gskKillTarget
 	+gskKillTargetPiercing
 	+gskKillBoss
-	gskNpcFullyHeal
+	 gskNpcFullyHeal
 	+gskNpcMarkedTelepathy
 	+gskNpcMark
-	gskNpcMarkedTeleport
+	 gskNpcMarkedTeleport
 	+gskMagicTorch
+	+gskSkillsErase
 	+gskTeleMark
 	+gskTeleMarkerSelectNext
-	gskTeleMarkerRecall
+	 gskTeleMarkerRecall
 	+gskTeleMarkerDelete
 	+gskTeleportUp
 	+gskTeleportTargetPos
 	+gskMoveThruWall
 	+gskDestroyToMana
-	gskCreateLifePotionFromOilJar
+	 gskCreateLifePotionFromOilJar
 )
+mapfile -t astrBMCmd < <(echo "${astrBMCmd[@]}" |tr ' ' "\n" |sort -u)
 
 strFuncPrefix="gskAllCmds"
 nLastIndex=$(( ${#astrBMCmd[@]} - 1 ))&&:
