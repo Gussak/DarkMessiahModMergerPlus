@@ -704,15 +704,15 @@ function FUNCminiModInit() {
 	else
 		if [[ ! -f "$(basename "$0")" ]];then
 			FUNCechoInfo "[ERROR] There is no symlink to '$0' on the base path. These scripts are meant to be run at their path."
-			echo "ln -s '$0' '${strPathThisModFolderFull}/'"
+			echo "ln -s '$0' '${strPathMainModFolder}/'"
 			FUNCexit 1
 		fi
 	fi 
 	
 	if [[ ! -f "$(basename "$0")" ]];then cd "$(dirname "$0")";fi # in case run by using some relative or absolute path
 	
-	declare -g strPathThisModFolderFull="$(pwd)";FUNCechoInfo "strPathThisModFolderFull='$strPathThisModFolderFull'" >&2
-	declare -g strPathThisModFolderBN="$(basename "${strPathThisModFolderFull}")";FUNCechoInfo "strPathThisModFolderBN='$strPathThisModFolderBN'" >&2
+	declare -g strPathThisModSubFolderFull="$(pwd)";FUNCechoInfo "strPathThisModSubFolderFull='$strPathThisModSubFolderFull'" >&2
+	declare -g strPathThisModSubFolderBN="$(basename "${strPathThisModSubFolderFull}")";FUNCechoInfo "strPathThisModSubFolderBN='$strPathThisModSubFolderBN'" >&2
 	
 	#while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done
 	#declare -g strPathMainModFolder="$(pwd)"
@@ -723,7 +723,7 @@ function FUNCminiModInit() {
 		if [[ "${1}" == "--help" ]];then #help show this help
 			#egrep "[#]help" "./allMergerScriptsGenericConfig.sh" "$0" |sed -r -e 's@^[ \t]*@@'
 			SECFUNCshowHelpV2 "${strPathMainModFolder}/allMergerScriptsGenericConfig.sh"
-			SECFUNCshowHelpV2 "${strPathThisModFolderFull}/$(basename "$0")"
+			SECFUNCshowHelpV2 "${strPathThisModSubFolderFull}/$(basename "$0")"
 			
 			: ${FUNCminiModInit_bExitOnHelpAtBaseInit:=true} #help
 			if $FUNCminiModInit_bExitOnHelpAtBaseInit;then FUNCexit;fi #this will not consume the param so it can be reused at main file

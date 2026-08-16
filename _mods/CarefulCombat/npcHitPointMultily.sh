@@ -40,8 +40,8 @@ while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./a
 #strPathThisModFolderFull="$(pwd)"
 #declare -p strPathThisModFolderFull
 
-#strPathThisModFolderBN="$(basename "${strPathThisModFolderFull}")"
-#declare -p strPathThisModFolderBN
+#strPathThisModSubFolderBN="$(basename "${strPathThisModFolderFull}")"
+#declare -p strPathThisModSubFolderBN
 
 #cd "../../"
 #strPathMainModFolder="$(pwd)"
@@ -52,7 +52,7 @@ while ! ${1+false} && [[ "${1:0:1}" == "-" ]];do # checks if param is set
 	if [[ "$1" == "--help" ]];then #help show this help
 		#egrep "[#]help" "./allMergerScriptsGenericConfig.sh" "$0" |sed -r -e 's@^[ \t]*@@'
 		SECFUNCshowHelpV2 "./allMergerScriptsGenericConfig.sh"
-		SECFUNCshowHelpV2 "${strPathThisModFolderFull}/$0"
+		SECFUNCshowHelpV2 "${strPathThisModSubFolderFull}/$0"
 		FUNCexit 0
 	elif [[ "$1" == "-a" || "$1" == "--apply" ]];then #help create patched files and their .kvpatch.json
 		bApplyHP=true
@@ -73,7 +73,7 @@ echo "You can reapply this patch changing the HP multiplier."
 IFS=$'\n' read -d '' -r -a astrList < <(
 	cd "$strPathParent"
 	egrep "npc_health" -R --include="*.qct" "${strPathParent}/"* \
-		|egrep -v "${strPathThisModFolderFull}|${strGameInstallMainFolder}/|${strMergedModsFolderBN}|${strVanillaLayer}" \
+		|egrep -v "${strPathThisModSubFolderFull}|${strGameInstallMainFolder}/|${strMergedModsFolderBN}|${strVanillaLayer}" \
 		|tr -d '\r' \
 		|sort -u \
 		&&: \
@@ -195,7 +195,7 @@ for strFlNpc in "${astrSortFlNPCs[@]}";do
 	if((${anVanillaValues[$strFlNpc]} == (nNewHP - 1) ));then strHint2+="!";fi
 	printf "$strFmt" "${anVanillaValues[$strFlNpc]}" "${anMaxOtherModsValues[$strFlNpc]}${strHint}" "${nNewHP}${strHint2}" "${strFlNpc}  # ${anOtherModsValues[${strFlNpc}]-}"
 	
-	strPathModPatch="${strPathThisModFolderFull}/content/$(dirname "${strFlNpc}")"
+	strPathModPatch="${strPathThisModSubFolderFull}/content/$(dirname "${strFlNpc}")"
 	mkdir -p "${strPathModPatch}"
 	
 	if $bApplyHP;then

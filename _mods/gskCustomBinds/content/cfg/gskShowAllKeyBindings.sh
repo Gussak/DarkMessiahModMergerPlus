@@ -58,6 +58,14 @@ done
 #to generate the full list check: console: 
 # clear;key_listboundkeys;condump
 mapfile -t aBindList < <(
+	MWHEELDOWN
+	MWHEELUP
+	PGUP
+	PGDN
+	HOME
+	END
+	INS
+	DEL
 	cat "${strFlCondump}" |awk '{print $1}'
 	echo {1..12} |tr ' ' '\n' |sed -r -e 's@.*@"F&"@g'
 	#echo {a..z} {0..9} "- = [ ] \ ' , . / ;" |tr ' ' '\n' |while read str;do echo "bind \"$str\"; ";done
