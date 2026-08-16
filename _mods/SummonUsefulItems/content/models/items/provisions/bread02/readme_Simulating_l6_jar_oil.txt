@@ -1,0 +1,5 @@
+declare -- lstrReplaceWhatCmdID="item_food_bread02_cooked"
+declare -- lstrReplaceWhatModelBN="bread02_cooked"
+declare -- lstrReplaceWhatFolder="models/items/provisions/bread02/"
+declare -- lstrCopyFromModelFile="l6_jar_oil"
+declare -- lstrCopyFromRelatPath="models/props/furnitures/gob/l6_jar_oil/"

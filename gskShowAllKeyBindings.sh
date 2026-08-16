@@ -1,0 +1,1 @@
+_mods/gskCustomBinds/content/cfg/gskShowAllKeyBindings.sh
