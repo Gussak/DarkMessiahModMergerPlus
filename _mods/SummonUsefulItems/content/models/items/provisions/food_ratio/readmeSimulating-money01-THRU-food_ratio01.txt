@@ -1,5 +1,0 @@
-declare -- lstrReplaceWhatCmdID="item_food_food_ratio01"
-declare -- lstrReplaceWhatModelBN="food_ratio01"
-declare -- lstrReplaceWhatFolder="models/items/provisions/food_ratio/"
-declare -- lstrCopyFromModelFile="money01"
-declare -- lstrCopyFromRelatPath="models/items/jewels/money/"

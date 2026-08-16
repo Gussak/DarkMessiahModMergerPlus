@@ -939,3 +939,15 @@ function FUNCvalidateConsoleEchoMsg() {
 	fi
 	return 0
 };export -f FUNCvalidateConsoleEchoMsg
+
+function FUNCfixAlias() {
+	local lstrAlias="$1"
+	if((${#lstrAlias} > 30));then lstrAlias="${strAliasForID:0:30}";fi # if name is too big, trunc it, but the index will be the same always even if there is a trunc name clash, so always index them!
+	if ! [[ "$lstrAlias" =~ .*[0-9]{3}.* ]];then
+		FUNCechoInfo "[ERROR] aliases must have index to grant no clash will happen"
+		FUNCaskYesNo "exiting..."
+		exit 1
+	fi
+	echo "$lstrAlias"
+	return 0
+};export -f FUNCfixAlias

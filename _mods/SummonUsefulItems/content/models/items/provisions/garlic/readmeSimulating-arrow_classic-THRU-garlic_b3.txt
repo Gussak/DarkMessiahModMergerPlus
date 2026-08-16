@@ -1,5 +1,0 @@
-declare -- lstrReplaceWhatCmdID="item_food_garlic_piece03"
-declare -- lstrReplaceWhatModelBN="garlic_b3"
-declare -- lstrReplaceWhatFolder="models/items/provisions/garlic/"
-declare -- lstrCopyFromModelFile="arrow_classic"
-declare -- lstrCopyFromRelatPath="models/items/weapons/arrows/"

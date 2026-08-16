@@ -1,5 +1,0 @@
-declare -- lstrReplaceWhatCmdID="item_food_leek02"
-declare -- lstrReplaceWhatModelBN="leek02"
-declare -- lstrReplaceWhatFolder="models/items/provisions/leeks/"
-declare -- lstrCopyFromModelFile="l11_coin2"
-declare -- lstrCopyFromRelatPath="models/props/archi/l11/"
