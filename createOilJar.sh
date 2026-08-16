@@ -1,1 +1,1 @@
-_mods/SummonUsefulItems/content/models/items/provisions/bread02/createOilJar.sh
+_mods/SummonUsefulItems/content/createOilJar.sh
