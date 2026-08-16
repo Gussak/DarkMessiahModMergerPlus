@@ -1,6 +1,6 @@
 map     :  l02_b1 at: -3493 x, -12502 y, 853 z
 map     :  l02_b1 at: -3493 x, -12502 y, 853 z
-gskMapMessage You are not suposed to fall down near menelag capture place (where you can climb back thru a rope), but if you do, the vanilla spawns down there (including items) will all be respawn! so is a bit of more peaceful fun :) (unless you prefer to reapply a gskmaps there: GuestHouse, FrontYard and Garden)
+gskMapMessage You are not suposed to fall down near menelag capture place and run around (where you can climb back thru a rope), but if you do, the vanilla spawns down there (including items) will all be respawn! so is a bit of more peaceful fun :) (unless you prefer to reapply a gskmaps there: GuestHouse, FrontYard and Garden), but anyway now it is being reconquered and filled with good guards!
 gskSpawnHint   // ( 1/57 )
 setpos -3141.058350 -12934.931641 508.668427;setang 44.588024 -11.275605 -0.007511          
 setpos -3141.058350 -12934.931641 508.668427;setang 44.588024 -11.275605 -0.007511          
