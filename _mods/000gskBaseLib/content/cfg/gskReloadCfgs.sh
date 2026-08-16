@@ -29,8 +29,11 @@
 #	OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 #	OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
 
 #TODO: initial alias selections could all be in a new cfg file that would not be part of the loaded ones like ..._AliasSelectorsInitializer.cfg
+
+strFlCfg="${strPathThisModSubFolderFull}/gskReloadCfgs.cfg"
 
 astrSkip=(
 	"auto_load_last_quicksave"
@@ -52,5 +55,12 @@ while ! cd *GSK_ModMerger_AndMiniMods*;do cd ..;done
 	|egrep -v "${strSkipRegex}" \
 	|tr '\n' ';' \
 	|sed -r -e 's@.*@alias +gskReloadCfgs "gskEchoOn; contimes 50; & echo ReloadedSomeCFGs; "@g' \
-	|sed -r -e "s@.*@& // AUTO GENERATED WITH: $(basename "$0")@g" 
+	|sed -r -e "s@.*@& // AUTO GENERATED WITH: $(basename "$0")@g" >"${strFlCfg}"
+echo >>"${strFlCfg}"
+echo "alias -gskReloadCfgs \"gskEchoOff\"" >>"${strFlCfg}"
+
+cat "${strFlCfg}"
+ls -l "${strFlCfg}"
 	
+
+FUNCrefreshMount # before changes to detect them in the merged folder!!!

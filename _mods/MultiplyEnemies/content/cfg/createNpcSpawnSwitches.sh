@@ -563,9 +563,9 @@ else # create spawner aliases
 		*) echo "invalid strSpawnerMode='$strSpawnerMode'"; exit 1;;
 	esac
 	
-	echo
-	echo "// Total ${#astrNPC[@]} NPCs/Items"
-	echo "alias mm_npc_create_facehugger \"mm_npc_create npc_facehugger models/NPC/Facehugger/Npc_Facehugger.mdl\""
+	echo >gskSummonList.cfg #trunc/init
+	echo "// Total ${#astrNPC[@]} NPCs/Items" |tee -a gskSummonList.cfg
+	echo "alias mm_npc_create_facehugger \"mm_npc_create npc_facehugger models/NPC/Facehugger/Npc_Facehugger.mdl\"" |tee -a gskSummonList.cfg
 	
 	# these could work but the engine do not allow it. The NPC is created but the special item (bread or potion) is badly positioned at feet and on death it just vanishes.
 	#  mm_npc_create npc_necro_guard_bow models/npc/Necroguard/npc_necroguard.mdl item_food_bread01_cooked weapon_arx_short_sword  weapon_arxcrossbow
@@ -585,12 +585,12 @@ else # create spawner aliases
 			Summoning)
 				strShortName="[${astrNPCsummon_Type[$i]}] $(echo "${strNPC}" |sed -r -e 's@[+]*gskSummon(.*)@\1@g') HP${astrNPCsummon_Cost[${i}]}"
 				;;
-			*) echo "invalid strSpawnerMode='$strSpawnerMode'"; exit 1;;
+			*) echo "invalid strSpawnerMode='$strSpawnerMode'" >&2; exit 1;;
 		esac
-		FUNCaliasNpcSpawner "${i}" "${strAliasMode}" "${strShortName}" "${#astrNPC[@]}"
+		FUNCaliasNpcSpawner "${i}" "${strAliasMode}" "${strShortName}" "${#astrNPC[@]}" |tee -a gskSummonList.cfg
 	done
 	echo
-	echo "// NOW COPY THE ABOVE INTO THE CONFIG FILE //TODO auto replace the section"
+	echo "// NOW COPY THE ABOVE INTO THE CONFIG FILE (but is already at gskSummonList.cfg)"
 fi
 
 FUNCrefreshMount
