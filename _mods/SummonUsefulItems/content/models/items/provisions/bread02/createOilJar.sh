@@ -31,23 +31,37 @@
 
 while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
 
-strPath="${strVanillaAllExtractedFilesPath}/mm/models/props/furnitures/gob/l6_jar_oil/"
+astrAliasList=()
+function FUNCreplace() {
+	local lstrReplaced="$1";shift
+	local lstrModelFile="$1";shift
+	local lstrRelatPath="$1";shift
+	
+	local lstrPath="${strVanillaAllExtractedFilesPath}/mm/${lstrRelatPath}/"
 
-if [[ ! -f "${strPath}/l6_jar_oil.mdl" ]];then
-	FUNCechoInfo "[ERROR] file '${strPath}/l6_jar_oil.mdl' not found, did you extract all vanilla files from all VPKs?"
-	exit 1
-fi
+	if [[ ! -f "${lstrPath}/${lstrModelFile}.mdl" ]];then
+		FUNCechoInfo "[ERROR] file '${lstrPath}/${strModelFile}.mdl' not found, did you extract all vanilla files from all VPKs?"
+		exit 1
+	fi
 
-mapfile -t astrFl < <(ls -1 "${strPath}/")
-for strFl in "${astrFl[@]}";do
-	strFlTo="bread02_cooked${strFl#l6_jar_oil}"
-	cp -vf "${strPath}/$strFl" "$strFlTo"
-done
+	mapfile -t astrFl < <(ls -1 "${lstrPath}/")
+	local lstrFl
+	for lstrFl in "${astrFl[@]}";do
+		local lstrFlTo="bread02_cooked${lstrFl#${lstrModelFile}}"
+		cp -vf "${lstrPath}/$lstrFl" "$lstrFlTo"
+	done
+	
+	astrAliasList+=("alias gskCreateOilJar \"Test_CreateEntity ${lstrReplaced}\"")
+}
+
+strModelFile="l6_jar_oil"; FUNCreplace "item_food_bread02_cooked" "${strModelFile}" "models/props/furnitures/gob/${strModelFile}"
 
 FUNCrefreshMount # after changes
 
 echo
-echo "alias gskCreateOilJar \"Test_CreateEntity item_food_bread02_cooked\""
+for strAlias in "${astrAliasList[@]}";do
+	echo "${strAlias}"
+done
 echo
-echo "# now place the above alias in some mod, suggestion: BloodySummoner (will go to a summon list) and may be gskCustomBinds"
+echo "# now place the above aliases in some mod, suggestion: BloodySummoner (will go to a summon list) and may be gskCustomBinds"
 
