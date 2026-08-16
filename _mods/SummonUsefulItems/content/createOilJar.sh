@@ -105,7 +105,7 @@ astrInputParams=( #TODO remove the useless to free the very limited slots
 	############## KEEP OVERRIDEN ON TOP and do NOT change their order as will be indexed, to not break other usages...
 	"item_food_bread02_cooked" "bread02_cooked"  "models/items/provisions/bread02/"  "l6_jar_oil"  "models/props/furnitures/gob/l6_jar_oil/" 100
 	"item_food_bread02_row"    "bread02_raw"     "models/items/provisions/bread02/"  "barrel01"     "models/props/furnitures/humans/" 100
-	"item_food_green_apple"    "green_apple"     "models/items/provisions/fruit/"    "l11_coin" "models/props/archi/l11/" 1 #aim on floor, useful to create low barriers, unable to jump over
+	"item_food_green_apple"    "green_apple"     "models/items/provisions/fruit/"    "l11_coin" "models/props/archi/l11/" 500 #aim on floor, useful to create indestructible low barriers, unable to jump over, good for changing map areas access thru gskmap
 	"item_food_leek03"         "leek03"          "models/items/provisions/leeks/"    "stool01" "models/props/furnitures/humans/" 500 #can be used to provide infinite fire arrows thru fire spell on it
 	
 	############## NOT OVERRIDEN
@@ -157,13 +157,16 @@ fi
 
 FUNCrefreshMount # after changes
 
-echo
-echo "// AUTO GEN BY $(basename "$0")"
+echo >gskSummonSimulatedThings.cfg #trunc/init
+echo "// AUTO GEN BY $(basename "$0")" >>gskSummonSimulatedThings.cfg
 #for strAlias in "${astrAliasList[@]}";do
 for((i=0;i<${#astrAliasList[@]};i++));do
-	echo "${astrAliasList[i]}"
-	echo "${astrSummonList[i]}"
+	echo "${astrAliasList[i]}" >>gskSummonSimulatedThings.cfg
+	echo "${astrSummonList[i]}" >>gskSummonSimulatedThings.cfg
 done
-echo
-echo "# now place the above aliases in some mod, suggestion: BloodySummoner (will go to a summon list) and may be gskCustomBinds"
+echo >>gskSummonSimulatedThings.cfg
+echo "# now place the above aliases in some mod, suggestion: BloodySummoner (will go to a summon list) and may be gskCustomBinds (but already on gskSummonSimulatedThings.cfg)"
 
+cat gskSummonSimulatedThings.cfg
+echo
+ls -l gskSummonSimulatedThings.cfg
