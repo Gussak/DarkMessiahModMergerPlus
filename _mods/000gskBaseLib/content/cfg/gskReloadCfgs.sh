@@ -44,11 +44,12 @@ astrSkip=(
 	"pause_after_load"
 	"DoNotEnable"
 	"_AliasSelectorsInitializer.cfg"
+	"gskBindsDoc"
 ); strSkipRegex="$(echo "${astrSkip[@]}" |tr ' ' '|')"; declare -p strSkipRegex
 
 #helper 'q' reload some cfgs
 while ! cd *GSK_ModMerger_AndMiniMods*;do cd ..;done
-(find -iregex '.*cfg/.*.cfg') \
+(find -type f -iregex '.*cfg/.*.cfg') \
 	|egrep -v 'SUCCESS|game.cfg|/cfg$' \
 	|sed -r -e 's@.*/cfg/(.*)[.]cfg$@ exec \1@g' \
 	|sort -u \

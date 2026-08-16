@@ -155,18 +155,22 @@ if(( ${#astrDetectedDB[@]} > 0 ));then
 fi
 #fi
 
-FUNCrefreshMount # after changes
-
-echo >gskSummonSimulatedThings.cfg #trunc/init
-echo "// AUTO GEN BY $(basename "$0")" >>gskSummonSimulatedThings.cfg
+mkdir -vp cfg
+strFlCfg="cfg/gskSummonSimulatedThings.cfg"
+echo >"${strFlCfg}" #trunc/init
+echo "// AUTO GEN BY $(basename "$0")" >>"${strFlCfg}"
 #for strAlias in "${astrAliasList[@]}";do
 for((i=0;i<${#astrAliasList[@]};i++));do
-	echo "${astrAliasList[i]}" >>gskSummonSimulatedThings.cfg
-	echo "${astrSummonList[i]}" >>gskSummonSimulatedThings.cfg
+	echo "${astrAliasList[i]}" >>"${strFlCfg}"
+	echo "${astrSummonList[i]}" >>"${strFlCfg}"
 done
-echo >>gskSummonSimulatedThings.cfg
-echo "# now place the above aliases in some mod, suggestion: BloodySummoner (will go to a summon list) and may be gskCustomBinds (but already on gskSummonSimulatedThings.cfg)"
+echo >>"${strFlCfg}"
+echo "# now place the above aliases in some mod, suggestion: BloodySummoner (will go to a summon list) and may be gskCustomBinds (but already on ${strFlCfg})"
 
-cat gskSummonSimulatedThings.cfg
 echo
-ls -l gskSummonSimulatedThings.cfg
+FUNCrefreshMount # after changes
+echo
+
+cat "${strFlCfg}"
+echo
+ls -l "${strFlCfg}"
