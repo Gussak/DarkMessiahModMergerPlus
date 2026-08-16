@@ -106,6 +106,7 @@ else
 		FUNCfillByType "DummyNPCs"     "crow|seagull|dog|pig" #harmless NPCs
 		FUNCfillByType "FOOD"          "leek|bread|rib|fish|chicken|banana|food|fibs|garlic|ham|mushroom|pie" #food
 		FUNCfillByType "Weapons/Tools" "club|staff|sword" #tools/weapons
+		FUNCfillByType "Simulated"     "Simulated" #items otherwise impossible to be spawned
 		#FUNCfillByType --not "${FUNCfillByType_regexAlreadyUsed}" #everything else
 		FUNCfillByType --not "ETC" ".*" #everything else
 	fi

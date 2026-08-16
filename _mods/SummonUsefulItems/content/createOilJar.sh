@@ -40,6 +40,7 @@ function FUNCreplace() {
 	# to dup
 	local lstrCopyFromModelFile="${1}";shift
 	local lstrCopyFromRelatPath="${1}";shift
+	local lnSummonHPCost="${1}";shift
 	
 	if [[ -z "$lstrCopyFromModelFile" ]];then
 		echo "was not overriden yet: ${lstrReplaceWhatCmdID}"
@@ -68,7 +69,8 @@ function FUNCreplace() {
 	done
 	declare -p lstrReplaceWhatCmdID lstrReplaceWhatModelBN lstrReplaceWhatFolder lstrCopyFromModelFile lstrCopyFromRelatPath >"${lstrReplaceWhatFolder}/readmeSimulating-${lstrCopyFromModelFile}-THRU-${lstrReplaceWhatModelBN}.txt"
 	
-	astrAliasList+=("alias gskCreate_${lstrCopyFromModelFile} \"Test_CreateEntity ${lstrReplaceWhatCmdID}\"")
+	astrAliasList+=( "alias gskCreate_${lstrCopyFromModelFile} \"Test_CreateEntity ${lstrReplaceWhatCmdID}\"")
+	astrSummonList+=("alias gskSummonSimulated_${lstrCopyFromModelFile} \"gskCreate_${lstrCopyFromModelFile}; gskHurtme$(printf %03d $lnSummonHPCost); gskSmnWORK\"")
 }
 
 #FUNCreplace \
@@ -79,25 +81,24 @@ function FUNCreplace() {
 	#"models/props/furnitures/gob/l6_jar_oil/" \
 	#""
 
-nInputParamsSz=5
-
+nInputParamsSz=6
 astrInputParams=( #TODO remove the useless to free the very limited slots
 	#lstrReplaceWhatCmdID      lstrReplaceWhatModelBN	lstrReplaceWhatFolder	           lstrCopyFromModelFile	lstrCopyFromRelatPath
-	"item_food_bread02_cooked" "bread02_cooked"  "models/items/provisions/bread02/"    "l6_jar_oil"   "models/props/furnitures/gob/l6_jar_oil/" 
-	"item_food_bread02_row"    "bread02_raw"     "models/items/provisions/bread02/"    "barrel01"     "models/props/furnitures/humans/"
-	"item_food_egg"            "egg"             "models/items/provisions/egg/"        "quiver_guard" "models/items/weapons/quiver_guard/"
-	"item_food_food_ratio01"   "food_ratio01"    "models/items/provisions/food_ratio/" "money01" "models/items/jewels/money/"
-	"item_food_garlic_piece01" "garlic_b1"       "models/items/provisions/garlic/"     "quiver_orc" "models/items/weapons/quiver_orc/"
-	"item_food_garlic_piece02" "garlic_b2"       "models/items/provisions/garlic/"     "arrow_bal_exp" "models/items/weapons/arrows/"
-	"item_food_garlic_piece03" "garlic_b3"       "models/items/provisions/garlic/"     "arrow_classic" "models/items/weapons/arrows/"
-	"item_food_green_apple"    "green_apple"     "models/items/provisions/fruit/"      "l11_coin" "models/props/archi/l11/"
-	"item_food_leek02"         "leek02"          "models/items/provisions/leeks/"      "l11_coin2" "models/props/archi/l11/"
-	"item_food_leek03"         "leek03"          "models/items/provisions/leeks/"      "" ""
-	"item_food_leeks"          "leeks"           "models/items/provisions/leeks/"      "" ""
-	"item_food_mushroom_medium" "mushroom_medium" "models/items/provisions/mushroom/"  "" ""
-	"item_food_mushroom_small"  "mushroom_small"  "models/items/provisions/mushroom/"  "" ""
-	"item_food_red_apple"       "red_apple"       "models/items/provisions/fruit/"     "" ""
-	"item_food_saucisson"       "saucisson01"     "models/items/provisions/saucisson/" "" ""	
+	"item_food_bread02_cooked" "bread02_cooked"  "models/items/provisions/bread02/"  "l6_jar_oil"  "models/props/furnitures/gob/l6_jar_oil/" 100
+	"item_food_bread02_row"    "bread02_raw"     "models/items/provisions/bread02/"  "barrel01"     "models/props/furnitures/humans/" 100
+	"item_food_egg"            "egg"             "models/items/provisions/egg/"      "quiver_guard" "models/items/weapons/quiver_guard/" 100
+	"item_food_food_ratio01"   "food_ratio01"    "models/items/provisions/food_ratio/" "money01" "models/items/jewels/money/" 1
+	"item_food_garlic_piece01" "garlic_b1"       "models/items/provisions/garlic/"   "quiver_orc" "models/items/weapons/quiver_orc/" 100
+	"item_food_garlic_piece02" "garlic_b2"       "models/items/provisions/garlic/"   "arrow_bal_exp" "models/items/weapons/arrows/" 20
+	"item_food_garlic_piece03" "garlic_b3"       "models/items/provisions/garlic/"   "arrow_classic" "models/items/weapons/arrows/" 5
+	"item_food_green_apple"    "green_apple"     "models/items/provisions/fruit/"    "l11_coin" "models/props/archi/l11/" 1
+	"item_food_leek02"         "leek02"          "models/items/provisions/leeks/"    "l11_coin2" "models/props/archi/l11/" 1
+	"item_food_leek03"         "leek03"          "models/items/provisions/leeks/"    "stool01" "models/props/furnitures/humans/" 500 #can be used to provide infinite fire arrows thru fire spell on it
+	"item_food_leeks"          "leeks"           "models/items/provisions/leeks/"    "" "" 0
+	"item_food_mushroom_medium" "mushroom_medium" "models/items/provisions/mushroom/"  "" "" 0
+	"item_food_mushroom_small"  "mushroom_small"  "models/items/provisions/mushroom/"  "" "" 0
+	"item_food_red_apple"       "red_apple"       "models/items/provisions/fruit/"     "" "" 0
+	"item_food_saucisson"       "saucisson01"     "models/items/provisions/saucisson/" "" "" 0
 )
 mapfile -t astrDetectedDB < <(cat "${strPathMainModFolder}/_mods/BloodySummoner/content/cfg/bloodysummoner.cfg" |egrep "^//ERROR:MissingMDL:" |sed -r -e 's@.*MissingMDL:(.*)[/]([^/]*)[.]mdl.*Test_CreateEntity ([^;]*);.*@"\3" "\2" "\1/" "" ""@g')
 #declare -p astrDetectedDB
@@ -131,8 +132,11 @@ fi
 FUNCrefreshMount # after changes
 
 echo
-for strAlias in "${astrAliasList[@]}";do
-	echo "${strAlias}"
+echo "// AUTO GEN BY $(basename "$0")"
+#for strAlias in "${astrAliasList[@]}";do
+for((i=0;i<${#astrAliasList[@]};i++));do
+	echo "${astrAliasList[i]}"
+	echo "${astrSummonList[i]}"
 done
 echo
 echo "# now place the above aliases in some mod, suggestion: BloodySummoner (will go to a summon list) and may be gskCustomBinds"
