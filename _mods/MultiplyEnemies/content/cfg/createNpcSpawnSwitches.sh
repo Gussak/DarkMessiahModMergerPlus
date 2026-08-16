@@ -99,7 +99,7 @@ else
 			done
 		}
 		# aliases size limit is 30. So better add these hints there: npc food etc...
-		FUNCfillByType "FriendlyNPCs"  "^[+]gskSummonGuard$|[+]gskSummonGuardBow$|[+]gskSummonGuardMini$|villager" #friendly NPCs
+		FUNCfillByType "FriendlyNPCs"  "^[+]gskSummonGuard$|[+]gskSummonWizard$|[+]gskSummonGuardBow$|[+]gskSummonGuardMini$|villager" #friendly NPCs
 		FUNCfillByType "EtcNPCs"       "corpse" #etc NPCs
 		FUNCfillByType "FoeNPCs"       "necroguard|necromancer|spider|facehugger|undead" #foe NPCs
 		FUNCfillByType "POTIONS"       "potion"
