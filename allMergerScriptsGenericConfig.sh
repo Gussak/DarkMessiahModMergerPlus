@@ -926,6 +926,7 @@ function FUNCcostHP() {
 	local lnC;local lnCost=0;for lnC in "${lanCost[@]}";do (( lnCost += 10#${lnC} ))&&:;done
 	local lstrCost="";if((lnCost>0));then lstrCost=" HP${lnCost}";fi
 	declare -g FUNCcostHP_nCost="$lnCost"
+	echo -e "$lstrCost\t$lstrAlias" >&2
 	echo "$lstrCost"
 };export -f FUNCcostHP
 
