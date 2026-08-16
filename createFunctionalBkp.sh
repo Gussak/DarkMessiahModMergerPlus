@@ -5,6 +5,7 @@
 astrFlNot=(
 	'*.log' '*.bkp' "*.NEWLY_PATCHED"	"*.NEWLY_PATCHED.rej" '*.SUCCESS.cfg' # temp files
 	#	'*.qct' patched are ok like a backup
+	'*.vvd' '*.vtx' '*.phy' '*.mdl' #game vanilla binary big files
 	'./.git' 
 	'./tmp' 
 	'./Extracted.Quick.TMP' 
