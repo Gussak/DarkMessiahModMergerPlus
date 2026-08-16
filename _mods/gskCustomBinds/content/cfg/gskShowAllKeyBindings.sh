@@ -58,14 +58,14 @@ done
 #to generate the full list check: console: 
 # clear;key_listboundkeys;condump
 mapfile -t aBindList < <(
-	MWHEELDOWN
-	MWHEELUP
-	PGUP
-	PGDN
-	HOME
-	END
-	INS
-	DEL
+	echo '"MWHEELDOWN"'
+	echo '"MWHEELUP"'
+	echo '"PGUP"'
+	echo '"PGDN"'
+	echo '"HOME"'
+	echo '"END"'
+	echo '"INS"'
+	echo '"DEL"'
 	cat "${strFlCondump}" |awk '{print $1}'
 	echo {1..12} |tr ' ' '\n' |sed -r -e 's@.*@"F&"@g'
 	#echo {a..z} {0..9} "- = [ ] \ ' , . / ;" |tr ' ' '\n' |while read str;do echo "bind \"$str\"; ";done
@@ -74,3 +74,6 @@ mapfile -t aBindList < <(
 nTot="$(
 for str in "${aBindList[@]}";do echo "bind $str; ";done |egrep -v "bind \"\"; " |sort -u |wc -l)"
 for str in "${aBindList[@]}";do echo "bind $str; ";done |egrep -v "bind \"\"; " |sort -u |tr -d '\n' |sed -r -e "s@.*@&; echo \"Total=${nTot} AUTO GENERATED WITH $(basename "$0")\"@g"
+echo
+
+FUNCrefreshMount
