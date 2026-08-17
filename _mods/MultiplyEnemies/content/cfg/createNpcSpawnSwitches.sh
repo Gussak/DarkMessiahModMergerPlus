@@ -590,7 +590,7 @@ else # create spawner aliases
 		FUNCaliasNpcSpawner "${i}" "${strAliasMode}" "${strShortName}" "${#astrNPC[@]}" |tee -a gskSummonList.cfg
 	done
 	echo
-	echo "// NOW COPY THE ABOVE INTO THE CONFIG FILE (but is already at gskSummonList.cfg)"
+	echo "// NOW COPY THE ABOVE INTO SOME CONFIG FILE (but is already at gskSummonList.cfg)"
 fi
 
 FUNCrefreshMount
