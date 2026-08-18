@@ -154,3 +154,5 @@ echo 'Test Result:
 	-0.000188
 	0.000181
 '
+
+#TIP: cat condump.txt |egrep "^\s*classname:" |sort -u |egrep -v "prop_phys|prp_ph|prop_py|prop_dyn" |sed -r -e 's@\s*(classname:)\s*([a-z_]*).*@give \2@g' #for alias +gskDevEntDumpInfoAimed "gskEchoON; ent_setname tmp; ent_dump tmp" //this destroys the item name

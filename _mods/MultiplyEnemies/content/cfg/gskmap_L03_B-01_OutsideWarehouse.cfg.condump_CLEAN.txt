@@ -1,287 +1,292 @@
 map     :  L03_B at: 188 x, -247 y, -238 z
 map     :  L03_B at: 188 x, -247 y, -238 z
-gskSpawnHint   // ( 1/57 )
-setpos 183.045151 -577.932922 -358.169891;setang 60.003033 -60.932571 0.013465           
-setpos 183.045151 -577.932922 -358.169891;setang 60.003033 -60.932571 0.013465           
-gskSummonPig            
-gskSummonPig            
-gskSpawnHint   // ( 2/57 )
-setpos 163.953903 -620.412903 -312.286896;setang 80.948151 -73.866776 0.013949           
-setpos 163.953903 -620.412903 -312.286896;setang 80.948151 -73.866776 0.013949           
-gskSummon_mushroom            
-gskSummon_mushroom            
-gskSpawnHint   // ( 3/57 )
-setpos 154.689362 -617.785767 -312.964935;setang 85.171783 -137.028519 0.014337           
-setpos 154.689362 -617.785767 -312.964935;setang 85.171783 -137.028519 0.014337           
-gskSummon_mushroom            
-gskSummon_mushroom            
-gskSpawnHint   // ( 4/57 )
-setpos 156.973740 -603.651489 -313.573181;setang 89.000008 119.218987 0.014554           
-setpos 156.973740 -603.651489 -313.573181;setang 89.000008 119.218987 0.014554           
-gskSummon_mushroom            
-gskSumon_mushroom            
-gskSpawnHint   // ( 5/57 )
-setpos 163.446930 -602.512573 -312.311310;setang 80.816246 77.440636 0.021963           
-setpos 163.446930 -602.512573 -312.311310;setang 80.816246 77.440636 0.021963           
-gskSummon_mushroom            
-gskSummon_mushroom            
-gskSpawnHint   // ( 6/57 )
-setpos 165.703918 -603.251770 -310.722351;setang 71.775215 62.127621 0.009763           
-setpos 165.703918 -603.251770 -310.722351;setang 71.775215 62.127621 0.009763           
-gskSummon_mshroom            
-gskSummon_mushroom            
-gskSpawnHint   // ( 7/57 )
-setpos -134.279373 -293.616547 -262.789703;setang 56.267864 -38.362350 0.013610           
-etpos -134.279373 -293.616547 -262.789703;setang 56.267864 -38.362350 0.013610           
-+gskSummonNecromancerLord            
-+gskSummonNecromancerLord            
-gskSpawnHint   // ( 8/57 )
-setpos -196.384872 -216.160019 -260.229065;setang 32.972900 -67.535049 0.015807           
-setpos -196.384872 -216.160019 -260.229065;setang 32.972900 -67.535049 0.015807           
-gskSummonUndead            
-gskSummonUndead            
-gskSpawnHint   // ( 9/57 )
-setpos -194.376480 -215.733093 -260.984863;setang 39.176968 -51.563347 0.013585           
-setpos -194.376480 -215.733093 -260.984863;setang 39.16968 -51.563347 0.013585           
-gskSummonUndead            
-gskSummonUndead            
-gskSpawnHint   // ( 10/57 )
-setpos -191.708878 -214.037567 -262.516846;setang 50.329426 -29.321001 0.014025           
-setpos -191.708878 -214.037567 -262.516846;setang 50.329426 -29.321001 0.014025           
-gskSummonUndead            
-gskSummonUndead            
-gskSpawnHint   // ( 11/57 )
-setpos -86.918701 -139.805099 -261.188477;setang 47.822132 7.506709 0.014254           
-setpos -86.918701 -139.805099 -261.188477;setang 47.822132 7.506709 0.014254           
+gskSpawnHint   // ( 1/58 )
+setpos 183.045151 -577.932922 -358.169891;setang 60.003033 -60.932571 0.013465            
+setpos 183.045151 -577.932922 -358.169891;setang 60.003033 -60.932571 0.013465            
+gskSummonPig             
+gskSummonPig             
+gskSpawnHint   // ( 2/58 )
+setpos 163.953903 -620.412903 -312.286896;setang 80.948151 -73.866776 0.013949            
+setpos 163.953903 -620.412903 -312.286896;setang 80.948151 -73.866776 0.013949            
+gskSummon_mushroom             
+gskSummon_mushroom             
+gskSpawnHint   // ( 3/58 )
+setpos 154.689362 -617.785767 -312.964935;setang 85.171783 -137.028519 0.014337            
+setpos 154.689362 -617.785767 -312.964935;setang 85.171783 -137.028519 0.014337            
+gskSummon_mushroom             
+gskSummon_mushroom             
+gskSpawnHint   // ( 4/58 )
+setpos 156.973740 -603.651489 -313.573181;setang 89.000008 119.218987 0.014554            
+setpos 156.973740 -603.651489 -313.573181;setang 89.000008 119.218987 0.014554            
+gskSummon_mushroom             
+gskSumon_mushroom             
+gskSpawnHint   // ( 5/58 )
+setpos 163.446930 -602.512573 -312.311310;setang 80.816246 77.440636 0.021963            
+setpos 163.446930 -602.512573 -312.311310;setang 80.816246 77.440636 0.021963            
+gskSummon_mushroom             
+gskSummon_mushroom             
+gskSpawnHint   // ( 6/58 )
+setpos 165.703918 -603.251770 -310.722351;setang 71.775215 62.127621 0.009763            
+setpos 165.703918 -603.251770 -310.722351;setang 71.775215 62.127621 0.009763            
+gskSummon_mshroom             
+gskSummon_mushroom             
+gskSpawnHint   // ( 7/58 )
+setpos -134.279373 -293.616547 -262.789703;setang 56.267864 -38.362350 0.013610            
+etpos -134.279373 -293.616547 -262.789703;setang 56.267864 -38.362350 0.013610            
++gskSummonNecromancerLord             
++gskSummonNecromancerLord             
+gskSpawnHint   // ( 8/58 )
+setpos -196.384872 -216.160019 -260.229065;setang 32.972900 -67.535049 0.015807            
+setpos -196.384872 -216.160019 -260.229065;setang 32.972900 -67.535049 0.015807            
+gskSummonUndead             
+gskSummonUndead             
+gskSpawnHint   // ( 9/58 )
+setpos -194.376480 -215.733093 -260.984863;setang 39.176968 -51.563347 0.013585            
+setpos -194.376480 -215.733093 -260.984863;setang 39.16968 -51.563347 0.013585            
+gskSummonUndead             
+gskSummonUndead             
+gskSpawnHint   // ( 10/58 )
+setpos -191.708878 -214.037567 -262.516846;setang 50.329426 -29.321001 0.014025            
+setpos -191.708878 -214.037567 -262.516846;setang 50.329426 -29.321001 0.014025            
+gskSummonUndead             
+gskSummonUndead             
+gskSpawnHint   // ( 11/58 )
+setpos -86.918701 -139.805099 -261.188477;setang 47.822132 7.506709 0.014254            
+setpos -86.918701 -139.805099 -261.188477;setang 47.822132 7.506709 0.014254            
+gskSummonNecroGuardBow             
+gskSummonNecroGuardBow             
+gskSpawnHint   // ( 12/58 )
+setpos -143.029297 -94.056641 -264.324188;setang 50.857349 -46.612896 0.013979            
+setpos -143.029297 -94.056641 -264.324188;setang 50.857349 -46.612896 0.013979            
+gskSummonNecoGuardBow             
+gskSummonNecroGuardBow             
+gskSpawnHint   // ( 13/58 )
+setpos -149.857864 -96.541107 -264.958710;setang 55.146278 -97.366425 0.013672            
+setpos -149.857864 -96.541107 -264.958710;setang 55.146278 -97.366425 0.013672            
+gskSummonNecroGuardBow             
+gskSummonNecroGuardBow             
+gskSpawnHint   // ( 14/58 )
+setpos -256.418091 -213.324463 -255.422424;setang 37.395176 -95.717186 0.015407            
+setpos -256.418091 -213.324463 -255.422424;setang 37.395176 -95.717186 0.015407            
+gskSummonNecroGuardShield             
+gskSummonNecroGuardShield             
+gskSpawnHint   // ( 15/58 )
+setpos -124.515411 865.953857 -496.023468;setang 71.445511 81.003288 0.013465           
+setpos -124.515411 865.953857 -496.023468;setang 71.445511 81.003288 0.013465           
 gskSummonNecroGuardBow            
 gskSummonNecroGuardBow            
-gskSpawnHint   // ( 12/57 )
-setpos -143.029297 -94.056641 -264.324188;setang 50.857349 -46.612896 0.013979           
-setpos -143.029297 -94.056641 -264.324188;setang 50.857349 -46.612896 0.013979           
-gskSummonNecoGuardBow            
-gskSummonNecroGuardBow            
-gskSpawnHint   // ( 13/57 )
-setpos -149.857864 -96.541107 -264.958710;setang 55.146278 -97.366425 0.013672           
-setpos -149.857864 -96.541107 -264.958710;setang 55.146278 -97.366425 0.013672           
+gskSpawnHint   // ( 16/58 )
+setpos -174.348495 122.630211 -528.501892;setang 72.765388 0.219387 0.013530           
+setpos -174.348495 122.630211 -528.501892;setang 72.765388 0.219387 0.013530           
 gskSummonNecroGuardBow            
 gskSummonNecroGuardBow            
-gskSpawnHint   // ( 14/57 )
-setpos -256.418091 -213.324463 -255.422424;setang 37.395176 -95.717186 0.015407           
-setpos -256.418091 -213.324463 -255.422424;setang 37.395176 -95.717186 0.015407           
-gskSummonNecroGuardShield            
-gskSummonNecroGuardShield            
-gskSpawnHint   // ( 15/57 )
-setpos -124.515411 865.953857 -496.023468;setang 71.445511 81.003288 0.013465          
-setpos -124.515411 865.953857 -496.023468;setang 71.445511 81.003288 0.013465          
-gskSummonNecroGuardBow           
-gskSummonNecroGuardBow           
-gskSpawnHint   // ( 16/57 )
-setpos -174.348495 122.630211 -528.501892;setang 72.765388 0.219387 0.013530          
-setpos -174.348495 122.630211 -528.501892;setang 72.765388 0.219387 0.013530          
-gskSummonNecroGuardBow           
-gskSummonNecroGuardBow           
-gskSpawnHint   // ( 17/57 )
-setpos -510.672241 1484.965332 -528.091858;setang 57.127243 -45.946369 0.013567          
-setpos -510.672241 1484.965332 -528.091858;setang 57.127243 -45.946369 0.013567          
-gskSummonPotionLife           
-gskSummonPotionLife           
-gskSpawnHint   // ( 18/57 )
-setpos -507.923889 1493.833740 -530.070129;setang 69.730949 16.424934 0.013414          
-setpos -507.923889 1493.833740 -530.070129;setang 69.730949 16.424934 0.013414          
-gskSummonPotionLife           
-gskSummonPotionLife           
-gskSpawnHint   // ( 19/57 )
-setpos -509.957489 1497.207764 -529.177246;setang 64.121788 41.372463 0.013383          
-setpos -509.957489 1497.207764 -529.177246;setang 64.121788 41.372463 0.013383          
-gskSummonPotionLife           
-gskSummonPotionLife           
-gskSpawnHint   // ( 20/57 )
-setpos -533.718262 1525.740234 -498.295837;setang 66.101494 105.986671 0.013383          
-setpos -533.718262 1525.740234 -498.295837;setang 66.101494 105.986671 0.013383          
-gskSummonNecromancer           
-gskSummonNecromancer           
-gskSpawnHint   // ( 21/57 )
-setpos -552.842712 1592.262207 -497.774902;setang 62.802132 -129.867798 0.013398          
-setpos -552.842712 1592.262207 -497.774902;setang 62.802132 -129.867798 0.013398          
-gskSummonUndead           
-gskSummonUndead           
-gskSpawnHint   // ( 22/57 )
-setpos -547.768799 1590.145752 -498.003326;setang 64.253845 -94.359642 0.013401          
-setpos -547.768799 1590.145752 -498.003326;setang 64.253845 -94.359642 0.013401          
-gskSummonUndead           
-gskSummonUndead           
-gskSpawnHint   // ( 23/57 )
-setpos -543.806458 1590.502930 -500.141449;setang 77.584099 -69.278191 0.013729          
-setpos -543.806458 1590.502930 -500.141449;setang 77.584099 -69.278191 0.013729          
-gskSummonUndead           
-gskSummonUndead           
-gskSpawnHint   // ( 24/57 )
-setpos -536.065857 1491.877686 -467.483917;setang 71.974449 -64.328758 0.013500          
-setpos -536.065857 1491.877686 -467.483917;setang 71.974449 -64.328758 0.013500          
-gskSummonNecroGuardBow           
-gskSummonNecroGuardBow           
-gskSpawnHint   // ( 25/57 )
-setpos -542.012146 1491.186768 -467.356476;setang 71.182541 -102.212852 0.013472          
-setpos -542.012146 1491.186768 -467.356476;setang 71.182541 -102.212852 0.013472          
-gskSummonNecroGuardBow           
-gskSummonNecroGuardBow           
-gskSpawnHint   // ( 26/57 )
-setpos -547.001587 1494.127808 -467.367096;setang 71.248550 -138.842957 0.013462          
-setpos -547.001587 1494.127808 -467.367096;setang 71.248550 -138.842957 0.013462          
-gskSummonNecroGuardBow           
-gskSummonNecroGuardBow           
-gskSpawnHint   // ( 27/57 )
-setpos -323.625580 1517.039673 -532.316345;setang 74.480721 128.889206 0.013570       
-setpos -323.625580 1517.039673 -532.316345;setang 74.480721 128.889206 0.013570       
-+gskSummonNecromancerLord        
-+gskSummonNecromancerLord        
-gskSpawnHint   // ( 28/57 )
-setpos -310.506775 1504.176636 -532.241760;setang 74.018707 -37.760773 0.013576       
-setpos -310.506775 1504.176636 -532.241760;setang 74.018707 -37.760773 0.013576       
-gskSummonUndead        
-gskSummonUndead        
-gskSpawnHint   // ( 29/57 )
-setpos -321.761749 1501.499512 -531.901306;setang 71.907005 -115.311119 0.013487       
-setpos -321.761749 1501.499512 -531.901306;setang 71.907005 -115.311119 0.013487       
-gskSummonUndead        
-gskSummonUndead        
-gskSpawnHint   // ( 30/57 )
-setpos -326.618530 1507.698364 -534.584290;setang 88.604019 -166.327332 0.014576       
-setpos -326.618530 1507.698364 -534.584290;setang 88.604019 -166.327332 0.014576       
-gskSummonUndead        
-gskSummonUndead        
-gskSpawnHint   // ( 31/57 )
-setpos -312.805756 1517.611694 -533.083862;setang 79.232307 57.183559 0.013836       
-setpos -312.805756 1517.611694 -533.083862;setang 79.232307 57.183559 0.013836       
-gskSummonUndead        
-gskSummonUndead        
-gskSpawnHint   // ( 32/57 )
-setpos -252.999908 1534.961548 -528.175964;setang 72.302940 19.892651 0.013509       
-setpos -252.999908 1534.961548 -528.175964;setang 72.302940 19.892651 0.013509       
-gskSummonNecromancer        
-gskSummonNecromancer        
-gskSpawnHint   // ( 33/57 )
-setpos -286.456573 1466.095093 -535.258301;setang 58.181217 -22.678780 0.013523      
-setpos -286.456573 1466.095093 -535.258301;setang 58.181217 -22.678780 0.013523      
-gskSummonPotionCurePoison       
-gskSummonPotionCurePoison       
-gskSpawnHint   // ( 34/57 )
-setpos -285.673492 1469.606934 -535.593994;setang 60.358788 0.817504 0.013463      
-setpos -285.673492 1469.606934 -535.593994;setang 60.358788 0.817504 0.013463      
-gskSummonPotionCurePoison       
-gskSummonPotionCurePoison       
-gskSpawnHint   // ( 35/57 )
-setpos -286.826569 1472.166748 -533.868103;setang 48.811626 19.164074 0.014167      
-setpos -286.826569 1472.166748 -533.868103;setang 48.811626 19.164074 0.014167      
-gskSummonPotionCurePoison       
-gskSummonPotionCurePoison       
-gskSpawnHint   // ( 36/57 )
-setpos -608.875366 -273.773468 -580.096436;setang 44.060345 27.114285 0.014696     
-setpos -608.875366 -273.773468 -580.096436;setang 44.060345 27.114285 0.014696     
-gskSummonNecroGuard      
-gskSummonNecroGuard      
-gskSpawnHint   // ( 37/57 )
-setpos -621.988953 -283.281006 -581.599731;setang 54.551643 -136.036484 0.013706     
-setpos -621.988953 -283.281006 -581.599731;setang 54.551643 -136.036484 0.013706     
-gskSummonNecroGuard      
-gskSummonNecroGuard      
-gskSpawnHint   // ( 38/57 )
-setpos -624.837524 -277.443298 -583.011292;setang 63.723736 -179.265442 0.013404     
-setpos -624.837524 -277.443298 -583.011292;setang 63.723736 -179.265442 0.013404     
-gskSummonNecroGuard      
-gskSummonNecroGuard      
-gskSpawnHint   // ( 39/57 )
-setpos -621.629761 -270.771393 -582.099060;setang 57.850853 131.563904 0.013556     
-setpos -621.629761 -270.771393 -582.099060;setang 57.850853 131.563904 0.013556     
-gskSummonNecroGuard      
-gskSummonNecroGuard      
-gskSpawnHint   // ( 40/57 )
-setpos -610.013062 -270.790039 -582.038574;setang 57.454926 48.403835 0.013562     
-setpos -610.013062 -270.790039 -582.038574;setang 57.454926 48.403835 0.013562     
-gskSummonNecroGuard      
-gskSummonNecroGuard      
-gskSpawnHint   // ( 41/57 )
-setpos -609.971680 -283.944885 -582.301636;setang 59.170540 -48.550041 0.013492     
-setpos -609.971680 -283.944885 -582.301636;setang 59.170540 -48.550041 0.013492     
-gskSummonNecroGuard      
-gskSummonNecroGuard      
-gskSpawnHint   // ( 42/57 )
-setpos -617.944580 -286.130310 -583.167480;setang 64.713486 -103.593369 0.013382     
-setpos -617.944580 -286.130310 -583.167480;setang 64.713486 -103.593369 0.013382     
-gskSummonNecroGuard      
-gskSummonNecroGuard      
-gskSpawnHint   // ( 43/57 )
-setpos -613.069641 -275.543640 -571.673401;setang 29.606176 -6.376803 0.016092     
-setpos -613.069641 -275.543640 -571.673401;setang 29.606176 -6.376803 0.016092     
-gskSummonPotionLife      
-gskSummonPotionLife      
-gskSpawnHint   // ( 44/57 )
-setpos -611.690979 -276.255859 -573.425964;setang 43.796143 -10.469624 0.014727     
-setpos -611.690979 -276.255859 -573.425964;setang 43.796143 -10.469624 0.014727     
-gskSummonPotionLife      
-gskSummonPotionLife      
-gskSpawnHint   // ( 45/57 )
-setpos -610.349548 -276.815552 -577.427246;setang 70.322472 -12.380631 0.013456     
-setpos -610.349548 -276.815552 -577.427246;setang 70.322472 -12.380631 0.013456     
-gskSummonPotionLife      
-gskSummonPotionLife      
-gskSpawnHint   // ( 46/57 )
-setpos -610.678223 -277.457153 -580.427612;setang 88.999985 -16.800550 0.014600     
-setpos -610.678223 -277.457153 -580.427612;setang 88.999985 -16.800550 0.014600     
-gskSummonPotionLife      
-gskSummonPotionLife      
-gskSpawnHint   // ( 47/57 )
-setpos -626.083252 -281.166748 -578.885925;setang 79.364296 -136.855667 0.013854     
-setpos -626.083252 -281.166748 -578.885925;setang 79.364296 -136.855667 0.013854     
-gskSummonPotionLife      
-gskSummonPotionLife      
-gskSpawnHint   // ( 48/57 )
-setpos -613.069641 -275.543640 -571.673401;setang 29.606176 -6.376803 0.016092   
-setpos -613.069641 -275.543640 -571.673401;setang 29.606176 -6.376803 0.016092   
-gskSummonPotionLife    
-gskSummonPotionLife    
-gskSpawnHint   // ( 49/57 )
-setpos -611.690979 -276.255859 -573.425964;setang 43.796143 -10.469624 0.014727   
-setpos -611.690979 -276.255859 -573.425964;setang 43.796143 -10.469624 0.014727   
-gskSummonPotionLife    
-gskSummonPotionLife    
-gskSpawnHint   // ( 50/57 )
-setpos -610.349548 -276.815552 -577.427246;setang 70.322472 -12.380631 0.013456   
-setpos -610.349548 -276.815552 -577.427246;setang 70.322472 -12.380631 0.013456   
-gskSummonPotionLife    
-gskSummonPotionLife    
-gskSpawnHint   // ( 51/57 )
-setpos -610.678223 -277.457153 -580.427612;setang 88.999985 -16.800550 0.014600   
-setpos -610.678223 -277.457153 -580.427612;setang 88.999985 -16.800550 0.014600   
-gskSummonPotionLife    
-gskSummonPotionLife    
-gskSpawnHint   // ( 52/57 )
-setpos -626.083252 -281.166748 -578.885925;setang 79.364296 -136.855667 0.013854   
-setpos -626.083252 -281.166748 -578.885925;setang 79.364296 -136.855667 0.013854   
-gskSummonPotionLife    
-gskSummonPotionLife    
-gskSpawnHint   // ( 53/57 )
-setpos -1448.197632 -290.536774 -210.406326;setang 86.350296 -57.818531 -0.005491  
-setpos -1448.197632 -290.536774 -210.406326;setang 86.350296 -57.818531 -0.005491  
+gskSpawnHint   // ( 17/58 )
+setpos -510.672241 1484.965332 -528.091858;setang 57.127243 -45.946369 0.013567           
+setpos -510.672241 1484.965332 -528.091858;setang 57.127243 -45.946369 0.013567           
+gskSummonPotionLife            
+gskSummonPotionLife            
+gskSpawnHint   // ( 18/58 )
+setpos -507.923889 1493.833740 -530.070129;setang 69.730949 16.424934 0.013414           
+setpos -507.923889 1493.833740 -530.070129;setang 69.730949 16.424934 0.013414           
+gskSummonPotionLife            
+gskSummonPotionLife            
+gskSpawnHint   // ( 19/58 )
+setpos -509.957489 1497.207764 -529.177246;setang 64.121788 41.372463 0.013383           
+setpos -509.957489 1497.207764 -529.177246;setang 64.121788 41.372463 0.013383           
+gskSummonPotionLife            
+gskSummonPotionLife            
+gskSpawnHint   // ( 20/58 )
+setpos -533.718262 1525.740234 -498.295837;setang 66.101494 105.986671 0.013383           
+setpos -533.718262 1525.740234 -498.295837;setang 66.101494 105.986671 0.013383           
+gskSummonNecromancer            
+gskSummonNecromancer            
+gskSpawnHint   // ( 21/58 )
+setpos -552.842712 1592.262207 -497.774902;setang 62.802132 -129.867798 0.013398           
+setpos -552.842712 1592.262207 -497.774902;setang 62.802132 -129.867798 0.013398           
+gskSummonUndead            
+gskSummonUndead            
+gskSpawnHint   // ( 22/58 )
+setpos -547.768799 1590.145752 -498.003326;setang 64.253845 -94.359642 0.013401           
+setpos -547.768799 1590.145752 -498.003326;setang 64.253845 -94.359642 0.013401           
+gskSummonUndead            
+gskSummonUndead            
+gskSpawnHint   // ( 23/58 )
+setpos -543.806458 1590.502930 -500.141449;setang 77.584099 -69.278191 0.013729           
+setpos -543.806458 1590.502930 -500.141449;setang 77.584099 -69.278191 0.013729           
+gskSummonUndead            
+gskSummonUndead            
+gskSpawnHint   // ( 24/58 )
+setpos -536.065857 1491.877686 -467.483917;setang 71.974449 -64.328758 0.013500           
+setpos -536.065857 1491.877686 -467.483917;setang 71.974449 -64.328758 0.013500           
+gskSummonNecroGuardBow            
+gskSummonNecroGuardBow            
+gskSpawnHint   // ( 25/58 )
+setpos -542.012146 1491.186768 -467.356476;setang 71.182541 -102.212852 0.013472           
+setpos -542.012146 1491.186768 -467.356476;setang 71.182541 -102.212852 0.013472           
+gskSummonNecroGuardBow            
+gskSummonNecroGuardBow            
+gskSpawnHint   // ( 26/58 )
+setpos -547.001587 1494.127808 -467.367096;setang 71.248550 -138.842957 0.013462           
+setpos -547.001587 1494.127808 -467.367096;setang 71.248550 -138.842957 0.013462           
+gskSummonNecroGuardBow            
+gskSummonNecroGuardBow            
+gskSpawnHint   // ( 27/58 )
+setpos -323.625580 1517.039673 -532.316345;setang 74.480721 128.889206 0.013570        
+setpos -323.625580 1517.039673 -532.316345;setang 74.480721 128.889206 0.013570        
++gskSummonNecromancerLord         
++gskSummonNecromancerLord         
+gskSpawnHint   // ( 28/58 )
+setpos -310.506775 1504.176636 -532.241760;setang 74.018707 -37.760773 0.013576        
+setpos -310.506775 1504.176636 -532.241760;setang 74.018707 -37.760773 0.013576        
+gskSummonUndead         
+gskSummonUndead         
+gskSpawnHint   // ( 29/58 )
+setpos -321.761749 1501.499512 -531.901306;setang 71.907005 -115.311119 0.013487        
+setpos -321.761749 1501.499512 -531.901306;setang 71.907005 -115.311119 0.013487        
+gskSummonUndead         
+gskSummonUndead         
+gskSpawnHint   // ( 30/58 )
+setpos -326.618530 1507.698364 -534.584290;setang 88.604019 -166.327332 0.014576        
+setpos -326.618530 1507.698364 -534.584290;setang 88.604019 -166.327332 0.014576        
+gskSummonUndead         
+gskSummonUndead         
+gskSpawnHint   // ( 31/58 )
+setpos -312.805756 1517.611694 -533.083862;setang 79.232307 57.183559 0.013836        
+setpos -312.805756 1517.611694 -533.083862;setang 79.232307 57.183559 0.013836        
+gskSummonUndead         
+gskSummonUndead         
+gskSpawnHint   // ( 32/58 )
+setpos -252.999908 1534.961548 -528.175964;setang 72.302940 19.892651 0.013509        
+setpos -252.999908 1534.961548 -528.175964;setang 72.302940 19.892651 0.013509        
+gskSummonNecromancer         
+gskSummonNecromancer         
+gskSpawnHint   // ( 33/58 )
+setpos -286.456573 1466.095093 -535.258301;setang 58.181217 -22.678780 0.013523       
+setpos -286.456573 1466.095093 -535.258301;setang 58.181217 -22.678780 0.013523       
+gskSummonPotionCurePoison        
+gskSummonPotionCurePoison        
+gskSpawnHint   // ( 34/58 )
+setpos -285.673492 1469.606934 -535.593994;setang 60.358788 0.817504 0.013463       
+setpos -285.673492 1469.606934 -535.593994;setang 60.358788 0.817504 0.013463       
+gskSummonPotionCurePoison        
+gskSummonPotionCurePoison        
+gskSpawnHint   // ( 35/58 )
+setpos -286.826569 1472.166748 -533.868103;setang 48.811626 19.164074 0.014167       
+setpos -286.826569 1472.166748 -533.868103;setang 48.811626 19.164074 0.014167       
+gskSummonPotionCurePoison        
+gskSummonPotionCurePoison        
+gskSpawnHint   // ( 36/58 )
+setpos -608.875366 -273.773468 -580.096436;setang 44.060345 27.114285 0.014696      
+setpos -608.875366 -273.773468 -580.096436;setang 44.060345 27.114285 0.014696      
+gskSummonNecroGuard       
+gskSummonNecroGuard       
+gskSpawnHint   // ( 37/58 )
+setpos -621.988953 -283.281006 -581.599731;setang 54.551643 -136.036484 0.013706      
+setpos -621.988953 -283.281006 -581.599731;setang 54.551643 -136.036484 0.013706      
+gskSummonNecroGuard       
+gskSummonNecroGuard       
+gskSpawnHint   // ( 38/58 )
+setpos -624.837524 -277.443298 -583.011292;setang 63.723736 -179.265442 0.013404      
+setpos -624.837524 -277.443298 -583.011292;setang 63.723736 -179.265442 0.013404      
+gskSummonNecroGuard       
+gskSummonNecroGuard       
+gskSpawnHint   // ( 39/58 )
+setpos -621.629761 -270.771393 -582.099060;setang 57.850853 131.563904 0.013556      
+setpos -621.629761 -270.771393 -582.099060;setang 57.850853 131.563904 0.013556      
+gskSummonNecroGuard       
+gskSummonNecroGuard       
+gskSpawnHint   // ( 40/58 )
+setpos -610.013062 -270.790039 -582.038574;setang 57.454926 48.403835 0.013562      
+setpos -610.013062 -270.790039 -582.038574;setang 57.454926 48.403835 0.013562      
+gskSummonNecroGuard       
+gskSummonNecroGuard       
+gskSpawnHint   // ( 41/58 )
+setpos -609.971680 -283.944885 -582.301636;setang 59.170540 -48.550041 0.013492      
+setpos -609.971680 -283.944885 -582.301636;setang 59.170540 -48.550041 0.013492      
+gskSummonNecroGuard       
+gskSummonNecroGuard       
+gskSpawnHint   // ( 42/58 )
+setpos -617.944580 -286.130310 -583.167480;setang 64.713486 -103.593369 0.013382      
+setpos -617.944580 -286.130310 -583.167480;setang 64.713486 -103.593369 0.013382      
+gskSummonNecroGuard       
+gskSummonNecroGuard       
+gskSpawnHint   // ( 43/58 )
+setpos -613.069641 -275.543640 -571.673401;setang 29.606176 -6.376803 0.016092      
+setpos -613.069641 -275.543640 -571.673401;setang 29.606176 -6.376803 0.016092      
+gskSummonPotionLife       
+gskSummonPotionLife       
+gskSpawnHint   // ( 44/58 )
+setpos -611.690979 -276.255859 -573.425964;setang 43.796143 -10.469624 0.014727      
+setpos -611.690979 -276.255859 -573.425964;setang 43.796143 -10.469624 0.014727      
+gskSummonPotionLife       
+gskSummonPotionLife       
+gskSpawnHint   // ( 45/58 )
+setpos -610.349548 -276.815552 -577.427246;setang 70.322472 -12.380631 0.013456      
+setpos -610.349548 -276.815552 -577.427246;setang 70.322472 -12.380631 0.013456      
+gskSummonPotionLife       
+gskSummonPotionLife       
+gskSpawnHint   // ( 46/58 )
+setpos -610.678223 -277.457153 -580.427612;setang 88.999985 -16.800550 0.014600      
+setpos -610.678223 -277.457153 -580.427612;setang 88.999985 -16.800550 0.014600      
+gskSummonPotionLife       
+gskSummonPotionLife       
+gskSpawnHint   // ( 47/58 )
+setpos -626.083252 -281.166748 -578.885925;setang 79.364296 -136.855667 0.013854      
+setpos -626.083252 -281.166748 -578.885925;setang 79.364296 -136.855667 0.013854      
+gskSummonPotionLife       
+gskSummonPotionLife       
+gskSpawnHint   // ( 48/58 )
+setpos -613.069641 -275.543640 -571.673401;setang 29.606176 -6.376803 0.016092    
+setpos -613.069641 -275.543640 -571.673401;setang 29.606176 -6.376803 0.016092    
+gskSummonPotionLife     
+gskSummonPotionLife     
+gskSpawnHint   // ( 49/58 )
+setpos -611.690979 -276.255859 -573.425964;setang 43.796143 -10.469624 0.014727    
+setpos -611.690979 -276.255859 -573.425964;setang 43.796143 -10.469624 0.014727    
+gskSummonPotionLife     
+gskSummonPotionLife     
+gskSpawnHint   // ( 50/58 )
+setpos -610.349548 -276.815552 -577.427246;setang 70.322472 -12.380631 0.013456    
+setpos -610.349548 -276.815552 -577.427246;setang 70.322472 -12.380631 0.013456    
+gskSummonPotionLife     
+gskSummonPotionLife     
+gskSpawnHint   // ( 51/58 )
+setpos -610.678223 -277.457153 -580.427612;setang 88.999985 -16.800550 0.014600    
+setpos -610.678223 -277.457153 -580.427612;setang 88.999985 -16.800550 0.014600    
+gskSummonPotionLife     
+gskSummonPotionLife     
+gskSpawnHint   // ( 52/58 )
+setpos -626.083252 -281.166748 -578.885925;setang 79.364296 -136.855667 0.013854    
+setpos -626.083252 -281.166748 -578.885925;setang 79.364296 -136.855667 0.013854    
+gskSummonPotionLife     
+gskSummonPotionLife     
+gskSpawnHint   // ( 53/58 )
+setpos -1448.197632 -290.536774 -210.406326;setang 86.350296 -57.818531 -0.005491   
+setpos -1448.197632 -290.536774 -210.406326;setang 86.350296 -57.818531 -0.005491   
+gskSummonCrow    
+gskSummonCrow    
+gskSpawnHint   // ( 54/58 )
+setpos -1453.579346 -273.649597 -210.058395;setang 84.172333 93.255241 -0.005529   
+setpos -1453.579346 -273.649597 -210.058395;setang 84.172333 93.255241 -0.005529   
+gskSummonCrow    
+gskSummonCrow    
+gskSpawnHint   // ( 55/58 )
+setpos -921.135803 1278.816040 -536.446411;setang 70.589584 111.701302 -0.005363  
+setpos -921.135803 1278.816040 -536.446411;setang 70.589584 111.701302 -0.005363  
 gskSummonCrow   
 gskSummonCrow   
-gskSpawnHint   // ( 54/57 )
-setpos -1453.579346 -273.649597 -210.058395;setang 84.172333 93.255241 -0.005529  
-setpos -1453.579346 -273.649597 -210.058395;setang 84.172333 93.255241 -0.005529  
+gskSpawnHint   // ( 56/58 )
+setpos -910.003845 1265.363403 -536.023499;setang 67.949860 -32.377045 -0.005412  
+setpos -910.003845 1265.363403 -536.023499;setang 67.949860 -32.377045 -0.005412  
 gskSummonCrow   
 gskSummonCrow   
-gskSpawnHint   // ( 55/57 )
-setpos -921.135803 1278.816040 -536.446411;setang 70.589584 111.701302 -0.005363 
-setpos -921.135803 1278.816040 -536.446411;setang 70.589584 111.701302 -0.005363 
-gskSummonCrow  
-gskSummonCrow  
-gskSpawnHint   // ( 56/57 )
-setpos -910.003845 1265.363403 -536.023499;setang 67.949860 -32.377045 -0.005412 
-setpos -910.003845 1265.363403 -536.023499;setang 67.949860 -32.377045 -0.005412 
-gskSummonCrow  
-gskSummonCrow  
-gskSpawnHint   // ( 57/57 )
-setpos -909.015198 1273.226196 -536.456970;setang 70.655502 18.773262 -0.005371 
-setpos -909.015198 1273.226196 -536.456970;setang 70.655502 18.773262 -0.005371 
-gskSummonCrow  
-gskSummonCrow  
+gskSpawnHint   // ( 57/58 )
+setpos -909.015198 1273.226196 -536.456970;setang 70.655502 18.773262 -0.005371  
+setpos -909.015198 1273.226196 -536.456970;setang 70.655502 18.773262 -0.005371  
+gskSummonCrow   
+gskSummonCrow   
+gskSpawnHint   // ( 58/58 )
+setpos -640.813721 -67.336075 -552.349182;setang 63.196198 -81.577026 -0.006391 
+setpos -640.813721 -67.336075 -552.349182;setang 63.196198 -81.577026 -0.006391 
+gskSummonSeagull  
+gskSummonSeagull  
