@@ -31,6 +31,27 @@
 
 set -Eeu #use this specifically, not to everything or |grep results will fail...: set -o pipefail
 
+############################### CONFIGS
+
+strPathSelf="$(pwd)"
+strPathMainModFolder="${strPathSelf}"
+strPathMainModFolderBasename="$(basename "${strPathSelf}")"
+#if [[ ! -f "${strPathSelf}/$(basename "$0")" ]];then
+	#echo "[ERROR] failed to determine ModMerger path: current path '$strPathSelf' doesnt contain $(basename "$0")"
+	#FUNCexit 1
+#fi
+if [[ ! -f "${strPathSelf}/allMergerScriptsGenericConfig.sh" ]];then
+	echo "[ERROR] failed to determine Main ModMerger Root path: current path '$strPathSelf' doesnt contain 'allMergerScriptsGenericConfig.sh', exiting."
+	FUNCexit 1
+fi
+strPathParent="$(dirname "$strPathSelf")" #help This is the folder where all Layers are placed, it is the parent of game main folder. this is important to be detected like that in case this path is a symlink! when using '../' would navigate to the realpath!
+
+: ${strGameSubRelatFolderWriteAllHere:="WriteNewDataHereOnly"};export strGameSubRelatFolderWriteAllHere #help I know of: mm custom AddOn(overhaul mod) and my new one WriteNewDataHereOnly
+
+: ${strGameMainFolderBasename:="Dark Messiah Might and Magic Single Player"} #help
+: ${strGameInstallMainFolder:="${strPathParent}/${strGameMainFolderBasename}"} #help vanilla game installed main folder
+
+
 ################################# FUNCTIONS
 
 #shopt -s expand_aliases
@@ -106,6 +127,14 @@ trap 'echo "Ctrl+C pressed, exiting..." >&2; exit 1' INT
 
 
 ####################################### MAIN
+
+if [[ ! -f "${strGameInstallMainFolder}/mm.exe" ]];then
+	ls -ld "${strGameInstallMainFolder}"&&:
+	ls -l "${strGameInstallMainFolder}/mm.exe"&&:
+	if ! FUNCaskYesNo "unable to detect mm.exe main executable, continue anyway?";then
+		exit 1
+	fi
+fi
 
 : ${bVerbose:=false} #help enable this to see auto configured variables thru `declare`
 exec 3>/dev/null   # Point FD 3 to /dev/null
@@ -215,24 +244,6 @@ for strExt in "${astrScriptsExt[@]}";do
 done
 
 declare -p strScriptsExtRegexEsc strScriptsExtRegexNorm >&3
-
-strPathSelf="$(pwd)"
-strPathMainModFolder="${strPathSelf}"
-strPathMainModFolderBasename="$(basename "${strPathSelf}")"
-#if [[ ! -f "${strPathSelf}/$(basename "$0")" ]];then
-	#echo "[ERROR] failed to determine ModMerger path: current path '$strPathSelf' doesnt contain $(basename "$0")"
-	#FUNCexit 1
-#fi
-if [[ ! -f "${strPathSelf}/allMergerScriptsGenericConfig.sh" ]];then
-	echo "[ERROR] failed to determine Main ModMerger Root path: current path '$strPathSelf' doesnt contain 'allMergerScriptsGenericConfig.sh', exiting."
-	FUNCexit 1
-fi
-strPathParent="$(dirname "$strPathSelf")" #help This is the folder where all Layers are placed, it is the parent of game main folder. this is important to be detected like that in case this path is a symlink! when using '../' would navigate to the realpath!
-
-: ${strGameSubRelatFolderWriteAllHere:="WriteNewDataHereOnly"};export strGameSubRelatFolderWriteAllHere #help I know of: mm custom AddOn(overhaul mod) and my new one WriteNewDataHereOnly
-
-: ${strGameMainFolderBasename:="Dark Messiah Might and Magic Single Player"} #help
-: ${strGameInstallMainFolder:="${strPathParent}/${strGameMainFolderBasename}"} #help vanilla game installed main folder
 
 : ${strVanillaLayer:="$(ls -d "${strGameInstallMainFolder}"*VanillaGameFiles*)"} #help vanilla game installed files' folder
 if [[ ! -d "$strVanillaLayer" ]];then
