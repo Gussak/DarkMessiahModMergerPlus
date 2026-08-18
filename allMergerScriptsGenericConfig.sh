@@ -773,7 +773,7 @@ function FUNCmapInfo() {
 	fi
 	
 	declare -g FUNCmapInfo_strMapName
-	: ${FUNCmapInfo_strMapName:="$(echo "$FUNCmapInfo_strMapStatus" |sed -r -e "s@${lstrRegexMapPos}@\1@g")"} #help
+	: ${FUNCmapInfo_strMapName:="$(echo "$FUNCmapInfo_strMapStatus" |sed -r -e "s@${lstrRegexMapPos}@\1@g" |tr '[:lower:]' '[:upper:]')"} #help
 	if [[ -z "$FUNCmapInfo_strMapName" ]];then
 		FUNCechoInfo "[ERROR:] no Map Name Detected "
 		return 1
