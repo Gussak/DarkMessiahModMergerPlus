@@ -36,7 +36,7 @@
         "Skills.poison_recovery.level_1.module.0": "//@KEYVALUE_REMOVE",
         "Skills.fast_metabolism.level_1.cost": "//12",
         "Skills.fast_metabolism.level_1.module.0": "//@KEYVALUE_REMOVE",
-        "Skills.mana_regeneration.max_level": "//tried 13 just as a test (it works but the descriptions break, may be because a descriptions to each new level is missing at ... level_13. There is no much point tho, was willing to use at combat skills but then it would requiring updating all items skill level requirements...",
+        "Skills.mana_regeneration.max_level": "//tried 13 just as a test (it works but the descriptions break, may be because a descriptions to each new level is missing at ... level_13. There is no much point tho, was willing to use at combat skills but then it would requiring updating all items skill level requirements... and the level balls wont show up automatically",
         "Skills.mana_regeneration.level_1.cost": "//6.0 \"cost\" \t\t\"12\" // \"module\"\t\"mana_recovery\" is too powerful making mana potions almost useless. module drain wont work here. lowered to 0 and disabled.",
         "Skills.mana_regeneration.level_1.module.0": "//@KEYVALUE_REMOVE",
         "Skills.stealth.level_1.module.0": "//could have a chance to foe resist like the swordXsword during combat",
