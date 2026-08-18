@@ -1,0 +1,107 @@
+map     :  L03_B at: 188 x, -247 y, -238 z
+map     :  L03_B at: 188 x, -247 y, -238 z
+gskSpawnHint   // ( 1/21 )
+setpos -490.312195 1265.988281 -771.241089;setang 69.730751 57.933071 0.013410          
+setpos -490.312195 1265.988281 -771.241089;setang 69.730751 57.933071 0.013410          
+gskSummonPotionMana           
+gskSummonPotionMana           
+gskSpawnHint   // ( 2/21 )
+setpos -490.914490 1250.444092 -769.667847;setang 59.766441 -61.132099 0.013486          
+setpos -490.914490 1250.444092 -769.667847;setang 59.766441 -61.132099 0.013486          
+gskSummonPotionMana           
+gskSummonPotionMana           
+gskSpawnHint   // ( 3/21 )
+setpos -491.202240 1249.889282 -771.516724;setang 71.446548 -64.364769 0.013467          
+setpos -491.202240 1249.889282 -771.516724;setang 71.446548 -64.364769 0.013467          
+gskSummonPotionMana           
+gskSummonPotionMana           
+gskSpawnHint   // ( 4/21 )
+setpos -701.089844 1259.954468 -793.006653;setang 68.806702 -2.324924 0.013420          
+setpos -701.089844 1259.954468 -793.006653;setang 68.806702 -2.324924 0.013420          
+gskSummonSpiderRegular           
+gskSummonSpiderRegular           
+gskSpawnHint   // ( 5/21 )
+setpos -809.468384 1261.221802 -792.564758;setang 66.035194 -2.127261 0.013382          
+setpos -809.468384 1261.221802 -792.564758;setang 66.035194 -2.127261 0.013382          
+gskSummonSpiderRegular           
+gskSummonSpiderRegular           
+gskSpawnHint   // ( 6/21 )
+setpos -1020.799133 1268.206665 -786.774292;setang 63.725586 -150.399673 0.013401          
+setpos -1020.799133 1268.206665 -786.774292;setang 63.725586 -150.399673 0.013401          
+gskSummonSpiderRegular           
+gskSummonSpiderRegular           
+gskSpawnHint   // ( 7/21 )
+setpos -1150.683350 1143.221802 -778.001038;setang 55.805943 -103.276756 0.013640          
+setpos -1150.683350 1143.221802 -778.001038;setang 55.805943 -103.276756 0.013640          
+gskSummonSpiderRegular           
+gskSummonSpiderRegular           
+gskSpawnHint   // ( 8/21 )
+setpos -1155.681763 1145.578735 -781.701294;setang 79.166359 -139.046188 0.013821          
+setpos -1155.681763 1145.578735 -781.701294;setang 79.166359 -139.046188 0.013821          
+gskSummonSpiderRegular           
+gskSummonSpiderRegular           
+gskSpawnHint   // ( 9/21 )
+setpos -1145.454468 1160.306152 -781.616089;setang 78.638435 69.483765 0.013831          
+setpos -1145.454468 1160.306152 -781.616089;setang 78.638435 69.483765 0.013831          
+gskSummonSpiderRegular           
+gskSummonSpiderRegular           
+gskSpawnHint   // ( 10/21 )
+setpos -1337.999390 904.306763 -799.851929;setang 66.825928 119.545967 0.013404          
+setpos -1337.999390 904.306763 -799.851929;setang 66.825928 119.545967 0.013404          
+gskSummon_mushroom_verymedium           
+gskSummon_mushroom_verymedium           
+gskSpawnHint   // ( 11/21 )
+setpos -1333.805054 905.555115 -800.305359;setang 69.663361 91.892220 0.013422          
+setpos -1333.805054 905.555115 -800.305359;setang 69.663361 91.892220 0.013422          
+gskSummon_mushroom_verymedium           
+gskSummon_mushroom_verymedium           
+gskSpawnHint   // ( 12/21 )
+setpos -1327.903809 903.459473 -799.402283;setang 63.988319 51.697521 0.013395          
+setpos -1327.903809 903.459473 -799.402283;setang 63.988319 51.697521 0.013395          
+gskSummon_mushroom_verymedium           
+gskSummon_mushroom_verymedium           
+gskSpawnHint   // ( 13/21 )
+setpos -1173.887329 882.176453 -783.825623;setang 15.746933 -89.807198 0.017092         
+setpos -1173.887329 882.176453 -783.825623;setang 15.746933 -89.807198 0.017092         
+gskSummonFacehugger          
+gskSummonFacehugger          
+gskSpawnHint   // ( 14/21 )
+setpos -1173.938354 881.548340 -784.208374;setang 20.300985 -90.401283 0.016785         
+setpos -1173.938354 881.548340 -784.208374;setang 20.300985 -90.401283 0.016785         
+gskSummonFacehugger          
+gskSummonFacehugger          
+gskSpawnHint   // ( 15/21 )
+setpos -1173.969971 880.861023 -784.712830;setang 25.580976 -90.665459 0.016403         
+setpos -1173.969971 880.861023 -784.712830;setang 25.580976 -90.665459 0.016403         
+gskSummonFacehugger          
+gskSummonFacehugger          
+gskSpawnHint   // ( 16/21 )
+setpos -1173.993530 880.124268 -785.375793;setang 31.719004 -90.797668 0.015919         
+setpos -1173.993530 880.124268 -785.375793;setang 31.719004 -90.797668 0.015919         
+gskSummonFacehugger          
+gskSummonFacehugger          
+gskSpawnHint   // ( 17/21 )
+setpos -1174.059570 879.122925 -786.564697;setang 41.355103 -91.194160 0.015000         
+setpos -1174.059570 879.122925 -786.564697;setang 41.355103 -91.194160 0.015000         
+gskSummonFacehugger          
+gskSummonFacehugger          
+gskSpawnHint   // ( 18/21 )
+setpos -1174.064331 877.907166 -788.950134;setang 57.983685 -91.060730 0.013537         
+setpos -1174.064331 877.907166 -788.950134;setang 57.983685 -91.060730 0.013537         
+gskSummonFacehugger          
+gskSummonFacehugger          
+gskSpawnHint   // ( 19/21 )
+setpos -847.991333 251.601105 -783.973267;setang 30.794964 -1.007372 0.015994        
+setpos -847.991333 251.601105 -783.973267;setang 30.794964 -1.007372 0.015994        
+gskSummonPotionLife         
+gskSummonPotionLife         
+gskSpawnHint   // ( 20/21 )
+setpos -847.529663 253.774994 -784.807739;setang 37.790977 16.614273 0.015367        
+setpos -847.529663 253.774994 -784.807739;setang 37.790977 16.614273 0.015367        
+gskSummonPotionLife         
+gskSummonPotionLife         
+gskSpawnHint   // ( 21/21 )
+setpos -879.342407 263.825287 -790.904358;setang 78.440361 -6.218215 0.013795        
+setpos -879.342407 263.825287 -790.904358;setang 78.440361 -6.218215 0.013795        
+gskSummonPotionMana         
+gskSummonPotionMana         
