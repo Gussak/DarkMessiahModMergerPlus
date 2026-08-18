@@ -95,6 +95,11 @@ DUPLICATE_KEYS_WITHOUT_DUP_VALUES = [
 # Removal directive marker
 REMOVE_DIRECTIVE = "//@KEYVALUE_REMOVE"
 
+FORCE_DIRECTIVE = "//@KEYVALUE_FORCE"
+
+# Initialize global verbosity baseline safely
+verbosity = 0 
+
 # 1. Automate masks using sequential bit-shifting behind the scenes
 class LogConfig(Flag): #only append new options, do not organize (or will have to update the comments..)
         SILENT           = 0
@@ -1048,19 +1053,21 @@ def handle_create(args) -> None:
                 Logger.error(str(e))
                 sys.exit(2)
 
-        patch_data: Dict[str, str] = {}
-        for path, mod_value in mod_tree.items():
-                if path not in orig_tree or orig_tree[path] != mod_value:
-                        patch_data[path] = mod_value
-
-        # For non-dominant duplicate keys, keep only values absent from the original
-        # so that applying the patch appends them instead of overwriting in place.
-        patch_data = _filter_nondom_dup_to_new_only(patch_data, orig_tree, mod_tree)
-
-        # Reuse the same cached lines for comment extraction
+        # ✅ FIX: Parse comments IMMEDIATELY after parsing trees
+        # This ensures mod_comments is populated before checking for FORCE directives
         orig_comments = parse_qct_comments(args.original, lines=orig_lines)
         mod_comments = parse_qct_comments(args.modified, lines=mod_lines)
 
+        patch_data: Dict[str, str] = {}
+        for path, mod_value in mod_tree.items():
+                is_forced = mod_comments.get(path, "").strip() == FORCE_DIRECTIVE
+                if is_forced or path not in orig_tree or orig_tree[path] != mod_value:
+                        patch_data[path] = mod_value
+
+        # For non-dominant duplicate keys, keep only values absent from the original
+        patch_data = _filter_nondom_dup_to_new_only(patch_data, orig_tree, mod_tree)
+
+        # comment_patch generation now uses the already-parsed comments
         comment_patch: Dict[str, str] = {}
 
         # 1. Track added or changed comments
@@ -1075,9 +1082,7 @@ def handle_create(args) -> None:
                         comment_patch[path] = ""
 
         output_destination = args.output
-        if output_destination == "patch.json" or output_destination.startswith(
-                "patch.json"
-        ):
+        if output_destination == "patch.json" or output_destination.startswith("patch.json"):
                 output_destination = args.modified + ".kvpatch.json"
 
         output_patch: Dict[str, Any] = dict(patch_data)
@@ -1187,10 +1192,11 @@ def _patch_duplicate_key(
                 return line, [], True  # skip original line
 
         # FIX: Non-dominant duplicates should ALWAYS be appended, never replaced in-place.
-        # We skip index-based matching here and defer to the auto-append logic in handle_apply.
+        # By returning True (skip original line), we prevent it from leaking into the output prematurely.
         if not is_dominant_key(key):
-            pass
-        elif indexed_path in patches:
+                return line, [], True 
+     
+        if indexed_path in patches:
                 new_val = patches[indexed_path]
                 try:
                         line = VALUE_REPLACEMENT_PATTERN.sub(
@@ -1573,6 +1579,7 @@ Note:
   - Duplicate keys (prop_physics, load_file) are appended, not overwritten
   - Dominant multi-keys erase all originals and replace them exclusively
   - Keys with the comment "//@KEYVALUE_REMOVE" will be stripped from the target
+  - Keys with the comment "//@KEYVALUE_FORCE" will be patched even if identical to the original
   - Use --prettify to fix indentation to match nesting depth
 
 ENVIRONMENT VARIABLES:

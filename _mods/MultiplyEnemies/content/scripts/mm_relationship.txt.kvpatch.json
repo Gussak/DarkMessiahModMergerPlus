@@ -1,0 +1,11 @@
+{
+    "__comments__": {
+        "Relationship.FaceHugger.spider": "//it has difficulty to fight spiders anyway..."
+    },
+    "Relationship.FaceHugger.spider": "LI",
+    "Relationship.FaceHugger.spider_giant": "LI",
+    "Relationship.FaceHugger.spider_mini": "LI",
+    "Relationship.spider.FaceHugger": "LI",
+    "Relationship.spider_giant.FaceHugger": "LI",
+    "Relationship.spider_mini.FaceHugger": "LI"
+}
