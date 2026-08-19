@@ -1,8 +1,12 @@
 #!/bin/bash
 
-if [[ "${1-}" == "--help" ]];then #help ok
-	: #egrep "[#]help" "$0"
-fi
+#if [[ "${1-}" == "--help" ]];then #help ok
+	#: #egrep "[#]help" "$0"
+#fi
+
+export bCheckMainExecutable=false
+while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do pwd;cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
+#NO need this help info:OLD: must be after secOverrideMultiLayerMountPoint.sh or equivalent or just not using layers at all, so mm.exe will be detected
 
 pwd
 strSelfBN="$(basename "$0")"
@@ -12,8 +16,6 @@ if [[ ! -f "./${strSelfBN}" ]];then
 fi
 pwd
 strMainModFolder="$(pwd)"
-
-while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do pwd;cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
 
 : ${bXtermAlready:=false} # self internal use only
 if ! $bXtermAlready;then

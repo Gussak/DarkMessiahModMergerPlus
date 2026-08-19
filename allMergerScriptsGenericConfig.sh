@@ -128,11 +128,14 @@ trap 'echo "Ctrl+C pressed, exiting..." >&2; exit 1' INT
 
 ####################################### MAIN
 
-if [[ ! -f "${strGameInstallMainFolder}/mm.exe" ]];then
-	ls -ld "${strGameInstallMainFolder}"&&:
-	ls -l "${strGameInstallMainFolder}/mm.exe"&&:
-	if ! FUNCaskYesNo "unable to detect mm.exe main executable, continue anyway?";then
-		exit 1
+: ${bCheckMainExecutable:=true} #help disable if is the mounting script calling it like runHelpers.sh
+if $bCheckMainExecutable;then
+	if [[ ! -f "${strGameInstallMainFolder}/mm.exe" ]];then
+		ls -ld "${strGameInstallMainFolder}"&&:
+		ls -l "${strGameInstallMainFolder}/mm.exe"&&:
+		if ! FUNCaskYesNo "unable to detect mm.exe main executable, continue anyway?";then
+			exit 1
+		fi
 	fi
 fi
 
