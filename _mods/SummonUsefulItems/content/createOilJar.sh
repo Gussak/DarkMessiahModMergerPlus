@@ -95,8 +95,10 @@ astrFail=(
 	   "l11_coin2" "models/props/archi/l11/" 1
 	"fail: it spawns and can be pickup but is not detected as ammunition for the bow"
 	   "arrow_classic" "models/items/weapons/arrows/" 5
-	"fail: this item cannot be spawned with give nor test_createentity. it spawns wrong, unable to equip. wont work even with: take_replace_by models/items/armors/player_armors/player_armor_wizard.mdl"
+	"fail: this item cannot be spawned with give nor test_createentity. it spawns wrong, unable to equip. wont work even with: take_replace_by models/items/armors/player_armors/player_armor_wizard.mdl. see gskBTSarmorWizard instead"
 		"player_armor_wizard" "models/items/armors/player_armors/" 0
+	"fail: do not spawn correctly, see gskBTSweaponAxe instead"
+		"axe" "models/items/weapons/axes/" 0 # this item cannot be spawned with give nor test_createentity. It spawns different (weaker) but may suffice...
 )
 nInputParamsSz=6
 astrInputParams=( #TODO remove the useless to free the very limited slots
@@ -111,7 +113,6 @@ astrInputParams=( #TODO remove the useless to free the very limited slots
 	"item_food_bread02_row"    "bread02_raw"     "models/items/provisions/bread02/"  "barrel01"     "models/props/furnitures/humans/" 100
 	"item_food_green_apple"    "green_apple"     "models/items/provisions/fruit/"    "l11_coin" "models/props/archi/l11/" 500 #aim on floor, useful to create indestructible low barriers, unable to jump over, good for changing map areas access thru gskmap
 	"item_food_leek03"         "leek03"          "models/items/provisions/leeks/"    "stool01" "models/props/furnitures/humans/" 500 #can be used to provide infinite fire arrows thru fire spell on it
-	"item_food_egg"            "egg"             "models/items/provisions/egg/"        "axe" "models/items/weapons/axes/" 0 # this item cannot be spawned with give nor test_createentity. It spawns different (weaker) but may suffice...
 	
 	############## testing
 
@@ -120,6 +121,7 @@ astrInputParams=( #TODO remove the useless to free the very limited slots
 #		"take_replace_by"	"models/items/weapons/quiver_guard/quiver_guard.mdl"
 	
 	############## NOT OVERRIDEN
+	"item_food_egg"            "egg"             "models/items/provisions/egg/"      "" "" 0
 	"item_food_garlic_piece01" "garlic_b1"       "models/items/provisions/garlic/"   "" "" 0
 	"item_food_garlic_piece02" "garlic_b2"       "models/items/provisions/garlic/"   "" "" 0
 	"item_food_mushroom_medium" "mushroom_medium" "models/items/provisions/mushroom/"  "" "" 0
