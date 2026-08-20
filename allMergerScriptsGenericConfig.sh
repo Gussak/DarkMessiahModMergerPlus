@@ -139,6 +139,15 @@ if $bCheckMainExecutable;then
 	fi
 fi
 
+: ${bCheckModLauncherModsProperlyInstalled:=true} #help todoo
+if $bCheckModLauncherModsProperlyInstalled;then
+	if find "${strPathParent}/" -iname "info.json" |egrep -v "_mods.*info.json";then
+		if ! FUNCaskYesNo "Some ModLauncher mod is not properly installed.";then
+			exit 1
+		fi
+	fi
+fi
+
 : ${bVerbose:=false} #help enable this to see auto configured variables thru `declare`
 exec 3>/dev/null   # Point FD 3 to /dev/null
 if $bVerbose;then

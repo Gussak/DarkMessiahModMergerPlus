@@ -79,6 +79,11 @@ if [[ -n "$@" ]];then "$@";exit;fi #help you can run other commands with the cor
 ############################ AUTO LOAD SAVEGAME
 function FUNCautoLoadLastSave() {
 	strFl="_mods/core/user_settings.json"
+	
+	if ! egrep 'linux_deck.*true' "$strFl";then
+		FUNCwait10s "warning, linux_deck option is disabled"
+	fi
+	
 	if [[ "$1" == enable ]];then
 		# removing from ignore will activate it
 		jq '.ignore -= ["AutoLoadLastQuickSave"]' "$strFl" | sponge "$strFl"
@@ -142,6 +147,8 @@ astrOptList+=(
 	
 	# game cfg tips from RTX mod (look for updates there)
 	+mat_softwarelighting 0 +sv_cheats 1 +r_frustumcullworld 0 +r_portalsopenall 1 +mat_very_high_texture 1 +mat_picmip 0 +mat_colorcorrection 0 +r_drawdetailprops 1 +datacachesize 128 +r_rootlod 0 +r_lod -1 +r_modellodscale 0 +map_background none +r_occlusion 0 +r_PortalTestEnts 0 +r_propsmaxdist 99999
+	
+	-sdk
 )
 
 #TODO the other instance must be run after the menu of mods show up and is loaded, or the json changes may cause problems, for now just wait manually
@@ -150,6 +157,7 @@ set -x
 export __GL_THREADED_OPTIMIZATIONS=0 #AI prevent NVidia multithread that may cause problems for this old 32bits game
 export WINE_LARGE_ADDRESS_AWARE=1 #AI forces Wine to use clean 32-bit memory addressing for the Source Engine, preventing the memory allocation failure that is locking up your primary GPU.
 export DISABLE_VK_LAYER_VALVE_steam_overlay_1=1 #Disable Steam Overlay Hooking Conflict. can also place at dxvk.conf (where mm.exe is, create if needed) add: DISABLE_VK_LAYER_VALVE_steam_overlay_1=1
+export WINEDLLOVERRIDES="binkw32,dinput8,version,dmrestoration_client,dmrestoration_server,dmmm_restoration=n,b" #dont put d3d9,dxgi as dxvk may break
 declare -p __GL_THREADED_OPTIMIZATIONS
 wine "$strExecutable" "${astrOptList[@]}"
 set +x
