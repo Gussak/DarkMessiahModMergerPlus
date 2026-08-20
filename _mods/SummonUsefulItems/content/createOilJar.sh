@@ -84,14 +84,14 @@ function FUNCreplace() {
 
 astrFail=(
 	"fail cant pickup" "quiver_guard"
-	   "quiver_guard" "models/items/weapons/quiver_guard/" 100
+	   "quiver_guard" "models/items/weapons/quiver_guard/" 100 
 	"fail, no model and ends up as food and causes super lag"
 	   "money01" "models/items/jewels/money/" 1
 	"fail cant pickup"
 	   "quiver_orc" "models/items/weapons/quiver_orc/" 100
 	"fail cant pickup"
 	   "arrow_bal_exp" "models/items/weapons/arrows/" 20
-	"fail useless and look weird"
+	"fail useless and look broken"
 	   "l11_coin2" "models/props/archi/l11/" 1
 	"fail: it spawns and can be pickup but is not detected as ammunition for the bow"
 	   "arrow_classic" "models/items/weapons/arrows/" 5
