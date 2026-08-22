@@ -179,11 +179,9 @@ alias +gsk${lstrType}SwitchPrev gsk${lstrType}Switch_${iPrevious}; \
 alias +gsk${lstrType}Switch     gsk${lstrType}Switch_${iNext}; \
 \""
 	echo "alias +gsk${lstrType}Spawn_${liCurrentIndex} \"\
-echo gskSpawnHint; \
-gskTargetPos;gskTargetPos; \
-getpos;getpos; \
-echo ${strNPC}; echo ${strNPC}; \
-${strNPC}; \
+gskSpawnHintData; \
+echo ${strSpawnCommand}; echo ${strSpawnCommand}; \
+${strSpawnCommand}; \
 \"" #this way, it creates a reusable log to quickly place all NPCs again!!! OBS.: getpos 2 times is because the engine bugs and may not print one character some times
 	echo "alias -gsk${lstrType}Spawn_${liCurrentIndex} \"\
 ent_setname gskSpawnNameOk; \
@@ -416,6 +414,7 @@ if $bCreateSpawnsForCurrentMap;then
 	done
 	
 	for((i=0;i<${#astrAllLines[@]};i++));do
+		#set -x
 		strMODE=SpawnNPC
 		iTotEntryDataLines=7
 		strLine="${astrAllLines[$i]}"
@@ -440,18 +439,25 @@ if $bCreateSpawnsForCurrentMap;then
 			
 			FUNCprepareCleanDataOriginBkp
 			
+			function FUNCeditCondumpAtLn() {
+				FUNCechoInfo "[ERROR:invalidPOS] ( the engine sometimes do not print some letters!!! :O ), FailFixBiggestLineConflictFor: $1"
+				"$strExecEdit" "$strFlCondump:$((iLnData+1))"
+				FUNCexit 1 "you need to re-run the script"
+			}
+			
 			((iLnData++))&&:;strTargetPos="${astrAllLines[$iLnData]}"
 			((iLnData++))&&:;strTargetPosChk="${astrAllLines[$iLnData]}" #as engine may not print one char! :O
-			if ! strTargetPos="$(FUNCreturnBiggestLinePipe "$strTargetPos" "$strTargetPosChk")";then FUNCexit 1 "TargetPos";fi
+			if ! strTargetPos="$(FUNCreturnBiggestLinePipe "$strTargetPos" "$strTargetPosChk")";then FUNCeditCondumpAtLn "TargetPos";fi
 			
 			((iLnData++))&&:;strSelfPosAngle="${astrAllLines[$iLnData]}"
 			((iLnData++))&&:;strSelfPosAngleChk="${astrAllLines[$iLnData]}" #as engine may not print one char! :O
-			if ! strSelfPosAngle="$(FUNCreturnBiggestLinePipe "$strSelfPosAngle" "$strSelfPosAngleChk")";then
-				declare -p strSelfPosAngle strSelfPosAngleChk
-				FUNCechoInfo "[ERROR:invalidPOS] ( the engine sometimes do not print some letters!!! :O )"
-				"$strExecEdit" "$strFlCondump:$((iLnData+1))" #editors begin in line 1 not 0
-				FUNCexit 1
-			fi
+			if ! strSelfPosAngle="$(FUNCreturnBiggestLinePipe "$strSelfPosAngle" "$strSelfPosAngleChk")";then FUNCeditCondumpAtLn "SelfPosAngle";fi
+			#if ! strSelfPosAngle="$(FUNCreturnBiggestLinePipe "$strSelfPosAngle" "$strSelfPosAngleChk")";then
+				#declare -p strSelfPosAngle strSelfPosAngleChk
+				#FUNCechoInfo "[ERROR:invalidPOS] ( the engine sometimes do not print some letters!!! :O )"
+				#"$strExecEdit" "$strFlCondump:$((iLnData+1))" #editors begin in line 1 not 0
+				#FUNCexit 1
+			#fi
 			#if [[ "$strSelfPosAngle" != "$strSelfPosAngleChk" ]];then
 				#if $bAutoFixMissingChars;then
 					#if((${#strSelfPosAngleChk} > ${#strSelfPosAngle}));then
@@ -473,36 +479,29 @@ if $bCreateSpawnsForCurrentMap;then
 			bSetName=true
 			case "$strMODE" in
 				SpawnNPC)
-					((iLnData++))&&:;strNPC="$(    echo "${astrAllLines[$iLnData]}" |awk '{print $1}')"
-					((iLnData++))&&:;strNPCchk="$( echo "${astrAllLines[$iLnData]}" |awk '{print $1}')"
-					if [[ "$strNPC" != "$strNPCchk" ]];then
-						if $bAutoFixMissingChars;then
-							if((${#strNPCchk} > ${#strNPC}));then
-								strNPC="$strNPCchk"
-							fi
-						fi
-					fi
+					((iLnData++))&&:;strSpawnCommand="$(    echo "${astrAllLines[$iLnData]}" |awk '{print $1}')"
+					((iLnData++))&&:;strSpawnCommandChk="$( echo "${astrAllLines[$iLnData]}" |awk '{print $1}')"
+					if ! strSpawnCommand="$(FUNCreturnBiggestLinePipe "$strSpawnCommand" "$strSpawnCommandChk")";then FUNCeditCondumpAtLn "SpawnCommand";fi
+					#if [[ "$strNPC" != "$strNPCchk" ]];then
+						#if $bAutoFixMissingChars;then
+							#if((${#strNPCchk} > ${#strNPC}));then
+								#strNPC="$strNPCchk"
+							#fi
+						#fi
+					#fi
 					
-					if [[ "$strNPC" == "+gskInteractUseMoreFoes" ]];then
+					if [[ "$strSpawnCommand" == "+gskInteractUseMoreFoes" ]];then
 						bSetName=false;
 						#strAliasValue+="mm_host_timescale 10; gskWait333ms; "
-					elif [[ "$strNPC" =~ ^dummy.* ]];then #help it usually comes with a hint like dummyJustTeleportHere
+					elif [[ "$strSpawnCommand" =~ ^dummy.* ]];then #help it usually comes with a hint like dummyJustTeleportHere
 						bSetName=false;
-					elif [[ "$strNPC" == "gskSkillPointAdd" ]];then
+					elif [[ "$strSpawnCommand" == "gskSkillPointAdd" ]];then
 						bSetName=false;
 					else
-						FUNCvalidateNPC "$strNPC" "$strFlCondump" "$iLnData"
+						FUNCvalidateNPC "$strSpawnCommand" "$strFlCondump" "$iLnData"
 					fi
-					#if [[ "$strNPC" == "+gskInteractUseDev" ]];then
-						#strAliasInfo+=":+gskInteractUseDev; "
-						#strAliasValue+="${strAliasInfo}; "
-						#bInteractUseMode=true;
-					#else
-						#strAliasInfo+=":${strNPC#mm_npc_create_}; "
-						#strAliasValue+="${strNPC}; ${strAliasInfo}; "
-					#fi
-					strAliasInfo+=":${strNPC#mm_npc_create_}; "
-					strAliasValue+="${strNPC}; ${strAliasInfo}; "
+					strAliasInfo+=":${strSpawnCommand#mm_npc_create_}; "
+					strAliasValue+="gskSpawnHintData; ${strSpawnCommand}; ${strAliasInfo}; "
 					;;
 				#InteractUse)
 					#strAliasValue+="+use; ${strAliasInfo}:${strDropItem#gskMapDevDrop}; "
@@ -588,17 +587,17 @@ else # create spawner aliases
 	#  mm_npc_create npc_necro_guard models/npc/Necroguard/npc_necroguard.mdl item_potion_life item_potion_life weapon_arx_short_sword weapon_mm_shield_necroguard
 	
 	for((i=0;i<${#astrNPC[@]};i++));do
-		strNPC="${astrNPC[$i]}"
+		strSpawnCommand="${astrNPC[$i]}"
 		iNext=$((i+1))&&:
 		if(( i == (${#astrNPC[@]}-1) ));then
 			iNext=0
 		fi
 		case "$strSpawnerMode" in
 			MoreFoes)
-				strShortName="${strNPC#mm_npc_create_}"
+				strShortName="${strSpawnCommand#mm_npc_create_}"
 				;;
 			Summoning)
-				strShortName="[${astrNPCsummon_Type[$i]}] $(echo "${strNPC}" |sed -r -e 's@[+]*gskSummon(.*)@\1@g') HP${astrNPCsummon_Cost[${i}]}"
+				strShortName="[${astrNPCsummon_Type[$i]}] $(echo "${strSpawnCommand}" |sed -r -e 's@[+]*gskSummon(.*)@\1@g') HP${astrNPCsummon_Cost[${i}]}"
 				;;
 			*) echo "invalid strSpawnerMode='$strSpawnerMode'" >&2; exit 1;;
 		esac
