@@ -395,9 +395,9 @@ if $bCreateSpawnsForCurrentMap;then
 	FUNCechoAndFillFile "// AUTO GENERATED WITH $(basename "$0"). DO NOT PATCH! Patch the '${strFlCondumpClean}' file instead!"
 	FUNCechoAndFillFile "// FILL MAP WITH NPCs, total $nTotSpawns"
 	#FUNCechoAndFillFile "alias gskCCnpcSpawn_helper \"\""
-	strCmdsErasers="gskManaRegEraser; gskHMHurtmeEraser1of3; gskHMHurtmeEraser2of3; gskHMHurtmeEraser3of3; alias gskSmnWORK gskSmnWORKmoreFoes" #erasers are  to avoid messing the player HP and Mana pools and remove effects that slowdown things like placing more foes at least
+	strCmdsErasers="gskManaRegEraser; gskHMHurtmeEraser1of3; gskHMHurtmeEraser2of3; gskHMHurtmeEraser3of3; alias gskSmnWORK gskSmnWORKmoreFoes; alias gskSpawnHintDataErasable ErasedHintData" #erasers are  to avoid messing the player HP and Mana pools and remove effects that slowdown things like placing more foes at least
 	#strCmdsON=" gskEchoOn; +duck; gskDevGodModeToggles; gskEffect100; ${strCmdsErasers}; alias gskWaitInteractDev gskWait333ms; " # do not use host_timescale 0.01 as it will mess teleporting. +duck is to help to fit yourself in smaller places causing less issues
-	strCmdsON=" gskEchoOn; +duck; gskDevGodModeToggles; gskEffect100; ${strCmdsErasers}; " # do not use host_timescale 0.01 as it will mess teleporting. +duck is to help to fit yourself in smaller places causing less issues
+	strCmdsON=" gskEchoOn; +duck; gskDevGodModeToggles; gskEffect100; status;status; ${strCmdsErasers}; " # do not use host_timescale 0.01 as it will mess teleporting. +duck is to help to fit yourself in smaller places causing less issues. map data is to help on recreating the file with new lines of data later
 	strCmdsOFF=" -duck; gskDevGodModeToggles; gskEffectOFF; gskEchoOff; +gskReloadCfgs " # +gskReloadCfgs is to restore what was erased
 	FUNCechoAndFillFile "alias +gskCCnpcSpawn_next \"${strCmdsON}; +gskCCnpcSpawn_$( printf %03d $((iSpawnCount)) )\"" # initializes with some dev toggles
 	#for((i=0;i<${#astrSpawnHintList[@]};i+=iDataLines));do
@@ -413,10 +413,14 @@ if $bCreateSpawnsForCurrentMap;then
 		echo "gskMapMessage ${astrFinalMessages[$iMsg]}" >>"$strFlCondumpClean"
 	done
 	
+	#: ${bCollectTargetPos:=true} #help temporary to update with old files
+	bCollectTargetPos=true
+	if ! egrep -q "prop at .* missing modelname" "$strFlCondump";then bCollectTargetPos=false;fi
+	iTotEntryDataLines=7
+	if ! $bCollectTargetPos;then ((iTotEntryDataLines-=2))&&:;fi
 	for((i=0;i<${#astrAllLines[@]};i++));do
 		#set -x
 		strMODE=SpawnNPC
-		iTotEntryDataLines=7
 		strLine="${astrAllLines[$i]}"
 		if [[ "$strLine" =~ ^gskSpawnHint.* ]];then
 			strCount="$(     printf %03d $((iSpawnCount  )) )"
@@ -445,9 +449,11 @@ if $bCreateSpawnsForCurrentMap;then
 				FUNCexit 1 "you need to re-run the script"
 			}
 			
-			((iLnData++))&&:;strTargetPos="${astrAllLines[$iLnData]}"
-			((iLnData++))&&:;strTargetPosChk="${astrAllLines[$iLnData]}" #as engine may not print one char! :O
-			if ! strTargetPos="$(FUNCreturnBiggestLinePipe "$strTargetPos" "$strTargetPosChk")";then FUNCeditCondumpAtLn "TargetPos";fi
+			if $bCollectTargetPos;then
+				((iLnData++))&&:;strTargetPos="${astrAllLines[$iLnData]}"
+				((iLnData++))&&:;strTargetPosChk="${astrAllLines[$iLnData]}" #as engine may not print one char! :O
+				if ! strTargetPos="$(FUNCreturnBiggestLinePipe "$strTargetPos" "$strTargetPosChk")";then FUNCeditCondumpAtLn "TargetPos";fi
+			fi
 			
 			((iLnData++))&&:;strSelfPosAngle="${astrAllLines[$iLnData]}"
 			((iLnData++))&&:;strSelfPosAngleChk="${astrAllLines[$iLnData]}" #as engine may not print one char! :O
@@ -501,7 +507,7 @@ if $bCreateSpawnsForCurrentMap;then
 						FUNCvalidateNPC "$strSpawnCommand" "$strFlCondump" "$iLnData"
 					fi
 					strAliasInfo+=":${strSpawnCommand#mm_npc_create_}; "
-					strAliasValue+="gskSpawnHintData; ${strSpawnCommand}; ${strAliasInfo}; "
+					strAliasValue+="gskSpawnHintData;echo ${strSpawnCommand};echo ${strSpawnCommand}; ${strSpawnCommand}; ${strAliasInfo}; "
 					;;
 				#InteractUse)
 					#strAliasValue+="+use; ${strAliasInfo}:${strDropItem#gskMapDevDrop}; "
