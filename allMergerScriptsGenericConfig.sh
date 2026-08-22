@@ -117,9 +117,11 @@ FUNCwait60s() { #help [CustomMSG]
 };export -f FUNCwait10s
 
 FUNCexit() {
-	if [[ $* -gt 0 ]];then
+	if [[ $# -gt 0 ]];then
 		if(($1 != 0));then
-			echo "[ERROR:${FUNCNAME[@]}:${BASH_LINENO[@]}] error=$1" >&2 #because the script keeps running and wont stop not abruptly exit to terminal anymore!!!! :(, this is the only way to see problems now... :(
+			local lnErr=$1
+			shift
+			echo "[ERROR:${FUNCNAME[@]}:${BASH_LINENO[@]}] error=$lnErr, ${@-}" >&2 #because the script keeps running and wont stop not abruptly exit to terminal anymore!!!! :(, this is the only way to see problems now... :(
 			read -n 1 >&2
 		fi
 		exit $1
@@ -784,18 +786,52 @@ function FUNCgetNewestCondump() {
 	echo "$FUNCgetNewestCondump_strFlCondump"
 	return 0
 };export -f FUNCgetNewestCondump
+
+export strPipeAWKbiggestLine='length($0) > max { max = length($0); delete lines; lines[$0]; next } length($0) == max { lines[$0] } END { for (l in lines) print l }'
+function FUNCreturnBiggestLinePipe() { #help accepts working as a pipe for lines. accepts each line as one param. accepts an array of lines as param (pass just the array name).
+	local lstrOutput
+	
+	if [[ $# == 1 ]];then
+		local -n lstrArray="$1"
+		local lstrLine
+		lstrOutput="$(for lstrLine in "${lstrArray[@]}";do echo "$lstrLine";done |awk "$strPipeAWKbiggestLine" |sort -u)"
+	else
+		lstrOutput="$(
+			if [[ -n "${1-}" ]];then
+				while [[ $# -gt 0 ]];do echo "$1";shift;done |awk "$strPipeAWKbiggestLine" |sort -u
+			else
+				while read str;do echo "$str";done |awk "$strPipeAWKbiggestLine" |sort -u
+			fi
+		)"
+	fi
+	
+	if(( $(echo "$lstrOutput" |wc -l) != 1 ));then
+		FUNCechoInfo "[ERROR:] not exactly 1 biggest line, conflicts (because usually the biggest one is the right one): '$lstrOutput'";
+		return 1;
+	else
+		echo "$lstrOutput"
+	fi
+	
+	return 0
+};export -f FUNCreturnBiggestLinePipe
+
 function FUNCmapInfo() {
 	local lstrFlCondump="$1"
 	
 	# map     :  L00 at: -1385 x, -4444 y, 343 z
 	# map     :  l02_b1 at: -4902 x, -10930 y, 367 z
 	local lstrRegexMapPos='^map\s*:\s*([a-zA-Z0-9_-]*)\s*at:\s*(.*)'
-	local lstrAWKbiggestLine='length($0) > max { max = length($0); delete lines; lines[$0]; next } length($0) == max { lines[$0] } END { for (l in lines) print l }'
-	declare -g FUNCmapInfo_strMapStatus="$( ugrep "${lstrRegexMapPos}" "$lstrFlCondump" |tail -n 2 |awk "$lstrAWKbiggestLine" )" #grab last 2 map info dumps, so no need to clean console log
-	if(($(echo "$FUNCmapInfo_strMapStatus" |wc -l) != 1));then
-		FUNCechoInfo "[ERROR:] 2 biggest lines conflicting: $FUNCmapInfo_strMapStatus (because usually the biggest one is the right one)";
-		return 1;
+	#local lstrAWKbiggestLine='length($0) > max { max = length($0); delete lines; lines[$0]; next } length($0) == max { lines[$0] } END { for (l in lines) print l }'
+	#declare -g FUNCmapInfo_strMapStatus="$( ugrep "${lstrRegexMapPos}" "$lstrFlCondump" |tail -n 2 |awk "$lstrAWKbiggestLine" )" #grab last 2 map info dumps, so no need to clean console log
+	#if(($(echo "$FUNCmapInfo_strMapStatus" |wc -l) != 1));then
+		#FUNCechoInfo "[ERROR:] 2 biggest lines conflicting: $FUNCmapInfo_strMapStatus (because usually the biggest one is the right one)";
+		#return 1;
+	#fi
+	if ! FUNCmapInfo_strMapStatus="$( ugrep "${lstrRegexMapPos}" "$lstrFlCondump" |tail -n 2 |FUNCreturnBiggestLinePipe )";then #grab last 2 map info dumps, so no need to clean console log
+		return 1
 	fi
+	
+	declare -g FUNCmapInfo_strMapStatus
 	
 	declare -g FUNCmapInfo_strMapName
 	: ${FUNCmapInfo_strMapName:="$(echo "$FUNCmapInfo_strMapStatus" |sed -r -e "s@${lstrRegexMapPos}@\1@g" |tr '[:lower:]' '[:upper:]')"} #help
@@ -808,7 +844,7 @@ function FUNCmapInfo() {
 	local lstrSedTargetPosRegex="^prop at (.*) missing modelname$"
 	if egrep -q "${lstrSedTargetPosRegex}" "$lstrFlCondump";then #target mode
 		#FUNCmapInfo_strPosRestore="$(echo "${FUNCmapInfo_strMapStatus}" |sed -r -e "s@${lstrRegexMapPos}@\2@g" |tr -d '\r')"
-		FUNCmapInfo_strPosRestore="$(ugrep "${lstrSedTargetPosRegex}" "$lstrFlCondump" |tail -n 2 |awk "$lstrAWKbiggestLine" |sed -r -e "s@${lstrSedTargetPosRegex}@\1@g" |tr -d '\r')"
+		FUNCmapInfo_strPosRestore="$(ugrep "${lstrSedTargetPosRegex}" "$lstrFlCondump" |tail -n 2 |FUNCreturnBiggestLinePipe |sed -r -e "s@${lstrSedTargetPosRegex}@\1@g" |tr -d '\r')"
 		#prop at -3307 -12337 -222 missing modelname
 		#prop at -3307 -12337 -222 missing modelname
 	else

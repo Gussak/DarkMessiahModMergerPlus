@@ -180,7 +180,8 @@ alias +gsk${lstrType}Switch     gsk${lstrType}Switch_${iNext}; \
 \""
 	echo "alias +gsk${lstrType}Spawn_${liCurrentIndex} \"\
 echo gskSpawnHint; \
-getpos; getpos; \
+gskTargetPos;gskTargetPos; \
+getpos;getpos; \
 echo ${strNPC}; echo ${strNPC}; \
 ${strNPC}; \
 \"" #this way, it creates a reusable log to quickly place all NPCs again!!! OBS.: getpos 2 times is because the engine bugs and may not print one character some times
@@ -416,7 +417,7 @@ if $bCreateSpawnsForCurrentMap;then
 	
 	for((i=0;i<${#astrAllLines[@]};i++));do
 		strMODE=SpawnNPC
-		iTotEntryDataLines=5
+		iTotEntryDataLines=7
 		strLine="${astrAllLines[$i]}"
 		if [[ "$strLine" =~ ^gskSpawnHint.* ]];then
 			strCount="$(     printf %03d $((iSpawnCount  )) )"
@@ -439,20 +440,30 @@ if $bCreateSpawnsForCurrentMap;then
 			
 			FUNCprepareCleanDataOriginBkp
 			
+			((iLnData++))&&:;strTargetPos="${astrAllLines[$iLnData]}"
+			((iLnData++))&&:;strTargetPosChk="${astrAllLines[$iLnData]}" #as engine may not print one char! :O
+			if ! strTargetPos="$(FUNCreturnBiggestLinePipe "$strTargetPos" "$strTargetPosChk")";then FUNCexit 1 "TargetPos";fi
+			
 			((iLnData++))&&:;strSelfPosAngle="${astrAllLines[$iLnData]}"
 			((iLnData++))&&:;strSelfPosAngleChk="${astrAllLines[$iLnData]}" #as engine may not print one char! :O
-			if [[ "$strSelfPosAngle" != "$strSelfPosAngleChk" ]];then
-				if $bAutoFixMissingChars;then
-					if((${#strSelfPosAngleChk} > ${#strSelfPosAngle}));then
-						strSelfPosAngle="$strSelfPosAngleChk"
-					fi
-				else
-					declare -p strSelfPosAngle strSelfPosAngleChk
-					FUNCechoInfo "[ERROR:invalidPOS] ( the engine sometimes do not print some letters!!! :O )"
-					"$strExecEdit" "$strFlCondump:$((iLnData+1))" #editors begin in line 1 not 0
-					FUNCexit 1
-				fi
+			if ! strSelfPosAngle="$(FUNCreturnBiggestLinePipe "$strSelfPosAngle" "$strSelfPosAngleChk")";then
+				declare -p strSelfPosAngle strSelfPosAngleChk
+				FUNCechoInfo "[ERROR:invalidPOS] ( the engine sometimes do not print some letters!!! :O )"
+				"$strExecEdit" "$strFlCondump:$((iLnData+1))" #editors begin in line 1 not 0
+				FUNCexit 1
 			fi
+			#if [[ "$strSelfPosAngle" != "$strSelfPosAngleChk" ]];then
+				#if $bAutoFixMissingChars;then
+					#if((${#strSelfPosAngleChk} > ${#strSelfPosAngle}));then
+						#strSelfPosAngle="$strSelfPosAngleChk"
+					#fi
+				#else
+					#declare -p strSelfPosAngle strSelfPosAngleChk
+					#FUNCechoInfo "[ERROR:invalidPOS] ( the engine sometimes do not print some letters!!! :O )"
+					#"$strExecEdit" "$strFlCondump:$((iLnData+1))" #editors begin in line 1 not 0
+					#FUNCexit 1
+				#fi
+			#fi
 			
 			bInteractUseMode=false
 			strAliasValue=""
