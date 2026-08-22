@@ -52,23 +52,30 @@ function FUNCreplace() {
 		return
 	fi
 	
-	local lstrPathVanillaAllFiles="${strVanillaAllExtractedFilesPath}/mm/${lstrCopyFromRelatPath}/"
+	local lstrPathVanillaBase="${strVanillaAllExtractedFilesPath}/mm/${lstrCopyFromRelatPath}/"
 
-	if [[ ! -f "${lstrPathVanillaAllFiles}/${lstrCopyFromModelFile}.mdl" ]];then
-		FUNCechoInfo "[ERROR] file '${lstrPathVanillaAllFiles}/${lstrCopyFromModelFile}.mdl' not found, did you extract all vanilla files from all VPKs?"
+	if [[ ! -f "${lstrPathVanillaBase}/${lstrCopyFromModelFile}.mdl" ]];then
+		FUNCechoInfo "[ERROR] file '${lstrPathVanillaBase}/${lstrCopyFromModelFile}.mdl' not found, did you extract all vanilla files from all VPKs?"
 		exit 1
 	fi
 
-	mapfile -t astrFl < <(cd "${lstrPathVanillaAllFiles}/"; find ./ -type f -maxdepth 1 -mindepth 1 |sed -r -e 's@^./(.*)@\1@g')
-	#declare -p astrFl;exit
+	mapfile -t astrFl < <(
+		cd "${lstrPathVanillaBase}/";
+		find ./ \
+			-maxdepth 1 -mindepth 1 \
+			-type f \
+			-iregex ".*${lstrCopyFromModelFile}[._].*" \
+				|sed -r -e 's@^./(.*)@\1@g'
+	) # _ is mainly for _lod... files
+	declare -p astrFl
 	local lstrFl
 	for lstrFl in "${astrFl[@]}";do
 		mkdir -vp "${lstrReplaceWhatFolder}"
 		#TODO copy the original .qct file and apply a patch like: "take_replace_by"	"models/items/weapons/arrows/arrow_classic.mdl" (but for ammo nothing seems to work, may work with other things tho)
 		local lstrFlTo="${lstrReplaceWhatFolder}/${lstrReplaceWhatModelBN}${lstrFl#${lstrCopyFromModelFile}}"
-		if ! cp -vf "${lstrPathVanillaAllFiles}/$lstrFl" "$lstrFlTo";then
+		if ! cp -vf "${lstrPathVanillaBase}/$lstrFl" "$lstrFlTo";then
 			declare -p lstrReplaceWhatCmdID lstrReplaceWhatModelBN lstrReplaceWhatFolder lstrCopyFromModelFile lstrCopyFromRelatPath
-			FUNCechoInfo "ERROR: '${lstrPathVanillaAllFiles}/$lstrFl' '$lstrFlTo'"
+			FUNCechoInfo "ERROR: '${lstrPathVanillaBase}/$lstrFl' '$lstrFlTo'"
 			read -n 1
 			exit 1
 		fi
@@ -158,6 +165,7 @@ fi
 
 for((i=0;i<${#astrInputParams[@]};i+=nInputParamsSz));do
 	FUNCreplace "${astrInputParams[@]:$i:$nInputParamsSz}"
+	#exit
 	#bFound=false
 	for((j=0;j<${#astrDetectedDB[@]};j++));do
 		#declare -p j astrDetectedDB
