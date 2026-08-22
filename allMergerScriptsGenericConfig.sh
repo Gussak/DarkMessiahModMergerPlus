@@ -990,13 +990,22 @@ function FUNCfixAlias() {
 };export -f FUNCfixAlias
 
 function FUNCchkLoadedModDlls() {
-	local lnGamePid lastrFlFoundDlls lastrFlLoadedDlls
-	if ! lnGamePid=$(pgrep -f "mm.exe .* -sdk" |head -n 1);then return 0;fi #just one instance suffices
-	mapfile -t lastrFlFoundDlls  < <(find "${strPathParent}/" -iregex ".*layer.*[.]dll" |egrep -v "IGNORE_LAYER" |egrep "_mods.*" -o |sort -u);
-	mapfile -t lastrFlLoadedDlls < <(lsof -p $lnGamePid |egrep "[.](dll)" |sed -r -e 's@[^/]*(/.*)@\1@g' |sort -u |egrep "_mods.*" -o); 
-	if ! colordiff <(FUNCarrayDumpNice lastrFlFoundDlls |sort -u) <(FUNCarrayDumpNice lastrFlLoadedDlls |sort -u);then 
-		declare -p lastrFlFoundDlls lastrFlLoadedDlls |sed -r -e "${strSedArrayNumToLn}"
-		FUNCechoInfo "[WARNING] some mod dlls above may not have been loaded!"
-	fi
+	local lanGamePidList lastrFlFoundDlls lastrFlLoadedDlls
+	mapfile -t lanGamePidList < <(pgrep -f "mm.exe .* -sdk")
+	#if ! lanGamePidList=$(pgrep -f "mm.exe .* -sdk" |head -n 1);then return 0;fi #just one instance suffices
+	if((${#lanGamePidList[@]}==0));then return 0;fi
+	mapfile -t lastrFlFoundDlls  < <(find "${strPathParent}/" -iregex ".*layer.*[.]dll$" |egrep -v "IGNORE_LAYER" |egrep "_mods.*" -o |sort -u);
+	for lnGamePid in "${lanGamePidList[@]}";do
+		echo
+		ps --no-headers -o pid,command -p ${lnGamePid} |cat
+		mapfile -t lastrFlLoadedDlls < <(lsof -p $lnGamePid |egrep "[.](dll)" |sed -r -e 's@[^/]*(/.*)@\1@g' |sort -u |egrep "_mods.*" -o); 
+		if ! colordiff <(FUNCarrayDumpNice lastrFlFoundDlls |sort -u) <(FUNCarrayDumpNice lastrFlLoadedDlls |sort -u);then 
+			declare -p lastrFlFoundDlls lastrFlLoadedDlls |sed -r -e "${strSedArrayNumToLn}"
+			FUNCechoInfo "[WARNING] some mod dlls above may not have been loaded!"
+			if echo "${lastrFlFoundDlls[@]}" |egrep -i "_mods/.*/content/bin";then
+				FUNCechoInfo "[INFO] For mod dlls to be loaded, they must be at '.../_mods/ModName/bin/' folder ('bin' at the base mod folder not at 'content' folder)"
+			fi
+		fi
+	done
 };export -f FUNCchkLoadedModDlls
 FUNCchkLoadedModDlls
