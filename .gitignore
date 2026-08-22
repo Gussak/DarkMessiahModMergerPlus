@@ -40,6 +40,7 @@ Extracted.Quick.TMP/*
 tmp
 *.pyc
 ConsoleCommandsFromSiteToEasyGrep.NoGit.txt
+_TODO/*
 
 //////////  only patches, never full files
 *.qct

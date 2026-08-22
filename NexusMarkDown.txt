@@ -18,7 +18,7 @@
 
 [size=4][b]Main features[/b][/size]
 
-The mod Merger (scripts) is a tool, reuse it freely, it is under BSD3. 
+The mod Merger (scripts) is a tool. 
 keyValuePatcher.py was generated using AI and was fully and extensively tested under expected (and even buggy or structurally broken vanilla files) conditions.
 
 For each mini mod, there is a better description in it's json file, here is the current simplified list (some are WIP tho, I haven't played thru all game yet):

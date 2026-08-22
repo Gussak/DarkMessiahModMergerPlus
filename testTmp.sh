@@ -21,4 +21,5 @@ function FUNCtst1() {
 
 #EXEC
 clear
-FUNCtst1 "$@"
+#FUNCtst1 "$@"
+FUNCchkLoadedModDlls
