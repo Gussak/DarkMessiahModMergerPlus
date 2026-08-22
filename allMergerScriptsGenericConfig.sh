@@ -991,7 +991,7 @@ function FUNCfixAlias() {
 
 function FUNCchkLoadedModDlls() {
 	local lnGamePid lastrFlFoundDlls lastrFlLoadedDlls
-	if ! lnGamePid=$(pgrep -f "mm.exe .* -sdk");then return 0;fi
+	if ! lnGamePid=$(pgrep -f "mm.exe .* -sdk" |head -n 1);then return 0;fi #just one instance suffices
 	mapfile -t lastrFlFoundDlls  < <(find "${strPathParent}/" -iregex ".*layer.*[.]dll" |egrep -v "IGNORE_LAYER" |egrep "_mods.*" -o |sort -u);
 	mapfile -t lastrFlLoadedDlls < <(lsof -p $lnGamePid |egrep "[.](dll)" |sed -r -e 's@[^/]*(/.*)@\1@g' |sort -u |egrep "_mods.*" -o); 
 	if ! colordiff <(FUNCarrayDumpNice lastrFlFoundDlls |sort -u) <(FUNCarrayDumpNice lastrFlLoadedDlls |sort -u);then 
