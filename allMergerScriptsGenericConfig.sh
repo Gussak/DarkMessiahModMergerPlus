@@ -815,6 +815,22 @@ function FUNCreturnBiggestLinePipe() { #help accepts working as a pipe for lines
 	return 0
 };export -f FUNCreturnBiggestLinePipe
 
+function FUNCxyzArray() { #help ex.: "10 20 40"
+	local lbInt=false; if [[ "$1" == --integer ]];then lbInt=true;shift;fi
+	local lanXYZ
+	if $lbInt;then
+		mapfile -t lanXYZ < <(echo "$1" |tr ' ' '\n' |egrep -v "^\s*$" |sed -r -e 's@(.*)[.].*@\1@g')
+	else
+		mapfile -t lanXYZ < <(echo "$1" |tr ' ' '\n' |egrep -v "^\s*$")
+	fi
+	declare -gA FUNCxyzArray_anXYZ
+	FUNCxyzArray_anXYZ[x]="${lanXYZ[0]}"
+	FUNCxyzArray_anXYZ[y]="${lanXYZ[1]}"
+	FUNCxyzArray_anXYZ[z]="${lanXYZ[2]}"
+	echo "(${FUNCxyzArray_anXYZ[@]@K})"
+};export -f FUNCxyzArray
+
+
 function FUNCmapInfo() {
 	local lstrFlCondump="$1"
 	
@@ -854,14 +870,17 @@ function FUNCmapInfo() {
 		FUNCechoInfo "[ERROR:] no Pos To Restore Detected"
 		return 1
 	fi
-	#mapfile -t anPosRestoreXYZ < <(echo "$FUNCmapInfo_strPosRestore" |sed -r -e 's@[ ]*@ @g' -e 's@^ *@@' -e 's@ *$@@' |tr ' ' '\n')
-	mapfile -t anPosRestoreXYZ < <(echo "$FUNCmapInfo_strPosRestore" |tr ' ' '\n' |egrep -v "^\s*$")
-	#declare -p anPosRestoreXYZ;exit
-	declare -gA FUNCmapInfo_anPosRestoreXYZ
-	FUNCmapInfo_anPosRestoreXYZ[x]="${anPosRestoreXYZ[0]}"
-	FUNCmapInfo_anPosRestoreXYZ[y]="${anPosRestoreXYZ[1]}"
-	FUNCmapInfo_anPosRestoreXYZ[z]="${anPosRestoreXYZ[2]}"
-	#declare -p FUNCmapInfo_anPosRestoreXYZ;exit
+	
+	#mapfile -t anPosRestoreXYZ < <(echo "$FUNCmapInfo_strPosRestore" |tr ' ' '\n' |egrep -v "^\s*$")
+	#declare -gA FUNCmapInfo_anPosRestoreXYZ
+	#FUNCmapInfo_anPosRestoreXYZ[x]="${anPosRestoreXYZ[0]}"
+	#FUNCmapInfo_anPosRestoreXYZ[y]="${anPosRestoreXYZ[1]}"
+	#FUNCmapInfo_anPosRestoreXYZ[z]="${anPosRestoreXYZ[2]}"
+	
+	#FUNCxyzArray "$FUNCmapInfo_strPosRestore"
+	#declare -gA FUNCmapInfo_anPosRestoreXYZ="(${FUNCxyzArray_anXYZ[@]@K})"
+	declare -gA FUNCmapInfo_anPosRestoreXYZ="$(FUNCxyzArray "$FUNCmapInfo_strPosRestore")"
+	
 	strRestorePosInTheEnd="setpos ${FUNCmapInfo_strPosRestore}"
 	
 	return 0

@@ -286,6 +286,14 @@ function FUNCmapCfg() { #ex.: gskmap_l02_b1-01_GuestHouse_OK.cfg
 	echo "$lstr"
 }
 
+function FUNCclassFromSpawnCmd() {
+	case "$1" in
+		"+gskSummonGuard") echo "npc_human_guard";; #TODO equipment bow sword shield..
+		*) echo "TODO_FIX $1";; #TODO FUNCexit 1 "invalid '$1' spawn cmd";;
+	esac
+	return 0
+}
+
 if $bCreateSpawnsForCurrentMap;then
 	if [[ -n "$lstrUseThisMap" ]];then
 		strFlCondump="$(FUNCmapCfg "${lstrUseThisMap}" "${lstrUseThisSector}").condump_CLEAN.txt"
@@ -326,6 +334,9 @@ if $bCreateSpawnsForCurrentMap;then
 	if ! cmp "$strFlCondump" "${strMapCfgFile}.condump.txt";then
 		cp -vf "$strFlCondump" "${strMapCfgFile}.condump.txt"
 	fi
+
+	strFlMapadds="${strMapCfgFile}.MapAdds.txt"
+	echo -n >"$strFlMapadds"
 	
 	# clean condump file is good for git
 	strFlCondumpClean="${strMapCfgFile}.condump_CLEAN.txt"
@@ -458,24 +469,6 @@ if $bCreateSpawnsForCurrentMap;then
 			((iLnData++))&&:;strSelfPosAngle="${astrAllLines[$iLnData]}"
 			((iLnData++))&&:;strSelfPosAngleChk="${astrAllLines[$iLnData]}" #as engine may not print one char! :O
 			if ! strSelfPosAngle="$(FUNCreturnBiggestLinePipe "$strSelfPosAngle" "$strSelfPosAngleChk")";then FUNCeditCondumpAtLn "SelfPosAngle";fi
-			#if ! strSelfPosAngle="$(FUNCreturnBiggestLinePipe "$strSelfPosAngle" "$strSelfPosAngleChk")";then
-				#declare -p strSelfPosAngle strSelfPosAngleChk
-				#FUNCechoInfo "[ERROR:invalidPOS] ( the engine sometimes do not print some letters!!! :O )"
-				#"$strExecEdit" "$strFlCondump:$((iLnData+1))" #editors begin in line 1 not 0
-				#FUNCexit 1
-			#fi
-			#if [[ "$strSelfPosAngle" != "$strSelfPosAngleChk" ]];then
-				#if $bAutoFixMissingChars;then
-					#if((${#strSelfPosAngleChk} > ${#strSelfPosAngle}));then
-						#strSelfPosAngle="$strSelfPosAngleChk"
-					#fi
-				#else
-					#declare -p strSelfPosAngle strSelfPosAngleChk
-					#FUNCechoInfo "[ERROR:invalidPOS] ( the engine sometimes do not print some letters!!! :O )"
-					#"$strExecEdit" "$strFlCondump:$((iLnData+1))" #editors begin in line 1 not 0
-					#FUNCexit 1
-				#fi
-			#fi
 			
 			bInteractUseMode=false
 			strAliasValue=""
@@ -526,6 +519,28 @@ if $bCreateSpawnsForCurrentMap;then
 				FUNCechoAndFillFile "alias -gskCCnpcSpawn_${strCount} \"ent_setname gskSpawn${strCount}; ${strAliasValueLift}; \""
 			else
 				FUNCechoAndFillFile "alias -gskCCnpcSpawn_${strCount} \"\""
+			fi
+			
+			if $bCollectTargetPos;then
+				declare -gA anTargetPosXYZ="$(FUNCxyzArray "$(echo "$strTargetPos" |sed -r -e 's@.*prop at (.*) missing modelname.*@\1@g')")"
+				declare -gA anTargetAngXYZ="$(FUNCxyzArray --integer "$(echo "$strSelfPosAngle" |tr -d '\r' |sed -r -e 's@.*setang (.*)@\1@g')")"
+				
+				#((anTargetPosXYZ[z]+=1))&&: #height (this fix is needed?)
+				anTargetPosXYZ[z]="$(bc <<< "${anTargetPosXYZ[z]}+1")" #height (this fix is needed?)
+				
+				((anTargetAngXYZ[y]+=180))&&: #rotation look at dir, inverse of where player is looking at when spawned it 
+				if((anTargetAngXYZ[y]>180));then anTargetPosXYZ[y]=$((anTargetPosXYZ[y]-360));fi
+				
+				#astrMapaddsData+=(
+				echo '
+"add:entity"
+{
+	"classname"	"'"$(FUNCclassFromSpawnCmd "${strSpawnCommand}")"'"
+	"origin"	"'"${anTargetPosXYZ[x]} ${anTargetPosXYZ[y]} ${anTargetPosXYZ[z]}"'"
+	"angles"	"'"${anTargetAngXYZ[x]} ${anTargetAngXYZ[y]} ${anTargetAngXYZ[z]}"'"
+	"spawnflags"			"1"
+}
+' >>"$strFlMapadds"
 			fi
 			
 			((iSpawnCount++))&&:
