@@ -168,8 +168,8 @@ function FUNCposAngEchoOrCmdPipe() { # it is impossible (?) to let console echo 
 		echo "$lstr" |tr ':' ';'
 	fi
 }
-FUNCposAngAsCmd()  { echo "$1" |tr ':' ';'; }
-FUNCposAngAsEcho() { echo "$1" |tr ';' ':'; }
+FUNCposAngAsCmd()  { echo "$1" |tr ':' ';' |sed -r -e 's@^\s*|\s*$@@g'; }
+FUNCposAngAsEcho() { echo "$1" |tr ';' ':' |sed -r -e 's@^\s*|\s*$@@g'; }
 
 function FUNCaliasNpcSpawner() {
 	local liCurrentIndex="$1";shift
@@ -539,9 +539,14 @@ if $bCreateSpawnsForCurrentMap;then
 
 			bInteractUseMode=false
 			strAliasValue=""
-			strAliasValue+="${strSelfPosAngleCmdFixed};gskWait333ms; ${strSelfPosAngleCmdFixed};gskWait333ms; " # it is repeated 2 times with a small delay because the engine does not teleport the player, it interpolates like a super fast fly!!! right? also, if there is acceleration before teleporting, that acceleration remains after teleporting causing a displacement right?
+			strAliasValue+="alias gskPosR $(echo "${strSelfPosAngleCmdFixed}" |sed -r -e 's@(.*);(.*)@\1@g'); "
+			strAliasValue+="alias gskAngR $(echo "${strSelfPosAngleCmdFixed}" |sed -r -e 's@(.*);(.*)@\2@g'); "
+			strAliasValue+="gskPosR;gskAngR;gskWait333ms; gskPosR;gskAngR;gskWait333ms; gskPosR;gskAngR;gskWait333ms; " # it is repeated a few times with a small delay because the engine does not teleport the player, it interpolates like a super fast fly!!! right? also, if there is acceleration before teleporting, that acceleration remains after teleporting causing a displacement right?
 			strAliasValueLift=""
-			strAliasInfo="echo Spawning:${strCountShow}/${nTotSpawns}:YouAreExpectedlyAt $(FUNCposAngAsEcho "$strSelfPosAngleCmd")" # expectedly because the engine has that discrepance when restoring pos/ang
+			strAliasInfo=""
+			strAliasInfo+="echo Spawning:${strCountShow}/${nTotSpawns} ))) (((; "
+			strAliasInfo+="echo PosAng Asked=[$(FUNCposAngAsEcho "$strSelfPosAngleCmd")]; " # asked when creting while flying as god and from that condump
+			strAliasInfo+="echo PosAng Fixed=[$(FUNCposAngAsEcho "$strSelfPosAngleCmdFixed")]; " # expectedly fixed because the engine has that discrepance when restoring pos/ang
 			bSetName=true
 			case "$strMODE" in
 				SpawnNPC)
@@ -578,7 +583,7 @@ if $bCreateSpawnsForCurrentMap;then
 						strAliasValue+="echo gskSpawnHint; gskTargetPos;gskTargetPos; ${strPosAngEcho};${strPosAngEcho}; "
 					fi
 					# Keep strSpawnCommand as last important detected line of command data (anything after it may deprecate or be temporary).
-					strAliasValue+="echo ${strSpawnCommand};echo ${strSpawnCommand}; ${strSpawnCommand}; getpos;getpos; echo FinishedSpawning:${strCountShow}; " #TODO getpos here is to compare with the original and try to provide a better restore positioning one day. It is after the last important line strSpawnCommand but may be reused automatically temporarily.
+					strAliasValue+="echo ${strSpawnCommand};echo ${strSpawnCommand}; ${strSpawnCommand};gskWait333ms; getpos;getpos; echo FinishedSpawning:${strCountShow} ((())); " # it is important to wait a bit after the real command otherwise it may teleport and execute 2 or more commands elsewhere. TODO getpos here is to compare with the original and try to provide a better restore positioning one day. It is after the last important line strSpawnCommand but may be reused automatically temporarily.
 					;;
 				#InteractUse)
 					#strAliasValue+="+use; ${strAliasInfo}:${strDropItem#gskMapDevDrop}; "
