@@ -4,16 +4,90 @@
 	{	
 		"add:entity"
 		{
-			"targetname"		"gskSpawnTest001"
+			"targetname"		"gskSpawnT_NecroGuardBow"
 			"classname"		"npc_necro_guard_bow"
 			"origin"		"129 -576 -312"
 			"angles"		"0 270 0"
 			"rangeweapon"		"weapon_arxcrossbow"
-			"QuiverAmmo"		"8"
+			"QuiverAmmo"		"12"
 			"model"		"models/npc/Necroguard/npc_necroguard.mdl"
 			"QuiverModel"		"models/items/weapons/Quiver_guard/quiver_guard.mdl"
 			"additionalequipment"		"weapon_arx_short_sword"
 			"spawnflags"		"1"
 		}
+		"add:entity"
+		{
+			"targetname"		"gskSpawnT_NecroGuardShield"
+			"classname"		"npc_necro_guard"
+			"origin"		"129 -576 -312"
+			"angles"		"0 270 0"
+			"model"		"models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment"	"weapon_arx_short_sword"
+			"additionalshield" "weapon_mm_shield_necroguard"
+			"spawnflags"		"1"
+		}
+		"add:entity"
+		{
+			"targetname"		"gskSpawnT_Necromancer"
+			"classname" "npc_necromancer_lord"
+			"origin"		"129 -576 -312"
+			"angles"		"0 270 0"
+			"model" "models/NPC/Necromancer/Npc_necromancer.mdl"
+			"additionalequipment" "weapon_mm_staff_combat"
+		}
+		"add:entity"
+		{
+			"targetname"		"gskSpawnT_NecromancerLord"
+			"classname" "npc_necromancer_lord"
+			"origin"		"129 -576 -312"
+			"angles"		"0 270 0"
+			"model" "models/NPC/necromancer_lord/npc_necromancer_lord.mdl"
+			"additionalequipment" "weapon_mm_hook"
+			"weaponmodel" "models/Items/Weapons/hook/hook.mdl"
+		}
+		"add:entity"
+		{
+			"targetname"		"gskSpawnT_Undead"
+			"classname" "npc_undead"
+			"origin"		"129 -576 -312"
+			"angles"		"0 270 0"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "1"
+			"SmellRadius" "300"
+		}
+		"add:entity"
+		{
+			"targetname"		"gskSpawnT_UndeadBurrowed"
+			"classname" "npc_undead"
+			"origin"		"129 -576 -312"
+			"angles"		"0 270 0"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"UnburrowRadius" "200"
+			"spawnflags" "16388"
+			"SmellRadius" "300"
+			"UnburrowChanceOverride" "1.0"
+		}
+		"add:entity"
+		{
+			"targetname"		"gskSpawnT_SpiderMini"
+			"classname" "npc_spider_mini"
+			"origin"		"229 -576 -312"
+			"angles"		"0 270 0"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags" "4"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+		}		
+		"add:entity"
+		{
+			"targetname"		"gskSpawnT_SpiderRegular"
+			"classname" "npc_spider_regular"
+			"origin"		"329 -576 -312"
+			"angles"		"0 270 0"
+			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
+			"spawnflags" "4"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+		}		
 	}
 }

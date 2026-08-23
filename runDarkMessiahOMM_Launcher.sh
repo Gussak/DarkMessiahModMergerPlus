@@ -164,7 +164,7 @@ export __GL_THREADED_OPTIMIZATIONS=0 #AI prevent NVidia multithread that may cau
 export WINE_LARGE_ADDRESS_AWARE=1 #AI forces Wine to use clean 32-bit memory addressing for the Source Engine, preventing the memory allocation failure that is locking up your primary GPU.
 export DISABLE_VK_LAYER_VALVE_steam_overlay_1=1 #Disable Steam Overlay Hooking Conflict. can also place at dxvk.conf (where mm.exe is, create if needed) add: DISABLE_VK_LAYER_VALVE_steam_overlay_1=1
 export WINEDLLOVERRIDES="binkw32,dinput8,version,dmrestoration_client,dmrestoration_server,dmmm_restoration=n,b" #dont put d3d9,dxgi as dxvk may break
-export WINEDEBUG="+loaddll"
+#KEEP tho too much log: export WINEDEBUG="+loaddll"
 #declare -p __GL_THREADED_OPTIMIZATIONS WINE_LARGE_ADDRESS_AWARE
 wine "$strExecutable" "${astrOptList[@]}"
 set +x
