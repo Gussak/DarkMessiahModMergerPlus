@@ -286,16 +286,67 @@ function FUNCmapCfg() { #ex.: gskmap_l02_b1-01_GuestHouse_OK.cfg
 	echo "$lstr"
 }
 
-function FUNCclassFromSpawnCmd() {
+#function FUNCclassFromSpawnCmd() {
+	#case "$1" in
+		#"+gskSummonGuard") echo "npc_human_guard";; #TODO equipment bow sword shield..
+		#*) echo "TODO_FIX $1";; #TODO FUNCexit 1 "invalid '$1' spawn cmd";;
+	#esac
+	#return 0
+#}
+
+function FUNCmapadds() {
+	local lstr_classname="TODO_FIX"
 	case "$1" in
-		"+gskSummonGuard") echo "npc_human_guard";; #TODO equipment bow sword shield..
+		"+gskSummonGuard")
+			#TODO equipment bow sword shield..
+			lstr_classname="npc_human_guard"
+			;; 
+		"gskSummonNecroGuardBow")
+			lstr_classname="npc_necro_guard_bow"
+			;; 
 		*) echo "TODO_FIX $1";; #TODO FUNCexit 1 "invalid '$1' spawn cmd";;
 	esac
-	return 0
+	#astrMapaddsData+=(
+	#"model" "models/items/weapons/sword_orc/sword_orc_p.mdl"
+	#"OnMapSpawn" "servercmds,Command,give weapon_arx_short_sword,0.05,-1"
+	#"OnMapSpawn" "servercmds,Command,give weapon_arxdaggers,1,-1"
+	#"OnMapSpawn" "servercmds,Command,give weapon_arxcrossbow,1,-1"
+	#"id" "1611653"
+	#"spawnflags" "2052"
+	echo '
+"add:entity"
+{
+	"classname"   "'"${lstr_classname}"'"
+	"targetname"  "'"gskSpawn${strCount}"'"
+	"origin"      "'"${anTargetPosXYZ[x]} ${anTargetPosXYZ[y]} ${anTargetPosXYZ[z]}"'"
+	"angles"      "'"${anTargetAngXYZ[x]} ${anTargetAngXYZ[y]} ${anTargetAngXYZ[z]}"'"
+	
+	"spawnflags"  "1"
+	"combinability" "1"
+	"renderamt" "255"
+	"rendercolor" "255 255 255"
+	"physdamagescale" "1.0"
+	"radiusforrandomattitude" "500"
+	"model" "models/npc/Necroguard/npc_necroguard.mdl"
+	"additionalequipment" "weapon_arx_short_sword"
+	"additionalshield" "0"
+	"additionalhelmet" "0"
+	"targetname" "tuto_fight.npc_guard_bow"
+	"squadname" "vilains"
+	"NextPatrol" "tuto_fight.npc_guard01.next_patrol"
+	"health" "50"
+	"DifficultyLevel" "0"
+	"healthreferencevalue" "5"
+	"QuiverAmmo" "8"
+	"rangeweapon" "weapon_arxcrossbow"
+	"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+}
+' >>"$strFlMapadds"
 }
 
 if $bCreateSpawnsForCurrentMap;then
-	if [[ -n "$lstrUseThisMap" ]];then
+	if [[ -n "$lstrUseThisMap" ]];then # this comes from the specified params options like -M
+		# rework using a (probably) carefully edited CLEAN file
 		strFlCondump="$(FUNCmapCfg "${lstrUseThisMap}" "${lstrUseThisSector}").condump_CLEAN.txt"
 	fi
 	: ${strFlCondumpNewest:="$(ls -1tr "${strGameInstallMainFolder}/${strGameSubRelatFolderWriteAllHere}/condump"* |tail -n 1)"} #help
@@ -312,20 +363,7 @@ if $bCreateSpawnsForCurrentMap;then
 	fi
 	
 	while ! FUNCmapInfo "$strFlCondump";do FUNCwaitSeconds 3 "condump needs map info status data";done
-	## map     :  L00 at: -1385 x, -4444 y, 343 z
-	## map     :  l02_b1 at: -4902 x, -10930 y, 367 z
-	#strRegexMapPos='^map\s*:\s*([a-zA-Z0-9_-]*)\s*at:\s*(.*)'
-	#: ${strMapName:="$(ugrep "${strRegexMapPos}" "$strFlCondump" |head -n 1 |sed -r -e "s@${strRegexMapPos}@\1@g")"} #help
-	#if [[ -z "$strMapName" ]];then
-		#FUNCechoInfo "[ERROR:noMapNameDetected]"
-		#FUNCexit 1
-	#fi
-	#strMapCfgFile="gskmap_${strMapName}_${lstrUseThisSector}.cfg"
-	#strMapCfgFile="gskmap_${FUNCmapInfo_strMapName}"
-	#if [[ -n "${lstrUseThisSector}" ]];then
-		#strMapCfgFile+="-${lstrUseThisSector}"
-	#fi
-	#strMapCfgFile+=".cfg"
+	
 	strMapCfgFile="$(FUNCmapCfg "${FUNCmapInfo_strMapName}" "${lstrUseThisSector}")"
 	#if $bUpdateCondumpBkp || [[ ! -f "${strMapCfgFile}.condump.txt" ]];then
 	if [[ -f "${strMapCfgFile}.condump.txt" ]];then
@@ -346,9 +384,11 @@ if $bCreateSpawnsForCurrentMap;then
 		strFlCondump="$strUseThisCondump"
 	fi
 	#if ! $bUsingCleanCondump;then
+		strMapMessages="$(egrep "(gskMapMessage|gskmsg)\ .*" "$strFlCondumpClean")"
 		cp -vf "$strFlCondumpClean" "$strFlCondumpClean.$(FUNCdtFlNm).bkp"&&:
 		echo "$FUNCmapInfo_strMapStatus" >"$strFlCondumpClean" #trunc/init
 		echo "$FUNCmapInfo_strMapStatus" >>"$strFlCondumpClean"
+		echo "$strMapMessages" >>"$strFlCondumpClean"
 	#fi
 	FUNCprepareCleanDataOriginBkp() {
 		#if $bUsingCleanCondump;then return 0;fi
@@ -529,18 +569,9 @@ if $bCreateSpawnsForCurrentMap;then
 				anTargetPosXYZ[z]="$(bc <<< "${anTargetPosXYZ[z]}+1")" #height (this fix is needed?)
 				
 				((anTargetAngXYZ[y]+=180))&&: #rotation look at dir, inverse of where player is looking at when spawned it 
-				if((anTargetAngXYZ[y]>180));then anTargetPosXYZ[y]=$((anTargetPosXYZ[y]-360));fi
+				if((anTargetAngXYZ[y]>180));then anTargetAngXYZ[y]=$((${anTargetAngXYZ[y]}-360));fi
 				
-				#astrMapaddsData+=(
-				echo '
-"add:entity"
-{
-	"classname"	"'"$(FUNCclassFromSpawnCmd "${strSpawnCommand}")"'"
-	"origin"	"'"${anTargetPosXYZ[x]} ${anTargetPosXYZ[y]} ${anTargetPosXYZ[z]}"'"
-	"angles"	"'"${anTargetAngXYZ[x]} ${anTargetAngXYZ[y]} ${anTargetAngXYZ[z]}"'"
-	"spawnflags"			"1"
-}
-' >>"$strFlMapadds"
+				FUNCmapadds "$strSpawnCommand"
 			fi
 			
 			((iSpawnCount++))&&:
