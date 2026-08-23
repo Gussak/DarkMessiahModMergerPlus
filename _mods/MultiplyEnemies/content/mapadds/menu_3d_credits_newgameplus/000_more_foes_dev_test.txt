@@ -1,0 +1,19 @@
+"mapadd_keyvalues"
+{
+	"PreInitialize"
+	{	
+		"add:entity"
+		{
+			"targetname"		"gskSpawnTest001"
+			"classname"		"npc_necro_guard_bow"
+			"origin"		"129 -576 -312"
+			"angles"		"0 270 0"
+			"rangeweapon"		"weapon_arxcrossbow"
+			"QuiverAmmo"		"8"
+			"model"		"models/npc/Necroguard/npc_necroguard.mdl"
+			"QuiverModel"		"models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"additionalequipment"		"weapon_arx_short_sword"
+			"spawnflags"		"1"
+		}
+	}
+}
