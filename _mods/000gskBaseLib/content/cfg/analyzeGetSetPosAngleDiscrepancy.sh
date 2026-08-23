@@ -68,7 +68,10 @@ for strMapIDchk in "${!strMapID[@]}";do echo strMapIDchk;done
 mapfile -t astrLn < <(echo "${astrTestData[${strMapID}]}")
 
 FUNCposAngXYZ() {
-	eval "$(echo "$1" |sed -r -e 's@setpos ([0-9.-]*) ([0-9.-]*) ([0-9.-]*);setang ([0-9.-]*) ([0-9.-]*) ([0-9.-]*)@declare -g pX=\1 pY=\2 pZ=\3 aX=\4 aY=\5 aZ=\6@g')"
+	if ! eval "$(echo "$1" |sed -r -e 's@setpos ([0-9.-]*) ([0-9.-]*) ([0-9.-]*)\s*;\s*setang ([0-9.-]*) ([0-9.-]*) ([0-9.-]*)@declare -g pX=\1 pY=\2 pZ=\3 aX=\4 aY=\5 aZ=\6@g')";then
+		echo "[ERROR] $0 FUNCposAngXYZ: '$1'" >&2
+		exit 1
+	fi
 }
 
 FUNCfixLine() {

@@ -546,7 +546,7 @@ if $bCreateSpawnsForCurrentMap;then
 			strAliasValue+="gskPosR;gskAngR;gskWait333ms; gskPosR;gskAngR;gskWait333ms; gskPosR;gskAngR;gskWait333ms; " # it is repeated a few times with a small delay because the engine does not teleport the player, it interpolates like a super fast fly!!! right? also, if there is acceleration before teleporting, that acceleration remains after teleporting causing a displacement right?
 			strAliasValueLift=""
 			strAliasInfo=""
-			strAliasInfo+="echo Spawning:${strCountShow}/${nTotSpawns} >>> <<<; "
+			strAliasInfo+="echo Spawning:${strCountShow}/${nTotSpawns} >>> $(crc32 <(echo "$strSelfPosAngleCmd")) <<<; "
 			strAliasInfo+="echo PosAng Asked=[$(FUNCposAngAsEchoShort "$strSelfPosAngleCmd")]; " # asked when creting while flying as god and from that condump
 			strAliasInfo+="echo PosAng Fixed=[$(FUNCposAngAsEchoShort "$strSelfPosAngleCmdFixed")]; " # expectedly fixed because the engine has that discrepance when restoring pos/ang
 			bSetName=true
