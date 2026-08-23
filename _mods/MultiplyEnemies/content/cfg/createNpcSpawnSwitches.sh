@@ -629,7 +629,7 @@ if $bCreateSpawnsForCurrentMap;then
 		fi
 	done
 	#FUNCechoAndFillFile "alias +gskCCnpcSpawn_${strCountNext} \"echo FinishedSpawnings; gskSndDONE; ${strRestorePosInTheEnd}; ${strCmdsOFF}; -gskInteractUseDev; alias gskCCnpcSpawn_next +gskCCnpcSpawn_Finished; \"" #this also prevents continuing thru some previous list entries of a previous test run or map may be. -gskInteractUseDev is to grant next +gskInteractUseDev wont break.
-	FUNCechoAndFillFile "alias +gskCCnpcSpawn_${strCountNext} \"echo FinishedSpawnings; gskSndDONE; ${strRestorePosInTheEnd}; ${strCmdsOFF}; alias +gskCCnpcSpawn_next +gskCCnpcSpawn_Finished; alias -gskCCnpcSpawn_next -gskCCnpcSpawn_Finished; save gskFinishedSpawnings_${FUNCmapInfo_strMapName}; \"" #this also prevents continuing thru some previous list entries of a previous test run or map may be.
+	FUNCechoAndFillFile "alias +gskCCnpcSpawn_${strCountNext} \"echo FinishedSpawnings; gskSndDONE; ${strRestorePosInTheEnd}; ${strCmdsOFF}; alias +gskCCnpcSpawn_next +gskCCnpcSpawn_Finished; alias -gskCCnpcSpawn_next -gskCCnpcSpawn_Finished; save gskFinishedSpawnings_${FUNCmapInfo_strMapName}; pause; \"" # using finish alias also prevents continuing thru some previous list entries of a previous test run or map may be.
 	FUNCechoAndFillFile "alias -gskCCnpcSpawn_${strCountNext} \"\""
 	FUNCechoAndFillFile "alias +gskCCnpcSpawn_Finished \"gskEchoOn; ${strFinalMessages}; echo Finished Spawnings Already for this map $FUNCmapInfo_strMapName\""
 	FUNCechoAndFillFile "alias -gskCCnpcSpawn_Finished \"gskEchoOff\""
@@ -647,7 +647,7 @@ if $bCreateSpawnsForCurrentMap;then
 	FUNCechoAndFillFile "echo \" - Enable and disable gskDevGodModeToggles and read the final status for each power, just to be sure all toggles are reset (as unfortunately we can't set them (right?)... only toggle... or NPC deployment may go out of control).\""
 	FUNCechoAndFillFile "echo \" - Close the console. While you can bind +gskCCnpcSpawn_next to a key like F4 (that will work with the console opened), it will not work when releasing the key to execute -gskCCnpcSpawn_next.\""
 	FUNCechoAndFillFile "echo \" - Hide your weapon (optional).\""
-	FUNCechoAndFillFile "echo \"Now, slowly (better not press too fast or it may crash, just complete patiently and quick save it, but I will custom save too) and repeatedly press the key to spawn the next NPC: +gskCCnpcSpawn_next\""
+	FUNCechoAndFillFile "echo \"Now, repeatedly press the key to spawn the next NPC: +gskCCnpcSpawn_next, but WAIT for the finished spawn sound or it will BUG(spawns 2 or more in a single location)!!!\""
 	FUNCechoAndFillFile "echo \"You will be in developer mode and carefully teleported to the location and rotation required for the spawning and without triggering anything.\""
 	FUNCechoAndFillFile "echo \"Obs.: your vision is blurred to the spawn and location be a surprise.\"" #TODO fadeout to completely hide spawnings? will make it impossible to detect issues tho.
 	
