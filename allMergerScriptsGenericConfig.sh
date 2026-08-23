@@ -908,7 +908,11 @@ function FUNCfixBOM() {
 };export -f FUNCfixBOM
 
 function FUNCsay() { #to help when you are far away
-	if which ScriptEchoColor >/dev/null;then echoc --say "$1";fi
+	if which ScriptEchoColor >/dev/null;then
+		echoc --say "$1";
+	else
+		echo "[SPEAKS] $1"
+	fi
 };export -f FUNCsay
 
 function FUNCxtermChild() { #help <lstrTitle> <OtherXtermParams>
@@ -1005,6 +1009,8 @@ function FUNCrefreshMount() {  # if it did not update, means OverlayFS needs ref
 			set +x
 		fi
 	)
+	
+	FUNCsay ready
 };export -f FUNCrefreshMount
 
 function FUNCcostHP() {

@@ -168,8 +168,9 @@ function FUNCposAngEchoOrCmdPipe() { # it is impossible (?) to let console echo 
 		echo "$lstr" |tr ':' ';'
 	fi
 }
-FUNCposAngAsCmd()  { echo "$1" |tr ':' ';' |sed -r -e 's@^\s*|\s*$@@g'; }
-FUNCposAngAsEcho() { echo "$1" |tr ';' ':' |sed -r -e 's@^\s*|\s*$@@g'; }
+FUNCposAngAsCmd()       { echo "$1" |tr ':' ';' |sed -r -e 's@^\s*|\s*$@@g'; }
+FUNCposAngAsEcho()      { echo "$1" |tr ';' ':' |sed -r -e 's@^\s*|\s*$@@g'; }
+FUNCposAngAsEchoShort() { echo "$1" |tr ';' ':' |sed -r -e 's@^\s*|\s*$@@g' -e 's@[.][0-9]*@@g'; } # removes float precision
 
 function FUNCaliasNpcSpawner() {
 	local liCurrentIndex="$1";shift
@@ -476,6 +477,7 @@ if $bCreateSpawnsForCurrentMap;then
 	strCmdsON=" gskEchoOn; +duck; gskDevGodModeToggles; gskEffect100; status;status; ${strCmdsErasers}; " # do not use host_timescale 0.01 as it will mess teleporting. +duck is to help to fit yourself in smaller places causing less issues. map data is to help on recreating the file with new lines of data later
 	strCmdsOFF=" -duck; gskDevGodModeToggles; gskEffectOFF; gskEchoOff; +gskReloadCfgs " # +gskReloadCfgs is to restore what was erased
 	FUNCechoAndFillFile "alias +gskCCnpcSpawn_next \"${strCmdsON}; +gskCCnpcSpawn_$( printf %03d $((iSpawnCount)) )\"" # initializes with some dev toggles
+	FUNCechoAndFillFile "alias gskSndSpawned \"play arkane/fix_inter/book_close.wav\""
 	#for((i=0;i<${#astrSpawnHintList[@]};i+=iDataLines));do
 	astrFinalMessages=()
 	strFinalMessages=""
@@ -544,9 +546,9 @@ if $bCreateSpawnsForCurrentMap;then
 			strAliasValue+="gskPosR;gskAngR;gskWait333ms; gskPosR;gskAngR;gskWait333ms; gskPosR;gskAngR;gskWait333ms; " # it is repeated a few times with a small delay because the engine does not teleport the player, it interpolates like a super fast fly!!! right? also, if there is acceleration before teleporting, that acceleration remains after teleporting causing a displacement right?
 			strAliasValueLift=""
 			strAliasInfo=""
-			strAliasInfo+="echo Spawning:${strCountShow}/${nTotSpawns} ))) (((; "
-			strAliasInfo+="echo PosAng Asked=[$(FUNCposAngAsEcho "$strSelfPosAngleCmd")]; " # asked when creting while flying as god and from that condump
-			strAliasInfo+="echo PosAng Fixed=[$(FUNCposAngAsEcho "$strSelfPosAngleCmdFixed")]; " # expectedly fixed because the engine has that discrepance when restoring pos/ang
+			strAliasInfo+="echo Spawning:${strCountShow}/${nTotSpawns} >>> <<<; "
+			strAliasInfo+="echo PosAng Asked=[$(FUNCposAngAsEchoShort "$strSelfPosAngleCmd")]; " # asked when creting while flying as god and from that condump
+			strAliasInfo+="echo PosAng Fixed=[$(FUNCposAngAsEchoShort "$strSelfPosAngleCmdFixed")]; " # expectedly fixed because the engine has that discrepance when restoring pos/ang
 			bSetName=true
 			case "$strMODE" in
 				SpawnNPC)
@@ -583,7 +585,7 @@ if $bCreateSpawnsForCurrentMap;then
 						strAliasValue+="echo gskSpawnHint; gskTargetPos;gskTargetPos; ${strPosAngEcho};${strPosAngEcho}; "
 					fi
 					# Keep strSpawnCommand as last important detected line of command data (anything after it may deprecate or be temporary).
-					strAliasValue+="echo ${strSpawnCommand};echo ${strSpawnCommand}; ${strSpawnCommand};gskWait333ms; getpos;getpos; echo FinishedSpawning:${strCountShow} ((())); " # it is important to wait a bit after the real command otherwise it may teleport and execute 2 or more commands elsewhere. TODO getpos here is to compare with the original and try to provide a better restore positioning one day. It is after the last important line strSpawnCommand but may be reused automatically temporarily.
+					strAliasValue+="echo ${strSpawnCommand};echo ${strSpawnCommand}; ${strSpawnCommand}; getpos;getpos; gskSndSpawned; echo FinishedSpawning:${strCountShow} <<<>>>; " # it is important to wait a bit after the real command otherwise it may teleport and execute 2 or more commands elsewhere. TODO getpos here is to compare with the original and try to provide a better restore positioning one day. It is after the last important line strSpawnCommand but may be reused automatically temporarily.
 					;;
 				#InteractUse)
 					#strAliasValue+="+use; ${strAliasInfo}:${strDropItem#gskMapDevDrop}; "
@@ -703,5 +705,3 @@ else # create spawner aliases
 fi
 
 FUNCrefreshMount
-
-
