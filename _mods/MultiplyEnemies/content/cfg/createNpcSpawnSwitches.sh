@@ -157,6 +157,20 @@ function FUNCfixPosAng() {
 	./analyzeGetSetPosAngleDiscrepancy.sh -f "$1"
 }
 
+function FUNCposAngEchoOrCmdPipe() { # it is impossible (?) to let console echo cmd print ';', so the only way it so use like ':' instead
+	local lstr="${1-}"
+	
+	if [[ -z "$lstr" ]];then read lstr;fi
+	
+	if [[ "$lstr" =~ .*\;.* ]];then
+		echo "$lstr" |tr ';' ':'
+	else
+		echo "$lstr" |tr ':' ';'
+	fi
+}
+FUNCposAngAsCmd()  { echo "$1" |tr ':' ';'; }
+FUNCposAngAsEcho() { echo "$1" |tr ';' ':'; }
+
 function FUNCaliasNpcSpawner() {
 	local liCurrentIndex="$1";shift
 	local lstrType="$1";shift
@@ -190,6 +204,16 @@ ent_setname gskSpawnNameOk; \
 
 : ${strExecEdit:=geany} #help
 : ${bAutoFixMissingChars:=true} #help the engine may not print all charaters in a line, so usually repeating the command will provide a 2nd line with the missing char
+
+function FUNCchkSpawnHintData() {
+	local lstrSpawnHintDataKeyRef="echo gskSpawnHint; gskTargetPos;gskTargetPos; getpos;getpos; " #this was the last sync alias value
+	local lstrSpawnHintDataKeyCheck="$(egrep "^alias\s*gskSpawnHintData\s+" "${strPathMainModFolder}/_mods/000gskBaseLib/content/cfg/gskBaseLib.cfg" |sed -r -e 's@.*\"(echo gskSpawnHint.*)\".*@\1@g')"
+	if [[ "$lstrSpawnHintDataKeyRef" != "$lstrSpawnHintDataKeyCheck" ]];then
+		declare -p lstrSpawnHintDataKeyRef lstrSpawnHintDataKeyCheck
+		FUNCexit 1 "gskSpawnHintData is not in sync. update lstrSpawnHintDataKeyRef and the code support here."
+	fi
+}
+
 
 function FUNCvalidateNPC() {
 	local lstrChkNpc="$1";shift
@@ -506,16 +530,17 @@ if $bCreateSpawnsForCurrentMap;then
 				if ! strTargetPos="$(FUNCreturnBiggestLinePipe "$strTargetPos" "$strTargetPosChk")";then FUNCeditCondumpAtLn "TargetPos";fi
 			fi
 			
-			((iLnData++))&&:;strSelfPosAngle="${astrAllLines[$iLnData]}"
-			((iLnData++))&&:;strSelfPosAngleChk="${astrAllLines[$iLnData]}" #as engine may not print one char! :O
-			if ! strSelfPosAngle="$(FUNCreturnBiggestLinePipe "$strSelfPosAngle" "$strSelfPosAngleChk")";then FUNCeditCondumpAtLn "SelfPosAngle";fi
-			strSelfPosAngleFixed="$(FUNCfixPosAng "${strSelfPosAngle}")"
-			
+			((iLnData++))&&:;strSelfPosAngleCmd="${astrAllLines[$iLnData]}"
+			((iLnData++))&&:;strSelfPosAngleCmdChk="${astrAllLines[$iLnData]}" #as engine may not print one char! :O
+			if ! strSelfPosAngleCmd="$(FUNCreturnBiggestLinePipe "$strSelfPosAngleCmd" "$strSelfPosAngleCmdChk")";then FUNCeditCondumpAtLn "SelfPosAngle";fi
+			strSelfPosAngleCmd="$(FUNCposAngAsCmd "$strSelfPosAngleCmd")"
+			strSelfPosAngleCmdFixed="$(FUNCfixPosAng "${strSelfPosAngleCmd}")"
+
 			bInteractUseMode=false
 			strAliasValue=""
-			strAliasValue+="${strSelfPosAngleFixed}; "
+			strAliasValue+="${strSelfPosAngleCmdFixed}; "
 			strAliasValueLift=""
-			strAliasInfo="echo Spawning:${strCountShow}/${nTotSpawns}:YouAt($(echo "$strSelfPosAngleFixed" |tr ';' ':'))"
+			strAliasInfo="echo Spawning:${strCountShow}/${nTotSpawns}:YouAreExpectedlyAt $(FUNCposAngAsEcho "$strSelfPosAngleCmd")" # expectedly because the engine has that discrepance when restoring pos/ang
 			bSetName=true
 			case "$strMODE" in
 				SpawnNPC)
@@ -541,7 +566,17 @@ if $bCreateSpawnsForCurrentMap;then
 						FUNCvalidateNPC "$strSpawnCommand" "$strFlCondump" "$iLnData"
 					fi
 					strAliasInfo+=":${strSpawnCommand#mm_npc_create_}; "
-					strAliasValue+="${strAliasInfo}; gskSpawnHintData;echo ${strSpawnCommand};echo ${strSpawnCommand}; ${strSpawnCommand}; echo FinishedSpawning:${strCountShow}; "
+					strAliasValue+="${strAliasInfo}; "
+					: ${bDumpCurrentPosAng:=false} #help dumping the existing configured pos/ang is much more consistent as the game engine provides modified pos/ang after setpos setang when you getpos :(
+					if $bDumpCurrentPosAng;then
+						strAliasValue+="gskSpawnHintData; "
+					else
+						strPosAngEcho="echo $(FUNCposAngAsEcho "$strSelfPosAngleCmd")" #must be the collected from clean dump file (not the fixed pos/ang)
+						FUNCchkSpawnHintData \
+						               "echo gskSpawnHint; gskTargetPos;gskTargetPos; getpos;getpos; " #DO NOT EDIT THIS PARAM, IT MUST BE IN SYNC!
+						strAliasValue+="echo gskSpawnHint; gskTargetPos;gskTargetPos; ${strPosAngEcho};${strPosAngEcho}; "
+					fi
+					strAliasValue+="echo ${strSpawnCommand};echo ${strSpawnCommand}; ${strSpawnCommand}; echo FinishedSpawning:${strCountShow}; "
 					;;
 				#InteractUse)
 					#strAliasValue+="+use; ${strAliasInfo}:${strDropItem#gskMapDevDrop}; "
@@ -564,7 +599,7 @@ if $bCreateSpawnsForCurrentMap;then
 			
 			if $bCollectTargetPos;then
 				declare -gA anTargetPosXYZ="$(FUNCxyzArray "$(echo "$strTargetPos" |sed -r -e 's@.*prop at (.*) missing modelname.*@\1@g')")"
-				declare -gA anTargetAngXYZ="$(FUNCxyzArray --integer "$(echo "$strSelfPosAngle" |tr -d '\r' |sed -r -e 's@.*setang (.*)@\1@g')")"
+				declare -gA anTargetAngXYZ="$(FUNCxyzArray --integer "$(echo "$strSelfPosAngleCmd" |tr -d '\r' |sed -r -e 's@.*setang (.*)@\1@g')")"
 				
 				#((anTargetPosXYZ[z]+=1))&&: #height (this fix is needed?)
 				anTargetPosXYZ[z]="$(bc <<< "${anTargetPosXYZ[z]}+1")" #height (this fix is needed?)
