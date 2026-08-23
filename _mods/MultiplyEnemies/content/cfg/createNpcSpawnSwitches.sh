@@ -446,7 +446,7 @@ if $bCreateSpawnsForCurrentMap;then
 	FUNCechoAndFillFile "// AUTO GENERATED WITH $(basename "$0"). DO NOT PATCH! Patch the '${strFlCondumpClean}' file instead!"
 	FUNCechoAndFillFile "// FILL MAP WITH NPCs, total $nTotSpawns"
 	#FUNCechoAndFillFile "alias gskCCnpcSpawn_helper \"\""
-	strCmdsErasers="gskManaRegEraser; gskHMHurtmeEraser1of3; gskHMHurtmeEraser2of3; gskHMHurtmeEraser3of3; alias gskSmnWORK gskSmnWORKmoreFoes; alias gskSpawnHintDataErasable ErasedHintData" #erasers are  to avoid messing the player HP and Mana pools and remove effects that slowdown things like placing more foes at least
+	strCmdsErasers="gskManaRegEraser; gskHMHurtmeEraser1of3; gskHMHurtmeEraser2of3; gskHMHurtmeEraser3of3; alias gskSmnWORK gskSmnWORKmoreFoes; alias gskSpawnHintDataErasable echo ErasedHintData" #erasers are  to avoid messing the player HP and Mana pools and remove effects that slowdown things like placing more foes at least
 	#strCmdsON=" gskEchoOn; +duck; gskDevGodModeToggles; gskEffect100; ${strCmdsErasers}; alias gskWaitInteractDev gskWait333ms; " # do not use host_timescale 0.01 as it will mess teleporting. +duck is to help to fit yourself in smaller places causing less issues
 	strCmdsON=" gskEchoOn; +duck; gskDevGodModeToggles; gskEffect100; status;status; ${strCmdsErasers}; " # do not use host_timescale 0.01 as it will mess teleporting. +duck is to help to fit yourself in smaller places causing less issues. map data is to help on recreating the file with new lines of data later
 	strCmdsOFF=" -duck; gskDevGodModeToggles; gskEffectOFF; gskEchoOff; +gskReloadCfgs " # +gskReloadCfgs is to restore what was erased
@@ -509,12 +509,13 @@ if $bCreateSpawnsForCurrentMap;then
 			((iLnData++))&&:;strSelfPosAngle="${astrAllLines[$iLnData]}"
 			((iLnData++))&&:;strSelfPosAngleChk="${astrAllLines[$iLnData]}" #as engine may not print one char! :O
 			if ! strSelfPosAngle="$(FUNCreturnBiggestLinePipe "$strSelfPosAngle" "$strSelfPosAngleChk")";then FUNCeditCondumpAtLn "SelfPosAngle";fi
+			strSelfPosAngleFixed="$(FUNCfixPosAng "${strSelfPosAngle}")"
 			
 			bInteractUseMode=false
 			strAliasValue=""
-			strAliasValue+="$(FUNCfixPosAng "${strSelfPosAngle}"); "
+			strAliasValue+="${strSelfPosAngleFixed}; "
 			strAliasValueLift=""
-			strAliasInfo="echo Spawning:${strCountShow}/${nTotSpawns}"
+			strAliasInfo="echo Spawning:${strCountShow}/${nTotSpawns}:YouAt($(echo "$strSelfPosAngleFixed" |tr ';' ':'))"
 			bSetName=true
 			case "$strMODE" in
 				SpawnNPC)
@@ -540,7 +541,7 @@ if $bCreateSpawnsForCurrentMap;then
 						FUNCvalidateNPC "$strSpawnCommand" "$strFlCondump" "$iLnData"
 					fi
 					strAliasInfo+=":${strSpawnCommand#mm_npc_create_}; "
-					strAliasValue+="gskSpawnHintData;echo ${strSpawnCommand};echo ${strSpawnCommand}; ${strSpawnCommand}; ${strAliasInfo}; "
+					strAliasValue+="${strAliasInfo}; gskSpawnHintData;echo ${strSpawnCommand};echo ${strSpawnCommand}; ${strSpawnCommand}; echo FinishedSpawning:${strCountShow}; "
 					;;
 				#InteractUse)
 					#strAliasValue+="+use; ${strAliasInfo}:${strDropItem#gskMapDevDrop}; "
