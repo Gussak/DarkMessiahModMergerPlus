@@ -384,11 +384,11 @@ if $bCreateSpawnsForCurrentMap;then
 		strFlCondump="$strUseThisCondump"
 	fi
 	#if ! $bUsingCleanCondump;then
-		strMapMessages="$(egrep "(gskMapMessage|gskmsg)\ .*" "$strFlCondumpClean")"
+		#strMapMessages="$(egrep "(gskMapMessage|gskmsg)\ .*" "$strFlCondumpClean")"
 		cp -vf "$strFlCondumpClean" "$strFlCondumpClean.$(FUNCdtFlNm).bkp"&&:
 		echo "$FUNCmapInfo_strMapStatus" >"$strFlCondumpClean" #trunc/init
 		echo "$FUNCmapInfo_strMapStatus" >>"$strFlCondumpClean"
-		echo "$strMapMessages" >>"$strFlCondumpClean"
+		#echo "$strMapMessages" >>"$strFlCondumpClean"
 	#fi
 	FUNCprepareCleanDataOriginBkp() {
 		#if $bUsingCleanCondump;then return 0;fi
