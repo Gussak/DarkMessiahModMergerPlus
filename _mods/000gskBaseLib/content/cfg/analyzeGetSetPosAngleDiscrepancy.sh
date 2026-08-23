@@ -160,3 +160,11 @@ echo 'Test Result:
 '
 
 #TIP: cat condump.txt |egrep "^\s*classname:" |sort -u |egrep -v "prop_phys|prp_ph|prop_py|prop_dyn" |sed -r -e 's@\s*(classname:)\s*([a-z_]*).*@give \2@g' #for alias +gskDevEntDumpInfoAimed "gskEchoON; ent_setname tmp; ent_dump tmp" //this destroys the item name
+
+
+# 
+#] alias testSetPos "setpos -1900.477661 -4557.024414 366.751709"
+#] alias testSetAng "setang 0.428890 -11.012145 0.00605"
+#] alias gskWaitPosAng gskWait333ms
+#] alias testSetPosAng "testSetPos;testSetAng; gskWaitPosAng; testSetPos;testSetAng; gskWaitPosAng; getpos"
+#setpos -1898.316040 -4557.445801 410.743408;setang 0.438047 -11.025432 0.006239

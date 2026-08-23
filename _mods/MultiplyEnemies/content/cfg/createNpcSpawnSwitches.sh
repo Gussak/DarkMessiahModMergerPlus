@@ -239,6 +239,7 @@ function FUNCvalidateNPC() {
 }
 
 function FUNCechoAndFillFile() {
+	FUNCchkCfgScriptLineSz "$1"
 	echo "$1" |tee -a "$strMapCfgFile"
 }
 
@@ -538,7 +539,7 @@ if $bCreateSpawnsForCurrentMap;then
 
 			bInteractUseMode=false
 			strAliasValue=""
-			strAliasValue+="${strSelfPosAngleCmdFixed}; "
+			strAliasValue+="${strSelfPosAngleCmdFixed};gskWait333ms; ${strSelfPosAngleCmdFixed};gskWait333ms; " # it is repeated 2 times with a small delay because the engine does not teleport the player, it interpolates like a super fast fly!!! right? also, if there is acceleration before teleporting, that acceleration remains after teleporting causing a displacement right?
 			strAliasValueLift=""
 			strAliasInfo="echo Spawning:${strCountShow}/${nTotSpawns}:YouAreExpectedlyAt $(FUNCposAngAsEcho "$strSelfPosAngleCmd")" # expectedly because the engine has that discrepance when restoring pos/ang
 			bSetName=true
@@ -576,7 +577,8 @@ if $bCreateSpawnsForCurrentMap;then
 						               "echo gskSpawnHint; gskTargetPos;gskTargetPos; getpos;getpos; " #DO NOT EDIT THIS PARAM, IT MUST BE IN SYNC!
 						strAliasValue+="echo gskSpawnHint; gskTargetPos;gskTargetPos; ${strPosAngEcho};${strPosAngEcho}; "
 					fi
-					strAliasValue+="echo ${strSpawnCommand};echo ${strSpawnCommand}; ${strSpawnCommand}; echo FinishedSpawning:${strCountShow}; "
+					# Keep strSpawnCommand as last important detected line of command data (anything after it may deprecate or be temporary).
+					strAliasValue+="echo ${strSpawnCommand};echo ${strSpawnCommand}; ${strSpawnCommand}; getpos;getpos; echo FinishedSpawning:${strCountShow}; " #TODO getpos here is to compare with the original and try to provide a better restore positioning one day. It is after the last important line strSpawnCommand but may be reused automatically temporarily.
 					;;
 				#InteractUse)
 					#strAliasValue+="+use; ${strAliasInfo}:${strDropItem#gskMapDevDrop}; "

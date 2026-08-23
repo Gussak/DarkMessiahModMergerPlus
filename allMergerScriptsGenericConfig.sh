@@ -1032,7 +1032,7 @@ function FUNCvalidateConsoleEchoMsg() {
 	return 0
 };export -f FUNCvalidateConsoleEchoMsg
 
-function FUNCfixAlias() {
+function FUNCfixAliasID() {
 	local lstrAlias="$1"
 	if((${#lstrAlias} > 30));then lstrAlias="${lstrAlias:0:30}";fi # if name is too big, trunc it, but the index will be the same always even if there is a trunc name clash, so always index them!
 	if ! [[ "$lstrAlias" =~ .*[0-9]{3}.* ]];then
@@ -1042,7 +1042,7 @@ function FUNCfixAlias() {
 	fi
 	echo "$lstrAlias"
 	return 0
-};export -f FUNCfixAlias
+};export -f FUNCfixAliasID
 
 function FUNCchkLoadedModDlls() {
 	local lanGamePidList lastrFlFoundDlls lastrFlLoadedDlls
@@ -1064,3 +1064,9 @@ function FUNCchkLoadedModDlls() {
 	done
 };export -f FUNCchkLoadedModDlls
 FUNCchkLoadedModDlls
+
+: ${nCfgScriptLineSzLim:=1024} #help cfg script line limit is 1024 chars
+function FUNCchkCfgScriptLineSz() {
+	local lstr="$1"
+	if((${#lstr} > nCfgScriptLineSzLim));then echo "[ERROR:${FUNCNAME[@]}:${BASH_LINENO[@]}] line too big ${#lstr} '${lstr}'";exit 1;fi
+};export -f FUNCchkCfgScriptLineSz

@@ -36,14 +36,9 @@
 
 #we cant ex.: alias gskHurtMeFUNC hurtme, then use gskHurtMeFUNC 3, it wont work
 
-: ${nHurtMeLim:=28} #help
-: ${nLineLim:=1024} #help
+while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
 
-# line limit is 1024 chars
-function FUNCchkLineSz() {
-	local lstr="$1"
-	if((${#lstr} > nLineLim));then echo "[ERROR:${FUNCNAME[@]}:${BASH_LINENO[@]}] line too big ${#lstr} '${lstr}'";exit 1;fi
-}
+: ${nHurtMeLim:=28} #help
 
 function FUNCerasers() {
 	local lstrMainEraser="$1";shift
@@ -59,7 +54,7 @@ function FUNCerasers() {
 		lstrEraser+="alias gskHurtme500;"
 	fi
 	lstrEraser+="\""
-	FUNCchkLineSz "$lstrEraser"
+	FUNCchkCfgScriptLineSz "$lstrEraser"
 	echo "$lstrEraser"
 }
 
@@ -68,7 +63,7 @@ function FUNChurmeLim() {
 	for((j=0;j<$1;j++));do
 		lstr+="hurtme ${nHurtMeLim}; gskWait33ms; "
 	done
-	FUNCchkLineSz "$lstr"
+	FUNCchkCfgScriptLineSz "$lstr"
 	echo "$lstr"
 }
 
