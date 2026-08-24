@@ -338,27 +338,33 @@ function FUNCspawnFlags() { #help based on https://developer.valvesoftware.com/w
 function FUNCappendToSpawnTrigger() {
 	if [[ -z "${strSpawnTriggerID}" ]];then return 0;fi
 	
-	local liBeginSection=0
-	local lstrSectionNm=""
 	local lstrSpawnTriggerID=""
-	local lnSpawnTriggerBeginIndex=0
+	local lnSTTemplateBeginIndex=0
+	
+	local lstrSTSectionID=""
+	local lnSTTemplateBeginSection=0
+	
+	local lbCreateNewSection=false
+	local liTargetIndex=0
 	while true;do
-		if((liBeginSection>0));then
+		#if((lnSTTemplateBeginSection>0));then
+		if $lbCreateNewSection;then
 			echo '
-				"add:entity"
-				{
-					"classname" "point_template"
-					"combinability" "1"
-					"spawnflags" "2"
-					"targetname" "'"${lstrSectionNm}"'"
-					"origin" "0 0 0"
-				}
-			' >>"${strFlMapadds}"
-			lstrSpawnTriggerID="${lstrSectionNm}"
-			lnSpawnTriggerBeginIndex=1
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "'"${lstrSTSectionID}"'"
+			"origin" "0 0 0"
+		}' >>"${strFlMapadds}"
+			lstrSpawnTriggerID="${lstrSTSectionID}"
+			lnSTTemplateBeginIndex=1
+			
+			lbCreateNewSection=false
 		else
 			lstrSpawnTriggerID="${strSpawnTriggerID}"
-			lnSpawnTriggerBeginIndex=$nSpawnTriggerBeginIndex
+			lnSTTemplateBeginIndex=$nSpawnTriggerTemplateBeginIndex
 		fi
 		
 		echo '
@@ -372,25 +378,33 @@ function FUNCappendToSpawnTrigger() {
 			{
 		' >>"${strFlMapadds}"
 		
-		local li
+		#local li
 		local lstrTargetName
-		local lbCreateNewSection=false
-		for((li=liBeginSection;li<${#astrTriggeredSpawnerTargetNameList[@]};li++));do
-			local lnIndex=$((lnSpawnTriggerBeginIndex+li))
+		local lnSTTemplateIndex=$lnSTTemplateBeginIndex
+		while true;do
+			#for((li=lnSTTemplateBeginSection;li<${#astrTriggeredSpawnerTargetNameList[@]};li++));do
+			if((liTargetIndex == ${#astrTriggeredSpawnerTargetNameList[@]}));then break;fi
+			
+			#local lnIndex=$((lnSTTemplateBeginIndex+li))
+			#local lnIndex=$lnSTTemplateIndex
 			#if((lnIndex>nSpawnTriggerLinkedLimit));then FUNCechoInfo "[WARN] lnIndex=$lnIndex > $nSpawnTriggerLinkedLimit";fi
-			if((lnIndex==nSpawnTriggerLinkedLimit));then #not greater than limit because the last slot will be used to link the next section
-				liBeginSection=$lnIndex
-				lstrSectionNm="gskSpawnerSectionBegin${liBeginSection}"
-				lstrTargetName="$lstrSectionNm"
+			if((lnSTTemplateIndex==nSpawnTriggerLinkedLimit));then #not greater than limit because the last slot will be used to link the next section
+				#lnSTTemplateBeginSection=$lnSTTemplateIndex
+				#lstrSTSectionID="gskSpawnerSectionBegin${lnSTTemplateBeginSection}"
+				lstrSTSectionID="gskSpawnerSectionBegin${lnSTTemplateIndex}"
+				lstrTargetName="$lstrSTSectionID"
 				lbCreateNewSection=true
 			else
-				lstrTargetName="${astrTriggeredSpawnerTargetNameList[$li]}"
+				lstrTargetName="${astrTriggeredSpawnerTargetNameList[$liTargetIndex]}"
+				((liTargetIndex++))&&:
 			fi
 			
 			echo '
-				"Template'"$(printf %02d $lnIndex)"'" "'"${lstrTargetName}"'"' >>"${strFlMapadds}"
+				"Template'"$(printf %02d $lnSTTemplateIndex)"'" "'"${lstrTargetName}"'"' >>"${strFlMapadds}"
 			
 			if $lbCreateNewSection;then break;fi
+			
+			((lnSTTemplateIndex++))&&:
 		done
 		
 		echo '
@@ -754,9 +768,9 @@ if $bCreateSpawnsForCurrentMap;then
 	strSpawnTriggerID=""
 	if egrep "gskSpawnTriggerID" "$strFlCondump";then
 		strSpawnTriggerID="$(      egrep "gskSpawnTriggerID"         "$strFlCondump" |awk '{print $2}')"
-		nSpawnTriggerBeginIndex="$(egrep "gskSpawnTriggerBeginIndex" "$strFlCondump" |awk '{print $2}')"
+		nSpawnTriggerTemplateBeginIndex="$(egrep "gskSpawnTriggerBeginIndex" "$strFlCondump" |awk '{print $2}')"
 		echo "gskSpawnTriggerID $strSpawnTriggerID" >>"$strFlCondumpCleanNew"
-		echo "gskSpawnTriggerBeginIndex $nSpawnTriggerBeginIndex" >>"$strFlCondumpCleanNew"
+		echo "gskSpawnTriggerBeginIndex $nSpawnTriggerTemplateBeginIndex" >>"$strFlCondumpCleanNew"
 	fi
 	
 	#: ${bCollectTargetPos:=true} #help temporary to update with old files
