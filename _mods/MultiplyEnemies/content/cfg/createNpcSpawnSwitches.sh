@@ -358,6 +358,7 @@ function FUNCmapadds() {
 
 	local classname targetname origin angles model 
 	local lbSuccess=true
+	local lnHeightDisplacement=0
 	case "$lstrSummonCmd" in
 		"+gskSummonGuard")
 			echo '
@@ -367,6 +368,7 @@ function FUNCmapadds() {
 			"spawnflags"  "'"$(FUNCspawnFlags FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			;; 
 		"+gskSummonGuardMini")
+			lnHeightDisplacement=5
 			echo '
 			"classname"   "npc_human_guard"
 			"model" "models/npc/guard/npc_guard_shrinked.mdl"
@@ -439,50 +441,64 @@ function FUNCmapadds() {
 			fi
 			;;
 		"gskSummonSpiderRegular")
-			anTargetPosXYZ[z]="$(bc <<< "${anTargetPosXYZ[z]}+5")"
+			lnHeightDisplacement=7
 			echo '
-			"origin"      "'"${anTargetPosXYZ[x]} ${anTargetPosXYZ[y]} ${anTargetPosXYZ[z]}"'"
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
 			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
 			;;
 		"gskSummonSpiderMini")
-			anTargetPosXYZ[z]="$(bc <<< "${anTargetPosXYZ[z]}+5")"
+			lnHeightDisplacement=5
 			echo '
-			"origin"      "'"${anTargetPosXYZ[x]} ${anTargetPosXYZ[y]} ${anTargetPosXYZ[z]}"'"
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
 			;;
 		"gskSummonPotionMana")
+			lnHeightDisplacement=5
 			echo '
 			"classname" "item_potion_mana"
 			"model" "models/items/provisions/potions/Mana_potion.mdl"
 			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
 			;;
 		"gskSummonPotionLife")
+			lnHeightDisplacement=5
 			echo '
 			"classname" "item_potion_life"
 			"model" "models/items/provisions/potions/Life_potion.mdl"
 			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
 			;;
 		"gskSummonSword")
+			lnHeightDisplacement=10
 			echo '
 			"classname" "prop_static"
 			"model" "models/Items/Weapons/Sword_short/Sword_short.mdl"
 			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
 			;;
 		"gskSummonStaff")
+			lbABitAbove=true;
 			echo '
 			"classname" "prop_static"
 			"model" "models/Items/Weapons/staff_wood/staff_wood.mdl"
 			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
 			;;
 		"gskSummonClub")
+			lbABitAbove=true;
 			echo '
 			"classname" "prop_static"
 			"model" "models/Items/Weapons/Club/Club.mdl"
 			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
+			;;
+		"gskSkillPointAdd")
+			echo '
+			"classname" "logic_relay"
+			"combinability" "1"
+			"targetname" "Give1SkillPoint"
+			connections
+			{
+				"OnMapSpawn" "mm_player_inputs,GiveSkillPoints,1,0,1,1,gskmap"
+			}
+			' >>"$lstrFlAddTmp"
 			;;
 		*)
 			lbSuccess=false
@@ -490,6 +506,12 @@ function FUNCmapadds() {
 			"targetname"   "TODO_FIX_SUPPORT_FOR_'"${lstrSummonCmd}"'"' >>"$lstrFlAddTmp"
 			;;
 	esac
+	
+	if $lbABitAbove;then
+		anTargetPosXYZ[z]="$(bc <<< "${anTargetPosXYZ[z]}+5")"
+		echo '
+			"origin"      "'"${anTargetPosXYZ[x]} ${anTargetPosXYZ[y]} ${anTargetPosXYZ[z]}"'"' >>"$lstrFlAddTmp"
+	fi
 	
 	echo '
 		}
