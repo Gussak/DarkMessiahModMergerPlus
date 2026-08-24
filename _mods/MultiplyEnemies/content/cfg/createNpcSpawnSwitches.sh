@@ -445,6 +445,10 @@ function FUNCappendToSpawnTrigger() {
 
 astrTriggeredSpawnerTargetNameList=()
 
+function FUNCentityName() {
+	echo "gskSpawn_${lstrUseThisSector}_${strCount}"
+}
+
 function FUNCmapadds() {
 	local lstrSummonCmd="$1"
 	
@@ -456,7 +460,7 @@ function FUNCmapadds() {
 	
 	local lstrFlAddTmp="$(mktemp)"
 	
-	local lstrTargetName="gskSpawn${strCount}"
+	local lstrTargetName="$(FUNCentityName)"
 	
 	echo '
 		"add:entity"
@@ -932,7 +936,7 @@ if $bCreateSpawnsForCurrentMap;then
 				#FUNCechoAndFillFile "alias -gskCCnpcSpawn_${strCount} \"+gskInteractUseDev\"" #the action must happen after the teleport
 			#else
 			if $bSetName;then
-				FUNCechoAndFillFile "alias -gskCCnpcSpawn_${strCount} \"ent_setname gskSpawn${strCount}; ${strAliasValueLift}; \""
+				FUNCechoAndFillFile "alias -gskCCnpcSpawn_${strCount} \"ent_setname $(FUNCentityName); ${strAliasValueLift}; \""
 			else
 				FUNCechoAndFillFile "alias -gskCCnpcSpawn_${strCount} \"\""
 			fi

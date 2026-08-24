@@ -6,7 +6,7 @@
 
 		"add:entity"
 		{
-			"targetname"  "gskSpawn000"
+			"targetname"  "gskSpawn_02_FrontYard_New_000"
 			"origin"      "-4633 -10798 72"
 			"angles"      "84 -81 -0"
 			"spawnflags"  "7"
@@ -22,7 +22,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn001"
+			"targetname"  "gskSpawn_02_FrontYard_New_001"
 			"origin"      "-4456 -10831 73"
 			"angles"      "89 -90 0"
 			"spawnflags"  "7"
@@ -38,7 +38,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn002"
+			"targetname"  "gskSpawn_02_FrontYard_New_002"
 			"origin"      "-4591 -10822 73"
 			"angles"      "89 -95 0"
 			"spawnflags"  "7"
@@ -52,7 +52,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn003"
+			"targetname"  "gskSpawn_02_FrontYard_New_003"
 			"origin"      "-4537 -10809 81"
 			"angles"      "75 95 -0"
 			"spawnflags"  "7"
@@ -65,7 +65,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn004"
+			"targetname"  "gskSpawn_02_FrontYard_New_004"
 			"origin"      "-3938 -10863 72"
 			"angles"      "49 -152 -0"
 			"spawnflags"  "7"
@@ -81,7 +81,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn005"
+			"targetname"  "gskSpawn_02_FrontYard_New_005"
 			"origin"      "-3932 -10933 69"
 			"angles"      "51 166 -0"
 			"spawnflags"  "7"
@@ -97,7 +97,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn006"
+			"targetname"  "gskSpawn_02_FrontYard_New_006"
 			"origin"      "-4532 -10943 71"
 			"angles"      "69 93 -0"
 			"spawnflags"  "7"
@@ -111,7 +111,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn007"
+			"targetname"  "gskSpawn_02_FrontYard_New_007"
 			"origin"      "-4988 -11919 387"
 			"angles"      "89 75 -0"
 			"spawnflags"  "7"
@@ -124,7 +124,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn008"
+			"targetname"  "gskSpawn_02_FrontYard_New_008"
 			"origin"      "-5019 -11762 200"
 			"angles"      "89 -47 -0"
 			"spawnflags"  "7"
@@ -140,7 +140,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn009"
+			"targetname"  "gskSpawn_02_FrontYard_New_009"
 			"origin"      "-4745 -11542 131"
 			"angles"      "88 -51 0"
 			"spawnflags"  "7"
@@ -156,7 +156,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn010"
+			"targetname"  "gskSpawn_02_FrontYard_New_010"
 			"origin"      "-5089 -11887 66"
 			"angles"      "84 -52 -0"
 			"spawnflags"  "7"
@@ -172,7 +172,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn011"
+			"targetname"  "gskSpawn_02_FrontYard_New_011"
 			"origin"      "-5046 -11859 66"
 			"angles"      "82 -94 -0"
 			"spawnflags"  "7"
@@ -186,7 +186,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn012"
+			"targetname"  "gskSpawn_02_FrontYard_New_012"
 			"origin"      "-4995 -11846 66"
 			"angles"      "78 -123 -0"
 			"spawnflags"  "7"
@@ -202,7 +202,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn013"
+			"targetname"  "gskSpawn_02_FrontYard_New_013"
 			"origin"      "-4939 -11864 66"
 			"angles"      "73 -94 -0"
 			"spawnflags"  "7"
@@ -218,7 +218,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn014"
+			"targetname"  "gskSpawn_02_FrontYard_New_014"
 			"origin"      "-4883 -11920 66"
 			"angles"      "78 -128 -0"
 			"spawnflags"  "7"
@@ -232,7 +232,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn015"
+			"targetname"  "gskSpawn_02_FrontYard_New_015"
 			"origin"      "-4200 -11868 67"
 			"angles"      "70 -138 -0"
 			"spawnflags"  "7"
@@ -248,7 +248,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn016"
+			"targetname"  "gskSpawn_02_FrontYard_New_016"
 			"origin"      "-4227 -12455 66"
 			"angles"      "56 152 -0"
 			"spawnflags"  "7"
@@ -264,7 +264,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn017"
+			"targetname"  "gskSpawn_02_FrontYard_New_017"
 			"origin"      "-4945 -12788 65"
 			"angles"      "62 20 -0"
 			"spawnflags"  "7"
@@ -280,7 +280,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn018"
+			"targetname"  "gskSpawn_02_FrontYard_New_018"
 			"origin"      "-4449 -12786 72"
 			"angles"      "89 179 -0"
 			"spawnflags"  "7"
@@ -296,7 +296,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn019"
+			"targetname"  "gskSpawn_02_FrontYard_New_019"
 			"origin"      "-4655 -12101 68"
 			"angles"      "72 -47 -0"
 			"spawnflags"  "7"
@@ -312,7 +312,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn020"
+			"targetname"  "gskSpawn_02_FrontYard_New_020"
 			"origin"      "-4604 -12080 68"
 			"angles"      "74 -69 -0"
 			"spawnflags"  "7"
@@ -328,7 +328,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn021"
+			"targetname"  "gskSpawn_02_FrontYard_New_021"
 			"origin"      "-4554 -12084 67"
 			"angles"      "75 -90 -0"
 			"spawnflags"  "7"
@@ -344,7 +344,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn022"
+			"targetname"  "gskSpawn_02_FrontYard_New_022"
 			"origin"      "-4514 -12112 68"
 			"angles"      "78 -113 -0"
 			"spawnflags"  "7"
@@ -360,7 +360,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn023"
+			"targetname"  "gskSpawn_02_FrontYard_New_023"
 			"origin"      "-4478 -12171 68"
 			"angles"      "81 -154 -0"
 			"spawnflags"  "7"
@@ -376,7 +376,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn024"
+			"targetname"  "gskSpawn_02_FrontYard_New_024"
 			"origin"      "-4485 -12232 69"
 			"angles"      "82 161 -0"
 			"spawnflags"  "7"
@@ -392,7 +392,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn025"
+			"targetname"  "gskSpawn_02_FrontYard_New_025"
 			"origin"      "-4516 -12288 70"
 			"angles"      "80 115 -0"
 			"spawnflags"  "7"
@@ -408,7 +408,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn026"
+			"targetname"  "gskSpawn_02_FrontYard_New_026"
 			"origin"      "-4577 -12285 70"
 			"angles"      "81 73 -0"
 			"spawnflags"  "7"
@@ -424,7 +424,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn027"
+			"targetname"  "gskSpawn_02_FrontYard_New_027"
 			"origin"      "-4636 -12261 70"
 			"angles"      "79 33 -0"
 			"spawnflags"  "7"
@@ -440,7 +440,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn028"
+			"targetname"  "gskSpawn_02_FrontYard_New_028"
 			"origin"      "-4691 -12158 68"
 			"angles"      "73 -21 -0"
 			"spawnflags"  "7"
@@ -456,7 +456,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn029"
+			"targetname"  "gskSpawn_02_FrontYard_New_029"
 			"origin"      "-4201 -12082 101"
 			"angles"      "71 -156 -0"
 			"spawnflags"  "7"
@@ -470,7 +470,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn030"
+			"targetname"  "gskSpawn_02_FrontYard_New_030"
 			"origin"      "-4216 -12242 101"
 			"angles"      "69 137 -0"
 			"spawnflags"  "7"
@@ -484,7 +484,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn031"
+			"targetname"  "gskSpawn_02_FrontYard_New_031"
 			"origin"      "-5209 -13214 66"
 			"angles"      "80 7 -0"
 			"spawnflags"  "7"
@@ -497,7 +497,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn032"
+			"targetname"  "gskSpawn_02_FrontYard_New_032"
 			"origin"      "-5224 -13278 64"
 			"angles"      "71 45 -0"
 			"spawnflags"  "7"
@@ -511,7 +511,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn033"
+			"targetname"  "gskSpawn_02_FrontYard_New_033"
 			"origin"      "-5181 -13287 51"
 			"angles"      "75 70 -0"
 			"spawnflags"  "7"
@@ -527,7 +527,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn034"
+			"targetname"  "gskSpawn_02_FrontYard_New_034"
 			"origin"      "-5211 -12844 84"
 			"angles"      "61 -8 -0"
 			"spawnflags"  "7"
@@ -543,7 +543,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn035"
+			"targetname"  "gskSpawn_02_FrontYard_New_035"
 			"origin"      "-5211 -12922 74"
 			"angles"      "60 26 -0"
 			"spawnflags"  "7"
@@ -557,7 +557,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn036"
+			"targetname"  "gskSpawn_02_FrontYard_New_036"
 			"origin"      "-5187 -12095 66"
 			"angles"      "56 -34 -0"
 			"spawnflags"  "7"
@@ -573,7 +573,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn037"
+			"targetname"  "gskSpawn_02_FrontYard_New_037"
 			"origin"      "-5188 -12173 67"
 			"angles"      "61 9 -0"
 			"spawnflags"  "7"
@@ -589,7 +589,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn038"
+			"targetname"  "gskSpawn_02_FrontYard_New_038"
 			"origin"      "-5206 -12474 98"
 			"angles"      "45 -26 -0"
 			"spawnflags"  "7"
@@ -603,7 +603,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn039"
+			"targetname"  "gskSpawn_02_FrontYard_New_039"
 			"origin"      "-5194 -12551 108"
 			"angles"      "49 13 -0"
 			"spawnflags"  "7"
@@ -619,7 +619,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn040"
+			"targetname"  "gskSpawn_02_FrontYard_New_040"
 			"origin"      "-5260 -11314 88"
 			"angles"      "85 -56 -0"
 			"spawnflags"  "7"
@@ -635,7 +635,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn041"
+			"targetname"  "gskSpawn_02_FrontYard_New_041"
 			"origin"      "-5263 -11401 83"
 			"angles"      "79 67 -0"
 			"spawnflags"  "7"
@@ -649,7 +649,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn042"
+			"targetname"  "gskSpawn_02_FrontYard_New_042"
 			"origin"      "-5206 -10947 65"
 			"angles"      "88 -117 -0"
 			"spawnflags"  "7"
@@ -665,7 +665,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn043"
+			"targetname"  "gskSpawn_02_FrontYard_New_043"
 			"origin"      "-5256 -10929 65"
 			"angles"      "68 -42 -0"
 			"spawnflags"  "7"
@@ -681,7 +681,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn044"
+			"targetname"  "gskSpawn_02_FrontYard_New_044"
 			"origin"      "-5240 -11028 65"
 			"angles"      "75 36 -0"
 			"spawnflags"  "7"
@@ -695,7 +695,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn045"
+			"targetname"  "gskSpawn_02_FrontYard_New_045"
 			"origin"      "-4429 -11579 196"
 			"angles"      "78 145 -0"
 			"spawnflags"  "7"
@@ -711,7 +711,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn046"
+			"targetname"  "gskSpawn_02_FrontYard_New_046"
 			"origin"      "-3840 -10863 199"
 			"angles"      "89 -84 -0"
 			"spawnflags"  "7"
@@ -724,7 +724,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn047"
+			"targetname"  "gskSpawn_02_FrontYard_New_047"
 			"origin"      "-3840 -11023 65"
 			"angles"      "89 88 0"
 			"spawnflags"  "7"
@@ -737,7 +737,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn048"
+			"targetname"  "gskSpawn_02_FrontYard_New_048"
 			"origin"      "-3968 -13338 57"
 			"angles"      "84 91 -0"
 			"spawnflags"  "7"
@@ -751,7 +751,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn049"
+			"targetname"  "gskSpawn_02_FrontYard_New_049"
 			"origin"      "-4053 -13008 66"
 			"angles"      "88 88 0"
 			"spawnflags"  "7"
@@ -764,7 +764,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn050"
+			"targetname"  "gskSpawn_02_FrontYard_New_050"
 			"origin"      "-4004 -13032 65"
 			"angles"      "73 137 -0"
 			"spawnflags"  "7"
@@ -778,7 +778,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn051"
+			"targetname"  "gskSpawn_02_FrontYard_New_051"
 			"origin"      "-4031 -13052 64"
 			"angles"      "73 108 -0"
 			"spawnflags"  "7"
@@ -794,7 +794,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn052"
+			"targetname"  "gskSpawn_02_FrontYard_New_052"
 			"origin"      "-4066 -13060 65"
 			"angles"      "71 80 -0"
 			"spawnflags"  "7"
@@ -810,7 +810,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn053"
+			"targetname"  "gskSpawn_02_FrontYard_New_053"
 			"origin"      "-4102 -13043 67"
 			"angles"      "70 49 -0"
 			"spawnflags"  "7"
@@ -824,7 +824,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn054"
+			"targetname"  "gskSpawn_02_FrontYard_New_054"
 			"origin"      "-3283 -13042 7"
 			"angles"      "88 -177 -0"
 			"spawnflags"  "7"
@@ -840,7 +840,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn055"
+			"targetname"  "gskSpawn_02_FrontYard_New_055"
 			"origin"      "-3735 -13239 55"
 			"angles"      "65 46 -0"
 			"spawnflags"  "7"
@@ -854,7 +854,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn056"
+			"targetname"  "gskSpawn_02_FrontYard_New_056"
 			"origin"      "-3348 -12836 5"
 			"angles"      "50 79 -0"
 			"spawnflags"  "7"
@@ -870,7 +870,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn057"
+			"targetname"  "gskSpawn_02_FrontYard_New_057"
 			"origin"      "-3088 -12715 1"
 			"angles"      "30 13 0"
 			"spawnflags"  "7"
@@ -886,7 +886,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn058"
+			"targetname"  "gskSpawn_02_FrontYard_New_058"
 			"origin"      "-4713 -10837 116"
 			"angles"      "86 7 -0"
 			"spawnflags"  "7"
@@ -899,7 +899,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn059"
+			"targetname"  "gskSpawn_02_FrontYard_New_059"
 			"origin"      "-3896 -10793 122"
 			"angles"      "88 -139 0"
 			"spawnflags"  "7"
@@ -912,7 +912,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn060"
+			"targetname"  "gskSpawn_02_FrontYard_New_060"
 			"origin"      "-4899 -12713 128"
 			"angles"      "63 -43 -0"
 			"spawnflags"  "7"
@@ -925,7 +925,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn061"
+			"targetname"  "gskSpawn_02_FrontYard_New_061"
 			"origin"      "-5031 -11742 234"
 			"angles"      "51 144 -0"
 			"spawnflags"  "7"
@@ -938,7 +938,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn062"
+			"targetname"  "gskSpawn_02_FrontYard_New_062"
 			"origin"      "-4989 -11994 388"
 			"angles"      "75 -86 -0"
 			"spawnflags"  "7"
@@ -951,7 +951,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn063"
+			"targetname"  "gskSpawn_02_FrontYard_New_063"
 			"origin"      "-4550 -10815 81"
 			"angles"      "85 39 -0"
 			"spawnflags"  "7"
@@ -964,7 +964,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn064"
+			"targetname"  "gskSpawn_02_FrontYard_New_064"
 			"origin"      "-3927 -13154 60"
 			"angles"      "45 180 -0"
 			"spawnflags"  "7"
@@ -976,7 +976,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn065"
+			"targetname"  "gskSpawn_02_FrontYard_New_065"
 			"origin"      "-3953 -13186 58"
 			"angles"      "52 162 -0"
 			"spawnflags"  "7"
@@ -988,7 +988,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn066"
+			"targetname"  "gskSpawn_02_FrontYard_New_066"
 			"origin"      "-3963 -13140 62"
 			"angles"      "56 -170 -0"
 			"spawnflags"  "7"
@@ -1031,35 +1031,35 @@
 			{
 		
 
-				"Template01" "gskSpawn000"
+				"Template01" "gskSpawn_02_FrontYard_New_000"
 
-				"Template02" "gskSpawn001"
+				"Template02" "gskSpawn_02_FrontYard_New_001"
 
-				"Template03" "gskSpawn002"
+				"Template03" "gskSpawn_02_FrontYard_New_002"
 
-				"Template04" "gskSpawn003"
+				"Template04" "gskSpawn_02_FrontYard_New_003"
 
-				"Template05" "gskSpawn004"
+				"Template05" "gskSpawn_02_FrontYard_New_004"
 
-				"Template06" "gskSpawn005"
+				"Template06" "gskSpawn_02_FrontYard_New_005"
 
-				"Template07" "gskSpawn006"
+				"Template07" "gskSpawn_02_FrontYard_New_006"
 
-				"Template08" "gskSpawn007"
+				"Template08" "gskSpawn_02_FrontYard_New_007"
 
-				"Template09" "gskSpawn008"
+				"Template09" "gskSpawn_02_FrontYard_New_008"
 
-				"Template10" "gskSpawn009"
+				"Template10" "gskSpawn_02_FrontYard_New_009"
 
-				"Template11" "gskSpawn010"
+				"Template11" "gskSpawn_02_FrontYard_New_010"
 
-				"Template12" "gskSpawn011"
+				"Template12" "gskSpawn_02_FrontYard_New_011"
 
-				"Template13" "gskSpawn012"
+				"Template13" "gskSpawn_02_FrontYard_New_012"
 
-				"Template14" "gskSpawn013"
+				"Template14" "gskSpawn_02_FrontYard_New_013"
 
-				"Template15" "gskSpawn014"
+				"Template15" "gskSpawn_02_FrontYard_New_014"
 
 				"Template16" "gskSpawn_02_FrontYard_New_015"
 
@@ -1098,35 +1098,35 @@
 			{
 		
 
-				"Template01" "gskSpawn015"
+				"Template01" "gskSpawn_02_FrontYard_New_015"
 
-				"Template02" "gskSpawn016"
+				"Template02" "gskSpawn_02_FrontYard_New_016"
 
-				"Template03" "gskSpawn017"
+				"Template03" "gskSpawn_02_FrontYard_New_017"
 
-				"Template04" "gskSpawn018"
+				"Template04" "gskSpawn_02_FrontYard_New_018"
 
-				"Template05" "gskSpawn019"
+				"Template05" "gskSpawn_02_FrontYard_New_019"
 
-				"Template06" "gskSpawn020"
+				"Template06" "gskSpawn_02_FrontYard_New_020"
 
-				"Template07" "gskSpawn021"
+				"Template07" "gskSpawn_02_FrontYard_New_021"
 
-				"Template08" "gskSpawn022"
+				"Template08" "gskSpawn_02_FrontYard_New_022"
 
-				"Template09" "gskSpawn023"
+				"Template09" "gskSpawn_02_FrontYard_New_023"
 
-				"Template10" "gskSpawn024"
+				"Template10" "gskSpawn_02_FrontYard_New_024"
 
-				"Template11" "gskSpawn025"
+				"Template11" "gskSpawn_02_FrontYard_New_025"
 
-				"Template12" "gskSpawn026"
+				"Template12" "gskSpawn_02_FrontYard_New_026"
 
-				"Template13" "gskSpawn027"
+				"Template13" "gskSpawn_02_FrontYard_New_027"
 
-				"Template14" "gskSpawn028"
+				"Template14" "gskSpawn_02_FrontYard_New_028"
 
-				"Template15" "gskSpawn029"
+				"Template15" "gskSpawn_02_FrontYard_New_029"
 
 				"Template16" "gskSpawn_02_FrontYard_New_030"
 
@@ -1165,35 +1165,35 @@
 			{
 		
 
-				"Template01" "gskSpawn030"
+				"Template01" "gskSpawn_02_FrontYard_New_030"
 
-				"Template02" "gskSpawn031"
+				"Template02" "gskSpawn_02_FrontYard_New_031"
 
-				"Template03" "gskSpawn032"
+				"Template03" "gskSpawn_02_FrontYard_New_032"
 
-				"Template04" "gskSpawn033"
+				"Template04" "gskSpawn_02_FrontYard_New_033"
 
-				"Template05" "gskSpawn034"
+				"Template05" "gskSpawn_02_FrontYard_New_034"
 
-				"Template06" "gskSpawn035"
+				"Template06" "gskSpawn_02_FrontYard_New_035"
 
-				"Template07" "gskSpawn036"
+				"Template07" "gskSpawn_02_FrontYard_New_036"
 
-				"Template08" "gskSpawn037"
+				"Template08" "gskSpawn_02_FrontYard_New_037"
 
-				"Template09" "gskSpawn038"
+				"Template09" "gskSpawn_02_FrontYard_New_038"
 
-				"Template10" "gskSpawn039"
+				"Template10" "gskSpawn_02_FrontYard_New_039"
 
-				"Template11" "gskSpawn040"
+				"Template11" "gskSpawn_02_FrontYard_New_040"
 
-				"Template12" "gskSpawn041"
+				"Template12" "gskSpawn_02_FrontYard_New_041"
 
-				"Template13" "gskSpawn042"
+				"Template13" "gskSpawn_02_FrontYard_New_042"
 
-				"Template14" "gskSpawn043"
+				"Template14" "gskSpawn_02_FrontYard_New_043"
 
-				"Template15" "gskSpawn044"
+				"Template15" "gskSpawn_02_FrontYard_New_044"
 
 				"Template16" "gskSpawn_02_FrontYard_New_045"
 
@@ -1232,35 +1232,35 @@
 			{
 		
 
-				"Template01" "gskSpawn045"
+				"Template01" "gskSpawn_02_FrontYard_New_045"
 
-				"Template02" "gskSpawn046"
+				"Template02" "gskSpawn_02_FrontYard_New_046"
 
-				"Template03" "gskSpawn047"
+				"Template03" "gskSpawn_02_FrontYard_New_047"
 
-				"Template04" "gskSpawn048"
+				"Template04" "gskSpawn_02_FrontYard_New_048"
 
-				"Template05" "gskSpawn049"
+				"Template05" "gskSpawn_02_FrontYard_New_049"
 
-				"Template06" "gskSpawn050"
+				"Template06" "gskSpawn_02_FrontYard_New_050"
 
-				"Template07" "gskSpawn051"
+				"Template07" "gskSpawn_02_FrontYard_New_051"
 
-				"Template08" "gskSpawn052"
+				"Template08" "gskSpawn_02_FrontYard_New_052"
 
-				"Template09" "gskSpawn053"
+				"Template09" "gskSpawn_02_FrontYard_New_053"
 
-				"Template10" "gskSpawn054"
+				"Template10" "gskSpawn_02_FrontYard_New_054"
 
-				"Template11" "gskSpawn055"
+				"Template11" "gskSpawn_02_FrontYard_New_055"
 
-				"Template12" "gskSpawn056"
+				"Template12" "gskSpawn_02_FrontYard_New_056"
 
-				"Template13" "gskSpawn057"
+				"Template13" "gskSpawn_02_FrontYard_New_057"
 
-				"Template14" "gskSpawn058"
+				"Template14" "gskSpawn_02_FrontYard_New_058"
 
-				"Template15" "gskSpawn059"
+				"Template15" "gskSpawn_02_FrontYard_New_059"
 
 				"Template16" "gskSpawn_02_FrontYard_New_060"
 
@@ -1299,19 +1299,19 @@
 			{
 		
 
-				"Template01" "gskSpawn060"
+				"Template01" "gskSpawn_02_FrontYard_New_060"
 
-				"Template02" "gskSpawn061"
+				"Template02" "gskSpawn_02_FrontYard_New_061"
 
-				"Template03" "gskSpawn062"
+				"Template03" "gskSpawn_02_FrontYard_New_062"
 
-				"Template04" "gskSpawn063"
+				"Template04" "gskSpawn_02_FrontYard_New_063"
 
-				"Template05" "gskSpawn064"
+				"Template05" "gskSpawn_02_FrontYard_New_064"
 
-				"Template06" "gskSpawn065"
+				"Template06" "gskSpawn_02_FrontYard_New_065"
 
-				"Template07" "gskSpawn066"
+				"Template07" "gskSpawn_02_FrontYard_New_066"
 
 			}
 		}
