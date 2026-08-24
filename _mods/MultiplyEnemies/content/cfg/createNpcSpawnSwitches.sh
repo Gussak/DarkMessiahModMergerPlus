@@ -357,8 +357,9 @@ function FUNCmapadds() {
 ' >>"$lstrFlAddTmp"
 
 	local classname targetname origin angles model 
-	local lbSuccess=true
+	local lbCommentOut=false
 	local lnHeightDisplacement=0
+	local lbIgnore=false
 	case "$lstrSummonCmd" in
 		"+gskSummonGuard")
 			echo '
@@ -469,62 +470,84 @@ function FUNCmapadds() {
 			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
 			;;
 		"gskSummonSword")
+			lbIgnore=true
 			lnHeightDisplacement=10
 			echo '
-			"classname" "prop_static"
+			"classname" "prop_physics"
 			"model" "models/Items/Weapons/Sword_short/Sword_short.mdl"
 			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
 			;;
 		"gskSummonStaff")
-			lbABitAbove=true;
+			lbIgnore=true
+			lnHeightDisplacement=10
 			echo '
-			"classname" "prop_static"
+			"classname" "prop_physics"
 			"model" "models/Items/Weapons/staff_wood/staff_wood.mdl"
 			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
 			;;
 		"gskSummonClub")
-			lbABitAbove=true;
+			lbIgnore=true
+			lnHeightDisplacement=10
 			echo '
-			"classname" "prop_static"
+			"classname" "prop_physics"
 			"model" "models/Items/Weapons/Club/Club.mdl"
 			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
 			;;
-		"gskSkillPointAdd")
+		"gskSkillPointAdd") #fails:class logic_relay: OnEntitySpawned OnMapSpawn OnStart
+			#"combinetarget1enable" "1"
+			#"combinetarget2enable" "1"
+			#"combinetarget3enable" "1"
+			#"combinetarget4enable" "1"
+			#"combinetarget5enable" "1"
+			#"combinetarget6enable" "1"
+			#"combinetarget7enable" "1"
+			#"combinetarget8enable" "1"
+			#"combinetarget9enable" "1"
+			#"combinetarget10enable" "1"
+			#"spawnflags" "1"
+			#"model" "models/items/provisions/bread01/bread01_cooked.mdl"
 			echo '
-			"classname" "logic_relay"
-			"combinability" "1"
-			"targetname" "Give1SkillPoint"
-			connections
+			"classname" "prop_physics"
+			"targetname" "gskGive1SkillPoint"
+			"model" "models/items/jewels/money/money02.mdl"
+			"connections"
 			{
-				"OnMapSpawn" "mm_player_inputs,GiveSkillPoints,1,0,1,1,gskmap"
+				"OnPlayerPickup" "mm_player_inputs,GiveSkillPoints,1,0,1,1,gskmap"
+				"OnPlayerUse" "mm_player_inputs,GiveSkillPoints,1,0,1,1,gskmap"
 			}
 			' >>"$lstrFlAddTmp"
 			;;
 		*)
-			lbSuccess=false
+			lbCommentOut=true
 			echo '
 			"targetname"   "TODO_FIX_SUPPORT_FOR_'"${lstrSummonCmd}"'"' >>"$lstrFlAddTmp"
 			;;
 	esac
 	
-	if $lbABitAbove;then
-		anTargetPosXYZ[z]="$(bc <<< "${anTargetPosXYZ[z]}+5")"
+	if((lnHeightDisplacement!=0));then
+		anTargetPosXYZ[z]="$(bc <<< "${anTargetPosXYZ[z]}+${lnHeightDisplacement}")"
 		echo '
 			"origin"      "'"${anTargetPosXYZ[x]} ${anTargetPosXYZ[y]} ${anTargetPosXYZ[z]}"'"' >>"$lstrFlAddTmp"
+	fi
+	
+	if $lbIgnore;then
+		echo '
+			"targetname"  "IGNORED"' >>"$lstrFlAddTmp"
+		lbCommentOut=true
 	fi
 	
 	echo '
 		}
 ' >>"$lstrFlAddTmp"
 	
-	if $lbSuccess;then
-		cat "$lstrFlAddTmp" \
-			|egrep -v "^$" \
-			>>"${strFlMapadds}"
-	else
+	if $lbCommentOut;then
 		cat "$lstrFlAddTmp" \
 			|egrep -v "^$" \
 			|sed -r -e 's@.*@//&@g' \
+			>>"${strFlMapadds}"
+	else # success
+		cat "$lstrFlAddTmp" \
+			|egrep -v "^$" \
 			>>"${strFlMapadds}"
 	fi
 	
