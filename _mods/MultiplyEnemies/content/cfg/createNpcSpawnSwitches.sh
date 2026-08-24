@@ -337,6 +337,8 @@ function FUNCspawnFlags() { #help based on https://developer.valvesoftware.com/w
 function FUNCmapadds() {
 	local lstrSummonCmd="$1"
 	
+	local lstrFlAddTmp="$(mktemp)"
+	
 	echo '
 		"add:entity"
 		{
@@ -346,16 +348,17 @@ function FUNCmapadds() {
 			"spawnflags"  "'"$(FUNCspawnFlags)"'"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-' >>"$strFlMapadds"
+' >>"$lstrFlAddTmp"
 
 	local classname targetname origin angles model 
+	local lbSuccess=true
 	case "$lstrSummonCmd" in
 		"+gskSummonGuard")
 			echo '
 			"classname"   "npc_human_guard"
 			"model" "models/npc/guard/npc_guard.mdl"
 			"additionalequipment" "weapon_arx_short_sword"
-			"spawnflags"  "'"$(FUNCspawnFlags FS_LongRangeView)"'"' >>"$strFlMapadds"
+			"spawnflags"  "'"$(FUNCspawnFlags FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			;; 
 		"+gskSummonGuardBow")
 			echo '
@@ -365,7 +368,7 @@ function FUNCmapadds() {
 			"QuiverAmmo" "8"
 			"rangeweapon" "weapon_arxcrossbow"
 			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
-			"spawnflags"  "'"$(FUNCspawnFlags FS_LongRangeView)"'"' >>"$strFlMapadds"
+			"spawnflags"  "'"$(FUNCspawnFlags FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			;; 
 		"+gskSummonGuardShield")
 			echo '
@@ -375,7 +378,7 @@ function FUNCmapadds() {
 			"QuiverAmmo" "8"
 			"rangeweapon" "weapon_arxcrossbow"
 			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
-			"spawnflags"  "'"$(FUNCspawnFlags FS_DropHealing FS_LongRangeView)"'"' >>"$strFlMapadds"
+			"spawnflags"  "'"$(FUNCspawnFlags FS_DropHealing FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			;; 
 		"gskSummonNecroGuardBow")
 			echo '
@@ -385,7 +388,7 @@ function FUNCmapadds() {
 			"QuiverAmmo" "12"
 			"rangeweapon" "weapon_arxcrossbow"
 			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
-			"spawnflags"  "'"$(FUNCspawnFlags FS_LongRangeView)"'"' >>"$strFlMapadds"
+			"spawnflags"  "'"$(FUNCspawnFlags FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			;; 
 		"gskSummonNecroGuardShield")
 			echo '
@@ -393,21 +396,21 @@ function FUNCmapadds() {
 			"model" "models/npc/Necroguard/npc_necroguard.mdl"
 			"additionalequipment"	"weapon_arx_short_sword"
 			"additionalshield" "weapon_mm_shield_necroguard"
-			"spawnflags"  "'"$(FUNCspawnFlags FS_DropHealing FS_LongRangeView)"'"' >>"$strFlMapadds"
+			"spawnflags"  "'"$(FUNCspawnFlags FS_DropHealing FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			;;
 		"gskSummonNecromancer")
 			echo '
 			"classname" "npc_necromancer_lord"
 			"model" "models/NPC/Necromancer/Npc_necromancer.mdl"
 			"additionalequipment" "weapon_mm_staff_combat"
-			"spawnflags"  "'"$(FUNCspawnFlags FS_DropHealing FS_LongRangeView)"'"' >>"$strFlMapadds"
+			"spawnflags"  "'"$(FUNCspawnFlags FS_DropHealing FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			;;
 		"+gskSummonNecromancerLord")
 			echo '
 			"classname" "npc_necromancer_lord"
 			"model" "models/NPC/necromancer_lord/npc_necromancer_lord.mdl"
 			"additionalequipment" "weapon_mm_hook"
-			"spawnflags"  "'"$(FUNCspawnFlags FS_DropHealing FS_LongRangeView)"'"' >>"$strFlMapadds"
+			"spawnflags"  "'"$(FUNCspawnFlags FS_DropHealing FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			#"weaponmodel" "models/Items/Weapons/hook/hook.mdl"
 			;;
 		"gskSummonUndead")
@@ -416,34 +419,60 @@ function FUNCmapadds() {
 			"model" "models/NPC/Undead/Npc_undead.mdl"
 			"spawnflags" "16384"
 			"SmellRadius" "300"
-			"spawnflags"  "'"$(FUNCspawnFlags FS_TANK)"'"' >>"$strFlMapadds"
+			"spawnflags"  "'"$(FUNCspawnFlags FS_TANK)"'"' >>"$lstrFlAddTmp"
 			if((iSpawnCount%3 <= 1));then # bury 66% of the configured to spawn
 				echo '
 			"UnburrowRadius" "200"
-			"UnburrowChanceOverride" "1.0"' >>"$strFlMapadds"
+			"UnburrowChanceOverride" "1.0"' >>"$lstrFlAddTmp"
 			fi
 			;;
 		"gskSummonSpiderRegular")
 			echo '
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
-			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$strFlMapadds"
+			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
 			;;
 		"gskSummonSpiderMini")
 			echo '
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$strFlMapadds"
+			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
+			;;
+		"gskSummonPotionMana")
+			echo '
+			"classname" "item_potion_mana"
+			"model" "models/items/provisions/potions/Mana_potion.mdl"
+			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
+			;;
+		"gskSummonPotionLife")
+			echo '
+			"classname" "item_potion_life"
+			"model" "models/items/provisions/potions/Life_potion.mdl"
+			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
 			;;
 		*)
+			lbSuccess=false
 			echo '
-			"targetname"   "TODO_FIX_SUPPORT_FOR_'"${lstrSummonCmd}"'"' >>"$strFlMapadds"
+			"targetname"   "TODO_FIX_SUPPORT_FOR_'"${lstrSummonCmd}"'"' >>"$lstrFlAddTmp"
 			;;
 	esac
 	
 	echo '
 		}
-' >>"$strFlMapadds"
+' >>"$lstrFlAddTmp"
+	
+	if $lbSuccess;then
+		cat "$lstrFlAddTmp" \
+			|egrep -v "^$" \
+			>>"${strFlMapadds}"
+	else
+		cat "$lstrFlAddTmp" \
+			|egrep -v "^$" \
+			|sed -r -e 's@.*@//&@g' \
+			>>"${strFlMapadds}"
+	fi
+	
+	rm "$lstrFlAddTmp"
 }
 
 if $bCreateSpawnsForCurrentMap;then
@@ -659,7 +688,7 @@ if $bCreateSpawnsForCurrentMap;then
 					else
 						FUNCvalidateNPC "$strSpawnCommand" "$strFlCondump" "$iLnData"
 					fi
-					strAliasInfo+=":${strSpawnCommand#mm_npc_create_}; "
+					#strAliasInfo+=":${strSpawnCommand#mm_npc_create_}; "
 					strAliasValue+="${strAliasInfo}; "
 					: ${bDumpCurrentPosAng:=false} #help dumping the existing configured pos/ang is much more consistent as the game engine provides modified pos/ang after setpos setang when you getpos :(
 					if $bDumpCurrentPosAng;then
