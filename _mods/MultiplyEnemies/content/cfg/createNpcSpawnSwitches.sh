@@ -469,53 +469,40 @@ function FUNCmapadds() {
 			"model" "models/items/provisions/potions/Life_potion.mdl"
 			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
 			;;
-		"gskSummonSword")
-			lstrIgnore="UnnecessaryPlayerCanSummon"
+		"gskSummonSword") # is bugging, not spawning correctly, unequipable
+			lstrIgnore="UnnecessaryAsPlayerCanSummon"
 			lnHeightDisplacement=10
 			echo '
 			"classname" "prop_physics"
 			"model" "models/Items/Weapons/Sword_short/Sword_short.mdl"
 			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
 			;;
-		"gskSummonStaff")
-			lstrIgnore="UnnecessaryPlayerCanSummon"
+		"gskSummonStaff") # is bugging, not spawning correctly, unequipable
+			lstrIgnore="UnnecessaryAsPlayerCanSummon"
 			lnHeightDisplacement=10
 			echo '
 			"classname" "prop_physics"
 			"model" "models/Items/Weapons/staff_wood/staff_wood.mdl"
 			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
 			;;
-		"gskSummonClub")
-			lstrIgnore="UnnecessaryPlayerCanSummon"
+		"gskSummonClub") # is bugging, not spawning correctly, unequipable
+			lstrIgnore="UnnecessaryAsPlayerCanSummon"
 			lnHeightDisplacement=10
 			echo '
 			"classname" "prop_physics"
 			"model" "models/Items/Weapons/Club/Club.mdl"
 			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
 			;;
-		"gskSkillPointAdd") #TODO doesnt work, nothing works..
-			#failstoo:class logic_relay: OnEntitySpawned OnMapSpawn OnStart
+		"gskSkillPointAdd") #TODO doesnt work....
 			echo '
-			"classname" "prop_physics"
-			"targetname" "gskGive1SkillPoint_TODO_FailingDoesntWork"
-			"combinetarget1enable" "1"
-			"combinetarget2enable" "1"
-			"combinetarget3enable" "1"
-			"combinetarget4enable" "1"
-			"combinetarget5enable" "1"
-			"combinetarget6enable" "1"
-			"combinetarget7enable" "1"
-			"combinetarget8enable" "1"
-			"combinetarget9enable" "1"
-			"combinetarget10enable" "1"
-			"spawnflags" "1"
-			"model" "models/items/provisions/bread01/bread01_cooked.mdl"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"targetname" "gskGive1SkillPoint"
 			"connections"
 			{
-				"OnPlayerPickup" "mm_player_inputs,GiveSkillPoints,1,0,1,1,gskmap"
-				"OnPlayerUse" "mm_player_inputs,GiveSkillPoints,1,0,1,1,gskmap"
+				"OnDeath" "mm_player_inputs,GiveSkillPoints,1,0,1,1,gskmap"
 			}
-			' >>"$lstrFlAddTmp"
+			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
 			;;
 		"gskSummonCoin")
 			echo '
@@ -526,7 +513,7 @@ function FUNCmapadds() {
 		*)
 			lbCommentOut=true
 			echo '
-			"targetname"   "TODO_FIX_SUPPORT_FOR_'"${lstrSummonCmd}"'"' >>"$lstrFlAddTmp"
+			"targetname"   "TODO_FixMissingSupportFor_'"${lstrSummonCmd}"'"' >>"$lstrFlAddTmp"
 			;;
 	esac
 	
