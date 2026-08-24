@@ -360,6 +360,12 @@ function FUNCmapadds() {
 			"additionalequipment" "weapon_arx_short_sword"
 			"spawnflags"  "'"$(FUNCspawnFlags FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			;; 
+		"+gskSummonGuardMini")
+			echo '
+			"classname"   "npc_human_guard"
+			"model" "models/npc/guard/npc_guard_shrinked.mdl"
+			"spawnflags"  "'"$(FUNCspawnFlags FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
+			;; 
 		"+gskSummonGuardBow")
 			echo '
 			"classname"   "npc_human_guard_bow"
@@ -448,6 +454,24 @@ function FUNCmapadds() {
 			echo '
 			"classname" "item_potion_life"
 			"model" "models/items/provisions/potions/Life_potion.mdl"
+			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
+			;;
+		"gskSummonSword")
+			echo '
+			"classname" "prop_static"
+			"model" "models/Items/Weapons/Sword_short/Sword_short.mdl"
+			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
+			;;
+		"gskSummonStaff")
+			echo '
+			"classname" "prop_static"
+			"model" "models/Items/Weapons/staff_wood/staff_wood.mdl"
+			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
+			;;
+		"gskSummonClub")
+			echo '
+			"classname" "prop_static"
+			"model" "models/Items/Weapons/Club/Club.mdl"
 			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
 			;;
 		*)
