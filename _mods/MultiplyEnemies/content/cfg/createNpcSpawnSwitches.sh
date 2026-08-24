@@ -544,7 +544,7 @@ function FUNCmapadds() {
 			"spawnflags"  "'"$(FUNCspawnFlags FS_DropHealing FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			#"weaponmodel" "models/Items/Weapons/hook/hook.mdl"
 			;;
-		mm_npc_create_undead|gskSummonUndead)
+		mm_npc_create_undead|"gskSummonUndead")
 			echo '
 			"classname" "npc_undead"
 			"model" "models/NPC/Undead/Npc_undead.mdl"
@@ -557,14 +557,14 @@ function FUNCmapadds() {
 			"UnburrowChanceOverride" "1.0"' >>"$lstrFlAddTmp"
 			fi
 			;;
-		"gskSummonSpiderRegular")
+		mm_npc_create_spider|"gskSummonSpiderRegular")
 			lnHeightDisplacement=7
 			echo '
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
 			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
 			;;
-		"gskSummonSpiderMini")
+		mm_npc_create_spider_mini|"gskSummonSpiderMini")
 			lnHeightDisplacement=5
 			echo '
 			"classname" "npc_spider_mini"
