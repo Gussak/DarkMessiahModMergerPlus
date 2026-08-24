@@ -1,0 +1,100 @@
+map     :  l02_b1 at: -4507 x, -10941 y, 139 z
+map     :  l02_b1 at: -4507 x, -10941 y, 139 z
+gskSpawnHint   // ( 1/14 )
+prop at -5038 -10721 213 missing modelname 
+prop at -5038 -10721 213 missing modelname 
+setpos -4945.363770 -10692.363281 185.564713 : setang -26.161858 -157.831787 0.001101  
+setpos -4945.363770 -10692.363281 185.564713 : setang -26.161858 -157.831787 0.001101  
+gskSummonPotionLife  
+gskSummonPotionLife  
+gskSpawnHint   // ( 2/14 )
+prop at -4761 -10835 115 missing modelname 
+prop at -4761 -10835 115 missing modelname 
+setpos -4793.444824 -10845.572266 186.78649 : setang 59.435154 4.415439 -0.001104  
+setpos -4793.444824 -10845.572266 186.786469 : setang 59.435154 4.415439 -0.001104  
+gskSummonPotionLife  
+gskSummonPotionLife  
+gskSpawnHint   // ( 3/14 )
+prop at -5046 -10771 141 missing modelname 
+prop at -5046 -10771 141 missing modelname 
+setpos -4932.062012 -10727.333984 209.638687 : setang 21.290943 -155.315445 0.002136  
+setpos -4932.062012 -10727.333984 209.638687 : setang 21.290943 -155.315445 0.002136  
+gskSummonPotionLife  
+gskSummonPotionLife  
+gskSpawnHint   // ( 4/14 )
+prop at -5053 -10714 77 missing modelname 
+prop at -5053 -10714 77 missing modelname 
+setpos -4935.077637 -10724.930664 207.009644 : setang 44.061119 178.481491 0.000117  
+setpos -4935.077637 -10724.930664 207.009644 : setang 44.061119 178.481491 0.000117  
+gsSummonPotionLife  
+gskSummonPotionLife  
+gskSpawnHint   // ( 5/14 )
+prop at -4831 -10965 65 missing modelname 
+prop at -4831 -10965 65missing modelname 
+setpos -4819.378906 -10909.168945 184.621902 : setang 59.119999 -98.301949 -0.008050  
+setpos -4819.378906 -10909.168945 184.621902 : setang 59.119999 -98.301949 -0.008050  
+mm_npc_create_necro_guard_bow  
+mm_npc_create_necro_guard_bow  
+gskSpawnHint   // ( 6/14 )
+prop at -4832 -10881 65 missing modelname 
+prop at -4832 -10881 65 missing modelname 
+setpos -4817.528320 -10772.276367 190.406952 : setang 42.462635 -95.722458 -0.006672  
+setpos -4817.528320 -10772.276367 190.406952 : setang 42.462635 -95.722458 -0.006672  
+mm_npc_create_necro_guard_bow  
+mm_npc_create_necro_guard_bow  
+gskSpawnHint   // ( 7/14 )
+prop at -4831 -10831 65 missing modelname 
+prop at -4831 -10831 65 missing modelname 
+setpos -4818.082031 -10773.372070 188.039200 : setang 58.826981 -98.59568 -0.008037  
+setpos -4818.082031 -10773.372070 188.039200 : setang 58.826981 -98.595688 -0.008037  
+mm_npc_create_necro_guard_bow  
+mm_npc_create_necro_guard_bow  
+gskSpawnHint   // ( 8/14 )
+prop at -4982 -10661 65 missing modelname 
+prop at -4982 -10661 65 missing modelname 
+setpos -4932.908691 -10623.276367 172.536453 : setang 55.131893 -135.673019 -0.007879  
+setpos -4932.908691 -10623.276367 172.536453 : setang 55.131893 -135.673019 -0.007879  
+mm_npc_create_necro_guard_shield  
+mm_npc_create_necro_guard_shield  
+gskSpawnHint   // ( 9/14 )
+prop at -4913 -10949 65 missing modelname 
+prop at -4913 -10949 65 missing modelname 
+setpos -4821.441895 -10929.476563 184.242676 : setang 47.558159 -162.961929 -0.000290  
+setpos -4821.441895 -10929.476563 184.242676 : setang 47.55815 -162.961929 -0.000290  
+mm_npc_create_undead  
+mm_npc_create_undead  
+gskSpawnHint   // ( 10/14 )
+prop at -4952 -10831 65 missing modelame 
+prop at -4952 -10831 65 missing modelname 
+setpos -4890.624023 -10649.563477 166.539261 : setang 22.215015 -107.162262 0.002073  
+setpos -4890.624023 -10649.563477 166.539261 : setang 22.215015 -107.162262 0.002073  
+mm_npc_create_undead  
+mm_npc_create_undead  
+gskSpawnHint   // ( 11/14 )
+prop at -4981 -10798 65 missing modelname 
+prop at -4981 -10798 65 missing modelname 
+setpos -4891.777344 -10649.358398 166.342194 : setang 24.261055 -119.042381 0.001923  
+setpos -4891.777344 -10649.358398 166.342194 : setang 24.261055 -119.042381 0.001923  
+mm_npc_create_undead  
+mm_npc_create_undead  
+gskSpawnHint   // ( 12/14 )
+prop at -4938 -10765 65 missing modelname 
+prop at -4938 -10765 65 missing modelname 
+setpos -4891.257813 -10650.592773 165.539627 : setang 31.785164 -109.8027650.001334  
+setpos -4891.257813 -10650.592773 165.539627 : setang 31.785164 -109.802765 0.001334  
+mm_npc_create_necromancer  
+mm_npc_create_necromancer  
+gskSpawnHint   // ( 13/14 )
+prop at -5016 -10800 264 missing modelname 
+prop at -5016 -10800 264 missing modelname 
+setpos -4949.726563 -10860.940430 340.888733 : setang 34.796143 140.274231 -0.004844  
+setpos -4949.726563 -10860.940430 340.888733 : setang 34.796143 140.274231 -0.004844  
+gskSummonCrow  
+gskSummonCrow  
+gskSpawnHint   // ( 14/14 )
+prop at -5004 -10808 275 missing modelname 
+prop at -5004 -10808 275 missing modelname 
+setpos -4937.200195 -10796.477539 353.441986 : setang 41.882992 -163.392303 -0.005550  
+setpos -4937.200195 -10796.477539 353.441986 : setang 41.882992 -163.392303 -0.005550  
+gskSummonCrow  
+gskSummonCro  
