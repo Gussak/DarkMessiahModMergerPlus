@@ -1041,7 +1041,7 @@
 			}
 			"add:key"
 			{
-	
+		
 
 				"Template02" "gskSpawn000"
 
@@ -1071,117 +1071,212 @@
 
 				"Template15" "gskSpawn013"
 
-				"Template16" "gskSpawn014"
-
-				"Template17" "gskSpawn015"
-
-				"Template18" "gskSpawn016"
-
-				"Template19" "gskSpawn017"
-
-				"Template20" "gskSpawn018"
-
-				"Template21" "gskSpawn019"
-
-				"Template22" "gskSpawn020"
-
-				"Template23" "gskSpawn021"
-
-				"Template24" "gskSpawn022"
-
-				"Template25" "gskSpawn023"
-
-				"Template26" "gskSpawn024"
-
-				"Template27" "gskSpawn025"
-
-				"Template28" "gskSpawn026"
-
-				"Template29" "gskSpawn027"
-
-				"Template30" "gskSpawn028"
-
-				"Template31" "gskSpawn029"
-
-				"Template32" "gskSpawn030"
-
-				"Template33" "gskSpawn031"
-
-				"Template34" "gskSpawn032"
-
-				"Template35" "gskSpawn033"
-
-				"Template36" "gskSpawn034"
-
-				"Template37" "gskSpawn035"
-
-				"Template38" "gskSpawn036"
-
-				"Template39" "gskSpawn037"
-
-				"Template40" "gskSpawn038"
-
-				"Template41" "gskSpawn039"
-
-				"Template42" "gskSpawn040"
-
-				"Template43" "gskSpawn041"
-
-				"Template44" "gskSpawn042"
-
-				"Template45" "gskSpawn043"
-
-				"Template46" "gskSpawn044"
-
-				"Template47" "gskSpawn045"
-
-				"Template48" "gskSpawn046"
-
-				"Template49" "gskSpawn047"
-
-				"Template50" "gskSpawn048"
-
-				"Template51" "gskSpawn049"
-
-				"Template52" "gskSpawn050"
-
-				"Template53" "gskSpawn051"
-
-				"Template54" "gskSpawn052"
-
-				"Template55" "gskSpawn053"
-
-				"Template56" "gskSpawn054"
-
-				"Template57" "gskSpawn055"
-
-				"Template58" "gskSpawn056"
-
-				"Template59" "gskSpawn057"
-
-				"Template60" "gskSpawn058"
-
-				"Template61" "gskSpawn059"
-
-				"Template62" "gskSpawn060"
-
-				"Template63" "gskSpawn061"
-
-				"Template64" "gskSpawn062"
-
-				"Template65" "gskSpawn063"
-
-				"Template66" "gskSpawn064"
-
-				"Template67" "gskSpawn065"
-
-				"Template68" "gskSpawn066"
-
-				"Template69" "gskSpawn067"
+				"Template16" "gskSpawnerSectionBeginAtTarget14"
 
 			}
 		}
-	
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawnerSectionBeginAtTarget14"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawnerSectionBeginAtTarget14"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn014"
+
+				"Template02" "gskSpawn015"
+
+				"Template03" "gskSpawn016"
+
+				"Template04" "gskSpawn017"
+
+				"Template05" "gskSpawn018"
+
+				"Template06" "gskSpawn019"
+
+				"Template07" "gskSpawn020"
+
+				"Template08" "gskSpawn021"
+
+				"Template09" "gskSpawn022"
+
+				"Template10" "gskSpawn023"
+
+				"Template11" "gskSpawn024"
+
+				"Template12" "gskSpawn025"
+
+				"Template13" "gskSpawn026"
+
+				"Template14" "gskSpawn027"
+
+				"Template15" "gskSpawn028"
+
+				"Template16" "gskSpawnerSectionBeginAtTarget29"
+
+			}
+		}
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawnerSectionBeginAtTarget29"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawnerSectionBeginAtTarget29"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn029"
+
+				"Template02" "gskSpawn030"
+
+				"Template03" "gskSpawn031"
+
+				"Template04" "gskSpawn032"
+
+				"Template05" "gskSpawn033"
+
+				"Template06" "gskSpawn034"
+
+				"Template07" "gskSpawn035"
+
+				"Template08" "gskSpawn036"
+
+				"Template09" "gskSpawn037"
+
+				"Template10" "gskSpawn038"
+
+				"Template11" "gskSpawn039"
+
+				"Template12" "gskSpawn040"
+
+				"Template13" "gskSpawn041"
+
+				"Template14" "gskSpawn042"
+
+				"Template15" "gskSpawn043"
+
+				"Template16" "gskSpawnerSectionBeginAtTarget44"
+
+			}
+		}
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawnerSectionBeginAtTarget44"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawnerSectionBeginAtTarget44"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn044"
+
+				"Template02" "gskSpawn045"
+
+				"Template03" "gskSpawn046"
+
+				"Template04" "gskSpawn047"
+
+				"Template05" "gskSpawn048"
+
+				"Template06" "gskSpawn049"
+
+				"Template07" "gskSpawn050"
+
+				"Template08" "gskSpawn051"
+
+				"Template09" "gskSpawn052"
+
+				"Template10" "gskSpawn053"
+
+				"Template11" "gskSpawn054"
+
+				"Template12" "gskSpawn055"
+
+				"Template13" "gskSpawn056"
+
+				"Template14" "gskSpawn057"
+
+				"Template15" "gskSpawn058"
+
+				"Template16" "gskSpawnerSectionBeginAtTarget59"
+
+			}
+		}
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawnerSectionBeginAtTarget59"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawnerSectionBeginAtTarget59"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn059"
+
+				"Template02" "gskSpawn060"
+
+				"Template03" "gskSpawn061"
+
+				"Template04" "gskSpawn062"
+
+				"Template05" "gskSpawn063"
+
+				"Template06" "gskSpawn064"
+
+				"Template07" "gskSpawn065"
+
+				"Template08" "gskSpawn066"
+
+				"Template09" "gskSpawn067"
+
+			}
+		}
 
 	}
 }
