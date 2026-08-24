@@ -210,7 +210,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawnerSectionBeginAtTarget0,ForceSpawn,,0,-1,1,"
+				"OnTrigger" "gskSpawn_01_GuestHouse_New_000,ForceSpawn,,0,-1,1,"
 			}
 		}
 		
@@ -220,7 +220,7 @@
 			"classname" "point_template"
 			"combinability" "1"
 			"spawnflags" "2"
-			"targetname" "gskSpawnerSectionBeginAtTarget0"
+			"targetname" "gskSpawn_01_GuestHouse_New_000"
 			"origin" "0 0 0"
 		}
 
@@ -228,7 +228,7 @@
 		{
 			"TargetMarkers"
 			{
-				"targetname"	"gskSpawnerSectionBeginAtTarget0"
+				"targetname"	"gskSpawn_01_GuestHouse_New_000"
 			}
 			"add:key"
 			{

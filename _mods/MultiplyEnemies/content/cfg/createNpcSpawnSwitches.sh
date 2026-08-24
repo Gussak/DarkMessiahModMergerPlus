@@ -338,6 +338,10 @@ function FUNCspawnFlags() { #help based on https://developer.valvesoftware.com/w
 	return 0
 }
 
+function FUNCsectionID() {
+	echo "gskSpawn_${lstrUseThisSector}_$(printf %03d ${1})" #Spawner Section Begin At Target
+}
+
 : ${nSpawnTriggerLinkedLimit:=16} #help :(
 function FUNCappendToSpawnTrigger() {
 	if [[ -z "${strSpawnTriggerLine}" ]];then return 0;fi
@@ -351,7 +355,7 @@ function FUNCappendToSpawnTrigger() {
 	local lstrLogicRelaySpawnParams="$(echo "$strSpawnTriggerLine" |sed -r -e "s@${lstrSTRegex}@\3@g")"
 	local lnSTTemplateBeginIndex=0
 	
-	local lstrSTSectionID="gskSpawnerSectionBeginAtTarget${liTargetIndex}"
+	local lstrSTSectionID="$(FUNCsectionID ${liTargetIndex})"
 	local lnSTTemplateBeginSection=0
 	
 	while true;do
@@ -414,7 +418,8 @@ function FUNCappendToSpawnTrigger() {
 			if((lnSTTemplateIndex==nSpawnTriggerLinkedLimit));then #not greater than limit because the last slot will be used to link the next section
 				#lnSTTemplateBeginSection=$lnSTTemplateIndex
 				#lstrSTSectionID="gskSpawnerSectionBegin${lnSTTemplateBeginSection}"
-				lstrSTSectionID="gskSpawnerSectionBeginAtTarget${liTargetIndex}"
+				#lstrSTSectionID="gskSpawn_${lstrUseThisSector}_$(printf %03d ${liTargetIndex})" #Spawner Section Begin At Target
+				lstrSTSectionID="$(FUNCsectionID ${liTargetIndex})"
 				lstrTargetName="$lstrSTSectionID"
 				lbCreateNewSection=true
 			else

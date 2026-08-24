@@ -1007,7 +1007,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawnerSectionBeginAtTarget0,ForceSpawn,,0,1,1,"
+				"OnTrigger" "gskSpawn_02_FrontYard_New_000,ForceSpawn,,0,1,1,"
 			}
 		}
 		
@@ -1017,7 +1017,7 @@
 			"classname" "point_template"
 			"combinability" "1"
 			"spawnflags" "2"
-			"targetname" "gskSpawnerSectionBeginAtTarget0"
+			"targetname" "gskSpawn_02_FrontYard_New_000"
 			"origin" "0 0 0"
 		}
 
@@ -1025,7 +1025,7 @@
 		{
 			"TargetMarkers"
 			{
-				"targetname"	"gskSpawnerSectionBeginAtTarget0"
+				"targetname"	"gskSpawn_02_FrontYard_New_000"
 			}
 			"add:key"
 			{
@@ -1061,7 +1061,7 @@
 
 				"Template15" "gskSpawn014"
 
-				"Template16" "gskSpawnerSectionBeginAtTarget15"
+				"Template16" "gskSpawn_02_FrontYard_New_015"
 
 			}
 		}
@@ -1074,7 +1074,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawnerSectionBeginAtTarget15,ForceSpawn,,0,1,1,"
+				"OnTrigger" "gskSpawn_02_FrontYard_New_015,ForceSpawn,,0,1,1,"
 			}
 		}
 		
@@ -1084,7 +1084,7 @@
 			"classname" "point_template"
 			"combinability" "1"
 			"spawnflags" "2"
-			"targetname" "gskSpawnerSectionBeginAtTarget15"
+			"targetname" "gskSpawn_02_FrontYard_New_015"
 			"origin" "0 0 0"
 		}
 
@@ -1092,7 +1092,7 @@
 		{
 			"TargetMarkers"
 			{
-				"targetname"	"gskSpawnerSectionBeginAtTarget15"
+				"targetname"	"gskSpawn_02_FrontYard_New_015"
 			}
 			"add:key"
 			{
@@ -1128,7 +1128,7 @@
 
 				"Template15" "gskSpawn029"
 
-				"Template16" "gskSpawnerSectionBeginAtTarget30"
+				"Template16" "gskSpawn_02_FrontYard_New_030"
 
 			}
 		}
@@ -1141,7 +1141,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawnerSectionBeginAtTarget30,ForceSpawn,,0,1,1,"
+				"OnTrigger" "gskSpawn_02_FrontYard_New_030,ForceSpawn,,0,1,1,"
 			}
 		}
 		
@@ -1151,7 +1151,7 @@
 			"classname" "point_template"
 			"combinability" "1"
 			"spawnflags" "2"
-			"targetname" "gskSpawnerSectionBeginAtTarget30"
+			"targetname" "gskSpawn_02_FrontYard_New_030"
 			"origin" "0 0 0"
 		}
 
@@ -1159,7 +1159,7 @@
 		{
 			"TargetMarkers"
 			{
-				"targetname"	"gskSpawnerSectionBeginAtTarget30"
+				"targetname"	"gskSpawn_02_FrontYard_New_030"
 			}
 			"add:key"
 			{
@@ -1195,7 +1195,7 @@
 
 				"Template15" "gskSpawn044"
 
-				"Template16" "gskSpawnerSectionBeginAtTarget45"
+				"Template16" "gskSpawn_02_FrontYard_New_045"
 
 			}
 		}
@@ -1208,7 +1208,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawnerSectionBeginAtTarget45,ForceSpawn,,0,1,1,"
+				"OnTrigger" "gskSpawn_02_FrontYard_New_045,ForceSpawn,,0,1,1,"
 			}
 		}
 		
@@ -1218,7 +1218,7 @@
 			"classname" "point_template"
 			"combinability" "1"
 			"spawnflags" "2"
-			"targetname" "gskSpawnerSectionBeginAtTarget45"
+			"targetname" "gskSpawn_02_FrontYard_New_045"
 			"origin" "0 0 0"
 		}
 
@@ -1226,7 +1226,7 @@
 		{
 			"TargetMarkers"
 			{
-				"targetname"	"gskSpawnerSectionBeginAtTarget45"
+				"targetname"	"gskSpawn_02_FrontYard_New_045"
 			}
 			"add:key"
 			{
@@ -1262,7 +1262,7 @@
 
 				"Template15" "gskSpawn059"
 
-				"Template16" "gskSpawnerSectionBeginAtTarget60"
+				"Template16" "gskSpawn_02_FrontYard_New_060"
 
 			}
 		}
@@ -1275,7 +1275,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawnerSectionBeginAtTarget60,ForceSpawn,,0,1,1,"
+				"OnTrigger" "gskSpawn_02_FrontYard_New_060,ForceSpawn,,0,1,1,"
 			}
 		}
 		
@@ -1285,7 +1285,7 @@
 			"classname" "point_template"
 			"combinability" "1"
 			"spawnflags" "2"
-			"targetname" "gskSpawnerSectionBeginAtTarget60"
+			"targetname" "gskSpawn_02_FrontYard_New_060"
 			"origin" "0 0 0"
 		}
 
@@ -1293,7 +1293,7 @@
 		{
 			"TargetMarkers"
 			{
-				"targetname"	"gskSpawnerSectionBeginAtTarget60"
+				"targetname"	"gskSpawn_02_FrontYard_New_060"
 			}
 			"add:key"
 			{
