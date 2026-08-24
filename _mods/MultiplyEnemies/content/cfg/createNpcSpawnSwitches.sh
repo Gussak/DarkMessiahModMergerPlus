@@ -427,7 +427,7 @@ function FUNCmapadds() {
 			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
 			"spawnflags"  "'"$(FUNCspawnFlags FS_DropHealing FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			;; 
-		"gskSummonNecroGuardBow")
+		mm_npc_create_necro_guard_bow|"gskSummonNecroGuardBow")
 			echo '
 			"classname"   "npc_necro_guard_bow"
 			"model" "models/npc/Necroguard/npc_necroguard.mdl"
@@ -437,7 +437,7 @@ function FUNCmapadds() {
 			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
 			"spawnflags"  "'"$(FUNCspawnFlags FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			;; 
-		"gskSummonNecroGuardShield")
+		mm_npc_create_necro_guard_shield|"gskSummonNecroGuardShield")
 			echo '
 			"classname"   "npc_necro_guard"
 			"model" "models/npc/Necroguard/npc_necroguard.mdl"
@@ -445,14 +445,14 @@ function FUNCmapadds() {
 			"additionalshield" "weapon_mm_shield_necroguard"
 			"spawnflags"  "'"$(FUNCspawnFlags FS_DropHealing FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			;;
-		"gskSummonNecromancer")
+		mm_npc_create_necromancer|"gskSummonNecromancer")
 			echo '
 			"classname" "npc_necromancer_lord"
 			"model" "models/NPC/Necromancer/Npc_necromancer.mdl"
 			"additionalequipment" "weapon_mm_staff_combat"
 			"spawnflags"  "'"$(FUNCspawnFlags FS_DropHealing FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			;;
-		"+gskSummonNecromancerLord")
+		mm_npc_create_necromancer_lord|"+gskSummonNecromancerLord")
 			echo '
 			"classname" "npc_necromancer_lord"
 			"model" "models/NPC/necromancer_lord/npc_necromancer_lord.mdl"
@@ -460,7 +460,7 @@ function FUNCmapadds() {
 			"spawnflags"  "'"$(FUNCspawnFlags FS_DropHealing FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			#"weaponmodel" "models/Items/Weapons/hook/hook.mdl"
 			;;
-		"gskSummonUndead")
+		mm_npc_create_undead|gskSummonUndead)
 			echo '
 			"classname" "npc_undead"
 			"model" "models/NPC/Undead/Npc_undead.mdl"
