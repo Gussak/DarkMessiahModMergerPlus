@@ -13,7 +13,7 @@
 			"model"		"models/npc/Necroguard/npc_necroguard.mdl"
 			"QuiverModel"		"models/items/weapons/Quiver_guard/quiver_guard.mdl"
 			"additionalequipment"		"weapon_arx_short_sword"
-			"spawnflags"		"1"
+			"spawnflags"		"256"
 		}
 		"add:entity"
 		{
@@ -24,7 +24,7 @@
 			"model"		"models/npc/Necroguard/npc_necroguard.mdl"
 			"additionalequipment"	"weapon_arx_short_sword"
 			"additionalshield" "weapon_mm_shield_necroguard"
-			"spawnflags"		"1"
+			"spawnflags"		"264"
 		}
 		"add:entity"
 		{
@@ -34,6 +34,7 @@
 			"angles"		"0 270 0"
 			"model" "models/NPC/Necromancer/Npc_necromancer.mdl"
 			"additionalequipment" "weapon_mm_staff_combat"
+			"spawnflags"		"256"
 		}
 		"add:entity"
 		{
@@ -44,6 +45,7 @@
 			"model" "models/NPC/necromancer_lord/npc_necromancer_lord.mdl"
 			"additionalequipment" "weapon_mm_hook"
 			"weaponmodel" "models/Items/Weapons/hook/hook.mdl"
+			"spawnflags"		"256"
 		}
 		"add:entity"
 		{
@@ -52,7 +54,7 @@
 			"origin"		"129 -576 -312"
 			"angles"		"0 270 0"
 			"model" "models/NPC/Undead/Npc_undead.mdl"
-			"spawnflags" "1"
+			"spawnflags" "16384"
 			"SmellRadius" "300"
 		}
 		"add:entity"
