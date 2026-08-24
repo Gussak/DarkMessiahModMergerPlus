@@ -346,7 +346,7 @@ function FUNCappendToSpawnTrigger() {
 			}
 			"add:key"
 			{
-	' >>"$lstrFlAddTmp"
+	' >>"${strFlMapadds}"
 	
 	local li
 	for((li=0;li<${#astrTriggeredSpawnerTargetNameList[@]};li++));do
@@ -354,13 +354,13 @@ function FUNCappendToSpawnTrigger() {
 		if((lnIndex>99));then FUNCechoInfo "[WARN] lnIndex=$lnIndex > 99";fi
 		local lstrTargetName="${astrTriggeredSpawnerTargetNameList[$li]}"
 		echo '
-				"Template'"$(printf %02d $lnIndex)"'" "'"${lstrTargetName}"'"' >>"$lstrFlAddTmp"
+				"Template'"$(printf %02d $lnIndex)"'" "'"${lstrTargetName}"'"' >>"${strFlMapadds}"
 	done
 	
 	echo '
 			}
 		}
-	' >>"$lstrFlAddTmp"
+	' >>"${strFlMapadds}"
 }
 
 astrTriggeredSpawnerTargetNameList=()
@@ -715,8 +715,8 @@ if $bCreateSpawnsForCurrentMap;then
 	#help @InfoID="Use existing spawn trigger" put this on the condump ex. for L02_B1: gskSpawnTriggerID tim_spwaner (then in the line below put this ex.: gskSpawnTriggerBeginIndex 2) #TODO may be seek other mods for mapadd files looking for last Template[0-9]* to start from, also look at .vmf file but not everyone may have the hammer sdk installed...
 	strSpawnTriggerID=""
 	if egrep "gskSpawnTriggerID" "$strFlCondump";then
-		strSpawnTriggerID="$(      egrep "gskSpawnTriggerID"         "$strFlCondump" |awk '${print $2}')"
-		nSpawnTriggerBeginIndex="$(egrep "gskSpawnTriggerBeginIndex" "$strFlCondump" |awk '${print $2}')"
+		strSpawnTriggerID="$(      egrep "gskSpawnTriggerID"         "$strFlCondump" |awk '{print $2}')"
+		nSpawnTriggerBeginIndex="$(egrep "gskSpawnTriggerBeginIndex" "$strFlCondump" |awk '{print $2}')"
 		echo "gskSpawnTriggerID $strSpawnTriggerID" >>"$strFlCondumpCleanNew"
 		echo "gskSpawnTriggerBeginIndex $nSpawnTriggerBeginIndex" >>"$strFlCondumpCleanNew"
 	fi
@@ -863,7 +863,7 @@ if $bCreateSpawnsForCurrentMap;then
 ' >>"$strFlMapadds"
 	
 	#FUNCechoAndFillFile "alias +gskCCnpcSpawn_${strCountNext} \"echo FinishedSpawnings; gskSndDONE; ${strRestorePosInTheEnd}; ${strCmdsOFF}; -gskInteractUseDev; alias gskCCnpcSpawn_next +gskCCnpcSpawn_Finished; \"" #this also prevents continuing thru some previous list entries of a previous test run or map may be. -gskInteractUseDev is to grant next +gskInteractUseDev wont break.
-	FUNCechoAndFillFile "alias +gskCCnpcSpawn_${strCountNext} \"echo FinishedSpawnings; gskSndDONE; ${strRestorePosInTheEnd}; ${strCmdsOFF}; alias +gskCCnpcSpawn_next +gskCCnpcSpawn_Finished; alias -gskCCnpcSpawn_next -gskCCnpcSpawn_Finished; save gskFinishedSpawnings_${FUNCmapInfo_strMapName}; pause; \"" # using finish alias also prevents continuing thru some previous list entries of a previous test run or map may be.
+	FUNCechoAndFillFile "alias +gskCCnpcSpawn_${strCountNext} \"echo FinishedSpawnings; gskSndDONE; ${strRestorePosInTheEnd}; ${strCmdsOFF}; alias +gskCCnpcSpawn_next +gskCCnpcSpawn_Finished; alias -gskCCnpcSpawn_next -gskCCnpcSpawn_Finished; save gskFinishedSpawnings_${FUNCmapInfo_strMapName}; condump; pause; \"" # using finish alias also prevents continuing thru some previous list entries of a previous test run or map may be.
 	FUNCechoAndFillFile "alias -gskCCnpcSpawn_${strCountNext} \"\""
 	FUNCechoAndFillFile "alias +gskCCnpcSpawn_Finished \"gskEchoOn; ${strFinalMessages}; echo Finished Spawnings Already for this map $FUNCmapInfo_strMapName\""
 	FUNCechoAndFillFile "alias -gskCCnpcSpawn_Finished \"gskEchoOff\""
