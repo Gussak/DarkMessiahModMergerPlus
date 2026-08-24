@@ -338,17 +338,33 @@ function FUNCspawnFlags() { #help based on https://developer.valvesoftware.com/w
 function FUNCappendToSpawnTrigger() {
 	if [[ -z "${strSpawnTriggerID}" ]];then return 0;fi
 	
+	local lbCreateNewSection=true
+	local liTargetIndex=0
+	
 	local lstrSpawnTriggerID=""
 	local lnSTTemplateBeginIndex=0
 	
-	local lstrSTSectionID=""
+	local lstrSTSectionID="gskSpawnerSectionBeginAtTarget${liTargetIndex}"
 	local lnSTTemplateBeginSection=0
 	
-	local lbCreateNewSection=false
-	local liTargetIndex=0
 	while true;do
 		#if((lnSTTemplateBeginSection>0));then
 		if $lbCreateNewSection;then
+		# "OnStartTouch" should be nested inside "connections" (like: ```... "connections" { "OnStartTouch" ...```), but it seems  that everything starting with "On" automatically goes into "connections" so no need to provide the nesting here!
+		echo '
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"'"${strSpawnTriggerID}"'"
+			}
+			"add:key"
+			{
+				"OnStartTouch" "'"${lstrSTSectionID}"',ForceSpawn,,0,-1,1,"
+			}
+		}
+		' >>"${strFlMapadds}"
+		
 			echo '
 		"add:entity"
 		{
@@ -364,7 +380,7 @@ function FUNCappendToSpawnTrigger() {
 			lbCreateNewSection=false
 		else
 			lstrSpawnTriggerID="${strSpawnTriggerID}"
-			lnSTTemplateBeginIndex=$nSpawnTriggerTemplateBeginIndex
+			#lnSTTemplateBeginIndex=$nSpawnTriggerTemplateBeginIndex
 		fi
 		
 		echo '
@@ -766,11 +782,11 @@ if $bCreateSpawnsForCurrentMap;then
 	
 	#help @InfoID="Use existing spawn trigger" put this on the condump ex. for L02_B1: gskSpawnTriggerID tim_spwaner (then in the line below put this ex.: gskSpawnTriggerBeginIndex 2) #TODO may be seek other mods for mapadd files looking for last Template[0-9]* to start from, also look at .vmf file but not everyone may have the hammer sdk installed...
 	strSpawnTriggerID=""
-	if egrep "gskSpawnTriggerID" "$strFlCondump";then
-		strSpawnTriggerID="$(      egrep "gskSpawnTriggerID"         "$strFlCondump" |awk '{print $2}')"
-		nSpawnTriggerTemplateBeginIndex="$(egrep "gskSpawnTriggerBeginIndex" "$strFlCondump" |awk '{print $2}')"
+	if egrep "^gskSpawnTriggerID" "$strFlCondump";then
+		strSpawnTriggerID="$(      egrep "^gskSpawnTriggerID"         "$strFlCondump" |awk '{print $2}')"
+		#nSpawnTriggerTemplateBeginIndex="$(egrep "gskSpawnTriggerBeginIndex" "$strFlCondump" |awk '{print $2}')"
 		echo "gskSpawnTriggerID $strSpawnTriggerID" >>"$strFlCondumpCleanNew"
-		echo "gskSpawnTriggerBeginIndex $nSpawnTriggerTemplateBeginIndex" >>"$strFlCondumpCleanNew"
+		#echo "gskSpawnTriggerBeginIndex $nSpawnTriggerTemplateBeginIndex" >>"$strFlCondumpCleanNew"
 	fi
 	
 	#: ${bCollectTargetPos:=true} #help temporary to update with old files
