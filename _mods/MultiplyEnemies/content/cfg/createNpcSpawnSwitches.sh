@@ -334,33 +334,71 @@ function FUNCspawnFlags() { #help based on https://developer.valvesoftware.com/w
 	return 0
 }
 
+: ${nSpawnTriggerLinkedLimit:=16} #help :(
 function FUNCappendToSpawnTrigger() {
 	if [[ -z "${strSpawnTriggerID}" ]];then return 0;fi
 	
-	echo '
+	local liBeginSection=0
+	local lstrSectionNm=""
+	local lstrSpawnTriggerID=""
+	local lnSpawnTriggerBeginIndex=0
+	while true;do
+		if((liBeginSection>0));then
+			echo '
+				"add:entity"
+				{
+					"classname" "point_template"
+					"combinability" "1"
+					"spawnflags" "2"
+					"targetname" "'"${lstrSectionNm}"'"
+					"origin" "0 0 0"
+				}
+			' >>"${strFlMapadds}"
+			lstrSpawnTriggerID="${lstrSectionNm}"
+			lnSpawnTriggerBeginIndex=1
+		else
+			lstrSpawnTriggerID="${strSpawnTriggerID}"
+			lnSpawnTriggerBeginIndex=$nSpawnTriggerBeginIndex
+		fi
+		
+		echo '
 		"modify:entity"
 		{
 			"TargetMarkers"
 			{
-				"targetname"	"'"${strSpawnTriggerID}"'"
+				"targetname"	"'"${lstrSpawnTriggerID}"'"
 			}
 			"add:key"
 			{
-	' >>"${strFlMapadds}"
-	
-	local li
-	for((li=0;li<${#astrTriggeredSpawnerTargetNameList[@]};li++));do
-		local lnIndex=$((nSpawnTriggerBeginIndex+li)) #max 99?
-		if((lnIndex>99));then FUNCechoInfo "[WARN] lnIndex=$lnIndex > 99";fi
-		local lstrTargetName="${astrTriggeredSpawnerTargetNameList[$li]}"
-		echo '
+		' >>"${strFlMapadds}"
+		
+		local li
+		local lstrTargetName
+		local lbCreateNewSection=false
+		for((li=liBeginSection;li<${#astrTriggeredSpawnerTargetNameList[@]};li++));do
+			local lnIndex=$((lnSpawnTriggerBeginIndex+li))
+			#if((lnIndex>nSpawnTriggerLinkedLimit));then FUNCechoInfo "[WARN] lnIndex=$lnIndex > $nSpawnTriggerLinkedLimit";fi
+			if((lnIndex==nSpawnTriggerLinkedLimit));then #not greater than limit because the last slot will be used to link the next section
+				liBeginSection=$lnIndex
+				lstrSectionNm="gskSpawnerSectionBegin${liBeginSection}"
+				lstrTargetName="$lstrSectionNm"
+				lbCreateNewSection=true
+			else
+				lstrTargetName="${astrTriggeredSpawnerTargetNameList[$li]}"
+			fi
+			
+			echo '
 				"Template'"$(printf %02d $lnIndex)"'" "'"${lstrTargetName}"'"' >>"${strFlMapadds}"
-	done
-	
-	echo '
+			
+			if $lbCreateNewSection;then break;fi
+		done
+		
+		echo '
 			}
-		}
-	' >>"${strFlMapadds}"
+		}' >>"${strFlMapadds}"
+		
+		if ! $lbCreateNewSection;then break;fi
+	done
 }
 
 astrTriggeredSpawnerTargetNameList=()
