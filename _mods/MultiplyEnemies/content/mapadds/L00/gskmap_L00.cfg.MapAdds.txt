@@ -14,7 +14,6 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"targetname" "gskGive1SkillPoint"
 			"connections"
 			{
 				"OnDeath" "mm_player_inputs,GiveSkillPoints,1,0,1,1,gskmap"
@@ -31,7 +30,6 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"targetname" "gskGive1SkillPoint"
 			"connections"
 			{
 				"OnDeath" "mm_player_inputs,GiveSkillPoints,1,0,1,1,gskmap"
