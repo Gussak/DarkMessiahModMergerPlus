@@ -337,6 +337,12 @@ function FUNCspawnFlags() { #help based on https://developer.valvesoftware.com/w
 function FUNCmapadds() {
 	local lstrSummonCmd="$1"
 	
+	#((anTargetPosXYZ[z]+=1))&&: #height (this fix is needed?)
+	anTargetPosXYZ[z]="$(bc <<< "${anTargetPosXYZ[z]}+1")" #height (this fix is needed?)
+	
+	((anTargetAngXYZ[y]+=180))&&: #rotation look at dir, inverse of where player is looking at when spawned it 
+	if((anTargetAngXYZ[y]>180));then anTargetAngXYZ[y]=$((${anTargetAngXYZ[y]}-360));fi
+	
 	local lstrFlAddTmp="$(mktemp)"
 	
 	echo '
@@ -433,13 +439,17 @@ function FUNCmapadds() {
 			fi
 			;;
 		"gskSummonSpiderRegular")
+			anTargetPosXYZ[z]="$(bc <<< "${anTargetPosXYZ[z]}+5")"
 			echo '
+			"origin"      "'"${anTargetPosXYZ[x]} ${anTargetPosXYZ[y]} ${anTargetPosXYZ[z]}"'"
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
 			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
 			;;
 		"gskSummonSpiderMini")
+			anTargetPosXYZ[z]="$(bc <<< "${anTargetPosXYZ[z]}+5")"
 			echo '
+			"origin"      "'"${anTargetPosXYZ[x]} ${anTargetPosXYZ[y]} ${anTargetPosXYZ[z]}"'"
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
@@ -748,13 +758,6 @@ if $bCreateSpawnsForCurrentMap;then
 			if $bCollectTargetPos;then
 				declare -gA anTargetPosXYZ="$(FUNCxyzArray "$(echo "$strTargetPos" |sed -r -e 's@.*prop at (.*) missing modelname.*@\1@g')")"
 				declare -gA anTargetAngXYZ="$(FUNCxyzArray --integer "$(echo "$strSelfPosAngleCmd" |tr -d '\r' |sed -r -e 's@.*setang (.*)@\1@g')")"
-				
-				#((anTargetPosXYZ[z]+=1))&&: #height (this fix is needed?)
-				anTargetPosXYZ[z]="$(bc <<< "${anTargetPosXYZ[z]}+1")" #height (this fix is needed?)
-				
-				((anTargetAngXYZ[y]+=180))&&: #rotation look at dir, inverse of where player is looking at when spawned it 
-				if((anTargetAngXYZ[y]>180));then anTargetAngXYZ[y]=$((${anTargetAngXYZ[y]}-360));fi
-				
 				FUNCmapadds "$strSpawnCommand"
 			fi
 			
