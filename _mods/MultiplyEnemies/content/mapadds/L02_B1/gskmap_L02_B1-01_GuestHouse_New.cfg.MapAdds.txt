@@ -202,6 +202,69 @@
 			
 		}
 
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"4694412"
+			}
+			"add:key"
+			{
+				"OnTrigger" "gskSpawnerSectionBeginAtTarget0,ForceSpawn,,0,-1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawnerSectionBeginAtTarget0"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawnerSectionBeginAtTarget0"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn000"
+
+				"Template02" "gskSpawn001"
+
+				"Template03" "gskSpawn002"
+
+				"Template04" "gskSpawn003"
+
+				"Template05" "gskSpawn004"
+
+				"Template06" "gskSpawn005"
+
+				"Template07" "gskSpawn006"
+
+				"Template08" "gskSpawn007"
+
+				"Template09" "gskSpawn008"
+
+				"Template10" "gskSpawn009"
+
+				"Template11" "gskSpawn010"
+
+				"Template12" "gskSpawn011"
+
+				"Template13" "gskSpawn012"
+
+				"Template14" "gskSpawn013"
+
+			}
+		}
+
 	}
 }
 

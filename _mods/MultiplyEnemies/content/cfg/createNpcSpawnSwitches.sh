@@ -260,12 +260,12 @@ while [[ $# -gt 0 && "${1:0:1}" == "-" ]];do
 		shift;lstrUseThisSector="${1}"
 		bCreateSpawnsForCurrentMap=true
 	elif [[ "${1}" == "-M" ]];then #help like -m but a single string like l02_b2-05_Library_OK will become lstrUseThisMap=l02_b2 and lstrUseThisSector=05_Library_OK. You can use just the filename also like gskmap_l02_b2-05_Library_OK.cfg
-		shift;lstrMapSector="${1}"
-		lstrMapSector="${lstrMapSector#gskmap_}"
-		lstrMapSector="${lstrMapSector%.cfg}"
-		lstrUseThisMap="$(     echo "$lstrMapSector" |sed -r -e 's@(.*)-(.*)@\1@g')"
-		if [[ "$lstrMapSector" =~ .*[-].* ]];then
-			lstrUseThisSector="$(echo "$lstrMapSector" |sed -r -e 's@(.*)-(.*)@\2@g')"
+		shift;lstrMapAndSector="${1}"
+		lstrMapAndSector="${lstrMapAndSector#gskmap_}"
+		lstrMapAndSector="${lstrMapAndSector%.cfg}"
+		lstrUseThisMap="$(     echo "$lstrMapAndSector" |sed -r -e 's@(.*)-(.*)@\1@g')"
+		if [[ "$lstrMapAndSector" =~ .*[-].* ]];then
+			lstrUseThisSector="$(echo "$lstrMapAndSector" |sed -r -e 's@(.*)-(.*)@\2@g')"
 		else
 			lstrUseThisSector=""
 		fi
@@ -281,6 +281,10 @@ while [[ $# -gt 0 && "${1:0:1}" == "-" ]];do
 	fi
 	shift
 done
+
+if [[ -n "$lstrUseThisSector" ]] && [[ "$lstrUseThisSector" =~ .*[.].* ]];then
+	FUNCexit 1 "invalid sector, put no dots on it: '$lstrUseThisSector'"
+fi
 
 if $bRedoAll;then
 	mapfile -t astrRedoAll < <(ls gskmap*.cfg |sed -r -e 's@gskmap_(.*)[.]cfg@\1@g')
@@ -336,12 +340,15 @@ function FUNCspawnFlags() { #help based on https://developer.valvesoftware.com/w
 
 : ${nSpawnTriggerLinkedLimit:=16} #help :(
 function FUNCappendToSpawnTrigger() {
-	if [[ -z "${strSpawnTriggerID}" ]];then return 0;fi
+	if [[ -z "${strSpawnTriggerLine}" ]];then return 0;fi
 	
 	local lbCreateNewSection=true
 	local liTargetIndex=0
 	
-	local lstrSpawnTriggerID=""
+	local lstrSTRegex="^gskSpawnTriggerID\s*([0-9]*)\s*([a-zA-Z0-9_-]*)\s*(.*)"
+	local lstrLogicRelayID="$(         echo "$strSpawnTriggerLine" |sed -r -e "s@${lstrSTRegex}@\1@g")"
+	local lstrLogicRelayOnTrigger="$(  echo "$strSpawnTriggerLine" |sed -r -e "s@${lstrSTRegex}@\2@g")"
+	local lstrLogicRelaySpawnParams="$(echo "$strSpawnTriggerLine" |sed -r -e "s@${lstrSTRegex}@\3@g")"
 	local lnSTTemplateBeginIndex=0
 	
 	local lstrSTSectionID="gskSpawnerSectionBeginAtTarget${liTargetIndex}"
@@ -350,17 +357,17 @@ function FUNCappendToSpawnTrigger() {
 	while true;do
 		#if((lnSTTemplateBeginSection>0));then
 		if $lbCreateNewSection;then
-		# "OnStartTouch" should be nested inside "connections" (like: ```... "connections" { "OnStartTouch" ...```), but it seems  that everything starting with "On" automatically goes into "connections" so no need to provide the nesting here!
-		echo '
+			#help KEEPINFO: "OnStartTouch" should be nested inside "connections" (like: ```... "connections" { "OnStartTouch" ...```), but it seems  that everything starting with "On" automatically goes into "connections" so no need to provide the nesting here!
+			echo '
 		"modify:entity"
 		{
 			"TargetMarkers"
 			{
-				"id"	"'"${strSpawnTriggerID}"'"
+				"id"	"'"${lstrLogicRelayID}"'"
 			}
 			"add:key"
 			{
-				"OnStartTouch" "'"${lstrSTSectionID}"',ForceSpawn,,0,-1,1,"
+				"'"${lstrLogicRelayOnTrigger}"'" "'"${lstrSTSectionID}${lstrLogicRelaySpawnParams}"'"
 			}
 		}
 		' >>"${strFlMapadds}"
@@ -374,13 +381,13 @@ function FUNCappendToSpawnTrigger() {
 			"targetname" "'"${lstrSTSectionID}"'"
 			"origin" "0 0 0"
 		}' >>"${strFlMapadds}"
-			lstrSpawnTriggerID="${lstrSTSectionID}"
+			#lstrSpawnTriggerID="${lstrSTSectionID}"
 			lnSTTemplateBeginIndex=1
 			
 			lbCreateNewSection=false
-		else
-			lstrSpawnTriggerID="${strSpawnTriggerID}"
-			#lnSTTemplateBeginIndex=$nSpawnTriggerTemplateBeginIndex
+		#else
+			#lstrSpawnTriggerID="${strSpawnTriggerID}"
+			##lnSTTemplateBeginIndex=$nSpawnTriggerTemplateBeginIndex
 		fi
 		
 		echo '
@@ -388,7 +395,7 @@ function FUNCappendToSpawnTrigger() {
 		{
 			"TargetMarkers"
 			{
-				"targetname"	"'"${lstrSpawnTriggerID}"'"
+				"targetname"	"'"${lstrSTSectionID}"'"
 			}
 			"add:key"
 			{
@@ -660,7 +667,7 @@ function FUNCmapadds() {
 		cat "$lstrFlAddTmp" \
 			|egrep -v "^$" \
 			>>"${strFlMapadds}"
-		if [[ -n "${strSpawnTriggerID}" ]];then
+		if [[ -n "${strSpawnTriggerLine}" ]];then
 			astrTriggeredSpawnerTargetNameList+=("$lstrTargetName")
 		fi
 	fi
@@ -799,11 +806,12 @@ if $bCreateSpawnsForCurrentMap;then
 	done
 	
 	#help @InfoID="Use existing spawn trigger" put this on the condump ex. for L02_B1: gskSpawnTriggerID tim_spwaner (then in the line below put this ex.: gskSpawnTriggerBeginIndex 2) #TODO may be seek other mods for mapadd files looking for last Template[0-9]* to start from, also look at .vmf file but not everyone may have the hammer sdk installed...
-	strSpawnTriggerID=""
+	strSpawnTriggerLine=""
 	if egrep "^gskSpawnTriggerID" "$strFlCondump";then
-		strSpawnTriggerID="$(      egrep "^gskSpawnTriggerID"         "$strFlCondump" |awk '{print $2}')"
+		strSpawnTriggerLine="$(egrep "^gskSpawnTriggerID" "$strFlCondump")"
+		#strSpawnTriggerID="$(      egrep "^gskSpawnTriggerID"         "$strFlCondump" |awk '{print $2}')"
 		#nSpawnTriggerTemplateBeginIndex="$(egrep "gskSpawnTriggerBeginIndex" "$strFlCondump" |awk '{print $2}')"
-		echo "gskSpawnTriggerID $strSpawnTriggerID" >>"$strFlCondumpCleanNew"
+		echo "${strSpawnTriggerLine}" >>"$strFlCondumpCleanNew"
 		#echo "gskSpawnTriggerBeginIndex $nSpawnTriggerTemplateBeginIndex" >>"$strFlCondumpCleanNew"
 	fi
 	

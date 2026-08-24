@@ -1,7 +1,7 @@
 map     :  l02_b1 at: -4913 x, -10952 y, 332 z
 map     :  l02_b1 at: -4913 x, -10952 y, 332 z
-gskMapMessage gskSpawnTriggerID=1052943 at L02_B1.vmf has OnStartTouch tim_spwaner,ForceSpawn,,0,-1,1,
-gskSpawnTriggerID 1052943
+gskMapMessage gskSpawnTriggerID=1052943 (origin -3742 -13201.5 183) at L02_B1.vmf has OnStartTouch tim_spwaner,ForceSpawn,,0,-1,1,
+gskSpawnTriggerID 1052943 OnStartTouch ,ForceSpawn,,0,-1,1,
 gskSpawnHint   // ( 1/74 )
 prop at -3141 -12775 304 missing modelname 
 prop at -3141 -12775 304 missing modelname 

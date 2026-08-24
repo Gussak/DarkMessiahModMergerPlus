@@ -125,6 +125,22 @@
 		"add:entity"
 		{
 			"targetname"  "gskSpawn008"
+			"origin"      "-5019 -11762 200"
+			"angles"      "89 -47 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn009"
 			"origin"      "-4745 -11542 131"
 			"angles"      "88 -51 0"
 			"spawnflags"  "7"
@@ -140,7 +156,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn009"
+			"targetname"  "gskSpawn010"
 			"origin"      "-5089 -11887 66"
 			"angles"      "84 -52 -0"
 			"spawnflags"  "7"
@@ -156,9 +172,23 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn010"
+			"targetname"  "gskSpawn011"
 			"origin"      "-5046 -11859 66"
 			"angles"      "82 -94 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn012"
+			"origin"      "-4995 -11846 66"
+			"angles"      "78 -123 -0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
@@ -172,21 +202,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn011"
-			"origin"      "-4995 -11846 66"
-			"angles"      "78 -123 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"classname" "npc_undead"
-			"model" "models/NPC/Undead/Npc_undead.mdl"
-			"spawnflags" "16384"
-			"SmellRadius" "300"
-			"spawnflags"  "16391"
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn012"
+			"targetname"  "gskSpawn013"
 			"origin"      "-4939 -11864 66"
 			"angles"      "73 -94 -0"
 			"spawnflags"  "7"
@@ -202,7 +218,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn013"
+			"targetname"  "gskSpawn014"
 			"origin"      "-4883 -11920 66"
 			"angles"      "78 -128 -0"
 			"spawnflags"  "7"
@@ -213,12 +229,10 @@
 			"spawnflags" "16384"
 			"SmellRadius" "300"
 			"spawnflags"  "16391"
-			"UnburrowRadius" "200"
-			"UnburrowChanceOverride" "1.0"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn014"
+			"targetname"  "gskSpawn015"
 			"origin"      "-4200 -11868 67"
 			"angles"      "70 -138 -0"
 			"spawnflags"  "7"
@@ -234,7 +248,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn015"
+			"targetname"  "gskSpawn016"
 			"origin"      "-4227 -12455 66"
 			"angles"      "56 152 -0"
 			"spawnflags"  "7"
@@ -250,7 +264,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn016"
+			"targetname"  "gskSpawn017"
 			"origin"      "-4945 -12788 65"
 			"angles"      "62 20 -0"
 			"spawnflags"  "7"
@@ -266,7 +280,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn017"
+			"targetname"  "gskSpawn018"
 			"origin"      "-4449 -12786 72"
 			"angles"      "89 179 -0"
 			"spawnflags"  "7"
@@ -282,7 +296,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn018"
+			"targetname"  "gskSpawn019"
 			"origin"      "-4655 -12101 68"
 			"angles"      "72 -47 -0"
 			"spawnflags"  "7"
@@ -298,7 +312,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn019"
+			"targetname"  "gskSpawn020"
 			"origin"      "-4604 -12080 68"
 			"angles"      "74 -69 -0"
 			"spawnflags"  "7"
@@ -314,7 +328,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn020"
+			"targetname"  "gskSpawn021"
 			"origin"      "-4554 -12084 67"
 			"angles"      "75 -90 -0"
 			"spawnflags"  "7"
@@ -330,7 +344,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn021"
+			"targetname"  "gskSpawn022"
 			"origin"      "-4514 -12112 68"
 			"angles"      "78 -113 -0"
 			"spawnflags"  "7"
@@ -346,7 +360,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn022"
+			"targetname"  "gskSpawn023"
 			"origin"      "-4478 -12171 68"
 			"angles"      "81 -154 -0"
 			"spawnflags"  "7"
@@ -362,7 +376,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn023"
+			"targetname"  "gskSpawn024"
 			"origin"      "-4485 -12232 69"
 			"angles"      "82 161 -0"
 			"spawnflags"  "7"
@@ -378,7 +392,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn024"
+			"targetname"  "gskSpawn025"
 			"origin"      "-4516 -12288 70"
 			"angles"      "80 115 -0"
 			"spawnflags"  "7"
@@ -394,7 +408,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn025"
+			"targetname"  "gskSpawn026"
 			"origin"      "-4577 -12285 70"
 			"angles"      "81 73 -0"
 			"spawnflags"  "7"
@@ -410,7 +424,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn026"
+			"targetname"  "gskSpawn027"
 			"origin"      "-4636 -12261 70"
 			"angles"      "79 33 -0"
 			"spawnflags"  "7"
@@ -426,7 +440,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn027"
+			"targetname"  "gskSpawn028"
 			"origin"      "-4691 -12158 68"
 			"angles"      "73 -21 -0"
 			"spawnflags"  "7"
@@ -442,7 +456,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn028"
+			"targetname"  "gskSpawn029"
 			"origin"      "-4201 -12082 101"
 			"angles"      "71 -156 -0"
 			"spawnflags"  "7"
@@ -456,7 +470,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn029"
+			"targetname"  "gskSpawn030"
 			"origin"      "-4216 -12242 101"
 			"angles"      "69 137 -0"
 			"spawnflags"  "7"
@@ -470,7 +484,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn030"
+			"targetname"  "gskSpawn031"
 			"origin"      "-5209 -13214 66"
 			"angles"      "80 7 -0"
 			"spawnflags"  "7"
@@ -483,9 +497,23 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn031"
+			"targetname"  "gskSpawn032"
 			"origin"      "-5224 -13278 64"
 			"angles"      "71 45 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn033"
+			"origin"      "-5181 -13287 51"
+			"angles"      "75 70 -0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
@@ -499,21 +527,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn032"
-			"origin"      "-5181 -13287 51"
-			"angles"      "75 70 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"classname" "npc_undead"
-			"model" "models/NPC/Undead/Npc_undead.mdl"
-			"spawnflags" "16384"
-			"SmellRadius" "300"
-			"spawnflags"  "16391"
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn033"
+			"targetname"  "gskSpawn034"
 			"origin"      "-5211 -12844 84"
 			"angles"      "61 -8 -0"
 			"spawnflags"  "7"
@@ -529,9 +543,23 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn034"
+			"targetname"  "gskSpawn035"
 			"origin"      "-5211 -12922 74"
 			"angles"      "60 26 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn036"
+			"origin"      "-5187 -12095 66"
+			"angles"      "56 -34 -0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
@@ -545,21 +573,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn035"
-			"origin"      "-5187 -12095 66"
-			"angles"      "56 -34 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"classname" "npc_undead"
-			"model" "models/NPC/Undead/Npc_undead.mdl"
-			"spawnflags" "16384"
-			"SmellRadius" "300"
-			"spawnflags"  "16391"
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn036"
+			"targetname"  "gskSpawn037"
 			"origin"      "-5188 -12173 67"
 			"angles"      "61 9 -0"
 			"spawnflags"  "7"
@@ -575,9 +589,23 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn037"
+			"targetname"  "gskSpawn038"
 			"origin"      "-5206 -12474 98"
 			"angles"      "45 -26 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn039"
+			"origin"      "-5194 -12551 108"
+			"angles"      "49 13 -0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
@@ -591,21 +619,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn038"
-			"origin"      "-5194 -12551 108"
-			"angles"      "49 13 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"classname" "npc_undead"
-			"model" "models/NPC/Undead/Npc_undead.mdl"
-			"spawnflags" "16384"
-			"SmellRadius" "300"
-			"spawnflags"  "16391"
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn039"
+			"targetname"  "gskSpawn040"
 			"origin"      "-5260 -11314 88"
 			"angles"      "85 -56 -0"
 			"spawnflags"  "7"
@@ -621,9 +635,23 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn040"
+			"targetname"  "gskSpawn041"
 			"origin"      "-5263 -11401 83"
 			"angles"      "79 67 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn042"
+			"origin"      "-5206 -10947 65"
+			"angles"      "88 -117 -0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
@@ -637,21 +665,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn041"
-			"origin"      "-5206 -10947 65"
-			"angles"      "88 -117 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"classname" "npc_undead"
-			"model" "models/NPC/Undead/Npc_undead.mdl"
-			"spawnflags" "16384"
-			"SmellRadius" "300"
-			"spawnflags"  "16391"
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn042"
+			"targetname"  "gskSpawn043"
 			"origin"      "-5256 -10929 65"
 			"angles"      "68 -42 -0"
 			"spawnflags"  "7"
@@ -667,9 +681,23 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn043"
+			"targetname"  "gskSpawn044"
 			"origin"      "-5240 -11028 65"
 			"angles"      "75 36 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn045"
+			"origin"      "-4429 -11579 196"
+			"angles"      "78 145 -0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
@@ -683,21 +711,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn044"
-			"origin"      "-4429 -11579 196"
-			"angles"      "78 145 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"classname" "npc_undead"
-			"model" "models/NPC/Undead/Npc_undead.mdl"
-			"spawnflags" "16384"
-			"SmellRadius" "300"
-			"spawnflags"  "16391"
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn045"
+			"targetname"  "gskSpawn046"
 			"origin"      "-3840 -10863 199"
 			"angles"      "89 -84 -0"
 			"spawnflags"  "7"
@@ -710,7 +724,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn046"
+			"targetname"  "gskSpawn047"
 			"origin"      "-3840 -11023 65"
 			"angles"      "89 88 0"
 			"spawnflags"  "7"
@@ -723,7 +737,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn047"
+			"targetname"  "gskSpawn048"
 			"origin"      "-3968 -13338 57"
 			"angles"      "84 91 -0"
 			"spawnflags"  "7"
@@ -737,7 +751,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn048"
+			"targetname"  "gskSpawn049"
 			"origin"      "-4053 -13008 66"
 			"angles"      "88 88 0"
 			"spawnflags"  "7"
@@ -750,9 +764,23 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn049"
+			"targetname"  "gskSpawn050"
 			"origin"      "-4004 -13032 65"
 			"angles"      "73 137 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn051"
+			"origin"      "-4031 -13052 64"
+			"angles"      "73 108 -0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
@@ -766,21 +794,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn050"
-			"origin"      "-4031 -13052 64"
-			"angles"      "73 108 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"classname" "npc_undead"
-			"model" "models/NPC/Undead/Npc_undead.mdl"
-			"spawnflags" "16384"
-			"SmellRadius" "300"
-			"spawnflags"  "16391"
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn051"
+			"targetname"  "gskSpawn052"
 			"origin"      "-4066 -13060 65"
 			"angles"      "71 80 -0"
 			"spawnflags"  "7"
@@ -796,7 +810,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn052"
+			"targetname"  "gskSpawn053"
 			"origin"      "-4102 -13043 67"
 			"angles"      "70 49 -0"
 			"spawnflags"  "7"
@@ -807,12 +821,10 @@
 			"spawnflags" "16384"
 			"SmellRadius" "300"
 			"spawnflags"  "16391"
-			"UnburrowRadius" "200"
-			"UnburrowChanceOverride" "1.0"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn053"
+			"targetname"  "gskSpawn054"
 			"origin"      "-3283 -13042 7"
 			"angles"      "88 -177 -0"
 			"spawnflags"  "7"
@@ -828,7 +840,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn054"
+			"targetname"  "gskSpawn055"
 			"origin"      "-3735 -13239 55"
 			"angles"      "65 46 -0"
 			"spawnflags"  "7"
@@ -842,7 +854,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn055"
+			"targetname"  "gskSpawn056"
 			"origin"      "-3348 -12836 5"
 			"angles"      "50 79 -0"
 			"spawnflags"  "7"
@@ -858,7 +870,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn056"
+			"targetname"  "gskSpawn057"
 			"origin"      "-3088 -12715 1"
 			"angles"      "30 13 0"
 			"spawnflags"  "7"
@@ -874,7 +886,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn057"
+			"targetname"  "gskSpawn058"
 			"origin"      "-4713 -10837 116"
 			"angles"      "86 7 -0"
 			"spawnflags"  "7"
@@ -887,7 +899,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn058"
+			"targetname"  "gskSpawn059"
 			"origin"      "-3896 -10793 122"
 			"angles"      "88 -139 0"
 			"spawnflags"  "7"
@@ -900,7 +912,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn059"
+			"targetname"  "gskSpawn060"
 			"origin"      "-4899 -12713 128"
 			"angles"      "63 -43 -0"
 			"spawnflags"  "7"
@@ -913,7 +925,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn060"
+			"targetname"  "gskSpawn061"
 			"origin"      "-5031 -11742 234"
 			"angles"      "51 144 -0"
 			"spawnflags"  "7"
@@ -926,7 +938,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn061"
+			"targetname"  "gskSpawn062"
 			"origin"      "-4989 -11994 388"
 			"angles"      "75 -86 -0"
 			"spawnflags"  "7"
@@ -939,7 +951,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn062"
+			"targetname"  "gskSpawn063"
 			"origin"      "-4550 -10815 81"
 			"angles"      "85 39 -0"
 			"spawnflags"  "7"
@@ -952,7 +964,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn063"
+			"targetname"  "gskSpawn064"
 			"origin"      "-3927 -13154 60"
 			"angles"      "45 180 -0"
 			"spawnflags"  "7"
@@ -964,7 +976,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn064"
+			"targetname"  "gskSpawn065"
 			"origin"      "-3953 -13186 58"
 			"angles"      "52 162 -0"
 			"spawnflags"  "7"
@@ -976,7 +988,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn065"
+			"targetname"  "gskSpawn066"
 			"origin"      "-3963 -13140 62"
 			"angles"      "56 -170 -0"
 			"spawnflags"  "7"
@@ -985,6 +997,323 @@
 			"classname" "npc_crow"
 			"model" "models/npc/crow/npc_crow.mdl"
 			
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"5542494"
+			}
+			"add:key"
+			{
+				"OnTrigger" "gskSpawnerSectionBeginAtTarget0,ForceSpawn,,0,1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawnerSectionBeginAtTarget0"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawnerSectionBeginAtTarget0"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn000"
+
+				"Template02" "gskSpawn001"
+
+				"Template03" "gskSpawn002"
+
+				"Template04" "gskSpawn003"
+
+				"Template05" "gskSpawn004"
+
+				"Template06" "gskSpawn005"
+
+				"Template07" "gskSpawn006"
+
+				"Template08" "gskSpawn007"
+
+				"Template09" "gskSpawn008"
+
+				"Template10" "gskSpawn009"
+
+				"Template11" "gskSpawn010"
+
+				"Template12" "gskSpawn011"
+
+				"Template13" "gskSpawn012"
+
+				"Template14" "gskSpawn013"
+
+				"Template15" "gskSpawn014"
+
+				"Template16" "gskSpawnerSectionBeginAtTarget15"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"5542494"
+			}
+			"add:key"
+			{
+				"OnTrigger" "gskSpawnerSectionBeginAtTarget15,ForceSpawn,,0,1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawnerSectionBeginAtTarget15"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawnerSectionBeginAtTarget15"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn015"
+
+				"Template02" "gskSpawn016"
+
+				"Template03" "gskSpawn017"
+
+				"Template04" "gskSpawn018"
+
+				"Template05" "gskSpawn019"
+
+				"Template06" "gskSpawn020"
+
+				"Template07" "gskSpawn021"
+
+				"Template08" "gskSpawn022"
+
+				"Template09" "gskSpawn023"
+
+				"Template10" "gskSpawn024"
+
+				"Template11" "gskSpawn025"
+
+				"Template12" "gskSpawn026"
+
+				"Template13" "gskSpawn027"
+
+				"Template14" "gskSpawn028"
+
+				"Template15" "gskSpawn029"
+
+				"Template16" "gskSpawnerSectionBeginAtTarget30"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"5542494"
+			}
+			"add:key"
+			{
+				"OnTrigger" "gskSpawnerSectionBeginAtTarget30,ForceSpawn,,0,1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawnerSectionBeginAtTarget30"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawnerSectionBeginAtTarget30"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn030"
+
+				"Template02" "gskSpawn031"
+
+				"Template03" "gskSpawn032"
+
+				"Template04" "gskSpawn033"
+
+				"Template05" "gskSpawn034"
+
+				"Template06" "gskSpawn035"
+
+				"Template07" "gskSpawn036"
+
+				"Template08" "gskSpawn037"
+
+				"Template09" "gskSpawn038"
+
+				"Template10" "gskSpawn039"
+
+				"Template11" "gskSpawn040"
+
+				"Template12" "gskSpawn041"
+
+				"Template13" "gskSpawn042"
+
+				"Template14" "gskSpawn043"
+
+				"Template15" "gskSpawn044"
+
+				"Template16" "gskSpawnerSectionBeginAtTarget45"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"5542494"
+			}
+			"add:key"
+			{
+				"OnTrigger" "gskSpawnerSectionBeginAtTarget45,ForceSpawn,,0,1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawnerSectionBeginAtTarget45"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawnerSectionBeginAtTarget45"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn045"
+
+				"Template02" "gskSpawn046"
+
+				"Template03" "gskSpawn047"
+
+				"Template04" "gskSpawn048"
+
+				"Template05" "gskSpawn049"
+
+				"Template06" "gskSpawn050"
+
+				"Template07" "gskSpawn051"
+
+				"Template08" "gskSpawn052"
+
+				"Template09" "gskSpawn053"
+
+				"Template10" "gskSpawn054"
+
+				"Template11" "gskSpawn055"
+
+				"Template12" "gskSpawn056"
+
+				"Template13" "gskSpawn057"
+
+				"Template14" "gskSpawn058"
+
+				"Template15" "gskSpawn059"
+
+				"Template16" "gskSpawnerSectionBeginAtTarget60"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"5542494"
+			}
+			"add:key"
+			{
+				"OnTrigger" "gskSpawnerSectionBeginAtTarget60,ForceSpawn,,0,1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawnerSectionBeginAtTarget60"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawnerSectionBeginAtTarget60"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn060"
+
+				"Template02" "gskSpawn061"
+
+				"Template03" "gskSpawn062"
+
+				"Template04" "gskSpawn063"
+
+				"Template05" "gskSpawn064"
+
+				"Template06" "gskSpawn065"
+
+				"Template07" "gskSpawn066"
+
+			}
 		}
 
 	}
