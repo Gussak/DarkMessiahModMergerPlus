@@ -359,7 +359,7 @@ function FUNCmapadds() {
 	local classname targetname origin angles model 
 	local lbCommentOut=false
 	local lnHeightDisplacement=0
-	local lbIgnore=false
+	local lstrIgnore=""
 	case "$lstrSummonCmd" in
 		"+gskSummonGuard")
 			echo '
@@ -470,7 +470,7 @@ function FUNCmapadds() {
 			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
 			;;
 		"gskSummonSword")
-			lbIgnore=true
+			lstrIgnore="UnnecessaryPlayerCanSummon"
 			lnHeightDisplacement=10
 			echo '
 			"classname" "prop_physics"
@@ -478,7 +478,7 @@ function FUNCmapadds() {
 			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
 			;;
 		"gskSummonStaff")
-			lbIgnore=true
+			lstrIgnore="UnnecessaryPlayerCanSummon"
 			lnHeightDisplacement=10
 			echo '
 			"classname" "prop_physics"
@@ -486,35 +486,41 @@ function FUNCmapadds() {
 			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
 			;;
 		"gskSummonClub")
-			lbIgnore=true
+			lstrIgnore="UnnecessaryPlayerCanSummon"
 			lnHeightDisplacement=10
 			echo '
 			"classname" "prop_physics"
 			"model" "models/Items/Weapons/Club/Club.mdl"
 			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
 			;;
-		"gskSkillPointAdd") #fails:class logic_relay: OnEntitySpawned OnMapSpawn OnStart
-			#"combinetarget1enable" "1"
-			#"combinetarget2enable" "1"
-			#"combinetarget3enable" "1"
-			#"combinetarget4enable" "1"
-			#"combinetarget5enable" "1"
-			#"combinetarget6enable" "1"
-			#"combinetarget7enable" "1"
-			#"combinetarget8enable" "1"
-			#"combinetarget9enable" "1"
-			#"combinetarget10enable" "1"
-			#"spawnflags" "1"
-			#"model" "models/items/provisions/bread01/bread01_cooked.mdl"
+		"gskSkillPointAdd") #TODO doesnt work, nothing works..
+			#failstoo:class logic_relay: OnEntitySpawned OnMapSpawn OnStart
 			echo '
 			"classname" "prop_physics"
-			"targetname" "gskGive1SkillPoint"
-			"model" "models/items/jewels/money/money02.mdl"
+			"targetname" "gskGive1SkillPoint_TODO_FailingDoesntWork"
+			"combinetarget1enable" "1"
+			"combinetarget2enable" "1"
+			"combinetarget3enable" "1"
+			"combinetarget4enable" "1"
+			"combinetarget5enable" "1"
+			"combinetarget6enable" "1"
+			"combinetarget7enable" "1"
+			"combinetarget8enable" "1"
+			"combinetarget9enable" "1"
+			"combinetarget10enable" "1"
+			"spawnflags" "1"
+			"model" "models/items/provisions/bread01/bread01_cooked.mdl"
 			"connections"
 			{
 				"OnPlayerPickup" "mm_player_inputs,GiveSkillPoints,1,0,1,1,gskmap"
 				"OnPlayerUse" "mm_player_inputs,GiveSkillPoints,1,0,1,1,gskmap"
 			}
+			' >>"$lstrFlAddTmp"
+			;;
+		"gskSummonCoin")
+			echo '
+			"classname" "prop_physics"
+			"model" "models/items/jewels/money/money02.mdl"
 			' >>"$lstrFlAddTmp"
 			;;
 		*)
@@ -530,9 +536,9 @@ function FUNCmapadds() {
 			"origin"      "'"${anTargetPosXYZ[x]} ${anTargetPosXYZ[y]} ${anTargetPosXYZ[z]}"'"' >>"$lstrFlAddTmp"
 	fi
 	
-	if $lbIgnore;then
+	if [[ -n "$lstrIgnore" ]];then
 		echo '
-			"targetname"  "IGNORED"' >>"$lstrFlAddTmp"
+			"targetname"  "IGNORED_'"${lstrIgnore}"'"' >>"$lstrFlAddTmp"
 		lbCommentOut=true
 	fi
 	
@@ -855,7 +861,7 @@ if $bCreateSpawnsForCurrentMap;then
 	
 	if egrep "TODO" "$strFlMapadds";then
 		ls -l "$strFlMapadds"
-		FUNCwait10s "There are not supported spawnings at mapadds file."
+		FUNCwait10s "There are not supported spawnings or other TODOs at mapadds file."
 	fi
 	
 	cat "$strFlCondumpCleanNew" >"$strFlCondumpClean" #after all went well
