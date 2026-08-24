@@ -610,6 +610,24 @@ function FUNCmapadds() {
 			"model" "models/items/jewels/money/money02.mdl"
 			' >>"$lstrFlAddTmp"
 			;;
+		"gskSummonCrow")
+			echo '
+			"classname" "npc_crow"
+			"model" "models/npc/crow/npc_crow.mdl"
+			' >>"$lstrFlAddTmp"
+			;;
+		"gskSummonSeagull")
+			echo '
+			"classname" "npc_seagull"
+			"model" "models/npc/seagull/npc_seagull.mdl"
+			' >>"$lstrFlAddTmp"
+			;;
+		"gskSummonPig")
+			echo '
+			"classname" "npc_pig"
+			"model" "models/npc/pig/pig.mdl"
+			' >>"$lstrFlAddTmp"
+			;;
 		*)
 			lbCommentOut=true
 			echo '

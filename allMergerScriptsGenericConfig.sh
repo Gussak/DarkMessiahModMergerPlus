@@ -791,16 +791,16 @@ export strPipeAWKbiggestLine='length($0) > max { max = length($0); delete lines;
 function FUNCreturnBiggestLinePipe() { #help accepts working as a pipe for lines. accepts each line as one param. accepts an array of lines as param (pass just the array name).
 	local lstrOutput
 	
-	if [[ $# == 1 ]];then
+	if [[ $# == 1 ]];then #only one param mean it is an array id
 		local -n lstrArray="$1"
 		local lstrLine
 		lstrOutput="$(for lstrLine in "${lstrArray[@]}";do echo "$lstrLine";done |awk "$strPipeAWKbiggestLine" |sort -u)"
-	else
+	else # 2 or more params are each line. No params is to use as pipe thru read
 		lstrOutput="$(
 			if [[ -n "${1-}" ]];then
-				while [[ $# -gt 0 ]];do echo "$1";shift;done |awk "$strPipeAWKbiggestLine" |sort -u
+				while [[ $# -gt 0 ]];do echo "$1"  ;shift;done |awk "$strPipeAWKbiggestLine" |sort -u
 			else
-				while read str;do echo "$str";done |awk "$strPipeAWKbiggestLine" |sort -u
+				while       read str;do echo "$str"      ;done |awk "$strPipeAWKbiggestLine" |sort -u
 			fi
 		)"
 	fi
@@ -844,6 +844,7 @@ function FUNCmapInfo() {
 		#return 1;
 	#fi
 	if ! FUNCmapInfo_strMapStatus="$( ugrep "${lstrRegexMapPos}" "$lstrFlCondump" |tail -n 2 |FUNCreturnBiggestLinePipe )";then #grab last 2 map info dumps, so no need to clean console log
+		#ugrep "${lstrRegexMapPos}" "$lstrFlCondump" >&2
 		return 1
 	fi
 	
@@ -857,15 +858,8 @@ function FUNCmapInfo() {
 	fi
 	
 	declare -g FUNCmapInfo_strPosRestore
-	local lstrSedTargetPosRegex="^prop at (.*) missing modelname$"
-	if egrep -q "${lstrSedTargetPosRegex}" "$lstrFlCondump";then #target mode
-		#FUNCmapInfo_strPosRestore="$(echo "${FUNCmapInfo_strMapStatus}" |sed -r -e "s@${lstrRegexMapPos}@\2@g" |tr -d '\r')"
-		FUNCmapInfo_strPosRestore="$(ugrep "${lstrSedTargetPosRegex}" "$lstrFlCondump" |tail -n 2 |FUNCreturnBiggestLinePipe |sed -r -e "s@${lstrSedTargetPosRegex}@\1@g" |tr -d '\r')"
-		#prop at -3307 -12337 -222 missing modelname
-		#prop at -3307 -12337 -222 missing modelname
-	else
-		FUNCmapInfo_strPosRestore="$(echo "${FUNCmapInfo_strMapStatus}" |sed -r -e "s@${lstrRegexMapPos}@\2@g" |tr -d 'xyz,\r')"
-	fi
+	FUNCmapInfo_strPosRestore="$(echo "${FUNCmapInfo_strMapStatus}" |sed -r -e "s@${lstrRegexMapPos}@\2@g" |tr -d 'xyz,\r')"
+	
 	if [[ -z "$FUNCmapInfo_strPosRestore" ]];then
 		FUNCechoInfo "[ERROR:] no Pos To Restore Detected"
 		return 1
@@ -885,6 +879,21 @@ function FUNCmapInfo() {
 	
 	return 0
 };export -f FUNCmapInfo
+
+function FUNCposTarget() {
+	local lstrFlCondump="$1"
+	local lstrPosTarget
+	local lstrSedTargetPosRegex="^prop at (.*) missing modelname$"
+	if egrep -q "${lstrSedTargetPosRegex}" "$lstrFlCondump";then #target mode
+		#FUNCmapInfo_strPosRestore="$(echo "${FUNCmapInfo_strMapStatus}" |sed -r -e "s@${lstrRegexMapPos}@\2@g" |tr -d '\r')"
+		if ! lstrPosTarget="$(ugrep "${lstrSedTargetPosRegex}" "$lstrFlCondump" |tail -n 2 |FUNCreturnBiggestLinePipe |sed -r -e "s@${lstrSedTargetPosRegex}@\1@g" |tr -d '\r')";then
+			return 1
+		fi
+	fi
+	echo "$lstrPosTarget"
+	declare -gA FUNCposTarget_anPosXYZ="$(FUNCxyzArray "$lstrPosTarget")"
+	return 0
+}
 
 function FUNChasBOM() {
 	local lstrFl="$1";shift

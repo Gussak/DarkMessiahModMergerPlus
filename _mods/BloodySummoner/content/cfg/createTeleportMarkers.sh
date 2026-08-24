@@ -109,12 +109,14 @@ while true;do
 		bRecreateCfgFile=true;
 	elif ugrep -q "gskTeleportTargetLocationPrepareHint" "$strFlCondump";then #help
 		#TODO Test_CreateEntity prop_physics gskTeleportTargetLocationPrepareHint //this will dump the target position, just inc z by 100 ex.: prop at -3421 -11201 -100 missing modelname
+		#declare -gA anTargetPosXYZ="$(FUNCxyzArray "$(echo "$strTargetPos" |sed -r -e 's@.*prop at (.*) missing modelname.*@\1@g')")"
 		FUNCmapInfo "$strFlCondump"
 		strMapCfgFile="${strCfgPath}/gskTeleMarkers_${FUNCmapInfo_strMapName}.cfg"
 		
-		declare -p FUNCmapInfo_anPosRestoreXYZ
-		((FUNCmapInfo_anPosRestoreXYZ[z]+=60))&&:
-		strTeleportTargetAlias="alias gskTeleportTargetPosApply \"setpos ${FUNCmapInfo_anPosRestoreXYZ[x]} ${FUNCmapInfo_anPosRestoreXYZ[y]} ${FUNCmapInfo_anPosRestoreXYZ[z]} \""
+		FUNCposTarget "$strFlCondump"
+		declare -p FUNCposTarget_anPosXYZ
+		((FUNCposTarget_anPosXYZ[z]+=60))&&:
+		strTeleportTargetAlias="alias gskTeleportTargetPosApply \"setpos ${FUNCposTarget_anPosXYZ[x]} ${FUNCposTarget_anPosXYZ[y]} ${FUNCposTarget_anPosXYZ[z]} \""
 		declare -p strTeleportTargetAlias
 		
 		bRecreateCfgFile=true;
