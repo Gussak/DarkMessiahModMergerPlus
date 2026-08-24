@@ -180,6 +180,19 @@
 			"UnburrowRadius" "200"
 			"UnburrowChanceOverride" "1.0"
 		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn__013"
+			"origin"      "1601 -1430 -278"
+			"angles"      "89 9 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_regular"
+			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
+			"spawnflags"  "7"
+			"origin"      "1601 -1430 -271"
+		}
 
 	}
 }
