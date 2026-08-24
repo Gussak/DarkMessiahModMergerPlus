@@ -334,6 +334,37 @@ function FUNCspawnFlags() { #help based on https://developer.valvesoftware.com/w
 	return 0
 }
 
+function FUNCappendToSpawnTrigger() {
+	if [[ -z "${strSpawnTriggerID}" ]];then return 0;fi
+	
+	echo '
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"'"${strSpawnTriggerID}"'"
+			}
+			"add:key"
+			{
+	' >>"$lstrFlAddTmp"
+	
+	local li
+	for((li=0;li<${#astrTriggeredSpawnerTargetNameList[@]};li++));do
+		local lnIndex=$((nSpawnTriggerBeginIndex+li)) #max 99?
+		if((lnIndex>99));then FUNCechoInfo "[WARN] lnIndex=$lnIndex > 99";fi
+		local lstrTargetName="${astrTriggeredSpawnerTargetNameList[$li]}"
+		echo '
+				"Template'"$(printf %02d $lnIndex)"'" "'"${lstrTargetName}"'"' >>"$lstrFlAddTmp"
+	done
+	
+	echo '
+			}
+		}
+	' >>"$lstrFlAddTmp"
+}
+
+astrTriggeredSpawnerTargetNameList=()
+
 function FUNCmapadds() {
 	local lstrSummonCmd="$1"
 	
@@ -345,10 +376,12 @@ function FUNCmapadds() {
 	
 	local lstrFlAddTmp="$(mktemp)"
 	
+	local lstrTargetName="gskSpawn${strCount}"
+	
 	echo '
 		"add:entity"
 		{
-			"targetname"  "'"gskSpawn${strCount}"'"
+			"targetname"  "'"${lstrTargetName}"'"
 			"origin"      "'"${anTargetPosXYZ[x]} ${anTargetPosXYZ[y]} ${anTargetPosXYZ[z]}"'"
 			"angles"      "'"${anTargetAngXYZ[x]} ${anTargetAngXYZ[y]} ${anTargetAngXYZ[z]}"'"
 			"spawnflags"  "'"$(FUNCspawnFlags)"'"
@@ -356,7 +389,6 @@ function FUNCmapadds() {
 			"radiusforrandomattitude" "500"
 ' >>"$lstrFlAddTmp"
 
-	local classname targetname origin angles model 
 	local lbCommentOut=false
 	local lnHeightDisplacement=0
 	local lstrIgnore=""
@@ -494,10 +526,10 @@ function FUNCmapadds() {
 			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
 			;;
 		"gskSkillPointAdd") #TODO doesnt work....
+			#"targetname" "'"${lstrTargetName}"'_gskGive1SkillPoint"
 			echo '
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"targetname" "gskGive1SkillPoint"
 			"connections"
 			{
 				"OnDeath" "mm_player_inputs,GiveSkillPoints,1,0,1,1,gskmap"
@@ -513,7 +545,7 @@ function FUNCmapadds() {
 		*)
 			lbCommentOut=true
 			echo '
-			"targetname"   "TODO_FixMissingSupportFor_'"${lstrSummonCmd}"'"' >>"$lstrFlAddTmp"
+			"targetname"   "'"${lstrTargetName}"'_TODO_FixMissingSupportFor_'"${lstrSummonCmd}"'"' >>"$lstrFlAddTmp"
 			;;
 	esac
 	
@@ -542,6 +574,9 @@ function FUNCmapadds() {
 		cat "$lstrFlAddTmp" \
 			|egrep -v "^$" \
 			>>"${strFlMapadds}"
+		if [[ -n "${strSpawnTriggerID}" ]];then
+			astrTriggeredSpawnerTargetNameList+=("$lstrTargetName")
+		fi
 	fi
 	
 	rm "$lstrFlAddTmp"
@@ -667,6 +702,7 @@ if $bCreateSpawnsForCurrentMap;then
 	astrFinalMessages=()
 	strFinalMessages=""
 	
+	#help @InfoID="Map final messages" put this on the condump ex.: gskMapMessage Your message...
 	mapfile -t astrFinalMessages < <(egrep "(gskMapMessage|gskmsg)\ .*" "$strFlCondump" |sed -r -e 's@.*(gskMapMessage|gskmsg) (.*)@\2@g')
 	for((iMsg=0;iMsg<${#astrFinalMessages[@]};iMsg++));do
 		if ! FUNCvalidateConsoleEchoMsg "${astrFinalMessages[$iMsg]}";then
@@ -675,6 +711,15 @@ if $bCreateSpawnsForCurrentMap;then
 		strFinalMessages+="echo ${astrFinalMessages[$iMsg]}; "
 		echo "gskMapMessage ${astrFinalMessages[$iMsg]}" >>"$strFlCondumpCleanNew"
 	done
+	
+	#help @InfoID="Use existing spawn trigger" put this on the condump ex. for L02_B1: gskSpawnTriggerID tim_spwaner (then in the line below put this ex.: gskSpawnTriggerBeginIndex 2) #TODO may be seek other mods for mapadd files looking for last Template[0-9]* to start from, also look at .vmf file but not everyone may have the hammer sdk installed...
+	strSpawnTriggerID=""
+	if egrep "gskSpawnTriggerID" "$strFlCondump";then
+		strSpawnTriggerID="$(      egrep "gskSpawnTriggerID"         "$strFlCondump" |awk '${print $2}')"
+		nSpawnTriggerBeginIndex="$(egrep "gskSpawnTriggerBeginIndex" "$strFlCondump" |awk '${print $2}')"
+		echo "gskSpawnTriggerID $strSpawnTriggerID" >>"$strFlCondumpCleanNew"
+		echo "gskSpawnTriggerBeginIndex $nSpawnTriggerBeginIndex" >>"$strFlCondumpCleanNew"
+	fi
 	
 	#: ${bCollectTargetPos:=true} #help temporary to update with old files
 	bCollectTargetPos=true
@@ -811,6 +856,7 @@ if $bCreateSpawnsForCurrentMap;then
 		fi
 	done
 	
+	FUNCappendToSpawnTrigger
 	echo '
 	}
 }

@@ -1,5 +1,7 @@
 map     :  l02_b1 at: -4911 x, -10889 y, 331 z
 map     :  l02_b1 at: -4911 x, -10889 y, 331 z
+gskSpawnTriggerID tim_spwaner
+gskSpawnTriggerBeginIndex 2
 gskSpawnHint   // ( 1/72 )
 setpos -3028.028564 -12817.148438 668.828857;setang 72.390388 159.673401 -0.001067            
 setpos -3028.028564 -12817.148438 668.828857;setang 72.390388 159.673401 -0.001067            
