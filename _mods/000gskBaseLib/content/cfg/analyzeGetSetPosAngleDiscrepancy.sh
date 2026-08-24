@@ -42,6 +42,8 @@
 	#setpos 2215.900146 -3301.388184 -2.175611;setang 48.246964 -70.745461 -0.007869
 	#] clear
 
+: ${bVerbose:=false} #help
+
 # repeated a few times:
 astrTestData[l02_b1]='
 setpos 2213.215332 -3293.702393 -67.647461;setang 48.241478 -70.745461 -0.008232
@@ -92,7 +94,7 @@ if [[ "${1-}" == "-f" ]];then #help <strSetPosAngLineToBeFixed>
 	shift
 	strSetPosAngLineToBeFixed="$1"
 	FUNCposAngXYZ "$strSetPosAngLineToBeFixed"
-	echo "$strSetPosAngLineToBeFixed" >&2
+	if $bVerbose;then echo "$strSetPosAngLineToBeFixed" >&2;fi
 	FUNCfixLine
 	exit
 fi

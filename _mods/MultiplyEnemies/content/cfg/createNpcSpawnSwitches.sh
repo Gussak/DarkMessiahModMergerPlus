@@ -54,7 +54,7 @@ else
 	if true;then
 		for strLnData in "${astrNPCsummoningsLines[@]}";do
 			strAliasSummon="$(echo "$strLnData" |awk '{print $2}')"
-			FUNCcostHP "${strAliasSummon}"
+			FUNCcostHP "${strAliasSummon}" >/dev/null
 			astrNPCsummonTmp_ID+=("${strAliasSummon}")
 			astrNPCsummonTmp_Cost+=("${FUNCcostHP_nCost}")
 			#astrNPCsummonings_CostTmp["$strAliasSummon"]="${FUNCcostHP_nCost}"
@@ -241,7 +241,8 @@ function FUNCvalidateNPC() {
 
 function FUNCechoAndFillFile() {
 	FUNCchkCfgScriptLineSz "$1"
-	echo "$1" |tee -a "$strMapCfgFile"
+#	echo "$1" |tee -a "$strMapCfgFile"
+	echo "$1" >>"$strMapCfgFile"
 }
 
 bCreateSpawnsForCurrentMap=false
@@ -312,61 +313,136 @@ function FUNCmapCfg() { #ex.: gskmap_l02_b1-01_GuestHouse_OK.cfg
 	echo "$lstr"
 }
 
-#function FUNCclassFromSpawnCmd() {
-	#case "$1" in
-		#"+gskSummonGuard") echo "npc_human_guard";; #TODO equipment bow sword shield..
-		#*) echo "TODO_FIX $1";; #TODO FUNCexit 1 "invalid '$1' spawn cmd";;
-	#esac
-	#return 0
-#}
+function FUNCspawnFlags() { #help based on https://developer.valvesoftware.com/wiki/Npc_ministrider#Flags
+	local lnFlags=0
+	local lastrFlags=(FS_AIonAfterSeen FS_FALL FS_QUIET "${@-}")
+	#while [[ $# -gt 0 ]];do
+	for lstrFlagAdd in "${lastrFlags[@]}";do
+		if [[ -z "$lstrFlagAdd" ]];then continue;fi
+		case "$lstrFlagAdd" in # Flag Spawn (flags for spawning)
+			FS_AIonAfterSeen) ((lnFlags+=1))&&: ;; # wont detect player if player dont see it? May be good to create enemies with each other that will only fight after we see them! May also easy on CPU?
+			FS_QUIET) ((lnFlags+=2))&&: ;; #initially quiet until in rage, excellent for surprises
+			FS_FALL) ((lnFlags+=4))&&: ;; #initially fall instead of teleport to ground
+			FS_DropHealing) ((lnFlags+=8))&&: ;; #on death
+			FS_LongRangeView) ((lnFlags+=256))&&: ;;
+			FS_TANK) ((lnFlags+=16384))&&: ;; #cant be pushed
+			*) FUNCexit 1 "invalid spawnflag '$lstrFlagAdd'";;
+		esac
+		#shift
+	done
+	echo "$lnFlags"
+	return 0
+}
 
 function FUNCmapadds() {
-	local lstr_classname="TODO_FIX"
-	case "$1" in
+	local lstrSummonCmd="$1"
+	
+	echo '
+		"add:entity"
+		{
+			"targetname"  "'"gskSpawn${strCount}"'"
+			"origin"      "'"${anTargetPosXYZ[x]} ${anTargetPosXYZ[y]} ${anTargetPosXYZ[z]}"'"
+			"angles"      "'"${anTargetAngXYZ[x]} ${anTargetAngXYZ[y]} ${anTargetAngXYZ[z]}"'"
+			"spawnflags"  "'"$(FUNCspawnFlags)"'"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+' >>"$strFlMapadds"
+
+	local classname targetname origin angles model 
+	case "$lstrSummonCmd" in
 		"+gskSummonGuard")
-			#TODO equipment bow sword shield..
-			lstr_classname="npc_human_guard"
+			echo '
+			"classname"   "npc_human_guard"
+			"model" "models/npc/guard/npc_guard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"spawnflags"  "'"$(FUNCspawnFlags FS_LongRangeView)"'"' >>"$strFlMapadds"
+			;; 
+		"+gskSummonGuardBow")
+			echo '
+			"classname"   "npc_human_guard_bow"
+			"model" "models/npc/guard/npc_guard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "8"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "'"$(FUNCspawnFlags FS_LongRangeView)"'"' >>"$strFlMapadds"
+			;; 
+		"+gskSummonGuardShield")
+			echo '
+			"classname"   "npc_human_guard_bow"
+			"model" "models/npc/guard/npc_guard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "8"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "'"$(FUNCspawnFlags FS_DropHealing FS_LongRangeView)"'"' >>"$strFlMapadds"
 			;; 
 		"gskSummonNecroGuardBow")
-			lstr_classname="npc_necro_guard_bow"
+			echo '
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "'"$(FUNCspawnFlags FS_LongRangeView)"'"' >>"$strFlMapadds"
 			;; 
-		*) echo "TODO_FIX $1";; #TODO FUNCexit 1 "invalid '$1' spawn cmd";;
+		"gskSummonNecroGuardShield")
+			echo '
+			"classname"   "npc_necro_guard"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment"	"weapon_arx_short_sword"
+			"additionalshield" "weapon_mm_shield_necroguard"
+			"spawnflags"  "'"$(FUNCspawnFlags FS_DropHealing FS_LongRangeView)"'"' >>"$strFlMapadds"
+			;;
+		"gskSummonNecromancer")
+			echo '
+			"classname" "npc_necromancer_lord"
+			"model" "models/NPC/Necromancer/Npc_necromancer.mdl"
+			"additionalequipment" "weapon_mm_staff_combat"
+			"spawnflags"  "'"$(FUNCspawnFlags FS_DropHealing FS_LongRangeView)"'"' >>"$strFlMapadds"
+			;;
+		"+gskSummonNecromancerLord")
+			echo '
+			"classname" "npc_necromancer_lord"
+			"model" "models/NPC/necromancer_lord/npc_necromancer_lord.mdl"
+			"additionalequipment" "weapon_mm_hook"
+			"spawnflags"  "'"$(FUNCspawnFlags FS_DropHealing FS_LongRangeView)"'"' >>"$strFlMapadds"
+			#"weaponmodel" "models/Items/Weapons/hook/hook.mdl"
+			;;
+		"gskSummonUndead")
+			echo '
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "'"$(FUNCspawnFlags FS_TANK)"'"' >>"$strFlMapadds"
+			if((iSpawnCount%3 <= 1));then # bury 66% of the configured to spawn
+				echo '
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"' >>"$strFlMapadds"
+			fi
+			;;
+		"gskSummonSpiderRegular")
+			echo '
+			"classname" "npc_spider_regular"
+			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
+			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$strFlMapadds"
+			;;
+		"gskSummonSpiderMini")
+			echo '
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$strFlMapadds"
+			;;
+		*)
+			echo '
+			"targetname"   "TODO_FIX_SUPPORT_FOR_'"${lstrSummonCmd}"'"' >>"$strFlMapadds"
+			;;
 	esac
-	#astrMapaddsData+=(
-	#"model" "models/items/weapons/sword_orc/sword_orc_p.mdl"
-	#"OnMapSpawn" "servercmds,Command,give weapon_arx_short_sword,0.05,-1"
-	#"OnMapSpawn" "servercmds,Command,give weapon_arxdaggers,1,-1"
-	#"OnMapSpawn" "servercmds,Command,give weapon_arxcrossbow,1,-1"
-	#"id" "1611653"
-	#"spawnflags" "2052"
-	echo '
-"add:entity"
-{
-	"classname"   "'"${lstr_classname}"'"
-	"targetname"  "'"gskSpawn${strCount}"'"
-	"origin"      "'"${anTargetPosXYZ[x]} ${anTargetPosXYZ[y]} ${anTargetPosXYZ[z]}"'"
-	"angles"      "'"${anTargetAngXYZ[x]} ${anTargetAngXYZ[y]} ${anTargetAngXYZ[z]}"'"
 	
-	"spawnflags"  "1"
-	"combinability" "1"
-	"renderamt" "255"
-	"rendercolor" "255 255 255"
-	"physdamagescale" "1.0"
-	"radiusforrandomattitude" "500"
-	"model" "models/npc/Necroguard/npc_necroguard.mdl"
-	"additionalequipment" "weapon_arx_short_sword"
-	"additionalshield" "0"
-	"additionalhelmet" "0"
-	"targetname" "tuto_fight.npc_guard_bow"
-	"squadname" "vilains"
-	"NextPatrol" "tuto_fight.npc_guard01.next_patrol"
-	"health" "50"
-	"DifficultyLevel" "0"
-	"healthreferencevalue" "5"
-	"QuiverAmmo" "8"
-	"rangeweapon" "weapon_arxcrossbow"
-	"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
-}
+	echo '
+		}
 ' >>"$strFlMapadds"
 }
 
@@ -399,10 +475,18 @@ if $bCreateSpawnsForCurrentMap;then
 		cp -vf "$strFlCondump" "${strMapCfgFile}.condump.txt"
 	fi
 
-	strFlMapadds="${strMapCfgFile}.MapAdds.txt"
+	mkdir -vp "../mapadds/${FUNCmapInfo_strMapName}"
+	strFlMapadds="../mapadds/${FUNCmapInfo_strMapName}/${strMapCfgFile}.MapAdds.txt"
 	echo -n >"$strFlMapadds"
+	echo '
+"mapadd_keyvalues"
+{
+	"PreInitialize"
+	{	
+' >>"$strFlMapadds"
 	
 	# clean condump file is good for git
+	strFlCondumpCleanNew="${strMapCfgFile}.condump_CLEAN.txt.NEW.txt"
 	strFlCondumpClean="${strMapCfgFile}.condump_CLEAN.txt"
 	if [[ "$strFlCondump" == "$strFlCondumpClean" ]];then
 		strUseThisCondump="${strFlCondumpClean}.TMP.txt"
@@ -412,9 +496,9 @@ if $bCreateSpawnsForCurrentMap;then
 	#if ! $bUsingCleanCondump;then
 		#strMapMessages="$(egrep "(gskMapMessage|gskmsg)\ .*" "$strFlCondumpClean")"
 		cp -vf "$strFlCondumpClean" "$strFlCondumpClean.$(FUNCdtFlNm).bkp"&&:
-		echo "$FUNCmapInfo_strMapStatus" >"$strFlCondumpClean" #trunc/init
-		echo "$FUNCmapInfo_strMapStatus" >>"$strFlCondumpClean"
-		#echo "$strMapMessages" >>"$strFlCondumpClean"
+		echo "$FUNCmapInfo_strMapStatus" >"$strFlCondumpCleanNew" #trunc/init
+		echo "$FUNCmapInfo_strMapStatus" >>"$strFlCondumpCleanNew"
+		#echo "$strMapMessages" >>"$strFlCondumpCleanNew"
 	#fi
 	FUNCprepareCleanDataOriginBkp() {
 		#if $bUsingCleanCondump;then return 0;fi
@@ -426,21 +510,21 @@ if $bCreateSpawnsForCurrentMap;then
 				lstrExtra="  // ( $((iSpawnCount+1))/${nTotSpawns} )";
 			fi
 			lstrLine="$(echo "${lstrLine}" |sed -r -e 's@(^gskSpawnHint[^ ]*).*@\1@g')"
-			echo "${lstrLine} ${lstrExtra}" >>"$strFlCondumpClean"
+			echo "${lstrLine} ${lstrExtra}" >>"$strFlCondumpCleanNew"
 		done
 	}
 	#bUsingCleanCondump=false;if [[ "$strFlCondump" == "$strFlCondumpClean" ]];then bUsingCleanCondump=true;fi
 	#if ! $bUsingCleanCondump;then
 		#cp -vf "$strFlCondumpClean" "$strFlCondumpClean.$(FUNCdtFlNm).bkp"&&:
-		#echo "$FUNCmapInfo_strMapStatus" >"$strFlCondumpClean"
-		#echo "$FUNCmapInfo_strMapStatus" >>"$strFlCondumpClean"
+		#echo "$FUNCmapInfo_strMapStatus" >"$strFlCondumpCleanNew"
+		#echo "$FUNCmapInfo_strMapStatus" >>"$strFlCondumpCleanNew"
 	#fi
 	#FUNCprepareCleanDataOriginBkp() {
 		#if $bUsingCleanCondump;then return 0;fi
 		#for((j=0;j<iTotEntryDataLines;j++));do
 			#local lstrLine="${astrAllLines[$((iLnDataIni+j))]}"
 			#local lstrExtra="";if [[ "$lstrLine" =~ ^gskSpawnHint.* ]];then lstrExtra="  // ( $((iSpawnCount+1))/${nTotSpawns} )";fi
-			#echo "${lstrLine}${lstrExtra}" >>"$strFlCondumpClean"
+			#echo "${lstrLine}${lstrExtra}" >>"$strFlCondumpCleanNew"
 		#done
 	#}
 	
@@ -488,7 +572,7 @@ if $bCreateSpawnsForCurrentMap;then
 			FUNCexit 1
 		fi
 		strFinalMessages+="echo ${astrFinalMessages[$iMsg]}; "
-		echo "gskMapMessage ${astrFinalMessages[$iMsg]}" >>"$strFlCondumpClean"
+		echo "gskMapMessage ${astrFinalMessages[$iMsg]}" >>"$strFlCondumpCleanNew"
 	done
 	
 	#: ${bCollectTargetPos:=true} #help temporary to update with old files
@@ -496,6 +580,7 @@ if $bCreateSpawnsForCurrentMap;then
 	if ! egrep -q "prop at .* missing modelname" "$strFlCondump";then bCollectTargetPos=false;fi
 	iTotEntryDataLines=7
 	if ! $bCollectTargetPos;then ((iTotEntryDataLines-=2))&&:;fi
+	
 	for((i=0;i<${#astrAllLines[@]};i++));do
 		#set -x
 		strMODE=SpawnNPC
@@ -620,6 +705,8 @@ if $bCreateSpawnsForCurrentMap;then
 				FUNCmapadds "$strSpawnCommand"
 			fi
 			
+			echo "${strCountShow}/${nTotSpawns}: $strSpawnCommand" #progress
+			
 			((iSpawnCount++))&&:
 			
 			if(( iTotEntryDataLines != (iLnData - iLnDataIni + 1) ));then
@@ -629,6 +716,12 @@ if $bCreateSpawnsForCurrentMap;then
 			i=$iLnData # jump skip, next loop will be +1
 		fi
 	done
+	
+	echo '
+	}
+}
+' >>"$strFlMapadds"
+	
 	#FUNCechoAndFillFile "alias +gskCCnpcSpawn_${strCountNext} \"echo FinishedSpawnings; gskSndDONE; ${strRestorePosInTheEnd}; ${strCmdsOFF}; -gskInteractUseDev; alias gskCCnpcSpawn_next +gskCCnpcSpawn_Finished; \"" #this also prevents continuing thru some previous list entries of a previous test run or map may be. -gskInteractUseDev is to grant next +gskInteractUseDev wont break.
 	FUNCechoAndFillFile "alias +gskCCnpcSpawn_${strCountNext} \"echo FinishedSpawnings; gskSndDONE; ${strRestorePosInTheEnd}; ${strCmdsOFF}; alias +gskCCnpcSpawn_next +gskCCnpcSpawn_Finished; alias -gskCCnpcSpawn_next -gskCCnpcSpawn_Finished; save gskFinishedSpawnings_${FUNCmapInfo_strMapName}; pause; \"" # using finish alias also prevents continuing thru some previous list entries of a previous test run or map may be.
 	FUNCechoAndFillFile "alias -gskCCnpcSpawn_${strCountNext} \"\""
@@ -656,8 +749,15 @@ if $bCreateSpawnsForCurrentMap;then
 		FUNCechoInfo "[WARN] removes detected, better edit to remove from that line up to 'gskSpawnHint' and rerun!" #TODO this can be scripted easily if the echo on the console is like: RemoveAbove=1 or Remove=1 or RM1; echo RM1; echo rm2
 		echo "${strExecEdit} '${strMapCfgFile}.condump.txt'"
 		echo "strFlCondump='${strMapCfgFile}.condump.txt' $0 ${astrAllParams[@]}"
+		FUNCwait10s "continue"
 	fi
 	
+	if egrep "TODO" "$strFlMapadds";then
+		ls -l "$strFlMapadds"
+		FUNCwait10s "There are not supported spawnings at mapadds file."
+	fi
+	
+	cat "$strFlCondumpCleanNew" >"$strFlCondumpClean" #after all went well
 	ls -l "$strMapCfgFile"
 else # create spawner aliases
 	strAliasMode=""
@@ -676,8 +776,8 @@ else # create spawner aliases
 	esac
 	
 	echo >gskSummonList.cfg #trunc/init
-	echo "// Total ${#astrNPC[@]} NPCs/Items" |tee -a gskSummonList.cfg
-	echo "alias mm_npc_create_facehugger \"mm_npc_create npc_facehugger models/NPC/Facehugger/Npc_Facehugger.mdl\"" |tee -a gskSummonList.cfg
+	echo "// Total ${#astrNPC[@]} NPCs/Items" |tee -a "gskSummonList.cfg"
+	echo "alias mm_npc_create_facehugger \"mm_npc_create npc_facehugger models/NPC/Facehugger/Npc_Facehugger.mdl\"" |tee -a "gskSummonList.cfg"
 	
 	# these could work but the engine do not allow it. The NPC is created but the special item (bread or potion) is badly positioned at feet and on death it just vanishes.
 	#  mm_npc_create npc_necro_guard_bow models/npc/Necroguard/npc_necroguard.mdl item_food_bread01_cooked weapon_arx_short_sword  weapon_arxcrossbow
@@ -699,7 +799,7 @@ else # create spawner aliases
 				;;
 			*) echo "invalid strSpawnerMode='$strSpawnerMode'" >&2; exit 1;;
 		esac
-		FUNCaliasNpcSpawner "${i}" "${strAliasMode}" "${strShortName}" "${#astrNPC[@]}" |tee -a gskSummonList.cfg
+		FUNCaliasNpcSpawner "${i}" "${strAliasMode}" "${strShortName}" "${#astrNPC[@]}" |tee -a "gskSummonList.cfg"
 	done
 	echo
 	echo "// NOW COPY THE ABOVE INTO SOME CONFIG FILE (but is already at gskSummonList.cfg)"

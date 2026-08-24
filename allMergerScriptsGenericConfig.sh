@@ -1010,7 +1010,7 @@ function FUNCrefreshMount() {  # if it did not update, means OverlayFS needs ref
 		fi
 	)
 	
-	FUNCsay ready
+	FUNCsay "refresh is ready"
 };export -f FUNCrefreshMount
 
 function FUNCcostHP() {
