@@ -1,0 +1,28 @@
+"mapadd_keyvalues"
+{
+	"PreInitialize"
+	{	
+		"add:entity"
+		{
+			"targetname"		"gskSpawnTriggered_NecromancerLord"
+			"classname" "npc_necromancer_lord"
+			"origin"		"-3208 -12797 10"
+			"angles"		"0 270 0"
+			"model" "models/NPC/necromancer_lord/npc_necromancer_lord.mdl"
+			"additionalequipment" "weapon_mm_hook"
+			"weaponmodel" "models/Items/Weapons/hook/hook.mdl"
+			"spawnflags"		"256"
+		}
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"fart_toast_spawner"
+			}
+			"add:key"
+			{
+				"Template02" "gskSpawnTriggered_NecromancerLord"
+			}
+		}
+	}
+}
