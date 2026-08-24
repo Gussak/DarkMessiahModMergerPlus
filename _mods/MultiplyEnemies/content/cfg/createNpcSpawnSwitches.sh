@@ -391,7 +391,7 @@ function FUNCappendToSpawnTrigger() {
 			if((lnSTTemplateIndex==nSpawnTriggerLinkedLimit));then #not greater than limit because the last slot will be used to link the next section
 				#lnSTTemplateBeginSection=$lnSTTemplateIndex
 				#lstrSTSectionID="gskSpawnerSectionBegin${lnSTTemplateBeginSection}"
-				lstrSTSectionID="gskSpawnerSectionBeginAtTarget$((liTargetIndex+1))"
+				lstrSTSectionID="gskSpawnerSectionBeginAtTarget${liTargetIndex}"
 				lstrTargetName="$lstrSTSectionID"
 				lbCreateNewSection=true
 			else
