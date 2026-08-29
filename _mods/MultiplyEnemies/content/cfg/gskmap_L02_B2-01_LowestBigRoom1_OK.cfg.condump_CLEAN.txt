@@ -1,7 +1,7 @@
 map     :  l02_b2 at: -3823 x, -11337 y, -177 z
 map     :  l02_b2 at: -3823 x, -11337 y, -177 z
-gskMapMessage gskSpawnTriggerID=1049489 (targetname NONE) at L02_B2.vmf has OnStartTouch chase_spawn,ForceSpawn,,0,-1,1,
-gskSpawnTriggerID 1049489 OnStartTouch ,ForceSpawn,,0,-1,1,
+gskMapMessage gskSpawnTriggerID=1049489 (targetname NONE) at L02_B2.vmf
+gskSpawnTriggerID 1049489 OnStartTouch chase_spawn,ForceSpawn,,0,-1,1,
 gskSpawnHint   // ( 1/42 )
 prop at -4222 -10851 -116 missing modelname   
 prop at -4222 -10851 -116 missing modelname   

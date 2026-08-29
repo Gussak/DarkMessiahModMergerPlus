@@ -1,8 +1,8 @@
 map     :  l02_b2 at: -3823 x, -11337 y, -177 z
 map     :  l02_b2 at: -3823 x, -11337 y, -177 z
-gskMapMessage gskSpawnTriggerID=5190678 (targetname cellar_spider_relay) at L02_B2.vmf has OnTrigger celler_spider_spawner,ForceSpawn,,0,1,1,
+gskMapMessage gskSpawnTriggerID=5190678 (targetname cellar_spider_relay) at L02_B2.vmf
 gskMapMessage Could also be this (when reaching the main room there): gskSpawnTriggerID=1049148 (targetname cel_trig_2) at L02_B2.vmf has OnStartTouch doug_waren_spawn,ForceSpawn,,0,-1,1,
-gskSpawnTriggerID 5190678 OnTrigger ,ForceSpawn,,0,1,1,
+gskSpawnTriggerID 5190678 OnTrigger celler_spider_spawner,ForceSpawn,,0,1,1,
 gskSpawnHint   // ( 1/22 )
 prop at -2961 -12359 -219 missing modelname   
 prop at -2961 -12359 -219 missing modelname   
