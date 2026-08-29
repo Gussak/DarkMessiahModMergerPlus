@@ -476,7 +476,7 @@ function FUNCmapadds() {
 	local lbCommentOut=false
 	local lnHeightDisplacement=0
 	local lstrIgnore=""
-	case "$lstrSummonCmd" in
+	case "${lstrSummonCmd}" in
 		"+gskSummonGuard")
 			echo '
 			"classname"   "npc_human_guard"
@@ -620,7 +620,7 @@ function FUNCmapadds() {
 			}
 			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
 			;;
-		"gskSummonCoin")
+		"gskSummonCoin") #gskSummon_banana_regime "Test_CreateEntity item_food_banana_regime
 			echo '
 			"classname" "prop_physics"
 			"model" "models/items/jewels/money/money02.mdl"
@@ -642,6 +642,12 @@ function FUNCmapadds() {
 			echo '
 			"classname" "npc_pig"
 			"model" "models/npc/pig/pig.mdl"
+			' >>"$lstrFlAddTmp"
+			;;
+		"gskSummon_"*) #by luck I put all food beggining with '_' xD
+			lnHeightDisplacement=5
+			echo '
+			"classname" "item_food_'"${lstrSummonCmd#gskSummon_}"'"
 			' >>"$lstrFlAddTmp"
 			;;
 		*)

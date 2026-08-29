@@ -1,0 +1,410 @@
+
+"mapadd_keyvalues"
+{
+	"PreInitialize"
+	{	
+
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_01_LowestBigRoom2_OK_000"
+			"origin"      "-2961 -12359 -218"
+			"angles"      "20 -137 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_regular"
+			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
+			"spawnflags"  "7"
+			"origin"      "-2961 -12359 -211"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_01_LowestBigRoom2_OK_001"
+			"origin"      "-2962 -12431 -225"
+			"angles"      "25 -152 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_regular"
+			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
+			"spawnflags"  "7"
+			"origin"      "-2962 -12431 -218"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_01_LowestBigRoom2_OK_002"
+			"origin"      "-2969 -12495 -226"
+			"angles"      "29 -169 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_regular"
+			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
+			"spawnflags"  "7"
+			"origin"      "-2969 -12495 -219"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_01_LowestBigRoom2_OK_003"
+			"origin"      "-2983 -12549 -224"
+			"angles"      "32 174 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_regular"
+			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
+			"spawnflags"  "7"
+			"origin"      "-2983 -12549 -217"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_01_LowestBigRoom2_OK_004"
+			"origin"      "-3052 -12551 -221"
+			"angles"      "47 169 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_regular"
+			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
+			"spawnflags"  "7"
+			"origin"      "-3052 -12551 -214"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_01_LowestBigRoom2_OK_005"
+			"origin"      "-3051 -12489 -221"
+			"angles"      "45 -156 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_regular"
+			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
+			"spawnflags"  "7"
+			"origin"      "-3051 -12489 -214"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_01_LowestBigRoom2_OK_006"
+			"origin"      "-3041 -12415 -225"
+			"angles"      "33 -132 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_regular"
+			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
+			"spawnflags"  "7"
+			"origin"      "-3041 -12415 -218"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_01_LowestBigRoom2_OK_007"
+			"origin"      "-3085 -12362 -223"
+			"angles"      "29 -110 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_regular"
+			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
+			"spawnflags"  "7"
+			"origin"      "-3085 -12362 -216"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_01_LowestBigRoom2_OK_008"
+			"origin"      "-3144 -12386 -218"
+			"angles"      "33 -91 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_regular"
+			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
+			"spawnflags"  "7"
+			"origin"      "-3144 -12386 -211"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_01_LowestBigRoom2_OK_009"
+			"origin"      "-3138 -12449 -219"
+			"angles"      "51 -95 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_regular"
+			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
+			"spawnflags"  "7"
+			"origin"      "-3138 -12449 -212"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_01_LowestBigRoom2_OK_010"
+			"origin"      "-3111 -12547 -217"
+			"angles"      "80 155 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_regular"
+			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
+			"spawnflags"  "7"
+			"origin"      "-3111 -12547 -210"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_01_LowestBigRoom2_OK_011"
+			"origin"      "-3103 -12688 -218"
+			"angles"      "43 -27 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_regular"
+			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
+			"spawnflags"  "7"
+			"origin"      "-3103 -12688 -211"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_01_LowestBigRoom2_OK_012"
+			"origin"      "-3099 -12843 -223"
+			"angles"      "36 49 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_regular"
+			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
+			"spawnflags"  "7"
+			"origin"      "-3099 -12843 -216"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_01_LowestBigRoom2_OK_013"
+			"origin"      "-3093 -12764 -223"
+			"angles"      "50 18 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_regular"
+			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
+			"spawnflags"  "7"
+			"origin"      "-3093 -12764 -216"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_01_LowestBigRoom2_OK_014"
+			"origin"      "-3027 -12654 -216"
+			"angles"      "50 -76 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_regular"
+			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
+			"spawnflags"  "7"
+			"origin"      "-3027 -12654 -209"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_01_LowestBigRoom2_OK_015"
+			"origin"      "-3067 -12204 -223"
+			"angles"      "60 107 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_regular"
+			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
+			"spawnflags"  "7"
+			"origin"      "-3067 -12204 -216"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_01_LowestBigRoom2_OK_016"
+			"origin"      "-3015 -12161 -223"
+			"angles"      "60 155 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_regular"
+			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
+			"spawnflags"  "7"
+			"origin"      "-3015 -12161 -216"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_01_LowestBigRoom2_OK_017"
+			"origin"      "-3021 -12088 -221"
+			"angles"      "62 -153 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_regular"
+			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
+			"spawnflags"  "7"
+			"origin"      "-3021 -12088 -214"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_01_LowestBigRoom2_OK_018"
+			"origin"      "-3100 -12074 -223"
+			"angles"      "74 -81 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_regular"
+			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
+			"spawnflags"  "7"
+			"origin"      "-3100 -12074 -216"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_01_LowestBigRoom2_OK_019"
+			"origin"      "-3142 -12125 -223"
+			"angles"      "74 2 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_regular"
+			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
+			"spawnflags"  "7"
+			"origin"      "-3142 -12125 -216"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_01_LowestBigRoom2_OK_020"
+			"origin"      "-3280 -11725 -170"
+			"angles"      "54 -160 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_crow"
+			"model" "models/npc/crow/npc_crow.mdl"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_01_LowestBigRoom2_OK_021"
+			"origin"      "-3293 -11776 -180"
+			"angles"      "30 -160 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_crow"
+			"model" "models/npc/crow/npc_crow.mdl"
+			
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"5190678"
+			}
+			"add:key"
+			{
+				"OnTrigger" "gskSpawn_01_LowestBigRoom2_OK_000,ForceSpawn,,0,1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_01_LowestBigRoom2_OK_000"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_01_LowestBigRoom2_OK_000"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_01_LowestBigRoom2_OK_000"
+
+				"Template02" "gskSpawn_01_LowestBigRoom2_OK_001"
+
+				"Template03" "gskSpawn_01_LowestBigRoom2_OK_002"
+
+				"Template04" "gskSpawn_01_LowestBigRoom2_OK_003"
+
+				"Template05" "gskSpawn_01_LowestBigRoom2_OK_004"
+
+				"Template06" "gskSpawn_01_LowestBigRoom2_OK_005"
+
+				"Template07" "gskSpawn_01_LowestBigRoom2_OK_006"
+
+				"Template08" "gskSpawn_01_LowestBigRoom2_OK_007"
+
+				"Template09" "gskSpawn_01_LowestBigRoom2_OK_008"
+
+				"Template10" "gskSpawn_01_LowestBigRoom2_OK_009"
+
+				"Template11" "gskSpawn_01_LowestBigRoom2_OK_010"
+
+				"Template12" "gskSpawn_01_LowestBigRoom2_OK_011"
+
+				"Template13" "gskSpawn_01_LowestBigRoom2_OK_012"
+
+				"Template14" "gskSpawn_01_LowestBigRoom2_OK_013"
+
+				"Template15" "gskSpawn_01_LowestBigRoom2_OK_014"
+
+				"Template16" "gskSpawn_01_LowestBigRoom2_OK_015"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"5190678"
+			}
+			"add:key"
+			{
+				"OnTrigger" "gskSpawn_01_LowestBigRoom2_OK_015,ForceSpawn,,0,1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_01_LowestBigRoom2_OK_015"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_01_LowestBigRoom2_OK_015"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_01_LowestBigRoom2_OK_015"
+
+				"Template02" "gskSpawn_01_LowestBigRoom2_OK_016"
+
+				"Template03" "gskSpawn_01_LowestBigRoom2_OK_017"
+
+				"Template04" "gskSpawn_01_LowestBigRoom2_OK_018"
+
+				"Template05" "gskSpawn_01_LowestBigRoom2_OK_019"
+
+				"Template06" "gskSpawn_01_LowestBigRoom2_OK_020"
+
+				"Template07" "gskSpawn_01_LowestBigRoom2_OK_021"
+
+			}
+		}
+
+	}
+}
+

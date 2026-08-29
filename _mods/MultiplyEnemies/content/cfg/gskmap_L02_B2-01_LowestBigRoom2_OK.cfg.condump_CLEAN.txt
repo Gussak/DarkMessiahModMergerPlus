@@ -1,0 +1,159 @@
+map     :  l02_b2 at: -3823 x, -11337 y, -177 z
+map     :  l02_b2 at: -3823 x, -11337 y, -177 z
+gskMapMessage gskSpawnTriggerID=5190678 (targetname cellar_spider_relay) at L02_B2.vmf has OnTrigger celler_spider_spawner,ForceSpawn,,0,1,1,
+gskMapMessage Could also be this (when reaching the main room there): gskSpawnTriggerID=1049148 (targetname cel_trig_2) at L02_B2.vmf has OnStartTouch doug_waren_spawn,ForceSpawn,,0,-1,1,
+gskSpawnTriggerID 5190678 OnTrigger ,ForceSpawn,,0,1,1,
+gskSpawnHint   // ( 1/22 )
+prop at -2961 -12359 -219 missing modelname   
+prop at -2961 -12359 -219 missing modelname   
+setpos -3138.153809 -12536.051758 -106.335381 : setang 20.421412 43.316006 0.002197    
+setpos -3138.153809 -12536.051758 -106.335381 : setang 20.421412 43.316006 0.002197    
+mm_npc_create_spider    
+mm_npc_create_spider    
+gskSpawnHint   // ( 2/22 )
+prop at -2962 -12431 -226 missing modelname   
+prop at -2962 -12431 -226 missing modelname   
+setpos -3136.779053 -12536.751953 -106.854836 : setang 25.833500 28.927776 0.001806    
+setpos -3136.779053 -12536.751953 -106.854836 : setang 25.833500 28.927776 0.00106    
+mm_npc_create_spider    
+mm_npc_create_spider    
+gskSpawnHint   // ( 3/22 )
+prop at -2969 -12495 -227 missing modelame   
+prop at -2969 -12495 -227 missing modelname   
+setpos -3135.678467 -12538.285156 -107.297585 : setang 29.991575 11.767575 0.001481    
+setpos -3135.678467 -12538.285156 -107.297585 : setang 29.991575 11.767575 0.001481    
+mm_npc_create_spider    
+mm_npc_create_spider    
+gskSpawnHint   // ( 4/22 )
+prop at -2983 -12549 -225 missing modelname   
+prop at -2983 -12549 -225 missing modelname   
+setpos -3135.345215 -12540.275391 -107.528709 : setang 32.037613 -6.052506 0.001311    
+setpos -3135.345215 -12540.275391 -107.528709 : setang 32.037613 -6.052506 0.001311    
+mm_npc_create_spider    
+mm_npc_create_spider    
+gskSpawnHint   // ( 5/22 )
+prop at -3052 -12551 -222 missing modelname   
+prop at -3052 -12551 -222 missing modelname   
+setpos -3133.945313 -12541.19233 -109.573746 : setang 47.876781 -11.464929 -0.000320    
+setpos -3133.945313 -12541.192383 -109.573746 : setang 47.876781 -11.464929 -0.000320    
+mm_npc_create_spider    
+mm_npc_create_spider    
+gskSpawnHint   // ( 6/22 )
+prop at -3051 -12489 -222 missing modelname   
+prop at -3051 -12489 -222 missing modelname   
+setpos -3134.750488 -12536.252930 -109.177643 : setang 45.039616 24.966688 -0.000011    
+setpos -3134.750488 -12536.252930 -109.177643 : setang 45.039616 24.966688 -0.000011    
+mm_npc_create_spider    
+mm_npc_create_spider    
+gskSpawnHint   // ( 7/22 )
+prop at -3041 -12415 -226 missing modelname   
+prop at -3041 -12415 -226 missing modelname   
+setpos -3137.437256 -12534.511719 -107.697746 : setang 33.489590 48.661560 0.001187    
+setpos -3137.43756 -12534.511719 -107.697746 : setang 33.489590 48.661560 0.001187    
+mm_npc_create_spider    
+mm_npc_create_spider    
+gskSpawnHint   // ( 8/22 )
+prop at -3085 -12362 -224 missing modelname   
+prop at -3085 -12362 -224 missing modelname   
+setpos -3139.840576 -12533.686523 -107.196037 : setang 29.067560 70.771759 0.001556    
+setpos -3139.840576 -12533.686523 -107.196037 : setang 29.067560 70.771759 0.001556    
+mm_npc_create_spider    
+mm_npc_create_spider    
+gskSpawnHint   // ( 9/22 )
+prop at -3144 -12386 -219 missing modelname   
+prop at -3144 -12386 -219 missing modelname   
+setpos -3141.878174 -12532.836914 -107.690155 : setang 33.423615 89.845604 0.001194    
+setpos -3141.878174 -12532.836914 -107.690155 : setang 33.423615 89.845604 0.001194    
+mm_npc_create_sider    
+mm_npc_create_spider    
+gskSpawnHint   // ( 10/22 )
+prop at -3138 -12449 -220 missing modelname   
+prop at -3138-12449 -220 missing modelname   
+setpos -3141.256592 -12531.220703 -110.105591 : setang 51.571743 85.621788 -0.000661    
+setpos -3141.256592 -12531.220703 -110.105591 : setang 51.571743 85.621788 -0.000661    
+mm_npc_create_spider    
+mm_npc_create_spider    
+gskSpawnHint   // ( 11/22 )
+prop at -3111 -12547 -218 missing modelname   
+prop at -3111 -12547 -218 missing modelname   
+setpos -3129.107666 -12544.886719 -100.644859 : setang 80.804764 -25.950844 -0.000618    
+setpos -3129.107666 -12544.886719 -100.644859 : setang 80.804764 -25.950844 -0.000618    
+mm_npc_create_spider    
+mm_npc_create_spider    
+gskSpawnHint   // ( 12/22 )
+prop at -3103 -12688 -219 missing modelname   
+prop at -3103 -12688 -219 missing modelname   
+setpos -3009.773682 -12740.920898 -05.125198 : setang 43.587536 153.601028 0.000172    
+setpos -3009.773682 -12740.920898 -105.125198 : setang 43.587536 153.601028 0.000172    
+mm_npc_create_spider    
+mm_npc_create_spider    
+gskSpawnHint   // ( 13/22 )
+prop at -3099 -12843 -224 missing modelname   
+prop at -3099 -12843 -224 missing modelname   
+setpos -3007.521484 -12749.691406 -104.234589 : setang 36.723473 -131.422409 0.000891    
+setpos -3007.521484 -12749.691406 -104.234589 : setang 36.723473 -131.422409 0.000891    
+mm_npc_create_spider    
+mm_npc_create_spider    
+gskSpawnHint   // ( 14/22 )
+prop at -3093 -12764 -224 missing modelname   
+prop at -3093 -12764 -224 missing modelname   
+setpos -3010.754395 -12746.888672 -106.116920 : setang 50.647858 -162.376297 -0.000581    
+setpos -310.754395 -12746.888672 -106.116920 : setang 50.647858 -162.376297 -0.000581    
+mm_npc_create_spider    
+mm_npc_create_spider    
+gskSpawnHint   // ( 15/22 )
+prop at -3027 -12654 -217 missing modelname   
+prop at -3027 -12654 -217 missing modelname   
+setpos -3004.909424 -12736.311523 -106.126633 : setang 50.713875 104.497658 -0.000585    
+setpos -3004.909424 -12736.311523 -106.126633 : setang 50.713875 104.497658 -0.000585    
+mm_npc_create_spider    
+mm_npc_create_spider    
+gskSpawnHint   // ( 16/22 )
+prop at -3067 -12204 -224 missing modelname   
+prop at -3067 -12204 -224 missing modelname   
+setpos -3085.972168 -12140.478516 -77.799126 : setang 60.974186 -73.143150 -0.001131    
+setpos -3085.972168 -12140.478516 -77.799126 : setang 60.974186 -73.43150 -0.001131    
+mm_npc_create_spider    
+mm_npc_create_spider    
+gskSpawnHint   // ( 17/22 )
+prop at -3015 -1216 -224 missing modelname   
+prop at -3015 -12161 -224 missing modelname   
+setpos -3080.555664 -12135.832031 -77.732422 : setang 60.545277 -25.887125 -0.001121    
+setpos -3080.555664 -12135.832031 -77.732422 : setang 60.545277 -25.887125 -0.001121    
+mm_npc_create_spider    
+mm_npc_create_spider    
+gskSpawnHint   // ( 18/22 )
+prop at -3021 -12088 -222 missing modelname   
+prop at -3021 -12088 -222 missing modelname   
+setpos -3080.587402 -12127.845703 -77.989456 : setang 62.194958 27.243059 -0.001166    
+setpos -3080.587402 -12127.845703 -77.989456 : setang 62.194958 27.243059 -0.001166    
+mm_npc_create_spider    
+mm_npc_create_spider    
+gskSpawnHint   // ( 19/22 )
+prop at -3100 -12074 -224 missing modelname   
+prop at -3100 -12074 -224 missing modelname   
+setpo -3090.127441 -12122.835938 -79.884056 : setang 74.073143 99.778381 -0.001017    
+setpos -3090.127441 -12122.835938 -79.884056 : setang 74.073143 99.778381 -0.001017    
+mm_npc_create_spider    
+mm_npc_create_spider    
+gskSpawnHint   // ( 20/22 )
+prop at -3142 -12125 -224 missing modelname   
+prop at -3142 -12125 -224 missing modelname   
+setpos -3097.803955 -12132.167969 -79.926636 : setang 74.336876 -178.645477 -0.000992    
+setpos -3097.803955 -12132.167969 -79.926636 : setang 74.336876 -178.645477 -0.000992    
+mm_npc_create_spider    
+mm_npc_create_spider    
+gskSpawnHint   // ( 21/22 )
+prop at -3280 -11725 -171 missing modelname   
+prop at -3280 -11725 -171 missing modelname   
+setpos -3337.458008 -11755.242188 -67.202698 : setang 54.204926 20.38267 -0.000841    
+setpos -3337.458008 -11755.242188 -67.202698 : setang 54.204926 20.382627 -0.000841    
+gskSummonCrow    
+gskSummonCrow    
+gskSpawnHint   // ( 22/22 )
+prop at -3293 -11776 -181 missing modelname   
+prop at -3293 -11776 -181 missing modelname   
+setpos -3443.253906 -11839.583984 -64.100357 : setang 30.843418 20.184256 0.001412    
+setpos -3443.253906 -11839.583984 -64.100357 : setang 30.843418 20.184256 0.001412    
+gskSummonCrow    
+gskSummonCrow    
