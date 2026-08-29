@@ -349,7 +349,7 @@ function FUNCappendToSpawnTrigger() {
 	local lbCreateNewSection=true
 	local liTargetIndex=0
 	
-	local lstrSTRegex="^gskSpawnTriggerID\s*([0-9]*)\s*([a-zA-Z0-9_-]*)\s*(.*)"
+	local lstrSTRegex="^gskSpawnTriggerID\s*([0-9]*)\s*([a-zA-Z0-9_-]*)\s*[^,]*(.*)"
 	local lstrLogicRelayID="$(         echo "$strSpawnTriggerLine" |sed -r -e "s@${lstrSTRegex}@\1@g")"
 	local lstrLogicRelayOnTrigger="$(  echo "$strSpawnTriggerLine" |sed -r -e "s@${lstrSTRegex}@\2@g")"
 	local lstrLogicRelaySpawnParams="$(echo "$strSpawnTriggerLine" |sed -r -e "s@${lstrSTRegex}@\3@g")"

@@ -1,0 +1,725 @@
+
+"mapadd_keyvalues"
+{
+	"PreInitialize"
+	{	
+
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_02_FoodStorage_OK_000"
+			"origin"      "-2628 -11947 123"
+			"angles"      "46 -173 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "item_potion_life"
+			"model" "models/items/provisions/potions/Life_potion.mdl"
+			"spawnflags"  "7"
+			"origin"      "-2628 -11947 128"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_02_FoodStorage_OK_001"
+			"origin"      "-2624 -11927 57"
+			"angles"      "67 -154 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "item_potion_life"
+			"model" "models/items/provisions/potions/Life_potion.mdl"
+			"spawnflags"  "7"
+			"origin"      "-2624 -11927 62"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_02_FoodStorage_OK_002"
+			"origin"      "-2701 -12068 5"
+			"angles"      "66 -74 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_02_FoodStorage_OK_003"
+			"origin"      "-2733 -12090 5"
+			"angles"      "67 -50 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_02_FoodStorage_OK_004"
+			"origin"      "-2751 -12118 5"
+			"angles"      "68 -28 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_02_FoodStorage_OK_005"
+			"origin"      "-2754 -12148 5"
+			"angles"      "69 -7 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_02_FoodStorage_OK_006"
+			"origin"      "-2746 -12182 5"
+			"angles"      "71 20 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_02_FoodStorage_OK_007"
+			"origin"      "-2730 -12211 5"
+			"angles"      "70 45 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_02_FoodStorage_OK_008"
+			"origin"      "-2698 -12227 5"
+			"angles"      "69 77 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_02_FoodStorage_OK_009"
+			"origin"      "-2665 -12290 5"
+			"angles"      "55 95 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_02_FoodStorage_OK_010"
+			"origin"      "-2688 -11778 5"
+			"angles"      "87 -81 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_necromancer_lord"
+			"model" "models/NPC/Necromancer/Npc_necromancer.mdl"
+			"additionalequipment" "weapon_mm_staff_combat"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_02_FoodStorage_OK_011"
+			"origin"      "-2697 -11853 5"
+			"angles"      "72 20 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_02_FoodStorage_OK_012"
+			"origin"      "-2678 -11885 5"
+			"angles"      "69 59 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_02_FoodStorage_OK_013"
+			"origin"      "-2652 -11914 5"
+			"angles"      "61 87 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_02_FoodStorage_OK_014"
+			"origin"      "-3072 -12089 5"
+			"angles"      "49 -9 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment"	"weapon_arx_short_sword"
+			"additionalshield" "weapon_mm_shield_necroguard"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_02_FoodStorage_OK_015"
+			"origin"      "-2924 -12027 5"
+			"angles"      "66 176 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment"	"weapon_arx_short_sword"
+			"additionalshield" "weapon_mm_shield_necroguard"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_02_FoodStorage_OK_016"
+			"origin"      "-2862 -11973 5"
+			"angles"      "66 92 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment"	"weapon_arx_short_sword"
+			"additionalshield" "weapon_mm_shield_necroguard"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_02_FoodStorage_OK_017"
+			"origin"      "-2953 -12272 5"
+			"angles"      "45 136 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment"	"weapon_arx_short_sword"
+			"additionalshield" "weapon_mm_shield_necroguard"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_02_FoodStorage_OK_018"
+			"origin"      "-3251 -12268 41"
+			"angles"      "42 95 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_02_FoodStorage_OK_019"
+			"origin"      "-3350 -12119 41"
+			"angles"      "45 -24 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_02_FoodStorage_OK_020"
+			"origin"      "-3345 -12204 41"
+			"angles"      "46 28 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_02_FoodStorage_OK_021"
+			"origin"      "-2941 -11799 5"
+			"angles"      "58 -85 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment"	"weapon_arx_short_sword"
+			"additionalshield" "weapon_mm_shield_necroguard"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_02_FoodStorage_OK_022"
+			"origin"      "-2973 -12153 5"
+			"angles"      "78 127 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_necromancer_lord"
+			"model" "models/NPC/necromancer_lord/npc_necromancer_lord.mdl"
+			"additionalequipment" "weapon_mm_hook"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_02_FoodStorage_OK_023"
+			"origin"      "-2925 -12194 5"
+			"angles"      "70 132 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_02_FoodStorage_OK_024"
+			"origin"      "-2903 -12150 5"
+			"angles"      "67 -173 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_02_FoodStorage_OK_025"
+			"origin"      "-2861 -12188 5"
+			"angles"      "47 163 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_02_FoodStorage_OK_026"
+			"origin"      "-2880 -12106 5"
+			"angles"      "50 -147 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_02_FoodStorage_OK_027"
+			"origin"      "-3025 -12146 5"
+			"angles"      "66 -21 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_02_FoodStorage_OK_028"
+			"origin"      "-2966 -12077 5"
+			"angles"      "78 -86 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_02_FoodStorage_OK_029"
+			"origin"      "-2995 -12198 5"
+			"angles"      "79 63 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_02_FoodStorage_OK_030"
+			"origin"      "-2722 -11806 5"
+			"angles"      "80 -5 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_02_FoodStorage_OK_031"
+			"origin"      "-3023 -12082 5"
+			"angles"      "87 -48 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_02_FoodStorage_OK_032"
+			"origin"      "-3008 -12042 5"
+			"angles"      "83 -56 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_02_FoodStorage_OK_033"
+			"origin"      "-2697 -12305 49"
+			"angles"      "73 86 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_crow"
+			"model" "models/npc/crow/npc_crow.mdl"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_02_FoodStorage_OK_034"
+			"origin"      "-2727 -12303 49"
+			"angles"      "70 58 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_crow"
+			"model" "models/npc/crow/npc_crow.mdl"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_02_FoodStorage_OK_035"
+			"origin"      "-2755 -12295 49"
+			"angles"      "64 35 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_crow"
+			"model" "models/npc/crow/npc_crow.mdl"
+			
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"1045857"
+			}
+			"add:key"
+			{
+				"OnTrigger" "gskSpawn_02_FoodStorage_OK_000,ForceSpawn,,0,1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_02_FoodStorage_OK_000"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_02_FoodStorage_OK_000"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_02_FoodStorage_OK_000"
+
+				"Template02" "gskSpawn_02_FoodStorage_OK_001"
+
+				"Template03" "gskSpawn_02_FoodStorage_OK_002"
+
+				"Template04" "gskSpawn_02_FoodStorage_OK_003"
+
+				"Template05" "gskSpawn_02_FoodStorage_OK_004"
+
+				"Template06" "gskSpawn_02_FoodStorage_OK_005"
+
+				"Template07" "gskSpawn_02_FoodStorage_OK_006"
+
+				"Template08" "gskSpawn_02_FoodStorage_OK_007"
+
+				"Template09" "gskSpawn_02_FoodStorage_OK_008"
+
+				"Template10" "gskSpawn_02_FoodStorage_OK_009"
+
+				"Template11" "gskSpawn_02_FoodStorage_OK_010"
+
+				"Template12" "gskSpawn_02_FoodStorage_OK_011"
+
+				"Template13" "gskSpawn_02_FoodStorage_OK_012"
+
+				"Template14" "gskSpawn_02_FoodStorage_OK_013"
+
+				"Template15" "gskSpawn_02_FoodStorage_OK_014"
+
+				"Template16" "gskSpawn_02_FoodStorage_OK_015"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"1045857"
+			}
+			"add:key"
+			{
+				"OnTrigger" "gskSpawn_02_FoodStorage_OK_015,ForceSpawn,,0,1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_02_FoodStorage_OK_015"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_02_FoodStorage_OK_015"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_02_FoodStorage_OK_015"
+
+				"Template02" "gskSpawn_02_FoodStorage_OK_016"
+
+				"Template03" "gskSpawn_02_FoodStorage_OK_017"
+
+				"Template04" "gskSpawn_02_FoodStorage_OK_018"
+
+				"Template05" "gskSpawn_02_FoodStorage_OK_019"
+
+				"Template06" "gskSpawn_02_FoodStorage_OK_020"
+
+				"Template07" "gskSpawn_02_FoodStorage_OK_021"
+
+				"Template08" "gskSpawn_02_FoodStorage_OK_022"
+
+				"Template09" "gskSpawn_02_FoodStorage_OK_023"
+
+				"Template10" "gskSpawn_02_FoodStorage_OK_024"
+
+				"Template11" "gskSpawn_02_FoodStorage_OK_025"
+
+				"Template12" "gskSpawn_02_FoodStorage_OK_026"
+
+				"Template13" "gskSpawn_02_FoodStorage_OK_027"
+
+				"Template14" "gskSpawn_02_FoodStorage_OK_028"
+
+				"Template15" "gskSpawn_02_FoodStorage_OK_029"
+
+				"Template16" "gskSpawn_02_FoodStorage_OK_030"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"1045857"
+			}
+			"add:key"
+			{
+				"OnTrigger" "gskSpawn_02_FoodStorage_OK_030,ForceSpawn,,0,1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_02_FoodStorage_OK_030"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_02_FoodStorage_OK_030"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_02_FoodStorage_OK_030"
+
+				"Template02" "gskSpawn_02_FoodStorage_OK_031"
+
+				"Template03" "gskSpawn_02_FoodStorage_OK_032"
+
+				"Template04" "gskSpawn_02_FoodStorage_OK_033"
+
+				"Template05" "gskSpawn_02_FoodStorage_OK_034"
+
+				"Template06" "gskSpawn_02_FoodStorage_OK_035"
+
+			}
+		}
+
+	}
+}
+
