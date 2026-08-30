@@ -275,6 +275,9 @@ while [[ $# -gt 0 && "${1:0:1}" == "-" ]];do
 		bCreateSpawnsForCurrentMap=true
 	elif [[ "${1}" == "--redoall" ]];then #help mainly to be used after patching this script
 		bRedoAll=true
+	elif [[ "${1}" == "--clean" ]];then #help clean temp files
+		trash -v *.NEW.txt *.TMP.txt *.cfg.condump.txt *.bkp
+		exit 0
 	else
 		FUNCechoInfo "[ERROR] invalid option: $@"
 		exit 1
@@ -293,8 +296,9 @@ if $bRedoAll;then
 		echo "=============== $strRedo ==============="
 		echo "=============== $strRedo ==============="
 		echo "=============== $strRedo ==============="
-		"$0" -M "$strRedo"
+		bRefreshMount=false "$0" -M "$strRedo"
 	done
+	FUNCrefreshMount
 	exit
 fi
 	
@@ -327,7 +331,7 @@ function FUNCspawnFlags() { #help based on https://developer.valvesoftware.com/w
 			FS_AIonAfterSeen) ((lnFlags+=1))&&: ;; # wont detect player if player dont see it? May be good to create enemies with each other that will only fight after we see them! May also easy on CPU?
 			FS_QUIET) ((lnFlags+=2))&&: ;; #initially quiet until in rage, excellent for surprises
 			FS_FALL) ((lnFlags+=4))&&: ;; #initially fall instead of teleport to ground
-			FS_DropHealing) ((lnFlags+=8))&&: ;; #on death
+			FS_DropHealing) ((lnFlags+=8))&&: ;; #on death #this doesnt work?
 			FS_LongRangeView) ((lnFlags+=256))&&: ;;
 			FS_TANK) ((lnFlags+=16384))&&: ;; #cant be pushed
 			*) FUNCexit 1 "invalid spawnflag '$lstrFlagAdd'";;
@@ -551,11 +555,15 @@ function FUNCmapadds() {
 			"spawnflags" "16384"
 			"SmellRadius" "300"
 			"spawnflags"  "'"$(FUNCspawnFlags FS_TANK)"'"' >>"$lstrFlAddTmp"
-			if((iSpawnCount%3 <= 1));then # bury 66% of the configured to spawn
+			
+			: ${nUndeadCount:=0}
+			((nUndeadCount++))&&:
+			if((nUndeadCount%3 <= 1));then # '0' '1' bury 66% of the configured to spawn, others '2'
 				echo '
 			"UnburrowRadius" "200"
 			"UnburrowChanceOverride" "1.0"' >>"$lstrFlAddTmp"
 			fi
+			
 			;;
 		mm_npc_create_spider|"gskSummonSpiderRegular")
 			lnHeightDisplacement=7
@@ -1054,4 +1062,7 @@ else # create spawner aliases
 	echo "// NOW COPY THE ABOVE INTO SOME CONFIG FILE (but is already at gskSummonList.cfg)"
 fi
 
-FUNCrefreshMount
+: ${bRefreshMount:=true}
+if $bRefreshMount;then
+	FUNCrefreshMount
+fi

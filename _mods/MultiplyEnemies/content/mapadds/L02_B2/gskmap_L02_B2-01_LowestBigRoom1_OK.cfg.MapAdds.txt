@@ -538,8 +538,6 @@
 			"spawnflags" "16384"
 			"SmellRadius" "300"
 			"spawnflags"  "16391"
-			"UnburrowRadius" "200"
-			"UnburrowChanceOverride" "1.0"
 		}
 		"add:entity"
 		{
@@ -554,6 +552,8 @@
 			"spawnflags" "16384"
 			"SmellRadius" "300"
 			"spawnflags"  "16391"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
 		}
 		"add:entity"
 		{
@@ -584,8 +584,6 @@
 			"spawnflags" "16384"
 			"SmellRadius" "300"
 			"spawnflags"  "16391"
-			"UnburrowRadius" "200"
-			"UnburrowChanceOverride" "1.0"
 		}
 		"add:entity"
 		{
@@ -600,6 +598,8 @@
 			"spawnflags" "16384"
 			"SmellRadius" "300"
 			"spawnflags"  "16391"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
 		}
 		"add:entity"
 		{
@@ -630,8 +630,6 @@
 			"spawnflags" "16384"
 			"SmellRadius" "300"
 			"spawnflags"  "16391"
-			"UnburrowRadius" "200"
-			"UnburrowChanceOverride" "1.0"
 		}
 		"add:entity"
 		{
@@ -646,6 +644,8 @@
 			"spawnflags" "16384"
 			"SmellRadius" "300"
 			"spawnflags"  "16391"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
 		}
 
 		"modify:entity"
