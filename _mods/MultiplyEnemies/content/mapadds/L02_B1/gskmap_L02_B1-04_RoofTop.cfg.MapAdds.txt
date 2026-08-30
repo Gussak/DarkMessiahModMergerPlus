@@ -1,0 +1,752 @@
+
+"mapadd_keyvalues"
+{
+	"PreInitialize"
+	{	
+
+//		"add:entity"
+//		{
+//			"targetname"  "gskSpawn_04_RoofTop_000"
+//			"origin"      "-4059 -11640 1451"
+//			"angles"      "15 7 -0"
+//			"spawnflags"  "7"
+//			"physdamagescale" "1.0"
+//			"radiusforrandomattitude" "500"
+//			"targetname"   "gskSpawn_04_RoofTop_000_TODO_FixMissingSupportFor_dummyJustTeleport"
+//		}
+//		"add:entity"
+//		{
+//			"targetname"  "gskSpawn_04_RoofTop_001"
+//			"origin"      "-4059 -11640 1451"
+//			"angles"      "15 7 -0"
+//			"spawnflags"  "7"
+//			"physdamagescale" "1.0"
+//			"radiusforrandomattitude" "500"
+//			"targetname"   "gskSpawn_04_RoofTop_001_TODO_FixMissingSupportFor_+gskInteractUseMoreFoes"
+//		}
+//		"add:entity"
+//		{
+//			"targetname"  "gskSpawn_04_RoofTop_002"
+//			"origin"      "-4060 -11615 1450"
+//			"angles"      "15 -13 -0"
+//			"spawnflags"  "7"
+//			"physdamagescale" "1.0"
+//			"radiusforrandomattitude" "500"
+//			"targetname"   "gskSpawn_04_RoofTop_002_TODO_FixMissingSupportFor_dummyJustTeleport"
+//		}
+//		"add:entity"
+//		{
+//			"targetname"  "gskSpawn_04_RoofTop_003"
+//			"origin"      "-4060 -11615 1450"
+//			"angles"      "15 -13 -0"
+//			"spawnflags"  "7"
+//			"physdamagescale" "1.0"
+//			"radiusforrandomattitude" "500"
+//			"targetname"   "gskSpawn_04_RoofTop_003_TODO_FixMissingSupportFor_+gskInteractUseMoreFoes"
+//		}
+//		"add:entity"
+//		{
+//			"targetname"  "gskSpawn_04_RoofTop_004"
+//			"origin"      "-4229 -11790 1451"
+//			"angles"      "2 -85 -0"
+//			"spawnflags"  "7"
+//			"physdamagescale" "1.0"
+//			"radiusforrandomattitude" "500"
+//			"targetname"   "gskSpawn_04_RoofTop_004_TODO_FixMissingSupportFor_dummyJustTeleport"
+//		}
+//		"add:entity"
+//		{
+//			"targetname"  "gskSpawn_04_RoofTop_005"
+//			"origin"      "-4229 -11790 1451"
+//			"angles"      "2 -85 -0"
+//			"spawnflags"  "7"
+//			"physdamagescale" "1.0"
+//			"radiusforrandomattitude" "500"
+//			"targetname"   "gskSpawn_04_RoofTop_005_TODO_FixMissingSupportFor_+gskInteractUseMoreFoes"
+//		}
+//		"add:entity"
+//		{
+//			"targetname"  "gskSpawn_04_RoofTop_006"
+//			"origin"      "-4203 -11789 1451"
+//			"angles"      "3 -104 -0"
+//			"spawnflags"  "7"
+//			"physdamagescale" "1.0"
+//			"radiusforrandomattitude" "500"
+//			"targetname"   "gskSpawn_04_RoofTop_006_TODO_FixMissingSupportFor_dummyJustTeleport"
+//		}
+//		"add:entity"
+//		{
+//			"targetname"  "gskSpawn_04_RoofTop_007"
+//			"origin"      "-4203 -11789 1451"
+//			"angles"      "3 -104 -0"
+//			"spawnflags"  "7"
+//			"physdamagescale" "1.0"
+//			"radiusforrandomattitude" "500"
+//			"targetname"   "gskSpawn_04_RoofTop_007_TODO_FixMissingSupportFor_+gskInteractUseMoreFoes"
+//		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_04_RoofTop_008"
+			"origin"      "-4220 -11787 1424"
+			"angles"      "59 -44 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_04_RoofTop_009"
+			"origin"      "-4062 -11627 1424"
+			"angles"      "70 1 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_04_RoofTop_010"
+			"origin"      "-3261 -11575 973"
+			"angles"      "79 10 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_necromancer_lord"
+			"model" "models/NPC/Necromancer/Npc_necromancer.mdl"
+			"additionalequipment" "weapon_mm_staff_combat"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_04_RoofTop_011"
+			"origin"      "-3264 -11628 973"
+			"angles"      "71 49 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_04_RoofTop_012"
+			"origin"      "-3312 -11618 973"
+			"angles"      "89 45 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_04_RoofTop_013"
+			"origin"      "-3323 -11581 973"
+			"angles"      "63 8 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_04_RoofTop_014"
+			"origin"      "-3362 -11600 973"
+			"angles"      "81 16 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_04_RoofTop_015"
+			"origin"      "-3614 -11618 973"
+			"angles"      "77 179 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_04_RoofTop_016"
+			"origin"      "-3262 -11663 973"
+			"angles"      "88 19 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_04_RoofTop_017"
+			"origin"      "-3226 -11710 995"
+			"angles"      "85 51 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_04_RoofTop_018"
+			"origin"      "-4068 -11680 973"
+			"angles"      "73 93 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_04_RoofTop_019"
+			"origin"      "-4051 -11573 973"
+			"angles"      "75 -86 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_04_RoofTop_020"
+			"origin"      "-3955 -11592 973"
+			"angles"      "71 -143 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_04_RoofTop_021"
+			"origin"      "-4203 -11540 1389"
+			"angles"      "74 104 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_necromancer_lord"
+			"model" "models/NPC/Necromancer/Npc_necromancer.mdl"
+			"additionalequipment" "weapon_mm_staff_combat"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_04_RoofTop_022"
+			"origin"      "-4227 -11697 1389"
+			"angles"      "77 75 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_04_RoofTop_023"
+			"origin"      "-4174 -11686 1389"
+			"angles"      "78 114 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_04_RoofTop_024"
+			"origin"      "-4205 -11653 1389"
+			"angles"      "86 90 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_04_RoofTop_025"
+			"origin"      "-4187 -11600 1389"
+			"angles"      "88 -139 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_04_RoofTop_026"
+			"origin"      "-3217 -12559 731"
+			"angles"      "80 37 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_04_RoofTop_027"
+			"origin"      "-3165 -12458 1027"
+			"angles"      "72 -58 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_04_RoofTop_028"
+			"origin"      "-3214 -12448 731"
+			"angles"      "81 -26 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_04_RoofTop_029"
+			"origin"      "-3214 -12507 731"
+			"angles"      "80 27 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_04_RoofTop_030"
+			"origin"      "-3524 -12530 731"
+			"angles"      "89 -89 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_04_RoofTop_031"
+			"origin"      "-3680 -12461 731"
+			"angles"      "70 -22 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_04_RoofTop_032"
+			"origin"      "-3682 -12505 731"
+			"angles"      "71 -2 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_04_RoofTop_033"
+			"origin"      "-3625 -12452 731"
+			"angles"      "77 -41 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_04_RoofTop_034"
+			"origin"      "-3445 -12593 731"
+			"angles"      "87 90 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment"	"weapon_arx_short_sword"
+			"additionalshield" "weapon_mm_shield_necroguard"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_04_RoofTop_035"
+			"origin"      "-3221 -11526 995"
+			"angles"      "81 -124 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "item_potion_life"
+			"model" "models/items/provisions/potions/Life_potion.mdl"
+			"spawnflags"  "7"
+			"origin"      "-3221 -11526 1000"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_04_RoofTop_036"
+			"origin"      "-3459 -12382 731"
+			"angles"      "55 -80 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_crow"
+			"model" "models/npc/crow/npc_crow.mdl"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_04_RoofTop_037"
+			"origin"      "-3430 -12395 731"
+			"angles"      "59 -97 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_crow"
+			"model" "models/npc/crow/npc_crow.mdl"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_04_RoofTop_038"
+			"origin"      "-3475 -12410 731"
+			"angles"      "62 -66 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_crow"
+			"model" "models/npc/crow/npc_crow.mdl"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_04_RoofTop_039"
+			"origin"      "-3442 -12420 731"
+			"angles"      "68 -88 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_crow"
+			"model" "models/npc/crow/npc_crow.mdl"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_04_RoofTop_040"
+			"origin"      "-3504 -12387 731"
+			"angles"      "51 -58 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_crow"
+			"model" "models/npc/crow/npc_crow.mdl"
+			
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"3108979"
+			}
+			"add:key"
+			{
+				"OnOpen" "gskSpawn_04_RoofTop_BeginAt_000,ForceSpawn,,0,1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_04_RoofTop_BeginAt_000"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_04_RoofTop_BeginAt_000"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_04_RoofTop_008"
+
+				"Template02" "gskSpawn_04_RoofTop_009"
+
+				"Template03" "gskSpawn_04_RoofTop_010"
+
+				"Template04" "gskSpawn_04_RoofTop_011"
+
+				"Template05" "gskSpawn_04_RoofTop_012"
+
+				"Template06" "gskSpawn_04_RoofTop_013"
+
+				"Template07" "gskSpawn_04_RoofTop_014"
+
+				"Template08" "gskSpawn_04_RoofTop_015"
+
+				"Template09" "gskSpawn_04_RoofTop_016"
+
+				"Template10" "gskSpawn_04_RoofTop_017"
+
+				"Template11" "gskSpawn_04_RoofTop_018"
+
+				"Template12" "gskSpawn_04_RoofTop_019"
+
+				"Template13" "gskSpawn_04_RoofTop_020"
+
+				"Template14" "gskSpawn_04_RoofTop_021"
+
+				"Template15" "gskSpawn_04_RoofTop_022"
+
+				"Template16" "gskSpawn_04_RoofTop_023"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"3108979"
+			}
+			"add:key"
+			{
+				"OnOpen" "gskSpawn_04_RoofTop_BeginAt_016,ForceSpawn,,0,1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_04_RoofTop_BeginAt_016"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_04_RoofTop_BeginAt_016"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_04_RoofTop_024"
+
+				"Template02" "gskSpawn_04_RoofTop_025"
+
+				"Template03" "gskSpawn_04_RoofTop_026"
+
+				"Template04" "gskSpawn_04_RoofTop_027"
+
+				"Template05" "gskSpawn_04_RoofTop_028"
+
+				"Template06" "gskSpawn_04_RoofTop_029"
+
+				"Template07" "gskSpawn_04_RoofTop_030"
+
+				"Template08" "gskSpawn_04_RoofTop_031"
+
+				"Template09" "gskSpawn_04_RoofTop_032"
+
+				"Template10" "gskSpawn_04_RoofTop_033"
+
+				"Template11" "gskSpawn_04_RoofTop_034"
+
+				"Template12" "gskSpawn_04_RoofTop_035"
+
+				"Template13" "gskSpawn_04_RoofTop_036"
+
+				"Template14" "gskSpawn_04_RoofTop_037"
+
+				"Template15" "gskSpawn_04_RoofTop_038"
+
+				"Template16" "gskSpawn_04_RoofTop_039"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"3108979"
+			}
+			"add:key"
+			{
+				"OnOpen" "gskSpawn_04_RoofTop_BeginAt_032,ForceSpawn,,0,1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_04_RoofTop_BeginAt_032"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_04_RoofTop_BeginAt_032"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_04_RoofTop_040"
+
+			}
+		}
+
+	}
+}
+

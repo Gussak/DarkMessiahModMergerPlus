@@ -343,7 +343,7 @@ function FUNCspawnFlags() { #help based on https://developer.valvesoftware.com/w
 }
 
 function FUNCsectionID() {
-	echo "gskSpawn_${lstrUseThisSector}_$(printf %03d ${1})" #Spawner Section Begin At Target
+	echo "gskSpawn_${lstrUseThisSector}_BeginAt_$(printf %03d ${1})" #Spawner Section Begin At Target
 }
 
 : ${nSpawnTriggerLinkedLimit:=16} #help :(
@@ -413,28 +413,20 @@ function FUNCappendToSpawnTrigger() {
 		local lstrTargetName
 		local lnSTTemplateIndex=$lnSTTemplateBeginIndex
 		while true;do
-			#for((li=lnSTTemplateBeginSection;li<${#astrTriggeredSpawnerTargetNameList[@]};li++));do
 			if((liTargetIndex == ${#astrTriggeredSpawnerTargetNameList[@]}));then break;fi
 			
-			#local lnIndex=$((lnSTTemplateBeginIndex+li))
-			#local lnIndex=$lnSTTemplateIndex
-			#if((lnIndex>nSpawnTriggerLinkedLimit));then FUNCechoInfo "[WARN] lnIndex=$lnIndex > $nSpawnTriggerLinkedLimit";fi
-			if((lnSTTemplateIndex==nSpawnTriggerLinkedLimit));then #not greater than limit because the last slot will be used to link the next section
-				#lnSTTemplateBeginSection=$lnSTTemplateIndex
-				#lstrSTSectionID="gskSpawnerSectionBegin${lnSTTemplateBeginSection}"
-				#lstrSTSectionID="gskSpawn_${lstrUseThisSector}_$(printf %03d ${liTargetIndex})" #Spawner Section Begin At Target
-				lstrSTSectionID="$(FUNCsectionID ${liTargetIndex})"
-				lstrTargetName="$lstrSTSectionID"
-				lbCreateNewSection=true
-			else
-				lstrTargetName="${astrTriggeredSpawnerTargetNameList[$liTargetIndex]}"
-				((liTargetIndex++))&&:
-			fi
+			lstrTargetName="${astrTriggeredSpawnerTargetNameList[$liTargetIndex]}"
+			((liTargetIndex++))&&:
 			
 			echo '
 				"Template'"$(printf %02d $lnSTTemplateIndex)"'" "'"${lstrTargetName}"'"' >>"${strFlMapadds}"
 			
-			if $lbCreateNewSection;then break;fi
+			if((lnSTTemplateIndex==nSpawnTriggerLinkedLimit));then #not greater than limit because the last slot will be used to link the next section
+				lstrSTSectionID="$(FUNCsectionID ${liTargetIndex})" #for next section
+				#lstrTargetName="$lstrSTSectionID"
+				lbCreateNewSection=true
+				break
+			fi
 			
 			((lnSTTemplateIndex++))&&:
 		done
