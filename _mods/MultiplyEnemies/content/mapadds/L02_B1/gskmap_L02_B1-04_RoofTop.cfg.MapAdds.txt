@@ -87,7 +87,7 @@
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_04_RoofTop_008"
-			"origin"      "-4220 -11787 1424"
+			"origin"      "-4217 -11801 1396"
 			"angles"      "59 -44 -0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
@@ -103,7 +103,7 @@
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_04_RoofTop_009"
-			"origin"      "-4062 -11627 1424"
+			"origin"      "-4044 -11636 1400"
 			"angles"      "70 1 -0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"

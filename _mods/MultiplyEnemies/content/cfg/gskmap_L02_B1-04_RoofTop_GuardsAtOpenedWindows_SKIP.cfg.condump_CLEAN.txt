@@ -1,0 +1,76 @@
+map     :  l02_b1 at: -3587 x, -11811 y, 905 z
+map     :  l02_b1 at: -3587 x, -11811 y, 905 z
+
+gskMapMessage The 2 guards in the end were meant to spawn in the middle of opened windows (but I still dont know how to open them thru mapadds)
+
+gskSpawnHint   // ( 1/41 )
+prop at -4059 -11640 1450 missing modelname   
+prop at -4059 -11640 1450 missing modelname   
+setpos -3984.267822 -11640.154297 1491.230103 : setang 15.209456 -173.634964 -0.003366    
+setpos -3984.267822 -11640.154297 1491.230103 : setang 15.209456 -173.634964 -0.003366    
+dummyJusteleport    
+dummyJustTeleport    
+gskSpawnHint   // ( 2/41 )
+prop at -4059 -11640 1450 missing modelname   
+prop at -4059 -11640 1450 missig modelname   
+setpos -3984.267822 -11640.154297 1491.230103 : setang 15.209456 -173.634964 -0.003366    
+setpos -3984.267822 -11640.154297 1491.230103 : setang 15.209456 -173.634964 -0.003366    
++gskInteractUseMoreFoes    
++gskInteractUseMoreFoes    
+gskSpawnHint   // ( 3/41 )
+prop at -4060 -11615 1449 missing modelname   
+prop at -4060 -11615 1449 missing modelname   
+setpos -3984.216309 -11638.694336 1491.214844 : setang 15.407458 167.423080 -0.003379    
+setpos -3984.216309 -11638.694336 1491.214844 : setang 15.407458 167.423080 -0.003379    
+dummyJustTeleport    
+dummyJustTeleport    
+gskSpawnHint   // ( 4/41 )
+prop at -4060 -11615 1449 missing modelname   
+prop at -4060 -11615 1449 missing modelname   
+setpos -3984.216309 -11638.694336 1491.214844 : setang 15.407458 167.423080 -0.003379    
+setpos -384.216309 -11638.694336 1491.214844 : setang 15.407458 167.423080 -0.003379    
++gskInteractUseMoreFoes    
++gskInteractUseMoreFoes    
+gskSpawnHint   // ( 5/41 )
+prop at -4229 -11790 1450 missing modelname   
+prop at -4229 -11790 1450 missing modelname   
+setpos -4219.593750 -11871.616211 1475.381592 : setang 2.801459 95.020767 -0.002587    
+setpos -4219.593750 -11871.616211 1475.381592 : setang 2.801459 95.020767 -0.002587    
+dummyJustTeleport    
+dummyJustTeleport    
+gskSpawnHint   // ( 6/41 )
+prop at -4229 -11790 1450 missing modelname   
+prop at -4229 -11790 1450 missing modelname   
+setpos -4219.593750 -11871.616211 1475.381592 : setang 2.801459 95.020767 -0.002587    
+setpos -4219.593750 -11871.616211 1475.381592 : setang 2.801459 95.020767 -0.002587    
++gskInteractUseMoreFoes    
++gskInteractUseMoreFoes    
+gskSpawnHint   // ( 7/41 )
+prop at -4203 -11789 1450 missing modelname   
+prop at -4203 -11789 1450 missing modelname   
+setpos -4218.743652 -1181.630859 1475.366699 : setang 3.131460 76.210770 -0.002607    
+setpos -4218.743652 -11871.630859 1475.366699 : setang 3.131460 76.210770 -0.002607    
+dummyJustTeleport    
+dummyJustTeleport    
+gskSpawnHint   // ( 8/41 )
+prop at -4203 -11789 1450 missing modelname   
+prop at -4203 -11789 1450 missing modelname   
+setpos -4218.743652 -11871.630859 1475.366699 : setang 3.131460 76.210770 -0.002607    
+setpos -4218.743652 -11871.630859 1475.366699 : setang 3.131460 76.210770 -0.002607    
++gskInteractUseMoreFoes    
++gskInteractUseMoreFoes    
+
+gskSpawnHint   // ( 9/41 )
+prop at -4220 -11787 1423 missing modelname   
+prop at -4220 -11787 1423 missing modelname   
+setpos -4122.510742 -11886.498047 1657.647949 : setang 59.293636 136.073898 -0.006546    
+setpos -122.510742 -11886.498047 1657.647949 : setang 59.293636 136.073898 -0.006546    
+mm_npc_create_necro_guard_bow    
+mm_npc_create_necro_guard_bow    
+gskSpawnHint   // ( 10/41 )
+prop at -4062 -11627 1423 missing modelname   
+prop at -4062 -11627 1423 missing modelname   
+setpos -4022.283936 -11635.032227 1530.687378 : setang 70.257225 -179.903763 -0.007037    
+setpos -4022.283936 -11635.032227 1530.687378 : setang 70.257225 -179.903763 -0.007037    
+mm_npc_create_necro_guard_bow    
+mm_npc_creat_necro_guard_bow    

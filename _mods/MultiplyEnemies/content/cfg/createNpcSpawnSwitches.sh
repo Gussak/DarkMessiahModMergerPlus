@@ -290,7 +290,7 @@ if [[ -n "$lstrUseThisSector" ]] && [[ "$lstrUseThisSector" =~ .*[.].* ]];then
 fi
 
 if $bRedoAll;then
-	mapfile -t astrRedoAll < <(ls gskmap*.cfg |sed -r -e 's@gskmap_(.*)[.]cfg@\1@g')
+	mapfile -t astrRedoAll < <(ls -1 gskmap*.cfg |egrep -v "_SKIP" |sed -r -e 's@gskmap_(.*)[.]cfg@\1@g')
 	for strRedo in "${astrRedoAll[@]}";do
 		echo
 		echo "=============== $strRedo ==============="
