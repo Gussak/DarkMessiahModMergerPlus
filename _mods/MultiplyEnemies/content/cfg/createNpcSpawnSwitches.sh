@@ -445,6 +445,7 @@ function FUNCentityName() {
 	echo "gskSpawn_${lstrUseThisSector}_${strCount}"
 }
 
+: ${bAllowBurrow=true}
 function FUNCmapadds() {
 	local lstrSummonCmd="$1"
 	
@@ -551,9 +552,11 @@ function FUNCmapadds() {
 			: ${nUndeadCount:=0}
 			((nUndeadCount++))&&:
 			if((nUndeadCount%3 <= 1));then # '0' '1' bury 66% of the configured to spawn, others '2'
-				echo '
+				if $bAllowBurrow;then
+					echo '
 			"UnburrowRadius" "200"
 			"UnburrowChanceOverride" "1.0"' >>"$lstrFlAddTmp"
+				fi
 			fi
 			
 			;;
@@ -841,6 +844,11 @@ if $bCreateSpawnsForCurrentMap;then
 		#nSpawnTriggerTemplateBeginIndex="$(egrep "gskSpawnTriggerBeginIndex" "$strFlCondump" |awk '{print $2}')"
 		echo "${strSpawnTriggerLine}" >>"$strFlCondumpCleanNew"
 		#echo "gskSpawnTriggerBeginIndex $nSpawnTriggerTemplateBeginIndex" >>"$strFlCondumpCleanNew"
+	fi
+	
+	if egrep "^gskSpawnNoBurrowAllowed" "$strFlCondump";then
+		echo "gskSpawnNoBurrowAllowed" >>"$strFlCondumpCleanNew"
+		bAllowBurrow=false
 	fi
 	
 	#: ${bCollectTargetPos:=true} #help temporary to update with old files
