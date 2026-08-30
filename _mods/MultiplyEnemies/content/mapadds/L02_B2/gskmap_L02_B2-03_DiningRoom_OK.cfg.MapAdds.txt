@@ -1,0 +1,1351 @@
+
+"mapadd_keyvalues"
+{
+	"PreInitialize"
+	{	
+
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_000"
+			"origin"      "-3372 -11494 101"
+			"angles"      "47 90 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_001"
+			"origin"      "-3556 -11492 101"
+			"angles"      "46 93 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_002"
+			"origin"      "-3732 -11496 101"
+			"angles"      "49 89 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_003"
+			"origin"      "-3917 -11490 101"
+			"angles"      "47 93 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_004"
+			"origin"      "-3578 -11303 101"
+			"angles"      "69 -102 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_005"
+			"origin"      "-3614 -11297 101"
+			"angles"      "66 -74 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment"	"weapon_arx_short_sword"
+			"additionalshield" "weapon_mm_shield_necroguard"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_006"
+			"origin"      "-3467 -11368 101"
+			"angles"      "75 180 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_necromancer_lord"
+			"model" "models/NPC/necromancer_lord/npc_necromancer_lord.mdl"
+			"additionalequipment" "weapon_mm_hook"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_007"
+			"origin"      "-3467 -11317 101"
+			"angles"      "65 -134 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_008"
+			"origin"      "-3468 -11413 101"
+			"angles"      "67 137 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_009"
+			"origin"      "-3424 -11397 101"
+			"angles"      "71 169 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_010"
+			"origin"      "-3423 -11336 101"
+			"angles"      "67 -145 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_011"
+			"origin"      "-3413 -11444 101"
+			"angles"      "62 142 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_012"
+			"origin"      "-3395 -11368 101"
+			"angles"      "62 -171 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_013"
+			"origin"      "-4213 -11467 101"
+			"angles"      "67 2 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_014"
+			"origin"      "-4194 -11293 101"
+			"angles"      "66 -20 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_015"
+			"origin"      "-3455 -11133 101"
+			"angles"      "50 -88 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_016"
+			"origin"      "-3654 -11128 101"
+			"angles"      "54 -97 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_017"
+			"origin"      "-3833 -11126 101"
+			"angles"      "47 -92 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_018"
+			"origin"      "-3998 -11121 101"
+			"angles"      "55 -84 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_019"
+			"origin"      "-4201 -11169 101"
+			"angles"      "48 -13 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_020"
+			"origin"      "-4128 -11388 101"
+			"angles"      "74 -173 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_necromancer_lord"
+			"model" "models/NPC/Necromancer/Npc_necromancer.mdl"
+			"additionalequipment" "weapon_mm_staff_combat"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_021"
+			"origin"      "-3789 -11673 101"
+			"angles"      "51 114 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment"	"weapon_arx_short_sword"
+			"additionalshield" "weapon_mm_shield_necroguard"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_022"
+			"origin"      "-3857 -11670 101"
+			"angles"      "48 52 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment"	"weapon_arx_short_sword"
+			"additionalshield" "weapon_mm_shield_necroguard"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_023"
+			"origin"      "-3633 -11673 101"
+			"angles"      "45 89 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_024"
+			"origin"      "-3451 -11677 101"
+			"angles"      "57 85 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_025"
+			"origin"      "-3261 -11139 101"
+			"angles"      "59 179 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_026"
+			"origin"      "-3267 -11434 101"
+			"angles"      "63 -179 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_027"
+			"origin"      "-4091 -11454 322"
+			"angles"      "59 26 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_028"
+			"origin"      "-4092 -11398 322"
+			"angles"      "61 -14 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_029"
+			"origin"      "-4098 -11328 321"
+			"angles"      "66 -5 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_030"
+			"origin"      "-4007 -11235 277"
+			"angles"      "72 -90 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_031"
+			"origin"      "-3819 -11235 277"
+			"angles"      "71 -89 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_032"
+			"origin"      "-3642 -11235 277"
+			"angles"      "72 -87 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_033"
+			"origin"      "-3465 -11235 277"
+			"angles"      "73 -91 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_034"
+			"origin"      "-3463 -11567 330"
+			"angles"      "72 96 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_035"
+			"origin"      "-3645 -11567 332"
+			"angles"      "75 93 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_036"
+			"origin"      "-3824 -11567 329"
+			"angles"      "75 93 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_037"
+			"origin"      "-4004 -11567 332"
+			"angles"      "73 95 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_038"
+			"origin"      "-3358 -11383 323"
+			"angles"      "75 -169 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_039"
+			"origin"      "-3352 -11388 395"
+			"angles"      "58 -167 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_040"
+			"origin"      "-3360 -11426 320"
+			"angles"      "77 -178 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_041"
+			"origin"      "-3357 -11416 395"
+			"angles"      "64 180 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_042"
+			"origin"      "-3271 -11618 293"
+			"angles"      "59 179 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment"	"weapon_arx_short_sword"
+			"additionalshield" "weapon_mm_shield_necroguard"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_043"
+			"origin"      "-4170 -11118 277"
+			"angles"      "63 -81 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment"	"weapon_arx_short_sword"
+			"additionalshield" "weapon_mm_shield_necroguard"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_044"
+			"origin"      "-4049 -11437 101"
+			"angles"      "47 18 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_045"
+			"origin"      "-4050 -11388 101"
+			"angles"      "48 -9 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_046"
+			"origin"      "-4056 -11330 101"
+			"angles"      "41 -34 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_047"
+			"origin"      "-3517 -11421 134"
+			"angles"      "87 11 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "item_food_pie"
+			
+			"origin"      "-3517 -11421 139"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_048"
+			"origin"      "-3512 -11392 134"
+			"angles"      "88 -11 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "item_food_mushroom"
+			
+			"origin"      "-3512 -11392 139"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_049"
+			"origin"      "-3515 -11376 136"
+			"angles"      "84 -41 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "item_food_leek01"
+			
+			"origin"      "-3515 -11376 141"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_050"
+			"origin"      "-3531 -11343 134"
+			"angles"      "77 178 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "item_food_ham"
+			
+			"origin"      "-3531 -11343 139"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_051"
+			"origin"      "-3519 -11374 136"
+			"angles"      "88 -78 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "item_food_garlic"
+			
+			"origin"      "-3519 -11374 141"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_052"
+			"origin"      "-3641 -11330 135"
+			"angles"      "78 -23 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "item_food_fibs_cooked"
+			
+			"origin"      "-3641 -11330 140"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_053"
+			"origin"      "-3623 -11331 134"
+			"angles"      "84 -34 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "item_food_chicken_roasted"
+			
+			"origin"      "-3623 -11331 139"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_054"
+			"origin"      "-3511 -11324 134"
+			"angles"      "73 -89 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "item_food_banana_regime"
+			
+			"origin"      "-3511 -11324 139"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_055"
+			"origin"      "-3504 -11334 134"
+			"angles"      "62 -79 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "item_food_bread01_row"
+			
+			"origin"      "-3504 -11334 139"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_056"
+			"origin"      "-3610 -11335 134"
+			"angles"      "88 -139 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "item_food_fish03"
+			
+			"origin"      "-3610 -11335 139"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_057"
+			"origin"      "-3607 -11335 136"
+			"angles"      "87 -60 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "item_food_fish02"
+			
+			"origin"      "-3607 -11335 141"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_058"
+			"origin"      "-3609 -11331 134"
+			"angles"      "83 -62 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "item_food_fish02"
+			
+			"origin"      "-3609 -11331 139"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_059"
+			"origin"      "-3593 -11326 101"
+			"angles"      "84 -97 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "item_food_fish02"
+			
+			"origin"      "-3593 -11326 106"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_060"
+			"origin"      "-3595 -11334 134"
+			"angles"      "88 -93 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "item_food_fish02"
+			
+			"origin"      "-3595 -11334 139"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_061"
+			"origin"      "-3574 -11335 134"
+			"angles"      "81 -141 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "item_food_fish01"
+			
+			"origin"      "-3574 -11335 139"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_062"
+			"origin"      "-3577 -11343 134"
+			"angles"      "86 -151 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "item_food_fish01"
+			
+			"origin"      "-3577 -11343 139"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_063"
+			"origin"      "-3582 -11338 134"
+			"angles"      "87 -133 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "item_food_fish01"
+			
+			"origin"      "-3582 -11338 139"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_064"
+			"origin"      "-3578 -11326 101"
+			"angles"      "81 -124 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "item_food_fish01"
+			
+			"origin"      "-3578 -11326 106"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_065"
+			"origin"      "-3577 -11324 104"
+			"angles"      "80 -123 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "item_food_fish01"
+			
+			"origin"      "-3577 -11324 109"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_066"
+			"origin"      "-3577 -11322 104"
+			"angles"      "79 -122 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "item_food_fish01"
+			
+			"origin"      "-3577 -11322 109"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_067"
+			"origin"      "-3960 -11662 101"
+			"angles"      "75 113 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_crow"
+			"model" "models/npc/crow/npc_crow.mdl"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_068"
+			"origin"      "-3990 -11687 101"
+			"angles"      "66 82 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_crow"
+			"model" "models/npc/crow/npc_crow.mdl"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_069"
+			"origin"      "-4010 -11654 101"
+			"angles"      "75 52 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_crow"
+			"model" "models/npc/crow/npc_crow.mdl"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_03_DiningRoom_OK_070"
+			"origin"      "-3982 -11635 101"
+			"angles"      "88 81 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_crow"
+			"model" "models/npc/crow/npc_crow.mdl"
+			
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"4200401"
+			}
+			"add:key"
+			{
+				"OnTrigger" "gskSpawn_03_DiningRoom_OK_000,ForceSpawn,,0,1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_03_DiningRoom_OK_000"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_03_DiningRoom_OK_000"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_03_DiningRoom_OK_000"
+
+				"Template02" "gskSpawn_03_DiningRoom_OK_001"
+
+				"Template03" "gskSpawn_03_DiningRoom_OK_002"
+
+				"Template04" "gskSpawn_03_DiningRoom_OK_003"
+
+				"Template05" "gskSpawn_03_DiningRoom_OK_004"
+
+				"Template06" "gskSpawn_03_DiningRoom_OK_005"
+
+				"Template07" "gskSpawn_03_DiningRoom_OK_006"
+
+				"Template08" "gskSpawn_03_DiningRoom_OK_007"
+
+				"Template09" "gskSpawn_03_DiningRoom_OK_008"
+
+				"Template10" "gskSpawn_03_DiningRoom_OK_009"
+
+				"Template11" "gskSpawn_03_DiningRoom_OK_010"
+
+				"Template12" "gskSpawn_03_DiningRoom_OK_011"
+
+				"Template13" "gskSpawn_03_DiningRoom_OK_012"
+
+				"Template14" "gskSpawn_03_DiningRoom_OK_013"
+
+				"Template15" "gskSpawn_03_DiningRoom_OK_014"
+
+				"Template16" "gskSpawn_03_DiningRoom_OK_015"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"4200401"
+			}
+			"add:key"
+			{
+				"OnTrigger" "gskSpawn_03_DiningRoom_OK_015,ForceSpawn,,0,1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_03_DiningRoom_OK_015"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_03_DiningRoom_OK_015"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_03_DiningRoom_OK_015"
+
+				"Template02" "gskSpawn_03_DiningRoom_OK_016"
+
+				"Template03" "gskSpawn_03_DiningRoom_OK_017"
+
+				"Template04" "gskSpawn_03_DiningRoom_OK_018"
+
+				"Template05" "gskSpawn_03_DiningRoom_OK_019"
+
+				"Template06" "gskSpawn_03_DiningRoom_OK_020"
+
+				"Template07" "gskSpawn_03_DiningRoom_OK_021"
+
+				"Template08" "gskSpawn_03_DiningRoom_OK_022"
+
+				"Template09" "gskSpawn_03_DiningRoom_OK_023"
+
+				"Template10" "gskSpawn_03_DiningRoom_OK_024"
+
+				"Template11" "gskSpawn_03_DiningRoom_OK_025"
+
+				"Template12" "gskSpawn_03_DiningRoom_OK_026"
+
+				"Template13" "gskSpawn_03_DiningRoom_OK_027"
+
+				"Template14" "gskSpawn_03_DiningRoom_OK_028"
+
+				"Template15" "gskSpawn_03_DiningRoom_OK_029"
+
+				"Template16" "gskSpawn_03_DiningRoom_OK_030"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"4200401"
+			}
+			"add:key"
+			{
+				"OnTrigger" "gskSpawn_03_DiningRoom_OK_030,ForceSpawn,,0,1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_03_DiningRoom_OK_030"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_03_DiningRoom_OK_030"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_03_DiningRoom_OK_030"
+
+				"Template02" "gskSpawn_03_DiningRoom_OK_031"
+
+				"Template03" "gskSpawn_03_DiningRoom_OK_032"
+
+				"Template04" "gskSpawn_03_DiningRoom_OK_033"
+
+				"Template05" "gskSpawn_03_DiningRoom_OK_034"
+
+				"Template06" "gskSpawn_03_DiningRoom_OK_035"
+
+				"Template07" "gskSpawn_03_DiningRoom_OK_036"
+
+				"Template08" "gskSpawn_03_DiningRoom_OK_037"
+
+				"Template09" "gskSpawn_03_DiningRoom_OK_038"
+
+				"Template10" "gskSpawn_03_DiningRoom_OK_039"
+
+				"Template11" "gskSpawn_03_DiningRoom_OK_040"
+
+				"Template12" "gskSpawn_03_DiningRoom_OK_041"
+
+				"Template13" "gskSpawn_03_DiningRoom_OK_042"
+
+				"Template14" "gskSpawn_03_DiningRoom_OK_043"
+
+				"Template15" "gskSpawn_03_DiningRoom_OK_044"
+
+				"Template16" "gskSpawn_03_DiningRoom_OK_045"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"4200401"
+			}
+			"add:key"
+			{
+				"OnTrigger" "gskSpawn_03_DiningRoom_OK_045,ForceSpawn,,0,1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_03_DiningRoom_OK_045"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_03_DiningRoom_OK_045"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_03_DiningRoom_OK_045"
+
+				"Template02" "gskSpawn_03_DiningRoom_OK_046"
+
+				"Template03" "gskSpawn_03_DiningRoom_OK_047"
+
+				"Template04" "gskSpawn_03_DiningRoom_OK_048"
+
+				"Template05" "gskSpawn_03_DiningRoom_OK_049"
+
+				"Template06" "gskSpawn_03_DiningRoom_OK_050"
+
+				"Template07" "gskSpawn_03_DiningRoom_OK_051"
+
+				"Template08" "gskSpawn_03_DiningRoom_OK_052"
+
+				"Template09" "gskSpawn_03_DiningRoom_OK_053"
+
+				"Template10" "gskSpawn_03_DiningRoom_OK_054"
+
+				"Template11" "gskSpawn_03_DiningRoom_OK_055"
+
+				"Template12" "gskSpawn_03_DiningRoom_OK_056"
+
+				"Template13" "gskSpawn_03_DiningRoom_OK_057"
+
+				"Template14" "gskSpawn_03_DiningRoom_OK_058"
+
+				"Template15" "gskSpawn_03_DiningRoom_OK_059"
+
+				"Template16" "gskSpawn_03_DiningRoom_OK_060"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"4200401"
+			}
+			"add:key"
+			{
+				"OnTrigger" "gskSpawn_03_DiningRoom_OK_060,ForceSpawn,,0,1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_03_DiningRoom_OK_060"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_03_DiningRoom_OK_060"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_03_DiningRoom_OK_060"
+
+				"Template02" "gskSpawn_03_DiningRoom_OK_061"
+
+				"Template03" "gskSpawn_03_DiningRoom_OK_062"
+
+				"Template04" "gskSpawn_03_DiningRoom_OK_063"
+
+				"Template05" "gskSpawn_03_DiningRoom_OK_064"
+
+				"Template06" "gskSpawn_03_DiningRoom_OK_065"
+
+				"Template07" "gskSpawn_03_DiningRoom_OK_066"
+
+				"Template08" "gskSpawn_03_DiningRoom_OK_067"
+
+				"Template09" "gskSpawn_03_DiningRoom_OK_068"
+
+				"Template10" "gskSpawn_03_DiningRoom_OK_069"
+
+				"Template11" "gskSpawn_03_DiningRoom_OK_070"
+
+			}
+		}
+
+	}
+}
+
