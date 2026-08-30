@@ -545,20 +545,24 @@ function FUNCmapadds() {
 			echo '
 			"classname" "npc_undead"
 			"model" "models/NPC/Undead/Npc_undead.mdl"
-			"spawnflags" "16384"
 			"SmellRadius" "300"
 			"spawnflags"  "'"$(FUNCspawnFlags FS_TANK)"'"' >>"$lstrFlAddTmp"
 			
 			: ${nUndeadCount:=0}
 			((nUndeadCount++))&&:
 			if((nUndeadCount%3 <= 1));then # '0' '1' bury 66% of the configured to spawn, others '2'
-				if $bAllowBurrow;then
+				local lbDoBurrow=true
+				if $bAllowBurrow;then lbDoBurrow=false;fi
 					echo '
-			"UnburrowRadius" "200"
+			"UnburrowRadius" "300"' >>"$lstrFlAddTmp"
+				if $lbDoBurrow;then
+					echo '
 			"UnburrowChanceOverride" "1.0"' >>"$lstrFlAddTmp"
+				else # spawns standing on the ground
+					echo '
+			"UnburrowChanceOverride" "-1"' >>"$lstrFlAddTmp"
 				fi
 			fi
-			
 			;;
 		mm_npc_create_spider|"gskSummonSpiderRegular")
 			lnHeightDisplacement=7
