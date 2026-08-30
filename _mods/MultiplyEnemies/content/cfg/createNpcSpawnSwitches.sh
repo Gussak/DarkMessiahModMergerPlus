@@ -549,21 +549,25 @@ function FUNCmapadds() {
 			"SmellRadius" "300"
 			"spawnflags"  "'"$(FUNCspawnFlags FS_TANK)"'"' >>"$lstrFlAddTmp"
 			
-			local lnBurrowChance=1.0 # 1.0 means allow burrow, -1 means spawns standing on the ground
+			local lnUnBurrowChance=1.0 # 1.0 means allow burrow, -1 means what????
+			local lnUnBurrowRadius=200 # 10000 to spawn standing on the ground as soon as possible... Is it a raycast ??? I mean, wont trigger if player is behind a wall from it?
 			
 			if((nUndeadCount%3 <= 1));then # '0' '1' bury 66% of the configured to spawn, others '2'
-				lnBurrowChance=1.0
+				#lnUnBurrowChance=1.0
+				lnUnBurrowRadius=200
 			else
-				lnBurrowChance=-1
+				#lnUnBurrowChance=-1
+				lnUnBurrowRadius=10000
 			fi
 			
 			if ! $bAllowBurrow;then
-				lnBurrowChance=-1
+				#lnUnBurrowChance=-1
+				lnUnBurrowRadius=10000
 			fi
 			
 			echo '
-			"UnburrowRadius" "300"
-			"UnburrowChanceOverride" "'"${lnBurrowChance}"'"' >>"$lstrFlAddTmp"
+			"UnburrowRadius" "'"${lnUnBurrowRadius}"'"
+			"UnburrowChanceOverride" "'"${lnUnBurrowChance}"'"' >>"$lstrFlAddTmp"
 			;;
 		mm_npc_create_spider|"gskSummonSpiderRegular")
 			lnHeightDisplacement=7
