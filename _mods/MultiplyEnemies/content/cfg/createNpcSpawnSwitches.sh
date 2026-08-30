@@ -342,8 +342,8 @@ function FUNCspawnFlags() { #help based on https://developer.valvesoftware.com/w
 	return 0
 }
 
-function FUNCsectionID() {
-	echo "gskSpawn_${lstrUseThisSector}_BeginAt_$(printf %03d ${1})" #Spawner Section Begin At Target
+function FUNCsectionID() { # a wrong beginAt (less than the real begin one) just means some spawn command was not supported yet and was commented out there
+	echo "gskSpawn_${lstrUseThisSector}_BeginAt$(printf %03d ${1})" #Spawner Section Begin At Target
 }
 
 : ${nSpawnTriggerLinkedLimit:=16} #help :(

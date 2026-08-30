@@ -580,11 +580,11 @@
 		{
 			"TargetMarkers"
 			{
-				"id"	"3108979"
+				"id"	"5106817"
 			}
 			"add:key"
 			{
-				"OnOpen" "gskSpawn_04_RoofTop_BeginAt_000,ForceSpawn,,0,1,1,"
+				"OnOpen" "gskSpawn_04_RoofTop_BeginAt000,ForceSpawn,,0,1,1,"
 			}
 		}
 		
@@ -594,7 +594,7 @@
 			"classname" "point_template"
 			"combinability" "1"
 			"spawnflags" "2"
-			"targetname" "gskSpawn_04_RoofTop_BeginAt_000"
+			"targetname" "gskSpawn_04_RoofTop_BeginAt000"
 			"origin" "0 0 0"
 		}
 
@@ -602,7 +602,7 @@
 		{
 			"TargetMarkers"
 			{
-				"targetname"	"gskSpawn_04_RoofTop_BeginAt_000"
+				"targetname"	"gskSpawn_04_RoofTop_BeginAt000"
 			}
 			"add:key"
 			{
@@ -647,11 +647,11 @@
 		{
 			"TargetMarkers"
 			{
-				"id"	"3108979"
+				"id"	"5106817"
 			}
 			"add:key"
 			{
-				"OnOpen" "gskSpawn_04_RoofTop_BeginAt_016,ForceSpawn,,0,1,1,"
+				"OnOpen" "gskSpawn_04_RoofTop_BeginAt016,ForceSpawn,,0,1,1,"
 			}
 		}
 		
@@ -661,7 +661,7 @@
 			"classname" "point_template"
 			"combinability" "1"
 			"spawnflags" "2"
-			"targetname" "gskSpawn_04_RoofTop_BeginAt_016"
+			"targetname" "gskSpawn_04_RoofTop_BeginAt016"
 			"origin" "0 0 0"
 		}
 
@@ -669,7 +669,7 @@
 		{
 			"TargetMarkers"
 			{
-				"targetname"	"gskSpawn_04_RoofTop_BeginAt_016"
+				"targetname"	"gskSpawn_04_RoofTop_BeginAt016"
 			}
 			"add:key"
 			{
@@ -714,11 +714,11 @@
 		{
 			"TargetMarkers"
 			{
-				"id"	"3108979"
+				"id"	"5106817"
 			}
 			"add:key"
 			{
-				"OnOpen" "gskSpawn_04_RoofTop_BeginAt_032,ForceSpawn,,0,1,1,"
+				"OnOpen" "gskSpawn_04_RoofTop_BeginAt032,ForceSpawn,,0,1,1,"
 			}
 		}
 		
@@ -728,7 +728,7 @@
 			"classname" "point_template"
 			"combinability" "1"
 			"spawnflags" "2"
-			"targetname" "gskSpawn_04_RoofTop_BeginAt_032"
+			"targetname" "gskSpawn_04_RoofTop_BeginAt032"
 			"origin" "0 0 0"
 		}
 
@@ -736,7 +736,7 @@
 		{
 			"TargetMarkers"
 			{
-				"targetname"	"gskSpawn_04_RoofTop_BeginAt_032"
+				"targetname"	"gskSpawn_04_RoofTop_BeginAt032"
 			}
 			"add:key"
 			{
