@@ -1,0 +1,1081 @@
+
+"mapadd_keyvalues"
+{
+	"PreInitialize"
+	{	
+
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_000"
+			"origin"      "-2959 -12964 306"
+			"angles"      "44 169 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_001"
+			"origin"      "-3013 -13007 290"
+			"angles"      "53 150 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_002"
+			"origin"      "-2991 -13007 323"
+			"angles"      "44 154 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_003"
+			"origin"      "-3062 -13005 290"
+			"angles"      "61 139 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_004"
+			"origin"      "-3230 -12787 480"
+			"angles"      "49 132 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_005"
+			"origin"      "-3271 -12770 480"
+			"angles"      "66 109 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_006"
+			"origin"      "-3320 -12768 480"
+			"angles"      "63 56 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_007"
+			"origin"      "-3371 -12683 480"
+			"angles"      "47 -25 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_008"
+			"origin"      "-3334 -12712 480"
+			"angles"      "69 -11 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_009"
+			"origin"      "-3260 -12695 480"
+			"angles"      "45 -140 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_necromancer_lord"
+			"model" "models/NPC/Necromancer/Npc_necromancer.mdl"
+			"additionalequipment" "weapon_mm_staff_combat"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_010"
+			"origin"      "-3355 -12892 293"
+			"angles"      "47 88 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment"	"weapon_arx_short_sword"
+			"additionalshield" "weapon_mm_shield_necroguard"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_011"
+			"origin"      "-3345 -12665 293"
+			"angles"      "65 -108 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_012"
+			"origin"      "-3393 -12657 293"
+			"angles"      "59 -65 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_013"
+			"origin"      "-3433 -12666 293"
+			"angles"      "52 -39 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_necromancer_lord"
+			"model" "models/NPC/necromancer_lord/npc_necromancer_lord.mdl"
+			"additionalequipment" "weapon_mm_hook"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_014"
+			"origin"      "-3400 -12691 293"
+			"angles"      "70 -41 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_015"
+			"origin"      "-3417 -12742 325"
+			"angles"      "63 -14 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_016"
+			"origin"      "-3663 -12852 480"
+			"angles"      "57 176 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_017"
+			"origin"      "-3688 -12821 480"
+			"angles"      "66 -157 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_018"
+			"origin"      "-3716 -12798 480"
+			"angles"      "69 -120 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_019"
+			"origin"      "-3747 -12789 480"
+			"angles"      "68 -86 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_020"
+			"origin"      "-3783 -12794 480"
+			"angles"      "64 -51 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_021"
+			"origin"      "-3790 -12834 480"
+			"angles"      "72 -13 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_022"
+			"origin"      "-3774 -12886 293"
+			"angles"      "74 53 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_necromancer_lord"
+			"model" "models/NPC/Necromancer/Npc_necromancer.mdl"
+			"additionalequipment" "weapon_mm_staff_combat"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_023"
+			"origin"      "-3780 -12829 293"
+			"angles"      "67 -38 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_necromancer_lord"
+			"model" "models/NPC/Necromancer/Npc_necromancer.mdl"
+			"additionalequipment" "weapon_mm_staff_combat"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_024"
+			"origin"      "-3895 -12821 293"
+			"angles"      "39 -11 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment"	"weapon_arx_short_sword"
+			"additionalshield" "weapon_mm_shield_necroguard"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_025"
+			"origin"      "-3795 -12852 372"
+			"angles"      "44 4 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_026"
+			"origin"      "-4042 -12825 293"
+			"angles"      "62 -66 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_necromancer_lord"
+			"model" "models/NPC/Necromancer/Npc_necromancer.mdl"
+			"additionalequipment" "weapon_mm_staff_combat"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_027"
+			"origin"      "-4180 -12849 480"
+			"angles"      "71 -175 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_028"
+			"origin"      "-4189 -12882 480"
+			"angles"      "71 145 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_029"
+			"origin"      "-4192 -12815 480"
+			"angles"      "69 -134 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_030"
+			"origin"      "-4228 -12901 480"
+			"angles"      "72 91 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_031"
+			"origin"      "-4232 -12803 480"
+			"angles"      "70 -87 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_032"
+			"origin"      "-4186 -12706 293"
+			"angles"      "61 -179 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_033"
+			"origin"      "-4155 -12740 293"
+			"angles"      "43 159 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_034"
+			"origin"      "-4264 -12818 480"
+			"angles"      "70 -46 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_035"
+			"origin"      "-4266 -12886 480"
+			"angles"      "71 41 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_036"
+			"origin"      "-4216 -12748 293"
+			"angles"      "65 121 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_037"
+			"origin"      "-4278 -12847 480"
+			"angles"      "70 -8 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_038"
+			"origin"      "-4276 -12741 293"
+			"angles"      "74 51 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_039"
+			"origin"      "-4313 -12663 293"
+			"angles"      "45 -31 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_necromancer_lord"
+			"model" "models/NPC/necromancer_lord/npc_necromancer_lord.mdl"
+			"additionalequipment" "weapon_mm_hook"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_040"
+			"origin"      "-4336 -12755 293"
+			"angles"      "52 34 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_041"
+			"origin"      "-4968 -10883 265"
+			"angles"      "65 96 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_human_guard"
+			"model" "models/npc/guard/npc_guard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_042"
+			"origin"      "-4468 -11950 67"
+			"angles"      "56 -140 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_human_guard"
+			"model" "models/npc/guard/npc_guard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_043"
+			"origin"      "-4730 -11709 66"
+			"angles"      "48 -92 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_human_guard"
+			"model" "models/npc/guard/npc_guard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_044"
+			"origin"      "-4582 -12355 71"
+			"angles"      "67 134 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_human_guard"
+			"model" "models/npc/guard/npc_guard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_045"
+			"origin"      "-4878 -12105 67"
+			"angles"      "75 -32 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_human_guard"
+			"model" "models/npc/guard/npc_guard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_046"
+			"origin"      "-4344 -12439 69"
+			"angles"      "48 148 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_human_guard"
+			"model" "models/npc/guard/npc_guard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_047"
+			"origin"      "-4341 -12069 67"
+			"angles"      "52 -165 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_human_guard"
+			"model" "models/npc/guard/npc_guard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_048"
+			"origin"      "-2956 -12922 4"
+			"angles"      "41 141 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_human_guard"
+			"model" "models/npc/guard/npc_guard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_049"
+			"origin"      "-3038 -12896 5"
+			"angles"      "59 122 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_human_guard"
+			"model" "models/npc/guard/npc_guard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_050"
+			"origin"      "-2459 -13057 -8"
+			"angles"      "51 -7 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_human_guard"
+			"model" "models/npc/guard/npc_guard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_051"
+			"origin"      "-1992 -11438 -13"
+			"angles"      "42 -83 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_human_guard"
+			"model" "models/npc/guard/npc_guard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_052"
+			"origin"      "-1683 -10997 -33"
+			"angles"      "34 -115 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_human_guard"
+			"model" "models/npc/guard/npc_guard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_053"
+			"origin"      "-2444 -10902 -30"
+			"angles"      "29 -56 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_human_guard"
+			"model" "models/npc/guard/npc_guard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_054"
+			"origin"      "-3026 -11316 -32"
+			"angles"      "61 -39 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_human_guard"
+			"model" "models/npc/guard/npc_guard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_055"
+			"origin"      "-3057 -10875 66"
+			"angles"      "41 -140 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_human_guard"
+			"model" "models/npc/guard/npc_guard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"spawnflags"  "263"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"1104982"
+			}
+			"add:key"
+			{
+				"OnStartTouch" "gskSpawn_05_TopRooms_BeginAt000,ForceSpawn,,0,-1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_05_TopRooms_BeginAt000"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_05_TopRooms_BeginAt000"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_05_TopRooms_000"
+
+				"Template02" "gskSpawn_05_TopRooms_001"
+
+				"Template03" "gskSpawn_05_TopRooms_002"
+
+				"Template04" "gskSpawn_05_TopRooms_003"
+
+				"Template05" "gskSpawn_05_TopRooms_004"
+
+				"Template06" "gskSpawn_05_TopRooms_005"
+
+				"Template07" "gskSpawn_05_TopRooms_006"
+
+				"Template08" "gskSpawn_05_TopRooms_007"
+
+				"Template09" "gskSpawn_05_TopRooms_008"
+
+				"Template10" "gskSpawn_05_TopRooms_009"
+
+				"Template11" "gskSpawn_05_TopRooms_010"
+
+				"Template12" "gskSpawn_05_TopRooms_011"
+
+				"Template13" "gskSpawn_05_TopRooms_012"
+
+				"Template14" "gskSpawn_05_TopRooms_013"
+
+				"Template15" "gskSpawn_05_TopRooms_014"
+
+				"Template16" "gskSpawn_05_TopRooms_015"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"1104982"
+			}
+			"add:key"
+			{
+				"OnStartTouch" "gskSpawn_05_TopRooms_BeginAt016,ForceSpawn,,0,-1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_05_TopRooms_BeginAt016"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_05_TopRooms_BeginAt016"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_05_TopRooms_016"
+
+				"Template02" "gskSpawn_05_TopRooms_017"
+
+				"Template03" "gskSpawn_05_TopRooms_018"
+
+				"Template04" "gskSpawn_05_TopRooms_019"
+
+				"Template05" "gskSpawn_05_TopRooms_020"
+
+				"Template06" "gskSpawn_05_TopRooms_021"
+
+				"Template07" "gskSpawn_05_TopRooms_022"
+
+				"Template08" "gskSpawn_05_TopRooms_023"
+
+				"Template09" "gskSpawn_05_TopRooms_024"
+
+				"Template10" "gskSpawn_05_TopRooms_025"
+
+				"Template11" "gskSpawn_05_TopRooms_026"
+
+				"Template12" "gskSpawn_05_TopRooms_027"
+
+				"Template13" "gskSpawn_05_TopRooms_028"
+
+				"Template14" "gskSpawn_05_TopRooms_029"
+
+				"Template15" "gskSpawn_05_TopRooms_030"
+
+				"Template16" "gskSpawn_05_TopRooms_031"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"1104982"
+			}
+			"add:key"
+			{
+				"OnStartTouch" "gskSpawn_05_TopRooms_BeginAt032,ForceSpawn,,0,-1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_05_TopRooms_BeginAt032"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_05_TopRooms_BeginAt032"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_05_TopRooms_032"
+
+				"Template02" "gskSpawn_05_TopRooms_033"
+
+				"Template03" "gskSpawn_05_TopRooms_034"
+
+				"Template04" "gskSpawn_05_TopRooms_035"
+
+				"Template05" "gskSpawn_05_TopRooms_036"
+
+				"Template06" "gskSpawn_05_TopRooms_037"
+
+				"Template07" "gskSpawn_05_TopRooms_038"
+
+				"Template08" "gskSpawn_05_TopRooms_039"
+
+				"Template09" "gskSpawn_05_TopRooms_040"
+
+				"Template10" "gskSpawn_05_TopRooms_041"
+
+				"Template11" "gskSpawn_05_TopRooms_042"
+
+				"Template12" "gskSpawn_05_TopRooms_043"
+
+				"Template13" "gskSpawn_05_TopRooms_044"
+
+				"Template14" "gskSpawn_05_TopRooms_045"
+
+				"Template15" "gskSpawn_05_TopRooms_046"
+
+				"Template16" "gskSpawn_05_TopRooms_047"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"1104982"
+			}
+			"add:key"
+			{
+				"OnStartTouch" "gskSpawn_05_TopRooms_BeginAt048,ForceSpawn,,0,-1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_05_TopRooms_BeginAt048"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_05_TopRooms_BeginAt048"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_05_TopRooms_048"
+
+				"Template02" "gskSpawn_05_TopRooms_049"
+
+				"Template03" "gskSpawn_05_TopRooms_050"
+
+				"Template04" "gskSpawn_05_TopRooms_051"
+
+				"Template05" "gskSpawn_05_TopRooms_052"
+
+				"Template06" "gskSpawn_05_TopRooms_053"
+
+				"Template07" "gskSpawn_05_TopRooms_054"
+
+				"Template08" "gskSpawn_05_TopRooms_055"
+
+			}
+		}
+
+	}
+}
+

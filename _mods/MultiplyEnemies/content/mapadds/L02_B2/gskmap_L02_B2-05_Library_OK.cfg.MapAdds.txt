@@ -844,7 +844,7 @@
 			}
 			"add:key"
 			{
-				"OnStartTouch" "gskSpawn_05_Library_OK_000,ForceSpawn,,0,-1,1,"
+				"OnStartTouch" "gskSpawn_05_Library_OK_BeginAt000,ForceSpawn,,0,-1,1,"
 			}
 		}
 		
@@ -854,7 +854,7 @@
 			"classname" "point_template"
 			"combinability" "1"
 			"spawnflags" "2"
-			"targetname" "gskSpawn_05_Library_OK_000"
+			"targetname" "gskSpawn_05_Library_OK_BeginAt000"
 			"origin" "0 0 0"
 		}
 
@@ -862,7 +862,7 @@
 		{
 			"TargetMarkers"
 			{
-				"targetname"	"gskSpawn_05_Library_OK_000"
+				"targetname"	"gskSpawn_05_Library_OK_BeginAt000"
 			}
 			"add:key"
 			{
@@ -911,7 +911,7 @@
 			}
 			"add:key"
 			{
-				"OnStartTouch" "gskSpawn_05_Library_OK_015,ForceSpawn,,0,-1,1,"
+				"OnStartTouch" "gskSpawn_05_Library_OK_BeginAt016,ForceSpawn,,0,-1,1,"
 			}
 		}
 		
@@ -921,7 +921,7 @@
 			"classname" "point_template"
 			"combinability" "1"
 			"spawnflags" "2"
-			"targetname" "gskSpawn_05_Library_OK_015"
+			"targetname" "gskSpawn_05_Library_OK_BeginAt016"
 			"origin" "0 0 0"
 		}
 
@@ -929,43 +929,43 @@
 		{
 			"TargetMarkers"
 			{
-				"targetname"	"gskSpawn_05_Library_OK_015"
+				"targetname"	"gskSpawn_05_Library_OK_BeginAt016"
 			}
 			"add:key"
 			{
 		
 
-				"Template01" "gskSpawn_05_Library_OK_015"
+				"Template01" "gskSpawn_05_Library_OK_016"
 
-				"Template02" "gskSpawn_05_Library_OK_016"
+				"Template02" "gskSpawn_05_Library_OK_017"
 
-				"Template03" "gskSpawn_05_Library_OK_017"
+				"Template03" "gskSpawn_05_Library_OK_018"
 
-				"Template04" "gskSpawn_05_Library_OK_018"
+				"Template04" "gskSpawn_05_Library_OK_019"
 
-				"Template05" "gskSpawn_05_Library_OK_019"
+				"Template05" "gskSpawn_05_Library_OK_020"
 
-				"Template06" "gskSpawn_05_Library_OK_020"
+				"Template06" "gskSpawn_05_Library_OK_021"
 
-				"Template07" "gskSpawn_05_Library_OK_021"
+				"Template07" "gskSpawn_05_Library_OK_022"
 
-				"Template08" "gskSpawn_05_Library_OK_022"
+				"Template08" "gskSpawn_05_Library_OK_023"
 
-				"Template09" "gskSpawn_05_Library_OK_023"
+				"Template09" "gskSpawn_05_Library_OK_024"
 
-				"Template10" "gskSpawn_05_Library_OK_024"
+				"Template10" "gskSpawn_05_Library_OK_025"
 
-				"Template11" "gskSpawn_05_Library_OK_025"
+				"Template11" "gskSpawn_05_Library_OK_026"
 
-				"Template12" "gskSpawn_05_Library_OK_026"
+				"Template12" "gskSpawn_05_Library_OK_027"
 
-				"Template13" "gskSpawn_05_Library_OK_027"
+				"Template13" "gskSpawn_05_Library_OK_028"
 
-				"Template14" "gskSpawn_05_Library_OK_028"
+				"Template14" "gskSpawn_05_Library_OK_029"
 
-				"Template15" "gskSpawn_05_Library_OK_029"
+				"Template15" "gskSpawn_05_Library_OK_030"
 
-				"Template16" "gskSpawn_05_Library_OK_030"
+				"Template16" "gskSpawn_05_Library_OK_031"
 
 			}
 		}
@@ -978,7 +978,7 @@
 			}
 			"add:key"
 			{
-				"OnStartTouch" "gskSpawn_05_Library_OK_030,ForceSpawn,,0,-1,1,"
+				"OnStartTouch" "gskSpawn_05_Library_OK_BeginAt032,ForceSpawn,,0,-1,1,"
 			}
 		}
 		
@@ -988,7 +988,7 @@
 			"classname" "point_template"
 			"combinability" "1"
 			"spawnflags" "2"
-			"targetname" "gskSpawn_05_Library_OK_030"
+			"targetname" "gskSpawn_05_Library_OK_BeginAt032"
 			"origin" "0 0 0"
 		}
 
@@ -996,43 +996,43 @@
 		{
 			"TargetMarkers"
 			{
-				"targetname"	"gskSpawn_05_Library_OK_030"
+				"targetname"	"gskSpawn_05_Library_OK_BeginAt032"
 			}
 			"add:key"
 			{
 		
 
-				"Template01" "gskSpawn_05_Library_OK_030"
+				"Template01" "gskSpawn_05_Library_OK_032"
 
-				"Template02" "gskSpawn_05_Library_OK_031"
+				"Template02" "gskSpawn_05_Library_OK_033"
 
-				"Template03" "gskSpawn_05_Library_OK_032"
+				"Template03" "gskSpawn_05_Library_OK_034"
 
-				"Template04" "gskSpawn_05_Library_OK_033"
+				"Template04" "gskSpawn_05_Library_OK_035"
 
-				"Template05" "gskSpawn_05_Library_OK_034"
+				"Template05" "gskSpawn_05_Library_OK_036"
 
-				"Template06" "gskSpawn_05_Library_OK_035"
+				"Template06" "gskSpawn_05_Library_OK_037"
 
-				"Template07" "gskSpawn_05_Library_OK_036"
+				"Template07" "gskSpawn_05_Library_OK_038"
 
-				"Template08" "gskSpawn_05_Library_OK_037"
+				"Template08" "gskSpawn_05_Library_OK_039"
 
-				"Template09" "gskSpawn_05_Library_OK_038"
+				"Template09" "gskSpawn_05_Library_OK_040"
 
-				"Template10" "gskSpawn_05_Library_OK_039"
+				"Template10" "gskSpawn_05_Library_OK_041"
 
-				"Template11" "gskSpawn_05_Library_OK_040"
+				"Template11" "gskSpawn_05_Library_OK_042"
 
-				"Template12" "gskSpawn_05_Library_OK_041"
+				"Template12" "gskSpawn_05_Library_OK_043"
 
-				"Template13" "gskSpawn_05_Library_OK_042"
+				"Template13" "gskSpawn_05_Library_OK_044"
 
-				"Template14" "gskSpawn_05_Library_OK_043"
+				"Template14" "gskSpawn_05_Library_OK_045"
 
-				"Template15" "gskSpawn_05_Library_OK_044"
+				"Template15" "gskSpawn_05_Library_OK_046"
 
-				"Template16" "gskSpawn_05_Library_OK_045"
+				"Template16" "gskSpawn_05_Library_OK_047"
 
 			}
 		}
@@ -1045,7 +1045,7 @@
 			}
 			"add:key"
 			{
-				"OnStartTouch" "gskSpawn_05_Library_OK_045,ForceSpawn,,0,-1,1,"
+				"OnStartTouch" "gskSpawn_05_Library_OK_BeginAt048,ForceSpawn,,0,-1,1,"
 			}
 		}
 		
@@ -1055,7 +1055,7 @@
 			"classname" "point_template"
 			"combinability" "1"
 			"spawnflags" "2"
-			"targetname" "gskSpawn_05_Library_OK_045"
+			"targetname" "gskSpawn_05_Library_OK_BeginAt048"
 			"origin" "0 0 0"
 		}
 
@@ -1063,41 +1063,35 @@
 		{
 			"TargetMarkers"
 			{
-				"targetname"	"gskSpawn_05_Library_OK_045"
+				"targetname"	"gskSpawn_05_Library_OK_BeginAt048"
 			}
 			"add:key"
 			{
 		
 
-				"Template01" "gskSpawn_05_Library_OK_045"
+				"Template01" "gskSpawn_05_Library_OK_048"
 
-				"Template02" "gskSpawn_05_Library_OK_046"
+				"Template02" "gskSpawn_05_Library_OK_049"
 
-				"Template03" "gskSpawn_05_Library_OK_047"
+				"Template03" "gskSpawn_05_Library_OK_050"
 
-				"Template04" "gskSpawn_05_Library_OK_048"
+				"Template04" "gskSpawn_05_Library_OK_051"
 
-				"Template05" "gskSpawn_05_Library_OK_049"
+				"Template05" "gskSpawn_05_Library_OK_052"
 
-				"Template06" "gskSpawn_05_Library_OK_050"
+				"Template06" "gskSpawn_05_Library_OK_053"
 
-				"Template07" "gskSpawn_05_Library_OK_051"
+				"Template07" "gskSpawn_05_Library_OK_054"
 
-				"Template08" "gskSpawn_05_Library_OK_052"
+				"Template08" "gskSpawn_05_Library_OK_055"
 
-				"Template09" "gskSpawn_05_Library_OK_053"
+				"Template09" "gskSpawn_05_Library_OK_056"
 
-				"Template10" "gskSpawn_05_Library_OK_054"
+				"Template10" "gskSpawn_05_Library_OK_057"
 
-				"Template11" "gskSpawn_05_Library_OK_055"
+				"Template11" "gskSpawn_05_Library_OK_058"
 
-				"Template12" "gskSpawn_05_Library_OK_056"
-
-				"Template13" "gskSpawn_05_Library_OK_057"
-
-				"Template14" "gskSpawn_05_Library_OK_058"
-
-				"Template15" "gskSpawn_05_Library_OK_059"
+				"Template12" "gskSpawn_05_Library_OK_059"
 
 			}
 		}

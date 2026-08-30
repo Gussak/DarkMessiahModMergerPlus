@@ -297,7 +297,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_01_LowestBigRoom2_OK_000,ForceSpawn,,0,1,1,"
+				"OnTrigger" "gskSpawn_01_LowestBigRoom2_OK_BeginAt000,ForceSpawn,,0,1,1,"
 			}
 		}
 		
@@ -307,7 +307,7 @@
 			"classname" "point_template"
 			"combinability" "1"
 			"spawnflags" "2"
-			"targetname" "gskSpawn_01_LowestBigRoom2_OK_000"
+			"targetname" "gskSpawn_01_LowestBigRoom2_OK_BeginAt000"
 			"origin" "0 0 0"
 		}
 
@@ -315,7 +315,7 @@
 		{
 			"TargetMarkers"
 			{
-				"targetname"	"gskSpawn_01_LowestBigRoom2_OK_000"
+				"targetname"	"gskSpawn_01_LowestBigRoom2_OK_BeginAt000"
 			}
 			"add:key"
 			{
@@ -364,7 +364,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_01_LowestBigRoom2_OK_015,ForceSpawn,,0,1,1,"
+				"OnTrigger" "gskSpawn_01_LowestBigRoom2_OK_BeginAt016,ForceSpawn,,0,1,1,"
 			}
 		}
 		
@@ -374,7 +374,7 @@
 			"classname" "point_template"
 			"combinability" "1"
 			"spawnflags" "2"
-			"targetname" "gskSpawn_01_LowestBigRoom2_OK_015"
+			"targetname" "gskSpawn_01_LowestBigRoom2_OK_BeginAt016"
 			"origin" "0 0 0"
 		}
 
@@ -382,25 +382,23 @@
 		{
 			"TargetMarkers"
 			{
-				"targetname"	"gskSpawn_01_LowestBigRoom2_OK_015"
+				"targetname"	"gskSpawn_01_LowestBigRoom2_OK_BeginAt016"
 			}
 			"add:key"
 			{
 		
 
-				"Template01" "gskSpawn_01_LowestBigRoom2_OK_015"
+				"Template01" "gskSpawn_01_LowestBigRoom2_OK_016"
 
-				"Template02" "gskSpawn_01_LowestBigRoom2_OK_016"
+				"Template02" "gskSpawn_01_LowestBigRoom2_OK_017"
 
-				"Template03" "gskSpawn_01_LowestBigRoom2_OK_017"
+				"Template03" "gskSpawn_01_LowestBigRoom2_OK_018"
 
-				"Template04" "gskSpawn_01_LowestBigRoom2_OK_018"
+				"Template04" "gskSpawn_01_LowestBigRoom2_OK_019"
 
-				"Template05" "gskSpawn_01_LowestBigRoom2_OK_019"
+				"Template05" "gskSpawn_01_LowestBigRoom2_OK_020"
 
-				"Template06" "gskSpawn_01_LowestBigRoom2_OK_020"
-
-				"Template07" "gskSpawn_01_LowestBigRoom2_OK_021"
+				"Template06" "gskSpawn_01_LowestBigRoom2_OK_021"
 
 			}
 		}

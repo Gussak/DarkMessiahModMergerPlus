@@ -549,7 +549,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_02_FoodStorage_OK_000,ForceSpawn,,0,1,1,"
+				"OnTrigger" "gskSpawn_02_FoodStorage_OK_BeginAt000,ForceSpawn,,0,1,1,"
 			}
 		}
 		
@@ -559,7 +559,7 @@
 			"classname" "point_template"
 			"combinability" "1"
 			"spawnflags" "2"
-			"targetname" "gskSpawn_02_FoodStorage_OK_000"
+			"targetname" "gskSpawn_02_FoodStorage_OK_BeginAt000"
 			"origin" "0 0 0"
 		}
 
@@ -567,7 +567,7 @@
 		{
 			"TargetMarkers"
 			{
-				"targetname"	"gskSpawn_02_FoodStorage_OK_000"
+				"targetname"	"gskSpawn_02_FoodStorage_OK_BeginAt000"
 			}
 			"add:key"
 			{
@@ -616,7 +616,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_02_FoodStorage_OK_015,ForceSpawn,,0,1,1,"
+				"OnTrigger" "gskSpawn_02_FoodStorage_OK_BeginAt016,ForceSpawn,,0,1,1,"
 			}
 		}
 		
@@ -626,7 +626,7 @@
 			"classname" "point_template"
 			"combinability" "1"
 			"spawnflags" "2"
-			"targetname" "gskSpawn_02_FoodStorage_OK_015"
+			"targetname" "gskSpawn_02_FoodStorage_OK_BeginAt016"
 			"origin" "0 0 0"
 		}
 
@@ -634,43 +634,43 @@
 		{
 			"TargetMarkers"
 			{
-				"targetname"	"gskSpawn_02_FoodStorage_OK_015"
+				"targetname"	"gskSpawn_02_FoodStorage_OK_BeginAt016"
 			}
 			"add:key"
 			{
 		
 
-				"Template01" "gskSpawn_02_FoodStorage_OK_015"
+				"Template01" "gskSpawn_02_FoodStorage_OK_016"
 
-				"Template02" "gskSpawn_02_FoodStorage_OK_016"
+				"Template02" "gskSpawn_02_FoodStorage_OK_017"
 
-				"Template03" "gskSpawn_02_FoodStorage_OK_017"
+				"Template03" "gskSpawn_02_FoodStorage_OK_018"
 
-				"Template04" "gskSpawn_02_FoodStorage_OK_018"
+				"Template04" "gskSpawn_02_FoodStorage_OK_019"
 
-				"Template05" "gskSpawn_02_FoodStorage_OK_019"
+				"Template05" "gskSpawn_02_FoodStorage_OK_020"
 
-				"Template06" "gskSpawn_02_FoodStorage_OK_020"
+				"Template06" "gskSpawn_02_FoodStorage_OK_021"
 
-				"Template07" "gskSpawn_02_FoodStorage_OK_021"
+				"Template07" "gskSpawn_02_FoodStorage_OK_022"
 
-				"Template08" "gskSpawn_02_FoodStorage_OK_022"
+				"Template08" "gskSpawn_02_FoodStorage_OK_023"
 
-				"Template09" "gskSpawn_02_FoodStorage_OK_023"
+				"Template09" "gskSpawn_02_FoodStorage_OK_024"
 
-				"Template10" "gskSpawn_02_FoodStorage_OK_024"
+				"Template10" "gskSpawn_02_FoodStorage_OK_025"
 
-				"Template11" "gskSpawn_02_FoodStorage_OK_025"
+				"Template11" "gskSpawn_02_FoodStorage_OK_026"
 
-				"Template12" "gskSpawn_02_FoodStorage_OK_026"
+				"Template12" "gskSpawn_02_FoodStorage_OK_027"
 
-				"Template13" "gskSpawn_02_FoodStorage_OK_027"
+				"Template13" "gskSpawn_02_FoodStorage_OK_028"
 
-				"Template14" "gskSpawn_02_FoodStorage_OK_028"
+				"Template14" "gskSpawn_02_FoodStorage_OK_029"
 
-				"Template15" "gskSpawn_02_FoodStorage_OK_029"
+				"Template15" "gskSpawn_02_FoodStorage_OK_030"
 
-				"Template16" "gskSpawn_02_FoodStorage_OK_030"
+				"Template16" "gskSpawn_02_FoodStorage_OK_031"
 
 			}
 		}
@@ -683,7 +683,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_02_FoodStorage_OK_030,ForceSpawn,,0,1,1,"
+				"OnTrigger" "gskSpawn_02_FoodStorage_OK_BeginAt032,ForceSpawn,,0,1,1,"
 			}
 		}
 		
@@ -693,7 +693,7 @@
 			"classname" "point_template"
 			"combinability" "1"
 			"spawnflags" "2"
-			"targetname" "gskSpawn_02_FoodStorage_OK_030"
+			"targetname" "gskSpawn_02_FoodStorage_OK_BeginAt032"
 			"origin" "0 0 0"
 		}
 
@@ -701,23 +701,19 @@
 		{
 			"TargetMarkers"
 			{
-				"targetname"	"gskSpawn_02_FoodStorage_OK_030"
+				"targetname"	"gskSpawn_02_FoodStorage_OK_BeginAt032"
 			}
 			"add:key"
 			{
 		
 
-				"Template01" "gskSpawn_02_FoodStorage_OK_030"
+				"Template01" "gskSpawn_02_FoodStorage_OK_032"
 
-				"Template02" "gskSpawn_02_FoodStorage_OK_031"
+				"Template02" "gskSpawn_02_FoodStorage_OK_033"
 
-				"Template03" "gskSpawn_02_FoodStorage_OK_032"
+				"Template03" "gskSpawn_02_FoodStorage_OK_034"
 
-				"Template04" "gskSpawn_02_FoodStorage_OK_033"
-
-				"Template05" "gskSpawn_02_FoodStorage_OK_034"
-
-				"Template06" "gskSpawn_02_FoodStorage_OK_035"
+				"Template04" "gskSpawn_02_FoodStorage_OK_035"
 
 			}
 		}
