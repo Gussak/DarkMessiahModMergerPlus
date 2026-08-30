@@ -585,6 +585,13 @@ function FUNCmapadds() {
 			"model" "models/items/provisions/potions/Life_potion.mdl"
 			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
 			;;
+		"gskSummonPotionStone")
+			lnHeightDisplacement=5
+			echo '
+			"classname" "item_potion_stone"
+			"model" "models/items/provisions/potions/stone_potion.mdl"
+			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
+			;;
 		"gskSummonSword") # is bugging, not spawning correctly, unequipable
 			lstrIgnore="UnnecessaryAsPlayerCanSummon"
 			lnHeightDisplacement=10

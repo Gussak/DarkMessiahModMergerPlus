@@ -363,7 +363,7 @@
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_04_RoofTop_026"
-			"origin"      "-3217 -12559 731"
+			"origin"      "-3232 -12390 731"
 			"angles"      "80 37 -0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"

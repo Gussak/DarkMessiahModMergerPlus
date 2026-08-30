@@ -371,7 +371,7 @@
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_05_TopRooms_024"
-			"origin"      "-3895 -12821 293"
+			"origin"      "-3849 -12853 293"
 			"angles"      "39 -11 -0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
@@ -823,6 +823,55 @@
 			"additionalequipment" "weapon_arx_short_sword"
 			"spawnflags"  "263"
 		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_056"
+			"origin"      "-4211 -12854 480"
+			"angles"      "85 180 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "item_potion_stone"
+			"model" "models/items/provisions/potions/stone_potion.mdl"
+			"spawnflags"  "7"
+			"origin"      "-4211 -12854 485"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_057"
+			"origin"      "-4207 -12870 480"
+			"angles"      "82 146 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "item_food_banana_regime"
+			
+			"origin"      "-4207 -12870 485"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_058"
+			"origin"      "-4224 -12837 480"
+			"angles"      "86 -111 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "item_food_ham"
+			
+			"origin"      "-4224 -12837 485"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_TopRooms_059"
+			"origin"      "-4205 -12840 480"
+			"angles"      "81 -151 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "item_food_chicken_roasted"
+			
+			"origin"      "-4205 -12840 485"
+		}
 
 		"modify:entity"
 		{
@@ -1072,6 +1121,14 @@
 				"Template07" "gskSpawn_05_TopRooms_054"
 
 				"Template08" "gskSpawn_05_TopRooms_055"
+
+				"Template09" "gskSpawn_05_TopRooms_056"
+
+				"Template10" "gskSpawn_05_TopRooms_057"
+
+				"Template11" "gskSpawn_05_TopRooms_058"
+
+				"Template12" "gskSpawn_05_TopRooms_059"
 
 			}
 		}
