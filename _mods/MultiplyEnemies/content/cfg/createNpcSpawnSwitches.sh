@@ -445,7 +445,8 @@ function FUNCentityName() {
 	echo "gskSpawn_${lstrUseThisSector}_${strCount}"
 }
 
-: ${bAllowBurrow=true}
+: ${bAllowBurrow=true} #help you can override and force re-prepare all mapadds with them all not hidden
+nUndeadCount=0
 function FUNCmapadds() {
 	local lstrSummonCmd="$1"
 	
@@ -548,21 +549,21 @@ function FUNCmapadds() {
 			"SmellRadius" "300"
 			"spawnflags"  "'"$(FUNCspawnFlags FS_TANK)"'"' >>"$lstrFlAddTmp"
 			
-			: ${nUndeadCount:=0}
-			((nUndeadCount++))&&:
+			local lnBurrowChance=1.0 # 1.0 means allow burrow, -1 means spawns standing on the ground
+			
 			if((nUndeadCount%3 <= 1));then # '0' '1' bury 66% of the configured to spawn, others '2'
-				local lbDoBurrow=true
-				if $bAllowBurrow;then lbDoBurrow=false;fi
-					echo '
-			"UnburrowRadius" "300"' >>"$lstrFlAddTmp"
-				if $lbDoBurrow;then
-					echo '
-			"UnburrowChanceOverride" "1.0"' >>"$lstrFlAddTmp"
-				else # spawns standing on the ground
-					echo '
-			"UnburrowChanceOverride" "-1"' >>"$lstrFlAddTmp"
-				fi
+				lnBurrowChance=1.0
+			else
+				lnBurrowChance=-1
 			fi
+			
+			if ! $bAllowBurrow;then
+				lnBurrowChance=-1
+			fi
+			
+			echo '
+			"UnburrowRadius" "300"
+			"UnburrowChanceOverride" "'"${lnBurrowChance}"'"' >>"$lstrFlAddTmp"
 			;;
 		mm_npc_create_spider|"gskSummonSpiderRegular")
 			lnHeightDisplacement=7

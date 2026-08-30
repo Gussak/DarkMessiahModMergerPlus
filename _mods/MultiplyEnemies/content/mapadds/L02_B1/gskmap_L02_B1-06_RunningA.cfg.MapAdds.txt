@@ -17,7 +17,7 @@
 			"SmellRadius" "300"
 			"spawnflags"  "16391"
 			"UnburrowRadius" "300"
-			"UnburrowChanceOverride" "1.0"
+			"UnburrowChanceOverride" "-1"
 		}
 		"add:entity"
 		{
@@ -31,6 +31,8 @@
 			"model" "models/NPC/Undead/Npc_undead.mdl"
 			"SmellRadius" "300"
 			"spawnflags"  "16391"
+			"UnburrowRadius" "300"
+			"UnburrowChanceOverride" "-1"
 		}
 		"add:entity"
 		{
@@ -45,7 +47,7 @@
 			"SmellRadius" "300"
 			"spawnflags"  "16391"
 			"UnburrowRadius" "300"
-			"UnburrowChanceOverride" "1.0"
+			"UnburrowChanceOverride" "-1"
 		}
 		"add:entity"
 		{
@@ -60,7 +62,7 @@
 			"SmellRadius" "300"
 			"spawnflags"  "16391"
 			"UnburrowRadius" "300"
-			"UnburrowChanceOverride" "1.0"
+			"UnburrowChanceOverride" "-1"
 		}
 		"add:entity"
 		{
@@ -74,6 +76,8 @@
 			"model" "models/NPC/Undead/Npc_undead.mdl"
 			"SmellRadius" "300"
 			"spawnflags"  "16391"
+			"UnburrowRadius" "300"
+			"UnburrowChanceOverride" "-1"
 		}
 		"add:entity"
 		{
@@ -88,7 +92,7 @@
 			"SmellRadius" "300"
 			"spawnflags"  "16391"
 			"UnburrowRadius" "300"
-			"UnburrowChanceOverride" "1.0"
+			"UnburrowChanceOverride" "-1"
 		}
 		"add:entity"
 		{
@@ -103,7 +107,7 @@
 			"SmellRadius" "300"
 			"spawnflags"  "16391"
 			"UnburrowRadius" "300"
-			"UnburrowChanceOverride" "1.0"
+			"UnburrowChanceOverride" "-1"
 		}
 		"add:entity"
 		{
@@ -117,6 +121,8 @@
 			"model" "models/NPC/Undead/Npc_undead.mdl"
 			"SmellRadius" "300"
 			"spawnflags"  "16391"
+			"UnburrowRadius" "300"
+			"UnburrowChanceOverride" "-1"
 		}
 		"add:entity"
 		{
@@ -131,7 +137,7 @@
 			"SmellRadius" "300"
 			"spawnflags"  "16391"
 			"UnburrowRadius" "300"
-			"UnburrowChanceOverride" "1.0"
+			"UnburrowChanceOverride" "-1"
 		}
 		"add:entity"
 		{
@@ -146,7 +152,7 @@
 			"SmellRadius" "300"
 			"spawnflags"  "16391"
 			"UnburrowRadius" "300"
-			"UnburrowChanceOverride" "1.0"
+			"UnburrowChanceOverride" "-1"
 		}
 		"add:entity"
 		{
@@ -160,6 +166,8 @@
 			"model" "models/NPC/Undead/Npc_undead.mdl"
 			"SmellRadius" "300"
 			"spawnflags"  "16391"
+			"UnburrowRadius" "300"
+			"UnburrowChanceOverride" "-1"
 		}
 		"add:entity"
 		{
@@ -174,7 +182,7 @@
 			"SmellRadius" "300"
 			"spawnflags"  "16391"
 			"UnburrowRadius" "300"
-			"UnburrowChanceOverride" "1.0"
+			"UnburrowChanceOverride" "-1"
 		}
 		"add:entity"
 		{
@@ -189,7 +197,7 @@
 			"SmellRadius" "300"
 			"spawnflags"  "16391"
 			"UnburrowRadius" "300"
-			"UnburrowChanceOverride" "1.0"
+			"UnburrowChanceOverride" "-1"
 		}
 		"add:entity"
 		{
@@ -203,6 +211,8 @@
 			"model" "models/NPC/Undead/Npc_undead.mdl"
 			"SmellRadius" "300"
 			"spawnflags"  "16391"
+			"UnburrowRadius" "300"
+			"UnburrowChanceOverride" "-1"
 		}
 		"add:entity"
 		{
@@ -217,7 +227,7 @@
 			"SmellRadius" "300"
 			"spawnflags"  "16391"
 			"UnburrowRadius" "300"
-			"UnburrowChanceOverride" "1.0"
+			"UnburrowChanceOverride" "-1"
 		}
 		"add:entity"
 		{
