@@ -1,0 +1,690 @@
+
+"mapadd_keyvalues"
+{
+	"PreInitialize"
+	{	
+
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_06_RunningA_000"
+			"origin"      "-2783 -12685 478"
+			"angles"      "82 -34 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_06_RunningA_001"
+			"origin"      "-2863 -12586 737"
+			"angles"      "41 14 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_06_RunningA_002"
+			"origin"      "-2707 -12454 737"
+			"angles"      "44 -117 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_06_RunningA_003"
+			"origin"      "-2701 -12322 961"
+			"angles"      "56 -148 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_06_RunningA_004"
+			"origin"      "-2762 -12169 965"
+			"angles"      "74 -115 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_06_RunningA_005"
+			"origin"      "-2700 -11737 593"
+			"angles"      "76 48 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_06_RunningA_006"
+			"origin"      "-2654 -11239 257"
+			"angles"      "45 -125 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_06_RunningA_007"
+			"origin"      "-2646 -11373 257"
+			"angles"      "58 -161 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_06_RunningA_008"
+			"origin"      "-2860 -11192 253"
+			"angles"      "42 -70 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_06_RunningA_009"
+			"origin"      "-2869 -11338 257"
+			"angles"      "62 -42 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_06_RunningA_010"
+			"origin"      "-2696 -11501 257"
+			"angles"      "64 136 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_06_RunningA_011"
+			"origin"      "-2862 -11607 257"
+			"angles"      "43 73 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_06_RunningA_012"
+			"origin"      "-2833 -11448 257"
+			"angles"      "43 52 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_06_RunningA_013"
+			"origin"      "-2746 -11236 253"
+			"angles"      "39 -82 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_06_RunningA_014"
+			"origin"      "-2756 -11359 257"
+			"angles"      "58 -69 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"spawnflags" "16384"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_06_RunningA_015"
+			"origin"      "-2781 -10646 133"
+			"angles"      "57 59 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-2781 -10646 138"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_06_RunningA_016"
+			"origin"      "-2736 -10648 129"
+			"angles"      "59 68 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-2736 -10648 134"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_06_RunningA_017"
+			"origin"      "-2684 -10644 128"
+			"angles"      "61 80 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-2684 -10644 133"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_06_RunningA_018"
+			"origin"      "-2635 -10608 131"
+			"angles"      "66 93 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-2635 -10608 136"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_06_RunningA_019"
+			"origin"      "-2703 -10596 131"
+			"angles"      "66 72 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-2703 -10596 136"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_06_RunningA_020"
+			"origin"      "-2706 -10515 325"
+			"angles"      "63 56 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-2706 -10515 330"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_06_RunningA_021"
+			"origin"      "-2871 -10589 147"
+			"angles"      "54 36 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-2871 -10589 152"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_06_RunningA_022"
+			"origin"      "-2866 -10540 147"
+			"angles"      "57 28 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-2866 -10540 152"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_06_RunningA_023"
+			"origin"      "-2820 -10532 137"
+			"angles"      "63 32 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-2820 -10532 142"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_06_RunningA_024"
+			"origin"      "-2776 -10503 139"
+			"angles"      "69 31 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-2776 -10503 144"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_06_RunningA_025"
+			"origin"      "-2783 -10463 140"
+			"angles"      "71 16 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-2783 -10463 145"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_06_RunningA_026"
+			"origin"      "-2870 -10407 137"
+			"angles"      "60 -5 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-2870 -10407 142"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_06_RunningA_027"
+			"origin"      "-2818 -10408 138"
+			"angles"      "67 -6 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-2818 -10408 143"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_06_RunningA_028"
+			"origin"      "-2755 -10415 145"
+			"angles"      "75 -5 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-2755 -10415 150"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_06_RunningA_029"
+			"origin"      "-2731 -10461 143"
+			"angles"      "78 24 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-2731 -10461 148"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_06_RunningA_030"
+			"origin"      "-2865 -10532 155"
+			"angles"      "57 27 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-2865 -10532 160"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_06_RunningA_031"
+			"origin"      "-2655 -10575 137"
+			"angles"      "70 87 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-2655 -10575 142"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_06_RunningA_032"
+			"origin"      "-2622 -10534 143"
+			"angles"      "75 102 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-2622 -10534 148"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_06_RunningA_033"
+			"origin"      "-2651 -10651 127"
+			"angles"      "61 89 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-2651 -10651 132"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_06_RunningA_034"
+			"origin"      "-2709 -10506 388"
+			"angles"      "55 52 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-2709 -10506 393"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_06_RunningA_035"
+			"origin"      "-2812 -10487 138"
+			"angles"      "66 21 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-2812 -10487 143"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"5634833"
+			}
+			"add:key"
+			{
+				"OnTrigger" "gskSpawn_06_RunningA_BeginAt000,ForceSpawn,,0,-1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_06_RunningA_BeginAt000"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_06_RunningA_BeginAt000"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_06_RunningA_000"
+
+				"Template02" "gskSpawn_06_RunningA_001"
+
+				"Template03" "gskSpawn_06_RunningA_002"
+
+				"Template04" "gskSpawn_06_RunningA_003"
+
+				"Template05" "gskSpawn_06_RunningA_004"
+
+				"Template06" "gskSpawn_06_RunningA_005"
+
+				"Template07" "gskSpawn_06_RunningA_006"
+
+				"Template08" "gskSpawn_06_RunningA_007"
+
+				"Template09" "gskSpawn_06_RunningA_008"
+
+				"Template10" "gskSpawn_06_RunningA_009"
+
+				"Template11" "gskSpawn_06_RunningA_010"
+
+				"Template12" "gskSpawn_06_RunningA_011"
+
+				"Template13" "gskSpawn_06_RunningA_012"
+
+				"Template14" "gskSpawn_06_RunningA_013"
+
+				"Template15" "gskSpawn_06_RunningA_014"
+
+				"Template16" "gskSpawn_06_RunningA_015"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"5634833"
+			}
+			"add:key"
+			{
+				"OnTrigger" "gskSpawn_06_RunningA_BeginAt016,ForceSpawn,,0,-1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_06_RunningA_BeginAt016"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_06_RunningA_BeginAt016"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_06_RunningA_016"
+
+				"Template02" "gskSpawn_06_RunningA_017"
+
+				"Template03" "gskSpawn_06_RunningA_018"
+
+				"Template04" "gskSpawn_06_RunningA_019"
+
+				"Template05" "gskSpawn_06_RunningA_020"
+
+				"Template06" "gskSpawn_06_RunningA_021"
+
+				"Template07" "gskSpawn_06_RunningA_022"
+
+				"Template08" "gskSpawn_06_RunningA_023"
+
+				"Template09" "gskSpawn_06_RunningA_024"
+
+				"Template10" "gskSpawn_06_RunningA_025"
+
+				"Template11" "gskSpawn_06_RunningA_026"
+
+				"Template12" "gskSpawn_06_RunningA_027"
+
+				"Template13" "gskSpawn_06_RunningA_028"
+
+				"Template14" "gskSpawn_06_RunningA_029"
+
+				"Template15" "gskSpawn_06_RunningA_030"
+
+				"Template16" "gskSpawn_06_RunningA_031"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"5634833"
+			}
+			"add:key"
+			{
+				"OnTrigger" "gskSpawn_06_RunningA_BeginAt032,ForceSpawn,,0,-1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_06_RunningA_BeginAt032"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_06_RunningA_BeginAt032"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_06_RunningA_032"
+
+				"Template02" "gskSpawn_06_RunningA_033"
+
+				"Template03" "gskSpawn_06_RunningA_034"
+
+				"Template04" "gskSpawn_06_RunningA_035"
+
+			}
+		}
+
+	}
+}
+
