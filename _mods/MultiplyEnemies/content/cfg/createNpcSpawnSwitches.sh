@@ -652,6 +652,12 @@ function FUNCmapadds() {
 			"model" "models/npc/pig/pig.mdl"
 			' >>"$lstrFlAddTmp"
 			;;
+		mm_npc_create_facehugger|"gskSummonFacehugger")
+			echo '
+			"classname" "npc_facehugger"
+			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
+			' >>"$lstrFlAddTmp"
+			;;
 		"gskSummon_"*) #by luck I put all food beggining with '_' xD
 			lnHeightDisplacement=5
 			echo '

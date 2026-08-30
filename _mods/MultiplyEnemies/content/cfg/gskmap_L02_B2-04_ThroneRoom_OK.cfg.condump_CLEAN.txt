@@ -1,6 +1,6 @@
 map     :  l02_b2 at: -3139 x, -11530 y, -63 z
 map     :  l02_b2 at: -3139 x, -11530 y, -63 z
-gskMapMessage gskSpawnTriggerID=1046101 (targetname din_door_relay) at L02_B1.vmf
+gskMapMessage gskSpawnTriggerID=1046101 (targetname din_door_relay) at L02_B2.vmf
 gskSpawnTriggerID 1046101 "OnTrigger" "teaser_ghoul_spawn,ForceSpawn,,0,1,1,"
 gskSpawnHint   // ( 1/63 )
 prop at -2659 -11802 256 missing modelname  
