@@ -116,15 +116,15 @@ FUNCwait60s() { #help [CustomMSG]
 	FUNCwaitSeconds 60 "${*-}"
 };export -f FUNCwait10s
 
-FUNCexit() {
+FUNCexit() { #help [lnErr] [message]
 	if [[ $# -gt 0 ]];then
-		if(($1 != 0));then
-			local lnErr=$1
-			shift
+		local lnErr=${1-0}
+		shift
+		if(($lnErr != 0));then
 			echo "[ERROR:${FUNCNAME[@]}:${BASH_LINENO[@]}] error=$lnErr, ${@-}" >&2 #because the script keeps running and wont stop not abruptly exit to terminal anymore!!!! :(, this is the only way to see problems now... :(
 			read -n 1 >&2
 		fi
-		exit $1
+		exit $lnErr
 	fi
 	exit 0
 };export -f FUNCexit
