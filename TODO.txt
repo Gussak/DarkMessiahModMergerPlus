@@ -2,6 +2,8 @@ TODO
 	Main goal, make it much more challenging but not impossible. And as easy to patch as possible because toggles (instead of set ON set OFF) cause a big unsynchronized mess that have to be manually checked everytime and may confuse unaware players that are not used to modding and developing.
 	
 MODS:
+	Guest room window key at ground floor at shelf. Mimic tower key at rooftop l02b1
+	Add tower windows trigger copy with hatch door trigger l02b1 at rooftop mapadds
 	npcs are not aware of nearby friendlies being damaged or killed. If they see one killed they look around and may see you, only that works? They should hear nearby friendlies pain. Is there some way to make them call for help by default? For ex, manually spawned good human guards if damaged will attack you but even if killed other guards seeing it will totally ignore you.
 	let small spiders attack the player too (they ignore us)
 	allow Throw all objects up down like oil, not only props.
