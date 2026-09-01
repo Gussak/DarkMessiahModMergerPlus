@@ -1,5 +1,5 @@
 {
-		"lang.Tokens.magic_toad_description": "Restores full Health and full Mana.",
-		"lang.Tokens.food_ratio01_description": "Restores $health$ Health and $mana$ Mana when eaten.",
-		"lang.Tokens.food_ratio02_description": "Restores $health$ Health and $mana$ Mana when eaten."
+    "lang.Tokens.food_ratio01_description": "Restores $health$ Health and $mana$ Mana when eaten.",
+    "lang.Tokens.food_ratio02_description": "Restores $health$ Health and $mana$ Mana when eaten.",
+    "lang.Tokens.magic_toad_description": "Restores full Health and full Mana."
 }

@@ -1,0 +1,7 @@
+{
+    "$keyvalues.entity_data.give_health": "30",
+    "$keyvalues.entity_data.give_mana": "30",
+    "__comments__": {
+        "$keyvalues.entity_data.take_replace_by": "//@KEYVALUE_REMOVE"
+    }
+}
