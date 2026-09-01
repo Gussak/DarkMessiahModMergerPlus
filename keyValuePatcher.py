@@ -145,13 +145,11 @@ def toggle_flag(flag: LogConfig):
         verbosity ^= flag  # Flips the state of the target bit
 
 # Compiled regex patterns for reuse
-KV_PATTERN = re.compile(r'^("[^"]*")\s+("[^"]*")$')
-# Updated: Removed '0-9' exclusion to allow digits in block names (e.g., air_2)
-#TODO BLOCK_PATTERN = re.compile(r'^\s*"?([^"\s]+)"?\s*$') #TODO check: comments '//' shall be stripped before trying any matches #TODO it should not check if the block name is inside "", a pre-patch (before running this pythong script) should just fix the block name.
-#TODO BLOCK_PATTERN_EXTENDED = re.compile(r'^\s*"?([^"\s]+)"?\s*$') #TODO is '{}' really necessary? it is checking inside the "" and this script doesnt detect '{' on the same line of the block name requiring a pre-patch anyway...
-BLOCK_PATTERN = re.compile(r'^\s*"?([^"\s//]+)"?\s*$') 
-BLOCK_PATTERN_EXTENDED = re.compile(r'^\s*"?([^"\s//{}]+)"?\s*$') 
-VALUE_REPLACEMENT_PATTERN = re.compile(r'(\s*"[^"]+"\s+)("[^"]*")(.*)')
+
+KV_PATTERN = re.compile(r'^\s*(?:"([^"]*)"|([^\s"]+))\s+(?:"([^"]*)"|([^\s"]+))\s*$')
+BLOCK_PATTERN = re.compile(r'^\s*"?([^"\s]+)"?\s*$') 
+BLOCK_PATTERN_EXTENDED = re.compile(r'^\s*"?([^"\s{}]+)"?\s*$') 
+VALUE_REPLACEMENT_PATTERN = re.compile(r'(\s*(?:"[^"]*"|[^\s"]+)\s+)(?:"[^"]*"|[^\s"]+)(.*)')
 
 def strip_line_ending(line: str) -> str:
         """Strip all trailing CR and LF characters from a line."""
@@ -542,8 +540,10 @@ def parse_qct_to_dict(file_path: str, lines: Optional[List[str]] = None) -> Dict
 
                 kv_match = KV_PATTERN.match(clean_line_for_kv)
                 if kv_match:
-                        key = strip_quotes(kv_match.group(1))
-                        val = strip_quotes(kv_match.group(2))
+                        key = kv_match.group(1) or kv_match.group(2)
+                        val = kv_match.group(3) or kv_match.group(4)
+                        key = strip_quotes(key)
+                        val = strip_quotes(val)
 
                         # Handle duplicate keys by storing as list
                         if is_duplicate_key(key):
@@ -798,8 +798,10 @@ def _value_exists_in_scope(
         if in_target_block:
             kv_match = KV_PATTERN.match(clean)
             if kv_match:
-                k = strip_quotes(kv_match.group(1))
-                v = strip_quotes(kv_match.group(2))
+                k = kv_match.group(1) or kv_match.group(2)
+                v = kv_match.group(3) or kv_match.group(4)
+                k = strip_quotes(k)
+                v = strip_quotes(v)
                 if k == key_name and v == value_to_check:
                     return True
     return False
@@ -1368,7 +1370,8 @@ def _apply_patches_to_lines(
 
                         kv_match = KV_PATTERN.match(clean_line_for_kv)
                         if kv_match:
-                                key = strip_quotes(kv_match.group(1))
+                                key = kv_match.group(1) or kv_match.group(2)
+                                key = strip_quotes(key)
                                 full_path = ".".join(current_stack + [key])
                                 last_block_key = None
 

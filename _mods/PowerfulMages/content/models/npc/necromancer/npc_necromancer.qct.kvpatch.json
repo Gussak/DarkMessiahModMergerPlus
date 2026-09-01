@@ -12,7 +12,7 @@
         "spelldatas.air_3.effect": "// Damage multiplier. True Damage.",
         "spelldatas.air_3.lightning_damage": "// Total possible damage.",
         "spelldatas.air_3.lightning_damage_rate": "// Damage rate per second.",
-        "spelldatas.earth_1": "//stone skin (use only this or invisibility, as both breaks invisibility)",
+        "spelldatas.earth_1": "//stone skin (use only this or invisibility, as both breaks invisibility)\",",
         "spelldatas.earth_1.effect": "// Damage multiplier.",
         "spelldatas.earth_1.range_max": "// Maximum range for this spell.",
         "spelldatas.earth_1.range_min": "// Minimum range for this spell.",

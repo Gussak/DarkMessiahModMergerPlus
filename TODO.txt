@@ -1,6 +1,10 @@
 TODO
 	Main goal, make it much more challenging but not impossible. And as easy to patch as possible because toggles (instead of set ON set OFF) cause a big unsynchronized mess that have to be manually checked everytime and may confuse unaware players that are not used to modding and developing.
 	
+KVPATCHER:
+	kvpatcher,AIdone?: #TODO BLOCK_PATTERN = re.compile(r'^\s*"?([^"\s]+)"?\s*$') #TODO check: comments '//' shall be stripped before trying any matches #TODO it should not check if the block name is inside "", a pre-patch (before running this pythong script) should just fix the block name.
+	kvpatcher,AIdone?: #TODO BLOCK_PATTERN_EXTENDED = re.compile(r'^\s*"?([^"\s]+)"?\s*$') #TODO is '{}' really necessary? it is checking inside the "" and this script doesnt detect '{' on the same line of the block name requiring a pre-patch anyway...
+	
 MODS:
 	Guest room window key at ground floor at shelf. Mimic tower key at rooftop l02b1
 	Add tower windows trigger copy with hatch door trigger l02b1 at rooftop mapadds

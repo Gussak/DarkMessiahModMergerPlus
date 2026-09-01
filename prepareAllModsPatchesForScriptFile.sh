@@ -244,6 +244,7 @@ declare -p astrListCurrent |sed -r -e "$strSedArrayNumToLn";echo
 if((${#astrListCurrent[@]} < 2));then
 	if $bForceCreatePatches;then
 		strVanillaScriptFileChk="$(find -L "$strVanillaScriptsPath" -iregex "${strFindScriptFileRegex}")"
+		declare -p strVanillaScriptFileChk
 		if [[ ! -f "$strVanillaScriptFileChk" ]];then
 			FUNCechoInfo "[Impossible] to force creating a patch, related vanilla file must exist first."
 			FUNCexit 0 #no modded conflict to require a patch. but it will differ from vanilla or be a whole new file..
