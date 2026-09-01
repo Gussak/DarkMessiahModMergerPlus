@@ -1,0 +1,10 @@
+--- /dev/fd/63	2026-09-01 03:54:30.848811209 -0300
++++ /dev/fd/62	2026-09-01 03:54:30.849811222 -0300
+@@ -597,7 +597,6 @@
+ 	"soundlevel"	"SNDLVL_NORM"
+ 
+ 	"wave"				"arkane/%language%/Leannalich/Leannalich_blocking.wav"
+-	}
+ }
+ 
+ ///// Impale /////

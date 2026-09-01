@@ -1,0 +1,24 @@
+--- /dev/fd/63	2026-09-01 03:51:28.813424963 -0300
++++ /dev/fd/62	2026-09-01 03:51:28.813424963 -0300
+@@ -508,7 +508,6 @@
+ 	"soundlevel"	"SNDLVL_NORM"
+ 
+ 	"wave"				"arkane/%language%/necroguard/necro_blocking.wav"
+-	}
+ }
+ 
+ 
+@@ -1031,7 +1030,6 @@
+ 	"soundlevel"	"SNDLVL_NORM"
+ 
+ 	"wave"				"arkane/%language%/necroguard/necrob_blocking.wav"
+-	}
+ }
+ 
+ 
+@@ -1555,5 +1553,4 @@
+ 	"soundlevel"	"SNDLVL_NORM"
+ 
+ 	"wave"				"arkane/%language%/necroguard/necroc_blocking.wav"
+-	}
+ }
