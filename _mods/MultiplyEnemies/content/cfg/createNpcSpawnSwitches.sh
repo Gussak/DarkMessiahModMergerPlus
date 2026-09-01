@@ -38,7 +38,18 @@ while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./a
 
 : ${strSpawnerMode:=Summoning} #help "MoreFoes" or "Summoning"
 
-: ${strFlDBsummoningsTmp:=""} #help internal use
+strFlDBsummoningsCache="summonings.cache.sh.tmp"
+strFlDBsummoningsCacheKey="${strFlDBsummoningsCache}.key.txt"
+strCacheKeyNew="$(cd "$strGameInstallMainFolder";ls -lR |egrep ".*[.]cfg$" |egrep -v "gskTeleMarkers[.]cfg|[.]sh[.]cfg|[.]SUCCESS[.]cfg" 2>/dev/null)" #could be just the blood summoner cfg file tho, just in case someone adds new stuff in other cfg files
+if [[ -f "$strFlDBsummoningsCacheKey" ]];then
+	if ! cmp "$strFlDBsummoningsCacheKey" <(echo "${strCacheKeyNew}");then
+		FUNCtrash "$strFlDBsummoningsCache"
+		echo "$strCacheKeyNew" >"${strFlDBsummoningsCacheKey}"
+	fi
+fi
+
+: ${strFlDBsummoningsTmp:="${strFlDBsummoningsCache}"} #help internal use
+export strFlDBsummoningsTmp
 if [[ -f "$strFlDBsummoningsTmp" ]];then
 	source "$strFlDBsummoningsTmp"
 else
@@ -49,7 +60,7 @@ else
 	astrNPCsummon_Type=()
 	#declare -A astrNPCsummonings_Cost
 	#declare -A astrNPCsummonings_CostTmp
-	mapfile -t astrNPCsummoningsLines < <(cd "$strPathParent"; egrep "^alias [+]*gskSummon" * -iRIah --include="*.cfg" |egrep -v "Spawn|Switch|gskSummonFood" |sort -u) #gskSummonFood is a dup generic easy food spwning alias
+	mapfile -t astrNPCsummoningsLines < <(cd "$strGameInstallMainFolder"; egrep "^alias [+]*gskSummon" * -iRIah --include="*.cfg" |egrep -v "Spawn|Switch|gskSummonFood" |sort -u) #gskSummonFood is a dup generic easy food spwning alias
 	#if [[ "$strSpawnerMode" == Summoning ]];then
 	if true;then
 		for strLnData in "${astrNPCsummoningsLines[@]}";do
@@ -119,7 +130,7 @@ else
 	astrDBlist=(astrNPCsummoningsLines astrNPCsummonTmp_ID astrNPCsummon_Cost FUNCfillByType_astrAlreadyUsed astrNPCsummon_ID)
 	declare -p "${astrDBlist[@]}" |sed -r -e "$strSedArrayIDsToLn"
 	
-	export strFlDBsummoningsTmp="$(mktemp)"
+	#export strFlDBsummoningsTmp="$(mktemp)"
 	declare -p "${astrDBlist[@]}" >"$strFlDBsummoningsTmp"
 fi
 
@@ -276,7 +287,8 @@ while [[ $# -gt 0 && "${1:0:1}" == "-" ]];do
 	elif [[ "${1}" == "--redoall" ]];then #help mainly to be used after patching this script
 		bRedoAll=true
 	elif [[ "${1}" == "--clean" ]];then #help clean temp files
-		trash -v *.NEW.txt *.TMP.txt *.cfg.condump.txt *.bkp
+		mapfile -t astrFlCleanList < <(ls -1 *.NEW.txt *.TMP.txt *.cfg.condump.txt *.bkp)
+		FUNCtrash "${astrFlCleanList[@]}"
 		exit 0
 	else
 		FUNCechoInfo "[ERROR] invalid option: $@"
