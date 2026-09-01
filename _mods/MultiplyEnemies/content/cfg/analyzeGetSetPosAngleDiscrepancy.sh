@@ -1,1 +1,1 @@
-../../../DeveloperHelper/cfg/analyzeGetSetPosAngleDiscrepancy.sh
+../../../000gskBaseLib/content/cfg/analyzeGetSetPosAngleDiscrepancy.sh
