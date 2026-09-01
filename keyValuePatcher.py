@@ -34,7 +34,7 @@
 # POSSIBILITY OF SUCH DAMAGE.
 
 """
-KeyValue Patcher for Dark Messiah .qct files
+KeyValue Patcher for Dark Messiah .qct files.
 
 Generates and applies patches for Valve KeyValue configuration files.
 Supports automatic injection of missing configuration blocks.
