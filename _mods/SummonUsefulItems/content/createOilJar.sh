@@ -94,8 +94,8 @@ function FUNCreplace() {
 }
 
 astrFail=(
-	"fail cant pickup" "quiver_guard"
-	   "quiver_guard" "models/items/weapons/quiver_guard/" 100 
+	"fail cant pickup"
+	   "quiver_guard" "models/items/weapons/quiver_guard/" 100  # this could work but crashes: mm_npc_create prop_ammo_arrow "models/items/weapons/Quiver_guard/quiver_guard.mdl"
 	"fail, no model and ends up as food and causes super lag"
 	   "money01" "models/items/jewels/money/" 1
 	"fail cant pickup"
