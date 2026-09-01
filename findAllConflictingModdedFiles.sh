@@ -121,7 +121,8 @@ for((i=0;i<nTotPossibilities;i++));do
 	
 	# show results for previous or last one
 	if [[ "${strRelFlPrev}" != "${strRelFl}" ]] || (( i == (nTotPossibilities-1) ));then
-		if((iCountConflictFl>1));then
+		: ${bBloatListToHelpForceCreatePatches=false} #help Always Process Mod Files Even Without mods Conflicts, will always create patches if differ from vanilla
+		if((iCountConflictFl>1)) || $bBloatListToHelpForceCreatePatches;then
 			strFlSuccessCfgRel="${strRelFlPrev}.SUCCESS.cfg"
 			#declare -p strFlSuccessCfgRel
 			strFlPatchSuccess="${strMergedModsFolder}/content/${strFlSuccessCfgRel}"

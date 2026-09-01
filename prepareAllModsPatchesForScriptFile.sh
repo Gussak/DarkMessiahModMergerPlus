@@ -126,10 +126,16 @@ if $bForceRePatch;then
 	FUNCtrash "$strFinalMergedFolderContent/$strScriptFileRelat" "$strFinalMergedFolderContent/${strScriptFileRelat}.SUCCESS.cfg"&&:
 fi
 
-if [[ "$strScriptFileRelat" != "gameinfo.txt" ]];then #help is this the only file that ever happens on root mod dir? TODO
+bAllowOnRoot=false
+case "$strScriptFileRelat" in
+	"gameinfo.txt"|"maplist.txt")bAllowOnRoot=true;; #help this moddable happens on root mod dir
+	"steam_appid.txt"|"steam.inf")FUNCechoInfo "ignored";FUNCexit;; #help just ignored
+	*):;;
+esac
+if ! $bAllowOnRoot;then
 	if [[ ! "$strScriptFileRelat" =~ .*/.* ]] || [[ "$strScriptFileRelat" =~ ^[/].* ]];then
 		declare -p strScriptFileRelat
-		FUNCechoInfo "[Invalid relative file] all text script etc files are relative to some sub directory in vanilla tree. Also do not use absolute file paths."
+		FUNCechoInfo "[Invalid relative file] all text script etc files are relative to some sub directory in vanilla tree (least very few ones). Also do not use absolute file paths."
 		FUNCexit 1
 	fi
 fi
@@ -233,9 +239,19 @@ astrListCurrent=("${astrListFoldersLayersOrder[@]}" "${astrListFromModLauncher[@
 echo
 FUNCechoInfo "[list with overriden by the ones from ModLauncher list order]"
 declare -p astrListCurrent |sed -r -e "$strSedArrayNumToLn";echo
+
+: ${bForceCreatePatches=true} #help Always Process Mod Files Even Without mods Conflicts, will always create patches if differ from vanilla
 if((${#astrListCurrent[@]} < 2));then
-	FUNCechoInfo "[Nothing to merge] is needed 2 or more to merge"
-	FUNCexit
+	if $bForceCreatePatches;then
+		strVanillaScriptFileChk="$(find -L "$strVanillaScriptsPath" -iregex "${strFindScriptFileRegex}")"
+		if [[ ! -f "$strVanillaScriptFileChk" ]];then
+			FUNCechoInfo "[Impossible] to force creating a patch, related vanilla file must exist first."
+			FUNCexit 0 #no modded conflict to require a patch. but it will differ from vanilla or be a whole new file..
+		fi
+	else
+		FUNCechoInfo "[Nothing to merge] is needed 2 or more to merge (try bForceCreatePatches=true)"
+		FUNCexit 0 #no modded conflict to require a patch. but it will differ from vanilla or be a whole new file..
+	fi
 fi
 
 : ${bFollowFolderLayersOrder:=""} #help bFollowFolderLayersOrder=false to use ModLaucher order before other mods not using it. bFollowFolderLayersOrder=true will just follow folders alphanumeric order so you need to grant the priority properly naming them. bFollowFolderLayersOrder="" will show a message and wait. Tho, anyway, ModMerger will prioritize it's order also over mods non compatible with it, so FinalMergedScriptsMaxPriority mod must be last one there to this all work, as FinalMergedScriptsMaxPriority actually works are a max priority overrider.
@@ -356,7 +372,12 @@ function FUNCprePatchChk() { #help <lstrFlChk>
 	local lbPrePatchFail=false
 	local lstrPrePatchVanilla="$strPathMainModFolder/VanillaPrePatches/${strScriptFileRelat}.patch"
 	declare -p lstrPrePatchVanilla
+	local lbPrePatched=false
 	while ! ./kvSanityChecker.sh "$lstrFlChk";do
+		if $lbPrePatched;then
+			FUNCechoInfo "[PROBLEM] prepatch content is wrong, it did not fix the issues: '${lstrPrePatchVanilla}'"
+			FUNCexit 1
+		fi
 		if ! $lbPrePatchFail;then
 			if [[ -f "$lstrPrePatchVanilla" ]];then
 				local lacmdPatch=(patch -F $nFuzzyPatch -i "${lstrPrePatchVanilla}" -o "${lstrFlChk}.PRE_PATCH" "$lstrFlChk") #patch [ORIGINAL_FILE] -i [PATCH_FILE] -o [OUTPUT_FILE]
@@ -364,7 +385,8 @@ function FUNCprePatchChk() { #help <lstrFlChk>
 				if "${lacmdPatch[@]}";then
 					chmod -v u+w "$lstrFlChk"
 					mv -vf "${lstrFlChk}.PRE_PATCH" "$lstrFlChk"
-					continue
+					lbPrePatched=true
+					continue # re-check if really successful
 				else
 					FUNCechoInfo "[WARN] prepatching failed: ${lacmdPatch[*]}"
 					lbPrePatchFail=true
@@ -374,7 +396,7 @@ function FUNCprePatchChk() { #help <lstrFlChk>
 			fi
 		fi
 		FUNCsay "Database Sanity Failed"
-		FUNCaskYesNo "[PROBLEM:Ln$LINENO] Fix it (the right one) manually according to the sanity check above please (if not will just exit or the game may will crash)"
+		FUNCaskYesNo "[PROBLEM:Ln$LINENO] Fix it (the right one) manually according to the sanity check above please (if not will just exit or the game may/will crash)"
 		#FUNCexecMerger --alert "$strVanillaScriptFile" "$lstrFlChk"
 		#"${astrExecRobustTextEditor[@]}" "$strVanillaScriptFile" "$lstrFlChk" # an editor that can fold nestings and detect their open/close is better for this
 		"${astrExecRobustTextEditor[@]}" "${lstrFlChk}" # an editor that can fold nestings and detect their open/close is better for this
@@ -732,16 +754,16 @@ echo "$strFullLineVisualDelimiter"
 		#fi
 	#fi
 	#FUNCsay "Database Sanity Failed"
-	#FUNCaskYesNo "[PROBLEM] Fix it (the right one) manually according to the sanity check above please (if not will just exit or the game may will crash)"
+	#FUNCaskYesNo "[PROBLEM] Fix it (the right one) manually according to the sanity check above please (if not will just exit or the game may/will crash)"
 	#FUNCexecMerger --alert "$strVanillaScriptFile" "$strFlWork"
 #done
 #FUNCprePatchChk "$strFlWork"
-if ! ./kvSanityChecker.sh "$strFlWork";then
+while ! ./kvSanityChecker.sh "$strFlWork";do
 	FUNCsay "Ln$LINENO: Database Sanity Failed"
-	FUNCechoInfo "[WARN] It is better to create a VanillaPrePatches file."
-	FUNCaskYesNo "[PROBLEM:Ln$LINENO] Fix it (the right one) manually according to the sanity check above please (if not will just exit or the game may will crash)"
+	FUNCechoInfo "[WARN] It is better to create a VanillaPrePatches file instead of patching everytime manually."
+	FUNCaskYesNo "[PROBLEM:Ln$LINENO] Fix it (the right one) manually according to the sanity check above please (if not will just exit or the game may/will crash)"
 	FUNCexecMerger --alert "$strVanillaScriptFile" "$strFlWork"
-fi
+done
 
 : ${bShowFinalComparison:=true} #help compare vanilla with fully mods merged file after all mods merging end for it
 if $bShowFinalComparison;then

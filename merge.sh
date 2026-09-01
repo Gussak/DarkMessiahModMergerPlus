@@ -19,6 +19,11 @@ if true;then
 		export bMultiThread=true # for ./doItAllAutomaticallyIfPossible.sh
 		#export nMultiThreadUsedCores=3 #has auto limit tho # for ./doItAllAutomaticallyIfPossible.sh
 		#export nWaitBeforeExiting=10 # for (./doItAllAutomaticallyIfPossible.sh ->)./prepareAllModsPatchesForScriptFile.sh:
+		
+		if FUNCaskYesNo "bBloatListToHelpForceCreatePatches?";then
+			export bBloatListToHelpForceCreatePatches=true
+		fi
+		
 		./doItAllAutomaticallyIfPossible.sh "$@"
 		#FUNCechoInfo "[IMPORTANT] Now run: ./unifiedGameCfg.sh"
 		echo
