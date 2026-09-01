@@ -406,7 +406,9 @@ function FUNCtrash() {
 	while ! ${1+false};do
 		if [[ -f "$1" ]];then
 			echo "[Trashing] '$1'"
-			trash "$1"
+			trash "$1"&&:
+		else
+			echo "[Trashing:NotFound:Ignored] '$1'"
 		fi
 		shift
 	done
@@ -1078,7 +1080,9 @@ function FUNCchkLoadedModDlls() {
 		fi
 	done
 };export -f FUNCchkLoadedModDlls
-FUNCchkLoadedModDlls
+: ${bFUNCchkLoadedModDlls:=false}
+if ! $bFUNCchkLoadedModDlls;then FUNCchkLoadedModDlls;fi
+export bFUNCchkLoadedModDlls=true #help prevents nested script calls to re-run this.
 
 : ${nCfgScriptLineSzLim:=1024} #help cfg script line limit is 1024 chars
 function FUNCchkCfgScriptLineSz() {
