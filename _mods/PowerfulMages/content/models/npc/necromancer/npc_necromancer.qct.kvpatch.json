@@ -21,8 +21,8 @@
         "spelldatas.fire_4.adrenaline_boost_time": "//time adrenalised when npc hit",
         "spelldatas.fire_4.effect": "//normal damage",
         "spelldatas.fire_4.effect_adrenaline": "//Inferno damage done when adrenalised",
-        "spelldatas.resurect.class_resurect_1": "//ISSUE: class_resurect_* doesnt work for npc_villager_male into npc_villager_undead, may be the link that makes npc_necro_guard become npc_necroguard_undead is hardcoded...",
         "spelldatas.resurect.attachment": "// Attachment point for the spell effect.",
+        "spelldatas.resurect.class_resurect_1": "//ISSUE: class_resurect_* doesnt work for npc_villager_male into npc_villager_undead, may be the link that makes npc_necro_guard become npc_necroguard_undead is hardcoded...",
         "spelldatas.resurect.range_max": "// Maximum effective range for the spell (in inches).",
         "spelldatas.resurect.range_min": "// Minimum effective range for the spell (in inches).",
         "spelldatas.resurect.recovery": "// Time before casting is possible again (in seconds)."
