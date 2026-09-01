@@ -10,6 +10,7 @@ findAllConflictingModdedFiles.sh.log
 prepareAllModsPatchesForScriptFile.sh.cfg
 *.SUCCESS.cfg
 *.log
+*.tmp
 _mods/FinalMergedScriptsTopPriority/*
 _mods/FinalMergedScriptsMaxPriority/*
 *.BKP
@@ -58,6 +59,8 @@ _mods/*/content/gameinfo.txt
 _mods/*/content/scripts/*.txt
 launchappminimized/launchappminimized
 
+// these are meant to be generated thru the script and not merged. They are full overrides copy/replace trick.
+_mods/SummonUsefulItems/content/models/**/*.qct.kvpatch.json
 
 
 //////////////////////////////////////////////////////////////
