@@ -151,6 +151,11 @@ BLOCK_PATTERN = re.compile(r'^\s*"?([^"\s]+)"?\s*$')
 BLOCK_PATTERN_EXTENDED = re.compile(r'^\s*"?([^"\s{}]+)"?\s*$') 
 VALUE_REPLACEMENT_PATTERN = re.compile(r'(\s*(?:"[^"]*"|[^\s"]+)\s+)(?:"[^"]*"|[^\s"]+)(.*)')
 
+EXIT_INTERNAL_ERROR = 1 #the problem with this is that internal errors with Traceback will also exit with 1 and that clashes
+EXIT_NOTHING_TO_DO = 0 #there is nothing to be patched
+EXIT_PATCH_SUCCESS = 11
+EXIT_PATCHING_TROUBLE = 12
+
 def strip_line_ending(line: str) -> str:
         """Strip all trailing CR and LF characters from a line."""
         return line.rstrip("\r\n").rstrip("\n").rstrip("\r")
@@ -292,6 +297,8 @@ def strip_quotes(text: str) -> str:
         Returns:
                         Text without surrounding quotes
         """
+        if text is None:
+                return ""
         if text.startswith('"') and text.endswith('"'):
                 return text[1:-1]
         return text
@@ -529,7 +536,7 @@ def parse_qct_to_dict(file_path: str, lines: Optional[List[str]] = None) -> Dict
                         Logger.error(str(e))
                         print("[STACK TRACE]", file=sys.stderr)
                         traceback.print_exc(file=sys.stderr)
-                        sys.exit(2)
+                        sys.exit(EXIT_PATCHING_TROUBLE)
 
                 if not clean_line_for_kv:
                         continue
@@ -540,8 +547,9 @@ def parse_qct_to_dict(file_path: str, lines: Optional[List[str]] = None) -> Dict
 
                 kv_match = KV_PATTERN.match(clean_line_for_kv)
                 if kv_match:
-                        key = kv_match.group(1) or kv_match.group(2)
-                        val = kv_match.group(3) or kv_match.group(4)
+                        # FIX: Explicitly check for None so empty strings ("") are preserved
+                        key = kv_match.group(1) if kv_match.group(1) is not None else kv_match.group(2)
+                        val = kv_match.group(3) if kv_match.group(3) is not None else kv_match.group(4)
                         key = strip_quotes(key)
                         val = strip_quotes(val)
 
@@ -798,8 +806,9 @@ def _value_exists_in_scope(
         if in_target_block:
             kv_match = KV_PATTERN.match(clean)
             if kv_match:
-                k = kv_match.group(1) or kv_match.group(2)
-                v = kv_match.group(3) or kv_match.group(4)
+                # FIX: Preserve empty strings instead of falling back to None
+                k = kv_match.group(1) if kv_match.group(1) is not None else kv_match.group(2)
+                v = kv_match.group(3) if kv_match.group(3) is not None else kv_match.group(4)
                 k = strip_quotes(k)
                 v = strip_quotes(v)
                 if k == key_name and v == value_to_check:
@@ -1036,10 +1045,10 @@ def handle_create(args) -> None:
         """
         if not os.path.exists(args.original):
                 Logger.error(f"Original file not found: {args.original}")
-                sys.exit(2)
+                sys.exit(EXIT_PATCHING_TROUBLE)
         if not os.path.exists(args.modified):
                 Logger.error(f"Modified file not found: {args.modified}")
-                sys.exit(2)
+                sys.exit(EXIT_PATCHING_TROUBLE)
 
         try:
                 # 🔑 READ FILES ONCE to support pipes/FDs from process substitution
@@ -1048,7 +1057,7 @@ def handle_create(args) -> None:
                         mod_lines = _read_file_lines(args.modified)
                 except ConfigError as e:
                         Logger.error(str(e))
-                        sys.exit(2)
+                        sys.exit(EXIT_PATCHING_TROUBLE)
 
                 Logger.info(f"Parsing original: {args.original}")
                 orig_tree = flatten_dict(parse_qct_to_dict(args.original, lines=orig_lines))
@@ -1057,7 +1066,7 @@ def handle_create(args) -> None:
                 mod_tree = flatten_dict(parse_qct_to_dict(args.modified, lines=mod_lines))
         except ConfigError as e:
                 Logger.error(str(e))
-                sys.exit(2)
+                sys.exit(EXIT_PATCHING_TROUBLE)
 
         # ✅ FIX: Parse comments IMMEDIATELY after parsing trees
         # This ensures mod_comments is populated before checking for FORCE directives
@@ -1109,7 +1118,7 @@ def handle_create(args) -> None:
 
         except IOError as e:
                 Logger.error(f"Failed to write output: {e}")
-                sys.exit(2)
+                sys.exit(EXIT_PATCHING_TROUBLE)
 
         total_changes = len(patch_data) + len(comment_patch)
         Logger.info(
@@ -1120,7 +1129,7 @@ def handle_create(args) -> None:
         Logger.info(
                 f"Note: Duplicate keys are expanded with indices (e.g., prop_physics.0)"
         )
-        sys.exit(1 if total_changes > 0 else 0)
+        sys.exit(EXIT_PATCH_SUCCESS if total_changes > 0 else EXIT_NOTHING_TO_DO)
 
 
 def _patch_duplicate_key(
@@ -1370,7 +1379,8 @@ def _apply_patches_to_lines(
 
                         kv_match = KV_PATTERN.match(clean_line_for_kv)
                         if kv_match:
-                                key = kv_match.group(1) or kv_match.group(2)
+                                # FIX: Preserve empty strings instead of falling back to None
+                                key = kv_match.group(1) if kv_match.group(1) is not None else kv_match.group(2)
                                 key = strip_quotes(key)
                                 full_path = ".".join(current_stack + [key])
                                 last_block_key = None
@@ -1442,23 +1452,23 @@ def handle_apply(args) -> None:
     """
     if not os.path.exists(args.target):
         Logger.error(f"Target file not found: {args.target}")
-        sys.exit(2)
+        sys.exit(EXIT_PATCHING_TROUBLE)
     if not os.path.exists(args.patch):
         Logger.error(f"Patch file not found: {args.patch}")
-        sys.exit(2)
+        sys.exit(EXIT_PATCHING_TROUBLE)
     try:
         # Using object_pairs_hook=dict strictly forces Python to remember original JSON sequence
         with open(args.patch, "r", encoding="utf-8") as f:
             patches = json.load(f, object_pairs_hook=dict)
     except json.JSONDecodeError as e:
         Logger.error(f"Invalid JSON in patch file: {e}")
-        sys.exit(2)
+        sys.exit(EXIT_PATCHING_TROUBLE)
     except IOError as e:
         Logger.error(f"Failed to read patch file: {e}")
-        sys.exit(2)
+        sys.exit(EXIT_PATCHING_TROUBLE)
     if not isinstance(patches, dict):
         Logger.error("Patch file must contain a JSON object")
-        sys.exit(2)
+        sys.exit(EXIT_PATCHING_TROUBLE)
         
     comment_patches: Dict[str, str] = patches.get("__comments__", {})
     patches = {k: v for k, v in patches.items() if k != "__comments__"}
@@ -1474,7 +1484,7 @@ def handle_apply(args) -> None:
         Logger.info("Patch file is empty. Nothing to apply.")
         if not args.output:
             Logger.info("No output file specified, exiting.")
-            sys.exit(0)
+            sys.exit(EXIT_NOTHING_TO_DO)
         Logger.info("Output file specified; will generate output (copy of target).")
         
     try:
@@ -1482,7 +1492,7 @@ def handle_apply(args) -> None:
             lines = f.readlines()
     except IOError as e:
         Logger.error(f"Failed to read target file: {e}")
-        sys.exit(2)
+        sys.exit(EXIT_PATCHING_TROUBLE)
         
     Logger.info(f"Applying patches from '{args.patch}' onto '{args.target}'...")
     Logger.info(f"Duplicate keys to append (not overwrite): {', '.join(DUPLICATE_KEYS)}")
@@ -1541,12 +1551,12 @@ def handle_apply(args) -> None:
             Logger.info(f"Successfully appended {len(combined_patches)} missing option(s).")
         except Exception as e:
             Logger.error(f"Failed to append missing options: {e}")
-            sys.exit(2)
+            sys.exit(EXIT_PATCHING_TROUBLE)
     elif missing_keys:
         if verify_flags(LogConfig.SHOW_MISSING):
             show_missing(missing_keys)
         Logger.error("Operation aborted. Use --append-missing to inject missing keys.")
-        sys.exit(2)
+        sys.exit(EXIT_PATCHING_TROUBLE)
         
     # Apply prettification if requested
     if args.prettify:
@@ -1560,7 +1570,7 @@ def handle_apply(args) -> None:
             f.writelines(output_lines)
     except IOError as e:
         Logger.error(f"Failed to write output file: {e}")
-        sys.exit(2)
+        sys.exit(EXIT_PATCHING_TROUBLE)
         
     Logger.info(f"\nPatching complete. Output: {output_destination}")
 
