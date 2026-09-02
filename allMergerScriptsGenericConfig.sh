@@ -264,7 +264,7 @@ strScriptsExtRegexEsc=".*[.]\($(echo "${astrScriptsExt[@]}" |sed -r -e 's@ @\\|@
 strScriptsExtRegexNorm=".*[.]($(echo "${astrScriptsExt[@]}" |sed -r -e 's@ @|@g'))$"
 strJustExtRegexEsc="$(echo "${astrScriptsExt[@]}" |sed -r -e 's@ @\\|@g')$"
 strJustExtRegex="$(echo "${astrScriptsExt[@]}" |sed -r -e 's@ @|@g')$"
-: ${strExtRegexReviewed:="lst|qct|txt|vmt"} #help what extensions are compatible with .kvpatch.json #TODO 'res' requires allowing '/' in block name, but that demands pre-patching all that may not use double quotes "...", otherwise it may detect a block name as comment (despite it doesnt accept spaces... mmm, it could just ignore '/' and restrict it at next space!)
+: ${strExtRegexReviewed:="lst|qct|txt|vmt|res"} #help what extensions are compatible with .kvpatch.json
 astrGrepIncludesExt=()
 for strExt in "${astrScriptsExt[@]}";do
 	astrGrepIncludesExt+=(--include="*.${strExt}")

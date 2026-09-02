@@ -94,22 +94,40 @@ if true;then
 	done
 	declare -p lastrCfgsAllList
 
+	strAutoGenHint="AUTO_GEN=$(basename "$0")"
+	
 	echo
 	echo "[INFO] EXISTING config files being run at '$strMergedModsFolder'"
 	#egrep "exec " "${strPathSelf}/_mods/FinalMergedScriptsMaxPriority/content/cfg/game.cfg"
 	egrep "exec " "${strMergedModsFolder}/content/cfg/game.cfg"
 	
+	strFlExisting="$(mktemp)"
+	set -x
+	egrep "${strAutoGenHint}" "${strMergedModsFolder}/content/cfg/game.cfg" |tee "$strFlExisting" |wc -l&&:
+	set +x
+	
+	strFlNew="$(mktemp)"
 	echo
 	echo "[INFO] (check if the below are missing) append here at a 'content/cfg/game.cfg'. copy from first match found (probably at Overhaul mod)."
 	echo
-	echo "// Below list auto generated with: $(basename "$0")"
+	iCountExec=0
+	echo "// Below list auto generated with: $(basename "$0") ${strAutoGenHint}" |tee "$strFlNew"
 	for strFlCfg in "${lastrCfgsAllList[@]}";do
 		if [[ "$strFlCfg" =~ ^unlimitededition[.]cfg.* ]];then continue;fi # already at main game.cfg from Overhaul mod
 		if [[ "$strFlCfg" =~ ^game[.]cfg.* ]];then continue;fi # prevent recursive crash
-		echo "exec ${strFlCfg%-}"
+		if [[ "$strFlCfg" =~ ^chapter0[.]cfg.* ]];then continue;fi # seems single use from start new game
+		((iCountExec++))&&:
+		echo -e "exec ${strFlCfg%-} \t\t\t// ${iCountExec} ${strAutoGenHint}" |tee -a "$strFlNew"
 	done
+	declare -p iCountExec
 	
-	geany --new-instance "${strMergedModsFolder}/content/cfg/game.cfg"
+	set -x
+	if ! colordiff --ignore-all-space "$strFlExisting" "$strFlNew";then
+		geany --new-instance "${strMergedModsFolder}/content/cfg/game.cfg"
+	else
+		echo "No changes."
+	fi
+	set +x
 	
 	#mapfile -t astrList < <(
 		#find "${strPathParent}/" -iname "info.json" -exec egrep "game_configs" '{}' \; \
@@ -129,3 +147,4 @@ fi
 echo "[INFO] the below command will add a debug info in every game.cfg file. Run only once and only if you know what you are doing!"
 tail -n 2 $0
 #help: clear;find -L ./ -iregex ".*[.]layer.*/game.cfg" -exec bash -c "chmod u+w '{}'; echo -e '\necho \"DEBUG:{}\"' >>'{}'" \;
+ 
