@@ -607,7 +607,13 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 					<(iconv -f $(file -b --mime-encoding "$strVanillaScriptFile") -t UTF-8 "$strVanillaScriptFile") \
 					<(iconv -f $(file -b --mime-encoding "$strFileToMerge"      ) -t UTF-8 "$strFileToMerge"      ) \
 					&&:;
-				nDiffRet=$?
+				nKVret=$?
+				case $nKVret in
+					0) nDiffRet=0;;
+					11) nDiffRet=1;;
+					12) nDiffRet=2;;
+					*) FUNCechoInfo "[ERROR] keyValuePatcher.py exit with '$nKVret'" ;;
+				esac
 				set +x
 			else # code patch mode
 				( # prepare the patch using relative path to remove user name
@@ -638,6 +644,7 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 			fi
 			nDiffRet=0 # means there is no patch available
 			set -x;"${acmdPatch[@]}"&&:;nRetPatch=$?;set +x
+			declare -p nRetPatch
 			#if FUNChasBOM "$strVanillaScriptFile";then
 				#FUNCfixBOM "${strFileToMerge}.RECREATED_MODDED"
 			#fi
@@ -694,6 +701,7 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 		#declare -p acmdPatch
 		ls -l "$strFlWork"
 		set -x;"${acmdPatch[@]}"&&:;nRetPatch=$?;set +x
+		declare -p nRetPatch
 		#if FUNChasBOM "$strVanillaScriptFile";then
 			#FUNCfixBOM "${strFlWork}.NEWLY_PATCHED"
 		#fi

@@ -1,0 +1,16 @@
+{
+    "__comments__": {
+        "Scheme.Fonts.DefaultFixedOutline.1.name": "// \"Lucida Console\" not rendering well in Wine? too many broken letters.. and tall 10 is terrible in 1366x768",
+        "Scheme.Fonts.ConsoleText.1.name": "// \"Lucida Console\" not rendering well in Wine? too many broken letters.. and tall 10 is terrible in 1366x768",
+        "Scheme.Fonts.DefaultFixed.1.name": "// \"Lucida Console\" not rendering well in Wine? too many broken letters.. and tall 10 is terrible in 1366x768",
+        "Scheme.Fonts.DefaultFixedDropShadow.1.name": "// \"Lucida Console\" not rendering well in Wine? too many broken letters.. and tall 10 is terrible in 1366x768"
+    },
+    "Scheme.Fonts.ConsoleText.1.name": "Courier New",
+    "Scheme.Fonts.ConsoleText.1.tall": "12",
+    "Scheme.Fonts.DefaultFixed.1.name": "Courier New",
+    "Scheme.Fonts.DefaultFixed.1.tall": "12",
+    "Scheme.Fonts.DefaultFixedDropShadow.1.name": "Courier New",
+    "Scheme.Fonts.DefaultFixedDropShadow.1.tall": "12",
+    "Scheme.Fonts.DefaultFixedOutline.1.name": "Courier New",
+    "Scheme.Fonts.DefaultFixedOutline.1.tall": "12"
+}
