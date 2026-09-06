@@ -149,7 +149,7 @@ def toggle_flag(flag: LogConfig):
 KV_PATTERN = re.compile(r'^\s*(?:"([^"]*)"|([^\s"]+))\s+(?:"([^"]*)"|([^\s"]+))\s*$')
 BLOCK_PATTERN = re.compile(r'^\s*"?([^"\s]+)"?\s*$') 
 BLOCK_PATTERN_EXTENDED = re.compile(r'^\s*"?([^"\s{}]+)"?\s*$') 
-VALUE_REPLACEMENT_PATTERN = re.compile(r'(\s*(?:"[^"]*"|[^\s"]+)\s+)(?:"[^"]*"|[^\s"]+)(.*)')
+VALUE_REPLACEMENT_PATTERN = re.compile(r'^(\s*(?:"[^"]*"|[^\s"]+)\s+)(?:"[^"]*"|[^\s"]+)(\s*(?://.*)?)$')
 
 EXIT_INTERNAL_ERROR = 1 #the problem with this is that internal errors with Traceback will also exit with 1 and that clashes
 EXIT_NOTHING_TO_DO = 0 #there is nothing to be patched
@@ -1281,25 +1281,30 @@ def _patch_normal_key(
 
         if full_path in patches:
                 new_val = patches[full_path]
-                try:
-                        line = VALUE_REPLACEMENT_PATTERN.sub(
-                                lambda m: f'{m.group(1)}"{new_val}"{m.group(3)}', line, count=1
-                        )
+                match = VALUE_REPLACEMENT_PATTERN.search(line)
+                if match:
+                        line = f'{match.group(1)}"{new_val}"{match.group(2)}'
                         applied_keys.add(full_path)
                         Logger.debug(f"Patched: {full_path} = {new_val}")
-                except Exception as e:
-                        Logger.warning(f"Failed to patch {full_path}: {e}")
-        else:
-                if verify_flags(LogConfig.BUG_TRACKING):
-                        Logger.debug(f"Key not in patch: {full_path}")
-        
-        # ── Comment Patching ──
-        comment_val = comment_patches.get(full_path)
-        if comment_val:
-                line = set_inline_comment(line, comment_val)
-        # if full_path in comment_patches:
-                # line = set_inline_comment(line, comment_patches[full_path])
-        
+                else:
+                        Logger.warning(f"Regex failed to match line for {full_path}. Falling back to reconstruction.")
+                        # Fallback: parse and reconstruct to guarantee replacement & tracking
+                        kv = parse_key_value(line.strip())
+                        if kv:
+                                k, _ = kv
+                                indent = line[:len(line) - len(line.lstrip())]
+                                comment = extract_inline_comment(line)
+                                line = f'{indent}"{k}"\t\t"{new_val}"{comment}{LINE_ENDING}'
+                                applied_keys.add(full_path)
+                                Logger.debug(f"Patched (fallback): {full_path} = {new_val}")
+                # ── Comment Patching ──
+                comment_val = comment_patches.get(full_path)
+                if comment_val:
+                        line = set_inline_comment(line, comment_val)
+                return line
+
+        if verify_flags(LogConfig.BUG_TRACKING):
+                Logger.debug(f"Key not in patch: {full_path}")
         return line
 
 
@@ -1520,7 +1525,12 @@ def handle_apply(args) -> None:
     )
     
     # PRESERVE ORDER: Filter the original ordered list instead of subtracting sets
-    missing_keys = [k for k in original_key_order if k not in applied_keys and k not in remove_paths]
+    # Also exclude keys that were successfully patched even if their exact path format varied slightly
+    patched_bases = {k.rsplit('.', 1)[0] for k in applied_keys}
+    missing_keys = [k for k in original_key_order 
+                    if k not in applied_keys 
+                    and k not in remove_paths
+                    and k not in patched_bases]
     
     # Identify non-dominant duplicate keys that weren't matched in-place.
     auto_append_dups = []
