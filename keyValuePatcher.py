@@ -337,6 +337,17 @@ def set_inline_comment(line: str, comment: str) -> str:
         return base + "  " + comment + LINE_ENDING
     return base + LINE_ENDING
 
+# Path escaping helpers to handle dots in keys/block names
+# Uses hex representation for dots inside components to avoid conflicting with path separators
+def escape_path_component(comp: str) -> str:
+    return comp.replace('.', '\\x2e')
+
+def build_dot_path(*components: str) -> str:
+    return ".".join(escape_path_component(c) for c in components)
+
+def split_dot_path(path: str) -> List[str]:
+    return [comp.replace('\\x2e', '.') for comp in path.split('.')]
+
 def parse_key_value(line: str) -> tuple[str, str] | None:
         """Parses a line to extract a key and value using regular expressions.
 
@@ -627,7 +638,7 @@ def parse_qct_comments(file_path: str, lines: Optional[List[str]] = None) -> Dic
                         if last_block_key is not None:
                                 stack.append(last_block_key)
                                 if last_block_comment:
-                                        result[".".join(stack)] = last_block_comment
+                                        result[build_dot_path(*stack)] = last_block_comment
                                 last_block_key = None
                                 last_block_comment = ""
                         continue
@@ -650,12 +661,12 @@ def parse_qct_comments(file_path: str, lines: Optional[List[str]] = None) -> Dic
                 if kv_result:
                         key, _ = kv_result
                         if is_duplicate_key(key):
-                                full_path_base = ".".join(stack + [key])
+                                full_path_base = build_dot_path(*stack, key)
                                 idx = duplicate_counts[full_path_base]
                                 full_path = f"{full_path_base}.{idx}"
                                 duplicate_counts[full_path_base] += 1
                         else:
-                                full_path = ".".join(stack + [key])
+                                full_path = build_dot_path(*stack, key)
 
                         if inline_comment:
                                 result[full_path] = inline_comment
@@ -696,7 +707,8 @@ def flatten_dict(
         if result is None:
                 result = {}
         for key, value in d.items():
-                new_path = f"{current_path}.{key}" if current_path else key
+                escaped_key = escape_path_component(key)
+                new_path = f"{current_path}.{escaped_key}" if current_path else escaped_key
                 if isinstance(value, dict):
                         flatten_dict(value, new_path, result)
                 elif isinstance(value, list):
@@ -833,7 +845,7 @@ def append_nested_missing(
         # Group missing properties by their parent blocks, preserving full_path
         grouped_patches: Dict[Tuple, List[Tuple[str, str, str]]] = defaultdict(list)  # <-- NEW type hint
         for full_path, new_value in missing_patches.items():
-                parts = full_path.split(".")
+                parts = split_dot_path(full_path)
 
                 if len(parts) >= 2 and parts[-1].isdigit() and parts[-2] in DUPLICATE_KEYS:
                         target_hierarchy = tuple(parts[:-2])
@@ -987,11 +999,11 @@ def _filter_nondom_dup_to_new_only(
         # Discover all non-dominant dup base paths that appear in the patch
         dup_bases: Dict[str, str] = {}  # base_path -> bare_key_name
         for path in patch_data:
-                parts = path.split(".")
+                parts = split_dot_path(path)
                 if len(parts) >= 2 and parts[-1].isdigit():
                         bare_key = parts[-2]
                         if is_duplicate_key(bare_key) and not is_dominant_key(bare_key):
-                                base = ".".join(parts[:-1])
+                                base = build_dot_path(*parts[:-1])
                                 dup_bases[base] = bare_key
 
         for base, bare_key in dup_bases.items():
@@ -1324,9 +1336,9 @@ def _apply_patches_to_lines(
         # e.g. patch key "block.prop_physics.0" -> base path "block.prop_physics"
         dominant_has_patches: set = set()
         for _patch_path in patches:
-                _parts = _patch_path.split(".")
+                _parts = split_dot_path(_patch_path)
                 if len(_parts) >= 2 and is_dominant_key(_parts[-2]):
-                        dominant_has_patches.add(".".join(_parts[:-1]))
+                        dominant_has_patches.add(build_dot_path(*_parts[:-1]))
 
         dominant_inserted: set = set()  # base paths whose patch values were already written
 
@@ -1360,7 +1372,7 @@ def _apply_patches_to_lines(
                 if block_match:
                         last_block_key = strip_quotes(block_match.group(1))
                         Logger.debug(f"Detected block key: {last_block_key}")
-                        block_path = ".".join(current_stack + [last_block_key])
+                        block_path = build_dot_path(*current_stack, last_block_key)
                         if block_path in comment_patches:
                                 line = set_inline_comment(line, comment_patches[block_path])
                 else:
@@ -1382,7 +1394,7 @@ def _apply_patches_to_lines(
                                 # FIX: Preserve empty strings instead of falling back to None
                                 key = kv_match.group(1) if kv_match.group(1) is not None else kv_match.group(2)
                                 key = strip_quotes(key)
-                                full_path = ".".join(current_stack + [key])
+                                full_path = build_dot_path(*current_stack, key)
                                 last_block_key = None
 
                                 if is_duplicate_key(key):
@@ -1511,13 +1523,11 @@ def handle_apply(args) -> None:
     missing_keys = [k for k in original_key_order if k not in applied_keys and k not in remove_paths]
     
     # Identify non-dominant duplicate keys that weren't matched in-place.
-    auto_append_dups = [
-        k for k in missing_keys
-        if len(k.split(".")) >= 2
-        and k.split(".")[-1].isdigit()
-        and k.split(".")[-2] in DUPLICATE_KEYS
-        and k.split(".")[-2] not in DOMINANT_MULTI_KEYS
-    ]
+    auto_append_dups = []
+    for k in missing_keys:
+        k_parts = split_dot_path(k)
+        if len(k_parts) >= 2 and k_parts[-1].isdigit() and k_parts[-2] in DUPLICATE_KEYS and k_parts[-2] not in DOMINANT_MULTI_KEYS:
+            auto_append_dups.append(k)
     
     # Print summary
     print("\n" + "=" * 60)
