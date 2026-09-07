@@ -345,10 +345,10 @@ function FUNCexecMerger() {
 	#: ${strMergerBlackList:="resource/mm_itemnames_english.txt"} #causes too much trouble on mergers, comma separated
 	: ${strMergerBlackList:=""} #causes too much trouble on mergers, comma separated
 	mapfile -t astrMergerBlackList < <(echo "$strMergerBlackList" |tr ',' '\n')
-	bMB=false
+	local lbMB=false
 	for strMB in "${astrMergerBlackList[@]}";do
 		if [[ "$strScriptFileRelat" == "${strMB}" ]];then
-			bMB=true
+			lbMB=true
 			break;
 		fi
 	done
@@ -359,7 +359,7 @@ function FUNCexecMerger() {
 		FUNCsay "Merge result is ready to check."
 	fi
 	
-	if $bMB;then
+	if $lbMB;then
 		FUNCechoInfo "[PROBLEM] wont open merger for '${strScriptFileRelat}', it can't handle that. Opening a robust text editor instead:"
 		"${astrExecRobustTextEditor[@]}" "${lastrParams[@]}"
 	else
@@ -367,47 +367,56 @@ function FUNCexecMerger() {
 	fi
 }
 
-function FUNCprePatchChk() { #help <lstrFlChk>
+strPrePatchVanilla="$strPathMainModFolder/VanillaPrePatches/${strScriptFileRelat}.patch"
+bHasPrepatch=false;if [[ -f "$strPrePatchVanilla" ]];then bHasPrepatch=true;fi
+declare -p strPrePatchVanilla bHasPrepatch
+function FUNCprePatchSanityChk() { #help <lstrFlChk>
+	local lbForcePrePatch=false;if [[ "${1}" == --forcePrePatch ]];then lbForcePrePatch=true;shift;fi
 	local lstrFlChk="$1"
 	
 	local lbPrePatchFail=false
-	local lstrPrePatchVanilla="$strPathMainModFolder/VanillaPrePatches/${strScriptFileRelat}.patch"
-	declare -p lstrPrePatchVanilla
 	local lbPrePatched=false
-	while ! ./kvSanityChecker.sh "$lstrFlChk";do
+	while true;do
+		if $lbForcePrePatch;then
+			:
+		else
+			if ./kvSanityChecker.sh "$lstrFlChk";then break;fi
+		fi
+		
 		if $lbPrePatched;then
-			FUNCechoInfo "[PROBLEM] prepatch content is wrong, it did not fix the issues: '${lstrPrePatchVanilla}'"
+			FUNCechoInfo "[PROBLEM] prepatch content is wrong, it did not fix the issues? '${strPrePatchVanilla}'"
 			FUNCexit 1
 		fi
 		if ! $lbPrePatchFail;then
-			if [[ -f "$lstrPrePatchVanilla" ]];then
-				local lacmdPatch=(patch -F $nFuzzyPatch -i "${lstrPrePatchVanilla}" -o "${lstrFlChk}.PRE_PATCH" "$lstrFlChk") #patch [ORIGINAL_FILE] -i [PATCH_FILE] -o [OUTPUT_FILE]
+			if [[ -f "$strPrePatchVanilla" ]];then
+				local lacmdPatch=(patch -F $nFuzzyPatch -i "${strPrePatchVanilla}" -o "${lstrFlChk}.PRE_PATCH" "$lstrFlChk") #patch [ORIGINAL_FILE] -i [PATCH_FILE] -o [OUTPUT_FILE]
 				FUNCechoInfo "[ExecPrePatch] ${lacmdPatch[*]}"
 				if "${lacmdPatch[@]}";then
 					chmod -v u+w "$lstrFlChk"
 					mv -vf "${lstrFlChk}.PRE_PATCH" "$lstrFlChk"
 					lbPrePatched=true
+					if $lbForcePrePatch;then break;fi
 					continue # re-check if really successful
 				else
 					FUNCechoInfo "[WARN] prepatching failed: ${lacmdPatch[*]}"
 					lbPrePatchFail=true
 				fi
 			else
-				FUNCechoInfo "[WARN] prepatch file not found: $lstrPrePatchVanilla"
+				FUNCechoInfo "[WARN] prepatch file not found: $strPrePatchVanilla"
 			fi
 		fi
-		FUNCsay "Database Sanity Failed"
-		FUNCaskYesNo "[PROBLEM:Ln$LINENO] Fix it (the right one) manually according to the sanity check above please (if not will just exit or the game may/will crash)"
+		FUNCsay "Database Sanity Failed (or other issues)"
+		FUNCaskYesNo "[PROBLEM:Ln$LINENO] Fix it (the one on the right side) manually according to the sanity check (or other issues) above please (if not will just exit or the game may/will crash)"
 		#FUNCexecMerger --alert "$strVanillaScriptFile" "$lstrFlChk"
 		#"${astrExecRobustTextEditor[@]}" "$strVanillaScriptFile" "$lstrFlChk" # an editor that can fold nestings and detect their open/close is better for this
 		"${astrExecRobustTextEditor[@]}" "${lstrFlChk}" # an editor that can fold nestings and detect their open/close is better for this
 		# create vanilla patch
-		mkdir -vp "$(dirname "${lstrPrePatchVanilla}")"
+		mkdir -vp "$(dirname "${strPrePatchVanilla}")"
 		( # prepare the patch using relative path to remove user name
 			cd "${strPathParent}"
 			set -x
 			set -o pipefail # so the diff exit value will be captured with $? if using |tee
-			diff -u <(cat "$strVanillaScriptFileOriginal") <(cat "$lstrFlChk") >"${lstrPrePatchVanilla}"&&:;nRet=$?
+			diff -u <(cat "$strVanillaScriptFileOriginal") <(cat "$lstrFlChk") >"${strPrePatchVanilla}"&&:;nRet=$?
 			#KEEPinfo: too much unnecessary log: #					|tee "${strFlPatch}";nRet=$?
 			set +o pipefail # to not mess other things like grep
 			declare -p nRet
@@ -420,6 +429,8 @@ function FUNCprePatchChk() { #help <lstrFlChk>
 			2) FUNCwait "[ERROR: diff trouble] what happened? (this ever happens?)";;
 			*) FUNCwait "[ERROR: unrecognized diff return value] $nDiffRet";;
 		esac
+		
+		if $lbForcePrePatch;then break;fi
 	done
 }
 
@@ -474,42 +485,50 @@ if [[ -f "$strVanillaScriptFile" ]];then
 	if ! ./kvSanityChecker.sh "$strVanillaScriptFile";then
 		bDummyVanilla=true;
 		strDummyMsgType=FailedSanityCheck
-		FUNCcheckEncodingUTF8 "$strVanillaScriptFile"
+		#FUNCcheckEncodingUTF8 "$strVanillaScriptFile"
+	else
+		if $bHasPrepatch;then
+			bDummyVanilla=true;
+			strDummyMsgType=HasVanillaPrePatch
+			#FUNCcheckEncodingUTF8 "$strVanillaScriptFile"
+		fi
 	fi
 else
 	bDummyVanilla=true
 	strDummyMsgType=MissingVanilla
 fi
 #bFlVanilla=false;if [[ -f "$strVanillaScriptFile" ]];then bFlVanilla=true;fi
+strDummyScriptFile="${strFinalDummyHelperFolder}/${strScriptFileRelat}"
+mkdir -vp "$(dirname "${strDummyScriptFile}")"
+declare -p strVanillaScriptFileChk strVanillaScriptFile strVanillaScriptFileOriginal strDummyScriptFile
 if $bDummyVanilla;then
-	#FUNCechoInfo "[WARNING: There is no such Vanilla] create it there empty: '${strVanillaScriptsPath}/mm/$strScriptFileRelat'"
-	#FUNCechoInfo "[Merge existing one from mods anyway?] Ctrl+C to abort"
-	##read -n 1&&:
-	##FUNCexit 1
-	#bFlVanilla=false
-	#bDummyVanilla=true
 	case "$strDummyMsgType" in
 		MissingVanilla) 
-			strVanillaScriptFile="${strFinalDummyHelperFolder}/${strScriptFileRelat}"
-			mkdir -vp "$(dirname "$strVanillaScriptFile")"
-			#if [[ ! -f "$strVanillaScriptFile" ]];then #TODO redundant?
-				#cp "${astrListCurrent[0]}" "$strVanillaScriptFile" # see info below for being the first file on the list
-				#if [[ -z "$strEncodingRestore" ]];then FUNCconvEncoding;fi #TODO useless?
-			#fi
-			cp -v "${astrListCurrent[0]}" "$strVanillaScriptFile" # see info below for being the first file on the list
-			strVanillaScriptFileOriginal="$strVanillaScriptFile"
-			
-			FUNCechoInfo "[WARNING: There is no such Vanilla File] created a dummy one '${strVanillaScriptFile}' with the contents of the first one found '${astrListCurrent[0]}' in the list of MODs, it will be deleted later."
-			
-			FUNCconvEncoding
+			FUNCechoInfo "[WARNING] There is no such Vanilla File"
+			set -x;cp -vf "${astrListCurrent[0]}" "${strDummyScriptFile}";set +x; # see info below for being the first file on the list. It forces a replacing to grant the prepatch will work.
+			FUNCechoInfo "[INFO] created a dummy one '${strDummyScriptFile}' with the contents of the first one found '${astrListCurrent[0]}' in the list of MODs, it will be deleted later."
+			;;
+		HasVanillaPrePatch) 
+			FUNCechoInfo "[INFO] Detected pre-patch file '$strPrePatchVanilla'"
+			set -x;cp -vf "${strVanillaScriptFile}" "${strDummyScriptFile}";set +x;
 			;;
 		FailedSanityCheck)
-			FUNCechoInfo "[WARNING: Failed Sanity Check] created a dummy one to fix it '${strVanillaScriptFile}' in the list of MODs, it will be deleted later." 
+			FUNCechoInfo "[WARNING] Failed Sanity Check" 
+			set -x;cp -vf "${strVanillaScriptFile}" "${strDummyScriptFile}";set +x;
 			;;
-		*) FUNCechoInfo "[DEV_ERROR_BUG] reason not specified";;
+		*)FUNCechoInfo "[DEV_ERROR_BUG] reason not specified";FUNCexit 1;;
 	esac
+	strVanillaScriptFile="${strDummyScriptFile}" # this grants everything will look at a fixed vanilla file
+	strVanillaScriptFileOriginal="${strDummyScriptFile}"
+	
+	FUNCconvEncoding
 	FUNCcheckEncodingUTF8 "$strVanillaScriptFile"
-	FUNCprePatchChk "$strVanillaScriptFile" #working on dummy
+	
+	if [[ "$strDummyMsgType" == HasVanillaPrePatch ]];then
+		FUNCprePatchSanityChk --forcePrePatch "$strVanillaScriptFile" #working on dummy
+	else
+		FUNCprePatchSanityChk "$strVanillaScriptFile" #working on dummy
+	fi
 fi
 chmod ugo-w "$strVanillaScriptFile"
 ls -l "$strVanillaScriptFile"
@@ -596,6 +615,7 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 		if [[ -f "$strFileToMerge" ]];then
 			#strFlOrig=".tmp.fileOriginal.txt"
 			#strFlModd=".tmp.fileModded__.txt"
+			#FUNCprePatchSanityChk --forcePrePatch "$strVanillaScriptFile"
 			if $bKeyValueDiffMode;then
 				#KEEPinfo: this implicitly creates the same "${strFileToMerge}.kvpatch.json": "${strPathSelf}/keyValuePatcher.py" create <(iconv -f $(file -b --mime-encoding "$strVanillaScriptFile") -t UTF-8 "$strVanillaScriptFile") "$strFileToMerge"&&:;nDiffRet=$? #but the below is more clear and can handle mismatching encodings
 				set -x
@@ -677,7 +697,23 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 				fi
 				;;
 			2) 
-				FUNCechoInfo "[WARNING: diff trouble] try manually (check the log, if the patch file was edited manually there may have some mistake on it (usually like a wrong ','))"; #this ever happens?
+				FUNCechoInfo "[WARNING: diff trouble] try manually (check the log, if the '...kvpatch.json' file was edited manually there may have some mistake on it (usually like a wrong ','))"
+				
+				declare -p strVanillaScriptFile strFileToMerge
+				if FUNCaskYesNo "Read the log above carefully. If the problem was in a vanilla file, create a 'VanillaPrePatches' file. If the problem was in a mod file, just fix that file instead. 'y' to create a 'VanillaPrePatches' file, otherwise the merging tool will be opened (so you can fix the mod file on the right side).";then
+					#FUNCechoInfo "[WARNING] this is a dead end, after creating the 'VanillaPrePatches' file it will exit"
+					if [[ -f "$strDummyScriptFile" ]];then
+						set -x;ls -l "$strDummyScriptFile" "$strVanillaScriptFile";set +x;
+						FUNCwait "[DEV_SELF_WARNING] dummy file shouldnt exist '$strDummyScriptFile', will be replaced..."
+					fi
+					set -x;cp -v "$strVanillaScriptFile" "${strDummyScriptFile}";set +x;
+					chmod -v u+w "${strDummyScriptFile}"&&:
+					strVanillaScriptFile="${strDummyScriptFile}"
+					FUNCprePatchSanityChk --forcePrePatch "$strVanillaScriptFile"
+					FUNCwait "I will exit now, rerun this to let the 'VanillaPrePatches' file kick in."
+					exit 1
+				fi
+				
 				FUNCexecMerger --alert "$strVanillaScriptFile" "$strFileToMerge";
 				;;
 			*) FUNCechoInfo "[DEV_ERROR: unrecognized diff return value]"; FUNCaskYesNo "ask dev to fix this script"; FUNCexit 1;;
@@ -766,7 +802,7 @@ echo "$strFullLineVisualDelimiter"
 	#FUNCaskYesNo "[PROBLEM] Fix it (the right one) manually according to the sanity check above please (if not will just exit or the game may/will crash)"
 	#FUNCexecMerger --alert "$strVanillaScriptFile" "$strFlWork"
 #done
-#FUNCprePatchChk "$strFlWork"
+#FUNCprePatchSanityChk "$strFlWork"
 while ! ./kvSanityChecker.sh "$strFlWork";do
 	FUNCsay "Ln$LINENO: Database Sanity Failed"
 	FUNCechoInfo "[WARN] It is better to create a VanillaPrePatches file instead of patching everytime manually."
