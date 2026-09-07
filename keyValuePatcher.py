@@ -147,8 +147,9 @@ def toggle_flag(flag: LogConfig):
 # Compiled regex patterns for reuse
 
 KV_PATTERN = re.compile(r'^\s*(?:"([^"]*)"|([^\s"]+))\s+(?:"([^"]*)"|([^\s"]+))\s*$')
-BLOCK_PATTERN = re.compile(r'^\s*"?([^"\s]+)"?\s*$') 
-BLOCK_PATTERN_EXTENDED = re.compile(r'^\s*"?([^"\s{}]+)"?\s*$') 
+# PATCH: Updated to explicitly support quoted strings containing spaces
+BLOCK_PATTERN = re.compile(r'^\s*(?:"([^"]+)"|([^\s"{}]+))\s*$')
+BLOCK_PATTERN_EXTENDED = re.compile(r'^\s*(?:"([^"]+)"|([^\s"{}]+))\s*$')
 VALUE_REPLACEMENT_PATTERN = re.compile(r'^(\s*(?:"[^"]*"|[^\s"]+)\s+)(?:"[^"]*"|[^\s"]+)(\s*(?://.*)?)$')
 
 EXIT_INTERNAL_ERROR = 1 #the problem with this is that internal errors with Traceback will also exit with 1 and that clashes
@@ -535,7 +536,8 @@ def parse_qct_to_dict(file_path: str, lines: Optional[List[str]] = None) -> Dict
 
                 block_match = BLOCK_PATTERN.match(clean_line)
                 if block_match:
-                        last_block_key = strip_quotes(block_match.group(1))
+                        # PATCH: Handle both quoted (group 1) and unquoted (group 2) captures
+                        last_block_key = strip_quotes(block_match.group(1) or block_match.group(2))
                         continue
 
                 try:
@@ -652,7 +654,8 @@ def parse_qct_comments(file_path: str, lines: Optional[List[str]] = None) -> Dic
 
                 block_match = BLOCK_PATTERN.match(clean_line)
                 if block_match:
-                        last_block_key = strip_quotes(block_match.group(1))
+                        # PATCH: Handle both quoted (group 1) and unquoted (group 2) captures
+                        last_block_key = strip_quotes(block_match.group(1) or block_match.group(2))
                         last_block_comment = inline_comment
                         continue
 
@@ -760,7 +763,8 @@ def find_block_structure(lines: List[str]) -> Tuple[Dict[Tuple, int], Dict[Tuple
 
                 block_match = BLOCK_PATTERN_EXTENDED.match(clean_line)
                 if block_match:
-                        last_block_key = strip_quotes(block_match.group(1))
+                        # PATCH: Handle both quoted (group 1) and unquoted (group 2) captures
+                        last_block_key = strip_quotes(block_match.group(1) or block_match.group(2))
                 else:
                         last_block_key = None
 
@@ -812,7 +816,8 @@ def _value_exists_in_scope(
 
         block_match = BLOCK_PATTERN.match(clean)
         if block_match:
-            last_block_key = strip_quotes(block_match.group(1))
+            # PATCH: Handle both quoted (group 1) and unquoted (group 2) captures
+            last_block_key = strip_quotes(block_match.group(1) or block_match.group(2))
             continue
 
         if in_target_block:
@@ -1375,7 +1380,8 @@ def _apply_patches_to_lines(
 
                 block_match = BLOCK_PATTERN.match(clean_line)
                 if block_match:
-                        last_block_key = strip_quotes(block_match.group(1))
+                        # PATCH: Handle both quoted (group 1) and unquoted (group 2) captures
+                        last_block_key = strip_quotes(block_match.group(1) or block_match.group(2))
                         Logger.debug(f"Detected block key: {last_block_key}")
                         block_path = build_dot_path(*current_stack, last_block_key)
                         if block_path in comment_patches:
