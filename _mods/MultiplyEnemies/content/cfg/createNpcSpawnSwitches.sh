@@ -684,6 +684,17 @@ function FUNCmapadds() {
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
 			' >>"$lstrFlAddTmp"
 			;;
+		"gskSummonDevFireTrap")
+			echo '
+			"classname" "env_entity_SpellCaster"
+			"combinability" "1"
+			"angles" "0 0 0"
+			"target" "None"
+			"spell" "7"
+			"lifetime" "-1"
+			"power" "1"
+			' >>"$lstrFlAddTmp"
+			;;
 		"gskSummonDevSkeletonPart")
 			local lstrSkelPartModel=""
 			local lnRandomSkelPart="$(printf %d "0x$(crc32 <(echo "${strFlMapadds}${nSkeletonPartCount}"))")" #this way it wont just cycle thru parts, it will be predictable random based on the mapadds filename name
