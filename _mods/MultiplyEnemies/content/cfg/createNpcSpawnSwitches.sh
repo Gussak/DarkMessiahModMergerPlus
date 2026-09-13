@@ -220,7 +220,7 @@ ent_setname gskSpawnNameOk; \
 : ${bAutoFixMissingChars:=true} #help the engine may not print all charaters in a line, so usually repeating the command will provide a 2nd line with the missing char
 
 function FUNCchkSpawnHintData() {
-	local lstrSpawnHintDataKeyRef="echo gskSpawnHint; gskTargetPos;gskTargetPos; getpos;getpos; " #this was the last sync alias value
+	local lstrSpawnHintDataKeyRef="echo gskSpawnHint_gskSpawnHint_gskSpawnHint; gskTargetPos;gskTargetPos; getpos;getpos; " #this was the last sync alias value
 	local lstrSpawnHintDataKeyCheck="$(egrep "^alias\s*gskSpawnHintData\s+" "${strPathMainModFolder}/_mods/000gskBaseLib/content/cfg/gskBaseLib.cfg" |sed -r -e 's@.*\"(echo gskSpawnHint.*)\".*@\1@g')"
 	if [[ "$lstrSpawnHintDataKeyRef" != "$lstrSpawnHintDataKeyCheck" ]];then
 		declare -p lstrSpawnHintDataKeyRef lstrSpawnHintDataKeyCheck
@@ -462,6 +462,7 @@ function FUNCentityName() {
 function FUNCprepareFireTrapBoxCollider() {
 	local lstrFireTrapTriggeredName="$1";shift
 	
+	#declare -p anTargetPosXYZ >&2
 	local lnXSz=72
 	local lnXSzHalf=$((lnXSz/2))&&:
 	local lPosX1=$((${anTargetPosXYZ[x]}-lnXSzHalf))&&:
@@ -587,6 +588,7 @@ function FUNCmapadds() {
 	local lbCommentOut=false
 	local lnHeightDisplacement=0
 	local lstrIgnore=""
+	local lstrAddEntityExtra=""
 	case "${lstrSummonCmd}" in
 		"+gskSummonGuard")
 			echo '
@@ -792,7 +794,7 @@ function FUNCmapadds() {
 			"lifetime" "-1"
 			"power" "1"
 			' >>"$lstrFlAddTmp"
-			FUNCprepareFireTrapBoxCollider "$lstrTargetName" >>"$lstrFlAddTmp"
+			lstrAddEntityExtra="$(FUNCprepareFireTrapBoxCollider "$lstrTargetName")" # >>"$lstrFlAddTmp"
 			;;
 		"gskSummonDevSkeletonPart")
 			local lstrSkelPartModel=""
@@ -848,6 +850,10 @@ function FUNCmapadds() {
 	echo '
 		}
 ' >>"$lstrFlAddTmp"
+	
+	if [[ -n "$lstrAddEntityExtra" ]];then
+		echo "$lstrAddEntityExtra" >>"$lstrFlAddTmp"
+	fi
 	
 	if $lbCommentOut;then
 		cat "$lstrFlAddTmp" \
@@ -1021,7 +1027,7 @@ if $bCreateSpawnsForCurrentMap;then
 		#set -x
 		strMODE=SpawnNPC
 		strLine="${astrAllLines[$i]}"
-		if [[ "$strLine" =~ ^gskSpawnHint.* ]];then
+		if [[ "$strLine" =~ .*gskSpawnHint.* ]];then # this matches gskSpawnHint_gskSpawnHint_gskSpawnHint even if one or 2 letters is missing
 			strCount="$(     printf %03d $((iSpawnCount  )) )"
 			strCountShow="$( printf   %d $((iSpawnCount+1)) )" # begins in 1 and ends like 45/45 looks better
 			strCountNext="$( printf %03d $((iSpawnCount+1)) )"
@@ -1044,7 +1050,8 @@ if $bCreateSpawnsForCurrentMap;then
 			
 			function FUNCeditCondumpAtLn() {
 				FUNCechoInfo "[ERROR:invalidPOS] ( the engine sometimes do not print some letters!!! :O ), FailFixBiggestLineConflictFor: $1"
-				"$strExecEdit" "$strFlCondump:$((iLnData+1))"
+				#"$strExecEdit" "$strFlCondump:$((iLnData+1))"
+				"$strExecEdit" "${strFlCondumpClean}:$((iLnData+1))"
 				FUNCexit 1 "you need to re-run the script"
 			}
 			
@@ -1052,11 +1059,13 @@ if $bCreateSpawnsForCurrentMap;then
 				((iLnData++))&&:;strTargetPos="${astrAllLines[$iLnData]}"
 				((iLnData++))&&:;strTargetPosChk="${astrAllLines[$iLnData]}" #as engine may not print one char! :O
 				if ! strTargetPos="$(FUNCreturnBiggestLinePipe "$strTargetPos" "$strTargetPosChk")";then FUNCeditCondumpAtLn "TargetPos";fi
+				if ! egrep -q "^prop at " <(echo "$strTargetPos");then FUNCeditCondumpAtLn "TargetPos2";fi
 			fi
 			
 			((iLnData++))&&:;strSelfPosAngleCmd="${astrAllLines[$iLnData]}"
 			((iLnData++))&&:;strSelfPosAngleCmdChk="${astrAllLines[$iLnData]}" #as engine may not print one char! :O
 			if ! strSelfPosAngleCmd="$(FUNCreturnBiggestLinePipe "$strSelfPosAngleCmd" "$strSelfPosAngleCmdChk")";then FUNCeditCondumpAtLn "SelfPosAngle";fi
+			if ! egrep -q "^setpos " <(echo "$strSelfPosAngleCmd");then FUNCeditCondumpAtLn "SelfPosAngle2";fi
 			strSelfPosAngleCmd="$(FUNCposAngAsCmd "$strSelfPosAngleCmd")"
 			strSelfPosAngleCmdFixed="$(FUNCfixPosAng "${strSelfPosAngleCmd}")"
 
