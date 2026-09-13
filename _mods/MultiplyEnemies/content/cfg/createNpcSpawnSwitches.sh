@@ -122,12 +122,13 @@ else
 		FUNCfillByType "FOOD"          "leek|bread|rib|fish|chicken|banana|food|fibs|garlic|ham|mushroom|pie" #food
 		FUNCfillByType "Weapons/Tools" "club|staff|sword" #tools/weapons
 		FUNCfillByType "Simulated"     "gskSummonSim" #items otherwise impossible to be spawned
+		FUNCfillByType "MapDevDummy"   "gskSummonDev" #dummy location markers to spawn special things only thru mapadds feature
 		#FUNCfillByType --not "${FUNCfillByType_regexAlreadyUsed}" #everything else
 		FUNCfillByType --not "ETC" ".*" #everything else
 	fi
 	#mapfile -t astrNPCsummonings_Cost < <(for strLnData in "${astrNPCsummoningsLines[@]}";do echo "$strLnData";done |awk '{print $2}' |sort -u)
 	#declare -p astrNPCsummonings_Cost |sed -r -e "$strSedArrayIDsToLn"
-	astrDBlist=(astrNPCsummoningsLines astrNPCsummonTmp_ID astrNPCsummon_Cost FUNCfillByType_astrAlreadyUsed astrNPCsummon_ID)
+	astrDBlist=(astrNPCsummoningsLines astrNPCsummonTmp_ID astrNPCsummon_Cost FUNCfillByType_astrAlreadyUsed astrNPCsummon_ID astrNPCsummon_Type)
 	declare -p "${astrDBlist[@]}" |sed -r -e "$strSedArrayIDsToLn"
 	
 	#export strFlDBsummoningsTmp="$(mktemp)"
@@ -459,6 +460,7 @@ function FUNCentityName() {
 
 : ${bAllowBurrow=true} #help you can override and force re-prepare all mapadds with them all not hidden
 nUndeadCount=0
+nSkeletonPartCount=0
 function FUNCmapadds() {
 	local lstrSummonCmd="$1"
 	
@@ -680,6 +682,29 @@ function FUNCmapadds() {
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
 			' >>"$lstrFlAddTmp"
+			;;
+		"gskSummonDevSkeletonPart")
+			local lstrSkelPartModel=""
+			local lnRandomSkelPart="$(printf %d "0x$(crc32 <(echo "${strFlMapadds}${nSkeletonPartCount}"))")" #this way it wont just cycle thru parts, it will be predictable random based on the mapadds filename name
+			case "$((lnRandomSkelPart%6))" in
+				0) lstrSkelPartModel="models/props/debris/skeleton/cr_skel_thorax.mdl";;
+				1) lstrSkelPartModel="models/props/debris/skeleton/cr_skel_radiusg.mdl";;
+				2) lstrSkelPartModel="models/props/debris/skeleton/cr_skel_crane.mdl";;
+				3) lstrSkelPartModel="models/props/debris/skeleton/cr_skel_femurd.mdl";;
+				4) lstrSkelPartModel="models/props/debris/skeleton/cr_skel_humerusg.mdl";;
+				5) lstrSkelPartModel="models/props/debris/skeleton/cr_skel_humerusd.mdl";;
+			esac
+			echo '
+			"classname" "prop_physics"
+			"model" "'"${lstrSkelPartModel}"'"
+			"angles" "0 90 0"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"spawnflags" "257"
+			"UseSpeedToCalculateSoundVolume" "1"
+			' >>"$lstrFlAddTmp"
+			((nSkeletonPartCount++))&&:
 			;;
 		"gskSummon_"*) #by luck I put all food beggining with '_' xD
 			lnHeightDisplacement=5
@@ -1100,3 +1125,5 @@ fi
 if $bRefreshMount;then
 	FUNCrefreshMount
 fi
+
+ls -l "$strFlDBsummoningsTmp"
