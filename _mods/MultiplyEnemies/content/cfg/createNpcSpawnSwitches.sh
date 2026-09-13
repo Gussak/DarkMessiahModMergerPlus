@@ -460,6 +460,7 @@ function FUNCentityName() {
 }
 
 function FUNCprepareFireTrap() { #this works but you have to kick the oil jar
+	#TODO add some kind of weak dim highlight on it as I cant find a way to let trap detection highlight it
 	local lstrFireTrapTriggeredName="$1";shift
 	echo '
 		"add:entity"
@@ -468,13 +469,13 @@ function FUNCprepareFireTrap() { #this works but you have to kick the oil jar
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
-			"ExplodeRadius" "250"
+			"ExplodeRadius" "100"
 			"targetname" "'"${lstrFireTrapTriggeredName}_LandMine"'"
 			"origin" "'"${anTargetPosXYZ[x]} ${anTargetPosXYZ[y]} ${anTargetPosXYZ[z]}"'"
+			"angles" "0 '"$(( (RANDOM%360) - 180))"' 0"
 			"trapsecret" "2"
 			"health" "1"
 			
-			"angles" "0 125 0"
 			"combinability" "1"
 			"skin" "0"
 			"disableshadows" "0"
@@ -959,6 +960,7 @@ function FUNCmapadds() {
 				#4) lstrSkelPartModel="models/props/debris/skeleton/cr_skel_humerusg.mdl";;
 				#5) lstrSkelPartModel="models/props/debris/skeleton/cr_skel_humerusd.mdl";;
 			esac
+			
 			echo '
 			"classname" "prop_physics"
 			"model" "'"${lstrSkelPartModel}"'"
@@ -969,6 +971,15 @@ function FUNCmapadds() {
 			"spawnflags" "257"
 			"UseSpeedToCalculateSoundVolume" "1"
 			' >>"$lstrFlAddTmp"
+			
+			if((nSkeletonPartCount%3 == 1));then # 1 on every 3 will explode see FUNCprepareFireTrap
+				echo '
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			' >>"$lstrFlAddTmp"
+			fi
+			
 			((nSkeletonPartCount++))&&:
 			;;
 		"gskSummon_"*) #by luck I put all food beggining with '_' xD
