@@ -226,7 +226,15 @@
 			"spawnflags" "1"
 			"targetname" "gskSpawn_01_GuestHouse_014_ColliderBox"
 			"origin" "-4830 -10417 265"
-			solid
+		}
+		
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_01_GuestHouse_014_ColliderBox"
+			}
+			"add:solid"
 			{
 				side
 				{
@@ -329,7 +337,15 @@
 			"spawnflags" "1"
 			"targetname" "gskSpawn_01_GuestHouse_015_ColliderBox"
 			"origin" "-4123 -12168 101"
-			solid
+		}
+		
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_01_GuestHouse_015_ColliderBox"
+			}
+			"add:solid"
 			{
 				side
 				{
@@ -432,7 +448,15 @@
 			"spawnflags" "1"
 			"targetname" "gskSpawn_01_GuestHouse_016_ColliderBox"
 			"origin" "-4174 -12570 67"
-			solid
+		}
+		
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_01_GuestHouse_016_ColliderBox"
+			}
+			"add:solid"
 			{
 				side
 				{
@@ -535,7 +559,15 @@
 			"spawnflags" "1"
 			"targetname" "gskSpawn_01_GuestHouse_017_ColliderBox"
 			"origin" "-5202 -11813 66"
-			solid
+		}
+		
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_01_GuestHouse_017_ColliderBox"
+			}
+			"add:solid"
 			{
 				side
 				{
@@ -638,7 +670,15 @@
 			"spawnflags" "1"
 			"targetname" "gskSpawn_01_GuestHouse_018_ColliderBox"
 			"origin" "-1630 -13317 -32"
-			solid
+		}
+		
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_01_GuestHouse_018_ColliderBox"
+			}
+			"add:solid"
 			{
 				side
 				{
@@ -741,7 +781,15 @@
 			"spawnflags" "1"
 			"targetname" "gskSpawn_01_GuestHouse_019_ColliderBox"
 			"origin" "-1661 -12475 -32"
-			solid
+		}
+		
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_01_GuestHouse_019_ColliderBox"
+			}
+			"add:solid"
 			{
 				side
 				{
@@ -844,7 +892,15 @@
 			"spawnflags" "1"
 			"targetname" "gskSpawn_01_GuestHouse_020_ColliderBox"
 			"origin" "-2193 -12212 -17"
-			solid
+		}
+		
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_01_GuestHouse_020_ColliderBox"
+			}
+			"add:solid"
 			{
 				side
 				{
@@ -947,7 +1003,15 @@
 			"spawnflags" "1"
 			"targetname" "gskSpawn_01_GuestHouse_021_ColliderBox"
 			"origin" "-1570 -10855 -33"
-			solid
+		}
+		
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_01_GuestHouse_021_ColliderBox"
+			}
+			"add:solid"
 			{
 				side
 				{
@@ -1050,7 +1114,15 @@
 			"spawnflags" "1"
 			"targetname" "gskSpawn_01_GuestHouse_022_ColliderBox"
 			"origin" "-1971 -10809 -24"
-			solid
+		}
+		
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_01_GuestHouse_022_ColliderBox"
+			}
+			"add:solid"
 			{
 				side
 				{
@@ -1173,7 +1245,15 @@
 			"spawnflags" "1"
 			"targetname" "gskSpawn_01_GuestHouse_025_ColliderBox"
 			"origin" "-3581 -10982 27"
-			solid
+		}
+		
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_01_GuestHouse_025_ColliderBox"
+			}
+			"add:solid"
 			{
 				side
 				{

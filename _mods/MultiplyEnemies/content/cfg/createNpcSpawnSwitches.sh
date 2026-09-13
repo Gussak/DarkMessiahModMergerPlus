@@ -494,7 +494,25 @@ function FUNCprepareFireTrapBoxCollider() {
 			"spawnflags" "1"
 			"targetname" "'"${lstrFireTrapTriggeredName}_ColliderBox"'"
 			"origin" "'"${anTargetPosXYZ[x]} ${anTargetPosXYZ[y]} ${anTargetPosXYZ[z]}"'"
-			solid
+		}
+		'
+	
+	################# TODO
+	################# it seems to not be adding the solid data???
+	################# trying thru "add:solid" (but I dont know if that command even exists, was it implemented at mapadds functionality?)
+	################# this was removed from above "add:entity"
+	###		solid
+	###		{
+	######### the solid sides below
+	###		}
+	echo '
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"'"${lstrFireTrapTriggeredName}_ColliderBox"'"
+			}
+			"add:solid"
 			{
 				side
 				{
@@ -560,8 +578,8 @@ function FUNCprepareFireTrapBoxCollider() {
 		}
 		'
 	
-	
 	########## HELPkeep the connections are applied thru modify:entity ###############
+	########## this was removed from add:entity above
 	###connections
 	###{
 	###	"OnStartTouch" "'"${lstrFireTrapTriggeredName}"',CastSpell,,0,-1,1,"

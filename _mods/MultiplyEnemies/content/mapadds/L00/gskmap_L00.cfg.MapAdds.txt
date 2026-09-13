@@ -2691,7 +2691,15 @@
 			"spawnflags" "1"
 			"targetname" "gskSpawn__174_ColliderBox"
 			"origin" "-1951 -4845 218"
-			solid
+		}
+		
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn__174_ColliderBox"
+			}
+			"add:solid"
 			{
 				side
 				{
@@ -2794,7 +2802,15 @@
 			"spawnflags" "1"
 			"targetname" "gskSpawn__175_ColliderBox"
 			"origin" "-1425 -4654 193"
-			solid
+		}
+		
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn__175_ColliderBox"
+			}
+			"add:solid"
 			{
 				side
 				{
