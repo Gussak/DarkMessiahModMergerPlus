@@ -1052,10 +1052,10 @@ if $bCreateSpawnsForCurrentMap;then
 		for((j=0;j<iTotEntryDataLines;j++));do
 			local lstrLine="${astrAllLines[$((iLnDataIni+j))]}"
 			local lstrExtra=""
-			if [[ "$lstrLine" =~ ^gskSpawnHint.* ]];then 
+			if [[ "$lstrLine" =~ .*gskSpawnHint.* ]];then 
 				lstrExtra="  // ( $((iSpawnCount+1))/${nTotSpawns} )";
 			fi
-			lstrLine="$(echo "${lstrLine}" |sed -r -e 's@(^gskSpawnHint[^ ]*).*@\1@g')"
+			lstrLine="$(echo "${lstrLine}" |sed -r -e 's@(.*gskSpawnHint[^ ]*).*@\1@g')"
 			echo "${lstrLine} ${lstrExtra}" >>"$strFlCondumpCleanNew"
 		done
 	}

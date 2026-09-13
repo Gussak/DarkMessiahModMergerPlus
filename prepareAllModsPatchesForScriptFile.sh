@@ -123,7 +123,7 @@ FUNCchkDeps jq colordiff patch
 : ${nFuzzyPatch:=0} #help try nFuzzyPatch=1 This may help to make it easier to provide an initial auto merge? better just review the results...
 
 if $bForceRePatch;then
-	FUNCtrash "$strFinalMergedFolderContent/$strScriptFileRelat" "$strFinalMergedFolderContent/${strScriptFileRelat}.SUCCESS.cfg"&&:
+	FUNCtrash "$strFinalMergedFolderContent/$strScriptFileRelat" "$strFinalMergedFolderContent/${strScriptFileRelat}.SUCCESS.info"&&:
 fi
 
 bAllowOnRoot=false
@@ -543,7 +543,7 @@ if $bApplyEachPatch;then
 	strFlWork="${strFinalMergedFolderContent}/${strScriptFileRelat}"
 	if $bVerbose;then declare -p strFlWork;fi
 	
-	strFlSuccessCfg="${strFlWork}.SUCCESS.cfg"
+	strFlSuccessCfg="${strFlWork}.SUCCESS.info"
 	
 	if [[ -f "$strFlWork" ]] && [[ -f "$strFlSuccessCfg" ]];then
 		echo;ls -l "$strFlSuccessCfg"
