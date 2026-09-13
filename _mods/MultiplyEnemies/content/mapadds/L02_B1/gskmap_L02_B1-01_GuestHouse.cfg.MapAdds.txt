@@ -216,7 +216,53 @@
 			"lifetime" "-1"
 			"power" "1"
 			
+			"origin"      "-4830 -10417 275"
 		}
+		"add:entity"
+		{
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "250"
+			"targetname" "gskSpawn_01_GuestHouse_014_LandMine"
+			"origin" "-4830 -10417 265"
+			"trapsecret" "2"
+			"health" "1"
+			
+			"angles" "0 125 0"
+			"combinability" "1"
+			"skin" "0"
+			"disableshadows" "0"
+			"combinetarget1enable" "1"
+			"combinetarget2enable" "1"
+			"combinetarget3enable" "1"
+			"combinetarget4enable" "1"
+			"combinetarget5enable" "1"
+			"PerformanceMode" "0"
+			"pressuredelay" "0"
+			"mindxlevel" "0"
+			"maxdxlevel" "0"
+			"minhealthdmg" "0"
+			"shadowcastdist" "0"
+			"Damagetype" "0"
+			"nodamageforces" "0"
+			"inertiaScale" "1.0"
+			"massScale" "0"
+			"damagetoenablemotion" "0"
+			"forcetoenablemotion" "0"
+			"fademindist" "500"
+			"fademaxdist" "700"
+			"fadescale" "1"
+			"spawnflags" "257"
+			"combinetarget6enable" "1"
+			"combinetarget7enable" "1"
+			"combinetarget8enable" "1"
+			"combinetarget9enable" "1"
+			"combinetarget10enable" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+		}
+		
 		"add:entity"
 		{
 			"classname" "trigger_once"
@@ -226,6 +272,75 @@
 			"spawnflags" "1"
 			"targetname" "gskSpawn_01_GuestHouse_014_ColliderBox"
 			"origin" "-4830 -10417 265"
+			connections
+			{
+				"OnStartTouch" "gskSpawn_01_GuestHouse_014,CastSpell,,0,-1,1,"
+			}
+			solid
+			{
+				
+				side
+				{
+					"plane" "(-4916 -9784 377) (-4916 -9784 261) (-4988 -9784 261)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[-1 0 0 32.5385] 0.26"
+					"vaxis" "[0 0 -1 26] 0.31"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(-4988 -9750 377) (-4988 -9750 261) (-4916 -9750 261)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[-1 0 0 0] 0.25"
+					"vaxis" "[0 0 -1 -16] 0.25"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(-4988 -9784 377) (-4988 -9784 261) (-4988 -9750 261)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[0 1 0 -24] 0.25"
+					"vaxis" "[0 0 -1 -8] 0.25"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(-4916 -9750 377) (-4916 -9750 261) (-4916 -9784 261)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[0 1 0 -30.2279] 0.26"
+					"vaxis" "[0 0 -1 58.452] 0.31"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(-4916 -9784 377) (-4988 -9784 377) (-4988 -9750 377)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[1 0 0 -40] 1"
+					"vaxis" "[0 -1 0 -10] 1"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(-4916 -9750 261) (-4988 -9750 261) (-4988 -9784 261)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[1 0 0 -40] 1"
+					"vaxis" "[0 -1 0 -2] 1"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				
+			}
 		}
 		
 		"modify:entity"
@@ -236,9 +351,10 @@
 			}
 			"add:solid"
 			{
+				
 				side
 				{
-					"plane" "(-4916 -9784 367) (-4916 -9784 251) (-4988 -9784 251)"
+					"plane" "(-4916 -9784 377) (-4916 -9784 261) (-4988 -9784 261)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[-1 0 0 32.5385] 0.26"
 					"vaxis" "[0 0 -1 26] 0.31"
@@ -248,7 +364,7 @@
 				}
 				side
 				{
-					"plane" "(-4988 -9750 367) (-4988 -9750 251) (-4916 -9750 251)"
+					"plane" "(-4988 -9750 377) (-4988 -9750 261) (-4916 -9750 261)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[-1 0 0 0] 0.25"
 					"vaxis" "[0 0 -1 -16] 0.25"
@@ -258,7 +374,7 @@
 				}
 				side
 				{
-					"plane" "(-4988 -9784 367) (-4988 -9784 251) (-4988 -9750 251)"
+					"plane" "(-4988 -9784 377) (-4988 -9784 261) (-4988 -9750 261)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[0 1 0 -24] 0.25"
 					"vaxis" "[0 0 -1 -8] 0.25"
@@ -268,7 +384,7 @@
 				}
 				side
 				{
-					"plane" "(-4916 -9750 367) (-4916 -9750 251) (-4916 -9784 251)"
+					"plane" "(-4916 -9750 377) (-4916 -9750 261) (-4916 -9784 261)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[0 1 0 -30.2279] 0.26"
 					"vaxis" "[0 0 -1 58.452] 0.31"
@@ -278,7 +394,7 @@
 				}
 				side
 				{
-					"plane" "(-4916 -9784 367) (-4988 -9784 367) (-4988 -9750 367)"
+					"plane" "(-4916 -9784 377) (-4988 -9784 377) (-4988 -9750 377)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[1 0 0 -40] 1"
 					"vaxis" "[0 -1 0 -10] 1"
@@ -288,7 +404,7 @@
 				}
 				side
 				{
-					"plane" "(-4916 -9750 251) (-4988 -9750 251) (-4988 -9784 251)"
+					"plane" "(-4916 -9750 261) (-4988 -9750 261) (-4988 -9784 261)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[1 0 0 -40] 1"
 					"vaxis" "[0 -1 0 -2] 1"
@@ -296,6 +412,7 @@
 					"lightmapscale" "16"
 					"smoothing_groups" "0"
 				}
+				
 			}
 		}
 		
@@ -327,7 +444,53 @@
 			"lifetime" "-1"
 			"power" "1"
 			
+			"origin"      "-4123 -12168 111"
 		}
+		"add:entity"
+		{
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "250"
+			"targetname" "gskSpawn_01_GuestHouse_015_LandMine"
+			"origin" "-4123 -12168 101"
+			"trapsecret" "2"
+			"health" "1"
+			
+			"angles" "0 125 0"
+			"combinability" "1"
+			"skin" "0"
+			"disableshadows" "0"
+			"combinetarget1enable" "1"
+			"combinetarget2enable" "1"
+			"combinetarget3enable" "1"
+			"combinetarget4enable" "1"
+			"combinetarget5enable" "1"
+			"PerformanceMode" "0"
+			"pressuredelay" "0"
+			"mindxlevel" "0"
+			"maxdxlevel" "0"
+			"minhealthdmg" "0"
+			"shadowcastdist" "0"
+			"Damagetype" "0"
+			"nodamageforces" "0"
+			"inertiaScale" "1.0"
+			"massScale" "0"
+			"damagetoenablemotion" "0"
+			"forcetoenablemotion" "0"
+			"fademindist" "500"
+			"fademaxdist" "700"
+			"fadescale" "1"
+			"spawnflags" "257"
+			"combinetarget6enable" "1"
+			"combinetarget7enable" "1"
+			"combinetarget8enable" "1"
+			"combinetarget9enable" "1"
+			"combinetarget10enable" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+		}
+		
 		"add:entity"
 		{
 			"classname" "trigger_once"
@@ -337,6 +500,75 @@
 			"spawnflags" "1"
 			"targetname" "gskSpawn_01_GuestHouse_015_ColliderBox"
 			"origin" "-4123 -12168 101"
+			connections
+			{
+				"OnStartTouch" "gskSpawn_01_GuestHouse_015,CastSpell,,0,-1,1,"
+			}
+			solid
+			{
+				
+				side
+				{
+					"plane" "(-4209 -11535 213) (-4209 -11535 97) (-4281 -11535 97)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[-1 0 0 32.5385] 0.26"
+					"vaxis" "[0 0 -1 26] 0.31"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(-4281 -11501 213) (-4281 -11501 97) (-4209 -11501 97)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[-1 0 0 0] 0.25"
+					"vaxis" "[0 0 -1 -16] 0.25"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(-4281 -11535 213) (-4281 -11535 97) (-4281 -11501 97)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[0 1 0 -24] 0.25"
+					"vaxis" "[0 0 -1 -8] 0.25"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(-4209 -11501 213) (-4209 -11501 97) (-4209 -11535 97)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[0 1 0 -30.2279] 0.26"
+					"vaxis" "[0 0 -1 58.452] 0.31"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(-4209 -11535 213) (-4281 -11535 213) (-4281 -11501 213)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[1 0 0 -40] 1"
+					"vaxis" "[0 -1 0 -10] 1"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(-4209 -11501 97) (-4281 -11501 97) (-4281 -11535 97)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[1 0 0 -40] 1"
+					"vaxis" "[0 -1 0 -2] 1"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				
+			}
 		}
 		
 		"modify:entity"
@@ -347,9 +579,10 @@
 			}
 			"add:solid"
 			{
+				
 				side
 				{
-					"plane" "(-4209 -11535 203) (-4209 -11535 87) (-4281 -11535 87)"
+					"plane" "(-4209 -11535 213) (-4209 -11535 97) (-4281 -11535 97)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[-1 0 0 32.5385] 0.26"
 					"vaxis" "[0 0 -1 26] 0.31"
@@ -359,7 +592,7 @@
 				}
 				side
 				{
-					"plane" "(-4281 -11501 203) (-4281 -11501 87) (-4209 -11501 87)"
+					"plane" "(-4281 -11501 213) (-4281 -11501 97) (-4209 -11501 97)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[-1 0 0 0] 0.25"
 					"vaxis" "[0 0 -1 -16] 0.25"
@@ -369,7 +602,7 @@
 				}
 				side
 				{
-					"plane" "(-4281 -11535 203) (-4281 -11535 87) (-4281 -11501 87)"
+					"plane" "(-4281 -11535 213) (-4281 -11535 97) (-4281 -11501 97)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[0 1 0 -24] 0.25"
 					"vaxis" "[0 0 -1 -8] 0.25"
@@ -379,7 +612,7 @@
 				}
 				side
 				{
-					"plane" "(-4209 -11501 203) (-4209 -11501 87) (-4209 -11535 87)"
+					"plane" "(-4209 -11501 213) (-4209 -11501 97) (-4209 -11535 97)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[0 1 0 -30.2279] 0.26"
 					"vaxis" "[0 0 -1 58.452] 0.31"
@@ -389,7 +622,7 @@
 				}
 				side
 				{
-					"plane" "(-4209 -11535 203) (-4281 -11535 203) (-4281 -11501 203)"
+					"plane" "(-4209 -11535 213) (-4281 -11535 213) (-4281 -11501 213)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[1 0 0 -40] 1"
 					"vaxis" "[0 -1 0 -10] 1"
@@ -399,7 +632,7 @@
 				}
 				side
 				{
-					"plane" "(-4209 -11501 87) (-4281 -11501 87) (-4281 -11535 87)"
+					"plane" "(-4209 -11501 97) (-4281 -11501 97) (-4281 -11535 97)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[1 0 0 -40] 1"
 					"vaxis" "[0 -1 0 -2] 1"
@@ -407,6 +640,7 @@
 					"lightmapscale" "16"
 					"smoothing_groups" "0"
 				}
+				
 			}
 		}
 		
@@ -438,7 +672,53 @@
 			"lifetime" "-1"
 			"power" "1"
 			
+			"origin"      "-4174 -12570 77"
 		}
+		"add:entity"
+		{
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "250"
+			"targetname" "gskSpawn_01_GuestHouse_016_LandMine"
+			"origin" "-4174 -12570 67"
+			"trapsecret" "2"
+			"health" "1"
+			
+			"angles" "0 125 0"
+			"combinability" "1"
+			"skin" "0"
+			"disableshadows" "0"
+			"combinetarget1enable" "1"
+			"combinetarget2enable" "1"
+			"combinetarget3enable" "1"
+			"combinetarget4enable" "1"
+			"combinetarget5enable" "1"
+			"PerformanceMode" "0"
+			"pressuredelay" "0"
+			"mindxlevel" "0"
+			"maxdxlevel" "0"
+			"minhealthdmg" "0"
+			"shadowcastdist" "0"
+			"Damagetype" "0"
+			"nodamageforces" "0"
+			"inertiaScale" "1.0"
+			"massScale" "0"
+			"damagetoenablemotion" "0"
+			"forcetoenablemotion" "0"
+			"fademindist" "500"
+			"fademaxdist" "700"
+			"fadescale" "1"
+			"spawnflags" "257"
+			"combinetarget6enable" "1"
+			"combinetarget7enable" "1"
+			"combinetarget8enable" "1"
+			"combinetarget9enable" "1"
+			"combinetarget10enable" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+		}
+		
 		"add:entity"
 		{
 			"classname" "trigger_once"
@@ -448,6 +728,75 @@
 			"spawnflags" "1"
 			"targetname" "gskSpawn_01_GuestHouse_016_ColliderBox"
 			"origin" "-4174 -12570 67"
+			connections
+			{
+				"OnStartTouch" "gskSpawn_01_GuestHouse_016,CastSpell,,0,-1,1,"
+			}
+			solid
+			{
+				
+				side
+				{
+					"plane" "(-4260 -11937 179) (-4260 -11937 63) (-4332 -11937 63)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[-1 0 0 32.5385] 0.26"
+					"vaxis" "[0 0 -1 26] 0.31"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(-4332 -11903 179) (-4332 -11903 63) (-4260 -11903 63)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[-1 0 0 0] 0.25"
+					"vaxis" "[0 0 -1 -16] 0.25"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(-4332 -11937 179) (-4332 -11937 63) (-4332 -11903 63)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[0 1 0 -24] 0.25"
+					"vaxis" "[0 0 -1 -8] 0.25"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(-4260 -11903 179) (-4260 -11903 63) (-4260 -11937 63)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[0 1 0 -30.2279] 0.26"
+					"vaxis" "[0 0 -1 58.452] 0.31"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(-4260 -11937 179) (-4332 -11937 179) (-4332 -11903 179)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[1 0 0 -40] 1"
+					"vaxis" "[0 -1 0 -10] 1"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(-4260 -11903 63) (-4332 -11903 63) (-4332 -11937 63)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[1 0 0 -40] 1"
+					"vaxis" "[0 -1 0 -2] 1"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				
+			}
 		}
 		
 		"modify:entity"
@@ -458,9 +807,10 @@
 			}
 			"add:solid"
 			{
+				
 				side
 				{
-					"plane" "(-4260 -11937 169) (-4260 -11937 53) (-4332 -11937 53)"
+					"plane" "(-4260 -11937 179) (-4260 -11937 63) (-4332 -11937 63)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[-1 0 0 32.5385] 0.26"
 					"vaxis" "[0 0 -1 26] 0.31"
@@ -470,7 +820,7 @@
 				}
 				side
 				{
-					"plane" "(-4332 -11903 169) (-4332 -11903 53) (-4260 -11903 53)"
+					"plane" "(-4332 -11903 179) (-4332 -11903 63) (-4260 -11903 63)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[-1 0 0 0] 0.25"
 					"vaxis" "[0 0 -1 -16] 0.25"
@@ -480,7 +830,7 @@
 				}
 				side
 				{
-					"plane" "(-4332 -11937 169) (-4332 -11937 53) (-4332 -11903 53)"
+					"plane" "(-4332 -11937 179) (-4332 -11937 63) (-4332 -11903 63)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[0 1 0 -24] 0.25"
 					"vaxis" "[0 0 -1 -8] 0.25"
@@ -490,7 +840,7 @@
 				}
 				side
 				{
-					"plane" "(-4260 -11903 169) (-4260 -11903 53) (-4260 -11937 53)"
+					"plane" "(-4260 -11903 179) (-4260 -11903 63) (-4260 -11937 63)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[0 1 0 -30.2279] 0.26"
 					"vaxis" "[0 0 -1 58.452] 0.31"
@@ -500,7 +850,7 @@
 				}
 				side
 				{
-					"plane" "(-4260 -11937 169) (-4332 -11937 169) (-4332 -11903 169)"
+					"plane" "(-4260 -11937 179) (-4332 -11937 179) (-4332 -11903 179)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[1 0 0 -40] 1"
 					"vaxis" "[0 -1 0 -10] 1"
@@ -510,7 +860,7 @@
 				}
 				side
 				{
-					"plane" "(-4260 -11903 53) (-4332 -11903 53) (-4332 -11937 53)"
+					"plane" "(-4260 -11903 63) (-4332 -11903 63) (-4332 -11937 63)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[1 0 0 -40] 1"
 					"vaxis" "[0 -1 0 -2] 1"
@@ -518,6 +868,7 @@
 					"lightmapscale" "16"
 					"smoothing_groups" "0"
 				}
+				
 			}
 		}
 		
@@ -549,7 +900,53 @@
 			"lifetime" "-1"
 			"power" "1"
 			
+			"origin"      "-5202 -11813 76"
 		}
+		"add:entity"
+		{
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "250"
+			"targetname" "gskSpawn_01_GuestHouse_017_LandMine"
+			"origin" "-5202 -11813 66"
+			"trapsecret" "2"
+			"health" "1"
+			
+			"angles" "0 125 0"
+			"combinability" "1"
+			"skin" "0"
+			"disableshadows" "0"
+			"combinetarget1enable" "1"
+			"combinetarget2enable" "1"
+			"combinetarget3enable" "1"
+			"combinetarget4enable" "1"
+			"combinetarget5enable" "1"
+			"PerformanceMode" "0"
+			"pressuredelay" "0"
+			"mindxlevel" "0"
+			"maxdxlevel" "0"
+			"minhealthdmg" "0"
+			"shadowcastdist" "0"
+			"Damagetype" "0"
+			"nodamageforces" "0"
+			"inertiaScale" "1.0"
+			"massScale" "0"
+			"damagetoenablemotion" "0"
+			"forcetoenablemotion" "0"
+			"fademindist" "500"
+			"fademaxdist" "700"
+			"fadescale" "1"
+			"spawnflags" "257"
+			"combinetarget6enable" "1"
+			"combinetarget7enable" "1"
+			"combinetarget8enable" "1"
+			"combinetarget9enable" "1"
+			"combinetarget10enable" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+		}
+		
 		"add:entity"
 		{
 			"classname" "trigger_once"
@@ -559,6 +956,75 @@
 			"spawnflags" "1"
 			"targetname" "gskSpawn_01_GuestHouse_017_ColliderBox"
 			"origin" "-5202 -11813 66"
+			connections
+			{
+				"OnStartTouch" "gskSpawn_01_GuestHouse_017,CastSpell,,0,-1,1,"
+			}
+			solid
+			{
+				
+				side
+				{
+					"plane" "(-5288 -11180 178) (-5288 -11180 62) (-5360 -11180 62)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[-1 0 0 32.5385] 0.26"
+					"vaxis" "[0 0 -1 26] 0.31"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(-5360 -11146 178) (-5360 -11146 62) (-5288 -11146 62)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[-1 0 0 0] 0.25"
+					"vaxis" "[0 0 -1 -16] 0.25"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(-5360 -11180 178) (-5360 -11180 62) (-5360 -11146 62)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[0 1 0 -24] 0.25"
+					"vaxis" "[0 0 -1 -8] 0.25"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(-5288 -11146 178) (-5288 -11146 62) (-5288 -11180 62)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[0 1 0 -30.2279] 0.26"
+					"vaxis" "[0 0 -1 58.452] 0.31"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(-5288 -11180 178) (-5360 -11180 178) (-5360 -11146 178)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[1 0 0 -40] 1"
+					"vaxis" "[0 -1 0 -10] 1"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(-5288 -11146 62) (-5360 -11146 62) (-5360 -11180 62)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[1 0 0 -40] 1"
+					"vaxis" "[0 -1 0 -2] 1"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				
+			}
 		}
 		
 		"modify:entity"
@@ -569,9 +1035,10 @@
 			}
 			"add:solid"
 			{
+				
 				side
 				{
-					"plane" "(-5288 -11180 168) (-5288 -11180 52) (-5360 -11180 52)"
+					"plane" "(-5288 -11180 178) (-5288 -11180 62) (-5360 -11180 62)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[-1 0 0 32.5385] 0.26"
 					"vaxis" "[0 0 -1 26] 0.31"
@@ -581,7 +1048,7 @@
 				}
 				side
 				{
-					"plane" "(-5360 -11146 168) (-5360 -11146 52) (-5288 -11146 52)"
+					"plane" "(-5360 -11146 178) (-5360 -11146 62) (-5288 -11146 62)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[-1 0 0 0] 0.25"
 					"vaxis" "[0 0 -1 -16] 0.25"
@@ -591,7 +1058,7 @@
 				}
 				side
 				{
-					"plane" "(-5360 -11180 168) (-5360 -11180 52) (-5360 -11146 52)"
+					"plane" "(-5360 -11180 178) (-5360 -11180 62) (-5360 -11146 62)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[0 1 0 -24] 0.25"
 					"vaxis" "[0 0 -1 -8] 0.25"
@@ -601,7 +1068,7 @@
 				}
 				side
 				{
-					"plane" "(-5288 -11146 168) (-5288 -11146 52) (-5288 -11180 52)"
+					"plane" "(-5288 -11146 178) (-5288 -11146 62) (-5288 -11180 62)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[0 1 0 -30.2279] 0.26"
 					"vaxis" "[0 0 -1 58.452] 0.31"
@@ -611,7 +1078,7 @@
 				}
 				side
 				{
-					"plane" "(-5288 -11180 168) (-5360 -11180 168) (-5360 -11146 168)"
+					"plane" "(-5288 -11180 178) (-5360 -11180 178) (-5360 -11146 178)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[1 0 0 -40] 1"
 					"vaxis" "[0 -1 0 -10] 1"
@@ -621,7 +1088,7 @@
 				}
 				side
 				{
-					"plane" "(-5288 -11146 52) (-5360 -11146 52) (-5360 -11180 52)"
+					"plane" "(-5288 -11146 62) (-5360 -11146 62) (-5360 -11180 62)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[1 0 0 -40] 1"
 					"vaxis" "[0 -1 0 -2] 1"
@@ -629,6 +1096,7 @@
 					"lightmapscale" "16"
 					"smoothing_groups" "0"
 				}
+				
 			}
 		}
 		
@@ -660,7 +1128,53 @@
 			"lifetime" "-1"
 			"power" "1"
 			
+			"origin"      "-1630 -13317 -22"
 		}
+		"add:entity"
+		{
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "250"
+			"targetname" "gskSpawn_01_GuestHouse_018_LandMine"
+			"origin" "-1630 -13317 -32"
+			"trapsecret" "2"
+			"health" "1"
+			
+			"angles" "0 125 0"
+			"combinability" "1"
+			"skin" "0"
+			"disableshadows" "0"
+			"combinetarget1enable" "1"
+			"combinetarget2enable" "1"
+			"combinetarget3enable" "1"
+			"combinetarget4enable" "1"
+			"combinetarget5enable" "1"
+			"PerformanceMode" "0"
+			"pressuredelay" "0"
+			"mindxlevel" "0"
+			"maxdxlevel" "0"
+			"minhealthdmg" "0"
+			"shadowcastdist" "0"
+			"Damagetype" "0"
+			"nodamageforces" "0"
+			"inertiaScale" "1.0"
+			"massScale" "0"
+			"damagetoenablemotion" "0"
+			"forcetoenablemotion" "0"
+			"fademindist" "500"
+			"fademaxdist" "700"
+			"fadescale" "1"
+			"spawnflags" "257"
+			"combinetarget6enable" "1"
+			"combinetarget7enable" "1"
+			"combinetarget8enable" "1"
+			"combinetarget9enable" "1"
+			"combinetarget10enable" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+		}
+		
 		"add:entity"
 		{
 			"classname" "trigger_once"
@@ -670,6 +1184,75 @@
 			"spawnflags" "1"
 			"targetname" "gskSpawn_01_GuestHouse_018_ColliderBox"
 			"origin" "-1630 -13317 -32"
+			connections
+			{
+				"OnStartTouch" "gskSpawn_01_GuestHouse_018,CastSpell,,0,-1,1,"
+			}
+			solid
+			{
+				
+				side
+				{
+					"plane" "(-1716 -12684 80) (-1716 -12684 -36) (-1788 -12684 -36)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[-1 0 0 32.5385] 0.26"
+					"vaxis" "[0 0 -1 26] 0.31"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(-1788 -12650 80) (-1788 -12650 -36) (-1716 -12650 -36)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[-1 0 0 0] 0.25"
+					"vaxis" "[0 0 -1 -16] 0.25"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(-1788 -12684 80) (-1788 -12684 -36) (-1788 -12650 -36)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[0 1 0 -24] 0.25"
+					"vaxis" "[0 0 -1 -8] 0.25"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(-1716 -12650 80) (-1716 -12650 -36) (-1716 -12684 -36)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[0 1 0 -30.2279] 0.26"
+					"vaxis" "[0 0 -1 58.452] 0.31"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(-1716 -12684 80) (-1788 -12684 80) (-1788 -12650 80)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[1 0 0 -40] 1"
+					"vaxis" "[0 -1 0 -10] 1"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(-1716 -12650 -36) (-1788 -12650 -36) (-1788 -12684 -36)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[1 0 0 -40] 1"
+					"vaxis" "[0 -1 0 -2] 1"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				
+			}
 		}
 		
 		"modify:entity"
@@ -680,9 +1263,10 @@
 			}
 			"add:solid"
 			{
+				
 				side
 				{
-					"plane" "(-1716 -12684 70) (-1716 -12684 -46) (-1788 -12684 -46)"
+					"plane" "(-1716 -12684 80) (-1716 -12684 -36) (-1788 -12684 -36)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[-1 0 0 32.5385] 0.26"
 					"vaxis" "[0 0 -1 26] 0.31"
@@ -692,7 +1276,7 @@
 				}
 				side
 				{
-					"plane" "(-1788 -12650 70) (-1788 -12650 -46) (-1716 -12650 -46)"
+					"plane" "(-1788 -12650 80) (-1788 -12650 -36) (-1716 -12650 -36)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[-1 0 0 0] 0.25"
 					"vaxis" "[0 0 -1 -16] 0.25"
@@ -702,7 +1286,7 @@
 				}
 				side
 				{
-					"plane" "(-1788 -12684 70) (-1788 -12684 -46) (-1788 -12650 -46)"
+					"plane" "(-1788 -12684 80) (-1788 -12684 -36) (-1788 -12650 -36)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[0 1 0 -24] 0.25"
 					"vaxis" "[0 0 -1 -8] 0.25"
@@ -712,7 +1296,7 @@
 				}
 				side
 				{
-					"plane" "(-1716 -12650 70) (-1716 -12650 -46) (-1716 -12684 -46)"
+					"plane" "(-1716 -12650 80) (-1716 -12650 -36) (-1716 -12684 -36)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[0 1 0 -30.2279] 0.26"
 					"vaxis" "[0 0 -1 58.452] 0.31"
@@ -722,7 +1306,7 @@
 				}
 				side
 				{
-					"plane" "(-1716 -12684 70) (-1788 -12684 70) (-1788 -12650 70)"
+					"plane" "(-1716 -12684 80) (-1788 -12684 80) (-1788 -12650 80)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[1 0 0 -40] 1"
 					"vaxis" "[0 -1 0 -10] 1"
@@ -732,7 +1316,7 @@
 				}
 				side
 				{
-					"plane" "(-1716 -12650 -46) (-1788 -12650 -46) (-1788 -12684 -46)"
+					"plane" "(-1716 -12650 -36) (-1788 -12650 -36) (-1788 -12684 -36)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[1 0 0 -40] 1"
 					"vaxis" "[0 -1 0 -2] 1"
@@ -740,6 +1324,7 @@
 					"lightmapscale" "16"
 					"smoothing_groups" "0"
 				}
+				
 			}
 		}
 		
@@ -771,7 +1356,53 @@
 			"lifetime" "-1"
 			"power" "1"
 			
+			"origin"      "-1661 -12475 -22"
 		}
+		"add:entity"
+		{
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "250"
+			"targetname" "gskSpawn_01_GuestHouse_019_LandMine"
+			"origin" "-1661 -12475 -32"
+			"trapsecret" "2"
+			"health" "1"
+			
+			"angles" "0 125 0"
+			"combinability" "1"
+			"skin" "0"
+			"disableshadows" "0"
+			"combinetarget1enable" "1"
+			"combinetarget2enable" "1"
+			"combinetarget3enable" "1"
+			"combinetarget4enable" "1"
+			"combinetarget5enable" "1"
+			"PerformanceMode" "0"
+			"pressuredelay" "0"
+			"mindxlevel" "0"
+			"maxdxlevel" "0"
+			"minhealthdmg" "0"
+			"shadowcastdist" "0"
+			"Damagetype" "0"
+			"nodamageforces" "0"
+			"inertiaScale" "1.0"
+			"massScale" "0"
+			"damagetoenablemotion" "0"
+			"forcetoenablemotion" "0"
+			"fademindist" "500"
+			"fademaxdist" "700"
+			"fadescale" "1"
+			"spawnflags" "257"
+			"combinetarget6enable" "1"
+			"combinetarget7enable" "1"
+			"combinetarget8enable" "1"
+			"combinetarget9enable" "1"
+			"combinetarget10enable" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+		}
+		
 		"add:entity"
 		{
 			"classname" "trigger_once"
@@ -781,6 +1412,75 @@
 			"spawnflags" "1"
 			"targetname" "gskSpawn_01_GuestHouse_019_ColliderBox"
 			"origin" "-1661 -12475 -32"
+			connections
+			{
+				"OnStartTouch" "gskSpawn_01_GuestHouse_019,CastSpell,,0,-1,1,"
+			}
+			solid
+			{
+				
+				side
+				{
+					"plane" "(-1747 -11842 80) (-1747 -11842 -36) (-1819 -11842 -36)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[-1 0 0 32.5385] 0.26"
+					"vaxis" "[0 0 -1 26] 0.31"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(-1819 -11808 80) (-1819 -11808 -36) (-1747 -11808 -36)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[-1 0 0 0] 0.25"
+					"vaxis" "[0 0 -1 -16] 0.25"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(-1819 -11842 80) (-1819 -11842 -36) (-1819 -11808 -36)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[0 1 0 -24] 0.25"
+					"vaxis" "[0 0 -1 -8] 0.25"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(-1747 -11808 80) (-1747 -11808 -36) (-1747 -11842 -36)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[0 1 0 -30.2279] 0.26"
+					"vaxis" "[0 0 -1 58.452] 0.31"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(-1747 -11842 80) (-1819 -11842 80) (-1819 -11808 80)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[1 0 0 -40] 1"
+					"vaxis" "[0 -1 0 -10] 1"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(-1747 -11808 -36) (-1819 -11808 -36) (-1819 -11842 -36)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[1 0 0 -40] 1"
+					"vaxis" "[0 -1 0 -2] 1"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				
+			}
 		}
 		
 		"modify:entity"
@@ -791,9 +1491,10 @@
 			}
 			"add:solid"
 			{
+				
 				side
 				{
-					"plane" "(-1747 -11842 70) (-1747 -11842 -46) (-1819 -11842 -46)"
+					"plane" "(-1747 -11842 80) (-1747 -11842 -36) (-1819 -11842 -36)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[-1 0 0 32.5385] 0.26"
 					"vaxis" "[0 0 -1 26] 0.31"
@@ -803,7 +1504,7 @@
 				}
 				side
 				{
-					"plane" "(-1819 -11808 70) (-1819 -11808 -46) (-1747 -11808 -46)"
+					"plane" "(-1819 -11808 80) (-1819 -11808 -36) (-1747 -11808 -36)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[-1 0 0 0] 0.25"
 					"vaxis" "[0 0 -1 -16] 0.25"
@@ -813,7 +1514,7 @@
 				}
 				side
 				{
-					"plane" "(-1819 -11842 70) (-1819 -11842 -46) (-1819 -11808 -46)"
+					"plane" "(-1819 -11842 80) (-1819 -11842 -36) (-1819 -11808 -36)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[0 1 0 -24] 0.25"
 					"vaxis" "[0 0 -1 -8] 0.25"
@@ -823,7 +1524,7 @@
 				}
 				side
 				{
-					"plane" "(-1747 -11808 70) (-1747 -11808 -46) (-1747 -11842 -46)"
+					"plane" "(-1747 -11808 80) (-1747 -11808 -36) (-1747 -11842 -36)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[0 1 0 -30.2279] 0.26"
 					"vaxis" "[0 0 -1 58.452] 0.31"
@@ -833,7 +1534,7 @@
 				}
 				side
 				{
-					"plane" "(-1747 -11842 70) (-1819 -11842 70) (-1819 -11808 70)"
+					"plane" "(-1747 -11842 80) (-1819 -11842 80) (-1819 -11808 80)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[1 0 0 -40] 1"
 					"vaxis" "[0 -1 0 -10] 1"
@@ -843,7 +1544,7 @@
 				}
 				side
 				{
-					"plane" "(-1747 -11808 -46) (-1819 -11808 -46) (-1819 -11842 -46)"
+					"plane" "(-1747 -11808 -36) (-1819 -11808 -36) (-1819 -11842 -36)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[1 0 0 -40] 1"
 					"vaxis" "[0 -1 0 -2] 1"
@@ -851,6 +1552,7 @@
 					"lightmapscale" "16"
 					"smoothing_groups" "0"
 				}
+				
 			}
 		}
 		
@@ -882,7 +1584,53 @@
 			"lifetime" "-1"
 			"power" "1"
 			
+			"origin"      "-2193 -12212 -7"
 		}
+		"add:entity"
+		{
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "250"
+			"targetname" "gskSpawn_01_GuestHouse_020_LandMine"
+			"origin" "-2193 -12212 -17"
+			"trapsecret" "2"
+			"health" "1"
+			
+			"angles" "0 125 0"
+			"combinability" "1"
+			"skin" "0"
+			"disableshadows" "0"
+			"combinetarget1enable" "1"
+			"combinetarget2enable" "1"
+			"combinetarget3enable" "1"
+			"combinetarget4enable" "1"
+			"combinetarget5enable" "1"
+			"PerformanceMode" "0"
+			"pressuredelay" "0"
+			"mindxlevel" "0"
+			"maxdxlevel" "0"
+			"minhealthdmg" "0"
+			"shadowcastdist" "0"
+			"Damagetype" "0"
+			"nodamageforces" "0"
+			"inertiaScale" "1.0"
+			"massScale" "0"
+			"damagetoenablemotion" "0"
+			"forcetoenablemotion" "0"
+			"fademindist" "500"
+			"fademaxdist" "700"
+			"fadescale" "1"
+			"spawnflags" "257"
+			"combinetarget6enable" "1"
+			"combinetarget7enable" "1"
+			"combinetarget8enable" "1"
+			"combinetarget9enable" "1"
+			"combinetarget10enable" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+		}
+		
 		"add:entity"
 		{
 			"classname" "trigger_once"
@@ -892,6 +1640,75 @@
 			"spawnflags" "1"
 			"targetname" "gskSpawn_01_GuestHouse_020_ColliderBox"
 			"origin" "-2193 -12212 -17"
+			connections
+			{
+				"OnStartTouch" "gskSpawn_01_GuestHouse_020,CastSpell,,0,-1,1,"
+			}
+			solid
+			{
+				
+				side
+				{
+					"plane" "(-2279 -11579 95) (-2279 -11579 -21) (-2351 -11579 -21)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[-1 0 0 32.5385] 0.26"
+					"vaxis" "[0 0 -1 26] 0.31"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(-2351 -11545 95) (-2351 -11545 -21) (-2279 -11545 -21)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[-1 0 0 0] 0.25"
+					"vaxis" "[0 0 -1 -16] 0.25"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(-2351 -11579 95) (-2351 -11579 -21) (-2351 -11545 -21)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[0 1 0 -24] 0.25"
+					"vaxis" "[0 0 -1 -8] 0.25"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(-2279 -11545 95) (-2279 -11545 -21) (-2279 -11579 -21)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[0 1 0 -30.2279] 0.26"
+					"vaxis" "[0 0 -1 58.452] 0.31"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(-2279 -11579 95) (-2351 -11579 95) (-2351 -11545 95)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[1 0 0 -40] 1"
+					"vaxis" "[0 -1 0 -10] 1"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(-2279 -11545 -21) (-2351 -11545 -21) (-2351 -11579 -21)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[1 0 0 -40] 1"
+					"vaxis" "[0 -1 0 -2] 1"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				
+			}
 		}
 		
 		"modify:entity"
@@ -902,9 +1719,10 @@
 			}
 			"add:solid"
 			{
+				
 				side
 				{
-					"plane" "(-2279 -11579 85) (-2279 -11579 -31) (-2351 -11579 -31)"
+					"plane" "(-2279 -11579 95) (-2279 -11579 -21) (-2351 -11579 -21)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[-1 0 0 32.5385] 0.26"
 					"vaxis" "[0 0 -1 26] 0.31"
@@ -914,7 +1732,7 @@
 				}
 				side
 				{
-					"plane" "(-2351 -11545 85) (-2351 -11545 -31) (-2279 -11545 -31)"
+					"plane" "(-2351 -11545 95) (-2351 -11545 -21) (-2279 -11545 -21)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[-1 0 0 0] 0.25"
 					"vaxis" "[0 0 -1 -16] 0.25"
@@ -924,7 +1742,7 @@
 				}
 				side
 				{
-					"plane" "(-2351 -11579 85) (-2351 -11579 -31) (-2351 -11545 -31)"
+					"plane" "(-2351 -11579 95) (-2351 -11579 -21) (-2351 -11545 -21)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[0 1 0 -24] 0.25"
 					"vaxis" "[0 0 -1 -8] 0.25"
@@ -934,7 +1752,7 @@
 				}
 				side
 				{
-					"plane" "(-2279 -11545 85) (-2279 -11545 -31) (-2279 -11579 -31)"
+					"plane" "(-2279 -11545 95) (-2279 -11545 -21) (-2279 -11579 -21)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[0 1 0 -30.2279] 0.26"
 					"vaxis" "[0 0 -1 58.452] 0.31"
@@ -944,7 +1762,7 @@
 				}
 				side
 				{
-					"plane" "(-2279 -11579 85) (-2351 -11579 85) (-2351 -11545 85)"
+					"plane" "(-2279 -11579 95) (-2351 -11579 95) (-2351 -11545 95)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[1 0 0 -40] 1"
 					"vaxis" "[0 -1 0 -10] 1"
@@ -954,7 +1772,7 @@
 				}
 				side
 				{
-					"plane" "(-2279 -11545 -31) (-2351 -11545 -31) (-2351 -11579 -31)"
+					"plane" "(-2279 -11545 -21) (-2351 -11545 -21) (-2351 -11579 -21)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[1 0 0 -40] 1"
 					"vaxis" "[0 -1 0 -2] 1"
@@ -962,6 +1780,7 @@
 					"lightmapscale" "16"
 					"smoothing_groups" "0"
 				}
+				
 			}
 		}
 		
@@ -993,7 +1812,53 @@
 			"lifetime" "-1"
 			"power" "1"
 			
+			"origin"      "-1570 -10855 -23"
 		}
+		"add:entity"
+		{
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "250"
+			"targetname" "gskSpawn_01_GuestHouse_021_LandMine"
+			"origin" "-1570 -10855 -33"
+			"trapsecret" "2"
+			"health" "1"
+			
+			"angles" "0 125 0"
+			"combinability" "1"
+			"skin" "0"
+			"disableshadows" "0"
+			"combinetarget1enable" "1"
+			"combinetarget2enable" "1"
+			"combinetarget3enable" "1"
+			"combinetarget4enable" "1"
+			"combinetarget5enable" "1"
+			"PerformanceMode" "0"
+			"pressuredelay" "0"
+			"mindxlevel" "0"
+			"maxdxlevel" "0"
+			"minhealthdmg" "0"
+			"shadowcastdist" "0"
+			"Damagetype" "0"
+			"nodamageforces" "0"
+			"inertiaScale" "1.0"
+			"massScale" "0"
+			"damagetoenablemotion" "0"
+			"forcetoenablemotion" "0"
+			"fademindist" "500"
+			"fademaxdist" "700"
+			"fadescale" "1"
+			"spawnflags" "257"
+			"combinetarget6enable" "1"
+			"combinetarget7enable" "1"
+			"combinetarget8enable" "1"
+			"combinetarget9enable" "1"
+			"combinetarget10enable" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+		}
+		
 		"add:entity"
 		{
 			"classname" "trigger_once"
@@ -1003,6 +1868,75 @@
 			"spawnflags" "1"
 			"targetname" "gskSpawn_01_GuestHouse_021_ColliderBox"
 			"origin" "-1570 -10855 -33"
+			connections
+			{
+				"OnStartTouch" "gskSpawn_01_GuestHouse_021,CastSpell,,0,-1,1,"
+			}
+			solid
+			{
+				
+				side
+				{
+					"plane" "(-1656 -10222 79) (-1656 -10222 -37) (-1728 -10222 -37)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[-1 0 0 32.5385] 0.26"
+					"vaxis" "[0 0 -1 26] 0.31"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(-1728 -10188 79) (-1728 -10188 -37) (-1656 -10188 -37)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[-1 0 0 0] 0.25"
+					"vaxis" "[0 0 -1 -16] 0.25"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(-1728 -10222 79) (-1728 -10222 -37) (-1728 -10188 -37)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[0 1 0 -24] 0.25"
+					"vaxis" "[0 0 -1 -8] 0.25"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(-1656 -10188 79) (-1656 -10188 -37) (-1656 -10222 -37)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[0 1 0 -30.2279] 0.26"
+					"vaxis" "[0 0 -1 58.452] 0.31"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(-1656 -10222 79) (-1728 -10222 79) (-1728 -10188 79)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[1 0 0 -40] 1"
+					"vaxis" "[0 -1 0 -10] 1"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(-1656 -10188 -37) (-1728 -10188 -37) (-1728 -10222 -37)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[1 0 0 -40] 1"
+					"vaxis" "[0 -1 0 -2] 1"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				
+			}
 		}
 		
 		"modify:entity"
@@ -1013,9 +1947,10 @@
 			}
 			"add:solid"
 			{
+				
 				side
 				{
-					"plane" "(-1656 -10222 69) (-1656 -10222 -47) (-1728 -10222 -47)"
+					"plane" "(-1656 -10222 79) (-1656 -10222 -37) (-1728 -10222 -37)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[-1 0 0 32.5385] 0.26"
 					"vaxis" "[0 0 -1 26] 0.31"
@@ -1025,7 +1960,7 @@
 				}
 				side
 				{
-					"plane" "(-1728 -10188 69) (-1728 -10188 -47) (-1656 -10188 -47)"
+					"plane" "(-1728 -10188 79) (-1728 -10188 -37) (-1656 -10188 -37)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[-1 0 0 0] 0.25"
 					"vaxis" "[0 0 -1 -16] 0.25"
@@ -1035,7 +1970,7 @@
 				}
 				side
 				{
-					"plane" "(-1728 -10222 69) (-1728 -10222 -47) (-1728 -10188 -47)"
+					"plane" "(-1728 -10222 79) (-1728 -10222 -37) (-1728 -10188 -37)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[0 1 0 -24] 0.25"
 					"vaxis" "[0 0 -1 -8] 0.25"
@@ -1045,7 +1980,7 @@
 				}
 				side
 				{
-					"plane" "(-1656 -10188 69) (-1656 -10188 -47) (-1656 -10222 -47)"
+					"plane" "(-1656 -10188 79) (-1656 -10188 -37) (-1656 -10222 -37)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[0 1 0 -30.2279] 0.26"
 					"vaxis" "[0 0 -1 58.452] 0.31"
@@ -1055,7 +1990,7 @@
 				}
 				side
 				{
-					"plane" "(-1656 -10222 69) (-1728 -10222 69) (-1728 -10188 69)"
+					"plane" "(-1656 -10222 79) (-1728 -10222 79) (-1728 -10188 79)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[1 0 0 -40] 1"
 					"vaxis" "[0 -1 0 -10] 1"
@@ -1065,7 +2000,7 @@
 				}
 				side
 				{
-					"plane" "(-1656 -10188 -47) (-1728 -10188 -47) (-1728 -10222 -47)"
+					"plane" "(-1656 -10188 -37) (-1728 -10188 -37) (-1728 -10222 -37)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[1 0 0 -40] 1"
 					"vaxis" "[0 -1 0 -2] 1"
@@ -1073,6 +2008,7 @@
 					"lightmapscale" "16"
 					"smoothing_groups" "0"
 				}
+				
 			}
 		}
 		
@@ -1104,7 +2040,53 @@
 			"lifetime" "-1"
 			"power" "1"
 			
+			"origin"      "-1971 -10809 -14"
 		}
+		"add:entity"
+		{
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "250"
+			"targetname" "gskSpawn_01_GuestHouse_022_LandMine"
+			"origin" "-1971 -10809 -24"
+			"trapsecret" "2"
+			"health" "1"
+			
+			"angles" "0 125 0"
+			"combinability" "1"
+			"skin" "0"
+			"disableshadows" "0"
+			"combinetarget1enable" "1"
+			"combinetarget2enable" "1"
+			"combinetarget3enable" "1"
+			"combinetarget4enable" "1"
+			"combinetarget5enable" "1"
+			"PerformanceMode" "0"
+			"pressuredelay" "0"
+			"mindxlevel" "0"
+			"maxdxlevel" "0"
+			"minhealthdmg" "0"
+			"shadowcastdist" "0"
+			"Damagetype" "0"
+			"nodamageforces" "0"
+			"inertiaScale" "1.0"
+			"massScale" "0"
+			"damagetoenablemotion" "0"
+			"forcetoenablemotion" "0"
+			"fademindist" "500"
+			"fademaxdist" "700"
+			"fadescale" "1"
+			"spawnflags" "257"
+			"combinetarget6enable" "1"
+			"combinetarget7enable" "1"
+			"combinetarget8enable" "1"
+			"combinetarget9enable" "1"
+			"combinetarget10enable" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+		}
+		
 		"add:entity"
 		{
 			"classname" "trigger_once"
@@ -1114,6 +2096,75 @@
 			"spawnflags" "1"
 			"targetname" "gskSpawn_01_GuestHouse_022_ColliderBox"
 			"origin" "-1971 -10809 -24"
+			connections
+			{
+				"OnStartTouch" "gskSpawn_01_GuestHouse_022,CastSpell,,0,-1,1,"
+			}
+			solid
+			{
+				
+				side
+				{
+					"plane" "(-2057 -10176 88) (-2057 -10176 -28) (-2129 -10176 -28)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[-1 0 0 32.5385] 0.26"
+					"vaxis" "[0 0 -1 26] 0.31"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(-2129 -10142 88) (-2129 -10142 -28) (-2057 -10142 -28)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[-1 0 0 0] 0.25"
+					"vaxis" "[0 0 -1 -16] 0.25"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(-2129 -10176 88) (-2129 -10176 -28) (-2129 -10142 -28)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[0 1 0 -24] 0.25"
+					"vaxis" "[0 0 -1 -8] 0.25"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(-2057 -10142 88) (-2057 -10142 -28) (-2057 -10176 -28)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[0 1 0 -30.2279] 0.26"
+					"vaxis" "[0 0 -1 58.452] 0.31"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(-2057 -10176 88) (-2129 -10176 88) (-2129 -10142 88)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[1 0 0 -40] 1"
+					"vaxis" "[0 -1 0 -10] 1"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(-2057 -10142 -28) (-2129 -10142 -28) (-2129 -10176 -28)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[1 0 0 -40] 1"
+					"vaxis" "[0 -1 0 -2] 1"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				
+			}
 		}
 		
 		"modify:entity"
@@ -1124,9 +2175,10 @@
 			}
 			"add:solid"
 			{
+				
 				side
 				{
-					"plane" "(-2057 -10176 78) (-2057 -10176 -38) (-2129 -10176 -38)"
+					"plane" "(-2057 -10176 88) (-2057 -10176 -28) (-2129 -10176 -28)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[-1 0 0 32.5385] 0.26"
 					"vaxis" "[0 0 -1 26] 0.31"
@@ -1136,7 +2188,7 @@
 				}
 				side
 				{
-					"plane" "(-2129 -10142 78) (-2129 -10142 -38) (-2057 -10142 -38)"
+					"plane" "(-2129 -10142 88) (-2129 -10142 -28) (-2057 -10142 -28)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[-1 0 0 0] 0.25"
 					"vaxis" "[0 0 -1 -16] 0.25"
@@ -1146,7 +2198,7 @@
 				}
 				side
 				{
-					"plane" "(-2129 -10176 78) (-2129 -10176 -38) (-2129 -10142 -38)"
+					"plane" "(-2129 -10176 88) (-2129 -10176 -28) (-2129 -10142 -28)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[0 1 0 -24] 0.25"
 					"vaxis" "[0 0 -1 -8] 0.25"
@@ -1156,7 +2208,7 @@
 				}
 				side
 				{
-					"plane" "(-2057 -10142 78) (-2057 -10142 -38) (-2057 -10176 -38)"
+					"plane" "(-2057 -10142 88) (-2057 -10142 -28) (-2057 -10176 -28)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[0 1 0 -30.2279] 0.26"
 					"vaxis" "[0 0 -1 58.452] 0.31"
@@ -1166,7 +2218,7 @@
 				}
 				side
 				{
-					"plane" "(-2057 -10176 78) (-2129 -10176 78) (-2129 -10142 78)"
+					"plane" "(-2057 -10176 88) (-2129 -10176 88) (-2129 -10142 88)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[1 0 0 -40] 1"
 					"vaxis" "[0 -1 0 -10] 1"
@@ -1176,7 +2228,7 @@
 				}
 				side
 				{
-					"plane" "(-2057 -10142 -38) (-2129 -10142 -38) (-2129 -10176 -38)"
+					"plane" "(-2057 -10142 -28) (-2129 -10142 -28) (-2129 -10176 -28)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[1 0 0 -40] 1"
 					"vaxis" "[0 -1 0 -2] 1"
@@ -1184,6 +2236,7 @@
 					"lightmapscale" "16"
 					"smoothing_groups" "0"
 				}
+				
 			}
 		}
 		
@@ -1235,7 +2288,53 @@
 			"lifetime" "-1"
 			"power" "1"
 			
+			"origin"      "-3581 -10982 37"
 		}
+		"add:entity"
+		{
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "250"
+			"targetname" "gskSpawn_01_GuestHouse_025_LandMine"
+			"origin" "-3581 -10982 27"
+			"trapsecret" "2"
+			"health" "1"
+			
+			"angles" "0 125 0"
+			"combinability" "1"
+			"skin" "0"
+			"disableshadows" "0"
+			"combinetarget1enable" "1"
+			"combinetarget2enable" "1"
+			"combinetarget3enable" "1"
+			"combinetarget4enable" "1"
+			"combinetarget5enable" "1"
+			"PerformanceMode" "0"
+			"pressuredelay" "0"
+			"mindxlevel" "0"
+			"maxdxlevel" "0"
+			"minhealthdmg" "0"
+			"shadowcastdist" "0"
+			"Damagetype" "0"
+			"nodamageforces" "0"
+			"inertiaScale" "1.0"
+			"massScale" "0"
+			"damagetoenablemotion" "0"
+			"forcetoenablemotion" "0"
+			"fademindist" "500"
+			"fademaxdist" "700"
+			"fadescale" "1"
+			"spawnflags" "257"
+			"combinetarget6enable" "1"
+			"combinetarget7enable" "1"
+			"combinetarget8enable" "1"
+			"combinetarget9enable" "1"
+			"combinetarget10enable" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+		}
+		
 		"add:entity"
 		{
 			"classname" "trigger_once"
@@ -1245,6 +2344,75 @@
 			"spawnflags" "1"
 			"targetname" "gskSpawn_01_GuestHouse_025_ColliderBox"
 			"origin" "-3581 -10982 27"
+			connections
+			{
+				"OnStartTouch" "gskSpawn_01_GuestHouse_025,CastSpell,,0,-1,1,"
+			}
+			solid
+			{
+				
+				side
+				{
+					"plane" "(-3667 -10349 139) (-3667 -10349 23) (-3739 -10349 23)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[-1 0 0 32.5385] 0.26"
+					"vaxis" "[0 0 -1 26] 0.31"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(-3739 -10315 139) (-3739 -10315 23) (-3667 -10315 23)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[-1 0 0 0] 0.25"
+					"vaxis" "[0 0 -1 -16] 0.25"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(-3739 -10349 139) (-3739 -10349 23) (-3739 -10315 23)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[0 1 0 -24] 0.25"
+					"vaxis" "[0 0 -1 -8] 0.25"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(-3667 -10315 139) (-3667 -10315 23) (-3667 -10349 23)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[0 1 0 -30.2279] 0.26"
+					"vaxis" "[0 0 -1 58.452] 0.31"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(-3667 -10349 139) (-3739 -10349 139) (-3739 -10315 139)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[1 0 0 -40] 1"
+					"vaxis" "[0 -1 0 -10] 1"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(-3667 -10315 23) (-3739 -10315 23) (-3739 -10349 23)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[1 0 0 -40] 1"
+					"vaxis" "[0 -1 0 -2] 1"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				
+			}
 		}
 		
 		"modify:entity"
@@ -1255,9 +2423,10 @@
 			}
 			"add:solid"
 			{
+				
 				side
 				{
-					"plane" "(-3667 -10349 129) (-3667 -10349 13) (-3739 -10349 13)"
+					"plane" "(-3667 -10349 139) (-3667 -10349 23) (-3739 -10349 23)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[-1 0 0 32.5385] 0.26"
 					"vaxis" "[0 0 -1 26] 0.31"
@@ -1267,7 +2436,7 @@
 				}
 				side
 				{
-					"plane" "(-3739 -10315 129) (-3739 -10315 13) (-3667 -10315 13)"
+					"plane" "(-3739 -10315 139) (-3739 -10315 23) (-3667 -10315 23)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[-1 0 0 0] 0.25"
 					"vaxis" "[0 0 -1 -16] 0.25"
@@ -1277,7 +2446,7 @@
 				}
 				side
 				{
-					"plane" "(-3739 -10349 129) (-3739 -10349 13) (-3739 -10315 13)"
+					"plane" "(-3739 -10349 139) (-3739 -10349 23) (-3739 -10315 23)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[0 1 0 -24] 0.25"
 					"vaxis" "[0 0 -1 -8] 0.25"
@@ -1287,7 +2456,7 @@
 				}
 				side
 				{
-					"plane" "(-3667 -10315 129) (-3667 -10315 13) (-3667 -10349 13)"
+					"plane" "(-3667 -10315 139) (-3667 -10315 23) (-3667 -10349 23)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[0 1 0 -30.2279] 0.26"
 					"vaxis" "[0 0 -1 58.452] 0.31"
@@ -1297,7 +2466,7 @@
 				}
 				side
 				{
-					"plane" "(-3667 -10349 129) (-3739 -10349 129) (-3739 -10315 129)"
+					"plane" "(-3667 -10349 139) (-3739 -10349 139) (-3739 -10315 139)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[1 0 0 -40] 1"
 					"vaxis" "[0 -1 0 -10] 1"
@@ -1307,7 +2476,7 @@
 				}
 				side
 				{
-					"plane" "(-3667 -10315 13) (-3739 -10315 13) (-3739 -10349 13)"
+					"plane" "(-3667 -10315 23) (-3739 -10315 23) (-3739 -10349 23)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[1 0 0 -40] 1"
 					"vaxis" "[0 -1 0 -2] 1"
@@ -1315,6 +2484,7 @@
 					"lightmapscale" "16"
 					"smoothing_groups" "0"
 				}
+				
 			}
 		}
 		

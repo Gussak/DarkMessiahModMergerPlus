@@ -500,7 +500,7 @@ fi
 #bFlVanilla=false;if [[ -f "$strVanillaScriptFile" ]];then bFlVanilla=true;fi
 strDummyScriptFile="${strFinalDummyHelperFolder}/${strScriptFileRelat}"
 mkdir -vp "$(dirname "${strDummyScriptFile}")"
-declare -p strVanillaScriptFileChk strVanillaScriptFile strVanillaScriptFileOriginal strDummyScriptFile
+declare -p strVanillaScriptFile strVanillaScriptFileOriginal strDummyScriptFile #strVanillaScriptFileChk
 if $bDummyVanilla;then
 	case "$strDummyMsgType" in
 		MissingVanilla) 

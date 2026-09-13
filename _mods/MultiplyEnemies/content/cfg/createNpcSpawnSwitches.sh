@@ -459,7 +459,101 @@ function FUNCentityName() {
 	echo "gskSpawn_${lstrUseThisSector}_${strCount}"
 }
 
-function FUNCprepareFireTrapBoxCollider() {
+function FUNCprepareFireTrap() { #this works but you have to kick the oil jar
+	local lstrFireTrapTriggeredName="$1";shift
+	echo '
+		"add:entity"
+		{
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "250"
+			"targetname" "'"${lstrFireTrapTriggeredName}_LandMine"'"
+			"origin" "'"${anTargetPosXYZ[x]} ${anTargetPosXYZ[y]} ${anTargetPosXYZ[z]}"'"
+			"trapsecret" "2"
+			"health" "1"
+			
+			"angles" "0 125 0"
+			"combinability" "1"
+			"skin" "0"
+			"disableshadows" "0"
+			"combinetarget1enable" "1"
+			"combinetarget2enable" "1"
+			"combinetarget3enable" "1"
+			"combinetarget4enable" "1"
+			"combinetarget5enable" "1"
+			"PerformanceMode" "0"
+			"pressuredelay" "0"
+			"mindxlevel" "0"
+			"maxdxlevel" "0"
+			"minhealthdmg" "0"
+			"shadowcastdist" "0"
+			"Damagetype" "0"
+			"nodamageforces" "0"
+			"inertiaScale" "1.0"
+			"massScale" "0"
+			"damagetoenablemotion" "0"
+			"forcetoenablemotion" "0"
+			"fademindist" "500"
+			"fademaxdist" "700"
+			"fadescale" "1"
+			"spawnflags" "257"
+			"combinetarget6enable" "1"
+			"combinetarget7enable" "1"
+			"combinetarget8enable" "1"
+			"combinetarget9enable" "1"
+			"combinetarget10enable" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+		}
+		'
+		#models/props/furnitures/gob/L6_jar_oil/L6_jar_oil.mdl
+}	
+function FUNCprepareFireTrap_Fail() {
+	local lstrFireTrapTriggeredName="$1";shift
+	#"classname" "prop_physics_override"
+	#"classname" "prop_trap"
+	echo '
+		"add:entity"
+		{
+			"classname" "prop_physics_override"
+			"angles" "0 0 0"
+			"combinability" "1"
+			"trapsecret" "0"
+			"skin" "0"
+			"disableshadows" "0"
+			"combinetarget1enable" "1"
+			"combinetarget2enable" "1"
+			"combinetarget3enable" "1"
+			"combinetarget4enable" "1"
+			"combinetarget5enable" "1"
+			"ExplodeDamage" "1000"
+			"ExplodeRadius" "250"
+			"PerformanceMode" "0"
+			"pressuredelay" "0"
+			"mindxlevel" "0"
+			"maxdxlevel" "0"
+			"fademindist" "500"
+			"fademaxdist" "700"
+			"fadescale" "1"
+			"targetname" "'"${lstrFireTrapTriggeredName}_LandMine"'"
+			"model" "models/props/archi/l12/l12_crystal.mdl"
+			"combinetarget6enable" "1"
+			"combinetarget7enable" "1"
+			"combinetarget8enable" "1"
+			"combinetarget9enable" "1"
+			"combinetarget10enable" "1"
+			"physdamagescale" "0.1"
+			"inertiaScale" "1.0"
+			"spawnflags" "8"
+			"UseSpeedToCalculateSoundVolume" "1"
+			"origin" "'"${anTargetPosXYZ[x]} ${anTargetPosXYZ[y]} ${anTargetPosXYZ[z]}"'"
+		}
+		'
+		#models/items/provisions/bread01/bread01_raw.mdl
+		#models/props/debris/skeleton/cr_skel_crane.mdl
+}
+function FUNCprepareFireTrapBoxCollider() { #TODO THIS DOES NOT WORK, the solid box collider seems to not spawn
 	local lstrFireTrapTriggeredName="$1";shift
 	
 	#"origin" "-2938 -12916 -216"
@@ -481,39 +575,10 @@ function FUNCprepareFireTrapBoxCollider() {
 	local lnZdfs=44
 	local lnZSz=116
 	local lnZSzHalf=$((lnZSz/2))&&:
-	local lPosZ1=$((${anTargetPosXYZ[z]}-lnZSzHalf+lnZdfs))&&:
-	local lPosZ2=$((${anTargetPosXYZ[z]}+lnZSzHalf+lnZdfs))&&:
+	local lPosZ1=$((${anTargetPosXYZ[z]}-lnZSzHalf+lnZdfs+lnHeightDisplacement))&&:
+	local lPosZ2=$((${anTargetPosXYZ[z]}+lnZSzHalf+lnZdfs+lnHeightDisplacement))&&:
 	
-	echo '
-		"add:entity"
-		{
-			"classname" "trigger_once"
-			"combinability" "1"
-			"trapsecret" "0"
-			"StartDisabled" "0"
-			"spawnflags" "1"
-			"targetname" "'"${lstrFireTrapTriggeredName}_ColliderBox"'"
-			"origin" "'"${anTargetPosXYZ[x]} ${anTargetPosXYZ[y]} ${anTargetPosXYZ[z]}"'"
-		}
-		'
-	
-	################# TODO
-	################# it seems to not be adding the solid data???
-	################# trying thru "add:solid" (but I dont know if that command even exists, was it implemented at mapadds functionality?)
-	################# this was removed from above "add:entity"
-	###		solid
-	###		{
-	######### the solid sides below
-	###		}
-	echo '
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"'"${lstrFireTrapTriggeredName}_ColliderBox"'"
-			}
-			"add:solid"
-			{
+	local lstrSolidSides='
 				side
 				{
 					"plane" "('"${lPosX2}"' '"${lPosY1}"' '"${lPosZ2}"') ('"${lPosX2}"' '"${lPosY1}"' '"${lPosZ1}"') ('"${lPosX1}"' '"${lPosY1}"' '"${lPosZ1}"')"
@@ -574,6 +639,47 @@ function FUNCprepareFireTrapBoxCollider() {
 					"lightmapscale" "16"
 					"smoothing_groups" "0"
 				}
+				'
+	
+	echo '
+		"add:entity"
+		{
+			"classname" "trigger_once"
+			"combinability" "1"
+			"trapsecret" "0"
+			"StartDisabled" "0"
+			"spawnflags" "1"
+			"targetname" "'"${lstrFireTrapTriggeredName}_ColliderBox"'"
+			"origin" "'"${anTargetPosXYZ[x]} ${anTargetPosXYZ[y]} ${anTargetPosXYZ[z]}"'"
+			connections
+			{
+				"OnStartTouch" "'"${lstrFireTrapTriggeredName}"',CastSpell,,0,-1,1,"
+			}
+			solid
+			{
+				'"${lstrSolidSides}"'
+			}
+		}
+		'
+	
+	################# TODO
+	################# it seems to not be adding the solid data???
+	################# trying thru "add:solid" (but I dont know if that command even exists, was it implemented at mapadds functionality?)
+	################# this was removed from above "add:entity"
+	###		solid
+	###		{
+	######### the solid sides below
+	###		}
+	echo '
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"'"${lstrFireTrapTriggeredName}_ColliderBox"'"
+			}
+			"add:solid"
+			{
+				'"${lstrSolidSides}"'
 			}
 		}
 		'
@@ -826,6 +932,7 @@ function FUNCmapadds() {
 			' >>"$lstrFlAddTmp"
 			;;
 		"gskSummonDevFireTrap")
+			lnHeightDisplacement=10
 			echo '
 			"classname" "env_entity_SpellCaster"
 			"combinability" "1"
@@ -835,7 +942,8 @@ function FUNCmapadds() {
 			"lifetime" "-1"
 			"power" "1"
 			' >>"$lstrFlAddTmp"
-			lstrAddEntityExtra="$(FUNCprepareFireTrapBoxCollider "$lstrTargetName")" # >>"$lstrFlAddTmp"
+			lstrAddEntityExtra="$(FUNCprepareFireTrap "$lstrTargetName")"
+			lstrAddEntityExtra+="$(FUNCprepareFireTrapBoxCollider "$lstrTargetName")" #TODO this fails tho...
 			;;
 		"gskSummonDevSkeletonPart")
 			local lstrSkelPartModel=""
