@@ -931,7 +931,8 @@ if $bApplyEachPatch;then
 	FUNCjsonSetArrayByExt launch_parameters ""
 	FUNCjsonSetArrayByExt gameinfo_parameters ""
 	FUNCjsonSetArrayByExt modules ""
-	FUNCjsonSetArrayByExt game_configs cfg
+	#HelpKEEPinfo:DoNotUse: FUNCjsonSetArrayByExt game_configs cfg #see ./unifiedGameCfg.sh instead
+	FUNCjsonSetArrayByExt game_configs ""
 	FUNCjsonSetArrayByExt autoexec_configs ""
 	ls -l "$strFlJson"
 	cat "$strFlJson"
