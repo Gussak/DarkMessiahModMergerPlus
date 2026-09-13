@@ -779,7 +779,7 @@ function FUNCgetNewestCondump() {
 };export -f FUNCgetNewestCondump
 
 export strPipeAWKbiggestLine='length($0) > max { max = length($0); delete lines; lines[$0]; next } length($0) == max { lines[$0] } END { for (l in lines) print l }'
-function FUNCreturnBiggestLinePipe() { #help accepts working as a pipe for lines. accepts each line as one param. accepts an array of lines as param (pass just the array name).
+function FUNCreturnBiggestLinePipe() { #help accepts working as a pipe for lines. accepts each line as one param. accepts an array of lines as param (pass just the array name). Btw, the problem is on the condump command as when reading on the in-game console the missing character wont happen.
 	local lstrOutput
 	
 	if [[ $# == 1 ]];then #only one param mean it is an array id

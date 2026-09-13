@@ -1094,7 +1094,7 @@ if $bCreateSpawnsForCurrentMap;then
 	#iDataLines=4
 	echo
 #	echo "// FILL MAP WITH NPCs, total $((${#astrSpawnHintList[@]}/iDataLines))"
-	nTotSpawns="$(cat "$strFlCondump" |grep "^gskSpawnHint" -c)"
+	nTotSpawns="$(cat "$strFlCondump" |grep "gskSpawnHint" -c)"
 	if((nTotSpawns==0));then
 		FUNCechoInfo "[ERROR:spawnSomeFoes] use F7 F8 keys"
 		FUNCexit 1
@@ -1320,7 +1320,7 @@ if $bCreateSpawnsForCurrentMap;then
 		FUNCwait10s "There are not supported spawnings or other TODOs at mapadds file."
 	fi
 	
-	cat "$strFlCondumpCleanNew" >"$strFlCondumpClean" #after all went well
+	cat "$strFlCondumpCleanNew" |sed -r -e 's@([^ \t]*)\s*$@\1@g' >"$strFlCondumpClean" #after all went well, also trim trailing spaces
 	ls -l "$strMapCfgFile"
 else # create spawner aliases
 	strAliasMode=""
