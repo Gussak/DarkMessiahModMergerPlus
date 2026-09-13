@@ -1224,10 +1224,11 @@ def _patch_duplicate_key(
                 return line, [], True  # skip original line
 
         # FIX: Non-dominant duplicates should ALWAYS be appended, never replaced in-place.
-        # By returning True (skip original line), we prevent it from leaking into the output prematurely.
+        # We keep the original line (return False) so it stays in the output.
+        # New patch values will be appended later by the missing-key injection logic.
         if not is_dominant_key(key):
-                return line, [], True 
-     
+                return line, [], False 
+
         if indexed_path in patches:
                 new_val = patches[indexed_path]
                 try:
