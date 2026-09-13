@@ -509,51 +509,9 @@ function FUNCprepareFireTrap() { #this works but you have to kick the oil jar
 		}
 		'
 		#models/props/furnitures/gob/L6_jar_oil/L6_jar_oil.mdl
-}	
-function FUNCprepareFireTrap_Fail() {
-	local lstrFireTrapTriggeredName="$1";shift
-	#"classname" "prop_physics_override"
-	#"classname" "prop_trap"
-	echo '
-		"add:entity"
-		{
-			"classname" "prop_physics_override"
-			"angles" "0 0 0"
-			"combinability" "1"
-			"trapsecret" "0"
-			"skin" "0"
-			"disableshadows" "0"
-			"combinetarget1enable" "1"
-			"combinetarget2enable" "1"
-			"combinetarget3enable" "1"
-			"combinetarget4enable" "1"
-			"combinetarget5enable" "1"
-			"ExplodeDamage" "1000"
-			"ExplodeRadius" "250"
-			"PerformanceMode" "0"
-			"pressuredelay" "0"
-			"mindxlevel" "0"
-			"maxdxlevel" "0"
-			"fademindist" "500"
-			"fademaxdist" "700"
-			"fadescale" "1"
-			"targetname" "'"${lstrFireTrapTriggeredName}_LandMine"'"
-			"model" "models/props/archi/l12/l12_crystal.mdl"
-			"combinetarget6enable" "1"
-			"combinetarget7enable" "1"
-			"combinetarget8enable" "1"
-			"combinetarget9enable" "1"
-			"combinetarget10enable" "1"
-			"physdamagescale" "0.1"
-			"inertiaScale" "1.0"
-			"spawnflags" "8"
-			"UseSpeedToCalculateSoundVolume" "1"
-			"origin" "'"${anTargetPosXYZ[x]} ${anTargetPosXYZ[y]} ${anTargetPosXYZ[z]}"'"
-		}
-		'
 		#models/items/provisions/bread01/bread01_raw.mdl
-		#models/props/debris/skeleton/cr_skel_crane.mdl
-}
+}	
+
 function FUNCprepareFireTrapBoxCollider() { #TODO THIS DOES NOT WORK, the solid box collider seems to not spawn
 	local lstrFireTrapTriggeredName="$1";shift
 	
@@ -642,6 +600,8 @@ function FUNCprepareFireTrapBoxCollider() { #TODO THIS DOES NOT WORK, the solid 
 				}
 				'
 	
+	local lstrTargetName="${lstrFireTrapTriggeredName}_ColliderBox_TODO_SolidBoxWontSpawn"
+	
 	echo '
 		"add:entity"
 		{
@@ -650,7 +610,7 @@ function FUNCprepareFireTrapBoxCollider() { #TODO THIS DOES NOT WORK, the solid 
 			"trapsecret" "0"
 			"StartDisabled" "0"
 			"spawnflags" "1"
-			"targetname" "'"${lstrFireTrapTriggeredName}_ColliderBox"'"
+			"targetname" "'"${lstrTargetName}"'"
 			"origin" "'"${anTargetPosXYZ[x]} ${anTargetPosXYZ[y]} ${anTargetPosXYZ[z]}"'"
 			connections
 			{
@@ -676,7 +636,7 @@ function FUNCprepareFireTrapBoxCollider() { #TODO THIS DOES NOT WORK, the solid 
 		{
 			"TargetMarkers"
 			{
-				"targetname"	"'"${lstrFireTrapTriggeredName}_ColliderBox"'"
+				"targetname"	"'"${lstrTargetName}"'"
 			}
 			"add:solid"
 			{
@@ -696,7 +656,7 @@ function FUNCprepareFireTrapBoxCollider() { #TODO THIS DOES NOT WORK, the solid 
 		{
 			"TargetMarkers"
 			{
-				"targetname"	"'"${lstrFireTrapTriggeredName}_ColliderBox"'"
+				"targetname"	"'"${lstrTargetName}"'"
 			}
 			"add:key"
 			{
@@ -951,7 +911,7 @@ function FUNCmapadds() {
 			local lnRandomSkelPart="$(printf %d "0x$(crc32 <(echo "${strFlMapadds}${nSkeletonPartCount}"))")" #this way it wont just cycle thru parts, it will be predictable random based on the mapadds filename name
 			local lnRotationY="$(( (lnRandomSkelPart%360) - 180))"
 			#case "$((lnRandomSkelPart%6))" in
-			case "$((lnRandomSkelPart%3))" in
+			case "$((lnRandomSkelPart%2))" in
 				0) lstrSkelPartModel="models/props/debris/skeleton/cr_skel_thorax.mdl";;
 				1) lstrSkelPartModel="models/props/debris/skeleton/cr_skel_crane.mdl";;
 				# these below are too small and similar in shape, the player may not see nor step over never..
@@ -972,7 +932,7 @@ function FUNCmapadds() {
 			"UseSpeedToCalculateSoundVolume" "1"
 			' >>"$lstrFlAddTmp"
 			
-			if((nSkeletonPartCount%3 == 1));then # 1 on every 3 will explode see FUNCprepareFireTrap
+			if((lnRandomSkelPart%10 < 5));then # theoretically half would explode (see FUNCprepareFireTrap too) but crc32 will make it actually happen randomly!
 				echo '
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -1183,6 +1143,8 @@ if $bCreateSpawnsForCurrentMap;then
 	iTotEntryDataLines=7
 	if ! $bCollectTargetPos;then ((iTotEntryDataLines-=2))&&:;fi
 	
+	if egrep -nH "(setpos.*setpos|setang.*setang|prop at.*prop at|missing modelname.*missing modelname)" "$strFlCondump";then FUNCexit 1 "fix it at CLEAN file (not TMP) and re-run the script";fi
+	
 	for((i=0;i<${#astrAllLines[@]};i++));do
 		#set -x
 		strMODE=SpawnNPC
@@ -1220,12 +1182,14 @@ if $bCreateSpawnsForCurrentMap;then
 				((iLnData++))&&:;strTargetPosChk="${astrAllLines[$iLnData]}" #as engine may not print one char! :O
 				if ! strTargetPos="$(FUNCreturnBiggestLinePipe "$strTargetPos" "$strTargetPosChk")";then FUNCeditCondumpAtLn "TargetPos";fi
 				if ! egrep -q "^prop at " <(echo "$strTargetPos");then FUNCeditCondumpAtLn "TargetPos2";fi
+				if egrep -q "(prop at.*prop at|missing modelname.*missing modelname)" <(echo "$strTargetPos");then FUNCeditCondumpAtLn "TargetPos3";fi
 			fi
 			
 			((iLnData++))&&:;strSelfPosAngleCmd="${astrAllLines[$iLnData]}"
 			((iLnData++))&&:;strSelfPosAngleCmdChk="${astrAllLines[$iLnData]}" #as engine may not print one char! :O
 			if ! strSelfPosAngleCmd="$(FUNCreturnBiggestLinePipe "$strSelfPosAngleCmd" "$strSelfPosAngleCmdChk")";then FUNCeditCondumpAtLn "SelfPosAngle";fi
 			if ! egrep -q "^setpos " <(echo "$strSelfPosAngleCmd");then FUNCeditCondumpAtLn "SelfPosAngle2";fi
+			if egrep -q "(setpos.*setpos|setang.*setang)" <(echo "$strSelfPosAngleCmd");then FUNCeditCondumpAtLn "SelfPosAngle3";fi
 			strSelfPosAngleCmd="$(FUNCposAngAsCmd "$strSelfPosAngleCmd")"
 			strSelfPosAngleCmdFixed="$(FUNCfixPosAng "${strSelfPosAngleCmd}")"
 
