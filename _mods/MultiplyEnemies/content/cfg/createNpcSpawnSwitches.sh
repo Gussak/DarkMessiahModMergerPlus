@@ -459,6 +459,104 @@ function FUNCentityName() {
 	echo "gskSpawn_${lstrUseThisSector}_${strCount}"
 }
 
+function FUNCprepareFireTrapBoxCollider() {
+	local lstrFireTrapTriggeredName="$1";shift
+	
+	local lnXSz=72
+	local lnXSzHalf=$((lnXSz/2))&&:
+	local lPosX1=$((${anTargetPosXYZ[x]}-lnXSzHalf))&&:
+	local lPosX2=$((${anTargetPosXYZ[x]}+lnXSzHalf))&&:
+	
+	local lnYSz=34
+	local lnYSzHalf=$((lnYSz/2))&&:
+	local lPosY1=$((${anTargetPosXYZ[y]}-lnYSzHalf))&&:
+	local lPosY2=$((${anTargetPosXYZ[y]}+lnYSzHalf))&&:
+	
+	local lnZSz=116
+	local lnZSzHalf=$((lnZSz/2))&&:
+	local lPosZ1=$((${anTargetPosXYZ[z]}-lnZSzHalf))&&:
+	local lPosZ2=$((${anTargetPosXYZ[z]}+lnZSzHalf))&&:
+	
+	echo '
+		"add:entity"
+		{
+			"classname" "trigger_once"
+			"combinability" "1"
+			"trapsecret" "0"
+			"StartDisabled" "0"
+			"spawnflags" "1"
+			"origin" "'"${anTargetPosXYZ[x]} ${anTargetPosXYZ[y]} ${anTargetPosXYZ[z]}"'"
+			connections
+			{
+				"OnStartTouch" "'"${lstrFireTrapTriggeredName}"',CastSpell,,0,-1,1,"
+			}
+			solid
+			{
+				side
+				{
+					"plane" "('"${lPosX2}"' '"${lPosY1}"' '"${lPosZ2}"') ('"${lPosX2}"' '"${lPosY1}"' '"${lPosZ1}"') ('"${lPosX1}"' '"${lPosY1}"' '"${lPosZ1}"')"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[-1 0 0 32.5385] 0.26"
+					"vaxis" "[0 0 -1 26] 0.31"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "('"${lPosX1}"' '"${lPosY2}"' '"${lPosZ2}"') ('"${lPosX1}"' '"${lPosY2}"' '"${lPosZ1}"') ('"${lPosX2}"' '"${lPosY2}"' '"${lPosZ1}"')"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[-1 0 0 0] 0.25"
+					"vaxis" "[0 0 -1 -16] 0.25"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "('"${lPosX1}"' '"${lPosY1}"' '"${lPosZ2}"') ('"${lPosX1}"' '"${lPosY1}"' '"${lPosZ1}"') ('"${lPosX1}"' '"${lPosY2}"' '"${lPosZ1}"')"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[0 1 0 -24] 0.25"
+					"vaxis" "[0 0 -1 -8] 0.25"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "('"${lPosX2}"' '"${lPosY2}"' '"${lPosZ2}"') ('"${lPosX2}"' '"${lPosY2}"' '"${lPosZ1}"') ('"${lPosX2}"' '"${lPosY1}"' '"${lPosZ1}"')"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[0 1 0 -30.2279] 0.26"
+					"vaxis" "[0 0 -1 58.452] 0.31"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "('"${lPosX2}"' '"${lPosY1}"' '"${lPosZ2}"') ('"${lPosX1}"' '"${lPosY1}"' '"${lPosZ2}"') ('"${lPosX1}"' '"${lPosY2}"' '"${lPosZ2}"')"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[1 0 0 -40] 1"
+					"vaxis" "[0 -1 0 -10] 1"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "('"${lPosX2}"' '"${lPosY2}"' '"${lPosZ1}"') ('"${lPosX1}"' '"${lPosY2}"' '"${lPosZ1}"') ('"${lPosX1}"' '"${lPosY1}"' '"${lPosZ1}"')"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[1 0 0 -40] 1"
+					"vaxis" "[0 -1 0 -2] 1"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+			}
+		}	
+		'
+}
+
 : ${bAllowBurrow=true} #help you can override and force re-prepare all mapadds with them all not hidden
 nUndeadCount=0
 nSkeletonPartCount=0
@@ -694,6 +792,7 @@ function FUNCmapadds() {
 			"lifetime" "-1"
 			"power" "1"
 			' >>"$lstrFlAddTmp"
+			FUNCprepareFireTrapBoxCollider "$lstrTargetName" >>"$lstrFlAddTmp"
 			;;
 		"gskSummonDevSkeletonPart")
 			local lstrSkelPartModel=""
