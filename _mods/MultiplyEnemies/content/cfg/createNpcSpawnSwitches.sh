@@ -462,21 +462,27 @@ function FUNCentityName() {
 function FUNCprepareFireTrapBoxCollider() {
 	local lstrFireTrapTriggeredName="$1";shift
 	
+	#"origin" "-2938 -12916 -216"
+	#"origin" "-3060 -12266 -172.5"
+	
 	#declare -p anTargetPosXYZ >&2
+	local lnXdfs=-122 #displacementFromSpellEntity (this make make no difference tho...)
 	local lnXSz=72
 	local lnXSzHalf=$((lnXSz/2))&&:
-	local lPosX1=$((${anTargetPosXYZ[x]}-lnXSzHalf))&&:
-	local lPosX2=$((${anTargetPosXYZ[x]}+lnXSzHalf))&&:
+	local lPosX1=$((${anTargetPosXYZ[x]}-lnXSzHalf+lnXdfs))&&:
+	local lPosX2=$((${anTargetPosXYZ[x]}+lnXSzHalf+lnXdfs))&&:
 	
+	local lnYdfs=650
 	local lnYSz=34
 	local lnYSzHalf=$((lnYSz/2))&&:
-	local lPosY1=$((${anTargetPosXYZ[y]}-lnYSzHalf))&&:
-	local lPosY2=$((${anTargetPosXYZ[y]}+lnYSzHalf))&&:
+	local lPosY1=$((${anTargetPosXYZ[y]}-lnYSzHalf+lnYdfs))&&:
+	local lPosY2=$((${anTargetPosXYZ[y]}+lnYSzHalf+lnYdfs))&&:
 	
+	local lnZdfs=44
 	local lnZSz=116
 	local lnZSzHalf=$((lnZSz/2))&&:
-	local lPosZ1=$((${anTargetPosXYZ[z]}-lnZSzHalf))&&:
-	local lPosZ2=$((${anTargetPosXYZ[z]}+lnZSzHalf))&&:
+	local lPosZ1=$((${anTargetPosXYZ[z]}-lnZSzHalf+lnZdfs))&&:
+	local lPosZ2=$((${anTargetPosXYZ[z]}+lnZSzHalf+lnZdfs))&&:
 	
 	echo '
 		"add:entity"
@@ -486,11 +492,8 @@ function FUNCprepareFireTrapBoxCollider() {
 			"trapsecret" "0"
 			"StartDisabled" "0"
 			"spawnflags" "1"
+			"targetname" "'"${lstrFireTrapTriggeredName}_ColliderBox"'"
 			"origin" "'"${anTargetPosXYZ[x]} ${anTargetPosXYZ[y]} ${anTargetPosXYZ[z]}"'"
-			connections
-			{
-				"OnStartTouch" "'"${lstrFireTrapTriggeredName}"',CastSpell,,0,-1,1,"
-			}
 			solid
 			{
 				side
@@ -554,7 +557,27 @@ function FUNCprepareFireTrapBoxCollider() {
 					"smoothing_groups" "0"
 				}
 			}
-		}	
+		}
+		'
+	
+	
+	########## HELPkeep the connections are applied thru modify:entity ###############
+	###connections
+	###{
+	###	"OnStartTouch" "'"${lstrFireTrapTriggeredName}"',CastSpell,,0,-1,1,"
+	###}
+	echo '
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"'"${lstrFireTrapTriggeredName}_ColliderBox"'"
+			}
+			"add:key"
+			{
+				"OnStartTouch" "'"${lstrFireTrapTriggeredName}"',CastSpell,,0,-1,1,"
+			}
+		}
 		'
 }
 

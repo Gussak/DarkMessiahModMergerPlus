@@ -224,16 +224,13 @@
 			"trapsecret" "0"
 			"StartDisabled" "0"
 			"spawnflags" "1"
+			"targetname" "gskSpawn_01_GuestHouse_014_ColliderBox"
 			"origin" "-4830 -10417 265"
-			connections
-			{
-				"OnStartTouch" "gskSpawn_01_GuestHouse_014,CastSpell,,0,-1,1,"
-			}
 			solid
 			{
 				side
 				{
-					"plane" "(-4794 -10434 323) (-4794 -10434 207) (-4866 -10434 207)"
+					"plane" "(-4916 -9784 367) (-4916 -9784 251) (-4988 -9784 251)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[-1 0 0 32.5385] 0.26"
 					"vaxis" "[0 0 -1 26] 0.31"
@@ -243,7 +240,7 @@
 				}
 				side
 				{
-					"plane" "(-4866 -10400 323) (-4866 -10400 207) (-4794 -10400 207)"
+					"plane" "(-4988 -9750 367) (-4988 -9750 251) (-4916 -9750 251)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[-1 0 0 0] 0.25"
 					"vaxis" "[0 0 -1 -16] 0.25"
@@ -253,7 +250,7 @@
 				}
 				side
 				{
-					"plane" "(-4866 -10434 323) (-4866 -10434 207) (-4866 -10400 207)"
+					"plane" "(-4988 -9784 367) (-4988 -9784 251) (-4988 -9750 251)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[0 1 0 -24] 0.25"
 					"vaxis" "[0 0 -1 -8] 0.25"
@@ -263,7 +260,7 @@
 				}
 				side
 				{
-					"plane" "(-4794 -10400 323) (-4794 -10400 207) (-4794 -10434 207)"
+					"plane" "(-4916 -9750 367) (-4916 -9750 251) (-4916 -9784 251)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[0 1 0 -30.2279] 0.26"
 					"vaxis" "[0 0 -1 58.452] 0.31"
@@ -273,7 +270,7 @@
 				}
 				side
 				{
-					"plane" "(-4794 -10434 323) (-4866 -10434 323) (-4866 -10400 323)"
+					"plane" "(-4916 -9784 367) (-4988 -9784 367) (-4988 -9750 367)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[1 0 0 -40] 1"
 					"vaxis" "[0 -1 0 -10] 1"
@@ -283,7 +280,7 @@
 				}
 				side
 				{
-					"plane" "(-4794 -10400 207) (-4866 -10400 207) (-4866 -10434 207)"
+					"plane" "(-4916 -9750 251) (-4988 -9750 251) (-4988 -9784 251)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[1 0 0 -40] 1"
 					"vaxis" "[0 -1 0 -2] 1"
@@ -292,7 +289,19 @@
 					"smoothing_groups" "0"
 				}
 			}
-		}	
+		}
+		
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_01_GuestHouse_014_ColliderBox"
+			}
+			"add:key"
+			{
+				"OnStartTouch" "gskSpawn_01_GuestHouse_014,CastSpell,,0,-1,1,"
+			}
+		}
 		
 		"add:entity"
 		{
@@ -318,16 +327,13 @@
 			"trapsecret" "0"
 			"StartDisabled" "0"
 			"spawnflags" "1"
+			"targetname" "gskSpawn_01_GuestHouse_015_ColliderBox"
 			"origin" "-4123 -12168 101"
-			connections
-			{
-				"OnStartTouch" "gskSpawn_01_GuestHouse_015,CastSpell,,0,-1,1,"
-			}
 			solid
 			{
 				side
 				{
-					"plane" "(-4087 -12185 159) (-4087 -12185 43) (-4159 -12185 43)"
+					"plane" "(-4209 -11535 203) (-4209 -11535 87) (-4281 -11535 87)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[-1 0 0 32.5385] 0.26"
 					"vaxis" "[0 0 -1 26] 0.31"
@@ -337,7 +343,7 @@
 				}
 				side
 				{
-					"plane" "(-4159 -12151 159) (-4159 -12151 43) (-4087 -12151 43)"
+					"plane" "(-4281 -11501 203) (-4281 -11501 87) (-4209 -11501 87)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[-1 0 0 0] 0.25"
 					"vaxis" "[0 0 -1 -16] 0.25"
@@ -347,7 +353,7 @@
 				}
 				side
 				{
-					"plane" "(-4159 -12185 159) (-4159 -12185 43) (-4159 -12151 43)"
+					"plane" "(-4281 -11535 203) (-4281 -11535 87) (-4281 -11501 87)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[0 1 0 -24] 0.25"
 					"vaxis" "[0 0 -1 -8] 0.25"
@@ -357,7 +363,7 @@
 				}
 				side
 				{
-					"plane" "(-4087 -12151 159) (-4087 -12151 43) (-4087 -12185 43)"
+					"plane" "(-4209 -11501 203) (-4209 -11501 87) (-4209 -11535 87)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[0 1 0 -30.2279] 0.26"
 					"vaxis" "[0 0 -1 58.452] 0.31"
@@ -367,7 +373,7 @@
 				}
 				side
 				{
-					"plane" "(-4087 -12185 159) (-4159 -12185 159) (-4159 -12151 159)"
+					"plane" "(-4209 -11535 203) (-4281 -11535 203) (-4281 -11501 203)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[1 0 0 -40] 1"
 					"vaxis" "[0 -1 0 -10] 1"
@@ -377,7 +383,7 @@
 				}
 				side
 				{
-					"plane" "(-4087 -12151 43) (-4159 -12151 43) (-4159 -12185 43)"
+					"plane" "(-4209 -11501 87) (-4281 -11501 87) (-4281 -11535 87)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[1 0 0 -40] 1"
 					"vaxis" "[0 -1 0 -2] 1"
@@ -386,7 +392,19 @@
 					"smoothing_groups" "0"
 				}
 			}
-		}	
+		}
+		
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_01_GuestHouse_015_ColliderBox"
+			}
+			"add:key"
+			{
+				"OnStartTouch" "gskSpawn_01_GuestHouse_015,CastSpell,,0,-1,1,"
+			}
+		}
 		
 		"add:entity"
 		{
@@ -412,16 +430,13 @@
 			"trapsecret" "0"
 			"StartDisabled" "0"
 			"spawnflags" "1"
+			"targetname" "gskSpawn_01_GuestHouse_016_ColliderBox"
 			"origin" "-4174 -12570 67"
-			connections
-			{
-				"OnStartTouch" "gskSpawn_01_GuestHouse_016,CastSpell,,0,-1,1,"
-			}
 			solid
 			{
 				side
 				{
-					"plane" "(-4138 -12587 125) (-4138 -12587 9) (-4210 -12587 9)"
+					"plane" "(-4260 -11937 169) (-4260 -11937 53) (-4332 -11937 53)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[-1 0 0 32.5385] 0.26"
 					"vaxis" "[0 0 -1 26] 0.31"
@@ -431,7 +446,7 @@
 				}
 				side
 				{
-					"plane" "(-4210 -12553 125) (-4210 -12553 9) (-4138 -12553 9)"
+					"plane" "(-4332 -11903 169) (-4332 -11903 53) (-4260 -11903 53)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[-1 0 0 0] 0.25"
 					"vaxis" "[0 0 -1 -16] 0.25"
@@ -441,7 +456,7 @@
 				}
 				side
 				{
-					"plane" "(-4210 -12587 125) (-4210 -12587 9) (-4210 -12553 9)"
+					"plane" "(-4332 -11937 169) (-4332 -11937 53) (-4332 -11903 53)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[0 1 0 -24] 0.25"
 					"vaxis" "[0 0 -1 -8] 0.25"
@@ -451,7 +466,7 @@
 				}
 				side
 				{
-					"plane" "(-4138 -12553 125) (-4138 -12553 9) (-4138 -12587 9)"
+					"plane" "(-4260 -11903 169) (-4260 -11903 53) (-4260 -11937 53)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[0 1 0 -30.2279] 0.26"
 					"vaxis" "[0 0 -1 58.452] 0.31"
@@ -461,7 +476,7 @@
 				}
 				side
 				{
-					"plane" "(-4138 -12587 125) (-4210 -12587 125) (-4210 -12553 125)"
+					"plane" "(-4260 -11937 169) (-4332 -11937 169) (-4332 -11903 169)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[1 0 0 -40] 1"
 					"vaxis" "[0 -1 0 -10] 1"
@@ -471,7 +486,7 @@
 				}
 				side
 				{
-					"plane" "(-4138 -12553 9) (-4210 -12553 9) (-4210 -12587 9)"
+					"plane" "(-4260 -11903 53) (-4332 -11903 53) (-4332 -11937 53)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[1 0 0 -40] 1"
 					"vaxis" "[0 -1 0 -2] 1"
@@ -480,7 +495,19 @@
 					"smoothing_groups" "0"
 				}
 			}
-		}	
+		}
+		
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_01_GuestHouse_016_ColliderBox"
+			}
+			"add:key"
+			{
+				"OnStartTouch" "gskSpawn_01_GuestHouse_016,CastSpell,,0,-1,1,"
+			}
+		}
 		
 		"add:entity"
 		{
@@ -506,16 +533,13 @@
 			"trapsecret" "0"
 			"StartDisabled" "0"
 			"spawnflags" "1"
+			"targetname" "gskSpawn_01_GuestHouse_017_ColliderBox"
 			"origin" "-5202 -11813 66"
-			connections
-			{
-				"OnStartTouch" "gskSpawn_01_GuestHouse_017,CastSpell,,0,-1,1,"
-			}
 			solid
 			{
 				side
 				{
-					"plane" "(-5166 -11830 124) (-5166 -11830 8) (-5238 -11830 8)"
+					"plane" "(-5288 -11180 168) (-5288 -11180 52) (-5360 -11180 52)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[-1 0 0 32.5385] 0.26"
 					"vaxis" "[0 0 -1 26] 0.31"
@@ -525,7 +549,7 @@
 				}
 				side
 				{
-					"plane" "(-5238 -11796 124) (-5238 -11796 8) (-5166 -11796 8)"
+					"plane" "(-5360 -11146 168) (-5360 -11146 52) (-5288 -11146 52)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[-1 0 0 0] 0.25"
 					"vaxis" "[0 0 -1 -16] 0.25"
@@ -535,7 +559,7 @@
 				}
 				side
 				{
-					"plane" "(-5238 -11830 124) (-5238 -11830 8) (-5238 -11796 8)"
+					"plane" "(-5360 -11180 168) (-5360 -11180 52) (-5360 -11146 52)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[0 1 0 -24] 0.25"
 					"vaxis" "[0 0 -1 -8] 0.25"
@@ -545,7 +569,7 @@
 				}
 				side
 				{
-					"plane" "(-5166 -11796 124) (-5166 -11796 8) (-5166 -11830 8)"
+					"plane" "(-5288 -11146 168) (-5288 -11146 52) (-5288 -11180 52)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[0 1 0 -30.2279] 0.26"
 					"vaxis" "[0 0 -1 58.452] 0.31"
@@ -555,7 +579,7 @@
 				}
 				side
 				{
-					"plane" "(-5166 -11830 124) (-5238 -11830 124) (-5238 -11796 124)"
+					"plane" "(-5288 -11180 168) (-5360 -11180 168) (-5360 -11146 168)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[1 0 0 -40] 1"
 					"vaxis" "[0 -1 0 -10] 1"
@@ -565,7 +589,7 @@
 				}
 				side
 				{
-					"plane" "(-5166 -11796 8) (-5238 -11796 8) (-5238 -11830 8)"
+					"plane" "(-5288 -11146 52) (-5360 -11146 52) (-5360 -11180 52)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[1 0 0 -40] 1"
 					"vaxis" "[0 -1 0 -2] 1"
@@ -574,7 +598,19 @@
 					"smoothing_groups" "0"
 				}
 			}
-		}	
+		}
+		
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_01_GuestHouse_017_ColliderBox"
+			}
+			"add:key"
+			{
+				"OnStartTouch" "gskSpawn_01_GuestHouse_017,CastSpell,,0,-1,1,"
+			}
+		}
 		
 		"add:entity"
 		{
@@ -600,16 +636,13 @@
 			"trapsecret" "0"
 			"StartDisabled" "0"
 			"spawnflags" "1"
+			"targetname" "gskSpawn_01_GuestHouse_018_ColliderBox"
 			"origin" "-1630 -13317 -32"
-			connections
-			{
-				"OnStartTouch" "gskSpawn_01_GuestHouse_018,CastSpell,,0,-1,1,"
-			}
 			solid
 			{
 				side
 				{
-					"plane" "(-1594 -13334 26) (-1594 -13334 -90) (-1666 -13334 -90)"
+					"plane" "(-1716 -12684 70) (-1716 -12684 -46) (-1788 -12684 -46)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[-1 0 0 32.5385] 0.26"
 					"vaxis" "[0 0 -1 26] 0.31"
@@ -619,7 +652,7 @@
 				}
 				side
 				{
-					"plane" "(-1666 -13300 26) (-1666 -13300 -90) (-1594 -13300 -90)"
+					"plane" "(-1788 -12650 70) (-1788 -12650 -46) (-1716 -12650 -46)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[-1 0 0 0] 0.25"
 					"vaxis" "[0 0 -1 -16] 0.25"
@@ -629,7 +662,7 @@
 				}
 				side
 				{
-					"plane" "(-1666 -13334 26) (-1666 -13334 -90) (-1666 -13300 -90)"
+					"plane" "(-1788 -12684 70) (-1788 -12684 -46) (-1788 -12650 -46)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[0 1 0 -24] 0.25"
 					"vaxis" "[0 0 -1 -8] 0.25"
@@ -639,7 +672,7 @@
 				}
 				side
 				{
-					"plane" "(-1594 -13300 26) (-1594 -13300 -90) (-1594 -13334 -90)"
+					"plane" "(-1716 -12650 70) (-1716 -12650 -46) (-1716 -12684 -46)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[0 1 0 -30.2279] 0.26"
 					"vaxis" "[0 0 -1 58.452] 0.31"
@@ -649,7 +682,7 @@
 				}
 				side
 				{
-					"plane" "(-1594 -13334 26) (-1666 -13334 26) (-1666 -13300 26)"
+					"plane" "(-1716 -12684 70) (-1788 -12684 70) (-1788 -12650 70)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[1 0 0 -40] 1"
 					"vaxis" "[0 -1 0 -10] 1"
@@ -659,7 +692,7 @@
 				}
 				side
 				{
-					"plane" "(-1594 -13300 -90) (-1666 -13300 -90) (-1666 -13334 -90)"
+					"plane" "(-1716 -12650 -46) (-1788 -12650 -46) (-1788 -12684 -46)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[1 0 0 -40] 1"
 					"vaxis" "[0 -1 0 -2] 1"
@@ -668,7 +701,19 @@
 					"smoothing_groups" "0"
 				}
 			}
-		}	
+		}
+		
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_01_GuestHouse_018_ColliderBox"
+			}
+			"add:key"
+			{
+				"OnStartTouch" "gskSpawn_01_GuestHouse_018,CastSpell,,0,-1,1,"
+			}
+		}
 		
 		"add:entity"
 		{
@@ -694,16 +739,13 @@
 			"trapsecret" "0"
 			"StartDisabled" "0"
 			"spawnflags" "1"
+			"targetname" "gskSpawn_01_GuestHouse_019_ColliderBox"
 			"origin" "-1661 -12475 -32"
-			connections
-			{
-				"OnStartTouch" "gskSpawn_01_GuestHouse_019,CastSpell,,0,-1,1,"
-			}
 			solid
 			{
 				side
 				{
-					"plane" "(-1625 -12492 26) (-1625 -12492 -90) (-1697 -12492 -90)"
+					"plane" "(-1747 -11842 70) (-1747 -11842 -46) (-1819 -11842 -46)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[-1 0 0 32.5385] 0.26"
 					"vaxis" "[0 0 -1 26] 0.31"
@@ -713,7 +755,7 @@
 				}
 				side
 				{
-					"plane" "(-1697 -12458 26) (-1697 -12458 -90) (-1625 -12458 -90)"
+					"plane" "(-1819 -11808 70) (-1819 -11808 -46) (-1747 -11808 -46)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[-1 0 0 0] 0.25"
 					"vaxis" "[0 0 -1 -16] 0.25"
@@ -723,7 +765,7 @@
 				}
 				side
 				{
-					"plane" "(-1697 -12492 26) (-1697 -12492 -90) (-1697 -12458 -90)"
+					"plane" "(-1819 -11842 70) (-1819 -11842 -46) (-1819 -11808 -46)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[0 1 0 -24] 0.25"
 					"vaxis" "[0 0 -1 -8] 0.25"
@@ -733,7 +775,7 @@
 				}
 				side
 				{
-					"plane" "(-1625 -12458 26) (-1625 -12458 -90) (-1625 -12492 -90)"
+					"plane" "(-1747 -11808 70) (-1747 -11808 -46) (-1747 -11842 -46)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[0 1 0 -30.2279] 0.26"
 					"vaxis" "[0 0 -1 58.452] 0.31"
@@ -743,7 +785,7 @@
 				}
 				side
 				{
-					"plane" "(-1625 -12492 26) (-1697 -12492 26) (-1697 -12458 26)"
+					"plane" "(-1747 -11842 70) (-1819 -11842 70) (-1819 -11808 70)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[1 0 0 -40] 1"
 					"vaxis" "[0 -1 0 -10] 1"
@@ -753,7 +795,7 @@
 				}
 				side
 				{
-					"plane" "(-1625 -12458 -90) (-1697 -12458 -90) (-1697 -12492 -90)"
+					"plane" "(-1747 -11808 -46) (-1819 -11808 -46) (-1819 -11842 -46)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[1 0 0 -40] 1"
 					"vaxis" "[0 -1 0 -2] 1"
@@ -762,7 +804,19 @@
 					"smoothing_groups" "0"
 				}
 			}
-		}	
+		}
+		
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_01_GuestHouse_019_ColliderBox"
+			}
+			"add:key"
+			{
+				"OnStartTouch" "gskSpawn_01_GuestHouse_019,CastSpell,,0,-1,1,"
+			}
+		}
 		
 		"add:entity"
 		{
@@ -788,16 +842,13 @@
 			"trapsecret" "0"
 			"StartDisabled" "0"
 			"spawnflags" "1"
+			"targetname" "gskSpawn_01_GuestHouse_020_ColliderBox"
 			"origin" "-2193 -12212 -17"
-			connections
-			{
-				"OnStartTouch" "gskSpawn_01_GuestHouse_020,CastSpell,,0,-1,1,"
-			}
 			solid
 			{
 				side
 				{
-					"plane" "(-2157 -12229 41) (-2157 -12229 -75) (-2229 -12229 -75)"
+					"plane" "(-2279 -11579 85) (-2279 -11579 -31) (-2351 -11579 -31)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[-1 0 0 32.5385] 0.26"
 					"vaxis" "[0 0 -1 26] 0.31"
@@ -807,7 +858,7 @@
 				}
 				side
 				{
-					"plane" "(-2229 -12195 41) (-2229 -12195 -75) (-2157 -12195 -75)"
+					"plane" "(-2351 -11545 85) (-2351 -11545 -31) (-2279 -11545 -31)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[-1 0 0 0] 0.25"
 					"vaxis" "[0 0 -1 -16] 0.25"
@@ -817,7 +868,7 @@
 				}
 				side
 				{
-					"plane" "(-2229 -12229 41) (-2229 -12229 -75) (-2229 -12195 -75)"
+					"plane" "(-2351 -11579 85) (-2351 -11579 -31) (-2351 -11545 -31)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[0 1 0 -24] 0.25"
 					"vaxis" "[0 0 -1 -8] 0.25"
@@ -827,7 +878,7 @@
 				}
 				side
 				{
-					"plane" "(-2157 -12195 41) (-2157 -12195 -75) (-2157 -12229 -75)"
+					"plane" "(-2279 -11545 85) (-2279 -11545 -31) (-2279 -11579 -31)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[0 1 0 -30.2279] 0.26"
 					"vaxis" "[0 0 -1 58.452] 0.31"
@@ -837,7 +888,7 @@
 				}
 				side
 				{
-					"plane" "(-2157 -12229 41) (-2229 -12229 41) (-2229 -12195 41)"
+					"plane" "(-2279 -11579 85) (-2351 -11579 85) (-2351 -11545 85)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[1 0 0 -40] 1"
 					"vaxis" "[0 -1 0 -10] 1"
@@ -847,7 +898,7 @@
 				}
 				side
 				{
-					"plane" "(-2157 -12195 -75) (-2229 -12195 -75) (-2229 -12229 -75)"
+					"plane" "(-2279 -11545 -31) (-2351 -11545 -31) (-2351 -11579 -31)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[1 0 0 -40] 1"
 					"vaxis" "[0 -1 0 -2] 1"
@@ -856,7 +907,19 @@
 					"smoothing_groups" "0"
 				}
 			}
-		}	
+		}
+		
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_01_GuestHouse_020_ColliderBox"
+			}
+			"add:key"
+			{
+				"OnStartTouch" "gskSpawn_01_GuestHouse_020,CastSpell,,0,-1,1,"
+			}
+		}
 		
 		"add:entity"
 		{
@@ -882,16 +945,13 @@
 			"trapsecret" "0"
 			"StartDisabled" "0"
 			"spawnflags" "1"
+			"targetname" "gskSpawn_01_GuestHouse_021_ColliderBox"
 			"origin" "-1570 -10855 -33"
-			connections
-			{
-				"OnStartTouch" "gskSpawn_01_GuestHouse_021,CastSpell,,0,-1,1,"
-			}
 			solid
 			{
 				side
 				{
-					"plane" "(-1534 -10872 25) (-1534 -10872 -91) (-1606 -10872 -91)"
+					"plane" "(-1656 -10222 69) (-1656 -10222 -47) (-1728 -10222 -47)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[-1 0 0 32.5385] 0.26"
 					"vaxis" "[0 0 -1 26] 0.31"
@@ -901,7 +961,7 @@
 				}
 				side
 				{
-					"plane" "(-1606 -10838 25) (-1606 -10838 -91) (-1534 -10838 -91)"
+					"plane" "(-1728 -10188 69) (-1728 -10188 -47) (-1656 -10188 -47)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[-1 0 0 0] 0.25"
 					"vaxis" "[0 0 -1 -16] 0.25"
@@ -911,7 +971,7 @@
 				}
 				side
 				{
-					"plane" "(-1606 -10872 25) (-1606 -10872 -91) (-1606 -10838 -91)"
+					"plane" "(-1728 -10222 69) (-1728 -10222 -47) (-1728 -10188 -47)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[0 1 0 -24] 0.25"
 					"vaxis" "[0 0 -1 -8] 0.25"
@@ -921,7 +981,7 @@
 				}
 				side
 				{
-					"plane" "(-1534 -10838 25) (-1534 -10838 -91) (-1534 -10872 -91)"
+					"plane" "(-1656 -10188 69) (-1656 -10188 -47) (-1656 -10222 -47)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[0 1 0 -30.2279] 0.26"
 					"vaxis" "[0 0 -1 58.452] 0.31"
@@ -931,7 +991,7 @@
 				}
 				side
 				{
-					"plane" "(-1534 -10872 25) (-1606 -10872 25) (-1606 -10838 25)"
+					"plane" "(-1656 -10222 69) (-1728 -10222 69) (-1728 -10188 69)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[1 0 0 -40] 1"
 					"vaxis" "[0 -1 0 -10] 1"
@@ -941,7 +1001,7 @@
 				}
 				side
 				{
-					"plane" "(-1534 -10838 -91) (-1606 -10838 -91) (-1606 -10872 -91)"
+					"plane" "(-1656 -10188 -47) (-1728 -10188 -47) (-1728 -10222 -47)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[1 0 0 -40] 1"
 					"vaxis" "[0 -1 0 -2] 1"
@@ -950,7 +1010,19 @@
 					"smoothing_groups" "0"
 				}
 			}
-		}	
+		}
+		
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_01_GuestHouse_021_ColliderBox"
+			}
+			"add:key"
+			{
+				"OnStartTouch" "gskSpawn_01_GuestHouse_021,CastSpell,,0,-1,1,"
+			}
+		}
 		
 		"add:entity"
 		{
@@ -976,16 +1048,13 @@
 			"trapsecret" "0"
 			"StartDisabled" "0"
 			"spawnflags" "1"
+			"targetname" "gskSpawn_01_GuestHouse_022_ColliderBox"
 			"origin" "-1971 -10809 -24"
-			connections
-			{
-				"OnStartTouch" "gskSpawn_01_GuestHouse_022,CastSpell,,0,-1,1,"
-			}
 			solid
 			{
 				side
 				{
-					"plane" "(-1935 -10826 34) (-1935 -10826 -82) (-2007 -10826 -82)"
+					"plane" "(-2057 -10176 78) (-2057 -10176 -38) (-2129 -10176 -38)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[-1 0 0 32.5385] 0.26"
 					"vaxis" "[0 0 -1 26] 0.31"
@@ -995,7 +1064,7 @@
 				}
 				side
 				{
-					"plane" "(-2007 -10792 34) (-2007 -10792 -82) (-1935 -10792 -82)"
+					"plane" "(-2129 -10142 78) (-2129 -10142 -38) (-2057 -10142 -38)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[-1 0 0 0] 0.25"
 					"vaxis" "[0 0 -1 -16] 0.25"
@@ -1005,7 +1074,7 @@
 				}
 				side
 				{
-					"plane" "(-2007 -10826 34) (-2007 -10826 -82) (-2007 -10792 -82)"
+					"plane" "(-2129 -10176 78) (-2129 -10176 -38) (-2129 -10142 -38)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[0 1 0 -24] 0.25"
 					"vaxis" "[0 0 -1 -8] 0.25"
@@ -1015,7 +1084,7 @@
 				}
 				side
 				{
-					"plane" "(-1935 -10792 34) (-1935 -10792 -82) (-1935 -10826 -82)"
+					"plane" "(-2057 -10142 78) (-2057 -10142 -38) (-2057 -10176 -38)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[0 1 0 -30.2279] 0.26"
 					"vaxis" "[0 0 -1 58.452] 0.31"
@@ -1025,7 +1094,7 @@
 				}
 				side
 				{
-					"plane" "(-1935 -10826 34) (-2007 -10826 34) (-2007 -10792 34)"
+					"plane" "(-2057 -10176 78) (-2129 -10176 78) (-2129 -10142 78)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[1 0 0 -40] 1"
 					"vaxis" "[0 -1 0 -10] 1"
@@ -1035,7 +1104,7 @@
 				}
 				side
 				{
-					"plane" "(-1935 -10792 -82) (-2007 -10792 -82) (-2007 -10826 -82)"
+					"plane" "(-2057 -10142 -38) (-2129 -10142 -38) (-2129 -10176 -38)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[1 0 0 -40] 1"
 					"vaxis" "[0 -1 0 -2] 1"
@@ -1044,7 +1113,19 @@
 					"smoothing_groups" "0"
 				}
 			}
-		}	
+		}
+		
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_01_GuestHouse_022_ColliderBox"
+			}
+			"add:key"
+			{
+				"OnStartTouch" "gskSpawn_01_GuestHouse_022,CastSpell,,0,-1,1,"
+			}
+		}
 		
 //		"add:entity"
 //		{
@@ -1090,16 +1171,13 @@
 			"trapsecret" "0"
 			"StartDisabled" "0"
 			"spawnflags" "1"
+			"targetname" "gskSpawn_01_GuestHouse_025_ColliderBox"
 			"origin" "-3581 -10982 27"
-			connections
-			{
-				"OnStartTouch" "gskSpawn_01_GuestHouse_025,CastSpell,,0,-1,1,"
-			}
 			solid
 			{
 				side
 				{
-					"plane" "(-3545 -10999 85) (-3545 -10999 -31) (-3617 -10999 -31)"
+					"plane" "(-3667 -10349 129) (-3667 -10349 13) (-3739 -10349 13)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[-1 0 0 32.5385] 0.26"
 					"vaxis" "[0 0 -1 26] 0.31"
@@ -1109,7 +1187,7 @@
 				}
 				side
 				{
-					"plane" "(-3617 -10965 85) (-3617 -10965 -31) (-3545 -10965 -31)"
+					"plane" "(-3739 -10315 129) (-3739 -10315 13) (-3667 -10315 13)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[-1 0 0 0] 0.25"
 					"vaxis" "[0 0 -1 -16] 0.25"
@@ -1119,7 +1197,7 @@
 				}
 				side
 				{
-					"plane" "(-3617 -10999 85) (-3617 -10999 -31) (-3617 -10965 -31)"
+					"plane" "(-3739 -10349 129) (-3739 -10349 13) (-3739 -10315 13)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[0 1 0 -24] 0.25"
 					"vaxis" "[0 0 -1 -8] 0.25"
@@ -1129,7 +1207,7 @@
 				}
 				side
 				{
-					"plane" "(-3545 -10965 85) (-3545 -10965 -31) (-3545 -10999 -31)"
+					"plane" "(-3667 -10315 129) (-3667 -10315 13) (-3667 -10349 13)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[0 1 0 -30.2279] 0.26"
 					"vaxis" "[0 0 -1 58.452] 0.31"
@@ -1139,7 +1217,7 @@
 				}
 				side
 				{
-					"plane" "(-3545 -10999 85) (-3617 -10999 85) (-3617 -10965 85)"
+					"plane" "(-3667 -10349 129) (-3739 -10349 129) (-3739 -10315 129)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[1 0 0 -40] 1"
 					"vaxis" "[0 -1 0 -10] 1"
@@ -1149,7 +1227,7 @@
 				}
 				side
 				{
-					"plane" "(-3545 -10965 -31) (-3617 -10965 -31) (-3617 -10999 -31)"
+					"plane" "(-3667 -10315 13) (-3739 -10315 13) (-3739 -10349 13)"
 					"material" "TOOLS/TOOLSTRIGGER"
 					"uaxis" "[1 0 0 -40] 1"
 					"vaxis" "[0 -1 0 -2] 1"
@@ -1158,7 +1236,19 @@
 					"smoothing_groups" "0"
 				}
 			}
-		}	
+		}
+		
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_01_GuestHouse_025_ColliderBox"
+			}
+			"add:key"
+			{
+				"OnStartTouch" "gskSpawn_01_GuestHouse_025,CastSpell,,0,-1,1,"
+			}
+		}
 		
 
 		"modify:entity"
