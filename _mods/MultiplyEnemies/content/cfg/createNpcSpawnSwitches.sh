@@ -60,11 +60,12 @@ else
 	astrNPCsummon_Type=()
 	#declare -A astrNPCsummonings_Cost
 	#declare -A astrNPCsummonings_CostTmp
-	mapfile -t astrNPCsummoningsLines < <(cd "$strGameInstallMainFolder"; egrep "^alias [+]*gskSummon" * -iRIah --include="*.cfg" |egrep -v "Spawn|Switch|gskSummonFood" |sort -u) #gskSummonFood is a dup generic easy food spwning alias
+	mapfile -t astrNPCsummoningsLines < <(cd "$strGameInstallMainFolder"; egrep "^alias [+]*gskSummon" * -iRIah --include="*.cfg" |egrep -v "gskSummon[a-zA-Z0-9_]*(Spawn|Switch|Food)" |sort -u) #gskSummonFood is a dup generic easy food spwning alias
 	#if [[ "$strSpawnerMode" == Summoning ]];then
 	if true;then
 		for strLnData in "${astrNPCsummoningsLines[@]}";do
 			strAliasSummon="$(echo "$strLnData" |awk '{print $2}')"
+			#declare -p strAliasSummon
 			FUNCcostHP "${strAliasSummon}" >/dev/null
 			astrNPCsummonTmp_ID+=("${strAliasSummon}")
 			astrNPCsummonTmp_Cost+=("${FUNCcostHP_nCost}")
@@ -686,18 +687,21 @@ function FUNCmapadds() {
 		"gskSummonDevSkeletonPart")
 			local lstrSkelPartModel=""
 			local lnRandomSkelPart="$(printf %d "0x$(crc32 <(echo "${strFlMapadds}${nSkeletonPartCount}"))")" #this way it wont just cycle thru parts, it will be predictable random based on the mapadds filename name
-			case "$((lnRandomSkelPart%6))" in
+			local lnRotationY="$(( (lnRandomSkelPart%360) - 180))"
+			#case "$((lnRandomSkelPart%6))" in
+			case "$((lnRandomSkelPart%3))" in
 				0) lstrSkelPartModel="models/props/debris/skeleton/cr_skel_thorax.mdl";;
-				1) lstrSkelPartModel="models/props/debris/skeleton/cr_skel_radiusg.mdl";;
-				2) lstrSkelPartModel="models/props/debris/skeleton/cr_skel_crane.mdl";;
-				3) lstrSkelPartModel="models/props/debris/skeleton/cr_skel_femurd.mdl";;
-				4) lstrSkelPartModel="models/props/debris/skeleton/cr_skel_humerusg.mdl";;
-				5) lstrSkelPartModel="models/props/debris/skeleton/cr_skel_humerusd.mdl";;
+				1) lstrSkelPartModel="models/props/debris/skeleton/cr_skel_crane.mdl";;
+				# these below are too small and similar in shape, the player may not see nor step over never..
+				#2) lstrSkelPartModel="models/props/debris/skeleton/cr_skel_femurd.mdl";;
+				#1) lstrSkelPartModel="models/props/debris/skeleton/cr_skel_radiusg.mdl";;
+				#4) lstrSkelPartModel="models/props/debris/skeleton/cr_skel_humerusg.mdl";;
+				#5) lstrSkelPartModel="models/props/debris/skeleton/cr_skel_humerusd.mdl";;
 			esac
 			echo '
 			"classname" "prop_physics"
 			"model" "'"${lstrSkelPartModel}"'"
-			"angles" "0 90 0"
+			"angles" "0 '"${lnRotationY}"' 0"
 			"inertiaScale" "1.0"
 			"fademindist" "-1"
 			"fadescale" "1"
