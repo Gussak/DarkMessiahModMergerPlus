@@ -1106,7 +1106,13 @@ def handle_create(args) -> None:
         for path, mod_comment in mod_comments.items():
                 orig_comment = orig_comments.get(path, "")
                 if mod_comment != orig_comment:
-                        comment_patch[path] = mod_comment
+                        mod_comment_clean = mod_comment.strip()
+                        if mod_comment_clean == REMOVE_DIRECTIVE:
+                                parts = split_dot_path(path)
+                                if len(parts) >= 2 and parts[-1].isdigit() and parts[-2] in DUPLICATE_KEYS:
+                                        val = mod_tree.get(path, "")
+                                        mod_comment_clean = f"{REMOVE_DIRECTIVE},WhereValueIs={val}"
+                        comment_patch[path] = mod_comment_clean
 
         # 2. Track removed comments (empty string signals removal during apply)
         for path in orig_comments:
@@ -1218,10 +1224,20 @@ def _patch_duplicate_key(
         duplicate_keys_found[full_path] += 1
 
         # ── Removal Directive ──
-        if indexed_path in remove_paths or full_path in remove_paths:
-                applied_keys.add(indexed_path)
-                Logger.debug(f"Removed via directive: {indexed_path}")
-                return line, [], True  # skip original line
+        directive = comment_patches.get(indexed_path) or comment_patches.get(full_path)
+        if directive and directive.strip().startswith(REMOVE_DIRECTIVE):
+                val_filter = None
+                if "WhereValueIs=" in directive:
+                        val_filter = directive.split("WhereValueIs=", 1)[1].strip()
+                
+                clean_line = strip_inline_comment(line)
+                kv = parse_key_value(clean_line)
+                current_val = kv[1] if kv else None
+                
+                if val_filter is None or current_val == val_filter:
+                        applied_keys.add(indexed_path)
+                        Logger.debug(f"Removed via directive: {indexed_path} (val={current_val}, filter={val_filter})")
+                        return line, [], True
 
         # FIX: Non-dominant duplicates should ALWAYS be appended, never replaced in-place.
         # We keep the original line (return False) so it stays in the output.
@@ -1501,7 +1517,7 @@ def handle_apply(args) -> None:
     original_key_order = list(patches.keys())
     
     # Identify removal directives from comments
-    remove_paths = {k for k, v in comment_patches.items() if v.strip() == REMOVE_DIRECTIVE}
+    remove_paths = {k for k, v in comment_patches.items() if v.strip().startswith(REMOVE_DIRECTIVE)}
     
     # ── Handle empty patch ──
     if not patches and not comment_patches:
