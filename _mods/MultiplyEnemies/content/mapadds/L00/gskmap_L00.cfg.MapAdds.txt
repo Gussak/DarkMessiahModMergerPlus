@@ -3408,7 +3408,7 @@
 			"ExplodeRadius" "100"
 			"targetname" "gskSpawn__190_LandMine"
 			"origin" "-488 -3158 244"
-			"angles" "0 18 0"
+			"angles" "0 145 0"
 			"trapsecret" "2"
 			"health" "1"
 			
@@ -3636,7 +3636,7 @@
 			"ExplodeRadius" "100"
 			"targetname" "gskSpawn__191_LandMine"
 			"origin" "-488 -3172 244"
-			"angles" "0 93 0"
+			"angles" "0 -43 0"
 			"trapsecret" "2"
 			"health" "1"
 			
@@ -3864,7 +3864,7 @@
 			"ExplodeRadius" "100"
 			"targetname" "gskSpawn__192_LandMine"
 			"origin" "-488 -3188 241"
-			"angles" "0 100 0"
+			"angles" "0 32 0"
 			"trapsecret" "2"
 			"health" "1"
 			
@@ -5725,7 +5725,7 @@
 			"ExplodeRadius" "100"
 			"targetname" "gskSpawn__279_LandMine"
 			"origin" "327 -2245 246"
-			"angles" "0 -81 0"
+			"angles" "0 112 0"
 			"trapsecret" "2"
 			"health" "1"
 			
@@ -5953,7 +5953,7 @@
 			"ExplodeRadius" "100"
 			"targetname" "gskSpawn__280_LandMine"
 			"origin" "311 -2245 243"
-			"angles" "0 -143 0"
+			"angles" "0 156 0"
 			"trapsecret" "2"
 			"health" "1"
 			
@@ -6181,7 +6181,7 @@
 			"ExplodeRadius" "100"
 			"targetname" "gskSpawn__281_LandMine"
 			"origin" "297 -2245 241"
-			"angles" "0 55 0"
+			"angles" "0 -73 0"
 			"trapsecret" "2"
 			"health" "1"
 			
@@ -6409,7 +6409,7 @@
 			"ExplodeRadius" "100"
 			"targetname" "gskSpawn__282_LandMine"
 			"origin" "297 -2821 249"
-			"angles" "0 -27 0"
+			"angles" "0 86 0"
 			"trapsecret" "2"
 			"health" "1"
 			
@@ -6637,7 +6637,7 @@
 			"ExplodeRadius" "100"
 			"targetname" "gskSpawn__283_LandMine"
 			"origin" "312 -2821 248"
-			"angles" "0 37 0"
+			"angles" "0 124 0"
 			"trapsecret" "2"
 			"health" "1"
 			
@@ -6865,7 +6865,7 @@
 			"ExplodeRadius" "100"
 			"targetname" "gskSpawn__284_LandMine"
 			"origin" "570 -2767 374"
-			"angles" "0 29 0"
+			"angles" "0 165 0"
 			"trapsecret" "2"
 			"health" "1"
 			
@@ -7093,7 +7093,7 @@
 			"ExplodeRadius" "100"
 			"targetname" "gskSpawn__285_LandMine"
 			"origin" "576 -2245 365"
-			"angles" "0 -176 0"
+			"angles" "0 69 0"
 			"trapsecret" "2"
 			"health" "1"
 			
@@ -15699,6 +15699,119 @@
 			"spawnflags"  "7"
 			"origin"      "670 -2625 -72"
 		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn__720"
+			"origin"      "1404 -1454 122"
+			"angles"      "-6 -91 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_regular"
+			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
+			"spawnflags"  "7"
+			"origin"      "1404 -1454 129"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn__721"
+			"origin"      "534 -2536 -180"
+			"angles"      "42 -174 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "item_food_fish03"
+			
+			"origin"      "534 -2536 -175"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn__722"
+			"origin"      "561 -2364 -178"
+			"angles"      "34 -126 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "item_food_fish03"
+			
+			"origin"      "561 -2364 -173"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn__723"
+			"origin"      "525 -2408 -178"
+			"angles"      "40 -125 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "item_food_fish03"
+			
+			"origin"      "525 -2408 -173"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn__724"
+			"origin"      "617 -2413 -181"
+			"angles"      "34 -142 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "item_food_fish03"
+			
+			"origin"      "617 -2413 -176"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn__725"
+			"origin"      "603 -2454 -173"
+			"angles"      "36 -147 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "item_food_fish03"
+			
+			"origin"      "603 -2454 -168"
+		}
+//		"add:entity"
+//		{
+//			"targetname"  "gskSpawn__726"
+//			"origin"      "-207 -2517 193"
+//			"angles"      "60 -10 -0"
+//			"spawnflags"  "7"
+//			"physdamagescale" "1.0"
+//			"radiusforrandomattitude" "500"
+//			"targetname"   "gskSpawn__726_TODO_FixMissingSupportFor_gskSummonSimStoneLowBarrier"
+//		}
+//		"add:entity"
+//		{
+//			"targetname"  "gskSpawn__727"
+//			"origin"      "-201 -2568 193"
+//			"angles"      "36 -11 -0"
+//			"spawnflags"  "7"
+//			"physdamagescale" "1.0"
+//			"radiusforrandomattitude" "500"
+//			"targetname"   "gskSpawn__727_TODO_FixMissingSupportFor_gskSummonSimStoneLowBarrier"
+//		}
+//		"add:entity"
+//		{
+//			"targetname"  "gskSpawn__728"
+//			"origin"      "-216 -2635 193"
+//			"angles"      "35 2 -0"
+//			"spawnflags"  "7"
+//			"physdamagescale" "1.0"
+//			"radiusforrandomattitude" "500"
+//			"targetname"   "gskSpawn__728_TODO_FixMissingSupportFor_gskSummonSimStoneLowBarrier"
+//		}
+//		"add:entity"
+//		{
+//			"targetname"  "gskSpawn__729"
+//			"origin"      "281 -2408 214"
+//			"angles"      "25 -146 -0"
+//			"spawnflags"  "7"
+//			"physdamagescale" "1.0"
+//			"radiusforrandomattitude" "500"
+//			"targetname"   "gskSpawn__729_TODO_FixMissingSupportFor_gskSummonSimStoneLowBarrier"
+//		}
 
 	}
 }
