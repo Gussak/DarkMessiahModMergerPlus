@@ -336,19 +336,28 @@ function FUNCmapCfg() { #ex.: gskmap_l02_b1-01_GuestHouse_OK.cfg
 }
 
 function FUNCspawnFlags() { #help based on https://developer.valvesoftware.com/wiki/Npc_ministrider#Flags
-	local lnFlags=0
-	local lastrFlags=(FS_AIonAfterSeen FS_FALL FS_QUIET "${@-}")
+	local lbAddDefaults=true;if [[ "${1-}" == --nodefaults ]];then lbAddDefaults=false;shift;fi
+	
+	local lastrFlags=("${@-FS_None}")
+	#if [[ -z "${lastrFlags[*]}" ]];then
+	if $lbAddDefaults;then
+		mapfile -t lastrFlags < <(echo "${lastrFlags[*]} FS_AIonAfterSeen FS_FALL FS_QUIET" |tr ' ' '\n' |sort -u)
+	fi
+	mapfile -t lastrFlags < <(echo "${lastrFlags[*]}" |tr ' ' '\n' |sort -u)
+	#fi
 	#while [[ $# -gt 0 ]];do
+	local lnFlags=0
 	for lstrFlagAdd in "${lastrFlags[@]}";do
 		if [[ -z "$lstrFlagAdd" ]];then continue;fi
 		case "$lstrFlagAdd" in # Flag Spawn (flags for spawning)
+			FS_None) ((lnFlags+=0))&&: ;; # dummy helper
 			FS_AIonAfterSeen) ((lnFlags+=1))&&: ;; # wont detect player if player dont see it? May be good to create enemies with each other that will only fight after we see them! May also easy on CPU?
 			FS_QUIET) ((lnFlags+=2))&&: ;; #initially quiet until in rage, excellent for surprises
 			FS_FALL) ((lnFlags+=4))&&: ;; #initially fall instead of teleport to ground
 			FS_DropHealing) ((lnFlags+=8))&&: ;; #on death #this doesnt work?
 			FS_LongRangeView) ((lnFlags+=256))&&: ;;
 			FS_TANK) ((lnFlags+=16384))&&: ;; #cant be pushed
-			*) FUNCexit 1 "invalid spawnflag '$lstrFlagAdd'";;
+			*) FUNCexit 1 "unrecognized (not implemented here?) spawnflag '$lstrFlagAdd'";;
 		esac
 		#shift
 	done
@@ -459,23 +468,37 @@ function FUNCentityName() {
 	echo "gskSpawn_${lstrUseThisSector}_${strCount}"
 }
 
-function FUNCprepareFireTrap() { #this works but you have to kick the oil jar
-	#TODO add some kind of weak dim highlight on it as I cant find a way to let trap detection highlight it
-	local lstrFireTrapTriggeredName="$1";shift
+function FUNCexplosionData() {
+	#helpKeep trapsecret 2 seems to work. no need to add some kind of weak dim highlight
+	#helpKeep FS_FALL doesnt seem to work, they stay floating and prevent stepping over to explode?
+	#TODO? increate health or decreate physdamagescale to let drop without exploding?
+	#helpKeep spawnflags 257 FS_LongRangeView FS_AIonAfterSeen is mandatory or it wont work as land mine.
 	echo '
-		"add:entity"
-		{
-			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
 			"ExplodeRadius" "100"
-			"targetname" "'"${lstrFireTrapTriggeredName}_LandMine"'"
-			"origin" "'"${anTargetPosXYZ[x]} ${anTargetPosXYZ[y]} ${anTargetPosXYZ[z]}"'"
-			"angles" "0 '"$(( (RANDOM%360) - 180))"' 0"
 			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "'"$(FUNCspawnFlags --nodefaults FS_LongRangeView FS_AIonAfterSeen)"'"
 			"health" "1"
-			
+			'
+	# could be randomly poison(with initial big damage), ice/freeze, fire, electricity..
+	#What are these found at vmf files???
+	#damagetype" "16384"
+	#DamageType" "256"
+	#damagetype" "262144"
+	#damagetype" "32"
+	#damagetype" "4"
+	#damagetype" "8"
+}
+
+function FUNCprepareFireTrap() { #this works but you have to kick the oil jar
+	local lstrFireTrapTriggeredName="$1";shift
+	#TODO cr_skel_crane cant be properly aimed when trowing, it also misses even if there is a target... only thru telekinesys it works well. May be create a qct for cranes that use little mana like 1, and can only be used if nearby
+	echo '
+		"add:entity"
+		{
 			"combinability" "1"
 			"skin" "0"
 			"disableshadows" "0"
@@ -490,7 +513,6 @@ function FUNCprepareFireTrap() { #this works but you have to kick the oil jar
 			"maxdxlevel" "0"
 			"minhealthdmg" "0"
 			"shadowcastdist" "0"
-			"Damagetype" "0"
 			"nodamageforces" "0"
 			"inertiaScale" "1.0"
 			"massScale" "0"
@@ -499,13 +521,19 @@ function FUNCprepareFireTrap() { #this works but you have to kick the oil jar
 			"fademindist" "500"
 			"fademaxdist" "700"
 			"fadescale" "1"
-			"spawnflags" "257"
 			"combinetarget6enable" "1"
 			"combinetarget7enable" "1"
 			"combinetarget8enable" "1"
 			"combinetarget9enable" "1"
 			"combinetarget10enable" "1"
 			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"targetname" "'"${lstrFireTrapTriggeredName}_LandMine"'"
+			"origin" "'"${anTargetPosXYZ[x]} ${anTargetPosXYZ[y]} ${anTargetPosXYZ[z]}"'"
+			"angles" "'"$((RANDOM%45))"' '"$(( (RANDOM%360) - 180))"' '"$((RANDOM%45))"'"
+			'"$(FUNCexplosionData)"'
 		}
 		'
 		#models/props/furnitures/gob/L6_jar_oil/L6_jar_oil.mdl
@@ -607,7 +635,7 @@ function FUNCprepareFireTrapBoxCollider() { #TODO THIS DOES NOT WORK, the solid 
 		{
 			"classname" "trigger_once"
 			"combinability" "1"
-			"trapsecret" "0"
+			"trapsecret" "2"
 			"StartDisabled" "0"
 			"spawnflags" "1"
 			"targetname" "'"${lstrTargetName}"'"
@@ -827,6 +855,13 @@ function FUNCmapadds() {
 			"model" "models/items/provisions/potions/stone_potion.mdl"
 			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
 			;;
+		"gskSummonPotionCurePoison")
+			lnHeightDisplacement=5
+			echo '
+			"classname" "item_potion_cure_poison"
+			"model" "models/items/provisions/potions/cure_poison_potion.mdl"
+			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
+			;;
 		"gskSummonSword") # is bugging, not spawning correctly, unequipable
 			lstrIgnore="UnnecessaryAsPlayerCanSummon"
 			lnHeightDisplacement=10
@@ -909,35 +944,38 @@ function FUNCmapadds() {
 		"gskSummonDevSkeletonPart")
 			local lstrSkelPartModel=""
 			local lnRandomSkelPart="$(printf %d "0x$(crc32 <(echo "${strFlMapadds}${nSkeletonPartCount}"))")" #this way it wont just cycle thru parts, it will be predictable random based on the mapadds filename name
+			local lnRotationX=0
 			local lnRotationY="$(( (lnRandomSkelPart%360) - 180))"
+			local lnRotationZ=0
 			#case "$((lnRandomSkelPart%6))" in
 			case "$((lnRandomSkelPart%2))" in
 				0) lstrSkelPartModel="models/props/debris/skeleton/cr_skel_thorax.mdl";;
-				1) lstrSkelPartModel="models/props/debris/skeleton/cr_skel_crane.mdl";;
+				1)
+					lstrSkelPartModel="models/props/debris/skeleton/cr_skel_crane.mdl"
+					lnRotationX="$((RANDOM%45))"
+					lnRotationZ="$((RANDOM%45))"
+					;;
 				# these below are too small and similar in shape, the player may not see nor step over never..
 				#2) lstrSkelPartModel="models/props/debris/skeleton/cr_skel_femurd.mdl";;
 				#1) lstrSkelPartModel="models/props/debris/skeleton/cr_skel_radiusg.mdl";;
 				#4) lstrSkelPartModel="models/props/debris/skeleton/cr_skel_humerusg.mdl";;
 				#5) lstrSkelPartModel="models/props/debris/skeleton/cr_skel_humerusd.mdl";;
 			esac
-			
+			#helpKeep spawnflags 257 FS_LongRangeView FS_AIonAfterSeen is mandatory or it wont work as land mine.
 			echo '
-			"classname" "prop_physics"
-			"model" "'"${lstrSkelPartModel}"'"
-			"angles" "0 '"${lnRotationY}"' 0"
 			"inertiaScale" "1.0"
 			"fademindist" "-1"
 			"fadescale" "1"
-			"spawnflags" "257"
 			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "'"$(FUNCspawnFlags --nodefaults FS_LongRangeView FS_AIonAfterSeen)"'"
+			"classname" "prop_physics"
+			"model" "'"${lstrSkelPartModel}"'"
+			"angles" "'"${lnRotationX}"' '"${lnRotationY}"' '"${lnRotationZ}"'"
 			' >>"$lstrFlAddTmp"
 			
 			if((lnRandomSkelPart%10 < 5));then # theoretically half would explode (see FUNCprepareFireTrap too) but crc32 will make it actually happen randomly!
-				echo '
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			' >>"$lstrFlAddTmp"
+				FUNCexplosionData >>"$lstrFlAddTmp"
 			fi
 			
 			((nSkeletonPartCount++))&&:
