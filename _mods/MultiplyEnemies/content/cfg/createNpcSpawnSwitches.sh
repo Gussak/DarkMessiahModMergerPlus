@@ -897,7 +897,7 @@ function FUNCmapadds() {
 			}
 			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
 			;;
-		"gskSummonCoin") #gskSummon_banana_regime "Test_CreateEntity item_food_banana_regime
+		"gskSummonCoin")
 			echo '
 			"classname" "prop_physics"
 			"model" "models/items/jewels/money/money02.mdl"
@@ -927,9 +927,19 @@ function FUNCmapadds() {
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
 			' >>"$lstrFlAddTmp"
 			;;
+		"gskSummonSimStoneLowBarrier") # below is has no mesh tho, looks bad.
+			echo '
+			"classname" "prop_physics"
+			"model" "models/props/archi/l11/l11_coin.mdl"
+			"fademindist" "800"
+			"fademaxdist" "1200"
+			"fadescale" "1"
+			' >>"$lstrFlAddTmp"
+			;;
 		"gskSummonDevFireTrap")
 			lnHeightDisplacement=10
 			echo '
+			"targetname"  "'"${lstrTargetName}_TODO_SpellCasterFireTrapWontTriggerExplode"'"
 			"classname" "env_entity_SpellCaster"
 			"combinability" "1"
 			"angles" "0 0 0"
@@ -938,8 +948,8 @@ function FUNCmapadds() {
 			"lifetime" "-1"
 			"power" "1"
 			' >>"$lstrFlAddTmp"
-			lstrAddEntityExtra="$(FUNCprepareFireTrap "$lstrTargetName")"
 			lstrAddEntityExtra+="$(FUNCprepareFireTrapBoxCollider "$lstrTargetName")" #TODO this fails tho...
+			lstrAddEntityExtra="$(FUNCprepareFireTrap "$lstrTargetName")" #This works!!!
 			;;
 		"gskSummonDevSkeletonPart")
 			local lstrSkelPartModel=""
@@ -974,6 +984,7 @@ function FUNCmapadds() {
 			"angles" "'"${lnRotationX}"' '"${lnRotationY}"' '"${lnRotationZ}"'"
 			' >>"$lstrFlAddTmp"
 			
+			# keep last as override!
 			if((lnRandomSkelPart%10 < 5));then # theoretically half would explode (see FUNCprepareFireTrap too) but crc32 will make it actually happen randomly!
 				FUNCexplosionData >>"$lstrFlAddTmp"
 			fi

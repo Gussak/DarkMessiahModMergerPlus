@@ -1,8 +1,16 @@
 map     :  L00 at: -1878 x, -4619 y, 342
 map     :  L00 at: -1878 x, -4619 y, 342
+gskMapMessage TODO split into many like Begin, AfterOpenDoor1, BeforeCoffinHammerRoom, WhenOpeningTheGate1, the propAt position can help on filtering what will go into each, createNpcSpawnSwitches.sh can receive 2 3D vectors to use as boundary box to filter them from this file
 gskMapMessage You get 1 skill point for free because now Wizard Eye is not enabled by default.
 gskMapMessage You get 1 other skill point for free because now combat_huge_slash combat_fatality combat_parry combat_big_slash are not enabled by default for a challenger beggining (essentially you are unable to melee fight if you want to hold on that 1 skill point for something else) (remember you can jump over fallen enemies to kill them too)
 gskMapMessage for both skill points, see gskmap_L00.cfg.MapAdds_ManualFix.txt
+gskSpawnHint_gskSpawnHint_gskSpawnHint   // ( 748/748 )
+prop at -1842 -4745 202 missing modelname
+prop at -1842 -4745 202 missing modelname
+setpos -1885.611816 -4678.645020 284.376404;setang 45.876648 -56.699005 -0.000101
+setpos -1885.611816 -4678.645020 284.376404;setang 45.876648 -56.699005 -0.000101
+gskSummonPotionCurePoison
+gskSummonPotionCurePoison
 gskSpawnHint_gskSpawnHint_gskSpawnHint   // ( 1/748 )
 prop at -1515 -4521 192 missing modelname
 prop at -1515 -4521 192 missing modelname
@@ -5232,10 +5240,11 @@ setpos 234.590683 -2439.671631 240.337997;setang 25.687014 34.002224 -0.000046
 setpos 234.590683 -2439.671631 240.337997;setang 25.687014 34.002224 -0.000046
 gskSummonSimStoneLowBarrier
 gskSummonSimStoneLowBarrier
-gskSpawnHint_gskSpawnHint_gskSpawnHint   // ( 748/748 )
-prop at -1842 -4745 202 missing modelname
-prop at -1842 -4745 202 missing modelname
-setpos -1885.611816 -4678.645020 284.376404;setang 45.876648 -56.699005 -0.000101
-setpos -1885.611816 -4678.645020 284.376404;setang 45.876648 -56.699005 -0.000101
-gskSummonPotionCurePoison
-gskSummonPotionCurePoison
+
+gskSpawnHint_gskSpawnHint_gskSpawnHint 
+prop at 1974 1286 -544 missing modelname
+prop at 1974 1286 -544 missing modelname
+setpos 1950.920410 1252.402588 -491.532074;setang 52.149662 55.307030 -0.003211
+setpos 1950.920410 1252.402588 -491.532074;setang 52.149662 55.307030 -0.003211
+gskSummonPotionLife 
+gskSummonPotionLife 

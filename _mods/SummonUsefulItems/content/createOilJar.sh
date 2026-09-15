@@ -144,12 +144,11 @@ astrInputParams=( #TODO remove the useless to free the very limited slots
 	"item_food_saucisson"       "saucisson01"     "models/items/provisions/saucisson/" "" "" 0
 	# "" "" 0
 	
-	"item_food_bread01_row" "bread01_raw" "models/items/provisions/bread01/" "" "" 0 #this one has model but is useless, cant be baked
-	
 	#"item_food_fish01" "fish01" "models/items/provisions/fish/" "quiver_guard"  "models/items/weapons/quiver_guard/" 100 #TODO: REMOVE THIS AS IT WORKS OK!!! IS JUST A TEST!!! btw, doesnt work take_replace_by for arrow nor quiver (may be because they are ammo and not storable items)
 	
 	######################## DO NOT USE #################################
 	"item_food_food_ratio01"   "food_ratio01"    "models/items/provisions/food_ratio/" "" "" 0 #DO NOT USE!!! it is hardcoded and always become food!!!!
+	"item_food_bread01_row" "bread01_raw" "models/items/provisions/bread01/" "" "" 0 #DO NOT RE-USE!!! it is being used to help spawning things that only work thru mapadds. description: this one has model but is useless, cant be baked
 )
 if(( (${#astrInputParams[@]}%nInputParamsSz) != 0 ));then
 	FUNCechoInfo "[DevERROR] invalid param count ${#astrInputParams[@]} % $nInputParamsSz = $((${#astrInputParams[@]}%nInputParamsSz))"
