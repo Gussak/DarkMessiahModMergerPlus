@@ -971,7 +971,9 @@ function FUNCmapadds() {
 				#4) lstrSkelPartModel="models/props/debris/skeleton/cr_skel_humerusg.mdl";;
 				#5) lstrSkelPartModel="models/props/debris/skeleton/cr_skel_humerusd.mdl";;
 			esac
+			
 			#helpKeep spawnflags 257 FS_LongRangeView FS_AIonAfterSeen is mandatory or it wont work as land mine.
+			#helpKeep none work, the skelleton parts are all too fragile and cant be dropped. #old: if health doesnt work, try "physdamagescale" "0.1"
 			echo '
 			"inertiaScale" "1.0"
 			"fademindist" "-1"
@@ -982,7 +984,10 @@ function FUNCmapadds() {
 			"classname" "prop_physics"
 			"model" "'"${lstrSkelPartModel}"'"
 			"angles" "'"${lnRotationX}"' '"${lnRotationY}"' '"${lnRotationZ}"'"
+			"health" "'"$((RANDOM%33+7))"'"
+			"physdamagescale" "'"0.$((RANDOM%8+1))"'"
 			' >>"$lstrFlAddTmp"
+#			"physdamagescale" "'"0.$(printf %02d $((RANDOM%98+1)))"'"
 			
 			# keep last as override!
 			if((lnRandomSkelPart%10 < 5));then # theoretically half would explode (see FUNCprepareFireTrap too) but crc32 will make it actually happen randomly!
