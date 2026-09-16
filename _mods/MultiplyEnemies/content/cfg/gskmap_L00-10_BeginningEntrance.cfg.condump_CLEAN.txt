@@ -5,6 +5,7 @@ gskMapMessage RegionExtractedToVector3D 260 -3787 959
 gskMapMessage You get 1 skill point for free because now Wizard Eye is not enabled by default.
 gskMapMessage You get 1 other skill point for free because now combat_huge_slash combat_fatality combat_parry combat_big_slash are not enabled by default for a challenger beggining (essentially you are unable to melee fight if you want to hold on that 1 skill point for something else) (remember you can jump over fallen enemies to kill them too)
 gskMapMessage for both skill points, see gskmap_L00.cfg.MapAdds_ManualFix.txt
+gskMapMessage WARNING: Now that L00 has a huge lot of cool stuff, you need to cleanup (destroy skeleton parts, kill monsters, get potions) or you will see SaveRestoreOverflow error on console. Basically play with patience and explore everywhere.
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 1/148 )
 prop at -1842 -4745 202 missing modelname
 prop at -1842 -4745 202 missing modelname
