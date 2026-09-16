@@ -320,6 +320,7 @@ if $bRedoAll;then
 	declare -p astrRedoAll |tr '[' '\n'
 	
 	: ${bRedoDryRun:=false} #help
+	: ${bRedoForce:=false} #help
 	
 	strMTBN="GSK_MoreFoes_MT_"
 	FUNCwaitMtEnd() {
@@ -342,31 +343,43 @@ if $bRedoAll;then
 		echo "=============== $strFlRedo ==============="
 		
 		strFlCfg="${strFlRedo%.condump_CLEAN.txt}"
-		strMapRegex="gskmap_(.*)[-](.*)[.]cfg"
-		strMapNm="$(    echo "$strFlCfg" |sed -r -e "s@${strMapRegex}@\1@g")"
-		strMapSector="$(echo "$strFlCfg" |sed -r -e "s@${strMapRegex}@\2@g")"
+		#strMapRegex="gskmap_(.*)([-])?(.*)[.]cfg"
+		#strMapNm="$(    echo "$strFlCfg" |sed -r -e "s@${strMapRegex}@\1@g")"
+		strMapNm="$(echo "$strFlCfg" |sed -r -e "s@gskmap_([^-.]*).*@\1@g")"
+		strMapSector="";if [[ "$strFlCfg" =~ .*-.* ]];then strMapSector="$(echo "$strFlCfg" |sed -r -e "s@gskmap_(.*)[-](.*)[.]cfg@\2@g")";fi
 		strFlMapAdds="../mapadds/${strMapNm}/${strFlCfg}.MapAdds.txt"
 		ls -l --time-style=full-iso "$strFlCfg" "$strFlMapAdds" "$strFlRedo"&&:
 		
-		nSpawnCount="$(egrep "gskSpawnHint" "$strFlRedo" -c)"
+		nSpawnCount="$(egrep -c "gskSpawnHint" "$strFlRedo")"
 		#nSpawnMapAdds="$(egrep '"targetname".*"gskSpawn.*' "$strFlMapAdds" |egrep -v "TODO" -c)"&&:
+		if ! egrep "prop at .* missing modelname" "$strFlRedo";then
+			echo "WARNING: skipping, is not mapadds ready..."
+			read -n 1 -t 10&&:
+			continue;
+		fi
 		nSpawnMapAdds="$(egrep 'gskSpawn[^",]*' "$strFlMapAdds" -o |egrep -v "_BeginAt|TODO" |sort -u |wc -l)"
 		
-		declare -p strFlCfg strMapNm strFlMapAdds strFlRedo nSpawnCount nSpawnMapAdds
+		declare -p strFlCfg strMapNm strMapSector strFlMapAdds strFlRedo nSpawnCount nSpawnMapAdds
+		if [[ "$strMapNm" =~ .*-.* ]];then echo "ERROR: map name has '-'";exit 1;fi
 		
-		if $bRedoDryRun;then continue;fi
-		
-		if [[ ! -f "$strFlMapAdds" ]] || [[ "$strFlRedo" -nt "$strFlMapAdds" ]] || ((nSpawnCount!=nSpawnMapAdds));then
+		if $bRedoForce || [[ ! -f "$strFlMapAdds" ]] || [[ "$strFlRedo" -nt "$strFlMapAdds" ]] || ((nSpawnCount!=nSpawnMapAdds));then
 			if((nRedoAllMultiThread>1));then
 				FUNCwaitMtEnd "${#astrRedoAll[@]}" $nRedoAllMultiThread $iMTindex
-				(launchappminimized --fast xterm -title "${strMTBN}${iMTindex}_${strMapNm}-${strMapSector}" -e bash -c "bRefreshMount=false '$0' -M '${strFlCfg}'; read -n 1 -t 3 -p ExitIn3s" & disown)
+				if ! $bRedoDryRun;then
+					(launchappminimized --fast xterm -title "${strMTBN}${iMTindex}_${strMapNm}-${strMapSector}" -e bash -c "bRefreshMount=false '$0' -M '${strFlCfg}'; read -n 1 -t 3 -p ExitIn3s" & disown)
+				fi
 				((iMTindex++))&&:
 			else
 				echo "see nRedoAllMultiThread help"
-				bRefreshMount=false "$0" -M "${strFlCfg}"
+				if ! $bRedoDryRun;then
+					bRefreshMount=false "$0" -M "${strFlCfg}"
+				fi
+				
+				: ${bDbgRedoAllButNot:=false} #help redo 1 only to catch failure
+				if $bDbgRedoAllButNot;then exit;fi
 			fi
 		else
-			echo "[INFO] To force recreate, remove '$strFlMapAdds'"
+			echo "[INFO] To force recreate, remove '$strFlMapAdds' or see bRedoForce help"
 		fi
 	done
 	FUNCwaitMtEnd "${#astrRedoAll[@]}" 1 $iMTindex
