@@ -2904,7 +2904,6 @@
 			"health" "1"
 			
 			
-			"origin"      "1974 1286 -533"
 		}
 		"add:entity"
 		{

@@ -1479,7 +1479,6 @@
 			"health" "1"
 			
 			
-			"origin"      "1659 -1165 251"
 		}
 
 		"modify:entity"

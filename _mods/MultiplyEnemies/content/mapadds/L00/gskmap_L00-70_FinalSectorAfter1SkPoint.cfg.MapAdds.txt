@@ -2895,7 +2895,6 @@
 			"health" "1"
 			
 			
-			"origin"      "1091 2225 -141"
 		}
 		"add:entity"
 		{
@@ -2923,7 +2922,6 @@
 			"health" "1"
 			
 			
-			"origin"      "1259 2451 -141"
 		}
 		"add:entity"
 		{
@@ -2951,7 +2949,6 @@
 			"health" "1"
 			
 			
-			"origin"      "1195 2190 187"
 		}
 		"add:entity"
 		{

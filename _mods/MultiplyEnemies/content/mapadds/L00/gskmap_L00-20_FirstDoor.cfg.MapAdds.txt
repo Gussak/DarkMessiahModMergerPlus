@@ -1509,7 +1509,6 @@
 			"health" "1"
 			
 			
-			"origin"      "-488 -3158 254"
 		}
 		"add:entity"
 		{
@@ -1537,7 +1536,6 @@
 			"health" "1"
 			
 			
-			"origin"      "-488 -3172 254"
 		}
 		"add:entity"
 		{
@@ -1565,7 +1563,6 @@
 			"health" "1"
 			
 			
-			"origin"      "-488 -3188 251"
 		}
 		"add:entity"
 		{
@@ -3069,7 +3066,6 @@
 			"health" "1"
 			
 			
-			"origin"      "-59 -2782 203"
 		}
 		"add:entity"
 		{
@@ -3110,7 +3106,6 @@
 			"health" "1"
 			
 			
-			"origin"      "-888 -3430 443"
 		}
 		"add:entity"
 		{
@@ -3138,7 +3133,6 @@
 			"health" "1"
 			
 			
-			"origin"      "-402 -3554 347"
 		}
 		"add:entity"
 		{
@@ -3166,7 +3160,6 @@
 			"health" "1"
 			
 			
-			"origin"      "-403 -3044 443"
 		}
 		"add:entity"
 		{
@@ -3194,7 +3187,6 @@
 			"health" "1"
 			
 			
-			"origin"      "-920 -3278 252"
 		}
 		"add:entity"
 		{
@@ -3222,7 +3214,6 @@
 			"health" "1"
 			
 			
-			"origin"      "-644 -3173 497"
 		}
 		"add:entity"
 		{
@@ -3302,7 +3293,6 @@
 			"health" "1"
 			
 			
-			"origin"      "-528 -3249 465"
 		}
 		"add:entity"
 		{
@@ -3330,7 +3320,6 @@
 			"health" "1"
 			
 			
-			"origin"      "-536 -3238 482"
 		}
 		"add:entity"
 		{
@@ -3358,7 +3347,6 @@
 			"health" "1"
 			
 			
-			"origin"      "-559 -3239 482"
 		}
 		"add:entity"
 		{
@@ -3386,7 +3374,6 @@
 			"health" "1"
 			
 			
-			"origin"      "-588 -3232 482"
 		}
 		"add:entity"
 		{
@@ -3414,7 +3401,6 @@
 			"health" "1"
 			
 			
-			"origin"      "-615 -3226 482"
 		}
 		"add:entity"
 		{
@@ -3442,7 +3428,6 @@
 			"health" "1"
 			
 			
-			"origin"      "-634 -3204 497"
 		}
 		"add:entity"
 		{
@@ -3470,7 +3455,6 @@
 			"health" "1"
 			
 			
-			"origin"      "-767 -3251 465"
 		}
 		"add:entity"
 		{
@@ -3498,7 +3482,6 @@
 			"health" "1"
 			
 			
-			"origin"      "-759 -3238 482"
 		}
 		"add:entity"
 		{
@@ -3526,7 +3509,6 @@
 			"health" "1"
 			
 			
-			"origin"      "-724 -3236 482"
 		}
 		"add:entity"
 		{
@@ -3554,7 +3536,6 @@
 			"health" "1"
 			
 			
-			"origin"      "-688 -3237 482"
 		}
 		"add:entity"
 		{
@@ -3582,7 +3563,6 @@
 			"health" "1"
 			
 			
-			"origin"      "-668 -3240 497"
 		}
 		"add:entity"
 		{
@@ -3610,7 +3590,6 @@
 			"health" "1"
 			
 			
-			"origin"      "-670 -3201 497"
 		}
 		"add:entity"
 		{
@@ -3638,7 +3617,6 @@
 			"health" "1"
 			
 			
-			"origin"      "-668 -3167 497"
 		}
 		"add:entity"
 		{
@@ -3666,7 +3644,6 @@
 			"health" "1"
 			
 			
-			"origin"      "-668 -3126 497"
 		}
 		"add:entity"
 		{
@@ -3694,7 +3671,6 @@
 			"health" "1"
 			
 			
-			"origin"      "-699 -3111 482"
 		}
 		"add:entity"
 		{
@@ -3722,7 +3698,6 @@
 			"health" "1"
 			
 			
-			"origin"      "-735 -3110 482"
 		}
 		"add:entity"
 		{
@@ -3750,7 +3725,6 @@
 			"health" "1"
 			
 			
-			"origin"      "-769 -3093 463"
 		}
 		"add:entity"
 		{
@@ -3778,7 +3752,6 @@
 			"health" "1"
 			
 			
-			"origin"      "-771 -3097 465"
 		}
 		"add:entity"
 		{
@@ -3806,7 +3779,6 @@
 			"health" "1"
 			
 			
-			"origin"      "-637 -3152 497"
 		}
 		"add:entity"
 		{
@@ -3834,7 +3806,6 @@
 			"health" "1"
 			
 			
-			"origin"      "-633 -3107 497"
 		}
 		"add:entity"
 		{
@@ -3862,7 +3833,6 @@
 			"health" "1"
 			
 			
-			"origin"      "-605 -3116 482"
 		}
 		"add:entity"
 		{
@@ -3890,7 +3860,6 @@
 			"health" "1"
 			
 			
-			"origin"      "-573 -3118 482"
 		}
 		"add:entity"
 		{
@@ -3918,7 +3887,6 @@
 			"health" "1"
 			
 			
-			"origin"      "-542 -3118 482"
 		}
 		"add:entity"
 		{
@@ -3946,7 +3914,6 @@
 			"health" "1"
 			
 			
-			"origin"      "-531 -3098 465"
 		}
 		"add:entity"
 		{
@@ -4039,7 +4006,6 @@
 			"health" "1"
 			
 			
-			"origin"      "-455 -3557 347"
 		}
 		"add:entity"
 		{
@@ -4067,7 +4033,6 @@
 			"health" "1"
 			
 			
-			"origin"      "-456 -3039 443"
 		}
 		"add:entity"
 		{
@@ -4095,7 +4060,6 @@
 			"health" "1"
 			
 			
-			"origin"      "-841 -3442 443"
 		}
 		"add:entity"
 		{

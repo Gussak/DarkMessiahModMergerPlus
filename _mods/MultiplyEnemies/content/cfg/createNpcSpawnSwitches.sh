@@ -1030,7 +1030,6 @@ function FUNCmapadds() {
 			lstrAddEntityExtra+="$(FUNCprepareFireTrap "$lstrTargetName")" #This works!!! but see below, is the same of gskSummonDevFireTrap
 			;;
 		"gskSummonDevFireTrap")
-			lnHeightDisplacement=10
 			echo '
 			"inertiaScale" "1.0"
 			"fademindist" "500"
