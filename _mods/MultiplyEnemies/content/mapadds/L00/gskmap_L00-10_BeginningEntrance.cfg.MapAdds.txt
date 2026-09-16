@@ -25,218 +25,13 @@
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"targetname"  "gskSpawn_10_BeginningEntrance_001_TODO_SpellCasterFireTrapWontTriggerExplode"
-			"classname" "env_entity_SpellCaster"
-			"combinability" "1"
-			"angles" "0 0 0"
-			"target" "None"
-			"spell" "7"
-			"lifetime" "-1"
-			"power" "1"
-			
-			"origin"      "-1515 -4521 203"
-		}
-		"add:entity"
-		{
-			"classname" "trigger_once"
-			"combinability" "1"
-			"trapsecret" "2"
-			"StartDisabled" "0"
-			"spawnflags" "1"
-			"targetname" "gskSpawn_10_BeginningEntrance_001_ColliderBox_TODO_SolidBoxWontSpawn"
-			"origin" "-1515 -4521 193"
-			connections
-			{
-				"OnStartTouch" "gskSpawn_10_BeginningEntrance_001,CastSpell,,0,-1,1,"
-			}
-			solid
-			{
-				
-				side
-				{
-					"plane" "(-1601 -3888 305) (-1601 -3888 189) (-1673 -3888 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 32.5385] 0.26"
-					"vaxis" "[0 0 -1 26] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1673 -3854 305) (-1673 -3854 189) (-1601 -3854 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -16] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1673 -3888 305) (-1673 -3888 189) (-1673 -3854 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -24] 0.25"
-					"vaxis" "[0 0 -1 -8] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1601 -3854 305) (-1601 -3854 189) (-1601 -3888 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -30.2279] 0.26"
-					"vaxis" "[0 0 -1 58.452] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1601 -3888 305) (-1673 -3888 305) (-1673 -3854 305)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -10] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1601 -3854 189) (-1673 -3854 189) (-1673 -3888 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -2] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				
-			}
-		}
-		
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_10_BeginningEntrance_001_ColliderBox_TODO_SolidBoxWontSpawn"
-			}
-			"add:solid"
-			{
-				
-				side
-				{
-					"plane" "(-1601 -3888 305) (-1601 -3888 189) (-1673 -3888 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 32.5385] 0.26"
-					"vaxis" "[0 0 -1 26] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1673 -3854 305) (-1673 -3854 189) (-1601 -3854 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -16] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1673 -3888 305) (-1673 -3888 189) (-1673 -3854 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -24] 0.25"
-					"vaxis" "[0 0 -1 -8] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1601 -3854 305) (-1601 -3854 189) (-1601 -3888 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -30.2279] 0.26"
-					"vaxis" "[0 0 -1 58.452] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1601 -3888 305) (-1673 -3888 305) (-1673 -3854 305)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -10] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1601 -3854 189) (-1673 -3854 189) (-1673 -3888 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -2] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				
-			}
-		}
-		
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_10_BeginningEntrance_001_ColliderBox_TODO_SolidBoxWontSpawn"
-			}
-			"add:key"
-			{
-				"OnStartTouch" "gskSpawn_10_BeginningEntrance_001,CastSpell,,0,-1,1,"
-			}
-		}
-		
-		"add:entity"
-		{
-			"combinability" "1"
-			"skin" "0"
-			"disableshadows" "0"
-			"combinetarget1enable" "1"
-			"combinetarget2enable" "1"
-			"combinetarget3enable" "1"
-			"combinetarget4enable" "1"
-			"combinetarget5enable" "1"
-			"PerformanceMode" "0"
-			"pressuredelay" "0"
-			"mindxlevel" "0"
-			"maxdxlevel" "0"
-			"minhealthdmg" "0"
-			"shadowcastdist" "0"
-			"nodamageforces" "0"
 			"inertiaScale" "1.0"
-			"massScale" "0"
-			"damagetoenablemotion" "0"
-			"forcetoenablemotion" "0"
 			"fademindist" "500"
 			"fademaxdist" "700"
 			"fadescale" "1"
-			"combinetarget6enable" "1"
-			"combinetarget7enable" "1"
-			"combinetarget8enable" "1"
-			"combinetarget9enable" "1"
-			"combinetarget10enable" "1"
-			"UseSpeedToCalculateSoundVolume" "1"
-			
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"targetname" "gskSpawn_10_BeginningEntrance_001_LandMine"
-			"origin" "-1515 -4521 193"
-			"angles" "34 -156 14"
+			"angles" "38 24 20"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -247,8 +42,9 @@
 			"spawnflags"  "257"
 			"health" "1"
 			
+			
+			"origin"      "-1515 -4521 203"
 		}
-		
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_10_BeginningEntrance_002"
@@ -257,218 +53,13 @@
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"targetname"  "gskSpawn_10_BeginningEntrance_002_TODO_SpellCasterFireTrapWontTriggerExplode"
-			"classname" "env_entity_SpellCaster"
-			"combinability" "1"
-			"angles" "0 0 0"
-			"target" "None"
-			"spell" "7"
-			"lifetime" "-1"
-			"power" "1"
-			
-			"origin"      "-1495 -4548 204"
-		}
-		"add:entity"
-		{
-			"classname" "trigger_once"
-			"combinability" "1"
-			"trapsecret" "2"
-			"StartDisabled" "0"
-			"spawnflags" "1"
-			"targetname" "gskSpawn_10_BeginningEntrance_002_ColliderBox_TODO_SolidBoxWontSpawn"
-			"origin" "-1495 -4548 194"
-			connections
-			{
-				"OnStartTouch" "gskSpawn_10_BeginningEntrance_002,CastSpell,,0,-1,1,"
-			}
-			solid
-			{
-				
-				side
-				{
-					"plane" "(-1581 -3915 306) (-1581 -3915 190) (-1653 -3915 190)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 32.5385] 0.26"
-					"vaxis" "[0 0 -1 26] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1653 -3881 306) (-1653 -3881 190) (-1581 -3881 190)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -16] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1653 -3915 306) (-1653 -3915 190) (-1653 -3881 190)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -24] 0.25"
-					"vaxis" "[0 0 -1 -8] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1581 -3881 306) (-1581 -3881 190) (-1581 -3915 190)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -30.2279] 0.26"
-					"vaxis" "[0 0 -1 58.452] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1581 -3915 306) (-1653 -3915 306) (-1653 -3881 306)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -10] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1581 -3881 190) (-1653 -3881 190) (-1653 -3915 190)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -2] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				
-			}
-		}
-		
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_10_BeginningEntrance_002_ColliderBox_TODO_SolidBoxWontSpawn"
-			}
-			"add:solid"
-			{
-				
-				side
-				{
-					"plane" "(-1581 -3915 306) (-1581 -3915 190) (-1653 -3915 190)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 32.5385] 0.26"
-					"vaxis" "[0 0 -1 26] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1653 -3881 306) (-1653 -3881 190) (-1581 -3881 190)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -16] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1653 -3915 306) (-1653 -3915 190) (-1653 -3881 190)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -24] 0.25"
-					"vaxis" "[0 0 -1 -8] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1581 -3881 306) (-1581 -3881 190) (-1581 -3915 190)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -30.2279] 0.26"
-					"vaxis" "[0 0 -1 58.452] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1581 -3915 306) (-1653 -3915 306) (-1653 -3881 306)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -10] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1581 -3881 190) (-1653 -3881 190) (-1653 -3915 190)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -2] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				
-			}
-		}
-		
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_10_BeginningEntrance_002_ColliderBox_TODO_SolidBoxWontSpawn"
-			}
-			"add:key"
-			{
-				"OnStartTouch" "gskSpawn_10_BeginningEntrance_002,CastSpell,,0,-1,1,"
-			}
-		}
-		
-		"add:entity"
-		{
-			"combinability" "1"
-			"skin" "0"
-			"disableshadows" "0"
-			"combinetarget1enable" "1"
-			"combinetarget2enable" "1"
-			"combinetarget3enable" "1"
-			"combinetarget4enable" "1"
-			"combinetarget5enable" "1"
-			"PerformanceMode" "0"
-			"pressuredelay" "0"
-			"mindxlevel" "0"
-			"maxdxlevel" "0"
-			"minhealthdmg" "0"
-			"shadowcastdist" "0"
-			"nodamageforces" "0"
 			"inertiaScale" "1.0"
-			"massScale" "0"
-			"damagetoenablemotion" "0"
-			"forcetoenablemotion" "0"
 			"fademindist" "500"
 			"fademaxdist" "700"
 			"fadescale" "1"
-			"combinetarget6enable" "1"
-			"combinetarget7enable" "1"
-			"combinetarget8enable" "1"
-			"combinetarget9enable" "1"
-			"combinetarget10enable" "1"
-			"UseSpeedToCalculateSoundVolume" "1"
-			
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"targetname" "gskSpawn_10_BeginningEntrance_002_LandMine"
-			"origin" "-1495 -4548 194"
-			"angles" "42 37 11"
+			"angles" "18 -118 19"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -479,8 +70,9 @@
 			"spawnflags"  "257"
 			"health" "1"
 			
+			
+			"origin"      "-1495 -4548 204"
 		}
-		
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_10_BeginningEntrance_003"
@@ -489,218 +81,13 @@
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"targetname"  "gskSpawn_10_BeginningEntrance_003_TODO_SpellCasterFireTrapWontTriggerExplode"
-			"classname" "env_entity_SpellCaster"
-			"combinability" "1"
-			"angles" "0 0 0"
-			"target" "None"
-			"spell" "7"
-			"lifetime" "-1"
-			"power" "1"
-			
-			"origin"      "-1483 -4577 204"
-		}
-		"add:entity"
-		{
-			"classname" "trigger_once"
-			"combinability" "1"
-			"trapsecret" "2"
-			"StartDisabled" "0"
-			"spawnflags" "1"
-			"targetname" "gskSpawn_10_BeginningEntrance_003_ColliderBox_TODO_SolidBoxWontSpawn"
-			"origin" "-1483 -4577 194"
-			connections
-			{
-				"OnStartTouch" "gskSpawn_10_BeginningEntrance_003,CastSpell,,0,-1,1,"
-			}
-			solid
-			{
-				
-				side
-				{
-					"plane" "(-1569 -3944 306) (-1569 -3944 190) (-1641 -3944 190)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 32.5385] 0.26"
-					"vaxis" "[0 0 -1 26] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1641 -3910 306) (-1641 -3910 190) (-1569 -3910 190)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -16] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1641 -3944 306) (-1641 -3944 190) (-1641 -3910 190)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -24] 0.25"
-					"vaxis" "[0 0 -1 -8] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1569 -3910 306) (-1569 -3910 190) (-1569 -3944 190)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -30.2279] 0.26"
-					"vaxis" "[0 0 -1 58.452] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1569 -3944 306) (-1641 -3944 306) (-1641 -3910 306)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -10] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1569 -3910 190) (-1641 -3910 190) (-1641 -3944 190)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -2] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				
-			}
-		}
-		
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_10_BeginningEntrance_003_ColliderBox_TODO_SolidBoxWontSpawn"
-			}
-			"add:solid"
-			{
-				
-				side
-				{
-					"plane" "(-1569 -3944 306) (-1569 -3944 190) (-1641 -3944 190)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 32.5385] 0.26"
-					"vaxis" "[0 0 -1 26] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1641 -3910 306) (-1641 -3910 190) (-1569 -3910 190)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -16] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1641 -3944 306) (-1641 -3944 190) (-1641 -3910 190)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -24] 0.25"
-					"vaxis" "[0 0 -1 -8] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1569 -3910 306) (-1569 -3910 190) (-1569 -3944 190)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -30.2279] 0.26"
-					"vaxis" "[0 0 -1 58.452] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1569 -3944 306) (-1641 -3944 306) (-1641 -3910 306)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -10] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1569 -3910 190) (-1641 -3910 190) (-1641 -3944 190)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -2] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				
-			}
-		}
-		
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_10_BeginningEntrance_003_ColliderBox_TODO_SolidBoxWontSpawn"
-			}
-			"add:key"
-			{
-				"OnStartTouch" "gskSpawn_10_BeginningEntrance_003,CastSpell,,0,-1,1,"
-			}
-		}
-		
-		"add:entity"
-		{
-			"combinability" "1"
-			"skin" "0"
-			"disableshadows" "0"
-			"combinetarget1enable" "1"
-			"combinetarget2enable" "1"
-			"combinetarget3enable" "1"
-			"combinetarget4enable" "1"
-			"combinetarget5enable" "1"
-			"PerformanceMode" "0"
-			"pressuredelay" "0"
-			"mindxlevel" "0"
-			"maxdxlevel" "0"
-			"minhealthdmg" "0"
-			"shadowcastdist" "0"
-			"nodamageforces" "0"
 			"inertiaScale" "1.0"
-			"massScale" "0"
-			"damagetoenablemotion" "0"
-			"forcetoenablemotion" "0"
 			"fademindist" "500"
 			"fademaxdist" "700"
 			"fadescale" "1"
-			"combinetarget6enable" "1"
-			"combinetarget7enable" "1"
-			"combinetarget8enable" "1"
-			"combinetarget9enable" "1"
-			"combinetarget10enable" "1"
-			"UseSpeedToCalculateSoundVolume" "1"
-			
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"targetname" "gskSpawn_10_BeginningEntrance_003_LandMine"
-			"origin" "-1483 -4577 194"
-			"angles" "23 21 35"
+			"angles" "16 -159 1"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -711,8 +98,9 @@
 			"spawnflags"  "257"
 			"health" "1"
 			
+			
+			"origin"      "-1483 -4577 204"
 		}
-		
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_10_BeginningEntrance_004"
@@ -721,218 +109,13 @@
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"targetname"  "gskSpawn_10_BeginningEntrance_004_TODO_SpellCasterFireTrapWontTriggerExplode"
-			"classname" "env_entity_SpellCaster"
-			"combinability" "1"
-			"angles" "0 0 0"
-			"target" "None"
-			"spell" "7"
-			"lifetime" "-1"
-			"power" "1"
-			
-			"origin"      "-1475 -4602 203"
-		}
-		"add:entity"
-		{
-			"classname" "trigger_once"
-			"combinability" "1"
-			"trapsecret" "2"
-			"StartDisabled" "0"
-			"spawnflags" "1"
-			"targetname" "gskSpawn_10_BeginningEntrance_004_ColliderBox_TODO_SolidBoxWontSpawn"
-			"origin" "-1475 -4602 193"
-			connections
-			{
-				"OnStartTouch" "gskSpawn_10_BeginningEntrance_004,CastSpell,,0,-1,1,"
-			}
-			solid
-			{
-				
-				side
-				{
-					"plane" "(-1561 -3969 305) (-1561 -3969 189) (-1633 -3969 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 32.5385] 0.26"
-					"vaxis" "[0 0 -1 26] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1633 -3935 305) (-1633 -3935 189) (-1561 -3935 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -16] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1633 -3969 305) (-1633 -3969 189) (-1633 -3935 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -24] 0.25"
-					"vaxis" "[0 0 -1 -8] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1561 -3935 305) (-1561 -3935 189) (-1561 -3969 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -30.2279] 0.26"
-					"vaxis" "[0 0 -1 58.452] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1561 -3969 305) (-1633 -3969 305) (-1633 -3935 305)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -10] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1561 -3935 189) (-1633 -3935 189) (-1633 -3969 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -2] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				
-			}
-		}
-		
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_10_BeginningEntrance_004_ColliderBox_TODO_SolidBoxWontSpawn"
-			}
-			"add:solid"
-			{
-				
-				side
-				{
-					"plane" "(-1561 -3969 305) (-1561 -3969 189) (-1633 -3969 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 32.5385] 0.26"
-					"vaxis" "[0 0 -1 26] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1633 -3935 305) (-1633 -3935 189) (-1561 -3935 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -16] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1633 -3969 305) (-1633 -3969 189) (-1633 -3935 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -24] 0.25"
-					"vaxis" "[0 0 -1 -8] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1561 -3935 305) (-1561 -3935 189) (-1561 -3969 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -30.2279] 0.26"
-					"vaxis" "[0 0 -1 58.452] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1561 -3969 305) (-1633 -3969 305) (-1633 -3935 305)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -10] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1561 -3935 189) (-1633 -3935 189) (-1633 -3969 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -2] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				
-			}
-		}
-		
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_10_BeginningEntrance_004_ColliderBox_TODO_SolidBoxWontSpawn"
-			}
-			"add:key"
-			{
-				"OnStartTouch" "gskSpawn_10_BeginningEntrance_004,CastSpell,,0,-1,1,"
-			}
-		}
-		
-		"add:entity"
-		{
-			"combinability" "1"
-			"skin" "0"
-			"disableshadows" "0"
-			"combinetarget1enable" "1"
-			"combinetarget2enable" "1"
-			"combinetarget3enable" "1"
-			"combinetarget4enable" "1"
-			"combinetarget5enable" "1"
-			"PerformanceMode" "0"
-			"pressuredelay" "0"
-			"mindxlevel" "0"
-			"maxdxlevel" "0"
-			"minhealthdmg" "0"
-			"shadowcastdist" "0"
-			"nodamageforces" "0"
 			"inertiaScale" "1.0"
-			"massScale" "0"
-			"damagetoenablemotion" "0"
-			"forcetoenablemotion" "0"
 			"fademindist" "500"
 			"fademaxdist" "700"
 			"fadescale" "1"
-			"combinetarget6enable" "1"
-			"combinetarget7enable" "1"
-			"combinetarget8enable" "1"
-			"combinetarget9enable" "1"
-			"combinetarget10enable" "1"
-			"UseSpeedToCalculateSoundVolume" "1"
-			
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"targetname" "gskSpawn_10_BeginningEntrance_004_LandMine"
-			"origin" "-1475 -4602 193"
-			"angles" "40 48 39"
+			"angles" "38 54 20"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -943,8 +126,9 @@
 			"spawnflags"  "257"
 			"health" "1"
 			
+			
+			"origin"      "-1475 -4602 203"
 		}
-		
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_10_BeginningEntrance_005"
@@ -953,218 +137,13 @@
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"targetname"  "gskSpawn_10_BeginningEntrance_005_TODO_SpellCasterFireTrapWontTriggerExplode"
-			"classname" "env_entity_SpellCaster"
-			"combinability" "1"
-			"angles" "0 0 0"
-			"target" "None"
-			"spell" "7"
-			"lifetime" "-1"
-			"power" "1"
-			
-			"origin"      "-1471 -4631 203"
-		}
-		"add:entity"
-		{
-			"classname" "trigger_once"
-			"combinability" "1"
-			"trapsecret" "2"
-			"StartDisabled" "0"
-			"spawnflags" "1"
-			"targetname" "gskSpawn_10_BeginningEntrance_005_ColliderBox_TODO_SolidBoxWontSpawn"
-			"origin" "-1471 -4631 193"
-			connections
-			{
-				"OnStartTouch" "gskSpawn_10_BeginningEntrance_005,CastSpell,,0,-1,1,"
-			}
-			solid
-			{
-				
-				side
-				{
-					"plane" "(-1557 -3998 305) (-1557 -3998 189) (-1629 -3998 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 32.5385] 0.26"
-					"vaxis" "[0 0 -1 26] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1629 -3964 305) (-1629 -3964 189) (-1557 -3964 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -16] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1629 -3998 305) (-1629 -3998 189) (-1629 -3964 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -24] 0.25"
-					"vaxis" "[0 0 -1 -8] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1557 -3964 305) (-1557 -3964 189) (-1557 -3998 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -30.2279] 0.26"
-					"vaxis" "[0 0 -1 58.452] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1557 -3998 305) (-1629 -3998 305) (-1629 -3964 305)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -10] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1557 -3964 189) (-1629 -3964 189) (-1629 -3998 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -2] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				
-			}
-		}
-		
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_10_BeginningEntrance_005_ColliderBox_TODO_SolidBoxWontSpawn"
-			}
-			"add:solid"
-			{
-				
-				side
-				{
-					"plane" "(-1557 -3998 305) (-1557 -3998 189) (-1629 -3998 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 32.5385] 0.26"
-					"vaxis" "[0 0 -1 26] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1629 -3964 305) (-1629 -3964 189) (-1557 -3964 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -16] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1629 -3998 305) (-1629 -3998 189) (-1629 -3964 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -24] 0.25"
-					"vaxis" "[0 0 -1 -8] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1557 -3964 305) (-1557 -3964 189) (-1557 -3998 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -30.2279] 0.26"
-					"vaxis" "[0 0 -1 58.452] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1557 -3998 305) (-1629 -3998 305) (-1629 -3964 305)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -10] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1557 -3964 189) (-1629 -3964 189) (-1629 -3998 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -2] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				
-			}
-		}
-		
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_10_BeginningEntrance_005_ColliderBox_TODO_SolidBoxWontSpawn"
-			}
-			"add:key"
-			{
-				"OnStartTouch" "gskSpawn_10_BeginningEntrance_005,CastSpell,,0,-1,1,"
-			}
-		}
-		
-		"add:entity"
-		{
-			"combinability" "1"
-			"skin" "0"
-			"disableshadows" "0"
-			"combinetarget1enable" "1"
-			"combinetarget2enable" "1"
-			"combinetarget3enable" "1"
-			"combinetarget4enable" "1"
-			"combinetarget5enable" "1"
-			"PerformanceMode" "0"
-			"pressuredelay" "0"
-			"mindxlevel" "0"
-			"maxdxlevel" "0"
-			"minhealthdmg" "0"
-			"shadowcastdist" "0"
-			"nodamageforces" "0"
 			"inertiaScale" "1.0"
-			"massScale" "0"
-			"damagetoenablemotion" "0"
-			"forcetoenablemotion" "0"
 			"fademindist" "500"
 			"fademaxdist" "700"
 			"fadescale" "1"
-			"combinetarget6enable" "1"
-			"combinetarget7enable" "1"
-			"combinetarget8enable" "1"
-			"combinetarget9enable" "1"
-			"combinetarget10enable" "1"
-			"UseSpeedToCalculateSoundVolume" "1"
-			
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"targetname" "gskSpawn_10_BeginningEntrance_005_LandMine"
-			"origin" "-1471 -4631 193"
-			"angles" "29 101 15"
+			"angles" "5 -151 26"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -1175,8 +154,9 @@
 			"spawnflags"  "257"
 			"health" "1"
 			
+			
+			"origin"      "-1471 -4631 203"
 		}
-		
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_10_BeginningEntrance_006"
@@ -1185,218 +165,13 @@
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"targetname"  "gskSpawn_10_BeginningEntrance_006_TODO_SpellCasterFireTrapWontTriggerExplode"
-			"classname" "env_entity_SpellCaster"
-			"combinability" "1"
-			"angles" "0 0 0"
-			"target" "None"
-			"spell" "7"
-			"lifetime" "-1"
-			"power" "1"
-			
-			"origin"      "-1471 -4659 203"
-		}
-		"add:entity"
-		{
-			"classname" "trigger_once"
-			"combinability" "1"
-			"trapsecret" "2"
-			"StartDisabled" "0"
-			"spawnflags" "1"
-			"targetname" "gskSpawn_10_BeginningEntrance_006_ColliderBox_TODO_SolidBoxWontSpawn"
-			"origin" "-1471 -4659 193"
-			connections
-			{
-				"OnStartTouch" "gskSpawn_10_BeginningEntrance_006,CastSpell,,0,-1,1,"
-			}
-			solid
-			{
-				
-				side
-				{
-					"plane" "(-1557 -4026 305) (-1557 -4026 189) (-1629 -4026 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 32.5385] 0.26"
-					"vaxis" "[0 0 -1 26] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1629 -3992 305) (-1629 -3992 189) (-1557 -3992 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -16] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1629 -4026 305) (-1629 -4026 189) (-1629 -3992 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -24] 0.25"
-					"vaxis" "[0 0 -1 -8] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1557 -3992 305) (-1557 -3992 189) (-1557 -4026 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -30.2279] 0.26"
-					"vaxis" "[0 0 -1 58.452] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1557 -4026 305) (-1629 -4026 305) (-1629 -3992 305)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -10] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1557 -3992 189) (-1629 -3992 189) (-1629 -4026 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -2] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				
-			}
-		}
-		
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_10_BeginningEntrance_006_ColliderBox_TODO_SolidBoxWontSpawn"
-			}
-			"add:solid"
-			{
-				
-				side
-				{
-					"plane" "(-1557 -4026 305) (-1557 -4026 189) (-1629 -4026 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 32.5385] 0.26"
-					"vaxis" "[0 0 -1 26] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1629 -3992 305) (-1629 -3992 189) (-1557 -3992 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -16] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1629 -4026 305) (-1629 -4026 189) (-1629 -3992 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -24] 0.25"
-					"vaxis" "[0 0 -1 -8] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1557 -3992 305) (-1557 -3992 189) (-1557 -4026 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -30.2279] 0.26"
-					"vaxis" "[0 0 -1 58.452] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1557 -4026 305) (-1629 -4026 305) (-1629 -3992 305)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -10] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1557 -3992 189) (-1629 -3992 189) (-1629 -4026 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -2] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				
-			}
-		}
-		
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_10_BeginningEntrance_006_ColliderBox_TODO_SolidBoxWontSpawn"
-			}
-			"add:key"
-			{
-				"OnStartTouch" "gskSpawn_10_BeginningEntrance_006,CastSpell,,0,-1,1,"
-			}
-		}
-		
-		"add:entity"
-		{
-			"combinability" "1"
-			"skin" "0"
-			"disableshadows" "0"
-			"combinetarget1enable" "1"
-			"combinetarget2enable" "1"
-			"combinetarget3enable" "1"
-			"combinetarget4enable" "1"
-			"combinetarget5enable" "1"
-			"PerformanceMode" "0"
-			"pressuredelay" "0"
-			"mindxlevel" "0"
-			"maxdxlevel" "0"
-			"minhealthdmg" "0"
-			"shadowcastdist" "0"
-			"nodamageforces" "0"
 			"inertiaScale" "1.0"
-			"massScale" "0"
-			"damagetoenablemotion" "0"
-			"forcetoenablemotion" "0"
 			"fademindist" "500"
 			"fademaxdist" "700"
 			"fadescale" "1"
-			"combinetarget6enable" "1"
-			"combinetarget7enable" "1"
-			"combinetarget8enable" "1"
-			"combinetarget9enable" "1"
-			"combinetarget10enable" "1"
-			"UseSpeedToCalculateSoundVolume" "1"
-			
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"targetname" "gskSpawn_10_BeginningEntrance_006_LandMine"
-			"origin" "-1471 -4659 193"
-			"angles" "18 -178 40"
+			"angles" "13 -171 12"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -1407,8 +182,9 @@
 			"spawnflags"  "257"
 			"health" "1"
 			
+			
+			"origin"      "-1471 -4659 203"
 		}
-		
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_10_BeginningEntrance_007"
@@ -1417,218 +193,13 @@
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"targetname"  "gskSpawn_10_BeginningEntrance_007_TODO_SpellCasterFireTrapWontTriggerExplode"
-			"classname" "env_entity_SpellCaster"
-			"combinability" "1"
-			"angles" "0 0 0"
-			"target" "None"
-			"spell" "7"
-			"lifetime" "-1"
-			"power" "1"
-			
-			"origin"      "-1478 -4690 204"
-		}
-		"add:entity"
-		{
-			"classname" "trigger_once"
-			"combinability" "1"
-			"trapsecret" "2"
-			"StartDisabled" "0"
-			"spawnflags" "1"
-			"targetname" "gskSpawn_10_BeginningEntrance_007_ColliderBox_TODO_SolidBoxWontSpawn"
-			"origin" "-1478 -4690 194"
-			connections
-			{
-				"OnStartTouch" "gskSpawn_10_BeginningEntrance_007,CastSpell,,0,-1,1,"
-			}
-			solid
-			{
-				
-				side
-				{
-					"plane" "(-1564 -4057 306) (-1564 -4057 190) (-1636 -4057 190)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 32.5385] 0.26"
-					"vaxis" "[0 0 -1 26] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1636 -4023 306) (-1636 -4023 190) (-1564 -4023 190)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -16] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1636 -4057 306) (-1636 -4057 190) (-1636 -4023 190)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -24] 0.25"
-					"vaxis" "[0 0 -1 -8] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1564 -4023 306) (-1564 -4023 190) (-1564 -4057 190)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -30.2279] 0.26"
-					"vaxis" "[0 0 -1 58.452] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1564 -4057 306) (-1636 -4057 306) (-1636 -4023 306)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -10] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1564 -4023 190) (-1636 -4023 190) (-1636 -4057 190)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -2] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				
-			}
-		}
-		
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_10_BeginningEntrance_007_ColliderBox_TODO_SolidBoxWontSpawn"
-			}
-			"add:solid"
-			{
-				
-				side
-				{
-					"plane" "(-1564 -4057 306) (-1564 -4057 190) (-1636 -4057 190)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 32.5385] 0.26"
-					"vaxis" "[0 0 -1 26] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1636 -4023 306) (-1636 -4023 190) (-1564 -4023 190)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -16] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1636 -4057 306) (-1636 -4057 190) (-1636 -4023 190)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -24] 0.25"
-					"vaxis" "[0 0 -1 -8] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1564 -4023 306) (-1564 -4023 190) (-1564 -4057 190)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -30.2279] 0.26"
-					"vaxis" "[0 0 -1 58.452] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1564 -4057 306) (-1636 -4057 306) (-1636 -4023 306)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -10] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1564 -4023 190) (-1636 -4023 190) (-1636 -4057 190)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -2] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				
-			}
-		}
-		
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_10_BeginningEntrance_007_ColliderBox_TODO_SolidBoxWontSpawn"
-			}
-			"add:key"
-			{
-				"OnStartTouch" "gskSpawn_10_BeginningEntrance_007,CastSpell,,0,-1,1,"
-			}
-		}
-		
-		"add:entity"
-		{
-			"combinability" "1"
-			"skin" "0"
-			"disableshadows" "0"
-			"combinetarget1enable" "1"
-			"combinetarget2enable" "1"
-			"combinetarget3enable" "1"
-			"combinetarget4enable" "1"
-			"combinetarget5enable" "1"
-			"PerformanceMode" "0"
-			"pressuredelay" "0"
-			"mindxlevel" "0"
-			"maxdxlevel" "0"
-			"minhealthdmg" "0"
-			"shadowcastdist" "0"
-			"nodamageforces" "0"
 			"inertiaScale" "1.0"
-			"massScale" "0"
-			"damagetoenablemotion" "0"
-			"forcetoenablemotion" "0"
 			"fademindist" "500"
 			"fademaxdist" "700"
 			"fadescale" "1"
-			"combinetarget6enable" "1"
-			"combinetarget7enable" "1"
-			"combinetarget8enable" "1"
-			"combinetarget9enable" "1"
-			"combinetarget10enable" "1"
-			"UseSpeedToCalculateSoundVolume" "1"
-			
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"targetname" "gskSpawn_10_BeginningEntrance_007_LandMine"
-			"origin" "-1478 -4690 194"
-			"angles" "36 160 28"
+			"angles" "33 79 39"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -1639,8 +210,9 @@
 			"spawnflags"  "257"
 			"health" "1"
 			
+			
+			"origin"      "-1478 -4690 204"
 		}
-		
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_10_BeginningEntrance_008"
@@ -1649,218 +221,13 @@
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"targetname"  "gskSpawn_10_BeginningEntrance_008_TODO_SpellCasterFireTrapWontTriggerExplode"
-			"classname" "env_entity_SpellCaster"
-			"combinability" "1"
-			"angles" "0 0 0"
-			"target" "None"
-			"spell" "7"
-			"lifetime" "-1"
-			"power" "1"
-			
-			"origin"      "-1491 -4719 204"
-		}
-		"add:entity"
-		{
-			"classname" "trigger_once"
-			"combinability" "1"
-			"trapsecret" "2"
-			"StartDisabled" "0"
-			"spawnflags" "1"
-			"targetname" "gskSpawn_10_BeginningEntrance_008_ColliderBox_TODO_SolidBoxWontSpawn"
-			"origin" "-1491 -4719 194"
-			connections
-			{
-				"OnStartTouch" "gskSpawn_10_BeginningEntrance_008,CastSpell,,0,-1,1,"
-			}
-			solid
-			{
-				
-				side
-				{
-					"plane" "(-1577 -4086 306) (-1577 -4086 190) (-1649 -4086 190)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 32.5385] 0.26"
-					"vaxis" "[0 0 -1 26] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1649 -4052 306) (-1649 -4052 190) (-1577 -4052 190)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -16] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1649 -4086 306) (-1649 -4086 190) (-1649 -4052 190)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -24] 0.25"
-					"vaxis" "[0 0 -1 -8] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1577 -4052 306) (-1577 -4052 190) (-1577 -4086 190)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -30.2279] 0.26"
-					"vaxis" "[0 0 -1 58.452] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1577 -4086 306) (-1649 -4086 306) (-1649 -4052 306)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -10] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1577 -4052 190) (-1649 -4052 190) (-1649 -4086 190)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -2] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				
-			}
-		}
-		
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_10_BeginningEntrance_008_ColliderBox_TODO_SolidBoxWontSpawn"
-			}
-			"add:solid"
-			{
-				
-				side
-				{
-					"plane" "(-1577 -4086 306) (-1577 -4086 190) (-1649 -4086 190)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 32.5385] 0.26"
-					"vaxis" "[0 0 -1 26] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1649 -4052 306) (-1649 -4052 190) (-1577 -4052 190)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -16] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1649 -4086 306) (-1649 -4086 190) (-1649 -4052 190)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -24] 0.25"
-					"vaxis" "[0 0 -1 -8] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1577 -4052 306) (-1577 -4052 190) (-1577 -4086 190)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -30.2279] 0.26"
-					"vaxis" "[0 0 -1 58.452] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1577 -4086 306) (-1649 -4086 306) (-1649 -4052 306)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -10] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1577 -4052 190) (-1649 -4052 190) (-1649 -4086 190)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -2] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				
-			}
-		}
-		
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_10_BeginningEntrance_008_ColliderBox_TODO_SolidBoxWontSpawn"
-			}
-			"add:key"
-			{
-				"OnStartTouch" "gskSpawn_10_BeginningEntrance_008,CastSpell,,0,-1,1,"
-			}
-		}
-		
-		"add:entity"
-		{
-			"combinability" "1"
-			"skin" "0"
-			"disableshadows" "0"
-			"combinetarget1enable" "1"
-			"combinetarget2enable" "1"
-			"combinetarget3enable" "1"
-			"combinetarget4enable" "1"
-			"combinetarget5enable" "1"
-			"PerformanceMode" "0"
-			"pressuredelay" "0"
-			"mindxlevel" "0"
-			"maxdxlevel" "0"
-			"minhealthdmg" "0"
-			"shadowcastdist" "0"
-			"nodamageforces" "0"
 			"inertiaScale" "1.0"
-			"massScale" "0"
-			"damagetoenablemotion" "0"
-			"forcetoenablemotion" "0"
 			"fademindist" "500"
 			"fademaxdist" "700"
 			"fadescale" "1"
-			"combinetarget6enable" "1"
-			"combinetarget7enable" "1"
-			"combinetarget8enable" "1"
-			"combinetarget9enable" "1"
-			"combinetarget10enable" "1"
-			"UseSpeedToCalculateSoundVolume" "1"
-			
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"targetname" "gskSpawn_10_BeginningEntrance_008_LandMine"
-			"origin" "-1491 -4719 194"
-			"angles" "11 66 18"
+			"angles" "34 -125 37"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -1871,8 +238,9 @@
 			"spawnflags"  "257"
 			"health" "1"
 			
+			
+			"origin"      "-1491 -4719 204"
 		}
-		
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_10_BeginningEntrance_009"
@@ -1881,218 +249,13 @@
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"targetname"  "gskSpawn_10_BeginningEntrance_009_TODO_SpellCasterFireTrapWontTriggerExplode"
-			"classname" "env_entity_SpellCaster"
-			"combinability" "1"
-			"angles" "0 0 0"
-			"target" "None"
-			"spell" "7"
-			"lifetime" "-1"
-			"power" "1"
-			
-			"origin"      "-1511 -4745 204"
-		}
-		"add:entity"
-		{
-			"classname" "trigger_once"
-			"combinability" "1"
-			"trapsecret" "2"
-			"StartDisabled" "0"
-			"spawnflags" "1"
-			"targetname" "gskSpawn_10_BeginningEntrance_009_ColliderBox_TODO_SolidBoxWontSpawn"
-			"origin" "-1511 -4745 194"
-			connections
-			{
-				"OnStartTouch" "gskSpawn_10_BeginningEntrance_009,CastSpell,,0,-1,1,"
-			}
-			solid
-			{
-				
-				side
-				{
-					"plane" "(-1597 -4112 306) (-1597 -4112 190) (-1669 -4112 190)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 32.5385] 0.26"
-					"vaxis" "[0 0 -1 26] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1669 -4078 306) (-1669 -4078 190) (-1597 -4078 190)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -16] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1669 -4112 306) (-1669 -4112 190) (-1669 -4078 190)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -24] 0.25"
-					"vaxis" "[0 0 -1 -8] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1597 -4078 306) (-1597 -4078 190) (-1597 -4112 190)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -30.2279] 0.26"
-					"vaxis" "[0 0 -1 58.452] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1597 -4112 306) (-1669 -4112 306) (-1669 -4078 306)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -10] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1597 -4078 190) (-1669 -4078 190) (-1669 -4112 190)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -2] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				
-			}
-		}
-		
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_10_BeginningEntrance_009_ColliderBox_TODO_SolidBoxWontSpawn"
-			}
-			"add:solid"
-			{
-				
-				side
-				{
-					"plane" "(-1597 -4112 306) (-1597 -4112 190) (-1669 -4112 190)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 32.5385] 0.26"
-					"vaxis" "[0 0 -1 26] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1669 -4078 306) (-1669 -4078 190) (-1597 -4078 190)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -16] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1669 -4112 306) (-1669 -4112 190) (-1669 -4078 190)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -24] 0.25"
-					"vaxis" "[0 0 -1 -8] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1597 -4078 306) (-1597 -4078 190) (-1597 -4112 190)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -30.2279] 0.26"
-					"vaxis" "[0 0 -1 58.452] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1597 -4112 306) (-1669 -4112 306) (-1669 -4078 306)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -10] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1597 -4078 190) (-1669 -4078 190) (-1669 -4112 190)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -2] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				
-			}
-		}
-		
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_10_BeginningEntrance_009_ColliderBox_TODO_SolidBoxWontSpawn"
-			}
-			"add:key"
-			{
-				"OnStartTouch" "gskSpawn_10_BeginningEntrance_009,CastSpell,,0,-1,1,"
-			}
-		}
-		
-		"add:entity"
-		{
-			"combinability" "1"
-			"skin" "0"
-			"disableshadows" "0"
-			"combinetarget1enable" "1"
-			"combinetarget2enable" "1"
-			"combinetarget3enable" "1"
-			"combinetarget4enable" "1"
-			"combinetarget5enable" "1"
-			"PerformanceMode" "0"
-			"pressuredelay" "0"
-			"mindxlevel" "0"
-			"maxdxlevel" "0"
-			"minhealthdmg" "0"
-			"shadowcastdist" "0"
-			"nodamageforces" "0"
 			"inertiaScale" "1.0"
-			"massScale" "0"
-			"damagetoenablemotion" "0"
-			"forcetoenablemotion" "0"
 			"fademindist" "500"
 			"fademaxdist" "700"
 			"fadescale" "1"
-			"combinetarget6enable" "1"
-			"combinetarget7enable" "1"
-			"combinetarget8enable" "1"
-			"combinetarget9enable" "1"
-			"combinetarget10enable" "1"
-			"UseSpeedToCalculateSoundVolume" "1"
-			
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"targetname" "gskSpawn_10_BeginningEntrance_009_LandMine"
-			"origin" "-1511 -4745 194"
-			"angles" "3 -75 5"
+			"angles" "29 81 7"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -2103,8 +266,9 @@
 			"spawnflags"  "257"
 			"health" "1"
 			
+			
+			"origin"      "-1511 -4745 204"
 		}
-		
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_10_BeginningEntrance_010"
@@ -2113,218 +277,13 @@
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"targetname"  "gskSpawn_10_BeginningEntrance_010_TODO_SpellCasterFireTrapWontTriggerExplode"
-			"classname" "env_entity_SpellCaster"
-			"combinability" "1"
-			"angles" "0 0 0"
-			"target" "None"
-			"spell" "7"
-			"lifetime" "-1"
-			"power" "1"
-			
-			"origin"      "-1539 -4773 203"
-		}
-		"add:entity"
-		{
-			"classname" "trigger_once"
-			"combinability" "1"
-			"trapsecret" "2"
-			"StartDisabled" "0"
-			"spawnflags" "1"
-			"targetname" "gskSpawn_10_BeginningEntrance_010_ColliderBox_TODO_SolidBoxWontSpawn"
-			"origin" "-1539 -4773 193"
-			connections
-			{
-				"OnStartTouch" "gskSpawn_10_BeginningEntrance_010,CastSpell,,0,-1,1,"
-			}
-			solid
-			{
-				
-				side
-				{
-					"plane" "(-1625 -4140 305) (-1625 -4140 189) (-1697 -4140 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 32.5385] 0.26"
-					"vaxis" "[0 0 -1 26] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1697 -4106 305) (-1697 -4106 189) (-1625 -4106 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -16] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1697 -4140 305) (-1697 -4140 189) (-1697 -4106 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -24] 0.25"
-					"vaxis" "[0 0 -1 -8] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1625 -4106 305) (-1625 -4106 189) (-1625 -4140 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -30.2279] 0.26"
-					"vaxis" "[0 0 -1 58.452] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1625 -4140 305) (-1697 -4140 305) (-1697 -4106 305)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -10] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1625 -4106 189) (-1697 -4106 189) (-1697 -4140 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -2] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				
-			}
-		}
-		
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_10_BeginningEntrance_010_ColliderBox_TODO_SolidBoxWontSpawn"
-			}
-			"add:solid"
-			{
-				
-				side
-				{
-					"plane" "(-1625 -4140 305) (-1625 -4140 189) (-1697 -4140 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 32.5385] 0.26"
-					"vaxis" "[0 0 -1 26] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1697 -4106 305) (-1697 -4106 189) (-1625 -4106 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -16] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1697 -4140 305) (-1697 -4140 189) (-1697 -4106 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -24] 0.25"
-					"vaxis" "[0 0 -1 -8] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1625 -4106 305) (-1625 -4106 189) (-1625 -4140 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -30.2279] 0.26"
-					"vaxis" "[0 0 -1 58.452] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1625 -4140 305) (-1697 -4140 305) (-1697 -4106 305)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -10] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1625 -4106 189) (-1697 -4106 189) (-1697 -4140 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -2] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				
-			}
-		}
-		
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_10_BeginningEntrance_010_ColliderBox_TODO_SolidBoxWontSpawn"
-			}
-			"add:key"
-			{
-				"OnStartTouch" "gskSpawn_10_BeginningEntrance_010,CastSpell,,0,-1,1,"
-			}
-		}
-		
-		"add:entity"
-		{
-			"combinability" "1"
-			"skin" "0"
-			"disableshadows" "0"
-			"combinetarget1enable" "1"
-			"combinetarget2enable" "1"
-			"combinetarget3enable" "1"
-			"combinetarget4enable" "1"
-			"combinetarget5enable" "1"
-			"PerformanceMode" "0"
-			"pressuredelay" "0"
-			"mindxlevel" "0"
-			"maxdxlevel" "0"
-			"minhealthdmg" "0"
-			"shadowcastdist" "0"
-			"nodamageforces" "0"
 			"inertiaScale" "1.0"
-			"massScale" "0"
-			"damagetoenablemotion" "0"
-			"forcetoenablemotion" "0"
 			"fademindist" "500"
 			"fademaxdist" "700"
 			"fadescale" "1"
-			"combinetarget6enable" "1"
-			"combinetarget7enable" "1"
-			"combinetarget8enable" "1"
-			"combinetarget9enable" "1"
-			"combinetarget10enable" "1"
-			"UseSpeedToCalculateSoundVolume" "1"
-			
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"targetname" "gskSpawn_10_BeginningEntrance_010_LandMine"
-			"origin" "-1539 -4773 193"
-			"angles" "6 -93 25"
+			"angles" "4 -133 21"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -2335,8 +294,9 @@
 			"spawnflags"  "257"
 			"health" "1"
 			
+			
+			"origin"      "-1539 -4773 203"
 		}
-		
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_10_BeginningEntrance_011"
@@ -2345,218 +305,13 @@
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"targetname"  "gskSpawn_10_BeginningEntrance_011_TODO_SpellCasterFireTrapWontTriggerExplode"
-			"classname" "env_entity_SpellCaster"
-			"combinability" "1"
-			"angles" "0 0 0"
-			"target" "None"
-			"spell" "7"
-			"lifetime" "-1"
-			"power" "1"
-			
-			"origin"      "-1431 -4645 203"
-		}
-		"add:entity"
-		{
-			"classname" "trigger_once"
-			"combinability" "1"
-			"trapsecret" "2"
-			"StartDisabled" "0"
-			"spawnflags" "1"
-			"targetname" "gskSpawn_10_BeginningEntrance_011_ColliderBox_TODO_SolidBoxWontSpawn"
-			"origin" "-1431 -4645 193"
-			connections
-			{
-				"OnStartTouch" "gskSpawn_10_BeginningEntrance_011,CastSpell,,0,-1,1,"
-			}
-			solid
-			{
-				
-				side
-				{
-					"plane" "(-1517 -4012 305) (-1517 -4012 189) (-1589 -4012 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 32.5385] 0.26"
-					"vaxis" "[0 0 -1 26] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1589 -3978 305) (-1589 -3978 189) (-1517 -3978 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -16] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1589 -4012 305) (-1589 -4012 189) (-1589 -3978 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -24] 0.25"
-					"vaxis" "[0 0 -1 -8] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1517 -3978 305) (-1517 -3978 189) (-1517 -4012 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -30.2279] 0.26"
-					"vaxis" "[0 0 -1 58.452] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1517 -4012 305) (-1589 -4012 305) (-1589 -3978 305)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -10] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1517 -3978 189) (-1589 -3978 189) (-1589 -4012 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -2] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				
-			}
-		}
-		
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_10_BeginningEntrance_011_ColliderBox_TODO_SolidBoxWontSpawn"
-			}
-			"add:solid"
-			{
-				
-				side
-				{
-					"plane" "(-1517 -4012 305) (-1517 -4012 189) (-1589 -4012 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 32.5385] 0.26"
-					"vaxis" "[0 0 -1 26] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1589 -3978 305) (-1589 -3978 189) (-1517 -3978 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -16] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1589 -4012 305) (-1589 -4012 189) (-1589 -3978 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -24] 0.25"
-					"vaxis" "[0 0 -1 -8] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1517 -3978 305) (-1517 -3978 189) (-1517 -4012 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -30.2279] 0.26"
-					"vaxis" "[0 0 -1 58.452] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1517 -4012 305) (-1589 -4012 305) (-1589 -3978 305)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -10] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1517 -3978 189) (-1589 -3978 189) (-1589 -4012 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -2] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				
-			}
-		}
-		
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_10_BeginningEntrance_011_ColliderBox_TODO_SolidBoxWontSpawn"
-			}
-			"add:key"
-			{
-				"OnStartTouch" "gskSpawn_10_BeginningEntrance_011,CastSpell,,0,-1,1,"
-			}
-		}
-		
-		"add:entity"
-		{
-			"combinability" "1"
-			"skin" "0"
-			"disableshadows" "0"
-			"combinetarget1enable" "1"
-			"combinetarget2enable" "1"
-			"combinetarget3enable" "1"
-			"combinetarget4enable" "1"
-			"combinetarget5enable" "1"
-			"PerformanceMode" "0"
-			"pressuredelay" "0"
-			"mindxlevel" "0"
-			"maxdxlevel" "0"
-			"minhealthdmg" "0"
-			"shadowcastdist" "0"
-			"nodamageforces" "0"
 			"inertiaScale" "1.0"
-			"massScale" "0"
-			"damagetoenablemotion" "0"
-			"forcetoenablemotion" "0"
 			"fademindist" "500"
 			"fademaxdist" "700"
 			"fadescale" "1"
-			"combinetarget6enable" "1"
-			"combinetarget7enable" "1"
-			"combinetarget8enable" "1"
-			"combinetarget9enable" "1"
-			"combinetarget10enable" "1"
-			"UseSpeedToCalculateSoundVolume" "1"
-			
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"targetname" "gskSpawn_10_BeginningEntrance_011_LandMine"
-			"origin" "-1431 -4645 193"
-			"angles" "5 -158 32"
+			"angles" "34 16 3"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -2567,8 +322,9 @@
 			"spawnflags"  "257"
 			"health" "1"
 			
+			
+			"origin"      "-1431 -4645 203"
 		}
-		
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_10_BeginningEntrance_012"
@@ -2577,218 +333,13 @@
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"targetname"  "gskSpawn_10_BeginningEntrance_012_TODO_SpellCasterFireTrapWontTriggerExplode"
-			"classname" "env_entity_SpellCaster"
-			"combinability" "1"
-			"angles" "0 0 0"
-			"target" "None"
-			"spell" "7"
-			"lifetime" "-1"
-			"power" "1"
-			
-			"origin"      "-1386 -4644 203"
-		}
-		"add:entity"
-		{
-			"classname" "trigger_once"
-			"combinability" "1"
-			"trapsecret" "2"
-			"StartDisabled" "0"
-			"spawnflags" "1"
-			"targetname" "gskSpawn_10_BeginningEntrance_012_ColliderBox_TODO_SolidBoxWontSpawn"
-			"origin" "-1386 -4644 193"
-			connections
-			{
-				"OnStartTouch" "gskSpawn_10_BeginningEntrance_012,CastSpell,,0,-1,1,"
-			}
-			solid
-			{
-				
-				side
-				{
-					"plane" "(-1472 -4011 305) (-1472 -4011 189) (-1544 -4011 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 32.5385] 0.26"
-					"vaxis" "[0 0 -1 26] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1544 -3977 305) (-1544 -3977 189) (-1472 -3977 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -16] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1544 -4011 305) (-1544 -4011 189) (-1544 -3977 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -24] 0.25"
-					"vaxis" "[0 0 -1 -8] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1472 -3977 305) (-1472 -3977 189) (-1472 -4011 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -30.2279] 0.26"
-					"vaxis" "[0 0 -1 58.452] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1472 -4011 305) (-1544 -4011 305) (-1544 -3977 305)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -10] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1472 -3977 189) (-1544 -3977 189) (-1544 -4011 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -2] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				
-			}
-		}
-		
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_10_BeginningEntrance_012_ColliderBox_TODO_SolidBoxWontSpawn"
-			}
-			"add:solid"
-			{
-				
-				side
-				{
-					"plane" "(-1472 -4011 305) (-1472 -4011 189) (-1544 -4011 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 32.5385] 0.26"
-					"vaxis" "[0 0 -1 26] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1544 -3977 305) (-1544 -3977 189) (-1472 -3977 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -16] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1544 -4011 305) (-1544 -4011 189) (-1544 -3977 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -24] 0.25"
-					"vaxis" "[0 0 -1 -8] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1472 -3977 305) (-1472 -3977 189) (-1472 -4011 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -30.2279] 0.26"
-					"vaxis" "[0 0 -1 58.452] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1472 -4011 305) (-1544 -4011 305) (-1544 -3977 305)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -10] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1472 -3977 189) (-1544 -3977 189) (-1544 -4011 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -2] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				
-			}
-		}
-		
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_10_BeginningEntrance_012_ColliderBox_TODO_SolidBoxWontSpawn"
-			}
-			"add:key"
-			{
-				"OnStartTouch" "gskSpawn_10_BeginningEntrance_012,CastSpell,,0,-1,1,"
-			}
-		}
-		
-		"add:entity"
-		{
-			"combinability" "1"
-			"skin" "0"
-			"disableshadows" "0"
-			"combinetarget1enable" "1"
-			"combinetarget2enable" "1"
-			"combinetarget3enable" "1"
-			"combinetarget4enable" "1"
-			"combinetarget5enable" "1"
-			"PerformanceMode" "0"
-			"pressuredelay" "0"
-			"mindxlevel" "0"
-			"maxdxlevel" "0"
-			"minhealthdmg" "0"
-			"shadowcastdist" "0"
-			"nodamageforces" "0"
 			"inertiaScale" "1.0"
-			"massScale" "0"
-			"damagetoenablemotion" "0"
-			"forcetoenablemotion" "0"
 			"fademindist" "500"
 			"fademaxdist" "700"
 			"fadescale" "1"
-			"combinetarget6enable" "1"
-			"combinetarget7enable" "1"
-			"combinetarget8enable" "1"
-			"combinetarget9enable" "1"
-			"combinetarget10enable" "1"
-			"UseSpeedToCalculateSoundVolume" "1"
-			
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"targetname" "gskSpawn_10_BeginningEntrance_012_LandMine"
-			"origin" "-1386 -4644 193"
-			"angles" "8 10 35"
+			"angles" "37 -115 33"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -2799,8 +350,9 @@
 			"spawnflags"  "257"
 			"health" "1"
 			
+			
+			"origin"      "-1386 -4644 203"
 		}
-		
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_10_BeginningEntrance_013"
@@ -2809,218 +361,13 @@
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"targetname"  "gskSpawn_10_BeginningEntrance_013_TODO_SpellCasterFireTrapWontTriggerExplode"
-			"classname" "env_entity_SpellCaster"
-			"combinability" "1"
-			"angles" "0 0 0"
-			"target" "None"
-			"spell" "7"
-			"lifetime" "-1"
-			"power" "1"
-			
-			"origin"      "-1329 -4618 203"
-		}
-		"add:entity"
-		{
-			"classname" "trigger_once"
-			"combinability" "1"
-			"trapsecret" "2"
-			"StartDisabled" "0"
-			"spawnflags" "1"
-			"targetname" "gskSpawn_10_BeginningEntrance_013_ColliderBox_TODO_SolidBoxWontSpawn"
-			"origin" "-1329 -4618 193"
-			connections
-			{
-				"OnStartTouch" "gskSpawn_10_BeginningEntrance_013,CastSpell,,0,-1,1,"
-			}
-			solid
-			{
-				
-				side
-				{
-					"plane" "(-1415 -3985 305) (-1415 -3985 189) (-1487 -3985 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 32.5385] 0.26"
-					"vaxis" "[0 0 -1 26] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1487 -3951 305) (-1487 -3951 189) (-1415 -3951 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -16] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1487 -3985 305) (-1487 -3985 189) (-1487 -3951 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -24] 0.25"
-					"vaxis" "[0 0 -1 -8] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1415 -3951 305) (-1415 -3951 189) (-1415 -3985 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -30.2279] 0.26"
-					"vaxis" "[0 0 -1 58.452] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1415 -3985 305) (-1487 -3985 305) (-1487 -3951 305)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -10] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1415 -3951 189) (-1487 -3951 189) (-1487 -3985 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -2] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				
-			}
-		}
-		
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_10_BeginningEntrance_013_ColliderBox_TODO_SolidBoxWontSpawn"
-			}
-			"add:solid"
-			{
-				
-				side
-				{
-					"plane" "(-1415 -3985 305) (-1415 -3985 189) (-1487 -3985 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 32.5385] 0.26"
-					"vaxis" "[0 0 -1 26] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1487 -3951 305) (-1487 -3951 189) (-1415 -3951 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -16] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1487 -3985 305) (-1487 -3985 189) (-1487 -3951 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -24] 0.25"
-					"vaxis" "[0 0 -1 -8] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1415 -3951 305) (-1415 -3951 189) (-1415 -3985 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -30.2279] 0.26"
-					"vaxis" "[0 0 -1 58.452] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1415 -3985 305) (-1487 -3985 305) (-1487 -3951 305)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -10] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1415 -3951 189) (-1487 -3951 189) (-1487 -3985 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -2] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				
-			}
-		}
-		
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_10_BeginningEntrance_013_ColliderBox_TODO_SolidBoxWontSpawn"
-			}
-			"add:key"
-			{
-				"OnStartTouch" "gskSpawn_10_BeginningEntrance_013,CastSpell,,0,-1,1,"
-			}
-		}
-		
-		"add:entity"
-		{
-			"combinability" "1"
-			"skin" "0"
-			"disableshadows" "0"
-			"combinetarget1enable" "1"
-			"combinetarget2enable" "1"
-			"combinetarget3enable" "1"
-			"combinetarget4enable" "1"
-			"combinetarget5enable" "1"
-			"PerformanceMode" "0"
-			"pressuredelay" "0"
-			"mindxlevel" "0"
-			"maxdxlevel" "0"
-			"minhealthdmg" "0"
-			"shadowcastdist" "0"
-			"nodamageforces" "0"
 			"inertiaScale" "1.0"
-			"massScale" "0"
-			"damagetoenablemotion" "0"
-			"forcetoenablemotion" "0"
 			"fademindist" "500"
 			"fademaxdist" "700"
 			"fadescale" "1"
-			"combinetarget6enable" "1"
-			"combinetarget7enable" "1"
-			"combinetarget8enable" "1"
-			"combinetarget9enable" "1"
-			"combinetarget10enable" "1"
-			"UseSpeedToCalculateSoundVolume" "1"
-			
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"targetname" "gskSpawn_10_BeginningEntrance_013_LandMine"
-			"origin" "-1329 -4618 193"
-			"angles" "30 62 1"
+			"angles" "10 -155 28"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -3031,8 +378,9 @@
 			"spawnflags"  "257"
 			"health" "1"
 			
+			
+			"origin"      "-1329 -4618 203"
 		}
-		
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_10_BeginningEntrance_014"
@@ -3041,218 +389,13 @@
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"targetname"  "gskSpawn_10_BeginningEntrance_014_TODO_SpellCasterFireTrapWontTriggerExplode"
-			"classname" "env_entity_SpellCaster"
-			"combinability" "1"
-			"angles" "0 0 0"
-			"target" "None"
-			"spell" "7"
-			"lifetime" "-1"
-			"power" "1"
-			
-			"origin"      "-1280 -4638 203"
-		}
-		"add:entity"
-		{
-			"classname" "trigger_once"
-			"combinability" "1"
-			"trapsecret" "2"
-			"StartDisabled" "0"
-			"spawnflags" "1"
-			"targetname" "gskSpawn_10_BeginningEntrance_014_ColliderBox_TODO_SolidBoxWontSpawn"
-			"origin" "-1280 -4638 193"
-			connections
-			{
-				"OnStartTouch" "gskSpawn_10_BeginningEntrance_014,CastSpell,,0,-1,1,"
-			}
-			solid
-			{
-				
-				side
-				{
-					"plane" "(-1366 -4005 305) (-1366 -4005 189) (-1438 -4005 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 32.5385] 0.26"
-					"vaxis" "[0 0 -1 26] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1438 -3971 305) (-1438 -3971 189) (-1366 -3971 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -16] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1438 -4005 305) (-1438 -4005 189) (-1438 -3971 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -24] 0.25"
-					"vaxis" "[0 0 -1 -8] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1366 -3971 305) (-1366 -3971 189) (-1366 -4005 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -30.2279] 0.26"
-					"vaxis" "[0 0 -1 58.452] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1366 -4005 305) (-1438 -4005 305) (-1438 -3971 305)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -10] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1366 -3971 189) (-1438 -3971 189) (-1438 -4005 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -2] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				
-			}
-		}
-		
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_10_BeginningEntrance_014_ColliderBox_TODO_SolidBoxWontSpawn"
-			}
-			"add:solid"
-			{
-				
-				side
-				{
-					"plane" "(-1366 -4005 305) (-1366 -4005 189) (-1438 -4005 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 32.5385] 0.26"
-					"vaxis" "[0 0 -1 26] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1438 -3971 305) (-1438 -3971 189) (-1366 -3971 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -16] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1438 -4005 305) (-1438 -4005 189) (-1438 -3971 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -24] 0.25"
-					"vaxis" "[0 0 -1 -8] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1366 -3971 305) (-1366 -3971 189) (-1366 -4005 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -30.2279] 0.26"
-					"vaxis" "[0 0 -1 58.452] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1366 -4005 305) (-1438 -4005 305) (-1438 -3971 305)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -10] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1366 -3971 189) (-1438 -3971 189) (-1438 -4005 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -2] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				
-			}
-		}
-		
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_10_BeginningEntrance_014_ColliderBox_TODO_SolidBoxWontSpawn"
-			}
-			"add:key"
-			{
-				"OnStartTouch" "gskSpawn_10_BeginningEntrance_014,CastSpell,,0,-1,1,"
-			}
-		}
-		
-		"add:entity"
-		{
-			"combinability" "1"
-			"skin" "0"
-			"disableshadows" "0"
-			"combinetarget1enable" "1"
-			"combinetarget2enable" "1"
-			"combinetarget3enable" "1"
-			"combinetarget4enable" "1"
-			"combinetarget5enable" "1"
-			"PerformanceMode" "0"
-			"pressuredelay" "0"
-			"mindxlevel" "0"
-			"maxdxlevel" "0"
-			"minhealthdmg" "0"
-			"shadowcastdist" "0"
-			"nodamageforces" "0"
 			"inertiaScale" "1.0"
-			"massScale" "0"
-			"damagetoenablemotion" "0"
-			"forcetoenablemotion" "0"
 			"fademindist" "500"
 			"fademaxdist" "700"
 			"fadescale" "1"
-			"combinetarget6enable" "1"
-			"combinetarget7enable" "1"
-			"combinetarget8enable" "1"
-			"combinetarget9enable" "1"
-			"combinetarget10enable" "1"
-			"UseSpeedToCalculateSoundVolume" "1"
-			
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"targetname" "gskSpawn_10_BeginningEntrance_014_LandMine"
-			"origin" "-1280 -4638 193"
-			"angles" "23 -43 39"
+			"angles" "38 -92 40"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -3263,8 +406,9 @@
 			"spawnflags"  "257"
 			"health" "1"
 			
+			
+			"origin"      "-1280 -4638 203"
 		}
-		
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_10_BeginningEntrance_015"
@@ -3273,218 +417,13 @@
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"targetname"  "gskSpawn_10_BeginningEntrance_015_TODO_SpellCasterFireTrapWontTriggerExplode"
-			"classname" "env_entity_SpellCaster"
-			"combinability" "1"
-			"angles" "0 0 0"
-			"target" "None"
-			"spell" "7"
-			"lifetime" "-1"
-			"power" "1"
-			
-			"origin"      "-1216 -4668 203"
-		}
-		"add:entity"
-		{
-			"classname" "trigger_once"
-			"combinability" "1"
-			"trapsecret" "2"
-			"StartDisabled" "0"
-			"spawnflags" "1"
-			"targetname" "gskSpawn_10_BeginningEntrance_015_ColliderBox_TODO_SolidBoxWontSpawn"
-			"origin" "-1216 -4668 193"
-			connections
-			{
-				"OnStartTouch" "gskSpawn_10_BeginningEntrance_015,CastSpell,,0,-1,1,"
-			}
-			solid
-			{
-				
-				side
-				{
-					"plane" "(-1302 -4035 305) (-1302 -4035 189) (-1374 -4035 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 32.5385] 0.26"
-					"vaxis" "[0 0 -1 26] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1374 -4001 305) (-1374 -4001 189) (-1302 -4001 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -16] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1374 -4035 305) (-1374 -4035 189) (-1374 -4001 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -24] 0.25"
-					"vaxis" "[0 0 -1 -8] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1302 -4001 305) (-1302 -4001 189) (-1302 -4035 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -30.2279] 0.26"
-					"vaxis" "[0 0 -1 58.452] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1302 -4035 305) (-1374 -4035 305) (-1374 -4001 305)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -10] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1302 -4001 189) (-1374 -4001 189) (-1374 -4035 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -2] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				
-			}
-		}
-		
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_10_BeginningEntrance_015_ColliderBox_TODO_SolidBoxWontSpawn"
-			}
-			"add:solid"
-			{
-				
-				side
-				{
-					"plane" "(-1302 -4035 305) (-1302 -4035 189) (-1374 -4035 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 32.5385] 0.26"
-					"vaxis" "[0 0 -1 26] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1374 -4001 305) (-1374 -4001 189) (-1302 -4001 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -16] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1374 -4035 305) (-1374 -4035 189) (-1374 -4001 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -24] 0.25"
-					"vaxis" "[0 0 -1 -8] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1302 -4001 305) (-1302 -4001 189) (-1302 -4035 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -30.2279] 0.26"
-					"vaxis" "[0 0 -1 58.452] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1302 -4035 305) (-1374 -4035 305) (-1374 -4001 305)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -10] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1302 -4001 189) (-1374 -4001 189) (-1374 -4035 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -2] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				
-			}
-		}
-		
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_10_BeginningEntrance_015_ColliderBox_TODO_SolidBoxWontSpawn"
-			}
-			"add:key"
-			{
-				"OnStartTouch" "gskSpawn_10_BeginningEntrance_015,CastSpell,,0,-1,1,"
-			}
-		}
-		
-		"add:entity"
-		{
-			"combinability" "1"
-			"skin" "0"
-			"disableshadows" "0"
-			"combinetarget1enable" "1"
-			"combinetarget2enable" "1"
-			"combinetarget3enable" "1"
-			"combinetarget4enable" "1"
-			"combinetarget5enable" "1"
-			"PerformanceMode" "0"
-			"pressuredelay" "0"
-			"mindxlevel" "0"
-			"maxdxlevel" "0"
-			"minhealthdmg" "0"
-			"shadowcastdist" "0"
-			"nodamageforces" "0"
 			"inertiaScale" "1.0"
-			"massScale" "0"
-			"damagetoenablemotion" "0"
-			"forcetoenablemotion" "0"
 			"fademindist" "500"
 			"fademaxdist" "700"
 			"fadescale" "1"
-			"combinetarget6enable" "1"
-			"combinetarget7enable" "1"
-			"combinetarget8enable" "1"
-			"combinetarget9enable" "1"
-			"combinetarget10enable" "1"
-			"UseSpeedToCalculateSoundVolume" "1"
-			
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"targetname" "gskSpawn_10_BeginningEntrance_015_LandMine"
-			"origin" "-1216 -4668 193"
-			"angles" "44 -71 4"
+			"angles" "36 104 39"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -3495,8 +434,9 @@
 			"spawnflags"  "257"
 			"health" "1"
 			
+			
+			"origin"      "-1216 -4668 203"
 		}
-		
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_10_BeginningEntrance_016"
@@ -3505,218 +445,13 @@
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"targetname"  "gskSpawn_10_BeginningEntrance_016_TODO_SpellCasterFireTrapWontTriggerExplode"
-			"classname" "env_entity_SpellCaster"
-			"combinability" "1"
-			"angles" "0 0 0"
-			"target" "None"
-			"spell" "7"
-			"lifetime" "-1"
-			"power" "1"
-			
-			"origin"      "-1145 -4682 203"
-		}
-		"add:entity"
-		{
-			"classname" "trigger_once"
-			"combinability" "1"
-			"trapsecret" "2"
-			"StartDisabled" "0"
-			"spawnflags" "1"
-			"targetname" "gskSpawn_10_BeginningEntrance_016_ColliderBox_TODO_SolidBoxWontSpawn"
-			"origin" "-1145 -4682 193"
-			connections
-			{
-				"OnStartTouch" "gskSpawn_10_BeginningEntrance_016,CastSpell,,0,-1,1,"
-			}
-			solid
-			{
-				
-				side
-				{
-					"plane" "(-1231 -4049 305) (-1231 -4049 189) (-1303 -4049 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 32.5385] 0.26"
-					"vaxis" "[0 0 -1 26] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1303 -4015 305) (-1303 -4015 189) (-1231 -4015 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -16] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1303 -4049 305) (-1303 -4049 189) (-1303 -4015 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -24] 0.25"
-					"vaxis" "[0 0 -1 -8] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1231 -4015 305) (-1231 -4015 189) (-1231 -4049 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -30.2279] 0.26"
-					"vaxis" "[0 0 -1 58.452] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1231 -4049 305) (-1303 -4049 305) (-1303 -4015 305)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -10] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1231 -4015 189) (-1303 -4015 189) (-1303 -4049 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -2] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				
-			}
-		}
-		
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_10_BeginningEntrance_016_ColliderBox_TODO_SolidBoxWontSpawn"
-			}
-			"add:solid"
-			{
-				
-				side
-				{
-					"plane" "(-1231 -4049 305) (-1231 -4049 189) (-1303 -4049 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 32.5385] 0.26"
-					"vaxis" "[0 0 -1 26] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1303 -4015 305) (-1303 -4015 189) (-1231 -4015 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -16] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1303 -4049 305) (-1303 -4049 189) (-1303 -4015 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -24] 0.25"
-					"vaxis" "[0 0 -1 -8] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1231 -4015 305) (-1231 -4015 189) (-1231 -4049 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -30.2279] 0.26"
-					"vaxis" "[0 0 -1 58.452] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1231 -4049 305) (-1303 -4049 305) (-1303 -4015 305)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -10] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1231 -4015 189) (-1303 -4015 189) (-1303 -4049 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -2] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				
-			}
-		}
-		
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_10_BeginningEntrance_016_ColliderBox_TODO_SolidBoxWontSpawn"
-			}
-			"add:key"
-			{
-				"OnStartTouch" "gskSpawn_10_BeginningEntrance_016,CastSpell,,0,-1,1,"
-			}
-		}
-		
-		"add:entity"
-		{
-			"combinability" "1"
-			"skin" "0"
-			"disableshadows" "0"
-			"combinetarget1enable" "1"
-			"combinetarget2enable" "1"
-			"combinetarget3enable" "1"
-			"combinetarget4enable" "1"
-			"combinetarget5enable" "1"
-			"PerformanceMode" "0"
-			"pressuredelay" "0"
-			"mindxlevel" "0"
-			"maxdxlevel" "0"
-			"minhealthdmg" "0"
-			"shadowcastdist" "0"
-			"nodamageforces" "0"
 			"inertiaScale" "1.0"
-			"massScale" "0"
-			"damagetoenablemotion" "0"
-			"forcetoenablemotion" "0"
 			"fademindist" "500"
 			"fademaxdist" "700"
 			"fadescale" "1"
-			"combinetarget6enable" "1"
-			"combinetarget7enable" "1"
-			"combinetarget8enable" "1"
-			"combinetarget9enable" "1"
-			"combinetarget10enable" "1"
-			"UseSpeedToCalculateSoundVolume" "1"
-			
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"targetname" "gskSpawn_10_BeginningEntrance_016_LandMine"
-			"origin" "-1145 -4682 193"
-			"angles" "30 179 11"
+			"angles" "43 97 44"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -3727,8 +462,9 @@
 			"spawnflags"  "257"
 			"health" "1"
 			
+			
+			"origin"      "-1145 -4682 203"
 		}
-		
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_10_BeginningEntrance_017"
@@ -3737,218 +473,13 @@
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"targetname"  "gskSpawn_10_BeginningEntrance_017_TODO_SpellCasterFireTrapWontTriggerExplode"
-			"classname" "env_entity_SpellCaster"
-			"combinability" "1"
-			"angles" "0 0 0"
-			"target" "None"
-			"spell" "7"
-			"lifetime" "-1"
-			"power" "1"
-			
-			"origin"      "-1047 -4648 203"
-		}
-		"add:entity"
-		{
-			"classname" "trigger_once"
-			"combinability" "1"
-			"trapsecret" "2"
-			"StartDisabled" "0"
-			"spawnflags" "1"
-			"targetname" "gskSpawn_10_BeginningEntrance_017_ColliderBox_TODO_SolidBoxWontSpawn"
-			"origin" "-1047 -4648 193"
-			connections
-			{
-				"OnStartTouch" "gskSpawn_10_BeginningEntrance_017,CastSpell,,0,-1,1,"
-			}
-			solid
-			{
-				
-				side
-				{
-					"plane" "(-1133 -4015 305) (-1133 -4015 189) (-1205 -4015 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 32.5385] 0.26"
-					"vaxis" "[0 0 -1 26] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1205 -3981 305) (-1205 -3981 189) (-1133 -3981 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -16] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1205 -4015 305) (-1205 -4015 189) (-1205 -3981 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -24] 0.25"
-					"vaxis" "[0 0 -1 -8] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1133 -3981 305) (-1133 -3981 189) (-1133 -4015 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -30.2279] 0.26"
-					"vaxis" "[0 0 -1 58.452] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1133 -4015 305) (-1205 -4015 305) (-1205 -3981 305)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -10] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1133 -3981 189) (-1205 -3981 189) (-1205 -4015 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -2] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				
-			}
-		}
-		
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_10_BeginningEntrance_017_ColliderBox_TODO_SolidBoxWontSpawn"
-			}
-			"add:solid"
-			{
-				
-				side
-				{
-					"plane" "(-1133 -4015 305) (-1133 -4015 189) (-1205 -4015 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 32.5385] 0.26"
-					"vaxis" "[0 0 -1 26] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1205 -3981 305) (-1205 -3981 189) (-1133 -3981 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -16] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1205 -4015 305) (-1205 -4015 189) (-1205 -3981 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -24] 0.25"
-					"vaxis" "[0 0 -1 -8] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1133 -3981 305) (-1133 -3981 189) (-1133 -4015 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -30.2279] 0.26"
-					"vaxis" "[0 0 -1 58.452] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1133 -4015 305) (-1205 -4015 305) (-1205 -3981 305)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -10] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1133 -3981 189) (-1205 -3981 189) (-1205 -4015 189)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -2] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				
-			}
-		}
-		
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_10_BeginningEntrance_017_ColliderBox_TODO_SolidBoxWontSpawn"
-			}
-			"add:key"
-			{
-				"OnStartTouch" "gskSpawn_10_BeginningEntrance_017,CastSpell,,0,-1,1,"
-			}
-		}
-		
-		"add:entity"
-		{
-			"combinability" "1"
-			"skin" "0"
-			"disableshadows" "0"
-			"combinetarget1enable" "1"
-			"combinetarget2enable" "1"
-			"combinetarget3enable" "1"
-			"combinetarget4enable" "1"
-			"combinetarget5enable" "1"
-			"PerformanceMode" "0"
-			"pressuredelay" "0"
-			"mindxlevel" "0"
-			"maxdxlevel" "0"
-			"minhealthdmg" "0"
-			"shadowcastdist" "0"
-			"nodamageforces" "0"
 			"inertiaScale" "1.0"
-			"massScale" "0"
-			"damagetoenablemotion" "0"
-			"forcetoenablemotion" "0"
 			"fademindist" "500"
 			"fademaxdist" "700"
 			"fadescale" "1"
-			"combinetarget6enable" "1"
-			"combinetarget7enable" "1"
-			"combinetarget8enable" "1"
-			"combinetarget9enable" "1"
-			"combinetarget10enable" "1"
-			"UseSpeedToCalculateSoundVolume" "1"
-			
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"targetname" "gskSpawn_10_BeginningEntrance_017_LandMine"
-			"origin" "-1047 -4648 193"
-			"angles" "6 -137 22"
+			"angles" "1 -43 28"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -3959,8 +490,9 @@
 			"spawnflags"  "257"
 			"health" "1"
 			
+			
+			"origin"      "-1047 -4648 203"
 		}
-		
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_10_BeginningEntrance_018"
@@ -4433,8 +965,8 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 174 0"
-			"health" "30"
-			"physdamagescale" "0.1"
+			"health" "20"
+			"physdamagescale" "0.2"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -4462,9 +994,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "44 23 35"
-			"health" "27"
-			"physdamagescale" "0.8"
+			"angles" "3 23 36"
+			"health" "38"
+			"physdamagescale" "0.5"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -4493,8 +1025,8 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 -172 0"
-			"health" "28"
-			"physdamagescale" "0.1"
+			"health" "14"
+			"physdamagescale" "0.2"
 			
 		}
 		"add:entity"
@@ -4513,9 +1045,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "28 109 4"
-			"health" "9"
-			"physdamagescale" "0.3"
+			"angles" "12 109 2"
+			"health" "18"
+			"physdamagescale" "0.7"
 			
 		}
 		"add:entity"
@@ -4535,8 +1067,8 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 -6 0"
-			"health" "9"
-			"physdamagescale" "0.6"
+			"health" "19"
+			"physdamagescale" "0.7"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -4564,8 +1096,8 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "30 155 2"
-			"health" "31"
+			"angles" "44 155 8"
+			"health" "26"
 			"physdamagescale" "0.2"
 			
 		}
@@ -4586,8 +1118,8 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 136 0"
-			"health" "9"
-			"physdamagescale" "0.1"
+			"health" "24"
+			"physdamagescale" "0.5"
 			
 		}
 		"add:entity"
@@ -4606,9 +1138,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "21 9 21"
-			"health" "12"
-			"physdamagescale" "0.5"
+			"angles" "12 9 43"
+			"health" "28"
+			"physdamagescale" "0.3"
 			
 		}
 		"add:entity"
@@ -4628,7 +1160,7 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 142 0"
-			"health" "35"
+			"health" "20"
 			"physdamagescale" "0.6"
 			
 			"physdamagescale" "1.0"
@@ -4657,8 +1189,8 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "6 -65 26"
-			"health" "17"
+			"angles" "2 -65 3"
+			"health" "20"
 			"physdamagescale" "0.6"
 			
 		}
@@ -4678,9 +1210,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "22 -109 34"
-			"health" "28"
-			"physdamagescale" "0.6"
+			"angles" "35 -109 9"
+			"health" "37"
+			"physdamagescale" "0.3"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -4709,7 +1241,7 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 -70 0"
-			"health" "7"
+			"health" "38"
 			"physdamagescale" "0.6"
 			
 			"physdamagescale" "1.0"
@@ -4738,9 +1270,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "31 -87 39"
-			"health" "14"
-			"physdamagescale" "0.4"
+			"angles" "37 -87 24"
+			"health" "24"
+			"physdamagescale" "0.8"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -4769,8 +1301,8 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 16 0"
-			"health" "33"
-			"physdamagescale" "0.4"
+			"health" "18"
+			"physdamagescale" "0.8"
 			
 		}
 		"add:entity"
@@ -4789,9 +1321,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "28 -169 7"
-			"health" "37"
-			"physdamagescale" "0.5"
+			"angles" "27 -169 13"
+			"health" "34"
+			"physdamagescale" "0.7"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -4820,8 +1352,8 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 126 0"
-			"health" "19"
-			"physdamagescale" "0.6"
+			"health" "21"
+			"physdamagescale" "0.8"
 			
 		}
 		"add:entity"
@@ -4840,9 +1372,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "35 85 22"
-			"health" "28"
-			"physdamagescale" "0.2"
+			"angles" "31 85 44"
+			"health" "39"
+			"physdamagescale" "0.3"
 			
 		}
 		"add:entity"
@@ -4862,7 +1394,7 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 84 0"
-			"health" "26"
+			"health" "16"
 			"physdamagescale" "0.1"
 			
 			"physdamagescale" "1.0"
@@ -4891,9 +1423,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "12 -117 20"
-			"health" "37"
-			"physdamagescale" "0.3"
+			"angles" "15 -117 25"
+			"health" "26"
+			"physdamagescale" "0.1"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -4922,8 +1454,8 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 -110 0"
-			"health" "11"
-			"physdamagescale" "0.1"
+			"health" "23"
+			"physdamagescale" "0.8"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -4972,9 +1504,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "0 -149 15"
-			"health" "13"
-			"physdamagescale" "0.5"
+			"angles" "44 -149 16"
+			"health" "10"
+			"physdamagescale" "0.8"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -5003,8 +1535,8 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 -32 0"
-			"health" "36"
-			"physdamagescale" "0.7"
+			"health" "18"
+			"physdamagescale" "0.5"
 			
 		}
 		"add:entity"
@@ -5023,9 +1555,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "27 41 4"
-			"health" "19"
-			"physdamagescale" "0.1"
+			"angles" "9 41 19"
+			"health" "14"
+			"physdamagescale" "0.4"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -5054,8 +1586,8 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 -2 0"
-			"health" "9"
-			"physdamagescale" "0.4"
+			"health" "19"
+			"physdamagescale" "0.1"
 			
 		}
 		"add:entity"
@@ -5074,9 +1606,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "38 39 5"
-			"health" "16"
-			"physdamagescale" "0.2"
+			"angles" "15 39 10"
+			"health" "7"
+			"physdamagescale" "0.4"
 			
 		}
 		"add:entity"
@@ -5096,8 +1628,8 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 28 0"
-			"health" "13"
-			"physdamagescale" "0.7"
+			"health" "30"
+			"physdamagescale" "0.2"
 			
 		}
 		"add:entity"
@@ -5116,9 +1648,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "6 -3 39"
-			"health" "39"
-			"physdamagescale" "0.8"
+			"angles" "36 -3 21"
+			"health" "21"
+			"physdamagescale" "0.5"
 			
 		}
 		"add:entity"
@@ -5138,8 +1670,8 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 -6 0"
-			"health" "16"
-			"physdamagescale" "0.4"
+			"health" "13"
+			"physdamagescale" "0.8"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -5167,8 +1699,8 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "29 107 18"
-			"health" "29"
+			"angles" "29 107 16"
+			"health" "39"
 			"physdamagescale" "0.5"
 			
 		}
@@ -5188,8 +1720,8 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "7 109 25"
-			"health" "30"
+			"angles" "26 109 17"
+			"health" "35"
 			"physdamagescale" "0.7"
 			
 		}
@@ -5210,8 +1742,8 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 92 0"
-			"health" "20"
-			"physdamagescale" "0.1"
+			"health" "29"
+			"physdamagescale" "0.3"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -5239,9 +1771,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "40 175 18"
-			"health" "39"
-			"physdamagescale" "0.4"
+			"angles" "38 175 39"
+			"health" "15"
+			"physdamagescale" "0.7"
 			
 		}
 		"add:entity"
@@ -5261,8 +1793,8 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 -138 0"
-			"health" "38"
-			"physdamagescale" "0.7"
+			"health" "26"
+			"physdamagescale" "0.6"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -5290,9 +1822,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "31 153 22"
-			"health" "19"
-			"physdamagescale" "0.7"
+			"angles" "16 153 6"
+			"health" "26"
+			"physdamagescale" "0.8"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -5321,8 +1853,8 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 32 0"
-			"health" "34"
-			"physdamagescale" "0.7"
+			"health" "35"
+			"physdamagescale" "0.2"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -5350,8 +1882,8 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "24 3 19"
-			"health" "22"
+			"angles" "8 3 20"
+			"health" "16"
 			"physdamagescale" "0.5"
 			
 			"physdamagescale" "1.0"
@@ -5381,8 +1913,8 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 -54 0"
-			"health" "16"
-			"physdamagescale" "0.2"
+			"health" "32"
+			"physdamagescale" "0.3"
 			
 		}
 		"add:entity"
@@ -5401,8 +1933,8 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "35 -155 17"
-			"health" "38"
+			"angles" "35 -155 31"
+			"health" "15"
 			"physdamagescale" "0.3"
 			
 		}
@@ -5423,8 +1955,8 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 156 0"
-			"health" "14"
-			"physdamagescale" "0.3"
+			"health" "8"
+			"physdamagescale" "0.6"
 			
 		}
 		"add:entity"
@@ -5444,8 +1976,8 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 120 0"
-			"health" "37"
-			"physdamagescale" "0.4"
+			"health" "7"
+			"physdamagescale" "0.7"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -5473,9 +2005,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "38 129 35"
+			"angles" "38 129 22"
 			"health" "39"
-			"physdamagescale" "0.3"
+			"physdamagescale" "0.8"
 			
 		}
 		"add:entity"
@@ -5495,7 +2027,7 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 -142 0"
-			"health" "12"
+			"health" "14"
 			"physdamagescale" "0.4"
 			
 		}
@@ -5515,9 +2047,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "29 163 8"
-			"health" "14"
-			"physdamagescale" "0.4"
+			"angles" "22 163 19"
+			"health" "24"
+			"physdamagescale" "0.2"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -5546,8 +2078,8 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 20 0"
-			"health" "21"
-			"physdamagescale" "0.6"
+			"health" "18"
+			"physdamagescale" "0.4"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -5575,9 +2107,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "43 77 0"
-			"health" "19"
-			"physdamagescale" "0.5"
+			"angles" "36 77 25"
+			"health" "39"
+			"physdamagescale" "0.7"
 			
 		}
 		"add:entity"
@@ -5597,7 +2129,7 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 6 0"
-			"health" "35"
+			"health" "14"
 			"physdamagescale" "0.6"
 			
 		}
@@ -5617,9 +2149,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "26 -1 28"
-			"health" "33"
-			"physdamagescale" "0.6"
+			"angles" "4 -1 43"
+			"health" "12"
+			"physdamagescale" "0.1"
 			
 		}
 		"add:entity"
@@ -5640,7 +2172,7 @@
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 -176 0"
 			"health" "38"
-			"physdamagescale" "0.4"
+			"physdamagescale" "0.5"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -5668,9 +2200,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "16 -111 9"
-			"health" "27"
-			"physdamagescale" "0.6"
+			"angles" "9 -111 10"
+			"health" "15"
+			"physdamagescale" "0.7"
 			
 		}
 		"add:entity"
@@ -5689,9 +2221,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "13 -121 28"
-			"health" "8"
-			"physdamagescale" "0.3"
+			"angles" "8 -121 7"
+			"health" "38"
+			"physdamagescale" "0.6"
 			
 		}
 		"add:entity"
@@ -5711,8 +2243,8 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 94 0"
-			"health" "24"
-			"physdamagescale" "0.3"
+			"health" "23"
+			"physdamagescale" "0.7"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -5740,9 +2272,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "39 157 17"
-			"health" "8"
-			"physdamagescale" "0.8"
+			"angles" "13 157 21"
+			"health" "30"
+			"physdamagescale" "0.3"
 			
 		}
 		"add:entity"
@@ -5762,8 +2294,8 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 68 0"
-			"health" "8"
-			"physdamagescale" "0.3"
+			"health" "7"
+			"physdamagescale" "0.6"
 			
 		}
 		"add:entity"
@@ -5782,9 +2314,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "25 -93 38"
-			"health" "15"
-			"physdamagescale" "0.6"
+			"angles" "11 -93 35"
+			"health" "20"
+			"physdamagescale" "0.7"
 			
 		}
 		"add:entity"
@@ -5804,8 +2336,8 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 170 0"
-			"health" "31"
-			"physdamagescale" "0.5"
+			"health" "12"
+			"physdamagescale" "0.1"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -5833,8 +2365,8 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "35 57 35"
-			"health" "16"
+			"angles" "22 57 0"
+			"health" "21"
 			"physdamagescale" "0.3"
 			
 		}
@@ -5855,8 +2387,8 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 16 0"
-			"health" "16"
-			"physdamagescale" "0.6"
+			"health" "31"
+			"physdamagescale" "0.2"
 			
 		}
 		"add:entity"
@@ -5875,9 +2407,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "32 111 13"
-			"health" "26"
-			"physdamagescale" "0.2"
+			"angles" "6 111 14"
+			"health" "18"
+			"physdamagescale" "0.6"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -5907,7 +2439,7 @@
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 22 0"
 			"health" "20"
-			"physdamagescale" "0.2"
+			"physdamagescale" "0.1"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -5936,8 +2468,8 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 -42 0"
-			"health" "22"
-			"physdamagescale" "0.7"
+			"health" "33"
+			"physdamagescale" "0.5"
 			
 		}
 		"add:entity"
@@ -5956,9 +2488,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "40 15 27"
-			"health" "24"
-			"physdamagescale" "0.8"
+			"angles" "31 15 24"
+			"health" "39"
+			"physdamagescale" "0.3"
 			
 		}
 		"add:entity"
@@ -5978,8 +2510,8 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 116 0"
-			"health" "30"
-			"physdamagescale" "0.7"
+			"health" "28"
+			"physdamagescale" "0.3"
 			
 		}
 		"add:entity"
@@ -5998,9 +2530,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "14 109 44"
-			"health" "11"
-			"physdamagescale" "0.6"
+			"angles" "24 109 11"
+			"health" "23"
+			"physdamagescale" "0.3"
 			
 		}
 		"add:entity"
@@ -6020,8 +2552,8 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 10 0"
-			"health" "24"
-			"physdamagescale" "0.8"
+			"health" "30"
+			"physdamagescale" "0.6"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -6049,9 +2581,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "13 115 27"
-			"health" "15"
-			"physdamagescale" "0.1"
+			"angles" "34 115 19"
+			"health" "25"
+			"physdamagescale" "0.3"
 			
 		}
 		"add:entity"
@@ -6071,8 +2603,8 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 -64 0"
-			"health" "11"
-			"physdamagescale" "0.3"
+			"health" "8"
+			"physdamagescale" "0.4"
 			
 		}
 		"add:entity"
@@ -6091,9 +2623,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "10 -23 6"
-			"health" "12"
-			"physdamagescale" "0.8"
+			"angles" "27 -23 44"
+			"health" "32"
+			"physdamagescale" "0.2"
 			
 		}
 		"add:entity"
@@ -6113,7 +2645,7 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 -82 0"
-			"health" "30"
+			"health" "7"
 			"physdamagescale" "0.4"
 			
 		}
@@ -6133,9 +2665,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "6 31 37"
-			"health" "19"
-			"physdamagescale" "0.4"
+			"angles" "29 31 4"
+			"health" "8"
+			"physdamagescale" "0.2"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -6163,9 +2695,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "30 105 4"
-			"health" "36"
-			"physdamagescale" "0.1"
+			"angles" "9 105 36"
+			"health" "7"
+			"physdamagescale" "0.8"
 			
 		}
 		"add:entity"
@@ -6185,8 +2717,8 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 -168 0"
-			"health" "27"
-			"physdamagescale" "0.2"
+			"health" "7"
+			"physdamagescale" "0.6"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -6214,9 +2746,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "31 75 27"
-			"health" "14"
-			"physdamagescale" "0.8"
+			"angles" "28 75 21"
+			"health" "18"
+			"physdamagescale" "0.2"
 			
 		}
 		"add:entity"
@@ -6236,7 +2768,7 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 -142 0"
-			"health" "30"
+			"health" "24"
 			"physdamagescale" "0.3"
 			
 		}
@@ -6248,218 +2780,13 @@
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"targetname"  "gskSpawn_10_BeginningEntrance_127_TODO_SpellCasterFireTrapWontTriggerExplode"
-			"classname" "env_entity_SpellCaster"
-			"combinability" "1"
-			"angles" "0 0 0"
-			"target" "None"
-			"spell" "7"
-			"lifetime" "-1"
-			"power" "1"
-			
-			"origin"      "-789 -4879 467"
-		}
-		"add:entity"
-		{
-			"classname" "trigger_once"
-			"combinability" "1"
-			"trapsecret" "2"
-			"StartDisabled" "0"
-			"spawnflags" "1"
-			"targetname" "gskSpawn_10_BeginningEntrance_127_ColliderBox_TODO_SolidBoxWontSpawn"
-			"origin" "-789 -4879 457"
-			connections
-			{
-				"OnStartTouch" "gskSpawn_10_BeginningEntrance_127,CastSpell,,0,-1,1,"
-			}
-			solid
-			{
-				
-				side
-				{
-					"plane" "(-875 -4246 569) (-875 -4246 453) (-947 -4246 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 32.5385] 0.26"
-					"vaxis" "[0 0 -1 26] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-947 -4212 569) (-947 -4212 453) (-875 -4212 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -16] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-947 -4246 569) (-947 -4246 453) (-947 -4212 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -24] 0.25"
-					"vaxis" "[0 0 -1 -8] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-875 -4212 569) (-875 -4212 453) (-875 -4246 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -30.2279] 0.26"
-					"vaxis" "[0 0 -1 58.452] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-875 -4246 569) (-947 -4246 569) (-947 -4212 569)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -10] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-875 -4212 453) (-947 -4212 453) (-947 -4246 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -2] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				
-			}
-		}
-		
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_10_BeginningEntrance_127_ColliderBox_TODO_SolidBoxWontSpawn"
-			}
-			"add:solid"
-			{
-				
-				side
-				{
-					"plane" "(-875 -4246 569) (-875 -4246 453) (-947 -4246 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 32.5385] 0.26"
-					"vaxis" "[0 0 -1 26] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-947 -4212 569) (-947 -4212 453) (-875 -4212 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -16] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-947 -4246 569) (-947 -4246 453) (-947 -4212 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -24] 0.25"
-					"vaxis" "[0 0 -1 -8] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-875 -4212 569) (-875 -4212 453) (-875 -4246 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -30.2279] 0.26"
-					"vaxis" "[0 0 -1 58.452] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-875 -4246 569) (-947 -4246 569) (-947 -4212 569)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -10] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-875 -4212 453) (-947 -4212 453) (-947 -4246 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -2] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				
-			}
-		}
-		
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_10_BeginningEntrance_127_ColliderBox_TODO_SolidBoxWontSpawn"
-			}
-			"add:key"
-			{
-				"OnStartTouch" "gskSpawn_10_BeginningEntrance_127,CastSpell,,0,-1,1,"
-			}
-		}
-		
-		"add:entity"
-		{
-			"combinability" "1"
-			"skin" "0"
-			"disableshadows" "0"
-			"combinetarget1enable" "1"
-			"combinetarget2enable" "1"
-			"combinetarget3enable" "1"
-			"combinetarget4enable" "1"
-			"combinetarget5enable" "1"
-			"PerformanceMode" "0"
-			"pressuredelay" "0"
-			"mindxlevel" "0"
-			"maxdxlevel" "0"
-			"minhealthdmg" "0"
-			"shadowcastdist" "0"
-			"nodamageforces" "0"
 			"inertiaScale" "1.0"
-			"massScale" "0"
-			"damagetoenablemotion" "0"
-			"forcetoenablemotion" "0"
 			"fademindist" "500"
 			"fademaxdist" "700"
 			"fadescale" "1"
-			"combinetarget6enable" "1"
-			"combinetarget7enable" "1"
-			"combinetarget8enable" "1"
-			"combinetarget9enable" "1"
-			"combinetarget10enable" "1"
-			"UseSpeedToCalculateSoundVolume" "1"
-			
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"targetname" "gskSpawn_10_BeginningEntrance_127_LandMine"
-			"origin" "-789 -4879 457"
-			"angles" "17 -40 1"
+			"angles" "23 -179 32"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -6470,8 +2797,9 @@
 			"spawnflags"  "257"
 			"health" "1"
 			
+			
+			"origin"      "-789 -4879 467"
 		}
-		
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_10_BeginningEntrance_128"
@@ -6480,218 +2808,13 @@
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"targetname"  "gskSpawn_10_BeginningEntrance_128_TODO_SpellCasterFireTrapWontTriggerExplode"
-			"classname" "env_entity_SpellCaster"
-			"combinability" "1"
-			"angles" "0 0 0"
-			"target" "None"
-			"spell" "7"
-			"lifetime" "-1"
-			"power" "1"
-			
-			"origin"      "-1362 -4874 467"
-		}
-		"add:entity"
-		{
-			"classname" "trigger_once"
-			"combinability" "1"
-			"trapsecret" "2"
-			"StartDisabled" "0"
-			"spawnflags" "1"
-			"targetname" "gskSpawn_10_BeginningEntrance_128_ColliderBox_TODO_SolidBoxWontSpawn"
-			"origin" "-1362 -4874 457"
-			connections
-			{
-				"OnStartTouch" "gskSpawn_10_BeginningEntrance_128,CastSpell,,0,-1,1,"
-			}
-			solid
-			{
-				
-				side
-				{
-					"plane" "(-1448 -4241 569) (-1448 -4241 453) (-1520 -4241 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 32.5385] 0.26"
-					"vaxis" "[0 0 -1 26] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1520 -4207 569) (-1520 -4207 453) (-1448 -4207 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -16] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1520 -4241 569) (-1520 -4241 453) (-1520 -4207 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -24] 0.25"
-					"vaxis" "[0 0 -1 -8] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1448 -4207 569) (-1448 -4207 453) (-1448 -4241 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -30.2279] 0.26"
-					"vaxis" "[0 0 -1 58.452] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1448 -4241 569) (-1520 -4241 569) (-1520 -4207 569)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -10] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1448 -4207 453) (-1520 -4207 453) (-1520 -4241 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -2] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				
-			}
-		}
-		
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_10_BeginningEntrance_128_ColliderBox_TODO_SolidBoxWontSpawn"
-			}
-			"add:solid"
-			{
-				
-				side
-				{
-					"plane" "(-1448 -4241 569) (-1448 -4241 453) (-1520 -4241 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 32.5385] 0.26"
-					"vaxis" "[0 0 -1 26] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1520 -4207 569) (-1520 -4207 453) (-1448 -4207 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -16] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1520 -4241 569) (-1520 -4241 453) (-1520 -4207 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -24] 0.25"
-					"vaxis" "[0 0 -1 -8] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1448 -4207 569) (-1448 -4207 453) (-1448 -4241 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -30.2279] 0.26"
-					"vaxis" "[0 0 -1 58.452] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1448 -4241 569) (-1520 -4241 569) (-1520 -4207 569)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -10] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1448 -4207 453) (-1520 -4207 453) (-1520 -4241 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -2] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				
-			}
-		}
-		
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_10_BeginningEntrance_128_ColliderBox_TODO_SolidBoxWontSpawn"
-			}
-			"add:key"
-			{
-				"OnStartTouch" "gskSpawn_10_BeginningEntrance_128,CastSpell,,0,-1,1,"
-			}
-		}
-		
-		"add:entity"
-		{
-			"combinability" "1"
-			"skin" "0"
-			"disableshadows" "0"
-			"combinetarget1enable" "1"
-			"combinetarget2enable" "1"
-			"combinetarget3enable" "1"
-			"combinetarget4enable" "1"
-			"combinetarget5enable" "1"
-			"PerformanceMode" "0"
-			"pressuredelay" "0"
-			"mindxlevel" "0"
-			"maxdxlevel" "0"
-			"minhealthdmg" "0"
-			"shadowcastdist" "0"
-			"nodamageforces" "0"
 			"inertiaScale" "1.0"
-			"massScale" "0"
-			"damagetoenablemotion" "0"
-			"forcetoenablemotion" "0"
 			"fademindist" "500"
 			"fademaxdist" "700"
 			"fadescale" "1"
-			"combinetarget6enable" "1"
-			"combinetarget7enable" "1"
-			"combinetarget8enable" "1"
-			"combinetarget9enable" "1"
-			"combinetarget10enable" "1"
-			"UseSpeedToCalculateSoundVolume" "1"
-			
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"targetname" "gskSpawn_10_BeginningEntrance_128_LandMine"
-			"origin" "-1362 -4874 457"
-			"angles" "26 -179 31"
+			"angles" "4 -3 28"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -6702,8 +2825,9 @@
 			"spawnflags"  "257"
 			"health" "1"
 			
+			
+			"origin"      "-1362 -4874 467"
 		}
-		
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_10_BeginningEntrance_129"
@@ -6712,218 +2836,13 @@
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"targetname"  "gskSpawn_10_BeginningEntrance_129_TODO_SpellCasterFireTrapWontTriggerExplode"
-			"classname" "env_entity_SpellCaster"
-			"combinability" "1"
-			"angles" "0 0 0"
-			"target" "None"
-			"spell" "7"
-			"lifetime" "-1"
-			"power" "1"
-			
-			"origin"      "-1939 -4874 467"
-		}
-		"add:entity"
-		{
-			"classname" "trigger_once"
-			"combinability" "1"
-			"trapsecret" "2"
-			"StartDisabled" "0"
-			"spawnflags" "1"
-			"targetname" "gskSpawn_10_BeginningEntrance_129_ColliderBox_TODO_SolidBoxWontSpawn"
-			"origin" "-1939 -4874 457"
-			connections
-			{
-				"OnStartTouch" "gskSpawn_10_BeginningEntrance_129,CastSpell,,0,-1,1,"
-			}
-			solid
-			{
-				
-				side
-				{
-					"plane" "(-2025 -4241 569) (-2025 -4241 453) (-2097 -4241 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 32.5385] 0.26"
-					"vaxis" "[0 0 -1 26] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-2097 -4207 569) (-2097 -4207 453) (-2025 -4207 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -16] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-2097 -4241 569) (-2097 -4241 453) (-2097 -4207 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -24] 0.25"
-					"vaxis" "[0 0 -1 -8] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-2025 -4207 569) (-2025 -4207 453) (-2025 -4241 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -30.2279] 0.26"
-					"vaxis" "[0 0 -1 58.452] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-2025 -4241 569) (-2097 -4241 569) (-2097 -4207 569)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -10] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-2025 -4207 453) (-2097 -4207 453) (-2097 -4241 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -2] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				
-			}
-		}
-		
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_10_BeginningEntrance_129_ColliderBox_TODO_SolidBoxWontSpawn"
-			}
-			"add:solid"
-			{
-				
-				side
-				{
-					"plane" "(-2025 -4241 569) (-2025 -4241 453) (-2097 -4241 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 32.5385] 0.26"
-					"vaxis" "[0 0 -1 26] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-2097 -4207 569) (-2097 -4207 453) (-2025 -4207 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -16] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-2097 -4241 569) (-2097 -4241 453) (-2097 -4207 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -24] 0.25"
-					"vaxis" "[0 0 -1 -8] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-2025 -4207 569) (-2025 -4207 453) (-2025 -4241 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -30.2279] 0.26"
-					"vaxis" "[0 0 -1 58.452] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-2025 -4241 569) (-2097 -4241 569) (-2097 -4207 569)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -10] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-2025 -4207 453) (-2097 -4207 453) (-2097 -4241 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -2] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				
-			}
-		}
-		
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_10_BeginningEntrance_129_ColliderBox_TODO_SolidBoxWontSpawn"
-			}
-			"add:key"
-			{
-				"OnStartTouch" "gskSpawn_10_BeginningEntrance_129,CastSpell,,0,-1,1,"
-			}
-		}
-		
-		"add:entity"
-		{
-			"combinability" "1"
-			"skin" "0"
-			"disableshadows" "0"
-			"combinetarget1enable" "1"
-			"combinetarget2enable" "1"
-			"combinetarget3enable" "1"
-			"combinetarget4enable" "1"
-			"combinetarget5enable" "1"
-			"PerformanceMode" "0"
-			"pressuredelay" "0"
-			"mindxlevel" "0"
-			"maxdxlevel" "0"
-			"minhealthdmg" "0"
-			"shadowcastdist" "0"
-			"nodamageforces" "0"
 			"inertiaScale" "1.0"
-			"massScale" "0"
-			"damagetoenablemotion" "0"
-			"forcetoenablemotion" "0"
 			"fademindist" "500"
 			"fademaxdist" "700"
 			"fadescale" "1"
-			"combinetarget6enable" "1"
-			"combinetarget7enable" "1"
-			"combinetarget8enable" "1"
-			"combinetarget9enable" "1"
-			"combinetarget10enable" "1"
-			"UseSpeedToCalculateSoundVolume" "1"
-			
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"targetname" "gskSpawn_10_BeginningEntrance_129_LandMine"
-			"origin" "-1939 -4874 457"
-			"angles" "6 -68 15"
+			"angles" "37 -62 9"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -6934,8 +2853,9 @@
 			"spawnflags"  "257"
 			"health" "1"
 			
+			
+			"origin"      "-1939 -4874 467"
 		}
-		
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_10_BeginningEntrance_130"
@@ -6944,218 +2864,13 @@
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"targetname"  "gskSpawn_10_BeginningEntrance_130_TODO_SpellCasterFireTrapWontTriggerExplode"
-			"classname" "env_entity_SpellCaster"
-			"combinability" "1"
-			"angles" "0 0 0"
-			"target" "None"
-			"spell" "7"
-			"lifetime" "-1"
-			"power" "1"
-			
-			"origin"      "-1655 -4877 467"
-		}
-		"add:entity"
-		{
-			"classname" "trigger_once"
-			"combinability" "1"
-			"trapsecret" "2"
-			"StartDisabled" "0"
-			"spawnflags" "1"
-			"targetname" "gskSpawn_10_BeginningEntrance_130_ColliderBox_TODO_SolidBoxWontSpawn"
-			"origin" "-1655 -4877 457"
-			connections
-			{
-				"OnStartTouch" "gskSpawn_10_BeginningEntrance_130,CastSpell,,0,-1,1,"
-			}
-			solid
-			{
-				
-				side
-				{
-					"plane" "(-1741 -4244 569) (-1741 -4244 453) (-1813 -4244 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 32.5385] 0.26"
-					"vaxis" "[0 0 -1 26] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1813 -4210 569) (-1813 -4210 453) (-1741 -4210 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -16] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1813 -4244 569) (-1813 -4244 453) (-1813 -4210 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -24] 0.25"
-					"vaxis" "[0 0 -1 -8] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1741 -4210 569) (-1741 -4210 453) (-1741 -4244 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -30.2279] 0.26"
-					"vaxis" "[0 0 -1 58.452] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1741 -4244 569) (-1813 -4244 569) (-1813 -4210 569)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -10] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1741 -4210 453) (-1813 -4210 453) (-1813 -4244 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -2] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				
-			}
-		}
-		
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_10_BeginningEntrance_130_ColliderBox_TODO_SolidBoxWontSpawn"
-			}
-			"add:solid"
-			{
-				
-				side
-				{
-					"plane" "(-1741 -4244 569) (-1741 -4244 453) (-1813 -4244 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 32.5385] 0.26"
-					"vaxis" "[0 0 -1 26] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1813 -4210 569) (-1813 -4210 453) (-1741 -4210 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -16] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1813 -4244 569) (-1813 -4244 453) (-1813 -4210 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -24] 0.25"
-					"vaxis" "[0 0 -1 -8] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1741 -4210 569) (-1741 -4210 453) (-1741 -4244 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -30.2279] 0.26"
-					"vaxis" "[0 0 -1 58.452] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1741 -4244 569) (-1813 -4244 569) (-1813 -4210 569)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -10] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1741 -4210 453) (-1813 -4210 453) (-1813 -4244 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -2] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				
-			}
-		}
-		
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_10_BeginningEntrance_130_ColliderBox_TODO_SolidBoxWontSpawn"
-			}
-			"add:key"
-			{
-				"OnStartTouch" "gskSpawn_10_BeginningEntrance_130,CastSpell,,0,-1,1,"
-			}
-		}
-		
-		"add:entity"
-		{
-			"combinability" "1"
-			"skin" "0"
-			"disableshadows" "0"
-			"combinetarget1enable" "1"
-			"combinetarget2enable" "1"
-			"combinetarget3enable" "1"
-			"combinetarget4enable" "1"
-			"combinetarget5enable" "1"
-			"PerformanceMode" "0"
-			"pressuredelay" "0"
-			"mindxlevel" "0"
-			"maxdxlevel" "0"
-			"minhealthdmg" "0"
-			"shadowcastdist" "0"
-			"nodamageforces" "0"
 			"inertiaScale" "1.0"
-			"massScale" "0"
-			"damagetoenablemotion" "0"
-			"forcetoenablemotion" "0"
 			"fademindist" "500"
 			"fademaxdist" "700"
 			"fadescale" "1"
-			"combinetarget6enable" "1"
-			"combinetarget7enable" "1"
-			"combinetarget8enable" "1"
-			"combinetarget9enable" "1"
-			"combinetarget10enable" "1"
-			"UseSpeedToCalculateSoundVolume" "1"
-			
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"targetname" "gskSpawn_10_BeginningEntrance_130_LandMine"
-			"origin" "-1655 -4877 457"
-			"angles" "1 -105 41"
+			"angles" "3 -35 5"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -7166,8 +2881,9 @@
 			"spawnflags"  "257"
 			"health" "1"
 			
+			
+			"origin"      "-1655 -4877 467"
 		}
-		
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_10_BeginningEntrance_131"
@@ -7176,218 +2892,13 @@
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"targetname"  "gskSpawn_10_BeginningEntrance_131_TODO_SpellCasterFireTrapWontTriggerExplode"
-			"classname" "env_entity_SpellCaster"
-			"combinability" "1"
-			"angles" "0 0 0"
-			"target" "None"
-			"spell" "7"
-			"lifetime" "-1"
-			"power" "1"
-			
-			"origin"      "-799 -4469 472"
-		}
-		"add:entity"
-		{
-			"classname" "trigger_once"
-			"combinability" "1"
-			"trapsecret" "2"
-			"StartDisabled" "0"
-			"spawnflags" "1"
-			"targetname" "gskSpawn_10_BeginningEntrance_131_ColliderBox_TODO_SolidBoxWontSpawn"
-			"origin" "-799 -4469 462"
-			connections
-			{
-				"OnStartTouch" "gskSpawn_10_BeginningEntrance_131,CastSpell,,0,-1,1,"
-			}
-			solid
-			{
-				
-				side
-				{
-					"plane" "(-885 -3836 574) (-885 -3836 458) (-957 -3836 458)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 32.5385] 0.26"
-					"vaxis" "[0 0 -1 26] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-957 -3802 574) (-957 -3802 458) (-885 -3802 458)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -16] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-957 -3836 574) (-957 -3836 458) (-957 -3802 458)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -24] 0.25"
-					"vaxis" "[0 0 -1 -8] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-885 -3802 574) (-885 -3802 458) (-885 -3836 458)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -30.2279] 0.26"
-					"vaxis" "[0 0 -1 58.452] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-885 -3836 574) (-957 -3836 574) (-957 -3802 574)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -10] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-885 -3802 458) (-957 -3802 458) (-957 -3836 458)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -2] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				
-			}
-		}
-		
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_10_BeginningEntrance_131_ColliderBox_TODO_SolidBoxWontSpawn"
-			}
-			"add:solid"
-			{
-				
-				side
-				{
-					"plane" "(-885 -3836 574) (-885 -3836 458) (-957 -3836 458)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 32.5385] 0.26"
-					"vaxis" "[0 0 -1 26] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-957 -3802 574) (-957 -3802 458) (-885 -3802 458)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -16] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-957 -3836 574) (-957 -3836 458) (-957 -3802 458)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -24] 0.25"
-					"vaxis" "[0 0 -1 -8] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-885 -3802 574) (-885 -3802 458) (-885 -3836 458)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -30.2279] 0.26"
-					"vaxis" "[0 0 -1 58.452] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-885 -3836 574) (-957 -3836 574) (-957 -3802 574)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -10] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-885 -3802 458) (-957 -3802 458) (-957 -3836 458)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -2] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				
-			}
-		}
-		
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_10_BeginningEntrance_131_ColliderBox_TODO_SolidBoxWontSpawn"
-			}
-			"add:key"
-			{
-				"OnStartTouch" "gskSpawn_10_BeginningEntrance_131,CastSpell,,0,-1,1,"
-			}
-		}
-		
-		"add:entity"
-		{
-			"combinability" "1"
-			"skin" "0"
-			"disableshadows" "0"
-			"combinetarget1enable" "1"
-			"combinetarget2enable" "1"
-			"combinetarget3enable" "1"
-			"combinetarget4enable" "1"
-			"combinetarget5enable" "1"
-			"PerformanceMode" "0"
-			"pressuredelay" "0"
-			"mindxlevel" "0"
-			"maxdxlevel" "0"
-			"minhealthdmg" "0"
-			"shadowcastdist" "0"
-			"nodamageforces" "0"
 			"inertiaScale" "1.0"
-			"massScale" "0"
-			"damagetoenablemotion" "0"
-			"forcetoenablemotion" "0"
 			"fademindist" "500"
 			"fademaxdist" "700"
 			"fadescale" "1"
-			"combinetarget6enable" "1"
-			"combinetarget7enable" "1"
-			"combinetarget8enable" "1"
-			"combinetarget9enable" "1"
-			"combinetarget10enable" "1"
-			"UseSpeedToCalculateSoundVolume" "1"
-			
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"targetname" "gskSpawn_10_BeginningEntrance_131_LandMine"
-			"origin" "-799 -4469 462"
-			"angles" "17 101 3"
+			"angles" "37 102 37"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -7398,8 +2909,9 @@
 			"spawnflags"  "257"
 			"health" "1"
 			
+			
+			"origin"      "-799 -4469 472"
 		}
-		
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_10_BeginningEntrance_132"
@@ -7408,218 +2920,13 @@
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"targetname"  "gskSpawn_10_BeginningEntrance_132_TODO_SpellCasterFireTrapWontTriggerExplode"
-			"classname" "env_entity_SpellCaster"
-			"combinability" "1"
-			"angles" "0 0 0"
-			"target" "None"
-			"spell" "7"
-			"lifetime" "-1"
-			"power" "1"
-			
-			"origin"      "-503 -4445 467"
-		}
-		"add:entity"
-		{
-			"classname" "trigger_once"
-			"combinability" "1"
-			"trapsecret" "2"
-			"StartDisabled" "0"
-			"spawnflags" "1"
-			"targetname" "gskSpawn_10_BeginningEntrance_132_ColliderBox_TODO_SolidBoxWontSpawn"
-			"origin" "-503 -4445 457"
-			connections
-			{
-				"OnStartTouch" "gskSpawn_10_BeginningEntrance_132,CastSpell,,0,-1,1,"
-			}
-			solid
-			{
-				
-				side
-				{
-					"plane" "(-589 -3812 569) (-589 -3812 453) (-661 -3812 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 32.5385] 0.26"
-					"vaxis" "[0 0 -1 26] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-661 -3778 569) (-661 -3778 453) (-589 -3778 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -16] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-661 -3812 569) (-661 -3812 453) (-661 -3778 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -24] 0.25"
-					"vaxis" "[0 0 -1 -8] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-589 -3778 569) (-589 -3778 453) (-589 -3812 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -30.2279] 0.26"
-					"vaxis" "[0 0 -1 58.452] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-589 -3812 569) (-661 -3812 569) (-661 -3778 569)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -10] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-589 -3778 453) (-661 -3778 453) (-661 -3812 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -2] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				
-			}
-		}
-		
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_10_BeginningEntrance_132_ColliderBox_TODO_SolidBoxWontSpawn"
-			}
-			"add:solid"
-			{
-				
-				side
-				{
-					"plane" "(-589 -3812 569) (-589 -3812 453) (-661 -3812 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 32.5385] 0.26"
-					"vaxis" "[0 0 -1 26] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-661 -3778 569) (-661 -3778 453) (-589 -3778 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -16] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-661 -3812 569) (-661 -3812 453) (-661 -3778 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -24] 0.25"
-					"vaxis" "[0 0 -1 -8] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-589 -3778 569) (-589 -3778 453) (-589 -3812 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -30.2279] 0.26"
-					"vaxis" "[0 0 -1 58.452] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-589 -3812 569) (-661 -3812 569) (-661 -3778 569)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -10] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-589 -3778 453) (-661 -3778 453) (-661 -3812 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -2] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				
-			}
-		}
-		
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_10_BeginningEntrance_132_ColliderBox_TODO_SolidBoxWontSpawn"
-			}
-			"add:key"
-			{
-				"OnStartTouch" "gskSpawn_10_BeginningEntrance_132,CastSpell,,0,-1,1,"
-			}
-		}
-		
-		"add:entity"
-		{
-			"combinability" "1"
-			"skin" "0"
-			"disableshadows" "0"
-			"combinetarget1enable" "1"
-			"combinetarget2enable" "1"
-			"combinetarget3enable" "1"
-			"combinetarget4enable" "1"
-			"combinetarget5enable" "1"
-			"PerformanceMode" "0"
-			"pressuredelay" "0"
-			"mindxlevel" "0"
-			"maxdxlevel" "0"
-			"minhealthdmg" "0"
-			"shadowcastdist" "0"
-			"nodamageforces" "0"
 			"inertiaScale" "1.0"
-			"massScale" "0"
-			"damagetoenablemotion" "0"
-			"forcetoenablemotion" "0"
 			"fademindist" "500"
 			"fademaxdist" "700"
 			"fadescale" "1"
-			"combinetarget6enable" "1"
-			"combinetarget7enable" "1"
-			"combinetarget8enable" "1"
-			"combinetarget9enable" "1"
-			"combinetarget10enable" "1"
-			"UseSpeedToCalculateSoundVolume" "1"
-			
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"targetname" "gskSpawn_10_BeginningEntrance_132_LandMine"
-			"origin" "-503 -4445 457"
-			"angles" "31 -150 11"
+			"angles" "44 -137 32"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -7630,8 +2937,9 @@
 			"spawnflags"  "257"
 			"health" "1"
 			
+			
+			"origin"      "-503 -4445 467"
 		}
-		
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_10_BeginningEntrance_133"
@@ -7757,218 +3065,13 @@
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"targetname"  "gskSpawn_10_BeginningEntrance_142_TODO_SpellCasterFireTrapWontTriggerExplode"
-			"classname" "env_entity_SpellCaster"
-			"combinability" "1"
-			"angles" "0 0 0"
-			"target" "None"
-			"spell" "7"
-			"lifetime" "-1"
-			"power" "1"
-			
-			"origin"      "-1367 -4428 467"
-		}
-		"add:entity"
-		{
-			"classname" "trigger_once"
-			"combinability" "1"
-			"trapsecret" "2"
-			"StartDisabled" "0"
-			"spawnflags" "1"
-			"targetname" "gskSpawn_10_BeginningEntrance_142_ColliderBox_TODO_SolidBoxWontSpawn"
-			"origin" "-1367 -4428 457"
-			connections
-			{
-				"OnStartTouch" "gskSpawn_10_BeginningEntrance_142,CastSpell,,0,-1,1,"
-			}
-			solid
-			{
-				
-				side
-				{
-					"plane" "(-1453 -3795 569) (-1453 -3795 453) (-1525 -3795 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 32.5385] 0.26"
-					"vaxis" "[0 0 -1 26] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1525 -3761 569) (-1525 -3761 453) (-1453 -3761 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -16] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1525 -3795 569) (-1525 -3795 453) (-1525 -3761 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -24] 0.25"
-					"vaxis" "[0 0 -1 -8] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1453 -3761 569) (-1453 -3761 453) (-1453 -3795 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -30.2279] 0.26"
-					"vaxis" "[0 0 -1 58.452] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1453 -3795 569) (-1525 -3795 569) (-1525 -3761 569)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -10] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1453 -3761 453) (-1525 -3761 453) (-1525 -3795 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -2] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				
-			}
-		}
-		
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_10_BeginningEntrance_142_ColliderBox_TODO_SolidBoxWontSpawn"
-			}
-			"add:solid"
-			{
-				
-				side
-				{
-					"plane" "(-1453 -3795 569) (-1453 -3795 453) (-1525 -3795 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 32.5385] 0.26"
-					"vaxis" "[0 0 -1 26] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1525 -3761 569) (-1525 -3761 453) (-1453 -3761 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -16] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1525 -3795 569) (-1525 -3795 453) (-1525 -3761 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -24] 0.25"
-					"vaxis" "[0 0 -1 -8] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1453 -3761 569) (-1453 -3761 453) (-1453 -3795 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -30.2279] 0.26"
-					"vaxis" "[0 0 -1 58.452] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1453 -3795 569) (-1525 -3795 569) (-1525 -3761 569)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -10] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1453 -3761 453) (-1525 -3761 453) (-1525 -3795 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -2] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				
-			}
-		}
-		
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_10_BeginningEntrance_142_ColliderBox_TODO_SolidBoxWontSpawn"
-			}
-			"add:key"
-			{
-				"OnStartTouch" "gskSpawn_10_BeginningEntrance_142,CastSpell,,0,-1,1,"
-			}
-		}
-		
-		"add:entity"
-		{
-			"combinability" "1"
-			"skin" "0"
-			"disableshadows" "0"
-			"combinetarget1enable" "1"
-			"combinetarget2enable" "1"
-			"combinetarget3enable" "1"
-			"combinetarget4enable" "1"
-			"combinetarget5enable" "1"
-			"PerformanceMode" "0"
-			"pressuredelay" "0"
-			"mindxlevel" "0"
-			"maxdxlevel" "0"
-			"minhealthdmg" "0"
-			"shadowcastdist" "0"
-			"nodamageforces" "0"
 			"inertiaScale" "1.0"
-			"massScale" "0"
-			"damagetoenablemotion" "0"
-			"forcetoenablemotion" "0"
 			"fademindist" "500"
 			"fademaxdist" "700"
 			"fadescale" "1"
-			"combinetarget6enable" "1"
-			"combinetarget7enable" "1"
-			"combinetarget8enable" "1"
-			"combinetarget9enable" "1"
-			"combinetarget10enable" "1"
-			"UseSpeedToCalculateSoundVolume" "1"
-			
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"targetname" "gskSpawn_10_BeginningEntrance_142_LandMine"
-			"origin" "-1367 -4428 457"
-			"angles" "22 108 17"
+			"angles" "14 -116 39"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -7979,8 +3082,9 @@
 			"spawnflags"  "257"
 			"health" "1"
 			
+			
+			"origin"      "-1367 -4428 467"
 		}
-		
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_10_BeginningEntrance_143"
@@ -7989,218 +3093,13 @@
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"targetname"  "gskSpawn_10_BeginningEntrance_143_TODO_SpellCasterFireTrapWontTriggerExplode"
-			"classname" "env_entity_SpellCaster"
-			"combinability" "1"
-			"angles" "0 0 0"
-			"target" "None"
-			"spell" "7"
-			"lifetime" "-1"
-			"power" "1"
-			
-			"origin"      "-979 -3959 467"
-		}
-		"add:entity"
-		{
-			"classname" "trigger_once"
-			"combinability" "1"
-			"trapsecret" "2"
-			"StartDisabled" "0"
-			"spawnflags" "1"
-			"targetname" "gskSpawn_10_BeginningEntrance_143_ColliderBox_TODO_SolidBoxWontSpawn"
-			"origin" "-979 -3959 457"
-			connections
-			{
-				"OnStartTouch" "gskSpawn_10_BeginningEntrance_143,CastSpell,,0,-1,1,"
-			}
-			solid
-			{
-				
-				side
-				{
-					"plane" "(-1065 -3326 569) (-1065 -3326 453) (-1137 -3326 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 32.5385] 0.26"
-					"vaxis" "[0 0 -1 26] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1137 -3292 569) (-1137 -3292 453) (-1065 -3292 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -16] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1137 -3326 569) (-1137 -3326 453) (-1137 -3292 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -24] 0.25"
-					"vaxis" "[0 0 -1 -8] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1065 -3292 569) (-1065 -3292 453) (-1065 -3326 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -30.2279] 0.26"
-					"vaxis" "[0 0 -1 58.452] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1065 -3326 569) (-1137 -3326 569) (-1137 -3292 569)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -10] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1065 -3292 453) (-1137 -3292 453) (-1137 -3326 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -2] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				
-			}
-		}
-		
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_10_BeginningEntrance_143_ColliderBox_TODO_SolidBoxWontSpawn"
-			}
-			"add:solid"
-			{
-				
-				side
-				{
-					"plane" "(-1065 -3326 569) (-1065 -3326 453) (-1137 -3326 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 32.5385] 0.26"
-					"vaxis" "[0 0 -1 26] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1137 -3292 569) (-1137 -3292 453) (-1065 -3292 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[-1 0 0 0] 0.25"
-					"vaxis" "[0 0 -1 -16] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1137 -3326 569) (-1137 -3326 453) (-1137 -3292 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -24] 0.25"
-					"vaxis" "[0 0 -1 -8] 0.25"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1065 -3292 569) (-1065 -3292 453) (-1065 -3326 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[0 1 0 -30.2279] 0.26"
-					"vaxis" "[0 0 -1 58.452] 0.31"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1065 -3326 569) (-1137 -3326 569) (-1137 -3292 569)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -10] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				side
-				{
-					"plane" "(-1065 -3292 453) (-1137 -3292 453) (-1137 -3326 453)"
-					"material" "TOOLS/TOOLSTRIGGER"
-					"uaxis" "[1 0 0 -40] 1"
-					"vaxis" "[0 -1 0 -2] 1"
-					"rotation" "0"
-					"lightmapscale" "16"
-					"smoothing_groups" "0"
-				}
-				
-			}
-		}
-		
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_10_BeginningEntrance_143_ColliderBox_TODO_SolidBoxWontSpawn"
-			}
-			"add:key"
-			{
-				"OnStartTouch" "gskSpawn_10_BeginningEntrance_143,CastSpell,,0,-1,1,"
-			}
-		}
-		
-		"add:entity"
-		{
-			"combinability" "1"
-			"skin" "0"
-			"disableshadows" "0"
-			"combinetarget1enable" "1"
-			"combinetarget2enable" "1"
-			"combinetarget3enable" "1"
-			"combinetarget4enable" "1"
-			"combinetarget5enable" "1"
-			"PerformanceMode" "0"
-			"pressuredelay" "0"
-			"mindxlevel" "0"
-			"maxdxlevel" "0"
-			"minhealthdmg" "0"
-			"shadowcastdist" "0"
-			"nodamageforces" "0"
 			"inertiaScale" "1.0"
-			"massScale" "0"
-			"damagetoenablemotion" "0"
-			"forcetoenablemotion" "0"
 			"fademindist" "500"
 			"fademaxdist" "700"
 			"fadescale" "1"
-			"combinetarget6enable" "1"
-			"combinetarget7enable" "1"
-			"combinetarget8enable" "1"
-			"combinetarget9enable" "1"
-			"combinetarget10enable" "1"
-			"UseSpeedToCalculateSoundVolume" "1"
-			
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"targetname" "gskSpawn_10_BeginningEntrance_143_LandMine"
-			"origin" "-979 -3959 457"
-			"angles" "17 -139 4"
+			"angles" "12 138 21"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -8211,8 +3110,9 @@
 			"spawnflags"  "257"
 			"health" "1"
 			
+			
+			"origin"      "-979 -3959 467"
 		}
-		
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_10_BeginningEntrance_144"

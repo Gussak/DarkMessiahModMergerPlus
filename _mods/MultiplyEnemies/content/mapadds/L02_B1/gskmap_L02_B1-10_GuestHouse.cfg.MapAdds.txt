@@ -1,0 +1,624 @@
+
+"mapadd_keyvalues"
+{
+	"PreInitialize"
+	{	
+
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_10_GuestHouse_000"
+			"origin"      "-5038 -10721 214"
+			"angles"      "-26 23 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "item_potion_life"
+			"model" "models/items/provisions/potions/Life_potion.mdl"
+			"spawnflags"  "7"
+			"origin"      "-5038 -10721 219"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_10_GuestHouse_001"
+			"origin"      "-4761 -10835 116"
+			"angles"      "59 -176 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "item_potion_life"
+			"model" "models/items/provisions/potions/Life_potion.mdl"
+			"spawnflags"  "7"
+			"origin"      "-4761 -10835 121"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_10_GuestHouse_002"
+			"origin"      "-5046 -10771 142"
+			"angles"      "21 25 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "item_potion_life"
+			"model" "models/items/provisions/potions/Life_potion.mdl"
+			"spawnflags"  "7"
+			"origin"      "-5046 -10771 147"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_10_GuestHouse_003"
+			"origin"      "-5053 -10714 78"
+			"angles"      "44 -2 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "item_potion_life"
+			"model" "models/items/provisions/potions/Life_potion.mdl"
+			"spawnflags"  "7"
+			"origin"      "-5053 -10714 83"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_10_GuestHouse_004"
+			"origin"      "-4831 -10965 66"
+			"angles"      "59 82 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_10_GuestHouse_005"
+			"origin"      "-4832 -10881 66"
+			"angles"      "42 85 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_10_GuestHouse_006"
+			"origin"      "-4831 -10831 66"
+			"angles"      "58 82 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"QuiverAmmo" "12"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_10_GuestHouse_007"
+			"origin"      "-4982 -10661 66"
+			"angles"      "55 45 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment"	"weapon_arx_short_sword"
+			"additionalshield" "weapon_mm_shield_necroguard"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_10_GuestHouse_008"
+			"origin"      "-4913 -10949 66"
+			"angles"      "47 18 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_10_GuestHouse_009"
+			"origin"      "-4952 -10831 66"
+			"angles"      "22 73 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_10_GuestHouse_010"
+			"origin"      "-4981 -10798 66"
+			"angles"      "24 61 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"SmellRadius" "300"
+			"spawnflags"  "16391"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_10_GuestHouse_011"
+			"origin"      "-4938 -10765 66"
+			"angles"      "31 71 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_necromancer_lord"
+			"model" "models/NPC/Necromancer/Npc_necromancer.mdl"
+			"additionalequipment" "weapon_mm_staff_combat"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_10_GuestHouse_012"
+			"origin"      "-5016 -10800 265"
+			"angles"      "34 -40 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_crow"
+			"model" "models/npc/crow/npc_crow.mdl"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_10_GuestHouse_013"
+			"origin"      "-5004 -10808 276"
+			"angles"      "41 17 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_crow"
+			"model" "models/npc/crow/npc_crow.mdl"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_10_GuestHouse_014"
+			"origin"      "-4830 -10417 265"
+			"angles"      "34 -119 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "500"
+			"fademaxdist" "700"
+			"fadescale" "1"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "15 -112 37"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+			
+			"origin"      "-4830 -10417 275"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_10_GuestHouse_015"
+			"origin"      "-4123 -12168 101"
+			"angles"      "59 176 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "500"
+			"fademaxdist" "700"
+			"fadescale" "1"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "41 70 13"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+			
+			"origin"      "-4123 -12168 111"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_10_GuestHouse_016"
+			"origin"      "-4174 -12570 67"
+			"angles"      "36 88 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "500"
+			"fademaxdist" "700"
+			"fadescale" "1"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "32 -21 19"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+			
+			"origin"      "-4174 -12570 77"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_10_GuestHouse_017"
+			"origin"      "-5202 -11813 66"
+			"angles"      "54 50 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "500"
+			"fademaxdist" "700"
+			"fadescale" "1"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "15 -49 8"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+			
+			"origin"      "-5202 -11813 76"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_10_GuestHouse_018"
+			"origin"      "-1630 -13317 -32"
+			"angles"      "66 160 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "500"
+			"fademaxdist" "700"
+			"fadescale" "1"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "34 31 20"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+			
+			"origin"      "-1630 -13317 -22"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_10_GuestHouse_019"
+			"origin"      "-1661 -12475 -32"
+			"angles"      "61 132 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "500"
+			"fademaxdist" "700"
+			"fadescale" "1"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "8 89 2"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+			
+			"origin"      "-1661 -12475 -22"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_10_GuestHouse_020"
+			"origin"      "-2193 -12212 -17"
+			"angles"      "48 -103 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "500"
+			"fademaxdist" "700"
+			"fadescale" "1"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "34 93 35"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+			
+			"origin"      "-2193 -12212 -7"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_10_GuestHouse_021"
+			"origin"      "-1570 -10855 -33"
+			"angles"      "54 -154 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "500"
+			"fademaxdist" "700"
+			"fadescale" "1"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "3 -82 19"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+			
+			"origin"      "-1570 -10855 -23"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_10_GuestHouse_022"
+			"origin"      "-1971 -10809 -24"
+			"angles"      "44 -117 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "500"
+			"fademaxdist" "700"
+			"fadescale" "1"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "18 49 35"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+			
+			"origin"      "-1971 -10809 -14"
+		}
+//		"add:entity"
+//		{
+//			"targetname"  "gskSpawn_10_GuestHouse_023"
+//			"origin"      "-3606 -10953 84"
+//			"angles"      "32 43 0"
+//			"spawnflags"  "7"
+//			"physdamagescale" "1.0"
+//			"radiusforrandomattitude" "500"
+//			"targetname"   "gskSpawn_10_GuestHouse_023_TODO_FixMissingSupportFor_dummyJustTeleport"
+//		}
+//		"add:entity"
+//		{
+//			"targetname"  "gskSpawn_10_GuestHouse_024"
+//			"origin"      "-3606 -10953 84"
+//			"angles"      "32 43 0"
+//			"spawnflags"  "7"
+//			"physdamagescale" "1.0"
+//			"radiusforrandomattitude" "500"
+//			"targetname"   "gskSpawn_10_GuestHouse_024_TODO_FixMissingSupportFor_+gskInteractUseMoreFoes"
+//		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_10_GuestHouse_025"
+			"origin"      "-3581 -10982 27"
+			"angles"      "67 107 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "500"
+			"fademaxdist" "700"
+			"fadescale" "1"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "3 15 44"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+			
+			"origin"      "-3581 -10982 37"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"4694412"
+			}
+			"add:key"
+			{
+				"OnTrigger" "gskSpawn_10_GuestHouse_BeginAt000,ForceSpawn,,0,-1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_10_GuestHouse_BeginAt000"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_10_GuestHouse_BeginAt000"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_10_GuestHouse_000"
+
+				"Template02" "gskSpawn_10_GuestHouse_001"
+
+				"Template03" "gskSpawn_10_GuestHouse_002"
+
+				"Template04" "gskSpawn_10_GuestHouse_003"
+
+				"Template05" "gskSpawn_10_GuestHouse_004"
+
+				"Template06" "gskSpawn_10_GuestHouse_005"
+
+				"Template07" "gskSpawn_10_GuestHouse_006"
+
+				"Template08" "gskSpawn_10_GuestHouse_007"
+
+				"Template09" "gskSpawn_10_GuestHouse_008"
+
+				"Template10" "gskSpawn_10_GuestHouse_009"
+
+				"Template11" "gskSpawn_10_GuestHouse_010"
+
+				"Template12" "gskSpawn_10_GuestHouse_011"
+
+				"Template13" "gskSpawn_10_GuestHouse_012"
+
+				"Template14" "gskSpawn_10_GuestHouse_013"
+
+				"Template15" "gskSpawn_10_GuestHouse_014"
+
+				"Template16" "gskSpawn_10_GuestHouse_015"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"4694412"
+			}
+			"add:key"
+			{
+				"OnTrigger" "gskSpawn_10_GuestHouse_BeginAt016,ForceSpawn,,0,-1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_10_GuestHouse_BeginAt016"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_10_GuestHouse_BeginAt016"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_10_GuestHouse_016"
+
+				"Template02" "gskSpawn_10_GuestHouse_017"
+
+				"Template03" "gskSpawn_10_GuestHouse_018"
+
+				"Template04" "gskSpawn_10_GuestHouse_019"
+
+				"Template05" "gskSpawn_10_GuestHouse_020"
+
+				"Template06" "gskSpawn_10_GuestHouse_021"
+
+				"Template07" "gskSpawn_10_GuestHouse_022"
+
+				"Template08" "gskSpawn_10_GuestHouse_025"
+
+			}
+		}
+
+	}
+}
+

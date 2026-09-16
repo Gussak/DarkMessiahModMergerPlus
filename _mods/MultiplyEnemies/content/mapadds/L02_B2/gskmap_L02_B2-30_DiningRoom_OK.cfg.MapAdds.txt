@@ -6,7 +6,7 @@
 
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_000"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_000"
 			"origin"      "-3372 -11494 101"
 			"angles"      "47 90 -0"
 			"spawnflags"  "7"
@@ -22,7 +22,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_001"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_001"
 			"origin"      "-3556 -11492 101"
 			"angles"      "46 93 -0"
 			"spawnflags"  "7"
@@ -38,7 +38,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_002"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_002"
 			"origin"      "-3732 -11496 101"
 			"angles"      "49 89 -0"
 			"spawnflags"  "7"
@@ -54,7 +54,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_003"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_003"
 			"origin"      "-3917 -11490 101"
 			"angles"      "47 93 -0"
 			"spawnflags"  "7"
@@ -70,7 +70,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_004"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_004"
 			"origin"      "-3578 -11303 101"
 			"angles"      "69 -102 -0"
 			"spawnflags"  "7"
@@ -86,7 +86,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_005"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_005"
 			"origin"      "-3614 -11297 101"
 			"angles"      "66 -74 -0"
 			"spawnflags"  "7"
@@ -100,7 +100,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_006"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_006"
 			"origin"      "-3467 -11368 101"
 			"angles"      "75 180 -0"
 			"spawnflags"  "7"
@@ -113,7 +113,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_007"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_007"
 			"origin"      "-3467 -11317 101"
 			"angles"      "65 -134 -0"
 			"spawnflags"  "7"
@@ -121,7 +121,6 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_undead"
 			"model" "models/NPC/Undead/Npc_undead.mdl"
-			"spawnflags" "16384"
 			"SmellRadius" "300"
 			"spawnflags"  "16391"
 			"UnburrowRadius" "200"
@@ -129,7 +128,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_008"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_008"
 			"origin"      "-3468 -11413 101"
 			"angles"      "67 137 -0"
 			"spawnflags"  "7"
@@ -137,13 +136,14 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_undead"
 			"model" "models/NPC/Undead/Npc_undead.mdl"
-			"spawnflags" "16384"
 			"SmellRadius" "300"
 			"spawnflags"  "16391"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_009"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_009"
 			"origin"      "-3424 -11397 101"
 			"angles"      "71 169 -0"
 			"spawnflags"  "7"
@@ -151,7 +151,6 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_undead"
 			"model" "models/NPC/Undead/Npc_undead.mdl"
-			"spawnflags" "16384"
 			"SmellRadius" "300"
 			"spawnflags"  "16391"
 			"UnburrowRadius" "200"
@@ -159,7 +158,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_010"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_010"
 			"origin"      "-3423 -11336 101"
 			"angles"      "67 -145 -0"
 			"spawnflags"  "7"
@@ -167,7 +166,6 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_undead"
 			"model" "models/NPC/Undead/Npc_undead.mdl"
-			"spawnflags" "16384"
 			"SmellRadius" "300"
 			"spawnflags"  "16391"
 			"UnburrowRadius" "200"
@@ -175,7 +173,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_011"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_011"
 			"origin"      "-3413 -11444 101"
 			"angles"      "62 142 -0"
 			"spawnflags"  "7"
@@ -183,13 +181,14 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_undead"
 			"model" "models/NPC/Undead/Npc_undead.mdl"
-			"spawnflags" "16384"
 			"SmellRadius" "300"
 			"spawnflags"  "16391"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_012"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_012"
 			"origin"      "-3395 -11368 101"
 			"angles"      "62 -171 -0"
 			"spawnflags"  "7"
@@ -197,7 +196,6 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_undead"
 			"model" "models/NPC/Undead/Npc_undead.mdl"
-			"spawnflags" "16384"
 			"SmellRadius" "300"
 			"spawnflags"  "16391"
 			"UnburrowRadius" "200"
@@ -205,7 +203,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_013"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_013"
 			"origin"      "-4213 -11467 101"
 			"angles"      "67 2 -0"
 			"spawnflags"  "7"
@@ -213,7 +211,6 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_undead"
 			"model" "models/NPC/Undead/Npc_undead.mdl"
-			"spawnflags" "16384"
 			"SmellRadius" "300"
 			"spawnflags"  "16391"
 			"UnburrowRadius" "200"
@@ -221,7 +218,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_014"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_014"
 			"origin"      "-4194 -11293 101"
 			"angles"      "66 -20 -0"
 			"spawnflags"  "7"
@@ -229,13 +226,14 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_undead"
 			"model" "models/NPC/Undead/Npc_undead.mdl"
-			"spawnflags" "16384"
 			"SmellRadius" "300"
 			"spawnflags"  "16391"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_015"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_015"
 			"origin"      "-3455 -11133 101"
 			"angles"      "50 -88 -0"
 			"spawnflags"  "7"
@@ -251,7 +249,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_016"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_016"
 			"origin"      "-3654 -11128 101"
 			"angles"      "54 -97 -0"
 			"spawnflags"  "7"
@@ -267,7 +265,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_017"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_017"
 			"origin"      "-3833 -11126 101"
 			"angles"      "47 -92 -0"
 			"spawnflags"  "7"
@@ -283,7 +281,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_018"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_018"
 			"origin"      "-3998 -11121 101"
 			"angles"      "55 -84 -0"
 			"spawnflags"  "7"
@@ -299,7 +297,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_019"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_019"
 			"origin"      "-4201 -11169 101"
 			"angles"      "48 -13 -0"
 			"spawnflags"  "7"
@@ -315,7 +313,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_020"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_020"
 			"origin"      "-4128 -11388 101"
 			"angles"      "74 -173 -0"
 			"spawnflags"  "7"
@@ -328,7 +326,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_021"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_021"
 			"origin"      "-3789 -11673 101"
 			"angles"      "51 114 -0"
 			"spawnflags"  "7"
@@ -342,7 +340,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_022"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_022"
 			"origin"      "-3857 -11670 101"
 			"angles"      "48 52 -0"
 			"spawnflags"  "7"
@@ -356,7 +354,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_023"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_023"
 			"origin"      "-3633 -11673 101"
 			"angles"      "45 89 -0"
 			"spawnflags"  "7"
@@ -372,7 +370,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_024"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_024"
 			"origin"      "-3451 -11677 101"
 			"angles"      "57 85 -0"
 			"spawnflags"  "7"
@@ -388,7 +386,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_025"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_025"
 			"origin"      "-3261 -11139 101"
 			"angles"      "59 179 -0"
 			"spawnflags"  "7"
@@ -404,7 +402,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_026"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_026"
 			"origin"      "-3267 -11434 101"
 			"angles"      "63 -179 -0"
 			"spawnflags"  "7"
@@ -420,7 +418,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_027"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_027"
 			"origin"      "-4091 -11454 322"
 			"angles"      "59 26 -0"
 			"spawnflags"  "7"
@@ -436,7 +434,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_028"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_028"
 			"origin"      "-4092 -11398 322"
 			"angles"      "61 -14 -0"
 			"spawnflags"  "7"
@@ -452,7 +450,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_029"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_029"
 			"origin"      "-4098 -11328 321"
 			"angles"      "66 -5 -0"
 			"spawnflags"  "7"
@@ -468,7 +466,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_030"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_030"
 			"origin"      "-4007 -11235 277"
 			"angles"      "72 -90 -0"
 			"spawnflags"  "7"
@@ -484,7 +482,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_031"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_031"
 			"origin"      "-3819 -11235 277"
 			"angles"      "71 -89 -0"
 			"spawnflags"  "7"
@@ -500,7 +498,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_032"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_032"
 			"origin"      "-3642 -11235 277"
 			"angles"      "72 -87 -0"
 			"spawnflags"  "7"
@@ -516,7 +514,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_033"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_033"
 			"origin"      "-3465 -11235 277"
 			"angles"      "73 -91 -0"
 			"spawnflags"  "7"
@@ -532,7 +530,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_034"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_034"
 			"origin"      "-3463 -11567 330"
 			"angles"      "72 96 -0"
 			"spawnflags"  "7"
@@ -548,7 +546,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_035"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_035"
 			"origin"      "-3645 -11567 332"
 			"angles"      "75 93 -0"
 			"spawnflags"  "7"
@@ -564,7 +562,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_036"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_036"
 			"origin"      "-3824 -11567 329"
 			"angles"      "75 93 -0"
 			"spawnflags"  "7"
@@ -580,7 +578,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_037"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_037"
 			"origin"      "-4004 -11567 332"
 			"angles"      "73 95 -0"
 			"spawnflags"  "7"
@@ -596,7 +594,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_038"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_038"
 			"origin"      "-3358 -11383 323"
 			"angles"      "75 -169 -0"
 			"spawnflags"  "7"
@@ -612,7 +610,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_039"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_039"
 			"origin"      "-3352 -11388 395"
 			"angles"      "58 -167 -0"
 			"spawnflags"  "7"
@@ -628,7 +626,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_040"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_040"
 			"origin"      "-3360 -11426 320"
 			"angles"      "77 -178 -0"
 			"spawnflags"  "7"
@@ -644,7 +642,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_041"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_041"
 			"origin"      "-3357 -11416 395"
 			"angles"      "64 180 -0"
 			"spawnflags"  "7"
@@ -660,7 +658,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_042"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_042"
 			"origin"      "-3271 -11618 293"
 			"angles"      "59 179 -0"
 			"spawnflags"  "7"
@@ -674,7 +672,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_043"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_043"
 			"origin"      "-4170 -11118 277"
 			"angles"      "63 -81 -0"
 			"spawnflags"  "7"
@@ -688,7 +686,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_044"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_044"
 			"origin"      "-4049 -11437 101"
 			"angles"      "47 18 -0"
 			"spawnflags"  "7"
@@ -696,7 +694,6 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_undead"
 			"model" "models/NPC/Undead/Npc_undead.mdl"
-			"spawnflags" "16384"
 			"SmellRadius" "300"
 			"spawnflags"  "16391"
 			"UnburrowRadius" "200"
@@ -704,7 +701,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_045"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_045"
 			"origin"      "-4050 -11388 101"
 			"angles"      "48 -9 -0"
 			"spawnflags"  "7"
@@ -712,7 +709,6 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_undead"
 			"model" "models/NPC/Undead/Npc_undead.mdl"
-			"spawnflags" "16384"
 			"SmellRadius" "300"
 			"spawnflags"  "16391"
 			"UnburrowRadius" "200"
@@ -720,7 +716,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_046"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_046"
 			"origin"      "-4056 -11330 101"
 			"angles"      "41 -34 -0"
 			"spawnflags"  "7"
@@ -728,13 +724,14 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_undead"
 			"model" "models/NPC/Undead/Npc_undead.mdl"
-			"spawnflags" "16384"
 			"SmellRadius" "300"
 			"spawnflags"  "16391"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_047"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_047"
 			"origin"      "-3517 -11421 134"
 			"angles"      "87 11 -0"
 			"spawnflags"  "7"
@@ -746,7 +743,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_048"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_048"
 			"origin"      "-3512 -11392 134"
 			"angles"      "88 -11 -0"
 			"spawnflags"  "7"
@@ -758,7 +755,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_049"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_049"
 			"origin"      "-3515 -11376 136"
 			"angles"      "84 -41 -0"
 			"spawnflags"  "7"
@@ -770,7 +767,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_050"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_050"
 			"origin"      "-3531 -11343 134"
 			"angles"      "77 178 -0"
 			"spawnflags"  "7"
@@ -782,7 +779,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_051"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_051"
 			"origin"      "-3519 -11374 136"
 			"angles"      "88 -78 0"
 			"spawnflags"  "7"
@@ -794,7 +791,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_052"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_052"
 			"origin"      "-3641 -11330 135"
 			"angles"      "78 -23 -0"
 			"spawnflags"  "7"
@@ -806,7 +803,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_053"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_053"
 			"origin"      "-3623 -11331 134"
 			"angles"      "84 -34 -0"
 			"spawnflags"  "7"
@@ -818,7 +815,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_054"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_054"
 			"origin"      "-3511 -11324 134"
 			"angles"      "73 -89 -0"
 			"spawnflags"  "7"
@@ -830,7 +827,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_055"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_055"
 			"origin"      "-3504 -11334 134"
 			"angles"      "62 -79 -0"
 			"spawnflags"  "7"
@@ -842,7 +839,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_056"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_056"
 			"origin"      "-3610 -11335 134"
 			"angles"      "88 -139 -0"
 			"spawnflags"  "7"
@@ -854,7 +851,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_057"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_057"
 			"origin"      "-3607 -11335 136"
 			"angles"      "87 -60 -0"
 			"spawnflags"  "7"
@@ -866,7 +863,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_058"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_058"
 			"origin"      "-3609 -11331 134"
 			"angles"      "83 -62 -0"
 			"spawnflags"  "7"
@@ -878,7 +875,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_059"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_059"
 			"origin"      "-3593 -11326 101"
 			"angles"      "84 -97 -0"
 			"spawnflags"  "7"
@@ -890,7 +887,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_060"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_060"
 			"origin"      "-3595 -11334 134"
 			"angles"      "88 -93 0"
 			"spawnflags"  "7"
@@ -902,7 +899,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_061"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_061"
 			"origin"      "-3574 -11335 134"
 			"angles"      "81 -141 -0"
 			"spawnflags"  "7"
@@ -914,7 +911,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_062"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_062"
 			"origin"      "-3577 -11343 134"
 			"angles"      "86 -151 -0"
 			"spawnflags"  "7"
@@ -926,7 +923,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_063"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_063"
 			"origin"      "-3582 -11338 134"
 			"angles"      "87 -133 -0"
 			"spawnflags"  "7"
@@ -938,7 +935,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_064"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_064"
 			"origin"      "-3578 -11326 101"
 			"angles"      "81 -124 -0"
 			"spawnflags"  "7"
@@ -950,7 +947,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_065"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_065"
 			"origin"      "-3577 -11324 104"
 			"angles"      "80 -123 -0"
 			"spawnflags"  "7"
@@ -962,7 +959,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_066"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_066"
 			"origin"      "-3577 -11322 104"
 			"angles"      "79 -122 -0"
 			"spawnflags"  "7"
@@ -974,7 +971,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_067"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_067"
 			"origin"      "-3960 -11662 101"
 			"angles"      "75 113 -0"
 			"spawnflags"  "7"
@@ -986,7 +983,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_068"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_068"
 			"origin"      "-3990 -11687 101"
 			"angles"      "66 82 -0"
 			"spawnflags"  "7"
@@ -998,7 +995,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_069"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_069"
 			"origin"      "-4010 -11654 101"
 			"angles"      "75 52 -0"
 			"spawnflags"  "7"
@@ -1010,7 +1007,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_03_DiningRoom_OK_070"
+			"targetname"  "gskSpawn_30_DiningRoom_OK_070"
 			"origin"      "-3982 -11635 101"
 			"angles"      "88 81 0"
 			"spawnflags"  "7"
@@ -1029,7 +1026,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_03_DiningRoom_OK_BeginAt000,ForceSpawn,,0,1,1,"
+				"OnTrigger" "gskSpawn_30_DiningRoom_OK_BeginAt000,ForceSpawn,,0,1,1,"
 			}
 		}
 		
@@ -1039,7 +1036,7 @@
 			"classname" "point_template"
 			"combinability" "1"
 			"spawnflags" "2"
-			"targetname" "gskSpawn_03_DiningRoom_OK_BeginAt000"
+			"targetname" "gskSpawn_30_DiningRoom_OK_BeginAt000"
 			"origin" "0 0 0"
 		}
 
@@ -1047,43 +1044,43 @@
 		{
 			"TargetMarkers"
 			{
-				"targetname"	"gskSpawn_03_DiningRoom_OK_BeginAt000"
+				"targetname"	"gskSpawn_30_DiningRoom_OK_BeginAt000"
 			}
 			"add:key"
 			{
 		
 
-				"Template01" "gskSpawn_03_DiningRoom_OK_000"
+				"Template01" "gskSpawn_30_DiningRoom_OK_000"
 
-				"Template02" "gskSpawn_03_DiningRoom_OK_001"
+				"Template02" "gskSpawn_30_DiningRoom_OK_001"
 
-				"Template03" "gskSpawn_03_DiningRoom_OK_002"
+				"Template03" "gskSpawn_30_DiningRoom_OK_002"
 
-				"Template04" "gskSpawn_03_DiningRoom_OK_003"
+				"Template04" "gskSpawn_30_DiningRoom_OK_003"
 
-				"Template05" "gskSpawn_03_DiningRoom_OK_004"
+				"Template05" "gskSpawn_30_DiningRoom_OK_004"
 
-				"Template06" "gskSpawn_03_DiningRoom_OK_005"
+				"Template06" "gskSpawn_30_DiningRoom_OK_005"
 
-				"Template07" "gskSpawn_03_DiningRoom_OK_006"
+				"Template07" "gskSpawn_30_DiningRoom_OK_006"
 
-				"Template08" "gskSpawn_03_DiningRoom_OK_007"
+				"Template08" "gskSpawn_30_DiningRoom_OK_007"
 
-				"Template09" "gskSpawn_03_DiningRoom_OK_008"
+				"Template09" "gskSpawn_30_DiningRoom_OK_008"
 
-				"Template10" "gskSpawn_03_DiningRoom_OK_009"
+				"Template10" "gskSpawn_30_DiningRoom_OK_009"
 
-				"Template11" "gskSpawn_03_DiningRoom_OK_010"
+				"Template11" "gskSpawn_30_DiningRoom_OK_010"
 
-				"Template12" "gskSpawn_03_DiningRoom_OK_011"
+				"Template12" "gskSpawn_30_DiningRoom_OK_011"
 
-				"Template13" "gskSpawn_03_DiningRoom_OK_012"
+				"Template13" "gskSpawn_30_DiningRoom_OK_012"
 
-				"Template14" "gskSpawn_03_DiningRoom_OK_013"
+				"Template14" "gskSpawn_30_DiningRoom_OK_013"
 
-				"Template15" "gskSpawn_03_DiningRoom_OK_014"
+				"Template15" "gskSpawn_30_DiningRoom_OK_014"
 
-				"Template16" "gskSpawn_03_DiningRoom_OK_015"
+				"Template16" "gskSpawn_30_DiningRoom_OK_015"
 
 			}
 		}
@@ -1096,7 +1093,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_03_DiningRoom_OK_BeginAt016,ForceSpawn,,0,1,1,"
+				"OnTrigger" "gskSpawn_30_DiningRoom_OK_BeginAt016,ForceSpawn,,0,1,1,"
 			}
 		}
 		
@@ -1106,7 +1103,7 @@
 			"classname" "point_template"
 			"combinability" "1"
 			"spawnflags" "2"
-			"targetname" "gskSpawn_03_DiningRoom_OK_BeginAt016"
+			"targetname" "gskSpawn_30_DiningRoom_OK_BeginAt016"
 			"origin" "0 0 0"
 		}
 
@@ -1114,43 +1111,43 @@
 		{
 			"TargetMarkers"
 			{
-				"targetname"	"gskSpawn_03_DiningRoom_OK_BeginAt016"
+				"targetname"	"gskSpawn_30_DiningRoom_OK_BeginAt016"
 			}
 			"add:key"
 			{
 		
 
-				"Template01" "gskSpawn_03_DiningRoom_OK_016"
+				"Template01" "gskSpawn_30_DiningRoom_OK_016"
 
-				"Template02" "gskSpawn_03_DiningRoom_OK_017"
+				"Template02" "gskSpawn_30_DiningRoom_OK_017"
 
-				"Template03" "gskSpawn_03_DiningRoom_OK_018"
+				"Template03" "gskSpawn_30_DiningRoom_OK_018"
 
-				"Template04" "gskSpawn_03_DiningRoom_OK_019"
+				"Template04" "gskSpawn_30_DiningRoom_OK_019"
 
-				"Template05" "gskSpawn_03_DiningRoom_OK_020"
+				"Template05" "gskSpawn_30_DiningRoom_OK_020"
 
-				"Template06" "gskSpawn_03_DiningRoom_OK_021"
+				"Template06" "gskSpawn_30_DiningRoom_OK_021"
 
-				"Template07" "gskSpawn_03_DiningRoom_OK_022"
+				"Template07" "gskSpawn_30_DiningRoom_OK_022"
 
-				"Template08" "gskSpawn_03_DiningRoom_OK_023"
+				"Template08" "gskSpawn_30_DiningRoom_OK_023"
 
-				"Template09" "gskSpawn_03_DiningRoom_OK_024"
+				"Template09" "gskSpawn_30_DiningRoom_OK_024"
 
-				"Template10" "gskSpawn_03_DiningRoom_OK_025"
+				"Template10" "gskSpawn_30_DiningRoom_OK_025"
 
-				"Template11" "gskSpawn_03_DiningRoom_OK_026"
+				"Template11" "gskSpawn_30_DiningRoom_OK_026"
 
-				"Template12" "gskSpawn_03_DiningRoom_OK_027"
+				"Template12" "gskSpawn_30_DiningRoom_OK_027"
 
-				"Template13" "gskSpawn_03_DiningRoom_OK_028"
+				"Template13" "gskSpawn_30_DiningRoom_OK_028"
 
-				"Template14" "gskSpawn_03_DiningRoom_OK_029"
+				"Template14" "gskSpawn_30_DiningRoom_OK_029"
 
-				"Template15" "gskSpawn_03_DiningRoom_OK_030"
+				"Template15" "gskSpawn_30_DiningRoom_OK_030"
 
-				"Template16" "gskSpawn_03_DiningRoom_OK_031"
+				"Template16" "gskSpawn_30_DiningRoom_OK_031"
 
 			}
 		}
@@ -1163,7 +1160,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_03_DiningRoom_OK_BeginAt032,ForceSpawn,,0,1,1,"
+				"OnTrigger" "gskSpawn_30_DiningRoom_OK_BeginAt032,ForceSpawn,,0,1,1,"
 			}
 		}
 		
@@ -1173,7 +1170,7 @@
 			"classname" "point_template"
 			"combinability" "1"
 			"spawnflags" "2"
-			"targetname" "gskSpawn_03_DiningRoom_OK_BeginAt032"
+			"targetname" "gskSpawn_30_DiningRoom_OK_BeginAt032"
 			"origin" "0 0 0"
 		}
 
@@ -1181,43 +1178,43 @@
 		{
 			"TargetMarkers"
 			{
-				"targetname"	"gskSpawn_03_DiningRoom_OK_BeginAt032"
+				"targetname"	"gskSpawn_30_DiningRoom_OK_BeginAt032"
 			}
 			"add:key"
 			{
 		
 
-				"Template01" "gskSpawn_03_DiningRoom_OK_032"
+				"Template01" "gskSpawn_30_DiningRoom_OK_032"
 
-				"Template02" "gskSpawn_03_DiningRoom_OK_033"
+				"Template02" "gskSpawn_30_DiningRoom_OK_033"
 
-				"Template03" "gskSpawn_03_DiningRoom_OK_034"
+				"Template03" "gskSpawn_30_DiningRoom_OK_034"
 
-				"Template04" "gskSpawn_03_DiningRoom_OK_035"
+				"Template04" "gskSpawn_30_DiningRoom_OK_035"
 
-				"Template05" "gskSpawn_03_DiningRoom_OK_036"
+				"Template05" "gskSpawn_30_DiningRoom_OK_036"
 
-				"Template06" "gskSpawn_03_DiningRoom_OK_037"
+				"Template06" "gskSpawn_30_DiningRoom_OK_037"
 
-				"Template07" "gskSpawn_03_DiningRoom_OK_038"
+				"Template07" "gskSpawn_30_DiningRoom_OK_038"
 
-				"Template08" "gskSpawn_03_DiningRoom_OK_039"
+				"Template08" "gskSpawn_30_DiningRoom_OK_039"
 
-				"Template09" "gskSpawn_03_DiningRoom_OK_040"
+				"Template09" "gskSpawn_30_DiningRoom_OK_040"
 
-				"Template10" "gskSpawn_03_DiningRoom_OK_041"
+				"Template10" "gskSpawn_30_DiningRoom_OK_041"
 
-				"Template11" "gskSpawn_03_DiningRoom_OK_042"
+				"Template11" "gskSpawn_30_DiningRoom_OK_042"
 
-				"Template12" "gskSpawn_03_DiningRoom_OK_043"
+				"Template12" "gskSpawn_30_DiningRoom_OK_043"
 
-				"Template13" "gskSpawn_03_DiningRoom_OK_044"
+				"Template13" "gskSpawn_30_DiningRoom_OK_044"
 
-				"Template14" "gskSpawn_03_DiningRoom_OK_045"
+				"Template14" "gskSpawn_30_DiningRoom_OK_045"
 
-				"Template15" "gskSpawn_03_DiningRoom_OK_046"
+				"Template15" "gskSpawn_30_DiningRoom_OK_046"
 
-				"Template16" "gskSpawn_03_DiningRoom_OK_047"
+				"Template16" "gskSpawn_30_DiningRoom_OK_047"
 
 			}
 		}
@@ -1230,7 +1227,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_03_DiningRoom_OK_BeginAt048,ForceSpawn,,0,1,1,"
+				"OnTrigger" "gskSpawn_30_DiningRoom_OK_BeginAt048,ForceSpawn,,0,1,1,"
 			}
 		}
 		
@@ -1240,7 +1237,7 @@
 			"classname" "point_template"
 			"combinability" "1"
 			"spawnflags" "2"
-			"targetname" "gskSpawn_03_DiningRoom_OK_BeginAt048"
+			"targetname" "gskSpawn_30_DiningRoom_OK_BeginAt048"
 			"origin" "0 0 0"
 		}
 
@@ -1248,43 +1245,43 @@
 		{
 			"TargetMarkers"
 			{
-				"targetname"	"gskSpawn_03_DiningRoom_OK_BeginAt048"
+				"targetname"	"gskSpawn_30_DiningRoom_OK_BeginAt048"
 			}
 			"add:key"
 			{
 		
 
-				"Template01" "gskSpawn_03_DiningRoom_OK_048"
+				"Template01" "gskSpawn_30_DiningRoom_OK_048"
 
-				"Template02" "gskSpawn_03_DiningRoom_OK_049"
+				"Template02" "gskSpawn_30_DiningRoom_OK_049"
 
-				"Template03" "gskSpawn_03_DiningRoom_OK_050"
+				"Template03" "gskSpawn_30_DiningRoom_OK_050"
 
-				"Template04" "gskSpawn_03_DiningRoom_OK_051"
+				"Template04" "gskSpawn_30_DiningRoom_OK_051"
 
-				"Template05" "gskSpawn_03_DiningRoom_OK_052"
+				"Template05" "gskSpawn_30_DiningRoom_OK_052"
 
-				"Template06" "gskSpawn_03_DiningRoom_OK_053"
+				"Template06" "gskSpawn_30_DiningRoom_OK_053"
 
-				"Template07" "gskSpawn_03_DiningRoom_OK_054"
+				"Template07" "gskSpawn_30_DiningRoom_OK_054"
 
-				"Template08" "gskSpawn_03_DiningRoom_OK_055"
+				"Template08" "gskSpawn_30_DiningRoom_OK_055"
 
-				"Template09" "gskSpawn_03_DiningRoom_OK_056"
+				"Template09" "gskSpawn_30_DiningRoom_OK_056"
 
-				"Template10" "gskSpawn_03_DiningRoom_OK_057"
+				"Template10" "gskSpawn_30_DiningRoom_OK_057"
 
-				"Template11" "gskSpawn_03_DiningRoom_OK_058"
+				"Template11" "gskSpawn_30_DiningRoom_OK_058"
 
-				"Template12" "gskSpawn_03_DiningRoom_OK_059"
+				"Template12" "gskSpawn_30_DiningRoom_OK_059"
 
-				"Template13" "gskSpawn_03_DiningRoom_OK_060"
+				"Template13" "gskSpawn_30_DiningRoom_OK_060"
 
-				"Template14" "gskSpawn_03_DiningRoom_OK_061"
+				"Template14" "gskSpawn_30_DiningRoom_OK_061"
 
-				"Template15" "gskSpawn_03_DiningRoom_OK_062"
+				"Template15" "gskSpawn_30_DiningRoom_OK_062"
 
-				"Template16" "gskSpawn_03_DiningRoom_OK_063"
+				"Template16" "gskSpawn_30_DiningRoom_OK_063"
 
 			}
 		}
@@ -1297,7 +1294,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_03_DiningRoom_OK_BeginAt064,ForceSpawn,,0,1,1,"
+				"OnTrigger" "gskSpawn_30_DiningRoom_OK_BeginAt064,ForceSpawn,,0,1,1,"
 			}
 		}
 		
@@ -1307,7 +1304,7 @@
 			"classname" "point_template"
 			"combinability" "1"
 			"spawnflags" "2"
-			"targetname" "gskSpawn_03_DiningRoom_OK_BeginAt064"
+			"targetname" "gskSpawn_30_DiningRoom_OK_BeginAt064"
 			"origin" "0 0 0"
 		}
 
@@ -1315,25 +1312,25 @@
 		{
 			"TargetMarkers"
 			{
-				"targetname"	"gskSpawn_03_DiningRoom_OK_BeginAt064"
+				"targetname"	"gskSpawn_30_DiningRoom_OK_BeginAt064"
 			}
 			"add:key"
 			{
 		
 
-				"Template01" "gskSpawn_03_DiningRoom_OK_064"
+				"Template01" "gskSpawn_30_DiningRoom_OK_064"
 
-				"Template02" "gskSpawn_03_DiningRoom_OK_065"
+				"Template02" "gskSpawn_30_DiningRoom_OK_065"
 
-				"Template03" "gskSpawn_03_DiningRoom_OK_066"
+				"Template03" "gskSpawn_30_DiningRoom_OK_066"
 
-				"Template04" "gskSpawn_03_DiningRoom_OK_067"
+				"Template04" "gskSpawn_30_DiningRoom_OK_067"
 
-				"Template05" "gskSpawn_03_DiningRoom_OK_068"
+				"Template05" "gskSpawn_30_DiningRoom_OK_068"
 
-				"Template06" "gskSpawn_03_DiningRoom_OK_069"
+				"Template06" "gskSpawn_30_DiningRoom_OK_069"
 
-				"Template07" "gskSpawn_03_DiningRoom_OK_070"
+				"Template07" "gskSpawn_30_DiningRoom_OK_070"
 
 			}
 		}

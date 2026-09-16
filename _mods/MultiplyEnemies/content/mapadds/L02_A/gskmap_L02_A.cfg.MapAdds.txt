@@ -144,7 +144,6 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_undead"
 			"model" "models/NPC/Undead/Npc_undead.mdl"
-			"spawnflags" "16384"
 			"SmellRadius" "300"
 			"spawnflags"  "16391"
 			"UnburrowRadius" "200"
@@ -160,9 +159,10 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_undead"
 			"model" "models/NPC/Undead/Npc_undead.mdl"
-			"spawnflags" "16384"
 			"SmellRadius" "300"
 			"spawnflags"  "16391"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
 		}
 		"add:entity"
 		{
@@ -174,7 +174,6 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_undead"
 			"model" "models/NPC/Undead/Npc_undead.mdl"
-			"spawnflags" "16384"
 			"SmellRadius" "300"
 			"spawnflags"  "16391"
 			"UnburrowRadius" "200"
