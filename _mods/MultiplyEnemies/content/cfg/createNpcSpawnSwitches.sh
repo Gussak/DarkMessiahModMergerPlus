@@ -330,7 +330,7 @@ if $bRedoAll;then
 		while true;do
 			nCurrentMT=$(pgrep -fa "xterm -title ${strMTBN}" |wc -l)&&:
 			if(( nCurrentMT < liWaitAmount ));then break;fi
-			echo -ne "Wait Count($liLastIndex/$lTot) MT($nCurrentMT/${liWaitAmount})\r"
+			echo -ne "Wait JobCount($liLastIndex/$lTot) MT($nCurrentMT/${liWaitAmount})\r"
 			read -n 1 -t 1&&:;
 		done
 	}
@@ -352,7 +352,7 @@ if $bRedoAll;then
 		
 		nSpawnCount="$(egrep -c "gskSpawnHint" "$strFlRedo")"
 		#nSpawnMapAdds="$(egrep '"targetname".*"gskSpawn.*' "$strFlMapAdds" |egrep -v "TODO" -c)"&&:
-		if ! egrep "prop at .* missing modelname" "$strFlRedo";then
+		if ! egrep -q "prop at .* missing modelname" "$strFlRedo";then
 			echo "WARNING: skipping, is not mapadds ready..."
 			read -n 1 -t 10&&:
 			continue;
@@ -603,7 +603,7 @@ function FUNCprepareFireTrap() { #this works but you have to kick the oil jar
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
 			"targetname" "'"${lstrFireTrapTriggeredName}"'"
 			"origin" "'"${anTargetPosXYZ[x]} ${anTargetPosXYZ[y]} ${anTargetPosXYZ[z]}"'"
-			"angles" "'"$((RANDOM%45))"' '"$(( (RANDOM%360) - 180))"' '"$((RANDOM%45))"'"
+			"angles" "'"$(( $(FUNCpredictableRandom X${nTrapCount}) % 45))"' '"$(( ($(FUNCpredictableRandom Y${nTrapCount}) % 360) - 180))"' '"$(( $(FUNCpredictableRandom Z${nTrapCount}) % 45 ))"'"
 			'"$(FUNCexplosionData)"'
 		}
 		'
@@ -768,6 +768,10 @@ function FUNCprepareFireTrapBoxCollider() { #TODO THIS DOES NOT WORK, the solid 
 : ${bAllowBurrow=true} #help you can override and force re-prepare all mapadds with them all not hidden
 nUndeadCount=0
 nSkeletonPartCount=0
+nTrapCount=0
+function FUNCpredictableRandom() { #this way it will be predictable random based on the mapadds filename name and some extra text and can also be a count index value
+	printf %d "0x$(crc32 <(echo "${strFlMapadds}${1}"))"
+}
 function FUNCmapadds() {
 	local lstrSummonCmd="$1"
 	
@@ -1034,13 +1038,14 @@ function FUNCmapadds() {
 			"fadescale" "1"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "'"$((RANDOM%45))"' '"$(( (RANDOM%360) - 180))"' '"$((RANDOM%45))"'"
+			"angles" "'"$(( $(FUNCpredictableRandom X${nTrapCount}) % 45))"' '"$(( ($(FUNCpredictableRandom Y${nTrapCount}) % 360) - 180))"' '"$(( $(FUNCpredictableRandom Z${nTrapCount}) % 45 ))"'"
 			'"$(FUNCexplosionData)"'
 			' >>"$lstrFlAddTmp"
+			((nTrapCount++))&&:
 			;;
 		"gskSummonDevSkeletonPart")
 			local lstrSkelPartModel=""
-			local lnRandomSkelPart="$(printf %d "0x$(crc32 <(echo "${strFlMapadds}${nSkeletonPartCount}"))")" #this way it wont just cycle thru parts, it will be predictable random based on the mapadds filename name
+			local lnRandomSkelPart="$(FUNCpredictableRandom ${nSkeletonPartCount})" #this way it wont just cycle thru parts, it will be predictable random based on the mapadds filename name, and as long new items are appended in the file, it will keep the predictable random data
 			local lnRotationX=0
 			local lnRotationY="$(( (lnRandomSkelPart%360) - 180))"
 			local lnRotationZ=0
@@ -1049,8 +1054,8 @@ function FUNCmapadds() {
 				0) lstrSkelPartModel="models/props/debris/skeleton/cr_skel_thorax.mdl";;
 				1)
 					lstrSkelPartModel="models/props/debris/skeleton/cr_skel_crane.mdl"
-					lnRotationX="$((RANDOM%45))"
-					lnRotationZ="$((RANDOM%45))"
+					lnRotationX="$(( $(FUNCpredictableRandom X${nSkeletonPartCount}) % 45 ))"
+					lnRotationZ="$(( $(FUNCpredictableRandom Z${nSkeletonPartCount}) % 45 ))"
 					;;
 				# these below are too small and similar in shape, the player may not see nor step over never..
 				#2) lstrSkelPartModel="models/props/debris/skeleton/cr_skel_femurd.mdl";;
@@ -1071,8 +1076,8 @@ function FUNCmapadds() {
 			"classname" "prop_physics"
 			"model" "'"${lstrSkelPartModel}"'"
 			"angles" "'"${lnRotationX}"' '"${lnRotationY}"' '"${lnRotationZ}"'"
-			"health" "'"$((RANDOM%33+7))"'"
-			"physdamagescale" "'"0.$((RANDOM%8+1))"'"
+			"health" "'"$(( $(FUNCpredictableRandom HP${nSkeletonPartCount}) % 33 + 7))"'"
+			"physdamagescale" "'"0.$(( $(FUNCpredictableRandom PDS${nSkeletonPartCount}) % 8 + 1))"'"
 			' >>"$lstrFlAddTmp"
 #			"physdamagescale" "'"0.$(printf %02d $((RANDOM%98+1)))"'"
 			

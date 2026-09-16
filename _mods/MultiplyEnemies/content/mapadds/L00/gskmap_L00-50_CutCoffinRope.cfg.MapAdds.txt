@@ -21,8 +21,8 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 56 0"
-			"health" "32"
-			"physdamagescale" "0.6"
+			"health" "25"
+			"physdamagescale" "0.8"
 			
 		}
 		"add:entity"
@@ -41,9 +41,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "0 97 41"
-			"health" "7"
-			"physdamagescale" "0.5"
+			"angles" "1 97 39"
+			"health" "14"
+			"physdamagescale" "0.7"
 			
 		}
 		"add:entity"
@@ -63,8 +63,8 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 82 0"
-			"health" "17"
-			"physdamagescale" "0.8"
+			"health" "28"
+			"physdamagescale" "0.6"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -92,9 +92,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "12 59 38"
-			"health" "34"
-			"physdamagescale" "0.4"
+			"angles" "36 59 28"
+			"health" "11"
+			"physdamagescale" "0.5"
 			
 		}
 		"add:entity"
@@ -114,8 +114,8 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 68 0"
-			"health" "28"
-			"physdamagescale" "0.3"
+			"health" "21"
+			"physdamagescale" "0.4"
 			
 		}
 		"add:entity"
@@ -134,9 +134,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "28 61 5"
-			"health" "20"
-			"physdamagescale" "0.4"
+			"angles" "0 61 6"
+			"health" "27"
+			"physdamagescale" "0.3"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -165,8 +165,8 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 -26 0"
-			"health" "32"
-			"physdamagescale" "0.1"
+			"health" "13"
+			"physdamagescale" "0.2"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -194,9 +194,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "21 -97 5"
-			"health" "19"
-			"physdamagescale" "0.4"
+			"angles" "4 -97 11"
+			"health" "13"
+			"physdamagescale" "0.1"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -225,8 +225,8 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 128 0"
-			"health" "7"
-			"physdamagescale" "0.2"
+			"health" "25"
+			"physdamagescale" "0.8"
 			
 		}
 		"add:entity"
@@ -245,8 +245,8 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "2 105 19"
-			"health" "16"
+			"angles" "41 105 3"
+			"health" "13"
 			"physdamagescale" "0.7"
 			
 		}
@@ -267,8 +267,8 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 76 0"
-			"health" "13"
-			"physdamagescale" "0.2"
+			"health" "27"
+			"physdamagescale" "0.5"
 			
 		}
 		"add:entity"
@@ -287,9 +287,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "27 53 24"
-			"health" "18"
-			"physdamagescale" "0.3"
+			"angles" "35 53 15"
+			"health" "26"
+			"physdamagescale" "0.6"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -318,8 +318,8 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 38 0"
-			"health" "37"
-			"physdamagescale" "0.6"
+			"health" "35"
+			"physdamagescale" "0.7"
 			
 		}
 		"add:entity"
@@ -338,9 +338,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "38 -57 22"
-			"health" "33"
-			"physdamagescale" "0.4"
+			"angles" "19 -57 20"
+			"health" "29"
+			"physdamagescale" "0.8"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -369,8 +369,8 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 152 0"
-			"health" "10"
-			"physdamagescale" "0.6"
+			"health" "35"
+			"physdamagescale" "0.1"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -398,9 +398,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "3 177 41"
-			"health" "25"
-			"physdamagescale" "0.5"
+			"angles" "40 177 4"
+			"health" "19"
+			"physdamagescale" "0.2"
 			
 		}
 		"add:entity"
@@ -420,8 +420,8 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 130 0"
-			"health" "37"
-			"physdamagescale" "0.8"
+			"health" "23"
+			"physdamagescale" "0.3"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -449,9 +449,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "25 83 1"
-			"health" "33"
-			"physdamagescale" "0.7"
+			"angles" "33 83 9"
+			"health" "35"
+			"physdamagescale" "0.4"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -480,8 +480,8 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 -164 0"
-			"health" "10"
-			"physdamagescale" "0.4"
+			"health" "17"
+			"physdamagescale" "0.5"
 			
 		}
 		"add:entity"
@@ -500,9 +500,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "6 -67 15"
-			"health" "7"
-			"physdamagescale" "0.8"
+			"angles" "36 -67 37"
+			"health" "15"
+			"physdamagescale" "0.6"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -530,9 +530,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "13 13 21"
-			"health" "39"
-			"physdamagescale" "0.4"
+			"angles" "37 13 11"
+			"health" "33"
+			"physdamagescale" "0.6"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -561,8 +561,8 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 -116 0"
-			"health" "32"
-			"physdamagescale" "0.7"
+			"health" "35"
+			"physdamagescale" "0.5"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -590,9 +590,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "12 95 33"
-			"health" "8"
-			"physdamagescale" "0.7"
+			"angles" "25 95 12"
+			"health" "31"
+			"physdamagescale" "0.8"
 			
 		}
 		"add:entity"
@@ -613,7 +613,7 @@
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 30 0"
 			"health" "10"
-			"physdamagescale" "0.1"
+			"physdamagescale" "0.7"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -641,9 +641,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "6 -127 11"
-			"health" "18"
-			"physdamagescale" "0.7"
+			"angles" "9 -127 8"
+			"health" "17"
+			"physdamagescale" "0.2"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -672,7 +672,7 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 152 0"
-			"health" "26"
+			"health" "37"
 			"physdamagescale" "0.1"
 			
 			"physdamagescale" "1.0"
@@ -701,9 +701,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "42 75 8"
-			"health" "21"
-			"physdamagescale" "0.6"
+			"angles" "20 75 23"
+			"health" "27"
+			"physdamagescale" "0.4"
 			
 		}
 		"add:entity"
@@ -723,8 +723,8 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 58 0"
-			"health" "19"
-			"physdamagescale" "0.1"
+			"health" "24"
+			"physdamagescale" "0.3"
 			
 		}
 		"add:entity"
@@ -743,9 +743,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "4 -27 8"
-			"health" "17"
-			"physdamagescale" "0.5"
+			"angles" "44 -27 14"
+			"health" "25"
+			"physdamagescale" "0.6"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -774,7 +774,7 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 -36 0"
-			"health" "12"
+			"health" "26"
 			"physdamagescale" "0.5"
 			
 			"physdamagescale" "1.0"
@@ -804,8 +804,8 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 146 0"
-			"health" "8"
-			"physdamagescale" "0.4"
+			"health" "24"
+			"physdamagescale" "0.3"
 			
 		}
 		"add:entity"
@@ -824,9 +824,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "31 179 42"
-			"health" "12"
-			"physdamagescale" "0.1"
+			"angles" "6 179 2"
+			"health" "18"
+			"physdamagescale" "0.4"
 			
 		}
 		"add:entity"
@@ -846,8 +846,8 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 64 0"
-			"health" "35"
-			"physdamagescale" "0.7"
+			"health" "19"
+			"physdamagescale" "0.1"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -875,9 +875,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "10 25 9"
-			"health" "14"
-			"physdamagescale" "0.6"
+			"angles" "44 25 29"
+			"health" "8"
+			"physdamagescale" "0.2"
 			
 		}
 		"add:entity"
@@ -897,8 +897,8 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 118 0"
-			"health" "16"
-			"physdamagescale" "0.3"
+			"health" "9"
+			"physdamagescale" "0.7"
 			
 		}
 		"add:entity"
@@ -917,9 +917,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "24 -161 6"
-			"health" "10"
-			"physdamagescale" "0.4"
+			"angles" "14 -161 36"
+			"health" "21"
+			"physdamagescale" "0.8"
 			
 		}
 		"add:entity"
@@ -939,8 +939,8 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 140 0"
-			"health" "12"
-			"physdamagescale" "0.6"
+			"health" "14"
+			"physdamagescale" "0.5"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -968,9 +968,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "20 149 29"
-			"health" "12"
-			"physdamagescale" "0.8"
+			"angles" "14 149 3"
+			"health" "21"
+			"physdamagescale" "0.6"
 			
 		}
 		"add:entity"
@@ -990,8 +990,8 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 74 0"
-			"health" "29"
-			"physdamagescale" "0.1"
+			"health" "13"
+			"physdamagescale" "0.3"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -1019,9 +1019,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "19 -133 22"
-			"health" "25"
-			"physdamagescale" "0.8"
+			"angles" "6 -133 23"
+			"health" "39"
+			"physdamagescale" "0.4"
 			
 		}
 		"add:entity"
@@ -1040,8 +1040,8 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "38 -41 2"
-			"health" "33"
+			"angles" "19 -41 17"
+			"health" "26"
 			"physdamagescale" "0.8"
 			
 		}
@@ -1062,8 +1062,8 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 30 0"
-			"health" "8"
-			"physdamagescale" "0.5"
+			"health" "24"
+			"physdamagescale" "0.7"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -1091,9 +1091,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "5 -3 38"
-			"health" "25"
-			"physdamagescale" "0.7"
+			"angles" "8 -3 23"
+			"health" "36"
+			"physdamagescale" "0.6"
 			
 		}
 		"add:entity"
@@ -1113,8 +1113,8 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 124 0"
-			"health" "26"
-			"physdamagescale" "0.8"
+			"health" "12"
+			"physdamagescale" "0.5"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -1142,9 +1142,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "24 -149 27"
-			"health" "29"
-			"physdamagescale" "0.5"
+			"angles" "34 -149 13"
+			"health" "30"
+			"physdamagescale" "0.4"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -1173,8 +1173,8 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 178 0"
-			"health" "25"
-			"physdamagescale" "0.4"
+			"health" "11"
+			"physdamagescale" "0.3"
 			
 		}
 		"add:entity"
@@ -1193,9 +1193,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "20 -111 27"
-			"health" "9"
-			"physdamagescale" "0.5"
+			"angles" "16 -111 35"
+			"health" "18"
+			"physdamagescale" "0.2"
 			
 		}
 		"add:entity"
@@ -1215,8 +1215,8 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 -88 0"
-			"health" "14"
-			"physdamagescale" "0.6"
+			"health" "10"
+			"physdamagescale" "0.1"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -1244,9 +1244,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "42 119 29"
-			"health" "24"
-			"physdamagescale" "0.3"
+			"angles" "6 119 38"
+			"health" "11"
+			"physdamagescale" "0.8"
 			
 		}
 		"add:entity"
@@ -1266,7 +1266,7 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 94 0"
-			"health" "12"
+			"health" "31"
 			"physdamagescale" "0.7"
 			
 			"physdamagescale" "1.0"
@@ -1296,8 +1296,8 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
 			"angles" "0 160 0"
-			"health" "21"
-			"physdamagescale" "0.6"
+			"health" "25"
+			"physdamagescale" "0.1"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -1325,9 +1325,9 @@
 			"spawnflags"  "257"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "39 25 23"
-			"health" "25"
-			"physdamagescale" "0.6"
+			"angles" "21 25 10"
+			"health" "16"
+			"physdamagescale" "0.2"
 			
 		}
 		"add:entity"

@@ -214,7 +214,7 @@
 			"fadescale" "1"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "15 -112 37"
+			"angles" "16 102 35"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -242,7 +242,7 @@
 			"fadescale" "1"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "41 70 13"
+			"angles" "40 -73 11"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -270,7 +270,7 @@
 			"fadescale" "1"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "32 -21 19"
+			"angles" "30 -4 11"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -298,7 +298,7 @@
 			"fadescale" "1"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "15 -49 8"
+			"angles" "1 -51 24"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -326,7 +326,7 @@
 			"fadescale" "1"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "34 31 20"
+			"angles" "34 -22 37"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -354,7 +354,7 @@
 			"fadescale" "1"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "8 89 2"
+			"angles" "16 -149 16"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -382,7 +382,7 @@
 			"fadescale" "1"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "34 93 35"
+			"angles" "33 -24 13"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -410,7 +410,7 @@
 			"fadescale" "1"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "3 -82 19"
+			"angles" "7 -23 29"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -438,7 +438,7 @@
 			"fadescale" "1"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "18 49 35"
+			"angles" "36 86 9"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -486,7 +486,7 @@
 			"fadescale" "1"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "3 15 44"
+			"angles" "32 63 2"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
