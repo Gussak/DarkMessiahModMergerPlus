@@ -1,0 +1,3682 @@
+
+"mapadd_keyvalues"
+{
+	"PreInitialize"
+	{	
+
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_000"
+			"origin"      "1131 289 -409"
+			"angles"      "43 75 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "11 31 12"
+			"health" "16"
+			"physdamagescale" "0.1"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_001"
+			"origin"      "1176 259 -406"
+			"angles"      "41 84 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 166 0"
+			"health" "11"
+			"physdamagescale" "0.8"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_002"
+			"origin"      "1095 253 -401"
+			"angles"      "39 70 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "24 61 11"
+			"health" "33"
+			"physdamagescale" "0.5"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_003"
+			"origin"      "1068 329 -410"
+			"angles"      "45 60 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 -100 0"
+			"health" "22"
+			"physdamagescale" "0.2"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_004"
+			"origin"      "1005 323 -408"
+			"angles"      "41 52 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "29 -173 14"
+			"health" "36"
+			"physdamagescale" "0.1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_005"
+			"origin"      "1016 393 -413"
+			"angles"      "47 44 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 -86 0"
+			"health" "18"
+			"physdamagescale" "0.8"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_006"
+			"origin"      "1078 400 -415"
+			"angles"      "52 54 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "2 -143 37"
+			"health" "26"
+			"physdamagescale" "0.3"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_007"
+			"origin"      "958 405 -411"
+			"angles"      "43 35 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 8 0"
+			"health" "19"
+			"physdamagescale" "0.4"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_008"
+			"origin"      "880 425 -412"
+			"angles"      "38 26 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "32 167 39"
+			"health" "16"
+			"physdamagescale" "0.6"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_009"
+			"origin"      "896 499 -414"
+			"angles"      "42 16 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 -90 0"
+			"health" "26"
+			"physdamagescale" "0.4"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_010"
+			"origin"      "898 383 -408"
+			"angles"      "37 33 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "42 -27 2"
+			"health" "25"
+			"physdamagescale" "0.6"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_011"
+			"origin"      "1025 676 -528"
+			"angles"      "63 -26 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 20 0"
+			"health" "38"
+			"physdamagescale" "0.2"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_012"
+			"origin"      "1082 660 -532"
+			"angles"      "70 -29 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "42 -169 35"
+			"health" "37"
+			"physdamagescale" "0.4"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_013"
+			"origin"      "1075 715 -538"
+			"angles"      "66 -43 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 -66 0"
+			"health" "21"
+			"physdamagescale" "0.8"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_014"
+			"origin"      "1124 697 -540"
+			"angles"      "72 -51 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "2 -143 41"
+			"health" "30"
+			"physdamagescale" "0.1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_015"
+			"origin"      "1178 691 -542"
+			"angles"      "76 -70 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 8 0"
+			"health" "36"
+			"physdamagescale" "0.8"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_016"
+			"origin"      "1123 761 -542"
+			"angles"      "65 -62 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "4 -29 0"
+			"health" "31"
+			"physdamagescale" "0.6"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_017"
+			"origin"      "1051 780 -542"
+			"angles"      "59 -50 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 178 0"
+			"health" "16"
+			"physdamagescale" "0.8"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_018"
+			"origin"      "1032 848 -542"
+			"angles"      "53 -55 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "21 -19 28"
+			"health" "33"
+			"physdamagescale" "0.7"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_019"
+			"origin"      "1035 911 -541"
+			"angles"      "48 -61 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 -180 0"
+			"health" "18"
+			"physdamagescale" "0.6"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_020"
+			"origin"      "1025 979 -534"
+			"angles"      "43 -65 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 -4 0"
+			"health" "16"
+			"physdamagescale" "0.8"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_021"
+			"origin"      "1075 915 -540"
+			"angles"      "50 -67 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "11 69 14"
+			"health" "13"
+			"physdamagescale" "0.5"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_022"
+			"origin"      "1062 996 -532"
+			"angles"      "43 -70 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 94 0"
+			"health" "22"
+			"physdamagescale" "0.2"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_023"
+			"origin"      "1116 968 -538"
+			"angles"      "47 -76 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "41 103 28"
+			"health" "26"
+			"physdamagescale" "0.1"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_024"
+			"origin"      "1078 942 -538"
+			"angles"      "48 -69 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 24 0"
+			"health" "16"
+			"physdamagescale" "0.7"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_025"
+			"origin"      "1141 1026 -530"
+			"angles"      "43 -81 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "29 -159 9"
+			"health" "16"
+			"physdamagescale" "0.8"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_026"
+			"origin"      "1171 977 -540"
+			"angles"      "47 -84 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 122 0"
+			"health" "18"
+			"physdamagescale" "0.2"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_027"
+			"origin"      "1218 1013 -539"
+			"angles"      "44 -91 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "22 -125 4"
+			"health" "11"
+			"physdamagescale" "0.7"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_028"
+			"origin"      "1187 1045 -530"
+			"angles"      "42 -87 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 -156 0"
+			"health" "29"
+			"physdamagescale" "0.4"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_029"
+			"origin"      "1146 1100 -517"
+			"angles"      "37 -83 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "8 69 33"
+			"health" "13"
+			"physdamagescale" "0.4"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_030"
+			"origin"      "1202 1119 -517"
+			"angles"      "37 -89 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "3 -61 36"
+			"health" "25"
+			"physdamagescale" "0.3"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_031"
+			"origin"      "1217 1075 -527"
+			"angles"      "40 -91 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 42 0"
+			"health" "14"
+			"physdamagescale" "0.3"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_032"
+			"origin"      "1278 1091 -534"
+			"angles"      "39 -97 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "0 105 19"
+			"health" "39"
+			"physdamagescale" "0.8"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_033"
+			"origin"      "1265 568 -539"
+			"angles"      "84 160 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 -96 0"
+			"health" "17"
+			"physdamagescale" "0.4"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_034"
+			"origin"      "1306 532 -539"
+			"angles"      "76 149 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "44 79 15"
+			"health" "11"
+			"physdamagescale" "0.4"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_035"
+			"origin"      "1313 553 -541"
+			"angles"      "77 162 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 -74 0"
+			"health" "36"
+			"physdamagescale" "0.4"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_036"
+			"origin"      "1368 523 -542"
+			"angles"      "69 158 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "36 -131 2"
+			"health" "12"
+			"physdamagescale" "0.5"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_037"
+			"origin"      "1413 523 -542"
+			"angles"      "64 163 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 132 0"
+			"health" "9"
+			"physdamagescale" "0.3"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_038"
+			"origin"      "1479 518 -539"
+			"angles"      "57 166 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "41 -157 40"
+			"health" "9"
+			"physdamagescale" "0.3"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_039"
+			"origin"      "1464 534 -542"
+			"angles"      "59 169 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 98 0"
+			"health" "18"
+			"physdamagescale" "0.1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_040"
+			"origin"      "1506 566 -542"
+			"angles"      "56 177 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 -50 0"
+			"health" "14"
+			"physdamagescale" "0.2"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_041"
+			"origin"      "1529 529 -536"
+			"angles"      "53 170 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "37 -137 23"
+			"health" "9"
+			"physdamagescale" "0.6"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_042"
+			"origin"      "1560 557 -535"
+			"angles"      "50 176 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 -148 0"
+			"health" "25"
+			"physdamagescale" "0.1"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_043"
+			"origin"      "1598 633 -541"
+			"angles"      "48 -173 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "19 53 18"
+			"health" "23"
+			"physdamagescale" "0.4"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_044"
+			"origin"      "1646 659 -540"
+			"angles"      "44 -171 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 -6 0"
+			"health" "24"
+			"physdamagescale" "0.4"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_045"
+			"origin"      "1674 645 -535"
+			"angles"      "42 -173 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "21 -141 39"
+			"health" "27"
+			"physdamagescale" "0.7"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_046"
+			"origin"      "1717 672 -534"
+			"angles"      "39 -171 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 136 0"
+			"health" "18"
+			"physdamagescale" "0.2"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_047"
+			"origin"      "1721 642 -530"
+			"angles"      "39 -174 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "8 -71 17"
+			"health" "37"
+			"physdamagescale" "0.6"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_048"
+			"origin"      "1724 724 -541"
+			"angles"      "39 -165 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 86 0"
+			"health" "11"
+			"physdamagescale" "0.4"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_049"
+			"origin"      "1481 812 -537"
+			"angles"      "50 -20 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "14 -65 29"
+			"health" "8"
+			"physdamagescale" "0.1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_050"
+			"origin"      "1525 787 -538"
+			"angles"      "55 -18 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "40 113 29"
+			"health" "24"
+			"physdamagescale" "0.1"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_051"
+			"origin"      "1508 841 -534"
+			"angles"      "51 -27 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 48 0"
+			"health" "13"
+			"physdamagescale" "0.4"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_052"
+			"origin"      "1449 881 -538"
+			"angles"      "45 -29 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "14 67 5"
+			"health" "39"
+			"physdamagescale" "0.6"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_053"
+			"origin"      "1439 963 -540"
+			"angles"      "41 -38 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 66 0"
+			"health" "31"
+			"physdamagescale" "0.3"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_054"
+			"origin"      "1524 893 -533"
+			"angles"      "49 -37 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "28 -107 1"
+			"health" "15"
+			"physdamagescale" "0.3"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_055"
+			"origin"      "1537 950 -538"
+			"angles"      "47 -47 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 140 0"
+			"health" "26"
+			"physdamagescale" "0.6"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_056"
+			"origin"      "1608 917 -541"
+			"angles"      "54 -53 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "23 103 9"
+			"health" "35"
+			"physdamagescale" "0.5"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_057"
+			"origin"      "1608 953 -541"
+			"angles"      "51 -57 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 54 0"
+			"health" "28"
+			"physdamagescale" "0.3"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_058"
+			"origin"      "1580 826 -539"
+			"angles"      "59 -32 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "18 -55 27"
+			"health" "31"
+			"physdamagescale" "0.7"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_059"
+			"origin"      "1629 808 -542"
+			"angles"      "66 -35 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 176 0"
+			"health" "14"
+			"physdamagescale" "0.2"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_060"
+			"origin"      "1658 765 -542"
+			"angles"      "72 -27 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 -72 0"
+			"health" "38"
+			"physdamagescale" "0.4"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_061"
+			"origin"      "1670 246 -415"
+			"angles"      "45 102 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "12 153 43"
+			"health" "28"
+			"physdamagescale" "0.8"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_062"
+			"origin"      "1702 291 -415"
+			"angles"      "49 111 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 138 0"
+			"health" "11"
+			"physdamagescale" "0.5"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_063"
+			"origin"      "1736 263 -415"
+			"angles"      "45 115 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "34 -69 22"
+			"health" "30"
+			"physdamagescale" "0.1"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_064"
+			"origin"      "1750 317 -413"
+			"angles"      "49 123 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 -180 0"
+			"health" "15"
+			"physdamagescale" "0.4"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_065"
+			"origin"      "1857 279 -406"
+			"angles"      "39 134 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "6 -3 16"
+			"health" "37"
+			"physdamagescale" "0.1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_066"
+			"origin"      "1829 346 -405"
+			"angles"      "45 139 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 30 0"
+			"health" "21"
+			"physdamagescale" "0.4"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_067"
+			"origin"      "1993 932 -410"
+			"angles"      "42 -135 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "41 135 14"
+			"health" "13"
+			"physdamagescale" "0.2"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_068"
+			"origin"      "1964 870 -409"
+			"angles"      "48 -140 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 168 0"
+			"health" "12"
+			"physdamagescale" "0.2"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_069"
+			"origin"      "1937 868 -409"
+			"angles"      "50 -136 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "41 -31 7"
+			"health" "26"
+			"physdamagescale" "0.3"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_070"
+			"origin"      "1889 867 -410"
+			"angles"      "54 -127 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "5 63 3"
+			"health" "13"
+			"physdamagescale" "0.5"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_071"
+			"origin"      "1874 906 -408"
+			"angles"      "51 -118 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 126 0"
+			"health" "20"
+			"physdamagescale" "0.8"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_072"
+			"origin"      "1872 953 -409"
+			"angles"      "46 -114 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "20 -27 21"
+			"health" "18"
+			"physdamagescale" "0.7"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_073"
+			"origin"      "1925 989 -412"
+			"angles"      "41 -120 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 100 0"
+			"health" "32"
+			"physdamagescale" "0.7"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_074"
+			"origin"      "1901 924 -406"
+			"angles"      "47 -122 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "38 83 10"
+			"health" "9"
+			"physdamagescale" "0.8"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_075"
+			"origin"      "1934 941 -404"
+			"angles"      "44 -125 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 98 0"
+			"health" "7"
+			"physdamagescale" "0.1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_076"
+			"origin"      "1964 995 -412"
+			"angles"      "39 -124 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "5 -23 15"
+			"health" "13"
+			"physdamagescale" "0.4"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_077"
+			"origin"      "1977 936 -407"
+			"angles"      "42 -132 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 56 0"
+			"health" "24"
+			"physdamagescale" "0.7"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_078"
+			"origin"      "1933 900 -405"
+			"angles"      "47 -130 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "14 87 16"
+			"health" "7"
+			"physdamagescale" "0.6"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_079"
+			"origin"      "1895 971 -410"
+			"angles"      "44 -116 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 86 0"
+			"health" "38"
+			"physdamagescale" "0.6"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_080"
+			"origin"      "1889 1000 -415"
+			"angles"      "42 -113 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 -54 0"
+			"health" "19"
+			"physdamagescale" "0.8"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_081"
+			"origin"      "1464 1437 -415"
+			"angles"      "35 -101 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "17 99 9"
+			"health" "9"
+			"physdamagescale" "0.3"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_082"
+			"origin"      "1429 1388 -413"
+			"angles"      "38 -97 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 160 0"
+			"health" "33"
+			"physdamagescale" "0.8"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_083"
+			"origin"      "1466 1354 -409"
+			"angles"      "40 -104 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "28 -39 27"
+			"health" "8"
+			"physdamagescale" "0.2"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_084"
+			"origin"      "1417 1323 -414"
+			"angles"      "43 -97 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 -90 0"
+			"health" "9"
+			"physdamagescale" "0.4"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_085"
+			"origin"      "1395 1280 -415"
+			"angles"      "47 -93 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "15 111 20"
+			"health" "32"
+			"physdamagescale" "0.1"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_086"
+			"origin"      "1429 1240 -413"
+			"angles"      "51 -101 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 20 0"
+			"health" "26"
+			"physdamagescale" "0.3"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_087"
+			"origin"      "1457 1284 -411"
+			"angles"      "46 -105 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "2 -131 32"
+			"health" "27"
+			"physdamagescale" "0.8"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_088"
+			"origin"      "1488 1233 -409"
+			"angles"      "49 -114 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 -102 0"
+			"health" "15"
+			"physdamagescale" "0.5"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_089"
+			"origin"      "1516 1266 -408"
+			"angles"      "45 -116 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "35 51 21"
+			"health" "38"
+			"physdamagescale" "0.4"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_090"
+			"origin"      "1484 1305 -408"
+			"angles"      "43 -108 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "9 -83 8"
+			"health" "21"
+			"physdamagescale" "0.1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_091"
+			"origin"      "1519 1330 -407"
+			"angles"      "40 -113 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 44 0"
+			"health" "37"
+			"physdamagescale" "0.6"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_092"
+			"origin"      "1556 1294 -407"
+			"angles"      "42 -121 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "8 -25 28"
+			"health" "16"
+			"physdamagescale" "0.4"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_093"
+			"origin"      "1522 1249 -408"
+			"angles"      "46 -118 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 -26 0"
+			"health" "7"
+			"physdamagescale" "0.7"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_094"
+			"origin"      "1608 1325 -413"
+			"angles"      "38 -124 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "7 9 20"
+			"health" "39"
+			"physdamagescale" "0.7"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_095"
+			"origin"      "1623 1280 -415"
+			"angles"      "40 -130 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 -176 0"
+			"health" "13"
+			"physdamagescale" "0.6"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_096"
+			"origin"      "1563 1246 -408"
+			"angles"      "45 -125 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "34 -53 14"
+			"health" "34"
+			"physdamagescale" "0.6"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_097"
+			"origin"      "1659 1242 -413"
+			"angles"      "40 -137 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 -6 0"
+			"health" "25"
+			"physdamagescale" "0.5"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_098"
+			"origin"      "1642 1209 -411"
+			"angles"      "43 -139 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "37 -163 17"
+			"health" "22"
+			"physdamagescale" "0.6"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_099"
+			"origin"      "1574 1209 -408"
+			"angles"      "47 -131 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 -36 0"
+			"health" "7"
+			"physdamagescale" "0.2"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_100"
+			"origin"      "1491 1212 -410"
+			"angles"      "51 -116 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 78 0"
+			"health" "37"
+			"physdamagescale" "0.7"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_101"
+			"origin"      "1437 1189 -411"
+			"angles"      "56 -106 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "30 23 29"
+			"health" "35"
+			"physdamagescale" "0.6"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_102"
+			"origin"      "1386 1200 -411"
+			"angles"      "56 -92 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 36 0"
+			"health" "27"
+			"physdamagescale" "0.6"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_103"
+			"origin"      "1374 1181 -413"
+			"angles"      "59 -88 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "24 -19 42"
+			"health" "30"
+			"physdamagescale" "0.6"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_104"
+			"origin"      "1341 1194 -414"
+			"angles"      "56 -80 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 -94 0"
+			"health" "16"
+			"physdamagescale" "0.2"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_105"
+			"origin"      "1306 1184 -414"
+			"angles"      "57 -71 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "39 107 9"
+			"health" "7"
+			"physdamagescale" "0.2"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_106"
+			"origin"      "1265 1205 -415"
+			"angles"      "52 -63 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 80 0"
+			"health" "25"
+			"physdamagescale" "0.5"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_107"
+			"origin"      "1237 1186 -414"
+			"angles"      "53 -56 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "35 -79 25"
+			"health" "34"
+			"physdamagescale" "0.3"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_108"
+			"origin"      "1183 1195 -415"
+			"angles"      "48 -48 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 166 0"
+			"health" "36"
+			"physdamagescale" "0.8"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_109"
+			"origin"      "1175 1186 -414"
+			"angles"      "48 -46 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "29 -9 12"
+			"health" "8"
+			"physdamagescale" "0.1"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_110"
+			"origin"      "1368 1619 -415"
+			"angles"      "33 85 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "9 1 17"
+			"health" "22"
+			"physdamagescale" "0.7"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_111"
+			"origin"      "1410 1588 -415"
+			"angles"      "31 92 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 -88 0"
+			"health" "7"
+			"physdamagescale" "0.3"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_112"
+			"origin"      "1974 1286 -543"
+			"angles"      "52 -125 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_112_TODO_SpellCasterFireTrapWontTriggerExplode"
+			"classname" "env_entity_SpellCaster"
+			"combinability" "1"
+			"angles" "0 0 0"
+			"target" "None"
+			"spell" "7"
+			"lifetime" "-1"
+			"power" "1"
+			
+			"origin"      "1974 1286 -533"
+		}
+		"add:entity"
+		{
+			"classname" "trigger_once"
+			"combinability" "1"
+			"trapsecret" "2"
+			"StartDisabled" "0"
+			"spawnflags" "1"
+			"targetname" "gskSpawn_60_OpenGateTrainingRoom_112_ColliderBox_TODO_SolidBoxWontSpawn"
+			"origin" "1974 1286 -543"
+			connections
+			{
+				"OnStartTouch" "gskSpawn_60_OpenGateTrainingRoom_112,CastSpell,,0,-1,1,"
+			}
+			solid
+			{
+				
+				side
+				{
+					"plane" "(1888 1919 -431) (1888 1919 -547) (1816 1919 -547)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[-1 0 0 32.5385] 0.26"
+					"vaxis" "[0 0 -1 26] 0.31"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(1816 1953 -431) (1816 1953 -547) (1888 1953 -547)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[-1 0 0 0] 0.25"
+					"vaxis" "[0 0 -1 -16] 0.25"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(1816 1919 -431) (1816 1919 -547) (1816 1953 -547)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[0 1 0 -24] 0.25"
+					"vaxis" "[0 0 -1 -8] 0.25"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(1888 1953 -431) (1888 1953 -547) (1888 1919 -547)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[0 1 0 -30.2279] 0.26"
+					"vaxis" "[0 0 -1 58.452] 0.31"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(1888 1919 -431) (1816 1919 -431) (1816 1953 -431)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[1 0 0 -40] 1"
+					"vaxis" "[0 -1 0 -10] 1"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(1888 1953 -547) (1816 1953 -547) (1816 1919 -547)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[1 0 0 -40] 1"
+					"vaxis" "[0 -1 0 -2] 1"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				
+			}
+		}
+		
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_60_OpenGateTrainingRoom_112_ColliderBox_TODO_SolidBoxWontSpawn"
+			}
+			"add:solid"
+			{
+				
+				side
+				{
+					"plane" "(1888 1919 -431) (1888 1919 -547) (1816 1919 -547)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[-1 0 0 32.5385] 0.26"
+					"vaxis" "[0 0 -1 26] 0.31"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(1816 1953 -431) (1816 1953 -547) (1888 1953 -547)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[-1 0 0 0] 0.25"
+					"vaxis" "[0 0 -1 -16] 0.25"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(1816 1919 -431) (1816 1919 -547) (1816 1953 -547)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[0 1 0 -24] 0.25"
+					"vaxis" "[0 0 -1 -8] 0.25"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(1888 1953 -431) (1888 1953 -547) (1888 1919 -547)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[0 1 0 -30.2279] 0.26"
+					"vaxis" "[0 0 -1 58.452] 0.31"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(1888 1919 -431) (1816 1919 -431) (1816 1953 -431)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[1 0 0 -40] 1"
+					"vaxis" "[0 -1 0 -10] 1"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				side
+				{
+					"plane" "(1888 1953 -547) (1816 1953 -547) (1816 1919 -547)"
+					"material" "TOOLS/TOOLSTRIGGER"
+					"uaxis" "[1 0 0 -40] 1"
+					"vaxis" "[0 -1 0 -2] 1"
+					"rotation" "0"
+					"lightmapscale" "16"
+					"smoothing_groups" "0"
+				}
+				
+			}
+		}
+		
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_60_OpenGateTrainingRoom_112_ColliderBox_TODO_SolidBoxWontSpawn"
+			}
+			"add:key"
+			{
+				"OnStartTouch" "gskSpawn_60_OpenGateTrainingRoom_112,CastSpell,,0,-1,1,"
+			}
+		}
+		
+		"add:entity"
+		{
+			"combinability" "1"
+			"skin" "0"
+			"disableshadows" "0"
+			"combinetarget1enable" "1"
+			"combinetarget2enable" "1"
+			"combinetarget3enable" "1"
+			"combinetarget4enable" "1"
+			"combinetarget5enable" "1"
+			"PerformanceMode" "0"
+			"pressuredelay" "0"
+			"mindxlevel" "0"
+			"maxdxlevel" "0"
+			"minhealthdmg" "0"
+			"shadowcastdist" "0"
+			"nodamageforces" "0"
+			"inertiaScale" "1.0"
+			"massScale" "0"
+			"damagetoenablemotion" "0"
+			"forcetoenablemotion" "0"
+			"fademindist" "500"
+			"fademaxdist" "700"
+			"fadescale" "1"
+			"combinetarget6enable" "1"
+			"combinetarget7enable" "1"
+			"combinetarget8enable" "1"
+			"combinetarget9enable" "1"
+			"combinetarget10enable" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"targetname" "gskSpawn_60_OpenGateTrainingRoom_112_LandMine"
+			"origin" "1974 1286 -543"
+			"angles" "35 -73 31"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+		}
+		
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_113"
+			"origin"      "1860 1267 33"
+			"angles"      "60 -136 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_necromancer_lord"
+			"model" "models/NPC/Necromancer/Npc_necromancer.mdl"
+			"additionalequipment" "weapon_mm_staff_combat"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_114"
+			"origin"      "1861 362 33"
+			"angles"      "44 133 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_necromancer_lord"
+			"model" "models/NPC/Necromancer/Npc_necromancer.mdl"
+			"additionalequipment" "weapon_mm_staff_combat"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_115"
+			"origin"      "953 367 33"
+			"angles"      "39 29 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_necromancer_lord"
+			"model" "models/NPC/Necromancer/Npc_necromancer.mdl"
+			"additionalequipment" "weapon_mm_staff_combat"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_116"
+			"origin"      "958 1266 33"
+			"angles"      "49 -45 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_necromancer_lord"
+			"model" "models/NPC/Necromancer/Npc_necromancer.mdl"
+			"additionalequipment" "weapon_mm_staff_combat"
+			"spawnflags"  "271"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"1628039"
+			}
+			"add:key"
+			{
+				"OnCompletion" "gskSpawn_60_OpenGateTrainingRoom_BeginAt000,ForceSpawn,,0,1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_60_OpenGateTrainingRoom_BeginAt000"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_60_OpenGateTrainingRoom_BeginAt000"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_60_OpenGateTrainingRoom_000"
+
+				"Template02" "gskSpawn_60_OpenGateTrainingRoom_001"
+
+				"Template03" "gskSpawn_60_OpenGateTrainingRoom_002"
+
+				"Template04" "gskSpawn_60_OpenGateTrainingRoom_003"
+
+				"Template05" "gskSpawn_60_OpenGateTrainingRoom_004"
+
+				"Template06" "gskSpawn_60_OpenGateTrainingRoom_005"
+
+				"Template07" "gskSpawn_60_OpenGateTrainingRoom_006"
+
+				"Template08" "gskSpawn_60_OpenGateTrainingRoom_007"
+
+				"Template09" "gskSpawn_60_OpenGateTrainingRoom_008"
+
+				"Template10" "gskSpawn_60_OpenGateTrainingRoom_009"
+
+				"Template11" "gskSpawn_60_OpenGateTrainingRoom_010"
+
+				"Template12" "gskSpawn_60_OpenGateTrainingRoom_011"
+
+				"Template13" "gskSpawn_60_OpenGateTrainingRoom_012"
+
+				"Template14" "gskSpawn_60_OpenGateTrainingRoom_013"
+
+				"Template15" "gskSpawn_60_OpenGateTrainingRoom_014"
+
+				"Template16" "gskSpawn_60_OpenGateTrainingRoom_015"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"1628039"
+			}
+			"add:key"
+			{
+				"OnCompletion" "gskSpawn_60_OpenGateTrainingRoom_BeginAt016,ForceSpawn,,0,1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_60_OpenGateTrainingRoom_BeginAt016"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_60_OpenGateTrainingRoom_BeginAt016"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_60_OpenGateTrainingRoom_016"
+
+				"Template02" "gskSpawn_60_OpenGateTrainingRoom_017"
+
+				"Template03" "gskSpawn_60_OpenGateTrainingRoom_018"
+
+				"Template04" "gskSpawn_60_OpenGateTrainingRoom_019"
+
+				"Template05" "gskSpawn_60_OpenGateTrainingRoom_020"
+
+				"Template06" "gskSpawn_60_OpenGateTrainingRoom_021"
+
+				"Template07" "gskSpawn_60_OpenGateTrainingRoom_022"
+
+				"Template08" "gskSpawn_60_OpenGateTrainingRoom_023"
+
+				"Template09" "gskSpawn_60_OpenGateTrainingRoom_024"
+
+				"Template10" "gskSpawn_60_OpenGateTrainingRoom_025"
+
+				"Template11" "gskSpawn_60_OpenGateTrainingRoom_026"
+
+				"Template12" "gskSpawn_60_OpenGateTrainingRoom_027"
+
+				"Template13" "gskSpawn_60_OpenGateTrainingRoom_028"
+
+				"Template14" "gskSpawn_60_OpenGateTrainingRoom_029"
+
+				"Template15" "gskSpawn_60_OpenGateTrainingRoom_030"
+
+				"Template16" "gskSpawn_60_OpenGateTrainingRoom_031"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"1628039"
+			}
+			"add:key"
+			{
+				"OnCompletion" "gskSpawn_60_OpenGateTrainingRoom_BeginAt032,ForceSpawn,,0,1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_60_OpenGateTrainingRoom_BeginAt032"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_60_OpenGateTrainingRoom_BeginAt032"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_60_OpenGateTrainingRoom_032"
+
+				"Template02" "gskSpawn_60_OpenGateTrainingRoom_033"
+
+				"Template03" "gskSpawn_60_OpenGateTrainingRoom_034"
+
+				"Template04" "gskSpawn_60_OpenGateTrainingRoom_035"
+
+				"Template05" "gskSpawn_60_OpenGateTrainingRoom_036"
+
+				"Template06" "gskSpawn_60_OpenGateTrainingRoom_037"
+
+				"Template07" "gskSpawn_60_OpenGateTrainingRoom_038"
+
+				"Template08" "gskSpawn_60_OpenGateTrainingRoom_039"
+
+				"Template09" "gskSpawn_60_OpenGateTrainingRoom_040"
+
+				"Template10" "gskSpawn_60_OpenGateTrainingRoom_041"
+
+				"Template11" "gskSpawn_60_OpenGateTrainingRoom_042"
+
+				"Template12" "gskSpawn_60_OpenGateTrainingRoom_043"
+
+				"Template13" "gskSpawn_60_OpenGateTrainingRoom_044"
+
+				"Template14" "gskSpawn_60_OpenGateTrainingRoom_045"
+
+				"Template15" "gskSpawn_60_OpenGateTrainingRoom_046"
+
+				"Template16" "gskSpawn_60_OpenGateTrainingRoom_047"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"1628039"
+			}
+			"add:key"
+			{
+				"OnCompletion" "gskSpawn_60_OpenGateTrainingRoom_BeginAt048,ForceSpawn,,0,1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_60_OpenGateTrainingRoom_BeginAt048"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_60_OpenGateTrainingRoom_BeginAt048"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_60_OpenGateTrainingRoom_048"
+
+				"Template02" "gskSpawn_60_OpenGateTrainingRoom_049"
+
+				"Template03" "gskSpawn_60_OpenGateTrainingRoom_050"
+
+				"Template04" "gskSpawn_60_OpenGateTrainingRoom_051"
+
+				"Template05" "gskSpawn_60_OpenGateTrainingRoom_052"
+
+				"Template06" "gskSpawn_60_OpenGateTrainingRoom_053"
+
+				"Template07" "gskSpawn_60_OpenGateTrainingRoom_054"
+
+				"Template08" "gskSpawn_60_OpenGateTrainingRoom_055"
+
+				"Template09" "gskSpawn_60_OpenGateTrainingRoom_056"
+
+				"Template10" "gskSpawn_60_OpenGateTrainingRoom_057"
+
+				"Template11" "gskSpawn_60_OpenGateTrainingRoom_058"
+
+				"Template12" "gskSpawn_60_OpenGateTrainingRoom_059"
+
+				"Template13" "gskSpawn_60_OpenGateTrainingRoom_060"
+
+				"Template14" "gskSpawn_60_OpenGateTrainingRoom_061"
+
+				"Template15" "gskSpawn_60_OpenGateTrainingRoom_062"
+
+				"Template16" "gskSpawn_60_OpenGateTrainingRoom_063"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"1628039"
+			}
+			"add:key"
+			{
+				"OnCompletion" "gskSpawn_60_OpenGateTrainingRoom_BeginAt064,ForceSpawn,,0,1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_60_OpenGateTrainingRoom_BeginAt064"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_60_OpenGateTrainingRoom_BeginAt064"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_60_OpenGateTrainingRoom_064"
+
+				"Template02" "gskSpawn_60_OpenGateTrainingRoom_065"
+
+				"Template03" "gskSpawn_60_OpenGateTrainingRoom_066"
+
+				"Template04" "gskSpawn_60_OpenGateTrainingRoom_067"
+
+				"Template05" "gskSpawn_60_OpenGateTrainingRoom_068"
+
+				"Template06" "gskSpawn_60_OpenGateTrainingRoom_069"
+
+				"Template07" "gskSpawn_60_OpenGateTrainingRoom_070"
+
+				"Template08" "gskSpawn_60_OpenGateTrainingRoom_071"
+
+				"Template09" "gskSpawn_60_OpenGateTrainingRoom_072"
+
+				"Template10" "gskSpawn_60_OpenGateTrainingRoom_073"
+
+				"Template11" "gskSpawn_60_OpenGateTrainingRoom_074"
+
+				"Template12" "gskSpawn_60_OpenGateTrainingRoom_075"
+
+				"Template13" "gskSpawn_60_OpenGateTrainingRoom_076"
+
+				"Template14" "gskSpawn_60_OpenGateTrainingRoom_077"
+
+				"Template15" "gskSpawn_60_OpenGateTrainingRoom_078"
+
+				"Template16" "gskSpawn_60_OpenGateTrainingRoom_079"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"1628039"
+			}
+			"add:key"
+			{
+				"OnCompletion" "gskSpawn_60_OpenGateTrainingRoom_BeginAt080,ForceSpawn,,0,1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_60_OpenGateTrainingRoom_BeginAt080"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_60_OpenGateTrainingRoom_BeginAt080"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_60_OpenGateTrainingRoom_080"
+
+				"Template02" "gskSpawn_60_OpenGateTrainingRoom_081"
+
+				"Template03" "gskSpawn_60_OpenGateTrainingRoom_082"
+
+				"Template04" "gskSpawn_60_OpenGateTrainingRoom_083"
+
+				"Template05" "gskSpawn_60_OpenGateTrainingRoom_084"
+
+				"Template06" "gskSpawn_60_OpenGateTrainingRoom_085"
+
+				"Template07" "gskSpawn_60_OpenGateTrainingRoom_086"
+
+				"Template08" "gskSpawn_60_OpenGateTrainingRoom_087"
+
+				"Template09" "gskSpawn_60_OpenGateTrainingRoom_088"
+
+				"Template10" "gskSpawn_60_OpenGateTrainingRoom_089"
+
+				"Template11" "gskSpawn_60_OpenGateTrainingRoom_090"
+
+				"Template12" "gskSpawn_60_OpenGateTrainingRoom_091"
+
+				"Template13" "gskSpawn_60_OpenGateTrainingRoom_092"
+
+				"Template14" "gskSpawn_60_OpenGateTrainingRoom_093"
+
+				"Template15" "gskSpawn_60_OpenGateTrainingRoom_094"
+
+				"Template16" "gskSpawn_60_OpenGateTrainingRoom_095"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"1628039"
+			}
+			"add:key"
+			{
+				"OnCompletion" "gskSpawn_60_OpenGateTrainingRoom_BeginAt096,ForceSpawn,,0,1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_60_OpenGateTrainingRoom_BeginAt096"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_60_OpenGateTrainingRoom_BeginAt096"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_60_OpenGateTrainingRoom_096"
+
+				"Template02" "gskSpawn_60_OpenGateTrainingRoom_097"
+
+				"Template03" "gskSpawn_60_OpenGateTrainingRoom_098"
+
+				"Template04" "gskSpawn_60_OpenGateTrainingRoom_099"
+
+				"Template05" "gskSpawn_60_OpenGateTrainingRoom_100"
+
+				"Template06" "gskSpawn_60_OpenGateTrainingRoom_101"
+
+				"Template07" "gskSpawn_60_OpenGateTrainingRoom_102"
+
+				"Template08" "gskSpawn_60_OpenGateTrainingRoom_103"
+
+				"Template09" "gskSpawn_60_OpenGateTrainingRoom_104"
+
+				"Template10" "gskSpawn_60_OpenGateTrainingRoom_105"
+
+				"Template11" "gskSpawn_60_OpenGateTrainingRoom_106"
+
+				"Template12" "gskSpawn_60_OpenGateTrainingRoom_107"
+
+				"Template13" "gskSpawn_60_OpenGateTrainingRoom_108"
+
+				"Template14" "gskSpawn_60_OpenGateTrainingRoom_109"
+
+				"Template15" "gskSpawn_60_OpenGateTrainingRoom_110"
+
+				"Template16" "gskSpawn_60_OpenGateTrainingRoom_111"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"1628039"
+			}
+			"add:key"
+			{
+				"OnCompletion" "gskSpawn_60_OpenGateTrainingRoom_BeginAt112,ForceSpawn,,0,1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_60_OpenGateTrainingRoom_BeginAt112"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_60_OpenGateTrainingRoom_BeginAt112"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_60_OpenGateTrainingRoom_112"
+
+				"Template02" "gskSpawn_60_OpenGateTrainingRoom_113"
+
+				"Template03" "gskSpawn_60_OpenGateTrainingRoom_114"
+
+				"Template04" "gskSpawn_60_OpenGateTrainingRoom_115"
+
+				"Template05" "gskSpawn_60_OpenGateTrainingRoom_116"
+
+			}
+		}
+
+	}
+}
+
