@@ -1112,11 +1112,22 @@ if $bCreateSpawnsForCurrentMap;then
 	
 	strFlExtractToSector=""
 	if [[ "${lstrExtractSectorName}" ]];then
-		strFlExtractToSector="${strMapCfgFile}.Extract-${lstrExtractSectorName}.like_condump_CLEAN.txt"
+		strFlExtractToSector="${strMapCfgFile%.cfg}-${lstrExtractSectorName}.cfg.condump_CLEAN.txt"
+		if [[ -f "$strFlExtractToSector" ]];then
+			ls -l "$strFlExtractToSector"
+			if ! FUNCaskYesNo "file already exists, continue?";then
+				exit 0
+			fi
+		fi
+		# but the remaining is not necessarily useful considering the 3D region determines the contents, so the original huge file suffices to extract all needed for that region!!!
+		strFlExtractRemaining="${strMapCfgFile%.cfg}-ExtractRemaining.cfg.condump_CLEAN.txt"
+		cp -v "${strFlExtractRemaining}" "${strFlExtractRemaining}.$(FUNCdtFlNm).bkp"&&:
 		
-		#trunc
-		echo -n >"${strFlExtractToSector}"
-		echo -n >"${strFlExtractToSector}.REMAINING.txt"
+		#trunc/init
+		echo "$FUNCmapInfo_strMapStatus" >"${strFlExtractToSector}"
+		echo "$FUNCmapInfo_strMapStatus" >>"${strFlExtractToSector}"
+		echo "$FUNCmapInfo_strMapStatus" >"${strFlExtractRemaining}"
+		echo "$FUNCmapInfo_strMapStatus" >>"${strFlExtractRemaining}"
 		
 		declare -gA aExtractXYZfrom="$(FUNCxyzArray --integer "$lstrExtractSectorFromXYZ")"
 		declare -gA aExtractXYZto="$(  FUNCxyzArray --integer "$lstrExtractSectorToXYZ")"
@@ -1177,11 +1188,11 @@ if $bCreateSpawnsForCurrentMap;then
 		local j
 		if FUNCisInsideExtractSector;then
 			for((j=0;j<iTotEntryDataLines;j++));do
-				echo "${astrAllLines[$((iLnDataIni+j))]}" >>"$strFlExtractToSector"
+				echo "${astrAllLines[$((iLnDataIni+j))]}" >>"${strFlExtractToSector}"
 			done
 		else
 			for((j=0;j<iTotEntryDataLines;j++));do
-				echo "${astrAllLines[$((iLnDataIni+j))]}" >>"${strFlExtractToSector}.REMAINING.txt"
+				echo "${astrAllLines[$((iLnDataIni+j))]}" >>"${strFlExtractRemaining}"
 			done
 		fi
 	}
