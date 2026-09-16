@@ -286,6 +286,13 @@ while [[ $# -gt 0 && "${1:0:1}" == "-" ]];do
 	elif [[ "${1}" == "-s" ]];then #help <lstrUseThisSector> same as -c but you can prepare a smaller SECTOR area in that map with loads of foes to not encumber the engine, ex.: "02_FrontYard_OK" for gskmap_l02_b1-02_FrontYard_OK.cfg
 		shift;lstrUseThisSector="${1}"
 		bCreateSpawnsForCurrentMap=true
+	elif [[ "${1}" == "--extractSector" ]];then #help TODO <lstrFromXYZ> <lstrToXYZ> <lstrUseThisSector> XYZ is comma separated 3D positions you can get thru console 'getpos' to determine a box where all spawn requests will be detected
+		shift;lstrFromXYZ="${1}"
+		shift;lstrToXYZ="${1}"
+		shift;lstrUseThisSector="${1}"
+		bCreateSpawnsForCurrentMap=true
+		echo "TODO not implemented yet. Goal is to go thru all spawn requests and filter in (generate output) only the ones inside that 3D box, while creating a new file for the new sector and remove the items from existing file. So it will split the original into 2 smaller files."
+		exit 1
 	elif [[ "${1}" == "--redoall" ]];then #help mainly to be used after patching this script
 		bRedoAll=true
 	elif [[ "${1}" == "--clean" ]];then #help clean temp files
@@ -949,7 +956,7 @@ function FUNCmapadds() {
 			"power" "1"
 			' >>"$lstrFlAddTmp"
 			lstrAddEntityExtra+="$(FUNCprepareFireTrapBoxCollider "$lstrTargetName")" #TODO this fails tho...
-			lstrAddEntityExtra="$(FUNCprepareFireTrap "$lstrTargetName")" #This works!!!
+			lstrAddEntityExtra+="$(FUNCprepareFireTrap "$lstrTargetName")" #This works!!!
 			;;
 		"gskSummonDevSkeletonPart")
 			local lstrSkelPartModel=""
@@ -992,6 +999,24 @@ function FUNCmapadds() {
 			# keep last as override!
 			if((lnRandomSkelPart%10 < 5));then # theoretically half would explode (see FUNCprepareFireTrap too) but crc32 will make it actually happen randomly!
 				FUNCexplosionData >>"$lstrFlAddTmp"
+				#if [[ "$lstrSkelPartModel" == "models/props/debris/skeleton/cr_skel_thorax.mdl" ]];then
+					## OnDamagedByPlayer OnDamaged
+					#lstrAddEntityExtra+="$(FUNCprepareFireTrapBoxCollider "${lstrTargetName}_CastSpell")" #TODO this fails tho...
+					#lstrAddEntityExtra+=
+		#'
+		#"modify:entity"
+		#{
+			#"TargetMarkers"
+			#{
+				#"targetname"	"'"${lstrTargetName}"'"
+			#}
+			#"add:key"
+			#{
+				#"OnBreak" "'"${lstrFireTrapTriggeredName}"',CastSpell,,0,-1,1,"
+			#}
+		#}
+		#'
+				#fi
 			fi
 			
 			((nSkeletonPartCount++))&&:
