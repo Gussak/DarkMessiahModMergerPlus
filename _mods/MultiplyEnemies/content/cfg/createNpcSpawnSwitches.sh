@@ -310,16 +310,66 @@ if [[ -n "$lstrUseThisSector" ]] && [[ "$lstrUseThisSector" =~ .*[.].* ]];then
 	FUNCexit 1 "invalid sector, put no dots on it: '$lstrUseThisSector'"
 fi
 
+: ${nCPUCores:="$(grep "core id" /proc/cpuinfo |wc -l)"} #help
+: ${nRedoAllMultiThread:=$((nCPUCores-1))} #help set to 1 to disable multithread. tot -1 to try avoid sys hang/freeze
+if((nRedoAllMultiThread>nCPUCores));then nRedoAllMultiThread=$nCPUCores;fi
+declare -p nCPUCores nRedoAllMultiThread
+
 if $bRedoAll;then
-	mapfile -t astrRedoAll < <(ls -1 gskmap*.cfg |egrep -vi "SKIP" |sed -r -e 's@gskmap_(.*)[.]cfg@\1@g')
+	mapfile -t astrRedoAll < <(ls -1 gskmap_*.cfg.condump_CLEAN.txt |egrep -vi "SKIP") # |sed -r -e 's@gskmap_(.*)[.]cfg@\1@g')
 	declare -p astrRedoAll |tr '[' '\n'
-	for strRedo in "${astrRedoAll[@]}";do
+	
+	: ${bRedoDryRun:=false} #help
+	
+	strMTBN="GSK_MoreFoes_MT_"
+	FUNCwaitMtEnd() {
+		local lTot="${1}";shift
+		local liWaitAmount="${1}";shift
+		local liLastIndex="${1}";shift
+		while true;do
+			nCurrentMT=$(pgrep -fa "xterm -title ${strMTBN}" |wc -l)&&:
+			if(( nCurrentMT < liWaitAmount ));then break;fi
+			echo -ne "Wait Count($liLastIndex/$lTot) MT($nCurrentMT/${liWaitAmount})\r"
+			read -n 1 -t 1&&:;
+		done
+	}
+	iMTindex=1
+	
+	for strFlRedo in "${astrRedoAll[@]}";do
 		echo
-		echo "=============== $strRedo ==============="
-		echo "=============== $strRedo ==============="
-		echo "=============== $strRedo ==============="
-		bRefreshMount=false "$0" -M "$strRedo"
+		echo "=============== $strFlRedo ==============="
+		echo "=============== $strFlRedo ==============="
+		echo "=============== $strFlRedo ==============="
+		
+		strFlCfg="${strFlRedo%.condump_CLEAN.txt}"
+		strMapRegex="gskmap_(.*)[-](.*)[.]cfg"
+		strMapNm="$(    echo "$strFlCfg" |sed -r -e "s@${strMapRegex}@\1@g")"
+		strMapSector="$(echo "$strFlCfg" |sed -r -e "s@${strMapRegex}@\2@g")"
+		strFlMapAdds="../mapadds/${strMapNm}/${strFlCfg}.MapAdds.txt"
+		ls -l --time-style=full-iso "$strFlCfg" "$strFlMapAdds" "$strFlRedo"&&:
+		
+		nSpawnCount="$(egrep "gskSpawnHint" "$strFlRedo" -c)"
+		#nSpawnMapAdds="$(egrep '"targetname".*"gskSpawn.*' "$strFlMapAdds" |egrep -v "TODO" -c)"&&:
+		nSpawnMapAdds="$(egrep 'gskSpawn[^",]*' "$strFlMapAdds" -o |egrep -v "_BeginAt|TODO" |sort -u |wc -l)"
+		
+		declare -p strFlCfg strMapNm strFlMapAdds strFlRedo nSpawnCount nSpawnMapAdds
+		
+		if $bRedoDryRun;then continue;fi
+		
+		if [[ ! -f "$strFlMapAdds" ]] || [[ "$strFlRedo" -nt "$strFlMapAdds" ]] || ((nSpawnCount!=nSpawnMapAdds));then
+			if((nRedoAllMultiThread>1));then
+				FUNCwaitMtEnd "${#astrRedoAll[@]}" $nRedoAllMultiThread $iMTindex
+				(launchappminimized --fast xterm -title "${strMTBN}${iMTindex}_${strMapNm}-${strMapSector}" -e bash -c "bRefreshMount=false '$0' -M '${strFlCfg}'; read -n 1 -t 3 -p ExitIn3s" & disown)
+				((iMTindex++))&&:
+			else
+				echo "see nRedoAllMultiThread help"
+				bRefreshMount=false "$0" -M "${strFlCfg}"
+			fi
+		else
+			echo "[INFO] To force recreate, remove '$strFlMapAdds'"
+		fi
 	done
+	FUNCwaitMtEnd "${#astrRedoAll[@]}" 1 $iMTindex
 	FUNCrefreshMount
 	exit
 fi
@@ -538,7 +588,7 @@ function FUNCprepareFireTrap() { #this works but you have to kick the oil jar
 			
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"targetname" "'"${lstrFireTrapTriggeredName}_LandMine"'"
+			"targetname" "'"${lstrFireTrapTriggeredName}"'"
 			"origin" "'"${anTargetPosXYZ[x]} ${anTargetPosXYZ[y]} ${anTargetPosXYZ[z]}"'"
 			"angles" "'"$((RANDOM%45))"' '"$(( (RANDOM%360) - 180))"' '"$((RANDOM%45))"'"
 			'"$(FUNCexplosionData)"'
@@ -944,8 +994,10 @@ function FUNCmapadds() {
 			"fadescale" "1"
 			' >>"$lstrFlAddTmp"
 			;;
-		"gskSummonDevFireTrap")
+		"gskSummonDevFireTrapSC") # SpellCaster # is messed...
+			lstrIgnore="MessedColliderBoxWontSpawn"
 			lnHeightDisplacement=10
+			# this is the spell caster firetrap
 			echo '
 			"targetname"  "'"${lstrTargetName}_TODO_SpellCasterFireTrapWontTriggerExplode"'"
 			"classname" "env_entity_SpellCaster"
@@ -956,8 +1008,22 @@ function FUNCmapadds() {
 			"lifetime" "-1"
 			"power" "1"
 			' >>"$lstrFlAddTmp"
+			# but the box collider wont spawn...
 			lstrAddEntityExtra+="$(FUNCprepareFireTrapBoxCollider "$lstrTargetName")" #TODO this fails tho...
-			lstrAddEntityExtra+="$(FUNCprepareFireTrap "$lstrTargetName")" #This works!!!
+			lstrAddEntityExtra+="$(FUNCprepareFireTrap "$lstrTargetName")" #This works!!! but see below, is the same of gskSummonDevFireTrap
+			;;
+		"gskSummonDevFireTrap")
+			lnHeightDisplacement=10
+			echo '
+			"inertiaScale" "1.0"
+			"fademindist" "500"
+			"fademaxdist" "700"
+			"fadescale" "1"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "'"$((RANDOM%45))"' '"$(( (RANDOM%360) - 180))"' '"$((RANDOM%45))"'"
+			'"$(FUNCexplosionData)"'
+			' >>"$lstrFlAddTmp"
 			;;
 		"gskSummonDevSkeletonPart")
 			local lstrSkelPartModel=""
@@ -1474,7 +1540,9 @@ if $bCreateSpawnsForCurrentMap;then
 		FUNCwait10s "There are not supported spawnings or other TODOs at mapadds file."
 	fi
 	
+	touch -r "$strFlCondumpClean" "$strFlCondumpCleanNew"
 	cat "$strFlCondumpCleanNew" |sed -r -e 's@([^ \t]*)\s*$@\1@g' >"$strFlCondumpClean" #after all went well, also trim trailing spaces
+	touch -r "$strFlCondumpCleanNew" "$strFlCondumpClean"
 	ls -l "$strMapCfgFile"
 else # create spawner aliases
 	strAliasMode=""
