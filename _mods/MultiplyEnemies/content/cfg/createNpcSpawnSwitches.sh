@@ -1142,15 +1142,34 @@ if $bCreateSpawnsForCurrentMap;then
 		#echo "$strMapMessages" >>"$strFlCondumpCleanNew"
 	#fi
 	
-	FUNCisInsideExtractSector() {
-		if((anTargetPosXYZi[x] > aExtractXYZfrom[x])) && ((anTargetPosXYZi[x] < aExtractXYZto[x]));then
-			if((anTargetPosXYZi[y] > aExtractXYZfrom[y])) && ((anTargetPosXYZi[y] < aExtractXYZto[y]));then
-				if((anTargetPosXYZi[z] > aExtractXYZfrom[z])) && ((anTargetPosXYZi[z] < aExtractXYZto[z]));then
-					return 0
-				fi
+	FUNCisInsideLine() { # <lFrom> <lTo> <lChk>
+		local lFrom="$1";shift
+		local lTo="$1";shift
+		local lChk="$1";shift
+		if((lFrom < lTo));then
+			if((lChk > lFrom && lChk < lTo));then
+				return 0
+			fi
+		else
+			if((lChk > lTo && lChk < lFrom));then
+				return 0
 			fi
 		fi
 		return 1
+	}
+	FUNCisInsideExtractSector() {
+		if ! FUNCisInsideLine "${aExtractXYZfrom[x]}" "${aExtractXYZto[x]}" "${anTargetPosXYZi[x]}";then return 1;fi
+		if ! FUNCisInsideLine "${aExtractXYZfrom[y]}" "${aExtractXYZto[y]}" "${anTargetPosXYZi[y]}";then return 1;fi
+		if ! FUNCisInsideLine "${aExtractXYZfrom[z]}" "${aExtractXYZto[z]}" "${anTargetPosXYZi[z]}";then return 1;fi
+		return 0
+		#if((anTargetPosXYZi[x] > aExtractXYZfrom[x])) && ((anTargetPosXYZi[x] < aExtractXYZto[x]));then
+			#if((anTargetPosXYZi[y] > aExtractXYZfrom[y])) && ((anTargetPosXYZi[y] < aExtractXYZto[y]));then
+				#if((anTargetPosXYZi[z] > aExtractXYZfrom[z])) && ((anTargetPosXYZi[z] < aExtractXYZto[z]));then
+					#return 0
+				#fi
+			#fi
+		#fi
+		#return 1
 	}
 	FUNCprepareCleanDataExtractSector() {
 		if [[ -z "$strFlExtractToSector" ]];then return 0;fi
