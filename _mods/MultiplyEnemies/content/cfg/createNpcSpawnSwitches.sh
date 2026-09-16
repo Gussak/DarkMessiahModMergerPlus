@@ -263,6 +263,7 @@ bCreateSpawnsForCurrentMap=false
 astrAllParams=("$@")
 lstrUseThisMap=""
 bRedoAll=false
+lstrExtractSectorName=""
 while [[ $# -gt 0 && "${1:0:1}" == "-" ]];do
 	#if [[ "${1}" == "-d" ]];then #help update condump backup file using latest condump
 		#bUpdateCondumpBkp=true
@@ -286,13 +287,12 @@ while [[ $# -gt 0 && "${1:0:1}" == "-" ]];do
 	elif [[ "${1}" == "-s" ]];then #help <lstrUseThisSector> same as -c but you can prepare a smaller SECTOR area in that map with loads of foes to not encumber the engine, ex.: "02_FrontYard_OK" for gskmap_l02_b1-02_FrontYard_OK.cfg
 		shift;lstrUseThisSector="${1}"
 		bCreateSpawnsForCurrentMap=true
-	elif [[ "${1}" == "--extractSector" ]];then #help TODO <lstrFromXYZ> <lstrToXYZ> <lstrUseThisSector> XYZ is comma separated 3D positions you can get thru console 'getpos' to determine a box where all spawn requests will be detected
-		shift;lstrFromXYZ="${1}"
-		shift;lstrToXYZ="${1}"
-		shift;lstrUseThisSector="${1}"
+	elif [[ "${1}" == "--extractSector" ]];then #help TODO <lstrExtractSectorFromXYZ> <lstrExtractSectorToXYZ> <lstrExtractSectorName> XYZ is comma separated 3D positions you can get thru console 'getpos' to determine a box where all spawn requests will be detected
+		shift;lstrExtractSectorFromXYZ="${1}"
+		shift;lstrExtractSectorToXYZ="${1}"
+		shift;lstrExtractSectorName="${1}"
 		bCreateSpawnsForCurrentMap=true
-		echo "TODO not implemented yet. Goal is to go thru all spawn requests and filter in (generate output) only the ones inside that 3D box, while creating a new file for the new sector and remove the items from existing file. So it will split the original into 2 smaller files."
-		exit 1
+		#echo "TODO not implemented yet. Goal is to go thru all spawn requests and filter in (generate output) only the ones inside that 3D box, while creating a new file for the new sector, and a new file for the remaining"
 	elif [[ "${1}" == "--redoall" ]];then #help mainly to be used after patching this script
 		bRedoAll=true
 	elif [[ "${1}" == "--clean" ]];then #help clean temp files
@@ -1110,6 +1110,22 @@ if $bCreateSpawnsForCurrentMap;then
 	{	
 ' >>"$strFlMapadds"
 	
+	strFlExtractToSector=""
+	if [[ "${lstrExtractSectorName}" ]];then
+		strFlExtractToSector="${strMapCfgFile}.Extract-${lstrExtractSectorName}.like_condump_CLEAN.txt"
+		
+		#trunc
+		echo -n >"${strFlExtractToSector}"
+		echo -n >"${strFlExtractToSector}.REMAINING.txt"
+		
+		declare -gA aExtractXYZfrom="$(FUNCxyzArray --integer "$lstrExtractSectorFromXYZ")"
+		declare -gA aExtractXYZto="$(  FUNCxyzArray --integer "$lstrExtractSectorToXYZ")"
+		#echo "gskMapMessage RegionExtractedFrom ${aExtractXYZfrom[@]@K}" >>"$strFlExtractToSector"
+		#echo "gskMapMessage RegionExtractedTo   ${aExtractXYZto[@]@K}"   >>"$strFlExtractToSector"
+		echo "gskMapMessage RegionExtractedFromVector3D ${aExtractXYZfrom[x]} ${aExtractXYZfrom[y]} ${aExtractXYZfrom[z]}" >>"$strFlExtractToSector"
+		echo "gskMapMessage RegionExtractedToVector3D ${aExtractXYZto[x]} ${aExtractXYZto[y]} ${aExtractXYZto[z]}"       >>"$strFlExtractToSector"
+	fi
+	
 	# clean condump file is good for git
 	strFlCondumpCleanNew="${strMapCfgFile}.condump_CLEAN.txt.NEW.txt"
 	strFlCondumpClean="${strMapCfgFile}.condump_CLEAN.txt"
@@ -1125,6 +1141,31 @@ if $bCreateSpawnsForCurrentMap;then
 		echo "$FUNCmapInfo_strMapStatus" >>"$strFlCondumpCleanNew"
 		#echo "$strMapMessages" >>"$strFlCondumpCleanNew"
 	#fi
+	
+	FUNCisInsideExtractSector() {
+		if((anTargetPosXYZi[x] > aExtractXYZfrom[x])) && ((anTargetPosXYZi[x] < aExtractXYZto[x]));then
+			if((anTargetPosXYZi[y] > aExtractXYZfrom[y])) && ((anTargetPosXYZi[y] < aExtractXYZto[y]));then
+				if((anTargetPosXYZi[z] > aExtractXYZfrom[z])) && ((anTargetPosXYZi[z] < aExtractXYZto[z]));then
+					return 0
+				fi
+			fi
+		fi
+		return 1
+	}
+	FUNCprepareCleanDataExtractSector() {
+		if [[ -z "$strFlExtractToSector" ]];then return 0;fi
+		
+		local j
+		if FUNCisInsideExtractSector;then
+			for((j=0;j<iTotEntryDataLines;j++));do
+				echo "${astrAllLines[$((iLnDataIni+j))]}" >>"$strFlExtractToSector"
+			done
+		else
+			for((j=0;j<iTotEntryDataLines;j++));do
+				echo "${astrAllLines[$((iLnDataIni+j))]}" >>"${strFlExtractToSector}.REMAINING.txt"
+			done
+		fi
+	}
 	FUNCprepareCleanDataOriginBkp() {
 		#if $bUsingCleanCondump;then return 0;fi
 		local j
@@ -1135,7 +1176,7 @@ if $bCreateSpawnsForCurrentMap;then
 				lstrExtra="  // ( $((iSpawnCount+1))/${nTotSpawns} )";
 			fi
 			lstrLine="$(echo "${lstrLine}" |sed -r -e 's@(.*gskSpawnHint[^ ]*).*@\1@g')"
-			echo "${lstrLine} ${lstrExtra}" >>"$strFlCondumpCleanNew"
+			echo "${lstrLine}${lstrExtra}" >>"$strFlCondumpCleanNew"
 		done
 	}
 	#bUsingCleanCondump=false;if [[ "$strFlCondump" == "$strFlCondumpClean" ]];then bUsingCleanCondump=true;fi
@@ -1344,6 +1385,9 @@ if $bCreateSpawnsForCurrentMap;then
 				declare -gA anTargetPosXYZ="$(FUNCxyzArray "$(echo "$strTargetPos" |sed -r -e 's@.*prop at (.*) missing modelname.*@\1@g')")"
 				declare -gA anTargetAngXYZ="$(FUNCxyzArray --integer "$(echo "$strSelfPosAngleCmd" |tr -d '\r' |sed -r -e 's@.*setang (.*)@\1@g')")"
 				FUNCmapadds "$strSpawnCommand"
+				
+				declare -gA anTargetPosXYZi="$(FUNCxyzArray --integer "$(echo "$strTargetPos" |sed -r -e 's@.*prop at (.*) missing modelname.*@\1@g')")"
+				FUNCprepareCleanDataExtractSector
 			fi
 			
 			echo "${strCountShow}/${nTotSpawns}: $strSpawnCommand" #progress
