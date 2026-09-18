@@ -6,133 +6,153 @@
 
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_71_TrapsFinalSector_000"  //gskSummonDevTrapMiniSpidCYL200
-			"origin"      "1405 1711 -76"
-			"angles"      "-83 87 0"
-			"spawnflags"  "7"
+			"targetname"  "gskSpawn_71_TrapsFinalSector_000"  //gskSummonDevTrapMiniSpiderFly
+			"origin"      "1409 1760 -412"
+			"angles"      "49 -86 -0"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"classname" "npc_spider_mini" // if they fall from too high, they just die
+			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
+			"physdamagescale" "0.1" //useless?
+			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
-			"origin"      "1405 1711 -276"
+			"spawnflags"  "6"
+			"origin"      "1409 1760 -162"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_71_TrapsFinalSector_001"  //gskSummonDevTrapMiniSpidCYL200
-			"origin"      "1405 1699 -76"
-			"angles"      "-81 87 0"
-			"spawnflags"  "7"
+			"targetname"  "gskSpawn_71_TrapsFinalSector_001"  //gskSummonDevTrapMiniSpiderFly
+			"origin"      "1423 1761 -412"
+			"angles"      "49 -91 -0"
+			"spawnflags"  "6"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"classname" "npc_spider_mini" // if they fall from too high, they just die
+			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
+			"physdamagescale" "0.1" //useless?
+			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
-			"origin"      "1405 1699 -276"
+			"spawnflags"  "6"
+			"origin"      "1423 1761 -162"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_71_TrapsFinalSector_002"  //gskSummonDevTrapMiniSpidCYL200
-			"origin"      "1404 1682 -76"
-			"angles"      "-77 88 0"
-			"spawnflags"  "7"
+			"targetname"  "gskSpawn_71_TrapsFinalSector_002"  //gskSummonDevTrapMiniSpiderFly
+			"origin"      "1412 1744 -411"
+			"angles"      "52 -87 -0"
+			"spawnflags"  "6"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"classname" "npc_spider_mini" // if they fall from too high, they just die
+			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
+			"physdamagescale" "0.1" //useless?
+			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
-			"origin"      "1404 1682 -276"
+			"spawnflags"  "6"
+			"origin"      "1412 1744 -161"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_71_TrapsFinalSector_003"  //gskSummonDevTrapMiniSpidCYL200
-			"origin"      "1404 1669 -76"
-			"angles"      "-74 88 0"
-			"spawnflags"  "7"
+			"targetname"  "gskSpawn_71_TrapsFinalSector_003"  //gskSummonDevTrapMiniSpiderFly
+			"origin"      "1421 1744 -412"
+			"angles"      "52 -91 -0"
+			"spawnflags"  "6"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"classname" "npc_spider_mini" // if they fall from too high, they just die
+			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
+			"physdamagescale" "0.1" //useless?
+			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
-			"origin"      "1404 1669 -276"
+			"spawnflags"  "6"
+			"origin"      "1421 1744 -162"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_71_TrapsFinalSector_004"  //gskSummonDevTrapMiniSpidCYL200
-			"origin"      "1404 1654 -76"
-			"angles"      "-71 89 0"
-			"spawnflags"  "7"
+			"targetname"  "gskSpawn_71_TrapsFinalSector_004"  //gskSummonDevTrapMiniSpiderFly
+			"origin"      "1410 1731 -411"
+			"angles"      "55 -86 -0"
+			"spawnflags"  "6"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"classname" "npc_spider_mini" // if they fall from too high, they just die
+			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
+			"physdamagescale" "0.1" //useless?
+			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
-			"origin"      "1404 1654 -276"
+			"spawnflags"  "6"
+			"origin"      "1410 1731 -161"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_71_TrapsFinalSector_005"  //gskSummonDevTrapMiniSpidCYL200
-			"origin"      "1404 1639 -76"
-			"angles"      "-69 89 0"
-			"spawnflags"  "7"
+			"targetname"  "gskSpawn_71_TrapsFinalSector_005"  //gskSummonDevTrapMiniSpiderFly
+			"origin"      "1420 1729 -411"
+			"angles"      "56 -90 -0"
+			"spawnflags"  "6"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"classname" "npc_spider_mini" // if they fall from too high, they just die
+			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
+			"physdamagescale" "0.1" //useless?
+			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
-			"origin"      "1404 1639 -276"
+			"spawnflags"  "6"
+			"origin"      "1420 1729 -161"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_71_TrapsFinalSector_006"  //gskSummonDevTrapMiniSpidCYL200
-			"origin"      "1404 1621 -76"
-			"angles"      "-65 89 0"
-			"spawnflags"  "7"
+			"targetname"  "gskSpawn_71_TrapsFinalSector_006"  //gskSummonDevTrapMiniSpiderFly
+			"origin"      "1410 1716 -410"
+			"angles"      "58 -85 -0"
+			"spawnflags"  "6"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"classname" "npc_spider_mini" // if they fall from too high, they just die
+			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
+			"physdamagescale" "0.1" //useless?
+			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
-			"origin"      "1404 1621 -276"
+			"spawnflags"  "6"
+			"origin"      "1410 1716 -160"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_71_TrapsFinalSector_007"  //gskSummonDevTrapMiniSpidCYL200
-			"origin"      "1405 1613 -76"
-			"angles"      "-64 90 0"
-			"spawnflags"  "7"
+			"targetname"  "gskSpawn_71_TrapsFinalSector_007"  //gskSummonDevTrapMiniSpiderFly
+			"origin"      "1421 1714 -410"
+			"angles"      "59 -90 -0"
+			"spawnflags"  "6"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"classname" "npc_spider_mini" // if they fall from too high, they just die
+			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
+			"physdamagescale" "0.1" //useless?
+			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
-			"origin"      "1405 1613 -276"
+			"spawnflags"  "6"
+			"origin"      "1421 1714 -160"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_71_TrapsFinalSector_008"  //gskSummonDevTrapMiniSpidCYL200
-			"origin"      "1416 1611 -77"
-			"angles"      "-63 95 0"
-			"spawnflags"  "7"
+			"targetname"  "gskSpawn_71_TrapsFinalSector_008"  //gskSummonDevTrapMiniSpiderFly
+			"origin"      "1409 1698 -409"
+			"angles"      "63 -84 -0"
+			"spawnflags"  "6"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"classname" "npc_spider_mini" // if they fall from too high, they just die
+			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
+			"physdamagescale" "0.1" //useless?
+			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
-			"origin"      "1416 1611 -277"
+			"spawnflags"  "6"
+			"origin"      "1409 1698 -159"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_71_TrapsFinalSector_009"  //gskSummonDevTrapMiniSpidCYL200
-			"origin"      "1391 1613 -78"
-			"angles"      "-64 83 0"
-			"spawnflags"  "7"
+			"targetname"  "gskSpawn_71_TrapsFinalSector_009"  //gskSummonDevTrapMiniSpiderFly
+			"origin"      "1418 1697 -410"
+			"angles"      "63 -89 -0"
+			"spawnflags"  "6"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"classname" "npc_spider_mini" // if they fall from too high, they just die
+			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
+			"physdamagescale" "0.1" //useless?
+			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
-			"origin"      "1391 1613 -278"
+			"spawnflags"  "6"
+			"origin"      "1418 1697 -160"
 		}
 
 		"modify:entity"
@@ -143,7 +163,7 @@
 			}
 			"add:key"
 			{
-				"OnStartTouch" "gskSpawn_71_TrapsFinalSector_BeginAt000,ForceSpawn,,0,1,1,"
+				"OnStartTouch" "gskSpawn_71_TrapsFinalSector_BeginAt000,ForceSpawn,,0.100,-1,1,"
 			}
 		}
 		
@@ -169,23 +189,373 @@
 
 				"Template01" "gskSpawn_71_TrapsFinalSector_000"
 
-				"Template02" "gskSpawn_71_TrapsFinalSector_001"
+			}
+		}
 
-				"Template03" "gskSpawn_71_TrapsFinalSector_002"
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"1151261"
+			}
+			"add:key"
+			{
+				"OnStartTouch" "gskSpawn_71_TrapsFinalSector_BeginAt001,ForceSpawn,,0.150,-1,1,"
+			}
+		}
+		
 
-				"Template04" "gskSpawn_71_TrapsFinalSector_003"
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_71_TrapsFinalSector_BeginAt001"
+			"origin" "0 0 0"
+		}
 
-				"Template05" "gskSpawn_71_TrapsFinalSector_004"
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_71_TrapsFinalSector_BeginAt001"
+			}
+			"add:key"
+			{
+		
 
-				"Template06" "gskSpawn_71_TrapsFinalSector_005"
+				"Template01" "gskSpawn_71_TrapsFinalSector_001"
 
-				"Template07" "gskSpawn_71_TrapsFinalSector_006"
+			}
+		}
 
-				"Template08" "gskSpawn_71_TrapsFinalSector_007"
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"1151261"
+			}
+			"add:key"
+			{
+				"OnStartTouch" "gskSpawn_71_TrapsFinalSector_BeginAt002,ForceSpawn,,0.200,-1,1,"
+			}
+		}
+		
 
-				"Template09" "gskSpawn_71_TrapsFinalSector_008"
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_71_TrapsFinalSector_BeginAt002"
+			"origin" "0 0 0"
+		}
 
-				"Template10" "gskSpawn_71_TrapsFinalSector_009"
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_71_TrapsFinalSector_BeginAt002"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_71_TrapsFinalSector_002"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"1151261"
+			}
+			"add:key"
+			{
+				"OnStartTouch" "gskSpawn_71_TrapsFinalSector_BeginAt003,ForceSpawn,,0.250,-1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_71_TrapsFinalSector_BeginAt003"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_71_TrapsFinalSector_BeginAt003"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_71_TrapsFinalSector_003"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"1151261"
+			}
+			"add:key"
+			{
+				"OnStartTouch" "gskSpawn_71_TrapsFinalSector_BeginAt004,ForceSpawn,,0.300,-1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_71_TrapsFinalSector_BeginAt004"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_71_TrapsFinalSector_BeginAt004"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_71_TrapsFinalSector_004"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"1151261"
+			}
+			"add:key"
+			{
+				"OnStartTouch" "gskSpawn_71_TrapsFinalSector_BeginAt005,ForceSpawn,,0.350,-1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_71_TrapsFinalSector_BeginAt005"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_71_TrapsFinalSector_BeginAt005"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_71_TrapsFinalSector_005"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"1151261"
+			}
+			"add:key"
+			{
+				"OnStartTouch" "gskSpawn_71_TrapsFinalSector_BeginAt006,ForceSpawn,,0.400,-1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_71_TrapsFinalSector_BeginAt006"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_71_TrapsFinalSector_BeginAt006"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_71_TrapsFinalSector_006"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"1151261"
+			}
+			"add:key"
+			{
+				"OnStartTouch" "gskSpawn_71_TrapsFinalSector_BeginAt007,ForceSpawn,,0.450,-1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_71_TrapsFinalSector_BeginAt007"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_71_TrapsFinalSector_BeginAt007"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_71_TrapsFinalSector_007"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"1151261"
+			}
+			"add:key"
+			{
+				"OnStartTouch" "gskSpawn_71_TrapsFinalSector_BeginAt008,ForceSpawn,,0.500,-1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_71_TrapsFinalSector_BeginAt008"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_71_TrapsFinalSector_BeginAt008"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_71_TrapsFinalSector_008"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"1151261"
+			}
+			"add:key"
+			{
+				"OnStartTouch" "gskSpawn_71_TrapsFinalSector_BeginAt009,ForceSpawn,,0.550,-1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_71_TrapsFinalSector_BeginAt009"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_71_TrapsFinalSector_BeginAt009"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_71_TrapsFinalSector_009"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"1151261"
+			}
+			"add:key"
+			{
+				"OnStartTouch" "gskSpawn_71_TrapsFinalSector_BeginAt010,ForceSpawn,,0.600,-1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_71_TrapsFinalSector_BeginAt010"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_71_TrapsFinalSector_BeginAt010"
+			}
+			"add:key"
+			{
+		
 
 			}
 		}

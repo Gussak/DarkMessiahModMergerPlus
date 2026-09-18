@@ -6,133 +6,243 @@
 
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_51_TrapCoffinRope_000"  //gskSummonDevTrapMiniSpidCYL200
-			"origin"      "1362 -1842 423"
-			"angles"      "-82 -101 0"
-			"spawnflags"  "7"
+			"targetname"  "gskSpawn_51_TrapCoffinRope_000"  //gskSummonDevTrapMiniSpiderFly
+			"origin"      "1403 -1950 72"
+			"angles"      "63 88 -0"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"classname" "npc_spider_mini" // if they fall from too high, they just die
+			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
+			"physdamagescale" "0.1" //useless?
+			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
-			"origin"      "1362 -1842 223"
+			"spawnflags"  "6"
+			"origin"      "1403 -1950 322"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_51_TrapCoffinRope_001"  //gskSummonDevTrapMiniSpidCYL200
-			"origin"      "1363 -1808 424"
-			"angles"      "-69 -95 0"
-			"spawnflags"  "7"
+			"targetname"  "gskSpawn_51_TrapCoffinRope_001"  //gskSummonDevTrapMiniSpiderFly
+			"origin"      "1431 -1940 78"
+			"angles"      "64 102 -0"
+			"spawnflags"  "6"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"classname" "npc_spider_mini" // if they fall from too high, they just die
+			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
+			"physdamagescale" "0.1" //useless?
+			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
-			"origin"      "1363 -1808 224"
+			"spawnflags"  "6"
+			"origin"      "1431 -1940 328"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_51_TrapCoffinRope_002"  //gskSummonDevTrapMiniSpidCYL200
-			"origin"      "1362 -1769 424"
-			"angles"      "-56 -92 0"
-			"spawnflags"  "7"
+			"targetname"  "gskSpawn_51_TrapCoffinRope_002"  //gskSummonDevTrapMiniSpiderFly
+			"origin"      "1449 -1924 74"
+			"angles"      "67 112 -0"
+			"spawnflags"  "6"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"classname" "npc_spider_mini" // if they fall from too high, they just die
+			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
+			"physdamagescale" "0.1" //useless?
+			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
-			"origin"      "1362 -1769 224"
+			"spawnflags"  "6"
+			"origin"      "1449 -1924 324"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_51_TrapCoffinRope_003"  //gskSummonDevTrapMiniSpidCYL200
-			"origin"      "1361 -1727 423"
-			"angles"      "-46 -91 0"
-			"spawnflags"  "7"
+			"targetname"  "gskSpawn_51_TrapCoffinRope_003"  //gskSummonDevTrapMiniSpiderFly
+			"origin"      "1455 -1895 69"
+			"angles"      "72 122 -0"
+			"spawnflags"  "6"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"classname" "npc_spider_mini" // if they fall from too high, they just die
+			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
+			"physdamagescale" "0.1" //useless?
+			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
-			"origin"      "1361 -1727 223"
+			"spawnflags"  "6"
+			"origin"      "1455 -1895 319"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_51_TrapCoffinRope_004"  //gskSummonDevTrapMiniSpidCYL200
-			"origin"      "1363 -1668 424"
-			"angles"      "-35 -91 0"
-			"spawnflags"  "7"
+			"targetname"  "gskSpawn_51_TrapCoffinRope_004"  //gskSummonDevTrapMiniSpiderFly
+			"origin"      "1453 -1858 59"
+			"angles"      "78 140 -0"
+			"spawnflags"  "6"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"classname" "npc_spider_mini" // if they fall from too high, they just die
+			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
+			"physdamagescale" "0.1" //useless?
+			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
-			"origin"      "1363 -1668 224"
+			"spawnflags"  "6"
+			"origin"      "1453 -1858 309"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_51_TrapCoffinRope_005"  //gskSummonDevTrapMiniSpidCYL200
-			"origin"      "1459 -1864 421"
-			"angles"      "-83 -100 0"
-			"spawnflags"  "7"
+			"targetname"  "gskSpawn_51_TrapCoffinRope_005"  //gskSummonDevTrapMiniSpiderFly
+			"origin"      "1443 -1804 43"
+			"angles"      "83 -157 -0"
+			"spawnflags"  "6"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"classname" "npc_spider_mini" // if they fall from too high, they just die
+			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
+			"physdamagescale" "0.1" //useless?
+			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
-			"origin"      "1459 -1864 221"
+			"spawnflags"  "6"
+			"origin"      "1443 -1804 293"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_51_TrapCoffinRope_006"  //gskSummonDevTrapMiniSpidCYL200
-			"origin"      "1460 -1818 421"
-			"angles"      "-66 -93 0"
-			"spawnflags"  "7"
+			"targetname"  "gskSpawn_51_TrapCoffinRope_006"  //gskSummonDevTrapMiniSpiderFly
+			"origin"      "1429 -1765 34"
+			"angles"      "80 -111 -0"
+			"spawnflags"  "6"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"classname" "npc_spider_mini" // if they fall from too high, they just die
+			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
+			"physdamagescale" "0.1" //useless?
+			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
-			"origin"      "1460 -1818 221"
+			"spawnflags"  "6"
+			"origin"      "1429 -1765 284"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_51_TrapCoffinRope_007"  //gskSummonDevTrapMiniSpidCYL200
-			"origin"      "1461 -1760 420"
-			"angles"      "-48 -92 0"
-			"spawnflags"  "7"
+			"targetname"  "gskSpawn_51_TrapCoffinRope_007"  //gskSummonDevTrapMiniSpiderFly
+			"origin"      "1408 -1745 31"
+			"angles"      "77 -91 -0"
+			"spawnflags"  "6"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"classname" "npc_spider_mini" // if they fall from too high, they just die
+			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
+			"physdamagescale" "0.1" //useless?
+			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
-			"origin"      "1461 -1760 220"
+			"spawnflags"  "6"
+			"origin"      "1408 -1745 281"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_51_TrapCoffinRope_008"  //gskSummonDevTrapMiniSpidCYL200
-			"origin"      "1463 -1704 420"
-			"angles"      "-37 -92 0"
-			"spawnflags"  "7"
+			"targetname"  "gskSpawn_51_TrapCoffinRope_008"  //gskSummonDevTrapMiniSpiderFly
+			"origin"      "1385 -1742 26"
+			"angles"      "76 -74 -0"
+			"spawnflags"  "6"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"classname" "npc_spider_mini" // if they fall from too high, they just die
+			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
+			"physdamagescale" "0.1" //useless?
+			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
-			"origin"      "1463 -1704 220"
+			"spawnflags"  "6"
+			"origin"      "1385 -1742 276"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_51_TrapCoffinRope_009"  //gskSummonDevTrapMiniSpidCYL200
-			"origin"      "1462 -1642 420"
-			"angles"      "-29 -92 0"
-			"spawnflags"  "7"
+			"targetname"  "gskSpawn_51_TrapCoffinRope_009"  //gskSummonDevTrapMiniSpiderFly
+			"origin"      "1366 -1774 33"
+			"angles"      "79 -48 -0"
+			"spawnflags"  "6"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"classname" "npc_spider_mini" // if they fall from too high, they just die
+			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
+			"physdamagescale" "0.1" //useless?
+			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
-			"origin"      "1462 -1642 220"
+			"spawnflags"  "6"
+			"origin"      "1366 -1774 283"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_51_TrapCoffinRope_010"  //gskSummonDevTrapMiniSpiderFly
+			"origin"      "1359 -1806 39"
+			"angles"      "81 -16 -0"
+			"spawnflags"  "6"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
+			"physdamagescale" "0.1" //useless?
+			"SetGravityScale" "0.5" //useless?
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "6"
+			"origin"      "1359 -1806 289"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_51_TrapCoffinRope_011"  //gskSummonDevTrapMiniSpiderFly
+			"origin"      "1357 -1824 43"
+			"angles"      "81 6 -0"
+			"spawnflags"  "6"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
+			"physdamagescale" "0.1" //useless?
+			"SetGravityScale" "0.5" //useless?
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "6"
+			"origin"      "1357 -1824 293"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_51_TrapCoffinRope_012"  //gskSummonDevTrapMiniSpiderFly
+			"origin"      "1353 -1857 51"
+			"angles"      "77 35 -0"
+			"spawnflags"  "6"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
+			"physdamagescale" "0.1" //useless?
+			"SetGravityScale" "0.5" //useless?
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "6"
+			"origin"      "1353 -1857 301"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_51_TrapCoffinRope_013"  //gskSummonDevTrapMiniSpiderFly
+			"origin"      "1366 -1883 58"
+			"angles"      "75 57 -0"
+			"spawnflags"  "6"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
+			"physdamagescale" "0.1" //useless?
+			"SetGravityScale" "0.5" //useless?
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "6"
+			"origin"      "1366 -1883 308"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_51_TrapCoffinRope_014"  //gskSummonDevTrapMiniSpiderFly
+			"origin"      "1377 -1903 81"
+			"angles"      "71 70 -0"
+			"spawnflags"  "6"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
+			"physdamagescale" "0.1" //useless?
+			"SetGravityScale" "0.5" //useless?
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "6"
+			"origin"      "1377 -1903 331"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_51_TrapCoffinRope_015"  //gskSummonDevTrapMiniSpiderFly
+			"origin"      "1384 -1931 68"
+			"angles"      "67 78 -0"
+			"spawnflags"  "6"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
+			"physdamagescale" "0.1" //useless?
+			"SetGravityScale" "0.5" //useless?
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "6"
+			"origin"      "1384 -1931 318"
 		}
 
 		"modify:entity"
@@ -143,7 +253,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_51_TrapCoffinRope_BeginAt000,ForceSpawn,,0,1,1,"
+				"OnTrigger" "gskSpawn_51_TrapCoffinRope_BeginAt000,ForceSpawn,,0.100,-1,1,"
 			}
 		}
 		
@@ -169,23 +279,595 @@
 
 				"Template01" "gskSpawn_51_TrapCoffinRope_000"
 
-				"Template02" "gskSpawn_51_TrapCoffinRope_001"
+			}
+		}
 
-				"Template03" "gskSpawn_51_TrapCoffinRope_002"
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"1168513"
+			}
+			"add:key"
+			{
+				"OnTrigger" "gskSpawn_51_TrapCoffinRope_BeginAt001,ForceSpawn,,0.150,-1,1,"
+			}
+		}
+		
 
-				"Template04" "gskSpawn_51_TrapCoffinRope_003"
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_51_TrapCoffinRope_BeginAt001"
+			"origin" "0 0 0"
+		}
 
-				"Template05" "gskSpawn_51_TrapCoffinRope_004"
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_51_TrapCoffinRope_BeginAt001"
+			}
+			"add:key"
+			{
+		
 
-				"Template06" "gskSpawn_51_TrapCoffinRope_005"
+				"Template01" "gskSpawn_51_TrapCoffinRope_001"
 
-				"Template07" "gskSpawn_51_TrapCoffinRope_006"
+			}
+		}
 
-				"Template08" "gskSpawn_51_TrapCoffinRope_007"
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"1168513"
+			}
+			"add:key"
+			{
+				"OnTrigger" "gskSpawn_51_TrapCoffinRope_BeginAt002,ForceSpawn,,0.200,-1,1,"
+			}
+		}
+		
 
-				"Template09" "gskSpawn_51_TrapCoffinRope_008"
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_51_TrapCoffinRope_BeginAt002"
+			"origin" "0 0 0"
+		}
 
-				"Template10" "gskSpawn_51_TrapCoffinRope_009"
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_51_TrapCoffinRope_BeginAt002"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_51_TrapCoffinRope_002"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"1168513"
+			}
+			"add:key"
+			{
+				"OnTrigger" "gskSpawn_51_TrapCoffinRope_BeginAt003,ForceSpawn,,0.250,-1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_51_TrapCoffinRope_BeginAt003"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_51_TrapCoffinRope_BeginAt003"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_51_TrapCoffinRope_003"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"1168513"
+			}
+			"add:key"
+			{
+				"OnTrigger" "gskSpawn_51_TrapCoffinRope_BeginAt004,ForceSpawn,,0.300,-1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_51_TrapCoffinRope_BeginAt004"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_51_TrapCoffinRope_BeginAt004"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_51_TrapCoffinRope_004"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"1168513"
+			}
+			"add:key"
+			{
+				"OnTrigger" "gskSpawn_51_TrapCoffinRope_BeginAt005,ForceSpawn,,0.350,-1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_51_TrapCoffinRope_BeginAt005"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_51_TrapCoffinRope_BeginAt005"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_51_TrapCoffinRope_005"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"1168513"
+			}
+			"add:key"
+			{
+				"OnTrigger" "gskSpawn_51_TrapCoffinRope_BeginAt006,ForceSpawn,,0.400,-1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_51_TrapCoffinRope_BeginAt006"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_51_TrapCoffinRope_BeginAt006"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_51_TrapCoffinRope_006"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"1168513"
+			}
+			"add:key"
+			{
+				"OnTrigger" "gskSpawn_51_TrapCoffinRope_BeginAt007,ForceSpawn,,0.450,-1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_51_TrapCoffinRope_BeginAt007"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_51_TrapCoffinRope_BeginAt007"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_51_TrapCoffinRope_007"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"1168513"
+			}
+			"add:key"
+			{
+				"OnTrigger" "gskSpawn_51_TrapCoffinRope_BeginAt008,ForceSpawn,,0.500,-1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_51_TrapCoffinRope_BeginAt008"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_51_TrapCoffinRope_BeginAt008"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_51_TrapCoffinRope_008"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"1168513"
+			}
+			"add:key"
+			{
+				"OnTrigger" "gskSpawn_51_TrapCoffinRope_BeginAt009,ForceSpawn,,0.550,-1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_51_TrapCoffinRope_BeginAt009"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_51_TrapCoffinRope_BeginAt009"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_51_TrapCoffinRope_009"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"1168513"
+			}
+			"add:key"
+			{
+				"OnTrigger" "gskSpawn_51_TrapCoffinRope_BeginAt010,ForceSpawn,,0.600,-1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_51_TrapCoffinRope_BeginAt010"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_51_TrapCoffinRope_BeginAt010"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_51_TrapCoffinRope_010"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"1168513"
+			}
+			"add:key"
+			{
+				"OnTrigger" "gskSpawn_51_TrapCoffinRope_BeginAt011,ForceSpawn,,0.650,-1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_51_TrapCoffinRope_BeginAt011"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_51_TrapCoffinRope_BeginAt011"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_51_TrapCoffinRope_011"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"1168513"
+			}
+			"add:key"
+			{
+				"OnTrigger" "gskSpawn_51_TrapCoffinRope_BeginAt012,ForceSpawn,,0.700,-1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_51_TrapCoffinRope_BeginAt012"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_51_TrapCoffinRope_BeginAt012"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_51_TrapCoffinRope_012"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"1168513"
+			}
+			"add:key"
+			{
+				"OnTrigger" "gskSpawn_51_TrapCoffinRope_BeginAt013,ForceSpawn,,0.750,-1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_51_TrapCoffinRope_BeginAt013"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_51_TrapCoffinRope_BeginAt013"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_51_TrapCoffinRope_013"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"1168513"
+			}
+			"add:key"
+			{
+				"OnTrigger" "gskSpawn_51_TrapCoffinRope_BeginAt014,ForceSpawn,,0.800,-1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_51_TrapCoffinRope_BeginAt014"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_51_TrapCoffinRope_BeginAt014"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_51_TrapCoffinRope_014"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"1168513"
+			}
+			"add:key"
+			{
+				"OnTrigger" "gskSpawn_51_TrapCoffinRope_BeginAt015,ForceSpawn,,0.850,-1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_51_TrapCoffinRope_BeginAt015"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_51_TrapCoffinRope_BeginAt015"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_51_TrapCoffinRope_015"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"1168513"
+			}
+			"add:key"
+			{
+				"OnTrigger" "gskSpawn_51_TrapCoffinRope_BeginAt016,ForceSpawn,,0.900,-1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_51_TrapCoffinRope_BeginAt016"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_51_TrapCoffinRope_BeginAt016"
+			}
+			"add:key"
+			{
+		
 
 			}
 		}

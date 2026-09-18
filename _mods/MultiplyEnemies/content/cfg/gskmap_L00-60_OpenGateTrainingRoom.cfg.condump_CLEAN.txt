@@ -4,6 +4,8 @@ gskMapMessage RegionExtractedFromVector3D 2870 124 -843
 gskMapMessage RegionExtractedToVector3D -782 1637 1354
 gskMapMessage gskSpawnTriggerID=1628039 (targetname tuto_fight.phenrig_necroguards, origin 1408 -120 -408) at L00.vmf
 gskSpawnTriggerID 1628039 "OnCompletion" ",ForceSpawn,,0,1,1,"
+gskSpawnNpcsAwake true
+gskSpawnDelay 0.0
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 0/125 )
 prop at 1131 289 -410 missing modelname
 prop at 1131 289 -410 missing modelname

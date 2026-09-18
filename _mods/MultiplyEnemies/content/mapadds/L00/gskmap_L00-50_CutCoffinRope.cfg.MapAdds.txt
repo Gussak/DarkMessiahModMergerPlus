@@ -9,7 +9,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_000"  //gskSummonDevSkeletonPart
 			"origin"      "1518 -48 -403"
 			"angles"      "51 -107 -0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -30,7 +30,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_001"  //gskSummonDevSkeletonPart
 			"origin"      "1475 -55 -404"
 			"angles"      "54 -91 -0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -51,7 +51,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_002"  //gskSummonDevSkeletonPart
 			"origin"      "1454 -82 -403"
 			"angles"      "59 -82 -0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -81,7 +81,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_003"  //gskSummonDevSkeletonPart
 			"origin"      "1455 -121 -403"
 			"angles"      "69 -79 -0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -102,7 +102,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_004"  //gskSummonDevSkeletonPart
 			"origin"      "1467 -149 -403"
 			"angles"      "76 -87 -0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -123,7 +123,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_005"  //gskSummonDevSkeletonPart
 			"origin"      "1495 -160 -404"
 			"angles"      "77 -118 -0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -153,7 +153,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_006"  //gskSummonDevSkeletonPart
 			"origin"      "1534 -150 -402"
 			"angles"      "69 -139 -0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -183,7 +183,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_007"  //gskSummonDevSkeletonPart
 			"origin"      "1563 -133 -403"
 			"angles"      "61 -142 -0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -213,7 +213,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_008"  //gskSummonDevSkeletonPart
 			"origin"      "1569 -87 -403"
 			"angles"      "53 -130 -0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -234,7 +234,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_009"  //gskSummonDevSkeletonPart
 			"origin"      "1537 -98 -398"
 			"angles"      "58 -122 -0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -255,7 +255,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_010"  //gskSummonDevSkeletonPart
 			"origin"      "1496 -119 -400"
 			"angles"      "67 -106 -0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -276,7 +276,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_011"  //gskSummonDevSkeletonPart
 			"origin"      "1430 -787 -293"
 			"angles"      "32 106 0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -306,7 +306,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_012"  //gskSummonDevSkeletonPart
 			"origin"      "1333 -794 -292"
 			"angles"      "31 77 0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -327,7 +327,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_013"  //gskSummonDevSkeletonPart
 			"origin"      "1263 -746 -326"
 			"angles"      "40 51 0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -357,7 +357,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_014"  //gskSummonDevSkeletonPart
 			"origin"      "1197 -682 -348"
 			"angles"      "41 23 0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -387,7 +387,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_015"  //gskSummonDevSkeletonPart
 			"origin"      "1256 -630 -377"
 			"angles"      "59 11 -0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -408,7 +408,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_016"  //gskSummonDevSkeletonPart
 			"origin"      "1223 -575 -381"
 			"angles"      "53 -12 -0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -438,7 +438,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_017"  //gskSummonDevSkeletonPart
 			"origin"      "1295 -525 -394"
 			"angles"      "63 -46 -0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -468,7 +468,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_018"  //gskSummonDevSkeletonPart
 			"origin"      "1400 -522 -414"
 			"angles"      "71 -105 -0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -489,7 +489,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_019"  //gskSummonDevSkeletonPart
 			"origin"      "1498 -483 -414"
 			"angles"      "54 -135 -0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -519,7 +519,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_020"  //gskSummonDevSkeletonPart
 			"origin"      "1556 -430 -414"
 			"angles"      "44 -136 0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -549,7 +549,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_021"  //gskSummonDevSkeletonPart
 			"origin"      "1513 -258 -414"
 			"angles"      "32 -112 0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -579,7 +579,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_022"  //gskSummonDevSkeletonPart
 			"origin"      "1215 13 -380"
 			"angles"      "17 -76 0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -600,7 +600,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_023"  //gskSummonDevSkeletonPart
 			"origin"      "1273 -18 -400"
 			"angles"      "20 -80 0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -630,7 +630,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_024"  //gskSummonDevSkeletonPart
 			"origin"      "1293 -91 -413"
 			"angles"      "24 -81 0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -660,7 +660,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_025"  //gskSummonDevSkeletonPart
 			"origin"      "1236 -154 -397"
 			"angles"      "25 -73 0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -690,7 +690,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_026"  //gskSummonDevSkeletonPart
 			"origin"      "1258 -231 -406"
 			"angles"      "30 -73 0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -711,7 +711,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_027"  //gskSummonDevSkeletonPart
 			"origin"      "1209 -222 -387"
 			"angles"      "26 -67 0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -732,7 +732,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_028"  //gskSummonDevSkeletonPart
 			"origin"      "1259 -318 -406"
 			"angles"      "36 -68 0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -762,7 +762,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_029"  //gskSummonDevSkeletonPart
 			"origin"      "1235 -377 -385"
 			"angles"      "38 -59 0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -792,7 +792,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_030"  //gskSummonDevSkeletonPart
 			"origin"      "1277 -396 -401"
 			"angles"      "44 -65 0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -813,7 +813,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_031"  //gskSummonDevSkeletonPart
 			"origin"      "1248 -438 -386"
 			"angles"      "45 -53 -0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -834,7 +834,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_032"  //gskSummonDevSkeletonPart
 			"origin"      "1261 -485 -388"
 			"angles"      "52 -46 -0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -864,7 +864,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_033"  //gskSummonDevSkeletonPart
 			"origin"      "1227 -523 -385"
 			"angles"      "51 -29 -0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -885,7 +885,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_034"  //gskSummonDevSkeletonPart
 			"origin"      "1340 -492 -401"
 			"angles"      "63 -72 -0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -906,7 +906,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_035"  //gskSummonDevSkeletonPart
 			"origin"      "1327 -437 -407"
 			"angles"      "53 -74 -0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -927,7 +927,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_036"  //gskSummonDevSkeletonPart
 			"origin"      "1589 17 -403"
 			"angles"      "33 -143 0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -957,7 +957,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_037"  //gskSummonDevSkeletonPart
 			"origin"      "1570 65 -398"
 			"angles"      "31 -134 0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -978,7 +978,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_038"  //gskSummonDevSkeletonPart
 			"origin"      "1520 35 -412"
 			"angles"      "39 -130 0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1008,7 +1008,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_039"  //gskSummonDevSkeletonPart
 			"origin"      "1475 41 -414"
 			"angles"      "41 -120 0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1029,7 +1029,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_040"  //gskSummonDevSkeletonPart
 			"origin"      "1447 60 -414"
 			"angles"      "41 -111 0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1050,7 +1050,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_041"  //gskSummonDevSkeletonPart
 			"origin"      "1335 43 -412"
 			"angles"      "44 -82 0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1080,7 +1080,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_042"  //gskSummonDevSkeletonPart
 			"origin"      "1279 43 -393"
 			"angles"      "39 -66 0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1101,7 +1101,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_043"  //gskSummonDevSkeletonPart
 			"origin"      "1246 62 -382"
 			"angles"      "33 -61 0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1131,7 +1131,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_044"  //gskSummonDevSkeletonPart
 			"origin"      "1205 68 -367"
 			"angles"      "28 -54 0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1161,7 +1161,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_045"  //gskSummonDevSkeletonPart
 			"origin"      "1506 -687 -362"
 			"angles"      "18 108 0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1182,7 +1182,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_046"  //gskSummonDevSkeletonPart
 			"origin"      "1573 -676 -358"
 			"angles"      "17 117 0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1203,7 +1203,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_047"  //gskSummonDevSkeletonPart
 			"origin"      "1556 -626 -385"
 			"angles"      "23 118 0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1233,7 +1233,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_048"  //gskSummonDevSkeletonPart
 			"origin"      "1587 -558 -408"
 			"angles"      "28 128 0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1254,7 +1254,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_049"  //gskSummonDevSkeletonPart
 			"origin"      "1518 -540 -413"
 			"angles"      "33 119 0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1284,7 +1284,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_050"  //gskSummonDevSkeletonPart
 			"origin"      "1512 -611 -396"
 			"angles"      "26 113 0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1314,7 +1314,7 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_051"  //gskSummonDevSkeletonPart
 			"origin"      "1508 -712 -339"
 			"angles"      "14 107 0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1335,12 +1335,13 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_052"  //gskSummonPotionLife
 			"origin"      "1412 -679 1"
 			"angles"      "76 -104 -0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "item_potion_life"
 			"model" "models/items/provisions/potions/Life_potion.mdl"
-			"spawnflags"  "7"
+			"angles"      "0 -104 0"
+			"spawnflags"  ""
 			"origin"      "1412 -679 6"
 		}
 		"add:entity"
@@ -1348,12 +1349,13 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_053"  //gskSummonPotionLife
 			"origin"      "1387 -684 1"
 			"angles"      "75 -52 -0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "item_potion_life"
 			"model" "models/items/provisions/potions/Life_potion.mdl"
-			"spawnflags"  "7"
+			"angles"      "0 -52 0"
+			"spawnflags"  ""
 			"origin"      "1387 -684 6"
 		}
 		"add:entity"
@@ -1361,12 +1363,13 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_054"  //gskSummonPotionLife
 			"origin"      "1936 -683 1"
 			"angles"      "43 84 -0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "item_potion_life"
 			"model" "models/items/provisions/potions/Life_potion.mdl"
-			"spawnflags"  "7"
+			"angles"      "0 84 0"
+			"spawnflags"  ""
 			"origin"      "1936 -683 6"
 		}
 		"add:entity"
@@ -1374,12 +1377,13 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_055"  //gskSummonPotionLife
 			"origin"      "1751 -476 329"
 			"angles"      "56 85 -0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "item_potion_life"
 			"model" "models/items/provisions/potions/Life_potion.mdl"
-			"spawnflags"  "7"
+			"angles"      "0 85 0"
+			"spawnflags"  ""
 			"origin"      "1751 -476 334"
 		}
 		"add:entity"
@@ -1387,12 +1391,13 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_056"  //gskSummonPotionLife
 			"origin"      "960 -61 33"
 			"angles"      "33 -70 -0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "item_potion_life"
 			"model" "models/items/provisions/potions/Life_potion.mdl"
-			"spawnflags"  "7"
+			"angles"      "0 -70 0"
+			"spawnflags"  ""
 			"origin"      "960 -61 38"
 		}
 		"add:entity"
@@ -1400,12 +1405,13 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_057"  //gskSummonPotionLife
 			"origin"      "1364 -141 329"
 			"angles"      "24 -86 -0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "item_potion_life"
 			"model" "models/items/provisions/potions/Life_potion.mdl"
-			"spawnflags"  "7"
+			"angles"      "0 -86 0"
+			"spawnflags"  ""
 			"origin"      "1364 -141 334"
 		}
 		"add:entity"
@@ -1413,65 +1419,65 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_058"  //gskSummonNecromancer
 			"origin"      "1036 -96 1"
 			"angles"      "51 -95 -0"
-			"spawnflags"  "7"
+			"spawnflags"  ""
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_necromancer_lord"
 			"model" "models/NPC/Necromancer/Npc_necromancer.mdl"
 			"additionalequipment" "weapon_mm_staff_combat"
-			"spawnflags"  "271"
+			"spawnflags"  "270"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_50_CutCoffinRope_059"  //gskSummonNecromancer
 			"origin"      "1939 -644 1"
 			"angles"      "70 86 -0"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_necromancer_lord"
 			"model" "models/NPC/Necromancer/Npc_necromancer.mdl"
 			"additionalequipment" "weapon_mm_staff_combat"
-			"spawnflags"  "271"
+			"spawnflags"  "270"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_50_CutCoffinRope_060"  //gskSummonNecromancer
 			"origin"      "1648 -472 329"
 			"angles"      "62 178 -0"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_necromancer_lord"
 			"model" "models/NPC/Necromancer/Npc_necromancer.mdl"
 			"additionalequipment" "weapon_mm_staff_combat"
-			"spawnflags"  "271"
+			"spawnflags"  "270"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_50_CutCoffinRope_061"  //gskSummonNecromancer
 			"origin"      "1364 -31 329"
 			"angles"      "41 92 -0"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_necromancer_lord"
 			"model" "models/NPC/Necromancer/Npc_necromancer.mdl"
 			"additionalequipment" "weapon_mm_staff_combat"
-			"spawnflags"  "271"
+			"spawnflags"  "270"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_50_CutCoffinRope_062"  //gskSummonUndead
 			"origin"      "1081 -164 1"
 			"angles"      "62 -115 -0"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_undead"
 			"model" "models/NPC/Undead/Npc_undead.mdl"
 			"SmellRadius" "300"
-			"spawnflags"  "16391"
+			"spawnflags"  "16390"
 			"UnburrowRadius" "200"
 			"UnburrowChanceOverride" "1.0"
 		}
@@ -1480,13 +1486,13 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_063"  //gskSummonUndead
 			"origin"      "1036 -169 1"
 			"angles"      "66 -87 -0"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_undead"
 			"model" "models/NPC/Undead/Npc_undead.mdl"
 			"SmellRadius" "300"
-			"spawnflags"  "16391"
+			"spawnflags"  "16390"
 			"UnburrowRadius" "200"
 			"UnburrowChanceOverride" "1.0"
 		}
@@ -1495,13 +1501,13 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_064"  //gskSummonUndead
 			"origin"      "992 -198 1"
 			"angles"      "69 -49 -0"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_undead"
 			"model" "models/NPC/Undead/Npc_undead.mdl"
 			"SmellRadius" "300"
-			"spawnflags"  "16391"
+			"spawnflags"  "16390"
 			"UnburrowRadius" "200"
 			"UnburrowChanceOverride" "1.0"
 		}
@@ -1510,13 +1516,13 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_065"  //gskSummonUndead
 			"origin"      "1947 -563 1"
 			"angles"      "35 91 -0"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_undead"
 			"model" "models/NPC/Undead/Npc_undead.mdl"
 			"SmellRadius" "300"
-			"spawnflags"  "16391"
+			"spawnflags"  "16390"
 			"UnburrowRadius" "200"
 			"UnburrowChanceOverride" "1.0"
 		}
@@ -1525,13 +1531,13 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_066"  //gskSummonUndead
 			"origin"      "1947 -502 1"
 			"angles"      "57 92 -0"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_undead"
 			"model" "models/NPC/Undead/Npc_undead.mdl"
 			"SmellRadius" "300"
-			"spawnflags"  "16391"
+			"spawnflags"  "16390"
 			"UnburrowRadius" "200"
 			"UnburrowChanceOverride" "1.0"
 		}
@@ -1540,13 +1546,13 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_067"  //gskSummonUndead
 			"origin"      "1946 -432 1"
 			"angles"      "74 85 -0"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_undead"
 			"model" "models/NPC/Undead/Npc_undead.mdl"
 			"SmellRadius" "300"
-			"spawnflags"  "16391"
+			"spawnflags"  "16390"
 			"UnburrowRadius" "200"
 			"UnburrowChanceOverride" "1.0"
 		}
@@ -1555,119 +1561,119 @@
 			"targetname"  "gskSpawn_50_CutCoffinRope_068"  //gskSummonNecroGuardShield
 			"origin"      "919 -649 1"
 			"angles"      "31 2 -0"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname"   "npc_necro_guard"
 			"model" "models/npc/Necroguard/npc_necroguard.mdl"
 			"additionalequipment"	"weapon_arx_short_sword"
 			"additionalshield" "weapon_mm_shield_necroguard"
-			"spawnflags"  "271"
+			"spawnflags"  "270"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_50_CutCoffinRope_069"  //gskSummonNecroGuardShield
 			"origin"      "1413 -583 97"
 			"angles"      "51 -96 -0"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname"   "npc_necro_guard"
 			"model" "models/npc/Necroguard/npc_necroguard.mdl"
 			"additionalequipment"	"weapon_arx_short_sword"
 			"additionalshield" "weapon_mm_shield_necroguard"
-			"spawnflags"  "271"
+			"spawnflags"  "270"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_50_CutCoffinRope_070"  //gskSummonNecroGuardShield
 			"origin"      "1601 -368 185"
 			"angles"      "60 -159 -0"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname"   "npc_necro_guard"
 			"model" "models/npc/Necroguard/npc_necroguard.mdl"
 			"additionalequipment"	"weapon_arx_short_sword"
 			"additionalshield" "weapon_mm_shield_necroguard"
-			"spawnflags"  "271"
+			"spawnflags"  "270"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_50_CutCoffinRope_071"  //gskSummonNecroGuardShield
 			"origin"      "1808 -445 185"
 			"angles"      "37 112 -0"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname"   "npc_necro_guard"
 			"model" "models/npc/Necroguard/npc_necroguard.mdl"
 			"additionalequipment"	"weapon_arx_short_sword"
 			"additionalshield" "weapon_mm_shield_necroguard"
-			"spawnflags"  "271"
+			"spawnflags"  "270"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_50_CutCoffinRope_072"  //gskSummonNecroGuardShield
 			"origin"      "1183 -350 1"
 			"angles"      "35 -87 -0"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname"   "npc_necro_guard"
 			"model" "models/npc/Necroguard/npc_necroguard.mdl"
 			"additionalequipment"	"weapon_arx_short_sword"
 			"additionalshield" "weapon_mm_shield_necroguard"
-			"spawnflags"  "271"
+			"spawnflags"  "270"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_50_CutCoffinRope_073"  //gskSummonNecroGuardShield
 			"origin"      "1502 -370 1"
 			"angles"      "30 179 -0"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname"   "npc_necro_guard"
 			"model" "models/npc/Necroguard/npc_necroguard.mdl"
 			"additionalequipment"	"weapon_arx_short_sword"
 			"additionalshield" "weapon_mm_shield_necroguard"
-			"spawnflags"  "271"
+			"spawnflags"  "270"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_50_CutCoffinRope_074"  //gskSummonNecroGuardShield
 			"origin"      "1511 -87 1"
 			"angles"      "25 -90 -0"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname"   "npc_necro_guard"
 			"model" "models/npc/Necroguard/npc_necroguard.mdl"
 			"additionalequipment"	"weapon_arx_short_sword"
 			"additionalshield" "weapon_mm_shield_necroguard"
-			"spawnflags"  "271"
+			"spawnflags"  "270"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_50_CutCoffinRope_075"  //gskSummonNecroGuardShield
 			"origin"      "1947 -203 1"
 			"angles"      "40 174 -0"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname"   "npc_necro_guard"
 			"model" "models/npc/Necroguard/npc_necroguard.mdl"
 			"additionalequipment"	"weapon_arx_short_sword"
 			"additionalshield" "weapon_mm_shield_necroguard"
-			"spawnflags"  "271"
+			"spawnflags"  "270"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_50_CutCoffinRope_076"  //gskSummonNecroGuardBow
 			"origin"      "1412 -263 225"
 			"angles"      "52 -99 -0"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname"   "npc_necro_guard_bow"
@@ -1676,14 +1682,14 @@
 			"QuiverAmmo" "12"
 			"rangeweapon" "weapon_arxcrossbow"
 			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
-			"spawnflags"  "263"
+			"spawnflags"  "262"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_50_CutCoffinRope_077"  //gskSummonNecroGuardBow
 			"origin"      "1583 -302 225"
 			"angles"      "53 -113 -0"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname"   "npc_necro_guard_bow"
@@ -1692,14 +1698,14 @@
 			"QuiverAmmo" "12"
 			"rangeweapon" "weapon_arxcrossbow"
 			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
-			"spawnflags"  "263"
+			"spawnflags"  "262"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_50_CutCoffinRope_078"  //gskSummonNecroGuardBow
 			"origin"      "1523 -296 225"
 			"angles"      "54 -89 -0"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname"   "npc_necro_guard_bow"
@@ -1708,14 +1714,14 @@
 			"QuiverAmmo" "12"
 			"rangeweapon" "weapon_arxcrossbow"
 			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
-			"spawnflags"  "263"
+			"spawnflags"  "262"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_50_CutCoffinRope_079"  //gskSummonNecroGuardBow
 			"origin"      "1468 -261 225"
 			"angles"      "47 -73 -0"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname"   "npc_necro_guard_bow"
@@ -1724,7 +1730,7 @@
 			"QuiverAmmo" "12"
 			"rangeweapon" "weapon_arxcrossbow"
 			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
-			"spawnflags"  "263"
+			"spawnflags"  "262"
 		}
 
 		"modify:entity"
@@ -1735,7 +1741,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_50_CutCoffinRope_BeginAt000,ForceSpawn,,0,1,1,"
+				"OnTrigger" "gskSpawn_50_CutCoffinRope_BeginAt000,ForceSpawn,,0.000,-1,1,"
 			}
 		}
 		
@@ -1802,7 +1808,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_50_CutCoffinRope_BeginAt016,ForceSpawn,,0,1,1,"
+				"OnTrigger" "gskSpawn_50_CutCoffinRope_BeginAt016,ForceSpawn,,0.000,-1,1,"
 			}
 		}
 		
@@ -1869,7 +1875,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_50_CutCoffinRope_BeginAt032,ForceSpawn,,0,1,1,"
+				"OnTrigger" "gskSpawn_50_CutCoffinRope_BeginAt032,ForceSpawn,,0.000,-1,1,"
 			}
 		}
 		
@@ -1936,7 +1942,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_50_CutCoffinRope_BeginAt048,ForceSpawn,,0,1,1,"
+				"OnTrigger" "gskSpawn_50_CutCoffinRope_BeginAt048,ForceSpawn,,0.000,-1,1,"
 			}
 		}
 		
@@ -2003,7 +2009,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_50_CutCoffinRope_BeginAt064,ForceSpawn,,0,1,1,"
+				"OnTrigger" "gskSpawn_50_CutCoffinRope_BeginAt064,ForceSpawn,,0.000,-1,1,"
 			}
 		}
 		
@@ -2070,7 +2076,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_50_CutCoffinRope_BeginAt080,ForceSpawn,,0,1,1,"
+				"OnTrigger" "gskSpawn_50_CutCoffinRope_BeginAt080,ForceSpawn,,0.000,-1,1,"
 			}
 		}
 		

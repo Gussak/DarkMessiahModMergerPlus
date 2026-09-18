@@ -417,7 +417,10 @@ function FUNCspawnFlags() { #help based on https://developer.valvesoftware.com/w
 	local lastrFlags=("${@-FS_None}")
 	#if [[ -z "${lastrFlags[*]}" ]];then
 	if $lbAddDefaults;then
-		mapfile -t lastrFlags < <(echo "${lastrFlags[*]} FS_SLEEP FS_FALL FS_QUIET" |tr ' ' '\n' |sort -u)
+		local lstrSleep="";
+		if $bIsNpc && ! $bSpawnNpcsAwake;then lstrSleep=FS_SLEEP;fi
+		
+		mapfile -t lastrFlags < <(echo "${lastrFlags[*]} ${lstrSleep} FS_FALL FS_QUIET" |tr ' ' '\n' |egrep -v "^$" |sort -u)
 	fi
 	mapfile -t lastrFlags < <(echo "${lastrFlags[*]}" |tr ' ' '\n' |sort -u)
 	#fi
@@ -824,8 +827,10 @@ function FUNCmapadds() {
 	local lnYDisplacement=0
 	local lstrIgnore=""
 	local lstrAddEntityExtra=""
+	: ${bSpawnNpcsAwake=false} #help
 	case "${lstrSummonCmd}" in
 		"+gskSummonGuard")
+			bIsNpc=true
 			echo '
 			"classname"   "npc_human_guard"
 			"model" "models/npc/guard/npc_guard.mdl"
@@ -833,6 +838,7 @@ function FUNCmapadds() {
 			"spawnflags"  "'"$(FUNCspawnFlags FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			;; 
 		"+gskSummonGuardMini")
+			bIsNpc=true
 			lnYDisplacement=5
 			echo '
 			"classname"   "npc_human_guard"
@@ -840,6 +846,7 @@ function FUNCmapadds() {
 			"spawnflags"  "'"$(FUNCspawnFlags FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			;; 
 		"+gskSummonGuardBow")
+			bIsNpc=true
 			echo '
 			"classname"   "npc_human_guard_bow"
 			"model" "models/npc/guard/npc_guard.mdl"
@@ -850,6 +857,7 @@ function FUNCmapadds() {
 			"spawnflags"  "'"$(FUNCspawnFlags FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			;; 
 		"+gskSummonGuardShield")
+			bIsNpc=true
 			echo '
 			"classname"   "npc_human_guard_bow"
 			"model" "models/npc/guard/npc_guard.mdl"
@@ -860,6 +868,7 @@ function FUNCmapadds() {
 			"spawnflags"  "'"$(FUNCspawnFlags FS_DropHealing FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			;; 
 		mm_npc_create_necro_guard_bow|"gskSummonNecroGuardBow")
+			bIsNpc=true
 			echo '
 			"classname"   "npc_necro_guard_bow"
 			"model" "models/npc/Necroguard/npc_necroguard.mdl"
@@ -870,6 +879,7 @@ function FUNCmapadds() {
 			"spawnflags"  "'"$(FUNCspawnFlags FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			;; 
 		mm_npc_create_necro_guard_shield|"gskSummonNecroGuardShield")
+			bIsNpc=true
 			echo '
 			"classname"   "npc_necro_guard"
 			"model" "models/npc/Necroguard/npc_necroguard.mdl"
@@ -878,6 +888,7 @@ function FUNCmapadds() {
 			"spawnflags"  "'"$(FUNCspawnFlags FS_DropHealing FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			;;
 		mm_npc_create_necromancer|"gskSummonNecromancer")
+			bIsNpc=true
 			echo '
 			"classname" "npc_necromancer_lord"
 			"model" "models/NPC/Necromancer/Npc_necromancer.mdl"
@@ -885,6 +896,7 @@ function FUNCmapadds() {
 			"spawnflags"  "'"$(FUNCspawnFlags FS_DropHealing FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			;;
 		mm_npc_create_necromancer_lord|"+gskSummonNecromancerLord")
+			bIsNpc=true
 			echo '
 			"classname" "npc_necromancer_lord"
 			"model" "models/NPC/necromancer_lord/npc_necromancer_lord.mdl"
@@ -893,13 +905,14 @@ function FUNCmapadds() {
 			#"weaponmodel" "models/Items/Weapons/hook/hook.mdl"
 			;;
 		mm_npc_create_undead|"gskSummonUndead")
+			bIsNpc=true
 			echo '
 			"classname" "npc_undead"
 			"model" "models/NPC/Undead/Npc_undead.mdl"
 			"SmellRadius" "300"
 			"spawnflags"  "'"$(FUNCspawnFlags FS_TANK)"'"' >>"$lstrFlAddTmp"
 			
-			local lnUnBurrowChance=1.0 # 1.0 means allow burrow, -1 means what????
+			local lnUnBurrowChance=1.0 # if 1.0 means allow burrow 100%? then -1 means what????
 			local lnUnBurrowRadius=200 # 10000 to spawn standing on the ground as soon as possible... Is it a raycast ??? I mean, wont trigger if player is behind a wall from it?
 			
 			if((nUndeadCount%3 <= 1));then # '0' '1' bury 66% of the configured to spawn, others '2'
@@ -920,6 +933,7 @@ function FUNCmapadds() {
 			"UnburrowChanceOverride" "'"${lnUnBurrowChance}"'"' >>"$lstrFlAddTmp"
 			;;
 		mm_npc_create_spider|"gskSummonSpiderRegular")
+			bIsNpc=true
 			lnYDisplacement=7
 			echo '
 			"classname" "npc_spider_regular"
@@ -927,6 +941,7 @@ function FUNCmapadds() {
 			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
 			;;
 		mm_npc_create_spider_mini|"gskSummonSpiderMini")
+			bIsNpc=true
 			lnYDisplacement=5
 			echo '
 			"classname" "npc_spider_mini"
@@ -1007,24 +1022,28 @@ function FUNCmapadds() {
 			' >>"$lstrFlAddTmp"
 			;;
 		"gskSummonCrow")
+			bIsNpc=true
 			echo '
 			"classname" "npc_crow"
 			"model" "models/npc/crow/npc_crow.mdl"
 			' >>"$lstrFlAddTmp"
 			;;
 		"gskSummonSeagull")
+			bIsNpc=true
 			echo '
 			"classname" "npc_seagull"
 			"model" "models/npc/seagull/npc_seagull.mdl"
 			' >>"$lstrFlAddTmp"
 			;;
 		"gskSummonPig")
+			bIsNpc=true
 			echo '
 			"classname" "npc_pig"
 			"model" "models/npc/pig/pig.mdl"
 			' >>"$lstrFlAddTmp"
 			;;
 		mm_npc_create_facehugger|"gskSummonFacehugger")
+			bIsNpc=true
 			echo '
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
@@ -1084,8 +1103,9 @@ function FUNCmapadds() {
 			"spawnflags"  "'"$(FUNCspawnFlags --nodefaults FS_LongRangeView FS_FALL)"'" //cannot have FS_SLEEP or it wont use FS_FALL
 			' >>"$lstrFlAddTmp"
 			;;
-		"gskSummonDevTrapMiniSpiderCeil")
-			lnYDisplacement=-10
+		"gskSummonDevTrapMiniSpiderCeil") #// place flying mini spiders far from walls or they glue on it and their AI freezes stop working...
+			bIsNpc=true
+			lnYDisplacement=-30
 			echo '
 			"classname" "npc_spider_mini" // if they fall from too high, they just die even with lower physics stuff
 			"physdamagescale" "0.1" //useless?
@@ -1093,16 +1113,17 @@ function FUNCmapadds() {
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "'"$(FUNCspawnFlags --nodefaults FS_FALL FS_QUIET)"'"' >>"$lstrFlAddTmp"
 			;;
-		"gskSummonDevTrapMiniSpidZL200")
-			lnYDisplacement=-200
-			echo '
-			"classname" "npc_spider_mini" // below ceiling, if they fall from too high, they just die
-			"physdamagescale" "0.1" //useless?
-			"SetGravityScale" "0.5" //useless?
-			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "'"$(FUNCspawnFlags --nodefaults FS_FALL FS_QUIET)"'"' >>"$lstrFlAddTmp"
-			;;
-		"gskSummonDevTrapMiniSpidZP200")
+		#"gskSummonDevTrapMiniSpidZL200") #(not good as too far from ground will just kill them...)
+			#lnYDisplacement=-200
+			#echo '
+			#"classname" "npc_spider_mini" // below ceiling, if they fall from too high, they just die
+			#"physdamagescale" "0.1" //useless?
+			#"SetGravityScale" "0.5" //useless?
+			#"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			#"spawnflags"  "'"$(FUNCspawnFlags --nodefaults FS_FALL FS_QUIET)"'"' >>"$lstrFlAddTmp"
+			#;;
+		"gskSummonDevTrapMiniSpiderFly") #// place flying mini spiders far from walls or they glue on it and their AI freezes stop working...
+			bIsNpc=true
 			lnYDisplacement=250
 			echo '
 			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
@@ -1465,6 +1486,10 @@ if $bCreateSpawnsForCurrentMap;then
 			#egrep "^gskSpawnMode" "$strFlCondump" >>"$strFlCondumpCleanNew"
 			#strSpawnMode="$(egrep "^gskSpawnMode" "$strFlCondump" |awk '{print $2}')"
 		#fi
+		if egrep "^gskSpawnNpcsAwake" "$strFlCondump";then
+			egrep "^gskSpawnNpcsAwake" "$strFlCondump" >>"$strFlCondumpCleanNew"
+			bSpawnNpcsAwake="$(egrep "^gskSpawnNpcsAwake" "$strFlCondump" |awk '{print $2}')"
+		fi
 		if egrep "^gskSpawnDelay" "$strFlCondump";then
 			egrep "^gskSpawnDelay" "$strFlCondump" >>"$strFlCondumpCleanNew"
 			fSpawnDelayIncrement="$(egrep "^gskSpawnDelay" "$strFlCondump" |awk '{print $2}')"

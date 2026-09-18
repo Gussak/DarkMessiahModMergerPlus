@@ -2,73 +2,89 @@ map     :  L00 at: -1878 x, -4619 y, 342
 map     :  L00 at: -1878 x, -4619 y, 342
 gskMapMessage gskSpawnTriggerID=338670 (targetname door02.lever.button, origin -761.5 -3493 276) at L00.vmf, spawn on every OnPressed!!!
 gskSpawnTriggerID 338670 "OnPressed" ",ForceSpawn,,0,-1,1,"
-gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 0/10 )
-prop at -641 -2514 623 missing modelname
-prop at -641 -2514 623 missing modelname
-setpos -658.546936 -2474.660889 256.373932;setang -83.250549 -65.712990 0.031738
-setpos -658.546936 -2474.660889 256.373932;setang -83.250549 -65.712990 0.031738
-gskSummonDevTrapMiniSpidZL200
-gskSummonDevTrapMiniSpidZL200
-gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 1/10 )
-prop at -665 -2512 622 missing modelname
-prop at -665 -2512 622 missing modelname
-setpos -652.204468 -2474.302979 256.283630;setang -83.844528 -108.483940 0.034636
-setpos -652.204468 -2474.302979 256.283630;setang -83.844528 -108.483940 0.034636
-gskSummonDevTrapMiniSpidZL200
-gskSummonDevTrapMiniSpidZL200
-gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 2/10 )
-prop at -682 -2532 624 missing modelname
-prop at -682 -2532 624 missing modelname
-setpos -650.937622 -2475.094482 256.859375;setang -80.016602 -118.305626 0.022075
-setpos -650.937622 -2475.094482 256.859375;setang -80.016602 -118.305626 0.022075
-gskSummonDevTrapMiniSpidZL200
-gskSummonDevTrapMiniSpidZL200
-gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 3/10 )
-prop at -688 -2555 621 missing modelname
-prop at -688 -2555 621 missing modelname
-setpos -651.515015 -2475.084961 257.390320;setang -76.386612 -114.736351 0.016639
-setpos -651.515015 -2475.084961 257.390320;setang -76.386612 -114.736351 0.016639
-gskSummonDevTrapMiniSpidZL200
-gskSummonDevTrapMiniSpidZL200
-gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 4/10 )
-prop at -673 -2560 621 missing modelname
-prop at -673 -2560 621 missing modelname
-setpos -653.189087 -2474.528076 257.399811;setang -76.320618 -102.460228 0.016559
-setpos -653.189087 -2474.528076 257.399811;setang -76.320618 -102.460228 0.016559
-gskSummonDevTrapMiniSpidZL200
-gskSummonDevTrapMiniSpidZL200
-gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 5/10 )
-prop at -653 -2562 623 missing modelname
-prop at -653 -2562 623 missing modelname
-setpos -655.142090 -2474.327148 257.380798;setang -76.452621 -88.798363 0.016697
-setpos -655.142090 -2474.327148 257.380798;setang -76.452621 -88.798363 0.016697
-gskSummonDevTrapMiniSpidZL200
-gskSummonDevTrapMiniSpidZL200
-gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 6/10 )
-prop at -638 -2552 623 missing modelname
-prop at -638 -2552 623 missing modelname
-setpos -656.931885 -2474.475830 257.208679;setang -77.640625 -76.391731 0.018152
-setpos -656.931885 -2474.475830 257.208679;setang -77.640625 -76.391731 0.018152
-gskSummonDevTrapMiniSpidZL200
-gskSummonDevTrapMiniSpidZL200
-gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 7/10 )
-prop at -627 -2540 623 missing modelname
-prop at -627 -2540 623 missing modelname
-setpos -658.656860 -2475.006836 257.025146;setang -78.894630 -64.051537 0.019995
-setpos -658.656860 -2475.006836 257.025146;setang -78.894630 -64.051537 0.019995
-gskSummonDevTrapMiniSpidZL200
-gskSummonDevTrapMiniSpidZL200
-gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 8/10 )
-prop at -622 -2526 623 missing modelname
-prop at -622 -2526 623 missing modelname
-setpos -660.127930 -2475.813721 256.829956;setang -80.214622 -52.701965 0.022467
-setpos -660.127930 -2475.813721 256.829956;setang -80.214622 -52.701965 0.022467
-gskSummonDevTrapMiniSpidZL200
-gskSummonDevTrapMiniSpidZL200
-gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 9/10 )
-prop at -655 -2531 624 missing modelname
-prop at -655 -2531 624 missing modelname
-setpos -654.941467 -2474.007080 256.682312;setang -81.204758 -90.192291 0.024804
-setpos -654.941467 -2474.007080 256.682312;setang -81.204758 -90.192291 0.024804
-gskSummonDevTrapMiniSpidZL200
-gskSummonDevTrapMiniSpidZL200
+gskSpawnNpcsAwake true
+gskSpawnDelay 0.05
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 0/12 )
+prop at -678 -2552 192 missing modelname
+prop at -678 -2552 192 missing modelname
+setpos -654.619080 -2532.996094 404.759674;setang 81.938187 -141.901489 -0.000571
+setpos -654.619080 -2532.996094 404.759674;setang 81.938187 -141.901489 -0.000571
+gskSummonDevTrapMiniSpiderFly
+gskSummonDevTrapMiniSpiderFly
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 1/12 )
+prop at -684 -2541 193 missing modelname
+prop at -684 -2541 193 missing modelname
+setpos -655.965759 -2530.622070 404.749054;setang 82.004158 -158.929367 -0.000571
+setpos -655.965759 -2530.622070 404.749054;setang 82.004158 -158.929367 -0.000571
+gskSummonDevTrapMiniSpiderFly
+gskSummonDevTrapMiniSpiderFly
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 2/12 )
+prop at -688 -2529 194 missing modelname
+prop at -688 -2529 194 missing modelname
+setpos -656.583313 -2527.565674 404.802155;setang 81.674118 -178.399399 -0.000611
+setpos -656.583313 -2527.565674 404.802155;setang 81.674118 -178.399399 -0.000611
+gskSummonDevTrapMiniSpiderFly
+gskSummonDevTrapMiniSpiderFly
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 3/12 )
+prop at -680 -2513 192 missing modelname
+prop at -680 -2513 192 missing modelname
+setpos -655.789246 -2523.602539 404.611145;setang 82.862007 156.256683 -0.000506
+setpos -655.789246 -2523.602539 404.611145;setang 82.862007 156.256683 -0.000506
+gskSummonDevTrapMiniSpiderFly
+gskSummonDevTrapMiniSpiderFly
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 4/12 )
+prop at -669 -2502 192 missing modelname
+prop at -669 -2502 192 missing modelname
+setpos -653.344116 -2520.327637 404.505188;setang 83.521957 130.582581 -0.000421
+setpos -653.344116 -2520.327637 404.505188;setang 83.521957 130.582581 -0.000421
+gskSummonDevTrapMiniSpiderFly
+gskSummonDevTrapMiniSpiderFly
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 5/12 )
+prop at -659 -2493 192 missing modelname
+prop at -659 -2493 192 missing modelname
+setpos -650.231934 -2518.557861 404.653564;setang 82.597969 108.142426 -0.000514
+setpos -650.231934 -2518.557861 404.653564;setang 82.597969 108.142426 -0.000514
+gskSummonDevTrapMiniSpiderFly
+gskSummonDevTrapMiniSpiderFly
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 6/12 )
+prop at -643 -2494 192 missing modelname
+prop at -643 -2494 192 missing modelname
+setpos -646.212708 -2518.190430 404.494629;setang 83.587875 82.798500 -0.000425
+setpos -646.212708 -2518.190430 404.494629;setang 83.587875 82.798500 -0.000425
+gskSummonDevTrapMiniSpiderFly
+gskSummonDevTrapMiniSpiderFly
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 7/12 )
+prop at -632 -2502 192 missing modelname
+prop at -632 -2502 192 missing modelname
+setpos -642.475647 -2519.549072 404.346588;setang 84.511803 57.784481 -0.000361
+setpos -642.475647 -2519.549072 404.346588;setang 84.511803 57.784481 -0.000361
+gskSummonDevTrapMiniSpiderFly
+gskSummonDevTrapMiniSpiderFly
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 8/12 )
+prop at -625 -2513 192 missing modelname
+prop at -625 -2513 192 missing modelname
+setpos -639.630432 -2522.416992 404.209442;setang 85.369728 32.308647 -0.000233
+setpos -639.630432 -2522.416992 404.209442;setang 85.369728 32.308647 -0.000233
+gskSummonDevTrapMiniSpiderFly
+gskSummonDevTrapMiniSpiderFly
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 9/12 )
+prop at -623 -2522 192 missing modelname
+prop at -623 -2522 192 missing modelname
+setpos -638.387939 -2525.564697 404.167267;setang 85.633690 10.990501 -0.000289
+setpos -638.387939 -2525.564697 404.167267;setang 85.633690 10.990501 -0.000289
+gskSummonDevTrapMiniSpiderFly
+gskSummonDevTrapMiniSpiderFly
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 10/12 )
+prop at -624 -2536 192 missing modelname
+prop at -624 -2536 192 missing modelname
+setpos -638.838135 -2530.612549 404.167267;setang 85.633690 -21.184433 -0.000294
+setpos -638.838135 -2530.612549 404.167267;setang 85.633690 -21.184433 -0.000294
+gskSummonDevTrapMiniSpiderFly
+gskSummonDevTrapMiniSpiderFly
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 11/12 )
+prop at -634 -2548 192 missing modelname
+prop at -634 -2548 192 missing modelname
+setpos -642.431580 -2534.997803 404.114624;setang 85.963631 -57.319336 -0.000234
+setpos -642.431580 -2534.997803 404.114624;setang 85.963631 -57.319336 -0.000234
+gskSummonDevTrapMiniSpiderFly
+gskSummonDevTrapMiniSpiderFly
