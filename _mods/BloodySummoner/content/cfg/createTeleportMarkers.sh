@@ -309,17 +309,20 @@ while true;do
 		echo "$strTeleportUpAlias" >>"$strMapCfgFile"
 		echo "$strTeleportTargetAlias" >>"$strMapCfgFile"
 		if [[ -n "$strTeleportUpAlias" ]] || [[ -n "$strTeleportTargetAlias" ]];then
-			echo "gskSndTeleportReady" >>"$strMapCfgFile"
+			#echo "gskSndTeleportReady" >>"$strMapCfgFile"
+			pwd
+			#mplayer "../sound/gsk/english/TeleportReady.wav"&&:
+			mplayer "_mods/BloodySummoner/content/sound/gsk/english/TeleportReady.wav"&&:
+		else
+			if((${#astrMarkerID[@]}==0));then
+				FUNCsay "There is no teleporter markers."
+			else
+				FUNCsay "${#astrMarkerID[@]} Teleporter markers ready."
+			fi
 		fi
 		
 		ln -vsf "$strMapCfgFile" "$strTeleCurrentCfgFile"
 		cat "${strTeleCurrentCfgFile}" |egrep "^echo"
-		
-		if((${#astrMarkerID[@]}==0));then
-			FUNCsay "Teleporter markers list is empty."
-		else
-			FUNCsay "Teleporter markers list is ready."
-		fi
 	fi
 	
 	strFlCondumpPrev="$strFlCondump"
