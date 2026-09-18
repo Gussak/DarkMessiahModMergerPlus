@@ -13,7 +13,7 @@
 			{
 				"ItemCount3" "7"
 				"ItemCount4" "3"
-				"ItemClass3" "item_food_chicken_roasted"
+				"ItemClass3" "item_food_chicken_roasted" //prop_ammo_arrow fails wont spawn, env_shooter_arrow spawns but cant be pickup.. 
 				"ItemClass4" "item_food_banana_regime"
 			}
 		}
