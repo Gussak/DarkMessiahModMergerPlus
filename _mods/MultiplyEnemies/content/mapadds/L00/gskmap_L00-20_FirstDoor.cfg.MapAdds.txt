@@ -1763,7 +1763,7 @@
 			"fadescale" "1"
 			
 			"classname" "prop_ammo_arrow"
-			"angles"      "57 124 90"
+			"angles"      "0 124 -0"
 			"model" "models/items/weapons/quiver_guard/quiver_guard.mdl"
 			"NbArrow" "3"
 			

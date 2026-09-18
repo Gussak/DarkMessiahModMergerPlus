@@ -3843,19 +3843,6 @@
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_30_FirstLever_168"  //gskSummonSpiderMini
-			"origin"      "-421 -2632 193"
-			"angles"      "44 47 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"classname" "npc_spider_mini"
-			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
-			"origin"      "-421 -2632 198"
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_30_FirstLever_169"  //gskSummonSpiderMini
 			"origin"      "-749 -2636 195"
 			"angles"      "35 29 -0"
 			"spawnflags"  "7"
@@ -3868,20 +3855,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_FirstLever_170"  //gskSummonSpiderMini
-			"origin"      "-431 -2439 199"
-			"angles"      "28 -89 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"classname" "npc_spider_mini"
-			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
-			"origin"      "-431 -2439 204"
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_30_FirstLever_171"  //gskSummonSpiderMini
+			"targetname"  "gskSpawn_30_FirstLever_169"  //gskSummonSpiderMini
 			"origin"      "-145 -2305 205"
 			"angles"      "28 -32 -0"
 			"spawnflags"  "7"
@@ -3894,7 +3868,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_FirstLever_172"  //gskSummonSpiderMini
+			"targetname"  "gskSpawn_30_FirstLever_170"  //gskSummonSpiderMini
 			"origin"      "-21 -2769 162"
 			"angles"      "75 84 -0"
 			"spawnflags"  "7"
@@ -4629,10 +4603,6 @@
 				"Template10" "gskSpawn_30_FirstLever_169"
 
 				"Template11" "gskSpawn_30_FirstLever_170"
-
-				"Template12" "gskSpawn_30_FirstLever_171"
-
-				"Template13" "gskSpawn_30_FirstLever_172"
 
 			}
 		}

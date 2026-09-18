@@ -1155,7 +1155,7 @@ function FUNCmapadds() {
 			"fadescale" "1"
 			
 			"classname" "prop_ammo_arrow"
-			"angles"      "'"${anTargetAngXYZ[x]} ${anTargetAngXYZ[y]} 90"'"
+			"angles"      "'"0 ${anTargetAngXYZ[y]} ${anTargetAngXYZ[z]}"'"
 			"model" "models/items/weapons/quiver_guard/quiver_guard.mdl"
 			"NbArrow" "3"
 			' >>"$lstrFlAddTmp"
@@ -1174,7 +1174,7 @@ function FUNCmapadds() {
 	esac
 	
 	if((lnYDisplacement!=0));then
-		anTargetPosXYZ[z]="$(bc <<< "${anTargetPosXYZ[z]}+${lnYDisplacement}")"
+		anTargetPosXYZ[z]="$(bc <<< " ${anTargetPosXYZ[z]} + (${lnYDisplacement}) ")"
 		echo '
 			"origin"      "'"${anTargetPosXYZ[x]} ${anTargetPosXYZ[y]} ${anTargetPosXYZ[z]}"'"' >>"$lstrFlAddTmp"
 	fi
