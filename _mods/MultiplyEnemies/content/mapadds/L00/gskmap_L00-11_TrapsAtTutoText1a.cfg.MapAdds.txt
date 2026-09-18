@@ -1,0 +1,255 @@
+
+"mapadd_keyvalues"
+{
+	"PreInitialize"
+	{	
+
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_11_TrapsAtTutoText1a_000"
+			"origin"      "-776 -4271 606"
+			"angles"      "-88 97 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "500"
+			"fademaxdist" "700"
+			"fadescale" "1"
+			"classname" "prop_dynamic"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "0 0 0"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "261"
+			"health" "1"
+			
+			
+			"origin"      "-776 -4271 596"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_11_TrapsAtTutoText1a_001"
+			"origin"      "-728 -4263 609"
+			"angles"      "-79 -167 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "500"
+			"fademaxdist" "700"
+			"fadescale" "1"
+			"classname" "prop_dynamic"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "0 0 0"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "261"
+			"health" "1"
+			
+			
+			"origin"      "-728 -4263 599"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_11_TrapsAtTutoText1a_002"
+			"origin"      "-820 -4255 592"
+			"angles"      "-78 -24 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "500"
+			"fademaxdist" "700"
+			"fadescale" "1"
+			"classname" "prop_dynamic"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "0 0 0"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "261"
+			"health" "1"
+			
+			
+			"origin"      "-820 -4255 582"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_11_TrapsAtTutoText1a_003"
+			"origin"      "-771 -4188 607"
+			"angles"      "-72 -93 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "500"
+			"fademaxdist" "700"
+			"fadescale" "1"
+			"classname" "prop_dynamic"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "0 0 0"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "261"
+			"health" "1"
+			
+			
+			"origin"      "-771 -4188 597"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_11_TrapsAtTutoText1a_004"
+			"origin"      "-779 -4265 606"
+			"angles"      "-59 79 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-779 -4265 596"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_11_TrapsAtTutoText1a_005"
+			"origin"      "-731 -4245 619"
+			"angles"      "-64 99 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-731 -4245 609"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_11_TrapsAtTutoText1a_006"
+			"origin"      "-663 -4229 625"
+			"angles"      "-62 128 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-663 -4229 615"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_11_TrapsAtTutoText1a_007"
+			"origin"      "-610 -4231 625"
+			"angles"      "-56 142 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-610 -4231 615"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_11_TrapsAtTutoText1a_008"
+			"origin"      "-562 -4228 625"
+			"angles"      "-52 150 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-562 -4228 615"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_11_TrapsAtTutoText1a_009"
+			"origin"      "-483 -4254 597"
+			"angles"      "-40 154 0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-483 -4254 587"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"338295"
+			}
+			"add:key"
+			{
+				"OnTrigger" "gskSpawn_11_TrapsAtTutoText1a_BeginAt000,ForceSpawn,,0,-1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_11_TrapsAtTutoText1a_BeginAt000"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_11_TrapsAtTutoText1a_BeginAt000"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_11_TrapsAtTutoText1a_000"
+
+				"Template02" "gskSpawn_11_TrapsAtTutoText1a_001"
+
+				"Template03" "gskSpawn_11_TrapsAtTutoText1a_002"
+
+				"Template04" "gskSpawn_11_TrapsAtTutoText1a_003"
+
+				"Template05" "gskSpawn_11_TrapsAtTutoText1a_004"
+
+				"Template06" "gskSpawn_11_TrapsAtTutoText1a_005"
+
+				"Template07" "gskSpawn_11_TrapsAtTutoText1a_006"
+
+				"Template08" "gskSpawn_11_TrapsAtTutoText1a_007"
+
+				"Template09" "gskSpawn_11_TrapsAtTutoText1a_008"
+
+				"Template10" "gskSpawn_11_TrapsAtTutoText1a_009"
+
+			}
+		}
+
+	}
+}
+

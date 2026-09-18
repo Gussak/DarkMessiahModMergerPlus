@@ -2878,16 +2878,33 @@
 			"health" "1"
 			
 		}
-//		"add:entity"
-//		{
-//			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_112"
-//			"origin"      "1974 1286 -543"
-//			"angles"      "52 -125 -0"
-//			"spawnflags"  "7"
-//			"physdamagescale" "1.0"
-//			"radiusforrandomattitude" "500"
-//			"targetname"   "gskSpawn_60_OpenGateTrainingRoom_112_TODO_FixMissingSupportFor_gskSummonDevTrapFire"
-//		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_112"
+			"origin"      "1974 1286 -543"
+			"angles"      "52 -125 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "500"
+			"fademaxdist" "700"
+			"fadescale" "1"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "28 13 34"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+			
+		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_113"
@@ -3570,29 +3587,31 @@
 			{
 		
 
-				"Template01" "gskSpawn_60_OpenGateTrainingRoom_113"
+				"Template01" "gskSpawn_60_OpenGateTrainingRoom_112"
 
-				"Template02" "gskSpawn_60_OpenGateTrainingRoom_114"
+				"Template02" "gskSpawn_60_OpenGateTrainingRoom_113"
 
-				"Template03" "gskSpawn_60_OpenGateTrainingRoom_115"
+				"Template03" "gskSpawn_60_OpenGateTrainingRoom_114"
 
-				"Template04" "gskSpawn_60_OpenGateTrainingRoom_116"
+				"Template04" "gskSpawn_60_OpenGateTrainingRoom_115"
 
-				"Template05" "gskSpawn_60_OpenGateTrainingRoom_117"
+				"Template05" "gskSpawn_60_OpenGateTrainingRoom_116"
 
-				"Template06" "gskSpawn_60_OpenGateTrainingRoom_118"
+				"Template06" "gskSpawn_60_OpenGateTrainingRoom_117"
 
-				"Template07" "gskSpawn_60_OpenGateTrainingRoom_119"
+				"Template07" "gskSpawn_60_OpenGateTrainingRoom_118"
 
-				"Template08" "gskSpawn_60_OpenGateTrainingRoom_120"
+				"Template08" "gskSpawn_60_OpenGateTrainingRoom_119"
 
-				"Template09" "gskSpawn_60_OpenGateTrainingRoom_121"
+				"Template09" "gskSpawn_60_OpenGateTrainingRoom_120"
 
-				"Template10" "gskSpawn_60_OpenGateTrainingRoom_122"
+				"Template10" "gskSpawn_60_OpenGateTrainingRoom_121"
 
-				"Template11" "gskSpawn_60_OpenGateTrainingRoom_123"
+				"Template11" "gskSpawn_60_OpenGateTrainingRoom_122"
 
-				"Template12" "gskSpawn_60_OpenGateTrainingRoom_124"
+				"Template12" "gskSpawn_60_OpenGateTrainingRoom_123"
+
+				"Template13" "gskSpawn_60_OpenGateTrainingRoom_124"
 
 			}
 		}

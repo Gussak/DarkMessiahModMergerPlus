@@ -2869,36 +2869,87 @@
 			"spawnflags"  "7"
 			"origin"      "1234 2193 182"
 		}
-//		"add:entity"
-//		{
-//			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_123"
-//			"origin"      "1091 2225 -151"
-//			"angles"      "43 -3 -0"
-//			"spawnflags"  "7"
-//			"physdamagescale" "1.0"
-//			"radiusforrandomattitude" "500"
-//			"targetname"   "gskSpawn_70_FinalSectorAfter1SkPoint_123_TODO_FixMissingSupportFor_gskSummonDevTrapFire"
-//		}
-//		"add:entity"
-//		{
-//			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_124"
-//			"origin"      "1259 2451 -151"
-//			"angles"      "40 -32 -0"
-//			"spawnflags"  "7"
-//			"physdamagescale" "1.0"
-//			"radiusforrandomattitude" "500"
-//			"targetname"   "gskSpawn_70_FinalSectorAfter1SkPoint_124_TODO_FixMissingSupportFor_gskSummonDevTrapFire"
-//		}
-//		"add:entity"
-//		{
-//			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_125"
-//			"origin"      "1195 2190 177"
-//			"angles"      "46 21 -0"
-//			"spawnflags"  "7"
-//			"physdamagescale" "1.0"
-//			"radiusforrandomattitude" "500"
-//			"targetname"   "gskSpawn_70_FinalSectorAfter1SkPoint_125_TODO_FixMissingSupportFor_gskSummonDevTrapFire"
-//		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_123"
+			"origin"      "1091 2225 -151"
+			"angles"      "43 -3 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "500"
+			"fademaxdist" "700"
+			"fadescale" "1"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "29 148 12"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_124"
+			"origin"      "1259 2451 -151"
+			"angles"      "40 -32 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "500"
+			"fademaxdist" "700"
+			"fadescale" "1"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "3 -163 38"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_125"
+			"origin"      "1195 2190 177"
+			"angles"      "46 21 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "500"
+			"fademaxdist" "700"
+			"fadescale" "1"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "8 158 6"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
+			
+			
+		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_126"
@@ -3567,15 +3618,15 @@
 
 				"Template11" "gskSpawn_70_FinalSectorAfter1SkPoint_122"
 
-				"Template12" "gskSpawn_70_FinalSectorAfter1SkPoint_126"
+				"Template12" "gskSpawn_70_FinalSectorAfter1SkPoint_123"
 
-				"Template13" "gskSpawn_70_FinalSectorAfter1SkPoint_127"
+				"Template13" "gskSpawn_70_FinalSectorAfter1SkPoint_124"
 
-				"Template14" "gskSpawn_70_FinalSectorAfter1SkPoint_128"
+				"Template14" "gskSpawn_70_FinalSectorAfter1SkPoint_125"
 
-				"Template15" "gskSpawn_70_FinalSectorAfter1SkPoint_129"
+				"Template15" "gskSpawn_70_FinalSectorAfter1SkPoint_126"
 
-				"Template16" "gskSpawn_70_FinalSectorAfter1SkPoint_130"
+				"Template16" "gskSpawn_70_FinalSectorAfter1SkPoint_127"
 
 			}
 		}
@@ -3612,19 +3663,25 @@
 			{
 		
 
-				"Template01" "gskSpawn_70_FinalSectorAfter1SkPoint_131"
+				"Template01" "gskSpawn_70_FinalSectorAfter1SkPoint_128"
 
-				"Template02" "gskSpawn_70_FinalSectorAfter1SkPoint_132"
+				"Template02" "gskSpawn_70_FinalSectorAfter1SkPoint_129"
 
-				"Template03" "gskSpawn_70_FinalSectorAfter1SkPoint_133"
+				"Template03" "gskSpawn_70_FinalSectorAfter1SkPoint_130"
 
-				"Template04" "gskSpawn_70_FinalSectorAfter1SkPoint_134"
+				"Template04" "gskSpawn_70_FinalSectorAfter1SkPoint_131"
 
-				"Template05" "gskSpawn_70_FinalSectorAfter1SkPoint_135"
+				"Template05" "gskSpawn_70_FinalSectorAfter1SkPoint_132"
 
-				"Template06" "gskSpawn_70_FinalSectorAfter1SkPoint_136"
+				"Template06" "gskSpawn_70_FinalSectorAfter1SkPoint_133"
 
-				"Template07" "gskSpawn_70_FinalSectorAfter1SkPoint_137"
+				"Template07" "gskSpawn_70_FinalSectorAfter1SkPoint_134"
+
+				"Template08" "gskSpawn_70_FinalSectorAfter1SkPoint_135"
+
+				"Template09" "gskSpawn_70_FinalSectorAfter1SkPoint_136"
+
+				"Template10" "gskSpawn_70_FinalSectorAfter1SkPoint_137"
 
 			}
 		}

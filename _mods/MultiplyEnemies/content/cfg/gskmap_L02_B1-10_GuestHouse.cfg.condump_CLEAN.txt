@@ -105,64 +105,64 @@ prop at -4830 -10417 264 missing modelname
 prop at -4830 -10417 264 missing modelname
 setpos -4887.663574 -10521.367188 344.529877;setang 34.070034 61.175903 0.001136
 setpos -4887.663574 -10521.367188 344.529877;setang 34.070034 61.175903 0.001136
-gskSummonDevFireTrap
-gskSummonDevFireTrap
+gskSummonDevTrapFire
+gskSummonDevTrapFire
 gskSpawnHint  // ( 15/26 )
 prop at -4123 -12168 100 missing modelname
 prop at -4123 -12168 100 missing modelname
 setpos -4175.197266 -12164.730469 187.316284;setang 59.080338 -4.061171 -0.001084
 setpos -4175.197266 -12164.730469 187.316284;setang 59.080338 -4.061171 -0.001084
-gskSummonDevFireTrap
-gskSummonDevFireTrap
+gskSummonDevTrapFire
+gskSummonDevTrapFire
 gskSpawnHint  // ( 16/26 )
 pop at -4174 -12570 66 missing modelname
 prop at -4174 -12570 66 missing modelname
 setpos -4171.046875 -12474.453125 136.029922;setang 36.314133 -92.040306 0.000930
 setpos -4171.046875 -12474.453125 136.029922;setang 36.314133 -92.040306 0.000930
-gskSummonDevFireTrap
-gskSummonDevFireTrap
+gskSummonDevTrapFire
+gskSummonDevTrapFire
 gskSpawnHint  // ( 17/26 )
 prop at -5202 -11813 65 missing modelname
 prop at -5202 -11813 65 missing modelname
 setpos -5142.474121 -11742.706055 192.524979;setang 54.197594 -130.517776 -0.000842
 setpos -5142.474121 -11742.706055 192.524979;setang 54.197594 -130.517776 -0.000842
-gskSummonDevFireTrap
-gskSummonDevFireTrap
+gskSummonDevTrapFire
+gskSummonDevTrapFire
 gskSpawnHint  // ( 18/26 )
 prop at -1630 -13317 -33 missing modelnam
 prop at -1630 -13317 -33 missing modelname
 setpos -1737.908081 -13276.171875 229.216415;setang 66.207138 -20.788359 -0.001198
 setpos -1737.908081 -13276.171875 229.216415;setang 66.207138 -20.788359 -0.001198
-gskSummonDevFireTrap
-gskSummonDevFireTrap
+gskSummonDevTrapFire
+gskSummonDevTrapFire
 gskSpawnHint  // ( 19/26 )
 prop at -1661 -12475 -33 missing modelname
 prop at -1661 -12475 -33 missing mdelname
 setpos -1737.794800 -12387.761719 183.737732;setang 61.852020 -48.706955 -0.001170
 setpos -1737.794800 -12387.761719 183.737732;setang 61.852020 -48.706955 -0.001170
-gskSummonDevFireTrap
-gskSummonDevFireTrap
+gskSummonDevTrapFire
+gskSummonDevTrapFire
 gskSpawnHint  // ( 20/26 )
 prop at -2193 -12212 -18 missing modelname
 prop at -2193 -12212 -18 missing modelname
 setpos -2224.843994 -12357.20898 151.513519;setang 48.523296 77.879448 -0.000386
 setpos -2224.843994 -12357.920898 151.513519;setang 48.523296 77.879448 -0.000386
-gskSummonDevFireTrap
-gskSummonDevFireTrap
+gskSummonDevTrapFire
+gskSummonDevTrapFire
 gskSpawnHint  // ( 21/26 )
 prop at -1570 -10855 -34 missing modelname
 prop at -1570 -10855 -34 missing modelname
 setpos -1717.211914 -10929.227539 201.388641;setang 54.989391 26.95860 -0.000901
 setpos -1717.211914 -10929.227539 201.388641;setang 54.989391 26.795860 -0.000901
-gskSummonDevFireTrap
-gskSummonDevFireTrap
+gskSummonDevTrapFire
+gskSummonDevTrapFire
 gskSpawnHint  // ( 22/26 )
 prop at -1971 -10809 -25 missing modelname
 prop at -1971 -10809 -25 missing modelname
 setpos -2057.211182 -10979.849609 166.628769;setang 44.960114 63.160633 0.000009
 setpos -2057.211182 -1979.849609 166.628769;setang 44.960114 63.160633 0.000009
-gskSummonDevFireTrap
-gskSummonDevFireTrap
+gskSummonDevTrapFire
+gskSummonDevTrapFire
 gskSpawnHint  // ( 23/26 )
 prop at -3606 -10953 83 missing modelname
 prop at -3606 -10953 83 missing modelname
@@ -182,5 +182,5 @@ prop at -3581 -10982 26 missing modelname
 prop at -3581 -10982 26 missing modelname
 setpos -3601.062500 -10915.369141 197.20951;setang 67.922768 -73.491913 -0.001187
 setpos -3601.062500 -10915.369141 197.209351;setang 67.922768 -73.491913 -0.001187
-gskSummonDevFireTrap
-gskSummonDevFireTrap
+gskSummonDevTrapFire
+gskSummonDevTrapFire
