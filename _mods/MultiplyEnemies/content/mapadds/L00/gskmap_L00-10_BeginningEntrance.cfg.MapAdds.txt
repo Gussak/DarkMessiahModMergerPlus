@@ -6,7 +6,7 @@
 
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_000"
+			"targetname"  "gskSpawn_10_BeginningEntrance_000"  //gskSummonPotionCurePoison
 			"origin"      "-1842 -4745 203"
 			"angles"      "45 124 -0"
 			"spawnflags"  "7"
@@ -19,7 +19,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_001"
+			"targetname"  "gskSpawn_10_BeginningEntrance_001"  //gskSummonDevTrapFire
 			"origin"      "-1515 -4521 193"
 			"angles"      "42 -127 0"
 			"spawnflags"  "7"
@@ -46,7 +46,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_002"
+			"targetname"  "gskSpawn_10_BeginningEntrance_002"  //gskSummonDevTrapFire
 			"origin"      "-1495 -4548 194"
 			"angles"      "43 -139 0"
 			"spawnflags"  "7"
@@ -73,7 +73,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_003"
+			"targetname"  "gskSpawn_10_BeginningEntrance_003"  //gskSummonDevTrapFire
 			"origin"      "-1483 -4577 194"
 			"angles"      "44 -152 0"
 			"spawnflags"  "7"
@@ -100,7 +100,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_004"
+			"targetname"  "gskSpawn_10_BeginningEntrance_004"  //gskSummonDevTrapFire
 			"origin"      "-1475 -4602 193"
 			"angles"      "45 -163 -0"
 			"spawnflags"  "7"
@@ -127,7 +127,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_005"
+			"targetname"  "gskSpawn_10_BeginningEntrance_005"  //gskSummonDevTrapFire
 			"origin"      "-1471 -4631 193"
 			"angles"      "46 -175 -0"
 			"spawnflags"  "7"
@@ -154,7 +154,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_006"
+			"targetname"  "gskSpawn_10_BeginningEntrance_006"  //gskSummonDevTrapFire
 			"origin"      "-1471 -4659 193"
 			"angles"      "46 174 -0"
 			"spawnflags"  "7"
@@ -181,7 +181,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_007"
+			"targetname"  "gskSpawn_10_BeginningEntrance_007"  //gskSummonDevTrapFire
 			"origin"      "-1478 -4690 194"
 			"angles"      "45 161 -0"
 			"spawnflags"  "7"
@@ -208,7 +208,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_008"
+			"targetname"  "gskSpawn_10_BeginningEntrance_008"  //gskSummonDevTrapFire
 			"origin"      "-1491 -4719 194"
 			"angles"      "45 147 -0"
 			"spawnflags"  "7"
@@ -235,7 +235,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_009"
+			"targetname"  "gskSpawn_10_BeginningEntrance_009"  //gskSummonDevTrapFire
 			"origin"      "-1511 -4745 194"
 			"angles"      "45 134 -0"
 			"spawnflags"  "7"
@@ -262,7 +262,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_010"
+			"targetname"  "gskSpawn_10_BeginningEntrance_010"  //gskSummonDevTrapFire
 			"origin"      "-1539 -4773 193"
 			"angles"      "44 118 0"
 			"spawnflags"  "7"
@@ -289,7 +289,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_011"
+			"targetname"  "gskSpawn_10_BeginningEntrance_011"  //gskSummonDevTrapFire
 			"origin"      "-1431 -4645 193"
 			"angles"      "38 -1 0"
 			"spawnflags"  "7"
@@ -316,7 +316,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_012"
+			"targetname"  "gskSpawn_10_BeginningEntrance_012"  //gskSummonDevTrapFire
 			"origin"      "-1386 -4644 193"
 			"angles"      "54 -2 -0"
 			"spawnflags"  "7"
@@ -343,7 +343,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_013"
+			"targetname"  "gskSpawn_10_BeginningEntrance_013"  //gskSummonDevTrapFire
 			"origin"      "-1329 -4618 193"
 			"angles"      "74 -79 -0"
 			"spawnflags"  "7"
@@ -370,7 +370,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_014"
+			"targetname"  "gskSpawn_10_BeginningEntrance_014"  //gskSummonDevTrapFire
 			"origin"      "-1280 -4638 193"
 			"angles"      "64 -170 -0"
 			"spawnflags"  "7"
@@ -397,7 +397,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_015"
+			"targetname"  "gskSpawn_10_BeginningEntrance_015"  //gskSummonDevTrapFire
 			"origin"      "-1216 -4668 193"
 			"angles"      "37 169 0"
 			"spawnflags"  "7"
@@ -424,7 +424,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_016"
+			"targetname"  "gskSpawn_10_BeginningEntrance_016"  //gskSummonDevTrapFire
 			"origin"      "-1145 -4682 193"
 			"angles"      "34 78 0"
 			"spawnflags"  "7"
@@ -451,7 +451,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_017"
+			"targetname"  "gskSpawn_10_BeginningEntrance_017"  //gskSummonDevTrapFire
 			"origin"      "-1047 -4648 193"
 			"angles"      "37 130 0"
 			"spawnflags"  "7"
@@ -478,7 +478,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_018"
+			"targetname"  "gskSpawn_10_BeginningEntrance_018"  //gskSummonSpiderMini
 			"origin"      "-1618 -4829 216"
 			"angles"      "47 141 -0"
 			"spawnflags"  "7"
@@ -491,7 +491,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_019"
+			"targetname"  "gskSpawn_10_BeginningEntrance_019"  //gskSummonSpiderMini
 			"origin"      "-1662 -4809 213"
 			"angles"      "53 138 -0"
 			"spawnflags"  "7"
@@ -504,7 +504,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_020"
+			"targetname"  "gskSpawn_10_BeginningEntrance_020"  //gskSummonSpiderMini
 			"origin"      "-1640 -4765 196"
 			"angles"      "56 151 -0"
 			"spawnflags"  "7"
@@ -517,7 +517,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_021"
+			"targetname"  "gskSpawn_10_BeginningEntrance_021"  //gskSummonSpiderMini
 			"origin"      "-1582 -4716 194"
 			"angles"      "52 167 -0"
 			"spawnflags"  "7"
@@ -530,7 +530,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_022"
+			"targetname"  "gskSpawn_10_BeginningEntrance_022"  //gskSummonSpiderMini
 			"origin"      "-1547 -4628 193"
 			"angles"      "48 -175 -0"
 			"spawnflags"  "7"
@@ -543,7 +543,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_023"
+			"targetname"  "gskSpawn_10_BeginningEntrance_023"  //gskSummonSpiderMini
 			"origin"      "-1594 -4566 193"
 			"angles"      "52 -160 -0"
 			"spawnflags"  "7"
@@ -556,7 +556,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_024"
+			"targetname"  "gskSpawn_10_BeginningEntrance_024"  //gskSummonSpiderMini
 			"origin"      "-1639 -4511 202"
 			"angles"      "53 -144 -0"
 			"spawnflags"  "7"
@@ -569,7 +569,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_025"
+			"targetname"  "gskSpawn_10_BeginningEntrance_025"  //gskSummonSpiderMini
 			"origin"      "-1710 -4523 201"
 			"angles"      "61 -133 -0"
 			"spawnflags"  "7"
@@ -582,7 +582,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_026"
+			"targetname"  "gskSpawn_10_BeginningEntrance_026"  //gskSummonSpiderMini
 			"origin"      "-1687 -4570 193"
 			"angles"      "63 -150 -0"
 			"spawnflags"  "7"
@@ -595,7 +595,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_027"
+			"targetname"  "gskSpawn_10_BeginningEntrance_027"  //gskSummonSpiderMini
 			"origin"      "-1648 -4610 193"
 			"angles"      "60 -167 -0"
 			"spawnflags"  "7"
@@ -608,7 +608,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_028"
+			"targetname"  "gskSpawn_10_BeginningEntrance_028"  //gskSummonSpiderMini
 			"origin"      "-1680 -4652 193"
 			"angles"      "66 -179 -0"
 			"spawnflags"  "7"
@@ -621,7 +621,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_029"
+			"targetname"  "gskSpawn_10_BeginningEntrance_029"  //gskSummonSpiderMini
 			"origin"      "-1667 -4710 194"
 			"angles"      "62 162 -0"
 			"spawnflags"  "7"
@@ -634,7 +634,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_030"
+			"targetname"  "gskSpawn_10_BeginningEntrance_030"  //gskSummonSpiderMini
 			"origin"      "-1699 -4760 194"
 			"angles"      "63 142 -0"
 			"spawnflags"  "7"
@@ -647,7 +647,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_031"
+			"targetname"  "gskSpawn_10_BeginningEntrance_031"  //gskSummonSpiderMini
 			"origin"      "-1750 -4775 194"
 			"angles"      "67 124 -0"
 			"spawnflags"  "7"
@@ -660,7 +660,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_032"
+			"targetname"  "gskSpawn_10_BeginningEntrance_032"  //gskSummonSpiderMini
 			"origin"      "-1721 -4723 195"
 			"angles"      "69 149 -0"
 			"spawnflags"  "7"
@@ -673,7 +673,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_033"
+			"targetname"  "gskSpawn_10_BeginningEntrance_033"  //gskSummonSpiderMini
 			"origin"      "-1635 -4663 193"
 			"angles"      "59 178 -0"
 			"spawnflags"  "7"
@@ -686,7 +686,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_034"
+			"targetname"  "gskSpawn_10_BeginningEntrance_034"  //gskSummonSpiderMini
 			"origin"      "-1578 -4628 193"
 			"angles"      "52 -174 -0"
 			"spawnflags"  "7"
@@ -699,7 +699,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_035"
+			"targetname"  "gskSpawn_10_BeginningEntrance_035"  //gskSummonSpiderMini
 			"origin"      "-1624 -4731 195"
 			"angles"      "56 160 -0"
 			"spawnflags"  "7"
@@ -712,7 +712,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_036"
+			"targetname"  "gskSpawn_10_BeginningEntrance_036"  //gskSummonSpiderMini
 			"origin"      "-1556 -4760 194"
 			"angles"      "47 160 -0"
 			"spawnflags"  "7"
@@ -725,7 +725,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_037"
+			"targetname"  "gskSpawn_10_BeginningEntrance_037"  //gskSummonSpiderMini
 			"origin"      "-1712 -4686 193"
 			"angles"      "70 166 -0"
 			"spawnflags"  "7"
@@ -738,7 +738,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_038"
+			"targetname"  "gskSpawn_10_BeginningEntrance_038"  //gskSummonSpiderMini
 			"origin"      "-1765 -4720 193"
 			"angles"      "76 136 -0"
 			"spawnflags"  "7"
@@ -751,7 +751,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_039"
+			"targetname"  "gskSpawn_10_BeginningEntrance_039"  //gskSummonSpiderMini
 			"origin"      "-1719 -4618 193"
 			"angles"      "71 -162 -0"
 			"spawnflags"  "7"
@@ -764,7 +764,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_040"
+			"targetname"  "gskSpawn_10_BeginningEntrance_040"  //gskSummonSpiderMini
 			"origin"      "-1726 -4566 193"
 			"angles"      "68 -140 -0"
 			"spawnflags"  "7"
@@ -777,7 +777,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_041"
+			"targetname"  "gskSpawn_10_BeginningEntrance_041"  //gskSummonSpiderMini
 			"origin"      "-1615 -4522 200"
 			"angles"      "51 -149 -0"
 			"spawnflags"  "7"
@@ -790,7 +790,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_042"
+			"targetname"  "gskSpawn_10_BeginningEntrance_042"  //gskSummonSpiderMini
 			"origin"      "-1553 -4530 193"
 			"angles"      "46 -156 -0"
 			"spawnflags"  "7"
@@ -803,7 +803,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_043"
+			"targetname"  "gskSpawn_10_BeginningEntrance_043"  //gskSummonSpiderMini
 			"origin"      "-1521 -4575 193"
 			"angles"      "45 -166 -0"
 			"spawnflags"  "7"
@@ -816,7 +816,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_044"
+			"targetname"  "gskSpawn_10_BeginningEntrance_044"  //gskSummonPotionLife
 			"origin"      "-1877 -4754 204"
 			"angles"      "72 65 -0"
 			"spawnflags"  "7"
@@ -829,7 +829,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_045"
+			"targetname"  "gskSpawn_10_BeginningEntrance_045"  //gskSummonPotionLife
 			"origin"      "-1906 -4741 203"
 			"angles"      "71 49 -0"
 			"spawnflags"  "7"
@@ -842,7 +842,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_046"
+			"targetname"  "gskSpawn_10_BeginningEntrance_046"  //gskSummonSpiderRegular
 			"origin"      "-1395 -4429 223"
 			"angles"      "89 -49 0"
 			"spawnflags"  "7"
@@ -855,7 +855,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_047"
+			"targetname"  "gskSpawn_10_BeginningEntrance_047"  //gskSummonSpiderRegular
 			"origin"      "-802 -4873 204"
 			"angles"      "85 83 -0"
 			"spawnflags"  "7"
@@ -868,7 +868,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_048"
+			"targetname"  "gskSpawn_10_BeginningEntrance_048"  //gskSummonSpiderRegular
 			"origin"      "-974 -3922 204"
 			"angles"      "89 -38 -0"
 			"spawnflags"  "7"
@@ -881,7 +881,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_049"
+			"targetname"  "gskSpawn_10_BeginningEntrance_049"  //gskSummonSpiderRegular
 			"origin"      "-648 -4337 197"
 			"angles"      "89 91 -0"
 			"spawnflags"  "7"
@@ -894,7 +894,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_050"
+			"targetname"  "gskSpawn_10_BeginningEntrance_050"  //gskSummonSpiderRegular
 			"origin"      "-429 -3912 227"
 			"angles"      "88 -131 0"
 			"spawnflags"  "7"
@@ -907,7 +907,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_051"
+			"targetname"  "gskSpawn_10_BeginningEntrance_051"  //gskSummonPotionLife
 			"origin"      "-618 -4094 229"
 			"angles"      "76 5 -0"
 			"spawnflags"  "7"
@@ -920,7 +920,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_052"
+			"targetname"  "gskSpawn_10_BeginningEntrance_052"  //+gskSummonGuardMini
 			"origin"      "-2097 -4551 196"
 			"angles"      "21 -50 -0"
 			"spawnflags"  "7"
@@ -933,7 +933,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_053"
+			"targetname"  "gskSpawn_10_BeginningEntrance_053"  //gskSummonDevSkeletonPart
 			"origin"      "-1269 -4622 193"
 			"angles"      "45 -170 -0"
 			"spawnflags"  "7"
@@ -963,7 +963,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_054"
+			"targetname"  "gskSpawn_10_BeginningEntrance_054"  //gskSummonDevSkeletonPart
 			"origin"      "-1198 -4700 193"
 			"angles"      "37 173 0"
 			"spawnflags"  "7"
@@ -993,7 +993,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_055"
+			"targetname"  "gskSpawn_10_BeginningEntrance_055"  //gskSummonDevSkeletonPart
 			"origin"      "-1325 -4787 210"
 			"angles"      "45 142 -0"
 			"spawnflags"  "7"
@@ -1014,7 +1014,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_056"
+			"targetname"  "gskSpawn_10_BeginningEntrance_056"  //gskSummonDevSkeletonPart
 			"origin"      "-1186 -4743 197"
 			"angles"      "34 165 0"
 			"spawnflags"  "7"
@@ -1035,7 +1035,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_057"
+			"targetname"  "gskSpawn_10_BeginningEntrance_057"  //gskSummonDevSkeletonPart
 			"origin"      "-1131 -4643 193"
 			"angles"      "31 -177 0"
 			"spawnflags"  "7"
@@ -1065,7 +1065,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_058"
+			"targetname"  "gskSpawn_10_BeginningEntrance_058"  //gskSummonDevSkeletonPart
 			"origin"      "-1104 -4564 194"
 			"angles"      "29 -166 0"
 			"spawnflags"  "7"
@@ -1086,7 +1086,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_059"
+			"targetname"  "gskSpawn_10_BeginningEntrance_059"  //gskSummonDevSkeletonPart
 			"origin"      "-997 -4595 193"
 			"angles"      "23 -173 0"
 			"spawnflags"  "7"
@@ -1107,7 +1107,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_060"
+			"targetname"  "gskSpawn_10_BeginningEntrance_060"  //gskSummonDevSkeletonPart
 			"origin"      "-1026 -4695 193"
 			"angles"      "25 176 0"
 			"spawnflags"  "7"
@@ -1128,7 +1128,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_061"
+			"targetname"  "gskSpawn_10_BeginningEntrance_061"  //gskSummonDevSkeletonPart
 			"origin"      "-897 -4702 193"
 			"angles"      "20 177 0"
 			"spawnflags"  "7"
@@ -1158,7 +1158,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_062"
+			"targetname"  "gskSpawn_10_BeginningEntrance_062"  //gskSummonDevSkeletonPart
 			"origin"      "-822 -4765 203"
 			"angles"      "32 159 0"
 			"spawnflags"  "7"
@@ -1179,7 +1179,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_063"
+			"targetname"  "gskSpawn_10_BeginningEntrance_063"  //gskSummonDevSkeletonPart
 			"origin"      "-789 -4718 205"
 			"angles"      "30 171 0"
 			"spawnflags"  "7"
@@ -1209,7 +1209,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_064"
+			"targetname"  "gskSpawn_10_BeginningEntrance_064"  //gskSummonDevSkeletonPart
 			"origin"      "-654 -4732 193"
 			"angles"      "22 172 0"
 			"spawnflags"  "7"
@@ -1239,7 +1239,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_065"
+			"targetname"  "gskSpawn_10_BeginningEntrance_065"  //gskSummonDevSkeletonPart
 			"origin"      "-834 -4733 203"
 			"angles"      "35 166 0"
 			"spawnflags"  "7"
@@ -1269,7 +1269,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_066"
+			"targetname"  "gskSpawn_10_BeginningEntrance_066"  //gskSummonDevSkeletonPart
 			"origin"      "-879 -4758 200"
 			"angles"      "40 155 0"
 			"spawnflags"  "7"
@@ -1290,7 +1290,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_067"
+			"targetname"  "gskSpawn_10_BeginningEntrance_067"  //gskSummonDevSkeletonPart
 			"origin"      "-881 -4621 193"
 			"angles"      "43 -162 0"
 			"spawnflags"  "7"
@@ -1320,7 +1320,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_068"
+			"targetname"  "gskSpawn_10_BeginningEntrance_068"  //gskSummonDevSkeletonPart
 			"origin"      "-893 -4567 194"
 			"angles"      "40 -145 0"
 			"spawnflags"  "7"
@@ -1341,7 +1341,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_069"
+			"targetname"  "gskSpawn_10_BeginningEntrance_069"  //gskSummonDevSkeletonPart
 			"origin"      "-791 -4524 195"
 			"angles"      "28 -150 0"
 			"spawnflags"  "7"
@@ -1362,7 +1362,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_070"
+			"targetname"  "gskSpawn_10_BeginningEntrance_070"  //gskSummonDevSkeletonPart
 			"origin"      "-710 -4563 195"
 			"angles"      "24 -162 0"
 			"spawnflags"  "7"
@@ -1392,7 +1392,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_071"
+			"targetname"  "gskSpawn_10_BeginningEntrance_071"  //gskSummonDevSkeletonPart
 			"origin"      "-591 -4603 193"
 			"angles"      "19 -172 0"
 			"spawnflags"  "7"
@@ -1422,7 +1422,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_072"
+			"targetname"  "gskSpawn_10_BeginningEntrance_072"  //gskSummonDevSkeletonPart
 			"origin"      "-674 -4656 193"
 			"angles"      "23 -177 0"
 			"spawnflags"  "7"
@@ -1452,7 +1452,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_073"
+			"targetname"  "gskSpawn_10_BeginningEntrance_073"  //gskSummonDevSkeletonPart
 			"origin"      "-552 -4654 193"
 			"angles"      "18 -178 0"
 			"spawnflags"  "7"
@@ -1473,7 +1473,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_074"
+			"targetname"  "gskSpawn_10_BeginningEntrance_074"  //gskSummonDevSkeletonPart
 			"origin"      "-484 -4527 196"
 			"angles"      "15 -166 0"
 			"spawnflags"  "7"
@@ -1503,7 +1503,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_075"
+			"targetname"  "gskSpawn_10_BeginningEntrance_075"  //gskSummonDevSkeletonPart
 			"origin"      "-750 -4513 198"
 			"angles"      "49 -102 -0"
 			"spawnflags"  "7"
@@ -1524,7 +1524,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_076"
+			"targetname"  "gskSpawn_10_BeginningEntrance_076"  //gskSummonDevSkeletonPart
 			"origin"      "-771 -4480 201"
 			"angles"      "43 -93 0"
 			"spawnflags"  "7"
@@ -1554,7 +1554,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_077"
+			"targetname"  "gskSpawn_10_BeginningEntrance_077"  //gskSummonDevSkeletonPart
 			"origin"      "-804 -4449 199"
 			"angles"      "38 -83 0"
 			"spawnflags"  "7"
@@ -1575,7 +1575,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_078"
+			"targetname"  "gskSpawn_10_BeginningEntrance_078"  //gskSummonDevSkeletonPart
 			"origin"      "-769 -4411 206"
 			"angles"      "32 -93 0"
 			"spawnflags"  "7"
@@ -1596,7 +1596,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_079"
+			"targetname"  "gskSpawn_10_BeginningEntrance_079"  //gskSummonDevSkeletonPart
 			"origin"      "-819 -4382 209"
 			"angles"      "29 -82 0"
 			"spawnflags"  "7"
@@ -1617,7 +1617,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_080"
+			"targetname"  "gskSpawn_10_BeginningEntrance_080"  //gskSummonDevSkeletonPart
 			"origin"      "-792 -4331 204"
 			"angles"      "26 -88 0"
 			"spawnflags"  "7"
@@ -1638,7 +1638,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_081"
+			"targetname"  "gskSpawn_10_BeginningEntrance_081"  //gskSummonDevSkeletonPart
 			"origin"      "-485 -4478 201"
 			"angles"      "61 -107 -0"
 			"spawnflags"  "7"
@@ -1668,7 +1668,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_082"
+			"targetname"  "gskSpawn_10_BeginningEntrance_082"  //gskSummonDevSkeletonPart
 			"origin"      "-531 -4442 210"
 			"angles"      "48 -78 -0"
 			"spawnflags"  "7"
@@ -1689,7 +1689,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_083"
+			"targetname"  "gskSpawn_10_BeginningEntrance_083"  //gskSummonDevSkeletonPart
 			"origin"      "-490 -4395 206"
 			"angles"      "39 -97 0"
 			"spawnflags"  "7"
@@ -1710,7 +1710,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_084"
+			"targetname"  "gskSpawn_10_BeginningEntrance_084"  //gskSummonDevSkeletonPart
 			"origin"      "-515 -4361 204"
 			"angles"      "34 -88 0"
 			"spawnflags"  "7"
@@ -1740,7 +1740,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_085"
+			"targetname"  "gskSpawn_10_BeginningEntrance_085"  //gskSummonDevSkeletonPart
 			"origin"      "-460 -4302 204"
 			"angles"      "27 -101 0"
 			"spawnflags"  "7"
@@ -1761,7 +1761,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_086"
+			"targetname"  "gskSpawn_10_BeginningEntrance_086"  //gskSummonDevSkeletonPart
 			"origin"      "-439 -4135 194"
 			"angles"      "43 -105 0"
 			"spawnflags"  "7"
@@ -1791,7 +1791,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_087"
+			"targetname"  "gskSpawn_10_BeginningEntrance_087"  //gskSummonDevSkeletonPart
 			"origin"      "-581 -4202 193"
 			"angles"      "48 -42 -0"
 			"spawnflags"  "7"
@@ -1821,7 +1821,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_088"
+			"targetname"  "gskSpawn_10_BeginningEntrance_088"  //gskSummonDevSkeletonPart
 			"origin"      "-664 -4182 193"
 			"angles"      "35 -32 0"
 			"spawnflags"  "7"
@@ -1851,7 +1851,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_089"
+			"targetname"  "gskSpawn_10_BeginningEntrance_089"  //gskSummonDevSkeletonPart
 			"origin"      "-663 -4234 193"
 			"angles"      "38 -19 0"
 			"spawnflags"  "7"
@@ -1881,7 +1881,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_090"
+			"targetname"  "gskSpawn_10_BeginningEntrance_090"  //gskSummonDevSkeletonPart
 			"origin"      "-559 -4146 194"
 			"angles"      "42 -62 0"
 			"spawnflags"  "7"
@@ -1902,7 +1902,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_091"
+			"targetname"  "gskSpawn_10_BeginningEntrance_091"  //gskSummonDevSkeletonPart
 			"origin"      "-521 -3863 215"
 			"angles"      "27 -85 0"
 			"spawnflags"  "7"
@@ -1923,7 +1923,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_092"
+			"targetname"  "gskSpawn_10_BeginningEntrance_092"  //gskSummonDevSkeletonPart
 			"origin"      "-538 -3887 205"
 			"angles"      "32 -80 0"
 			"spawnflags"  "7"
@@ -1944,7 +1944,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_093"
+			"targetname"  "gskSpawn_10_BeginningEntrance_093"  //gskSummonDevSkeletonPart
 			"origin"      "-560 -3858 204"
 			"angles"      "27 -75 0"
 			"spawnflags"  "7"
@@ -1974,7 +1974,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_094"
+			"targetname"  "gskSpawn_10_BeginningEntrance_094"  //gskSummonDevSkeletonPart
 			"origin"      "-558 -3872 205"
 			"angles"      "29 -75 0"
 			"spawnflags"  "7"
@@ -1995,7 +1995,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_095"
+			"targetname"  "gskSpawn_10_BeginningEntrance_095"  //gskSummonDevSkeletonPart
 			"origin"      "-575 -3907 194"
 			"angles"      "35 -68 0"
 			"spawnflags"  "7"
@@ -2016,7 +2016,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_096"
+			"targetname"  "gskSpawn_10_BeginningEntrance_096"  //gskSummonDevSkeletonPart
 			"origin"      "-608 -3857 194"
 			"angles"      "28 -65 0"
 			"spawnflags"  "7"
@@ -2046,7 +2046,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_097"
+			"targetname"  "gskSpawn_10_BeginningEntrance_097"  //gskSummonDevSkeletonPart
 			"origin"      "-651 -3834 194"
 			"angles"      "24 -59 0"
 			"spawnflags"  "7"
@@ -2076,7 +2076,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_098"
+			"targetname"  "gskSpawn_10_BeginningEntrance_098"  //gskSummonDevSkeletonPart
 			"origin"      "-624 -3861 195"
 			"angles"      "27 -61 0"
 			"spawnflags"  "7"
@@ -2097,7 +2097,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_099"
+			"targetname"  "gskSpawn_10_BeginningEntrance_099"  //gskSummonDevSkeletonPart
 			"origin"      "-669 -3862 193"
 			"angles"      "25 -53 0"
 			"spawnflags"  "7"
@@ -2118,7 +2118,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_100"
+			"targetname"  "gskSpawn_10_BeginningEntrance_100"  //gskSummonDevSkeletonPart
 			"origin"      "-703 -3843 193"
 			"angles"      "23 -50 0"
 			"spawnflags"  "7"
@@ -2139,7 +2139,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_101"
+			"targetname"  "gskSpawn_10_BeginningEntrance_101"  //gskSummonDevSkeletonPart
 			"origin"      "-618 -3921 195"
 			"angles"      "33 -54 0"
 			"spawnflags"  "7"
@@ -2169,7 +2169,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_102"
+			"targetname"  "gskSpawn_10_BeginningEntrance_102"  //gskSummonDevSkeletonPart
 			"origin"      "-679 -3914 193"
 			"angles"      "28 -44 0"
 			"spawnflags"  "7"
@@ -2190,7 +2190,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_103"
+			"targetname"  "gskSpawn_10_BeginningEntrance_103"  //gskSummonDevSkeletonPart
 			"origin"      "-647 -3993 194"
 			"angles"      "38 -32 0"
 			"spawnflags"  "7"
@@ -2211,7 +2211,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_104"
+			"targetname"  "gskSpawn_10_BeginningEntrance_104"  //gskSummonDevSkeletonPart
 			"origin"      "-630 -4037 195"
 			"angles"      "44 -19 0"
 			"spawnflags"  "7"
@@ -2241,7 +2241,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_105"
+			"targetname"  "gskSpawn_10_BeginningEntrance_105"  //gskSummonDevSkeletonPart
 			"origin"      "-692 -4037 193"
 			"angles"      "34 -14 0"
 			"spawnflags"  "7"
@@ -2262,7 +2262,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_106"
+			"targetname"  "gskSpawn_10_BeginningEntrance_106"  //gskSummonDevSkeletonPart
 			"origin"      "-603 -4088 229"
 			"angles"      "44 5 0"
 			"spawnflags"  "7"
@@ -2283,7 +2283,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_107"
+			"targetname"  "gskSpawn_10_BeginningEntrance_107"  //gskSummonDevSkeletonPart
 			"origin"      "-602 -4113 229"
 			"angles"      "43 18 0"
 			"spawnflags"  "7"
@@ -2304,7 +2304,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_108"
+			"targetname"  "gskSpawn_10_BeginningEntrance_108"  //gskSummonDevSkeletonPart
 			"origin"      "-685 -4117 229"
 			"angles"      "27 12 0"
 			"spawnflags"  "7"
@@ -2334,7 +2334,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_109"
+			"targetname"  "gskSpawn_10_BeginningEntrance_109"  //gskSummonDevSkeletonPart
 			"origin"      "-688 -4087 229"
 			"angles"      "27 2 0"
 			"spawnflags"  "7"
@@ -2355,7 +2355,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_110"
+			"targetname"  "gskSpawn_10_BeginningEntrance_110"  //gskSummonDevSkeletonPart
 			"origin"      "-735 -4051 193"
 			"angles"      "29 -8 0"
 			"spawnflags"  "7"
@@ -2376,7 +2376,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_111"
+			"targetname"  "gskSpawn_10_BeginningEntrance_111"  //gskSummonDevSkeletonPart
 			"origin"      "-586 -4093 194"
 			"angles"      "58 9 -0"
 			"spawnflags"  "7"
@@ -2406,7 +2406,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_112"
+			"targetname"  "gskSpawn_10_BeginningEntrance_112"  //gskSummonDevSkeletonPart
 			"origin"      "-683 -4158 193"
 			"angles"      "34 24 0"
 			"spawnflags"  "7"
@@ -2436,7 +2436,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_113"
+			"targetname"  "gskSpawn_10_BeginningEntrance_113"  //gskSummonDevSkeletonPart
 			"origin"      "-759 -4179 195"
 			"angles"      "25 21 0"
 			"spawnflags"  "7"
@@ -2457,7 +2457,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_114"
+			"targetname"  "gskSpawn_10_BeginningEntrance_114"  //gskSummonDevSkeletonPart
 			"origin"      "-849 -4168 203"
 			"angles"      "37 -13 0"
 			"spawnflags"  "7"
@@ -2478,7 +2478,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_115"
+			"targetname"  "gskSpawn_10_BeginningEntrance_115"  //gskSummonDevSkeletonPart
 			"origin"      "-840 -4111 201"
 			"angles"      "35 -31 0"
 			"spawnflags"  "7"
@@ -2499,7 +2499,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_116"
+			"targetname"  "gskSpawn_10_BeginningEntrance_116"  //gskSummonDevSkeletonPart
 			"origin"      "-807 -4133 201"
 			"angles"      "43 -30 0"
 			"spawnflags"  "7"
@@ -2520,7 +2520,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_117"
+			"targetname"  "gskSpawn_10_BeginningEntrance_117"  //gskSummonDevSkeletonPart
 			"origin"      "-878 -4134 204"
 			"angles"      "31 -21 0"
 			"spawnflags"  "7"
@@ -2550,7 +2550,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_118"
+			"targetname"  "gskSpawn_10_BeginningEntrance_118"  //gskSummonDevSkeletonPart
 			"origin"      "-830 -4215 196"
 			"angles"      "42 4 0"
 			"spawnflags"  "7"
@@ -2571,7 +2571,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_119"
+			"targetname"  "gskSpawn_10_BeginningEntrance_119"  //gskSummonDevSkeletonPart
 			"origin"      "-863 -4262 202"
 			"angles"      "34 18 0"
 			"spawnflags"  "7"
@@ -2592,7 +2592,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_120"
+			"targetname"  "gskSpawn_10_BeginningEntrance_120"  //gskSummonDevSkeletonPart
 			"origin"      "-814 -4297 205"
 			"angles"      "38 35 0"
 			"spawnflags"  "7"
@@ -2613,7 +2613,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_121"
+			"targetname"  "gskSpawn_10_BeginningEntrance_121"  //gskSummonDevSkeletonPart
 			"origin"      "-856 -4342 214"
 			"angles"      "28 38 0"
 			"spawnflags"  "7"
@@ -2634,7 +2634,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_122"
+			"targetname"  "gskSpawn_10_BeginningEntrance_122"  //gskSummonDevSkeletonPart
 			"origin"      "-811 -4012 205"
 			"angles"      "28 -57 0"
 			"spawnflags"  "7"
@@ -2664,7 +2664,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_123"
+			"targetname"  "gskSpawn_10_BeginningEntrance_123"  //gskSummonDevSkeletonPart
 			"origin"      "-865 -3862 196"
 			"angles"      "35 -53 0"
 			"spawnflags"  "7"
@@ -2685,7 +2685,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_124"
+			"targetname"  "gskSpawn_10_BeginningEntrance_124"  //gskSummonDevSkeletonPart
 			"origin"      "-810 -3879 195"
 			"angles"      "43 -68 0"
 			"spawnflags"  "7"
@@ -2715,7 +2715,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_125"
+			"targetname"  "gskSpawn_10_BeginningEntrance_125"  //gskSummonDevSkeletonPart
 			"origin"      "-777 -3829 193"
 			"angles"      "35 -85 0"
 			"spawnflags"  "7"
@@ -2736,7 +2736,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_126"
+			"targetname"  "gskSpawn_10_BeginningEntrance_126"  //gskSummonDevSkeletonPart
 			"origin"      "-737 -3883 194"
 			"angles"      "46 -103 -0"
 			"spawnflags"  "7"
@@ -2757,7 +2757,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_127"
+			"targetname"  "gskSpawn_10_BeginningEntrance_127"  //gskSummonDevTrapFire
 			"origin"      "-789 -4879 457"
 			"angles"      "21 82 0"
 			"spawnflags"  "7"
@@ -2784,7 +2784,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_128"
+			"targetname"  "gskSpawn_10_BeginningEntrance_128"  //gskSummonDevTrapFire
 			"origin"      "-1362 -4874 457"
 			"angles"      "17 73 0"
 			"spawnflags"  "7"
@@ -2811,7 +2811,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_129"
+			"targetname"  "gskSpawn_10_BeginningEntrance_129"  //gskSummonDevTrapFire
 			"origin"      "-1939 -4874 457"
 			"angles"      "14 85 0"
 			"spawnflags"  "7"
@@ -2838,7 +2838,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_130"
+			"targetname"  "gskSpawn_10_BeginningEntrance_130"  //gskSummonDevTrapFire
 			"origin"      "-1655 -4877 457"
 			"angles"      "21 77 0"
 			"spawnflags"  "7"
@@ -2865,7 +2865,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_131"
+			"targetname"  "gskSpawn_10_BeginningEntrance_131"  //gskSummonDevTrapFire
 			"origin"      "-799 -4469 462"
 			"angles"      "24 -99 0"
 			"spawnflags"  "7"
@@ -2892,7 +2892,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_132"
+			"targetname"  "gskSpawn_10_BeginningEntrance_132"  //gskSummonDevTrapFire
 			"origin"      "-503 -4445 457"
 			"angles"      "16 -87 0"
 			"spawnflags"  "7"
@@ -2919,7 +2919,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_133"
+			"targetname"  "gskSpawn_10_BeginningEntrance_133"  //gskSummonPotionLife
 			"origin"      "-1940 -4848 457"
 			"angles"      "23 66 -0"
 			"spawnflags"  "7"
@@ -2932,7 +2932,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_134"
+			"targetname"  "gskSpawn_10_BeginningEntrance_134"  //gskSummonPotionLife
 			"origin"      "-1655 -4848 457"
 			"angles"      "30 77 -0"
 			"spawnflags"  "7"
@@ -2945,7 +2945,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_135"
+			"targetname"  "gskSpawn_10_BeginningEntrance_135"  //gskSummonPotionLife
 			"origin"      "-1357 -4827 462"
 			"angles"      "24 78 -0"
 			"spawnflags"  "7"
@@ -2958,7 +2958,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_136"
+			"targetname"  "gskSpawn_10_BeginningEntrance_136"  //gskSummonPotionLife
 			"origin"      "-788 -4848 457"
 			"angles"      "25 88 -0"
 			"spawnflags"  "7"
@@ -2971,7 +2971,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_137"
+			"targetname"  "gskSpawn_10_BeginningEntrance_137"  //gskSummonPotionLife
 			"origin"      "-490 -4413 457"
 			"angles"      "25 -74 -0"
 			"spawnflags"  "7"
@@ -2984,7 +2984,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_138"
+			"targetname"  "gskSpawn_10_BeginningEntrance_138"  //gskSummonPotionLife
 			"origin"      "-783 -4424 457"
 			"angles"      "25 -70 -0"
 			"spawnflags"  "7"
@@ -2997,7 +2997,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_139"
+			"targetname"  "gskSpawn_10_BeginningEntrance_139"  //gskSummonPotionLife
 			"origin"      "-1369 -4471 460"
 			"angles"      "26 -82 -0"
 			"spawnflags"  "7"
@@ -3010,7 +3010,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_140"
+			"targetname"  "gskSpawn_10_BeginningEntrance_140"  //gskSummonPotionStone
 			"origin"      "-815 -4491 457"
 			"angles"      "27 -77 -0"
 			"spawnflags"  "7"
@@ -3023,7 +3023,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_141"
+			"targetname"  "gskSpawn_10_BeginningEntrance_141"  //gskSummonPotionStone
 			"origin"      "-528 -4479 457"
 			"angles"      "34 -79 -0"
 			"spawnflags"  "7"
@@ -3036,7 +3036,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_142"
+			"targetname"  "gskSpawn_10_BeginningEntrance_142"  //gskSummonDevTrapFire
 			"origin"      "-1367 -4428 457"
 			"angles"      "54 -73 -0"
 			"spawnflags"  "7"
@@ -3063,7 +3063,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_143"
+			"targetname"  "gskSpawn_10_BeginningEntrance_143"  //gskSummonDevTrapFire
 			"origin"      "-979 -3959 457"
 			"angles"      "37 1 -0"
 			"spawnflags"  "7"
@@ -3090,7 +3090,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_144"
+			"targetname"  "gskSpawn_10_BeginningEntrance_144"  //gskSummonPotionLife
 			"origin"      "-930 -3965 457"
 			"angles"      "27 -5 -0"
 			"spawnflags"  "7"
@@ -3103,7 +3103,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_145"
+			"targetname"  "gskSpawn_10_BeginningEntrance_145"  //gskSummonFacehugger
 			"origin"      "-398 -3944 457"
 			"angles"      "25 156 -0"
 			"spawnflags"  "7"
@@ -3115,7 +3115,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_146"
+			"targetname"  "gskSpawn_10_BeginningEntrance_146"  //gskSummonFacehugger
 			"origin"      "-396 -4237 457"
 			"angles"      "17 158 -0"
 			"spawnflags"  "7"
@@ -3127,7 +3127,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_147"
+			"targetname"  "gskSpawn_10_BeginningEntrance_147"  //gskSummonFacehugger
 			"origin"      "-888 -4244 457"
 			"angles"      "22 15 -0"
 			"spawnflags"  "7"
@@ -3139,7 +3139,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_148"
+			"targetname"  "gskSpawn_10_BeginningEntrance_148"  //gskSummonSpiderMini
 			"origin"      "-1411 -4863 220"
 			"angles"      "37 66 0"
 			"spawnflags"  "7"
@@ -3152,7 +3152,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_149"
+			"targetname"  "gskSpawn_10_BeginningEntrance_149"  //gskSummonSpiderMini
 			"origin"      "-566 -4828 204"
 			"angles"      "77 89 -0"
 			"spawnflags"  "7"
@@ -3165,7 +3165,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_150"
+			"targetname"  "gskSpawn_10_BeginningEntrance_150"  //gskSummonSpiderMini
 			"origin"      "-360 -4307 193"
 			"angles"      "36 158 0"
 			"spawnflags"  "7"
@@ -3178,7 +3178,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_151"
+			"targetname"  "gskSpawn_10_BeginningEntrance_151"  //gskSummonSpiderMini
 			"origin"      "-889 -4365 221"
 			"angles"      "38 47 0"
 			"spawnflags"  "7"
@@ -3191,7 +3191,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_152"
+			"targetname"  "gskSpawn_10_BeginningEntrance_152"  //gskSummonSpiderMini
 			"origin"      "-651 -4059 194"
 			"angles"      "57 91 -0"
 			"spawnflags"  "7"
@@ -3204,7 +3204,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_153"
+			"targetname"  "gskSpawn_10_BeginningEntrance_153"  //gskSummonSpiderMini
 			"origin"      "-606 -4058 194"
 			"angles"      "55 77 -0"
 			"spawnflags"  "7"
@@ -3217,7 +3217,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_10_BeginningEntrance_154"
+			"targetname"  "gskSpawn_10_BeginningEntrance_154"  //gskSummonSpiderMini
 			"origin"      "-686 -4056 193"
 			"angles"      "61 107 -0"
 			"spawnflags"  "7"
@@ -3227,6 +3227,68 @@
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "7"
 			"origin"      "-686 -4056 198"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_10_BeginningEntrance_155"  //gskSummonDevArrow
+			"origin"      "-1905 -4776 201"
+			"angles"      "63 146 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"combinability" "1"
+			"combinetarget1enable" "1"
+			"combinetarget2enable" "1"
+			"combinetarget3enable" "1"
+			"combinetarget4enable" "1"
+			"combinetarget5enable" "1"
+			"combinetarget6enable" "1"
+			"combinetarget7enable" "1"
+			"combinetarget8enable" "1"
+			"combinetarget9enable" "1"
+			"combinetarget10enable" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			"physdamagescale" "0.1"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			
+			"classname" "prop_ammo_arrow"
+			"angles"      "63 146 90"
+			"model" "models/items/weapons/quiver_guard/quiver_guard.mdl"
+			"NbArrow" "3"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_10_BeginningEntrance_156"  //gskSummonDevArrow
+			"origin"      "-673 -4081 229"
+			"angles"      "47 -162 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"combinability" "1"
+			"combinetarget1enable" "1"
+			"combinetarget2enable" "1"
+			"combinetarget3enable" "1"
+			"combinetarget4enable" "1"
+			"combinetarget5enable" "1"
+			"combinetarget6enable" "1"
+			"combinetarget7enable" "1"
+			"combinetarget8enable" "1"
+			"combinetarget9enable" "1"
+			"combinetarget10enable" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			"physdamagescale" "0.1"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			
+			"classname" "prop_ammo_arrow"
+			"angles"      "47 -162 90"
+			"model" "models/items/weapons/quiver_guard/quiver_guard.mdl"
+			"NbArrow" "3"
+			
 		}
 
 	}

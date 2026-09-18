@@ -15,7 +15,51 @@
 				"OnTrigger" "mm_player_inputs,GiveSkillPoints,1,0,1,1,"
 			}
 		}
-
+		
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"classname" "item_crate" //big crates = big hopes xD
+			}
+			"add:key"
+			{
+				"ItemCount0" "3"
+				"ItemCount1" "1"
+				"ItemCount2" "3"
+				"ItemCount3" "7"
+				"ItemCount4" "3"
+				
+				"ItemClass0" "item_potion_life"
+				"ItemClass1" "item_potion_full_life"
+				"ItemClass2" "prop_ammo_arrow" //prop_ammo_arrow fails, env_shooter_arrow spawns but cant pickup.. 
+				"ItemClass3" "item_food_chicken_roasted"
+				"ItemClass4" "item_food_banana_regime"
+			}
+		}
+		
+		"add:entity"
+		{
+			"classname" "weapon_arxcrossbowrope" //because it is fun to be able to use it tactically
+			"angles" "0 105 -90"
+			"combinability" "1"
+			"trapsecret" "0"
+			"combinetarget1enable" "1"
+			"combinetarget2enable" "1"
+			"combinetarget3enable" "1"
+			"combinetarget4enable" "1"
+			"combinetarget5enable" "1"
+			"combinetarget6enable" "1"
+			"combinetarget7enable" "1"
+			"combinetarget8enable" "1"
+			"combinetarget9enable" "1"
+			"combinetarget10enable" "1"
+			"removefrominventoryonlongload" "0"
+			"targetname" "rope_bow"
+			"spawnflags" "6"
+			"origin" "-645 -3317 486"
+		}
+		
 	}
 }
 

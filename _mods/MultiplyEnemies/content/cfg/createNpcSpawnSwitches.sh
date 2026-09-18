@@ -123,7 +123,7 @@ else
 		FUNCfillByType "POTIONS"       "potion"
 		FUNCfillByType "DummyNPCs"     "crow|seagull|dog|pig" #harmless NPCs
 		FUNCfillByType "FOOD"          "leek|bread|rib|fish|chicken|banana|food|fibs|garlic|ham|mushroom|pie" #food
-		FUNCfillByType "Weapons/Tools" "club|staff|sword" #tools/weapons
+		FUNCfillByType "Weapons/Tools" "Tool|Weapon" #tools/weapons
 		#FUNCfillByType --not "${FUNCfillByType_regexAlreadyUsed}" #everything else
 		FUNCfillByType --not "ETC" ".*" #everything else
 	fi
@@ -791,7 +791,7 @@ function FUNCmapadds() {
 	echo '
 		"add:entity"
 		{
-			"targetname"  "'"${lstrTargetName}"'"
+			"targetname"  "'"${lstrTargetName}"'"  //'"${lstrSummonCmd}"'
 			"origin"      "'"${anTargetPosXYZ[x]} ${anTargetPosXYZ[y]} ${anTargetPosXYZ[z]}"'"
 			"angles"      "'"${anTargetAngXYZ[x]} ${anTargetAngXYZ[y]} ${anTargetAngXYZ[z]}"'"
 			"spawnflags"  "'"$(FUNCspawnFlags)"'"
@@ -915,7 +915,14 @@ function FUNCmapadds() {
 		"gskSummonDevTrapMiniSpiderCeil")
 			lnYDisplacement=-10
 			echo '
-			"classname" "npc_spider_mini"
+			"classname" "npc_spider_mini" // if they fall from too high, they just die
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
+			;;
+		"gskSummonDevTrapMiniSpidCYL200")
+			lnYDisplacement=-200
+			echo '
+			"classname" "npc_spider_mini" // if they fall from too high, they just die
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
 			;;
@@ -1053,16 +1060,16 @@ function FUNCmapadds() {
 			((nTrapCount++))&&:
 			;;
 		"gskSummonDevTrapFireCeiling")
-			lnYDisplacement=-10
+			lnYDisplacement=-20
 			echo '
 			"inertiaScale" "1.0"
 			"fademindist" "500"
 			"fademaxdist" "700"
 			"fadescale" "1"
-			"classname" "prop_dynamic"
+			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
 			"angles" "0 0 0"
-			'"$(FUNCexplosionData FS_FALL)"'
+			'"$(FUNCexplosionData FS_FALL)"' //it wont fall when spawning even with the flag enabled...
 			' >>"$lstrFlAddTmp"
 			;;
 		"gskSummonDevSkeletonPart")
@@ -1127,6 +1134,31 @@ function FUNCmapadds() {
 			fi
 			
 			((nSkeletonPartCount++))&&:
+			;;
+		"gskSummonDevArrow")
+			echo '
+			"combinability" "1"
+			"combinetarget1enable" "1"
+			"combinetarget2enable" "1"
+			"combinetarget3enable" "1"
+			"combinetarget4enable" "1"
+			"combinetarget5enable" "1"
+			"combinetarget6enable" "1"
+			"combinetarget7enable" "1"
+			"combinetarget8enable" "1"
+			"combinetarget9enable" "1"
+			"combinetarget10enable" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			"physdamagescale" "0.1"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			
+			"classname" "prop_ammo_arrow"
+			"angles"      "'"${anTargetAngXYZ[x]} ${anTargetAngXYZ[y]} 90"'"
+			"model" "models/items/weapons/quiver_guard/quiver_guard.mdl"
+			"NbArrow" "3"
+			' >>"$lstrFlAddTmp"
 			;;
 		"gskSummon_"*) #by luck I put all food beggining with '_' xD
 			lnYDisplacement=5

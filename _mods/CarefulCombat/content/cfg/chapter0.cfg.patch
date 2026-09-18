@@ -1,5 +1,5 @@
---- /dev/fd/63	2026-09-18 00:05:20.056050286 -0300
-+++ /dev/fd/62	2026-09-18 00:05:20.056050286 -0300
+--- /dev/fd/63	2026-09-18 00:43:42.336982021 -0300
++++ /dev/fd/62	2026-09-18 00:43:42.336982021 -0300
 @@ -1 +1,33 @@
 -map_warrior L00
 \ No newline at end of file
@@ -14,7 +14,7 @@
 +gskWait5s
 +echo beggining in 3... Be careful...
 +gskWait1s
-+echo beggining in 2... Be patient...
++echo beggining in 2... Have patience (like in a chess game)...
 +gskWait1s
 +echo beggining in 1... Be strong!
 +gskWait1s
