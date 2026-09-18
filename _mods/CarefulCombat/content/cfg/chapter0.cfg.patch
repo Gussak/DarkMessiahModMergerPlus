@@ -1,0 +1,38 @@
+--- /dev/fd/63	2026-09-17 23:16:02.387681890 -0300
++++ /dev/fd/62	2026-09-17 23:16:02.387681890 -0300
+@@ -1 +1,33 @@
+-map_warrior L00
+\ No newline at end of file
++//WORKAROUND:
++developer 1
++play *gsk/english/BeginQuestC0a.wav
++//echo As soon the game begins, execute this command: mm_player_skills_reset
++echo As soon the game begins, execute this command: exec CarefulCombatInitL00.cfg
++gskWait5s
++gskWait5s
++echo Otherwise will mess the balance (as you get now 2 free skill points to use as you prefer).
++gskWait5s
++echo beggining in 3
++gskWait1s
++echo beggining in 2
++gskWait1s
++echo beggining in 1
++gskWait1s
++echo Good Luck!!!
++gskWait1s
++developer 0
++
++echo Loading map_warrior l00
++map_warrior l00
++// map_warrior is not forcing free dark vision...
++//echo Loading map l00
++//map l00
++
++//echo Reseting skills
++// I dont know what is giving again darkvision/wizard eye for free.
++// thru mapadds now You get 2 free skill points to begin with, and use the way you want.
++// ISSUE: This should grant no free skills to begin with but is failing...
++// TODO: create a popup at very beggining to ask the player to type on console: mm_player_skills_reset
++//mm_player_skills_reset
++
++echo Chapter0 loaded
