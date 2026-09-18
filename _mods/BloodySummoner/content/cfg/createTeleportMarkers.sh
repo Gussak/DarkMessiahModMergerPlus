@@ -308,6 +308,9 @@ while true;do
 		echo >>"$strMapCfgFile"
 		echo "$strTeleportUpAlias" >>"$strMapCfgFile"
 		echo "$strTeleportTargetAlias" >>"$strMapCfgFile"
+		if [[ -n "$strTeleportUpAlias" ]] || [[ -n "$strTeleportTargetAlias" ]];then
+			echo "gskSndTeleportReady" >>"$strMapCfgFile"
+		fi
 		
 		ln -vsf "$strMapCfgFile" "$strTeleCurrentCfgFile"
 		cat "${strTeleCurrentCfgFile}" |egrep "^echo"
