@@ -1481,19 +1481,18 @@ if $bCreateSpawnsForCurrentMap;then
 		#nSpawnTriggerTemplateBeginIndex="$(egrep "gskSpawnTriggerBeginIndex" "$strFlCondump" |awk '{print $2}')"
 		echo "${strSpawnTriggerLine}" >>"$strFlCondumpCleanNew"
 		#echo "gskSpawnTriggerBeginIndex $nSpawnTriggerTemplateBeginIndex" >>"$strFlCondumpCleanNew"
-		
-		#if egrep "^gskSpawnMode" "$strFlCondump";then #gskSpawnMode TrapFall
-			#egrep "^gskSpawnMode" "$strFlCondump" >>"$strFlCondumpCleanNew"
-			#strSpawnMode="$(egrep "^gskSpawnMode" "$strFlCondump" |awk '{print $2}')"
-		#fi
-		if egrep "^gskSpawnNpcsAwake" "$strFlCondump";then
-			egrep "^gskSpawnNpcsAwake" "$strFlCondump" >>"$strFlCondumpCleanNew"
-			bSpawnNpcsAwake="$(egrep "^gskSpawnNpcsAwake" "$strFlCondump" |awk '{print $2}')"
-		fi
-		if egrep "^gskSpawnDelay" "$strFlCondump";then
-			egrep "^gskSpawnDelay" "$strFlCondump" >>"$strFlCondumpCleanNew"
-			fSpawnDelayIncrement="$(egrep "^gskSpawnDelay" "$strFlCondump" |awk '{print $2}')"
-		fi
+	fi
+	#if egrep "^gskSpawnMode" "$strFlCondump";then #gskSpawnMode TrapFall
+		#egrep "^gskSpawnMode" "$strFlCondump" >>"$strFlCondumpCleanNew"
+		#strSpawnMode="$(egrep "^gskSpawnMode" "$strFlCondump" |awk '{print $2}')"
+	#fi
+	if egrep "^gskSpawnDelay" "$strFlCondump";then
+		egrep "^gskSpawnDelay" "$strFlCondump" >>"$strFlCondumpCleanNew"
+		fSpawnDelayIncrement="$(egrep "^gskSpawnDelay" "$strFlCondump" |awk '{print $2}')"
+	fi
+	if egrep "^gskSpawnNpcsAwake" "$strFlCondump";then
+		egrep "^gskSpawnNpcsAwake" "$strFlCondump" >>"$strFlCondumpCleanNew"
+		bSpawnNpcsAwake="$(egrep "^gskSpawnNpcsAwake" "$strFlCondump" |awk '{print $2}')"
 	fi
 	
 	if egrep "^gskSpawnNoBurrowAllowed" "$strFlCondump";then
