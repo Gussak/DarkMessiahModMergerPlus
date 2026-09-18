@@ -1,0 +1,12 @@
+"Rune"
+{
+    "name"      "The Demanding One"
+    "description"   "Crates will drop more items."
+    "icon"          "materials/wos/vgui/runes/rune_w.tga"  //it is the same rune actually TODO create a new one?
+    "hint"          "In the Prologue, climb at your right, is hidden up there."
+    "requires"      "relic_l00_1"
+    "mapadds"
+    {
+        "global_mapadds/crates_of_hope.txt"   "1"
+    }
+}

@@ -1,9 +1,10 @@
---- /dev/fd/63	2026-09-18 00:43:42.336982021 -0300
-+++ /dev/fd/62	2026-09-18 00:43:42.336982021 -0300
-@@ -1 +1,33 @@
+--- /dev/fd/63	2026-09-18 17:09:56.356784219 -0300
++++ /dev/fd/62	2026-09-18 17:09:56.356784219 -0300
+@@ -1 +1,34 @@
 -map_warrior L00
 \ No newline at end of file
 +//WORKAROUND:
++exec gskBaseLib.cfg
 +developer 1
 +play *gsk/english/BeginQuestC0a.wav
 +//echo As soon the game begins, execute this command: mm_player_skills_reset

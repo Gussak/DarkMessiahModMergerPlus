@@ -50,8 +50,10 @@ fi
 
 : ${strFlDBsummoningsTmp:="${strFlDBsummoningsCache}"} #help internal use
 export strFlDBsummoningsTmp
+bOldSummonCacheLoaded=false
 if [[ -f "$strFlDBsummoningsTmp" ]];then
 	source "$strFlDBsummoningsTmp"
+	bOldSummonCacheLoaded=true
 else
 	astrNPCsummonTmp_ID=()
 	astrNPCsummonTmp_Cost=()
@@ -259,7 +261,7 @@ function FUNCechoAndFillFile() {
 }
 
 bCreateSpawnsForCurrentMap=false
-bCreateSummonList=false
+: ${bCreateSummonList:=false} #help
 #bUpdateCondumpBkp=false
 astrAllParams=("$@")
 lstrUseThisMap=""
@@ -415,7 +417,7 @@ function FUNCspawnFlags() { #help based on https://developer.valvesoftware.com/w
 	local lastrFlags=("${@-FS_None}")
 	#if [[ -z "${lastrFlags[*]}" ]];then
 	if $lbAddDefaults;then
-		mapfile -t lastrFlags < <(echo "${lastrFlags[*]} FS_AIonAfterSeen FS_FALL FS_QUIET" |tr ' ' '\n' |sort -u)
+		mapfile -t lastrFlags < <(echo "${lastrFlags[*]} FS_SLEEP FS_FALL FS_QUIET" |tr ' ' '\n' |sort -u)
 	fi
 	mapfile -t lastrFlags < <(echo "${lastrFlags[*]}" |tr ' ' '\n' |sort -u)
 	#fi
@@ -425,7 +427,7 @@ function FUNCspawnFlags() { #help based on https://developer.valvesoftware.com/w
 		if [[ -z "$lstrFlagAdd" ]];then continue;fi
 		case "$lstrFlagAdd" in # Flag Spawn (flags for spawning)
 			FS_None) ((lnFlags+=0))&&: ;; # dummy helper
-			FS_AIonAfterSeen) ((lnFlags+=1))&&: ;; # wont detect player if player dont see it? May be good to create enemies with each other that will only fight after we see them! May also easy on CPU?
+			FS_SLEEP) ((lnFlags+=1))&&: ;; # if NPC will only enable AI after the player sees it? wont detect player if player dont see it? May be good to create enemies with each other that will only fight after we see them! May also easy on CPU? #### if objects, will put physics into sleep state so FS_FALL wont work.
 			FS_QUIET) ((lnFlags+=2))&&: ;; #initially quiet until in rage, excellent for surprises
 			FS_FALL) ((lnFlags+=4))&&: ;; #initially fall instead of teleport to ground
 			FS_DropHealing) ((lnFlags+=8))&&: ;; #on death #this doesnt work?
@@ -443,7 +445,7 @@ function FUNCsectionID() { # a wrong beginAt (less than the real begin one) just
 	echo "gskSpawn_${lstrUseThisSector}_BeginAt$(printf %03d ${1})" #Spawner Section Begin At Target
 }
 
-: ${nSpawnTriggerLinkedLimit:=16} #help :(
+: ${nSpawnTriggerLinkedLimit:=16} #help max simultaneous (instantaneous) spawns, min 1
 function FUNCappendToSpawnTrigger() {
 	if [[ -z "${strSpawnTriggerLine}" ]];then return 0;fi
 	
@@ -453,16 +455,31 @@ function FUNCappendToSpawnTrigger() {
 	local lstrSTRegex="^gskSpawnTriggerID\s*([0-9]*)\s*([a-zA-Z0-9_-]*)\s*[^,]*(.*)"
 	local lstrLogicRelayID="$(         echo "$strSpawnTriggerLine" |tr -d '"\r' |sed -r -e "s@${lstrSTRegex}@\1@g")"
 	local lstrLogicRelayOnTrigger="$(  echo "$strSpawnTriggerLine" |tr -d '"\r' |sed -r -e "s@${lstrSTRegex}@\2@g")"
-	local lstrLogicRelaySpawnParams="$(echo "$strSpawnTriggerLine" |tr -d '"\r' |sed -r -e "s@${lstrSTRegex}@\3@g")"
+	local lstrLogicRelaySpawnParams="$(echo "$strSpawnTriggerLine" |tr -d '"\r' |sed -r -e "s@${lstrSTRegex}@\3@g")" #ignored
 	local lnSTTemplateBeginIndex=0
-	
+
 	local lstrSTSectionID="$(FUNCsectionID ${liTargetIndex})"
 	local lnSTTemplateBeginSection=0
 	
+	declare -A laSpawnParams # ",ForceSpawn,,0,-1,1,"
+	laSpawnParams[InputAction]="ForceSpawn"
+	laSpawnParams[InputParamOverride]=""
+	laSpawnParams[MaxRefires]=-1 # -1 is unlimited
+	laSpawnParams[Active]=1
+	laSpawnParams[Comment]=""
+	: ${fSpawnDelayIncrement:=0.05} #help
+	fSpawnDelayCurrent=$fSpawnDelayIncrement
 	while true;do
+		laSpawnParams[TargetName]="${lstrSTSectionID}"
+		fSpawnDelayCurrent="$(printf %.3f $(bc <<< "${fSpawnDelayCurrent} + ${fSpawnDelayIncrement}"))"
+		#declare -p fSpawnDelayCurrent >&2
+		laSpawnParams[DelaySecs]="$fSpawnDelayCurrent"
+		lstrLogicRelaySpawnParams="${laSpawnParams[TargetName]},${laSpawnParams[InputAction]},${laSpawnParams[InputParamOverride]},${laSpawnParams[DelaySecs]},${laSpawnParams[MaxRefires]},${laSpawnParams[Active]},${laSpawnParams[Comment]}"
+
 		#if((lnSTTemplateBeginSection>0));then
 		if $lbCreateNewSection;then
 			#help KEEPINFO: "OnStartTouch" should be nested inside "connections" (like: ```... "connections" { "OnStartTouch" ...```), but it seems  that everything starting with "On" automatically goes into "connections" so no need to provide the nesting here!
+#				"'"${lstrLogicRelayOnTrigger}"'" "'"${lstrSTSectionID}${lstrLogicRelaySpawnParams}"'"
 			echo '
 		"modify:entity"
 		{
@@ -472,7 +489,7 @@ function FUNCappendToSpawnTrigger() {
 			}
 			"add:key"
 			{
-				"'"${lstrLogicRelayOnTrigger}"'" "'"${lstrSTSectionID}${lstrLogicRelaySpawnParams}"'"
+				"'"${lstrLogicRelayOnTrigger}"'" "'"${lstrLogicRelaySpawnParams}"'"
 			}
 		}
 		' >>"${strFlMapadds}"
@@ -546,7 +563,7 @@ function FUNCexplosionData() {
 	#helpKeep trapsecret 2 seems to work. no need to add some kind of weak dim highlight
 	#helpKeep FS_FALL doesnt seem to work, they stay floating and prevent stepping over to explode?
 	#TODO? increate health or decreate physdamagescale to let drop without exploding?
-	#helpKeep spawnflags 257 FS_LongRangeView FS_AIonAfterSeen is mandatory or it wont work as land mine.
+	#helpKeep spawnflags 257 FS_LongRangeView FS_SLEEP is mandatory or it wont work as land mine.
 	echo '
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -554,7 +571,7 @@ function FUNCexplosionData() {
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "'"$(FUNCspawnFlags --nodefaults FS_LongRangeView FS_AIonAfterSeen $*)"'"
+			"spawnflags"  "'"$(FUNCspawnFlags --nodefaults FS_LongRangeView FS_SLEEP $*)"'"
 			"health" "1"
 			'
 	# could be randomly poison(with initial big damage), ice/freeze, fire, electricity..
@@ -919,10 +936,17 @@ function FUNCmapadds() {
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
 			;;
-		"gskSummonDevTrapMiniSpidCYL200")
+		"gskSummonDevTrapMiniSpidZL200")
 			lnYDisplacement=-200
 			echo '
-			"classname" "npc_spider_mini" // if they fall from too high, they just die
+			"classname" "npc_spider_mini" // below ceiling, if they fall from too high, they just die
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
+			;;
+		"gskSummonDevTrapMiniSpidZP200")
+			lnYDisplacement=200
+			echo '
+			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
 			;;
@@ -1070,6 +1094,7 @@ function FUNCmapadds() {
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
 			"angles" "0 0 0"
 			'"$(FUNCexplosionData FS_FALL)"' //it wont fall when spawning even with the flag enabled...
+			"spawnflags"  "'"$(FUNCspawnFlags --nodefaults FS_LongRangeView FS_FALL)"'" //cannot have FS_SLEEP or it wont use FS_FALL
 			' >>"$lstrFlAddTmp"
 			;;
 		"gskSummonDevSkeletonPart")
@@ -1093,7 +1118,7 @@ function FUNCmapadds() {
 				#5) lstrSkelPartModel="models/props/debris/skeleton/cr_skel_humerusd.mdl";;
 			esac
 			
-			#helpKeep spawnflags 257 FS_LongRangeView FS_AIonAfterSeen is mandatory or it wont work as land mine.
+			#helpKeep spawnflags 257 FS_LongRangeView FS_SLEEP is mandatory or it wont work as land mine.
 			#helpKeep none work, the skelleton parts are all too fragile and cant be dropped. #old: if health doesnt work, try "physdamagescale" "0.1"
 			echo '
 			"inertiaScale" "1.0"
@@ -1101,7 +1126,7 @@ function FUNCmapadds() {
 			"fadescale" "1"
 			"UseSpeedToCalculateSoundVolume" "1"
 			
-			"spawnflags"  "'"$(FUNCspawnFlags --nodefaults FS_LongRangeView FS_AIonAfterSeen)"'"
+			"spawnflags"  "'"$(FUNCspawnFlags --nodefaults FS_LongRangeView FS_SLEEP)"'"
 			"classname" "prop_physics"
 			"model" "'"${lstrSkelPartModel}"'"
 			"angles" "'"${lnRotationX}"' '"${lnRotationY}"' '"${lnRotationZ}"'"
@@ -1664,8 +1689,8 @@ if $bCreateSummonList;then # create spawner aliases
 	echo
 	echo "// NOW COPY THE ABOVE INTO SOME CONFIG FILE (but is already at gskSummonList.cfg)"
 
-	if ls -l "$strFlDBsummoningsTmp";then
-		if FUNCaskYesNo "trash cache? helps on refreshing with new or changed gskSummon... commands.";then
+	if $bOldSummonCacheLoaded && ls -l "$strFlDBsummoningsTmp";then
+		if FUNCaskYesNo "used old summon cache, trash it? helps on refreshing with new or changed gskSummon... commands.";then
 			FUNCtrash "$strFlDBsummoningsTmp"
 			echo "Now re-run."
 		fi

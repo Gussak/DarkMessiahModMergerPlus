@@ -7,68 +7,68 @@ prop at 1405 1711 -77 missing modelname
 prop at 1405 1711 -77 missing modelname
 setpos 1406.846313 1741.886841 -346.618835;setang -83.385597 -93.170815 0.036188
 setpos 1406.846313 1741.886841 -346.618835;setang -83.385597 -93.170815 0.036188
-gskSummonDevTrapMiniSpidCYL200
-gskSummonDevTrapMiniSpidCYL200
+gskSummonDevTrapMiniSpidZL200
+gskSummonDevTrapMiniSpidZL200
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 1/10 )
 prop at 1405 1699 -77 missing modelname
 prop at 1405 1699 -77 missing modelname
 setpos 1406.819336 1741.753784 -346.270630;setang -81.075645 -93.031136 0.028333
 setpos 1406.819336 1741.753784 -346.270630;setang -81.075645 -93.031136 0.028333
-gskSummonDevTrapMiniSpidCYL200
-gskSummonDevTrapMiniSpidCYL200
+gskSummonDevTrapMiniSpidZL200
+gskSummonDevTrapMiniSpidZL200
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 2/10 )
 prop at 1404 1682 -77 missing modelname
 prop at 1404 1682 -77 missing modelname
 setpos 1406.701660 1741.524414 -345.744812;setang -77.511673 -92.298782 0.021843
 setpos 1406.701660 1741.524414 -345.744812;setang -77.511673 -92.298782 0.021843
-gskSummonDevTrapMiniSpidCYL200
-gskSummonDevTrapMiniSpidCYL200
+gskSummonDevTrapMiniSpidZL200
+gskSummonDevTrapMiniSpidZL200
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 3/10 )
 prop at 1404 1669 -77 missing modelname
 prop at 1404 1669 -77 missing modelname
 setpos 1406.666016 1741.336182 -345.374634;setang -74.937706 -92.098129 0.019062
 setpos 1406.666016 1741.336182 -345.374634;setang -74.937706 -92.098129 0.019062
-gskSummonDevTrapMiniSpidCYL200
-gskSummonDevTrapMiniSpidCYL200
+gskSummonDevTrapMiniSpidZL200
+gskSummonDevTrapMiniSpidZL200
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 4/10 )
 prop at 1404 1654 -77 missing modelname
 prop at 1404 1654 -77 missing modelname
 setpos 1406.575439 1741.099854 -344.958588;setang -71.967728 -91.501976 0.016802
 setpos 1406.575439 1741.099854 -344.958588;setang -71.967728 -91.501976 0.016802
-gskSummonDevTrapMiniSpidCYL200
-gskSummonDevTrapMiniSpidCYL200
+gskSummonDevTrapMiniSpidZL200
+gskSummonDevTrapMiniSpidZL200
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 5/10 )
 prop at 1404 1639 -77 missing modelname
 prop at 1404 1639 -77 missing modelname
 setpos 1406.560425 1740.857910 -344.581940;setang -69.195763 -91.434540 0.015271
 setpos 1406.560425 1740.857910 -344.581940;setang -69.195763 -91.434540 0.015271
-gskSummonDevTrapMiniSpidCYL200
-gskSummonDevTrapMiniSpidCYL200
+gskSummonDevTrapMiniSpidZL200
+gskSummonDevTrapMiniSpidZL200
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 6/10 )
 prop at 1404 1621 -77 missing modelname
 prop at 1404 1621 -77 missing modelname
 setpos 1406.502075 1740.553833 -344.157928;setang -65.961731 -91.037292 0.013898
 setpos 1406.502075 1740.553833 -344.157928;setang -65.961731 -91.037292 0.013898
-gskSummonDevTrapMiniSpidCYL200
-gskSummonDevTrapMiniSpidCYL200
+gskSummonDevTrapMiniSpidZL200
+gskSummonDevTrapMiniSpidZL200
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 7/10 )
 prop at 1405 1613 -77 missing modelname
 prop at 1405 1613 -77 missing modelname
 setpos 1406.482910 1740.409424 -343.973297;setang -64.509766 -90.904846 0.013399
 setpos 1406.482910 1740.409424 -343.973297;setang -64.509766 -90.904846 0.013399
-gskSummonDevTrapMiniSpidCYL200
-gskSummonDevTrapMiniSpidCYL200
+gskSummonDevTrapMiniSpidZL200
+gskSummonDevTrapMiniSpidZL200
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 8/10 )
 prop at 1416 1611 -78 missing modelname
 prop at 1416 1611 -78 missing modelname
 setpos 1405.798218 1740.333374 -343.907074;setang -63.981770 -85.426674 0.013225
 setpos 1405.798218 1740.333374 -343.907074;setang -63.981770 -85.426674 0.013225
-gskSummonDevTrapMiniSpidCYL200
-gskSummonDevTrapMiniSpidCYL200
+gskSummonDevTrapMiniSpidZL200
+gskSummonDevTrapMiniSpidZL200
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 9/10 )
 prop at 1391 1613 -79 missing modelname
 prop at 1391 1613 -79 missing modelname
 setpos 1407.264893 1740.314209 -343.923584;setang -64.113754 -97.174721 0.013265
 setpos 1407.264893 1740.314209 -343.923584;setang -64.113754 -97.174721 0.013265
-gskSummonDevTrapMiniSpidCYL200
-gskSummonDevTrapMiniSpidCYL200
+gskSummonDevTrapMiniSpidZL200
+gskSummonDevTrapMiniSpidZL200

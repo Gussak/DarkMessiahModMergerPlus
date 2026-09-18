@@ -116,6 +116,7 @@ if true;then
 		if [[ "$strFlCfg" =~ ^unlimitededition[.]cfg.* ]];then continue;fi # already at main game.cfg from Overhaul mod
 		if [[ "$strFlCfg" =~ ^game[.]cfg.* ]];then continue;fi # prevent recursive crash
 		if [[ "$strFlCfg" =~ ^chapter0[.]cfg.* ]];then continue;fi # seems single use from start new game
+		if [[ "$strFlCfg" =~ .*_INIT[.]cfg.* ]];then continue;fi # _INIT.cfg are meant to be run only once
 		((iCountExec++))&&:
 		echo -e "exec ${strFlCfg%-} \t\t\t// ${iCountExec} ${strAutoGenHint}" |tee -a "$strFlNew"
 	done
