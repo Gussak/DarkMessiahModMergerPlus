@@ -24,17 +24,17 @@
 			}
 			"add:key"
 			{
+				"ItemClass0" "item_potion_life"
 				"ItemCount0" "3"
 				"ItemCount1" "1"
-				"ItemCount2" "3"
-				"ItemCount3" "7"
-				"ItemCount4" "3"
-				
-				"ItemClass0" "item_potion_life"
 				"ItemClass1" "item_potion_full_life"
+				"ItemCount2" "3"
 				"ItemClass2" "item_potion_mana" //prop_ammo_arrow fails wont spawn, env_shooter_arrow spawns but cant be pickup.. 
+				
 				"ItemClass3" "item_food_chicken_roasted"
+				"ItemCount3" "6"
 				"ItemClass4" "item_food_banana_regime"
+				"ItemCount4" "2"
 			}
 		}
 		

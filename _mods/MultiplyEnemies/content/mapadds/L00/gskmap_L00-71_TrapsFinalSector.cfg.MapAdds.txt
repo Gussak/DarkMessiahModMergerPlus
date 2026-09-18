@@ -7,132 +7,132 @@
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_71_TrapsFinalSector_000"  //gskSummonDevTrapMiniSpidCYL200
-			"origin"      "1441 1585 -83"
-			"angles"      "-59 105 0"
+			"origin"      "1405 1711 -76"
+			"angles"      "-83 87 0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini" // if they fall from too high, they just die
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "7"
-			"origin"      "1441 1585 -283"
+			"origin"      "1405 1711 -276"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_71_TrapsFinalSector_001"  //gskSummonDevTrapMiniSpidCYL200
-			"origin"      "1373 1585 -84"
-			"angles"      "-58 73 0"
+			"origin"      "1405 1699 -76"
+			"angles"      "-81 87 0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini" // if they fall from too high, they just die
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "7"
-			"origin"      "1373 1585 -284"
+			"origin"      "1405 1699 -276"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_71_TrapsFinalSector_002"  //gskSummonDevTrapMiniSpidCYL200
-			"origin"      "1444 1624 -85"
-			"angles"      "-66 113 0"
+			"origin"      "1404 1682 -76"
+			"angles"      "-77 88 0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini" // if they fall from too high, they just die
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "7"
-			"origin"      "1444 1624 -285"
+			"origin"      "1404 1682 -276"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_71_TrapsFinalSector_003"  //gskSummonDevTrapMiniSpidCYL200
-			"origin"      "1381 1634 -81"
-			"angles"      "-69 68 0"
+			"origin"      "1404 1669 -76"
+			"angles"      "-74 88 0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini" // if they fall from too high, they just die
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "7"
-			"origin"      "1381 1634 -281"
+			"origin"      "1404 1669 -276"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_71_TrapsFinalSector_004"  //gskSummonDevTrapMiniSpidCYL200
-			"origin"      "1423 1655 -78"
-			"angles"      "-74 105 0"
+			"origin"      "1404 1654 -76"
+			"angles"      "-71 89 0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini" // if they fall from too high, they just die
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "7"
-			"origin"      "1423 1655 -278"
+			"origin"      "1404 1654 -276"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_71_TrapsFinalSector_005"  //gskSummonDevTrapMiniSpidCYL200
-			"origin"      "1407 1685 -75"
-			"angles"      "-82 81 0"
+			"origin"      "1404 1639 -76"
+			"angles"      "-69 89 0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini" // if they fall from too high, they just die
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "7"
-			"origin"      "1407 1685 -275"
+			"origin"      "1404 1639 -276"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_71_TrapsFinalSector_006"  //gskSummonDevTrapMiniSpidCYL200
-			"origin"      "1434 1738 -80"
-			"angles"      "-77 -127 0"
+			"origin"      "1404 1621 -76"
+			"angles"      "-65 89 0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini" // if they fall from too high, they just die
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "7"
-			"origin"      "1434 1738 -280"
+			"origin"      "1404 1621 -276"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_71_TrapsFinalSector_007"  //gskSummonDevTrapMiniSpidCYL200
-			"origin"      "1394 1747 -78"
-			"angles"      "-76 -69 0"
+			"origin"      "1405 1613 -76"
+			"angles"      "-64 90 0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini" // if they fall from too high, they just die
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "7"
-			"origin"      "1394 1747 -278"
+			"origin"      "1405 1613 -276"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_71_TrapsFinalSector_008"  //gskSummonDevTrapMiniSpidCYL200
-			"origin"      "1368 1733 -87"
-			"angles"      "-74 -34 0"
+			"origin"      "1416 1611 -77"
+			"angles"      "-63 95 0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini" // if they fall from too high, they just die
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "7"
-			"origin"      "1368 1733 -287"
+			"origin"      "1416 1611 -277"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_71_TrapsFinalSector_009"  //gskSummonDevTrapMiniSpidCYL200
-			"origin"      "1419 1665 -77"
-			"angles"      "-77 102 0"
+			"origin"      "1391 1613 -78"
+			"angles"      "-64 83 0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini" // if they fall from too high, they just die
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "7"
-			"origin"      "1419 1665 -277"
+			"origin"      "1391 1613 -278"
 		}
 
 		"modify:entity"

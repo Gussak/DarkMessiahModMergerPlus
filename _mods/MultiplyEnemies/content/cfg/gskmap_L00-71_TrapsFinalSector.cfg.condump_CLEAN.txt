@@ -3,72 +3,72 @@ map     :  L00 at: -1878 x, -4619 y, 342
 gskMapMessage gskSpawnTriggerID=1151261 (origin 1408 1590 -242) at L00.vmf
 gskSpawnTriggerID 1151261 "OnStartTouch" ",ForceSpawn,,0,1,1,"
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 0/10 )
-prop at 1441 1585 -84 missing modelname
-prop at 1441 1585 -84 missing modelname
-setpos 1408.421753 1711.787109 -301.736511;setang -59.028999 -75.768990 0.009326
-setpos 1408.421753 1711.787109 -301.736511;setang -59.028999 -75.768990 0.009326
+prop at 1405 1711 -77 missing modelname
+prop at 1405 1711 -77 missing modelname
+setpos 1406.846313 1741.886841 -346.618835;setang -83.385597 -93.170815 0.036188
+setpos 1406.846313 1741.886841 -346.618835;setang -83.385597 -93.170815 0.036188
 gskSummonDevTrapMiniSpidCYL200
 gskSummonDevTrapMiniSpidCYL200
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 1/10 )
-prop at 1373 1585 -85 missing modelname
-prop at 1373 1585 -85 missing modelname
-setpos 1411.976074 1711.642700 -301.675720;setang -58.500992 -107.052856 0.009208
-setpos 1411.976074 1711.642700 -301.675720;setang -58.500992 -107.052856 0.009208
+prop at 1405 1699 -77 missing modelname
+prop at 1405 1699 -77 missing modelname
+setpos 1406.819336 1741.753784 -346.270630;setang -81.075645 -93.031136 0.028333
+setpos 1406.819336 1741.753784 -346.270630;setang -81.075645 -93.031136 0.028333
 gskSummonDevTrapMiniSpidCYL200
 gskSummonDevTrapMiniSpidCYL200
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 2/10 )
-prop at 1444 1624 -86 missing modelname
-prop at 1444 1624 -86 missing modelname
-setpos 1407.188110 1712.170166 -302.617157;setang -66.222992 -67.190872 0.011427
-setpos 1407.188110 1712.170166 -302.617157;setang -66.222992 -67.190872 0.011427
+prop at 1404 1682 -77 missing modelname
+prop at 1404 1682 -77 missing modelname
+setpos 1406.701660 1741.524414 -345.744812;setang -77.511673 -92.298782 0.021843
+setpos 1406.701660 1741.524414 -345.744812;setang -77.511673 -92.298782 0.021843
 gskSummonDevTrapMiniSpidCYL200
 gskSummonDevTrapMiniSpidCYL200
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 3/10 )
-prop at 1381 1634 -82 missing modelname
-prop at 1381 1634 -82 missing modelname
-setpos 1412.957764 1712.442383 -302.989563;setang -69.061028 -112.336006 0.012634
-setpos 1412.957764 1712.442383 -302.989563;setang -69.061028 -112.336006 0.012634
+prop at 1404 1669 -77 missing modelname
+prop at 1404 1669 -77 missing modelname
+setpos 1406.666016 1741.336182 -345.374634;setang -74.937706 -92.098129 0.019062
+setpos 1406.666016 1741.336182 -345.374634;setang -74.937706 -92.098129 0.019062
 gskSummonDevTrapMiniSpidCYL200
 gskSummonDevTrapMiniSpidCYL200
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 4/10 )
-prop at 1423 1655 -79 missing modelname
-prop at 1423 1655 -79 missing modelname
-setpos 1407.953003 1713.233765 -303.799927;setang -74.935089 -75.082603 0.016491
-setpos 1407.953003 1713.233765 -303.799927;setang -74.935089 -75.082603 0.016491
+prop at 1404 1654 -77 missing modelname
+prop at 1404 1654 -77 missing modelname
+setpos 1406.575439 1741.099854 -344.958588;setang -71.967728 -91.501976 0.016802
+setpos 1406.575439 1741.099854 -344.958588;setang -71.967728 -91.501976 0.016802
 gskSummonDevTrapMiniSpidCYL200
 gskSummonDevTrapMiniSpidCYL200
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 5/10 )
-prop at 1407 1685 -76 missing modelname
-prop at 1407 1685 -76 missing modelname
-setpos 1411.474976 1713.912720 -304.944092;setang -82.723106 -99.483742 0.030873
-setpos 1411.474976 1713.912720 -304.944092;setang -82.723106 -99.483742 0.030873
+prop at 1404 1639 -77 missing modelname
+prop at 1404 1639 -77 missing modelname
+setpos 1406.560425 1740.857910 -344.581940;setang -69.195763 -91.434540 0.015271
+setpos 1406.560425 1740.857910 -344.581940;setang -69.195763 -91.434540 0.015271
 gskSummonDevTrapMiniSpidCYL200
 gskSummonDevTrapMiniSpidCYL200
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 6/10 )
-prop at 1434 1738 -81 missing modelname
-prop at 1434 1738 -81 missing modelname
-setpos 1405.078369 1698.666992 -304.189331;setang -77.641106 53.383446 0.019460
-setpos 1405.078369 1698.666992 -304.189331;setang -77.641106 53.383446 0.019460
+prop at 1404 1621 -77 missing modelname
+prop at 1404 1621 -77 missing modelname
+setpos 1406.502075 1740.553833 -344.157928;setang -65.961731 -91.037292 0.013898
+setpos 1406.502075 1740.553833 -344.157928;setang -65.961731 -91.037292 0.013898
 gskSummonDevTrapMiniSpidCYL200
 gskSummonDevTrapMiniSpidCYL200
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 7/10 )
-prop at 1394 1747 -79 missing modelname
-prop at 1394 1747 -79 missing modelname
-setpos 1413.024658 1697.630127 -304.074402;setang -76.849136 111.002449 0.018470
-setpos 1413.024658 1697.630127 -304.074402;setang -76.849136 111.002449 0.018470
+prop at 1405 1613 -77 missing modelname
+prop at 1405 1613 -77 missing modelname
+setpos 1406.482910 1740.409424 -343.973297;setang -64.509766 -90.904846 0.013399
+setpos 1406.482910 1740.409424 -343.973297;setang -64.509766 -90.904846 0.013399
 gskSummonDevTrapMiniSpidCYL200
 gskSummonDevTrapMiniSpidCYL200
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 8/10 )
-prop at 1368 1733 -88 missing modelname
-prop at 1368 1733 -88 missing modelname
-setpos 1416.843140 1700.897705 -303.771820;setang -74.737167 146.644470 0.016311
-setpos 1416.843140 1700.897705 -303.771820;setang -74.737167 146.644470 0.016311
+prop at 1416 1611 -78 missing modelname
+prop at 1416 1611 -78 missing modelname
+setpos 1405.798218 1740.333374 -343.907074;setang -63.981770 -85.426674 0.013225
+setpos 1405.798218 1740.333374 -343.907074;setang -63.981770 -85.426674 0.013225
 gskSummonDevTrapMiniSpidCYL200
 gskSummonDevTrapMiniSpidCYL200
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 9/10 )
-prop at 1419 1665 -78 missing modelname
-prop at 1419 1665 -78 missing modelname
-setpos 1408.342529 1713.526001 -304.179749;setang -77.575226 -78.190292 0.019364
-setpos 1408.342529 1713.526001 -304.179749;setang -77.575226 -78.190292 0.019364
+prop at 1391 1613 -79 missing modelname
+prop at 1391 1613 -79 missing modelname
+setpos 1407.264893 1740.314209 -343.923584;setang -64.113754 -97.174721 0.013265
+setpos 1407.264893 1740.314209 -343.923584;setang -64.113754 -97.174721 0.013265
 gskSummonDevTrapMiniSpidCYL200
 gskSummonDevTrapMiniSpidCYL200
