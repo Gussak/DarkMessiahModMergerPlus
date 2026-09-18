@@ -450,16 +450,24 @@ function FUNCsectionID() { # a wrong beginAt (less than the real begin one) just
 
 : ${nSpawnTriggerLinkedLimit:=16} #help max simultaneous (instantaneous) spawns, min 1
 function FUNCappendToSpawnTrigger() {
-	if [[ -z "${strSpawnTriggerLine}" ]];then return 0;fi
+	if [[ -z "${strSpawnTriggerLine}" ]] || [[ -z "${strSpawnTriggerID}" ]];then return 0;fi
 	
 	local lbCreateNewSection=true
 	local liTargetIndex=0
+	local lnSTTemplateBeginIndex=0
 	
+	#TODO remove these 4 lines later
 	local lstrSTRegex="^gskSpawnTriggerID\s*([0-9]*)\s*([a-zA-Z0-9_-]*)\s*[^,]*(.*)"
 	local lstrLogicRelayID="$(         echo "$strSpawnTriggerLine" |tr -d '"\r' |sed -r -e "s@${lstrSTRegex}@\1@g")"
 	local lstrLogicRelayOnTrigger="$(  echo "$strSpawnTriggerLine" |tr -d '"\r' |sed -r -e "s@${lstrSTRegex}@\2@g")"
 	local lstrLogicRelaySpawnParams="$(echo "$strSpawnTriggerLine" |tr -d '"\r' |sed -r -e "s@${lstrSTRegex}@\3@g")" #ignored
-	local lnSTTemplateBeginIndex=0
+		
+	if [[ -n "$strSpawnTriggerID" ]];then
+		lstrLogicRelayID="$strSpawnTriggerID"
+	fi
+	if [[ -n "$strSpawnTriggerType" ]];then
+		lstrLogicRelayOnTrigger="$strSpawnTriggerType"
+	fi
 
 	local lstrSTSectionID="$(FUNCsectionID ${liTargetIndex})"
 	local lnSTTemplateBeginSection=0
@@ -475,7 +483,7 @@ function FUNCappendToSpawnTrigger() {
 	if [[ "$fSpawnDelayIncrement" != "0.0" ]];then
 		nSpawnTriggerLinkedLimit=1
 	fi
-	fSpawnDelayCurrent=$fSpawnDelayIncrement
+	fSpawnDelayCurrent="${fSpawnDelayInitial}"
 	while true;do
 		laSpawnParams[TargetName]="${lstrSTSectionID}"
 		fSpawnDelayCurrent="$(printf %.3f $(bc <<< "${fSpawnDelayCurrent} + ${fSpawnDelayIncrement}"))"
@@ -1486,14 +1494,29 @@ if $bCreateSpawnsForCurrentMap;then
 		#egrep "^gskSpawnMode" "$strFlCondump" >>"$strFlCondumpCleanNew"
 		#strSpawnMode="$(egrep "^gskSpawnMode" "$strFlCondump" |awk '{print $2}')"
 	#fi
-	if egrep "^gskSpawnDelay" "$strFlCondump";then
-		egrep "^gskSpawnDelay" "$strFlCondump" >>"$strFlCondumpCleanNew"
-		fSpawnDelayIncrement="$(egrep "^gskSpawnDelay" "$strFlCondump" |awk '{print $2}')"
-	fi
-	if egrep "^gskSpawnNpcsAwake" "$strFlCondump";then
-		egrep "^gskSpawnNpcsAwake" "$strFlCondump" >>"$strFlCondumpCleanNew"
-		bSpawnNpcsAwake="$(egrep "^gskSpawnNpcsAwake" "$strFlCondump" |awk '{print $2}')"
-	fi
+	function FUNCgskOptions() {
+		local lstrOpt="$1";shift
+		local lstrOptDefault="$1";shift
+		if egrep "^${lstrOpt}" "$strFlCondump";then
+			egrep "^${lstrOpt}" "$strFlCondump" >>"$strFlCondumpCleanNew"
+			egrep "^${lstrOpt}" "$strFlCondump" |awk '{print $2}' #OUTPUT
+		else
+			echo "$lstrOptDefault"
+		fi
+	}
+	strSpawnTriggerID="$(FUNCgskOptions "gskSpawnTriggerID" "")"
+	strSpawnTriggerType="$(FUNCgskOptions "gskSpawnTriggerType" "")"
+	fSpawnDelayInitial="$(FUNCgskOptions "gskSpawnDelayInital" 0.0)"
+	fSpawnDelayIncrement="$(FUNCgskOptions "gskSpawnDelay" 0.0)"
+	bSpawnNpcsAwake="$(FUNCgskOptions "gskSpawnNpcsAwake" false)"
+	#if egrep "^gskSpawnDelay" "$strFlCondump";then
+		#egrep "^gskSpawnDelay" "$strFlCondump" >>"$strFlCondumpCleanNew"
+		#fSpawnDelayIncrement="$(egrep "^gskSpawnDelay" "$strFlCondump" |awk '{print $2}')"
+	#fi
+	#if egrep "^gskSpawnNpcsAwake" "$strFlCondump";then
+		#egrep "^gskSpawnNpcsAwake" "$strFlCondump" >>"$strFlCondumpCleanNew"
+		#bSpawnNpcsAwake="$(egrep "^gskSpawnNpcsAwake" "$strFlCondump" |awk '{print $2}')"
+	#fi
 	
 	if egrep "^gskSpawnNoBurrowAllowed" "$strFlCondump";then
 		echo "gskSpawnNoBurrowAllowed" >>"$strFlCondumpCleanNew"
