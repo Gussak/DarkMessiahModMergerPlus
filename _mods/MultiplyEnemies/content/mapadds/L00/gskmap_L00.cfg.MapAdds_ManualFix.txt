@@ -1,4 +1,3 @@
-
 "mapadd_keyvalues"
 {
 	"PreInitialize"
@@ -12,7 +11,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "mm_player_inputs,GiveSkillPoints,1,0,1,1,"
+				"OnTrigger" "mm_player_inputs,GiveSkillPoints,1,0,1,1,"  // these 2 skill points are from removed free darkvision and disabled basic combat skills
 				"OnTrigger" "mm_player_inputs,GiveSkillPoints,1,0,1,1,"
 			}
 		}

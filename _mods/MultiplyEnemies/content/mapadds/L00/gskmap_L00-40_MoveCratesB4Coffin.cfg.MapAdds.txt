@@ -1453,33 +1453,16 @@
 			"spawnflags"  "7"
 			"origin"      "1622 -1165 246"
 		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_062"
-			"origin"      "1659 -1165 241"
-			"angles"      "60 166 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"inertiaScale" "1.0"
-			"fademindist" "500"
-			"fademaxdist" "700"
-			"fadescale" "1"
-			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "10 61 39"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
-			
-			
-		}
+//		"add:entity"
+//		{
+//			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_062"
+//			"origin"      "1659 -1165 241"
+//			"angles"      "60 166 -0"
+//			"spawnflags"  "7"
+//			"physdamagescale" "1.0"
+//			"radiusforrandomattitude" "500"
+//			"targetname"   "gskSpawn_40_MoveCratesB4Coffin_062_TODO_FixMissingSupportFor_gskSummonDevTrapFire"
+//		}
 
 		"modify:entity"
 		{
@@ -1741,8 +1724,6 @@
 				"Template13" "gskSpawn_40_MoveCratesB4Coffin_060"
 
 				"Template14" "gskSpawn_40_MoveCratesB4Coffin_061"
-
-				"Template15" "gskSpawn_40_MoveCratesB4Coffin_062"
 
 			}
 		}

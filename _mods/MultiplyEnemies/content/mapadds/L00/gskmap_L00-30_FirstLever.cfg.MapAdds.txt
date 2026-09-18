@@ -1498,141 +1498,56 @@
 			"spawnflags"  "7"
 			"origin"      "-398 -2727 210"
 		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_30_FirstLever_064"
-			"origin"      "327 -2245 246"
-			"angles"      "34 104 0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"inertiaScale" "1.0"
-			"fademindist" "500"
-			"fademaxdist" "700"
-			"fadescale" "1"
-			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "14 -59 43"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
-			
-			
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_30_FirstLever_065"
-			"origin"      "311 -2245 243"
-			"angles"      "37 88 0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"inertiaScale" "1.0"
-			"fademindist" "500"
-			"fademaxdist" "700"
-			"fadescale" "1"
-			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "19 156 10"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
-			
-			
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_30_FirstLever_066"
-			"origin"      "297 -2245 241"
-			"angles"      "37 73 0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"inertiaScale" "1.0"
-			"fademindist" "500"
-			"fademaxdist" "700"
-			"fadescale" "1"
-			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "34 127 33"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
-			
-			
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_30_FirstLever_067"
-			"origin"      "297 -2821 249"
-			"angles"      "34 -74 0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"inertiaScale" "1.0"
-			"fademindist" "500"
-			"fademaxdist" "700"
-			"fadescale" "1"
-			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "39 102 0"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
-			
-			
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_30_FirstLever_068"
-			"origin"      "576 -2245 365"
-			"angles"      "53 98 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"inertiaScale" "1.0"
-			"fademindist" "500"
-			"fademaxdist" "700"
-			"fadescale" "1"
-			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "10 -159 10"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
-			
-			
-		}
+//		"add:entity"
+//		{
+//			"targetname"  "gskSpawn_30_FirstLever_064"
+//			"origin"      "327 -2245 246"
+//			"angles"      "34 104 0"
+//			"spawnflags"  "7"
+//			"physdamagescale" "1.0"
+//			"radiusforrandomattitude" "500"
+//			"targetname"   "gskSpawn_30_FirstLever_064_TODO_FixMissingSupportFor_gskSummonDevTrapFire"
+//		}
+//		"add:entity"
+//		{
+//			"targetname"  "gskSpawn_30_FirstLever_065"
+//			"origin"      "311 -2245 243"
+//			"angles"      "37 88 0"
+//			"spawnflags"  "7"
+//			"physdamagescale" "1.0"
+//			"radiusforrandomattitude" "500"
+//			"targetname"   "gskSpawn_30_FirstLever_065_TODO_FixMissingSupportFor_gskSummonDevTrapFire"
+//		}
+//		"add:entity"
+//		{
+//			"targetname"  "gskSpawn_30_FirstLever_066"
+//			"origin"      "297 -2245 241"
+//			"angles"      "37 73 0"
+//			"spawnflags"  "7"
+//			"physdamagescale" "1.0"
+//			"radiusforrandomattitude" "500"
+//			"targetname"   "gskSpawn_30_FirstLever_066_TODO_FixMissingSupportFor_gskSummonDevTrapFire"
+//		}
+//		"add:entity"
+//		{
+//			"targetname"  "gskSpawn_30_FirstLever_067"
+//			"origin"      "297 -2821 249"
+//			"angles"      "34 -74 0"
+//			"spawnflags"  "7"
+//			"physdamagescale" "1.0"
+//			"radiusforrandomattitude" "500"
+//			"targetname"   "gskSpawn_30_FirstLever_067_TODO_FixMissingSupportFor_gskSummonDevTrapFire"
+//		}
+//		"add:entity"
+//		{
+//			"targetname"  "gskSpawn_30_FirstLever_068"
+//			"origin"      "576 -2245 365"
+//			"angles"      "53 98 -0"
+//			"spawnflags"  "7"
+//			"physdamagescale" "1.0"
+//			"radiusforrandomattitude" "500"
+//			"targetname"   "gskSpawn_30_FirstLever_068_TODO_FixMissingSupportFor_gskSummonDevTrapFire"
+//		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_30_FirstLever_069"
@@ -3200,276 +3115,106 @@
 			"spawnflags"  "7"
 			"origin"      "534 -2789 -29"
 		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_30_FirstLever_134"
-			"origin"      "-59 -2782 193"
-			"angles"      "21 27 0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"inertiaScale" "1.0"
-			"fademindist" "500"
-			"fademaxdist" "700"
-			"fadescale" "1"
-			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "29 160 36"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
-			
-			
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_30_FirstLever_135"
-			"origin"      "-199 -2159 241"
-			"angles"      "30 -99 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"inertiaScale" "1.0"
-			"fademindist" "500"
-			"fademaxdist" "700"
-			"fadescale" "1"
-			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "15 131 0"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
-			
-			
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_30_FirstLever_136"
-			"origin"      "-199 -2159 337"
-			"angles"      "30 -93 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"inertiaScale" "1.0"
-			"fademindist" "500"
-			"fademaxdist" "700"
-			"fadescale" "1"
-			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "34 -150 26"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
-			
-			
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_30_FirstLever_137"
-			"origin"      "-71 -2165 433"
-			"angles"      "24 -97 0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"inertiaScale" "1.0"
-			"fademindist" "500"
-			"fademaxdist" "700"
-			"fadescale" "1"
-			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "12 -139 40"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
-			
-			
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_30_FirstLever_138"
-			"origin"      "313 -2159 241"
-			"angles"      "31 -90 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"inertiaScale" "1.0"
-			"fademindist" "500"
-			"fademaxdist" "700"
-			"fadescale" "1"
-			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "2 -164 37"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
-			
-			
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_30_FirstLever_139"
-			"origin"      "571 -2153 337"
-			"angles"      "26 -91 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"inertiaScale" "1.0"
-			"fademindist" "500"
-			"fademaxdist" "700"
-			"fadescale" "1"
-			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "29 -157 34"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
-			
-			
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_30_FirstLever_140"
-			"origin"      "56 -2898 433"
-			"angles"      "21 87 0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"inertiaScale" "1.0"
-			"fademindist" "500"
-			"fademaxdist" "700"
-			"fadescale" "1"
-			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "44 66 13"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
-			
-			
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_30_FirstLever_141"
-			"origin"      "186 -2902 337"
-			"angles"      "42 84 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"inertiaScale" "1.0"
-			"fademindist" "500"
-			"fademaxdist" "700"
-			"fadescale" "1"
-			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "36 65 7"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
-			
-			
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_30_FirstLever_142"
-			"origin"      "312 -2905 241"
-			"angles"      "31 92 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"inertiaScale" "1.0"
-			"fademindist" "500"
-			"fademaxdist" "700"
-			"fadescale" "1"
-			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "33 -16 13"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
-			
-			
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_30_FirstLever_143"
-			"origin"      "576 -2897 337"
-			"angles"      "30 96 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"inertiaScale" "1.0"
-			"fademindist" "500"
-			"fademaxdist" "700"
-			"fadescale" "1"
-			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "2 103 26"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
-			
-			
-		}
+//		"add:entity"
+//		{
+//			"targetname"  "gskSpawn_30_FirstLever_134"
+//			"origin"      "-59 -2782 193"
+//			"angles"      "21 27 0"
+//			"spawnflags"  "7"
+//			"physdamagescale" "1.0"
+//			"radiusforrandomattitude" "500"
+//			"targetname"   "gskSpawn_30_FirstLever_134_TODO_FixMissingSupportFor_gskSummonDevTrapFire"
+//		}
+//		"add:entity"
+//		{
+//			"targetname"  "gskSpawn_30_FirstLever_135"
+//			"origin"      "-199 -2159 241"
+//			"angles"      "30 -99 -0"
+//			"spawnflags"  "7"
+//			"physdamagescale" "1.0"
+//			"radiusforrandomattitude" "500"
+//			"targetname"   "gskSpawn_30_FirstLever_135_TODO_FixMissingSupportFor_gskSummonDevTrapFire"
+//		}
+//		"add:entity"
+//		{
+//			"targetname"  "gskSpawn_30_FirstLever_136"
+//			"origin"      "-199 -2159 337"
+//			"angles"      "30 -93 -0"
+//			"spawnflags"  "7"
+//			"physdamagescale" "1.0"
+//			"radiusforrandomattitude" "500"
+//			"targetname"   "gskSpawn_30_FirstLever_136_TODO_FixMissingSupportFor_gskSummonDevTrapFire"
+//		}
+//		"add:entity"
+//		{
+//			"targetname"  "gskSpawn_30_FirstLever_137"
+//			"origin"      "-71 -2165 433"
+//			"angles"      "24 -97 0"
+//			"spawnflags"  "7"
+//			"physdamagescale" "1.0"
+//			"radiusforrandomattitude" "500"
+//			"targetname"   "gskSpawn_30_FirstLever_137_TODO_FixMissingSupportFor_gskSummonDevTrapFire"
+//		}
+//		"add:entity"
+//		{
+//			"targetname"  "gskSpawn_30_FirstLever_138"
+//			"origin"      "313 -2159 241"
+//			"angles"      "31 -90 -0"
+//			"spawnflags"  "7"
+//			"physdamagescale" "1.0"
+//			"radiusforrandomattitude" "500"
+//			"targetname"   "gskSpawn_30_FirstLever_138_TODO_FixMissingSupportFor_gskSummonDevTrapFire"
+//		}
+//		"add:entity"
+//		{
+//			"targetname"  "gskSpawn_30_FirstLever_139"
+//			"origin"      "571 -2153 337"
+//			"angles"      "26 -91 -0"
+//			"spawnflags"  "7"
+//			"physdamagescale" "1.0"
+//			"radiusforrandomattitude" "500"
+//			"targetname"   "gskSpawn_30_FirstLever_139_TODO_FixMissingSupportFor_gskSummonDevTrapFire"
+//		}
+//		"add:entity"
+//		{
+//			"targetname"  "gskSpawn_30_FirstLever_140"
+//			"origin"      "56 -2898 433"
+//			"angles"      "21 87 0"
+//			"spawnflags"  "7"
+//			"physdamagescale" "1.0"
+//			"radiusforrandomattitude" "500"
+//			"targetname"   "gskSpawn_30_FirstLever_140_TODO_FixMissingSupportFor_gskSummonDevTrapFire"
+//		}
+//		"add:entity"
+//		{
+//			"targetname"  "gskSpawn_30_FirstLever_141"
+//			"origin"      "186 -2902 337"
+//			"angles"      "42 84 -0"
+//			"spawnflags"  "7"
+//			"physdamagescale" "1.0"
+//			"radiusforrandomattitude" "500"
+//			"targetname"   "gskSpawn_30_FirstLever_141_TODO_FixMissingSupportFor_gskSummonDevTrapFire"
+//		}
+//		"add:entity"
+//		{
+//			"targetname"  "gskSpawn_30_FirstLever_142"
+//			"origin"      "312 -2905 241"
+//			"angles"      "31 92 -0"
+//			"spawnflags"  "7"
+//			"physdamagescale" "1.0"
+//			"radiusforrandomattitude" "500"
+//			"targetname"   "gskSpawn_30_FirstLever_142_TODO_FixMissingSupportFor_gskSummonDevTrapFire"
+//		}
+//		"add:entity"
+//		{
+//			"targetname"  "gskSpawn_30_FirstLever_143"
+//			"origin"      "576 -2897 337"
+//			"angles"      "30 96 -0"
+//			"spawnflags"  "7"
+//			"physdamagescale" "1.0"
+//			"radiusforrandomattitude" "500"
+//			"targetname"   "gskSpawn_30_FirstLever_143_TODO_FixMissingSupportFor_gskSummonDevTrapFire"
+//		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_30_FirstLever_144"
@@ -3509,87 +3254,36 @@
 			"spawnflags"  "7"
 			"origin"      "688 -2775 540"
 		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_30_FirstLever_147"
-			"origin"      "-403 -3044 433"
-			"angles"      "19 -178 0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"inertiaScale" "1.0"
-			"fademindist" "500"
-			"fademaxdist" "700"
-			"fadescale" "1"
-			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "3 70 8"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
-			
-			
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_30_FirstLever_148"
-			"origin"      "542 -2781 -47"
-			"angles"      "31 -2 0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"inertiaScale" "1.0"
-			"fademindist" "500"
-			"fademaxdist" "700"
-			"fadescale" "1"
-			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "25 -51 37"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
-			
-			
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_30_FirstLever_149"
-			"origin"      "670 -2625 -77"
-			"angles"      "28 87 0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"inertiaScale" "1.0"
-			"fademindist" "500"
-			"fademaxdist" "700"
-			"fadescale" "1"
-			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "8 -28 1"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
-			
-			
-		}
+//		"add:entity"
+//		{
+//			"targetname"  "gskSpawn_30_FirstLever_147"
+//			"origin"      "-403 -3044 433"
+//			"angles"      "19 -178 0"
+//			"spawnflags"  "7"
+//			"physdamagescale" "1.0"
+//			"radiusforrandomattitude" "500"
+//			"targetname"   "gskSpawn_30_FirstLever_147_TODO_FixMissingSupportFor_gskSummonDevTrapFire"
+//		}
+//		"add:entity"
+//		{
+//			"targetname"  "gskSpawn_30_FirstLever_148"
+//			"origin"      "542 -2781 -47"
+//			"angles"      "31 -2 0"
+//			"spawnflags"  "7"
+//			"physdamagescale" "1.0"
+//			"radiusforrandomattitude" "500"
+//			"targetname"   "gskSpawn_30_FirstLever_148_TODO_FixMissingSupportFor_gskSummonDevTrapFire"
+//		}
+//		"add:entity"
+//		{
+//			"targetname"  "gskSpawn_30_FirstLever_149"
+//			"origin"      "670 -2625 -77"
+//			"angles"      "28 87 0"
+//			"spawnflags"  "7"
+//			"physdamagescale" "1.0"
+//			"radiusforrandomattitude" "500"
+//			"targetname"   "gskSpawn_30_FirstLever_149_TODO_FixMissingSupportFor_gskSummonDevTrapFire"
+//		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_30_FirstLever_150"
@@ -3603,114 +3297,46 @@
 			"spawnflags"  "7"
 			"origin"      "-479 -3045 438"
 		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_30_FirstLever_151"
-			"origin"      "-456 -3039 433"
-			"angles"      "57 -28 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"inertiaScale" "1.0"
-			"fademindist" "500"
-			"fademaxdist" "700"
-			"fadescale" "1"
-			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "33 -69 19"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
-			
-			
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_30_FirstLever_152"
-			"origin"      "257 -2391 570"
-			"angles"      "56 -179 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"inertiaScale" "1.0"
-			"fademindist" "500"
-			"fademaxdist" "700"
-			"fadescale" "1"
-			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "31 -118 4"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
-			
-			
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_30_FirstLever_153"
-			"origin"      "260 -2359 555"
-			"angles"      "56 -154 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"inertiaScale" "1.0"
-			"fademindist" "500"
-			"fademaxdist" "700"
-			"fadescale" "1"
-			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "3 -102 11"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
-			
-			
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_30_FirstLever_154"
-			"origin"      "251 -2321 555"
-			"angles"      "50 -130 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"inertiaScale" "1.0"
-			"fademindist" "500"
-			"fademaxdist" "700"
-			"fadescale" "1"
-			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "3 43 24"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
-			
-			
-		}
+//		"add:entity"
+//		{
+//			"targetname"  "gskSpawn_30_FirstLever_151"
+//			"origin"      "-456 -3039 433"
+//			"angles"      "57 -28 -0"
+//			"spawnflags"  "7"
+//			"physdamagescale" "1.0"
+//			"radiusforrandomattitude" "500"
+//			"targetname"   "gskSpawn_30_FirstLever_151_TODO_FixMissingSupportFor_gskSummonDevTrapFire"
+//		}
+//		"add:entity"
+//		{
+//			"targetname"  "gskSpawn_30_FirstLever_152"
+//			"origin"      "257 -2391 570"
+//			"angles"      "56 -179 -0"
+//			"spawnflags"  "7"
+//			"physdamagescale" "1.0"
+//			"radiusforrandomattitude" "500"
+//			"targetname"   "gskSpawn_30_FirstLever_152_TODO_FixMissingSupportFor_gskSummonDevTrapFire"
+//		}
+//		"add:entity"
+//		{
+//			"targetname"  "gskSpawn_30_FirstLever_153"
+//			"origin"      "260 -2359 555"
+//			"angles"      "56 -154 -0"
+//			"spawnflags"  "7"
+//			"physdamagescale" "1.0"
+//			"radiusforrandomattitude" "500"
+//			"targetname"   "gskSpawn_30_FirstLever_153_TODO_FixMissingSupportFor_gskSummonDevTrapFire"
+//		}
+//		"add:entity"
+//		{
+//			"targetname"  "gskSpawn_30_FirstLever_154"
+//			"origin"      "251 -2321 555"
+//			"angles"      "50 -130 -0"
+//			"spawnflags"  "7"
+//			"physdamagescale" "1.0"
+//			"radiusforrandomattitude" "500"
+//			"targetname"   "gskSpawn_30_FirstLever_154_TODO_FixMissingSupportFor_gskSummonDevTrapFire"
+//		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_30_FirstLever_155"
@@ -3923,6 +3549,71 @@
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
 			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_30_FirstLever_172"
+			"origin"      "-421 -2632 193"
+			"angles"      "44 47 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-421 -2632 198"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_30_FirstLever_173"
+			"origin"      "-749 -2636 195"
+			"angles"      "35 29 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-749 -2636 200"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_30_FirstLever_174"
+			"origin"      "-431 -2439 199"
+			"angles"      "28 -89 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-431 -2439 204"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_30_FirstLever_175"
+			"origin"      "-145 -2305 205"
+			"angles"      "28 -32 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-145 -2305 210"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_30_FirstLever_176"
+			"origin"      "-21 -2769 162"
+			"angles"      "75 84 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-21 -2769 167"
 		}
 
 		"modify:entity"
@@ -4225,37 +3916,37 @@
 			{
 		
 
-				"Template01" "gskSpawn_30_FirstLever_064"
+				"Template01" "gskSpawn_30_FirstLever_069"
 
-				"Template02" "gskSpawn_30_FirstLever_065"
+				"Template02" "gskSpawn_30_FirstLever_070"
 
-				"Template03" "gskSpawn_30_FirstLever_066"
+				"Template03" "gskSpawn_30_FirstLever_071"
 
-				"Template04" "gskSpawn_30_FirstLever_067"
+				"Template04" "gskSpawn_30_FirstLever_072"
 
-				"Template05" "gskSpawn_30_FirstLever_068"
+				"Template05" "gskSpawn_30_FirstLever_073"
 
-				"Template06" "gskSpawn_30_FirstLever_069"
+				"Template06" "gskSpawn_30_FirstLever_074"
 
-				"Template07" "gskSpawn_30_FirstLever_070"
+				"Template07" "gskSpawn_30_FirstLever_075"
 
-				"Template08" "gskSpawn_30_FirstLever_071"
+				"Template08" "gskSpawn_30_FirstLever_076"
 
-				"Template09" "gskSpawn_30_FirstLever_072"
+				"Template09" "gskSpawn_30_FirstLever_077"
 
-				"Template10" "gskSpawn_30_FirstLever_073"
+				"Template10" "gskSpawn_30_FirstLever_078"
 
-				"Template11" "gskSpawn_30_FirstLever_074"
+				"Template11" "gskSpawn_30_FirstLever_079"
 
-				"Template12" "gskSpawn_30_FirstLever_075"
+				"Template12" "gskSpawn_30_FirstLever_080"
 
-				"Template13" "gskSpawn_30_FirstLever_076"
+				"Template13" "gskSpawn_30_FirstLever_081"
 
-				"Template14" "gskSpawn_30_FirstLever_077"
+				"Template14" "gskSpawn_30_FirstLever_082"
 
-				"Template15" "gskSpawn_30_FirstLever_078"
+				"Template15" "gskSpawn_30_FirstLever_083"
 
-				"Template16" "gskSpawn_30_FirstLever_079"
+				"Template16" "gskSpawn_30_FirstLever_084"
 
 			}
 		}
@@ -4292,37 +3983,37 @@
 			{
 		
 
-				"Template01" "gskSpawn_30_FirstLever_080"
+				"Template01" "gskSpawn_30_FirstLever_085"
 
-				"Template02" "gskSpawn_30_FirstLever_081"
+				"Template02" "gskSpawn_30_FirstLever_086"
 
-				"Template03" "gskSpawn_30_FirstLever_082"
+				"Template03" "gskSpawn_30_FirstLever_087"
 
-				"Template04" "gskSpawn_30_FirstLever_083"
+				"Template04" "gskSpawn_30_FirstLever_088"
 
-				"Template05" "gskSpawn_30_FirstLever_084"
+				"Template05" "gskSpawn_30_FirstLever_089"
 
-				"Template06" "gskSpawn_30_FirstLever_085"
+				"Template06" "gskSpawn_30_FirstLever_090"
 
-				"Template07" "gskSpawn_30_FirstLever_086"
+				"Template07" "gskSpawn_30_FirstLever_091"
 
-				"Template08" "gskSpawn_30_FirstLever_087"
+				"Template08" "gskSpawn_30_FirstLever_092"
 
-				"Template09" "gskSpawn_30_FirstLever_088"
+				"Template09" "gskSpawn_30_FirstLever_093"
 
-				"Template10" "gskSpawn_30_FirstLever_089"
+				"Template10" "gskSpawn_30_FirstLever_094"
 
-				"Template11" "gskSpawn_30_FirstLever_090"
+				"Template11" "gskSpawn_30_FirstLever_095"
 
-				"Template12" "gskSpawn_30_FirstLever_091"
+				"Template12" "gskSpawn_30_FirstLever_096"
 
-				"Template13" "gskSpawn_30_FirstLever_092"
+				"Template13" "gskSpawn_30_FirstLever_097"
 
-				"Template14" "gskSpawn_30_FirstLever_093"
+				"Template14" "gskSpawn_30_FirstLever_098"
 
-				"Template15" "gskSpawn_30_FirstLever_094"
+				"Template15" "gskSpawn_30_FirstLever_099"
 
-				"Template16" "gskSpawn_30_FirstLever_095"
+				"Template16" "gskSpawn_30_FirstLever_100"
 
 			}
 		}
@@ -4359,37 +4050,37 @@
 			{
 		
 
-				"Template01" "gskSpawn_30_FirstLever_096"
+				"Template01" "gskSpawn_30_FirstLever_101"
 
-				"Template02" "gskSpawn_30_FirstLever_097"
+				"Template02" "gskSpawn_30_FirstLever_102"
 
-				"Template03" "gskSpawn_30_FirstLever_098"
+				"Template03" "gskSpawn_30_FirstLever_103"
 
-				"Template04" "gskSpawn_30_FirstLever_099"
+				"Template04" "gskSpawn_30_FirstLever_104"
 
-				"Template05" "gskSpawn_30_FirstLever_100"
+				"Template05" "gskSpawn_30_FirstLever_105"
 
-				"Template06" "gskSpawn_30_FirstLever_101"
+				"Template06" "gskSpawn_30_FirstLever_106"
 
-				"Template07" "gskSpawn_30_FirstLever_102"
+				"Template07" "gskSpawn_30_FirstLever_107"
 
-				"Template08" "gskSpawn_30_FirstLever_103"
+				"Template08" "gskSpawn_30_FirstLever_108"
 
-				"Template09" "gskSpawn_30_FirstLever_104"
+				"Template09" "gskSpawn_30_FirstLever_109"
 
-				"Template10" "gskSpawn_30_FirstLever_105"
+				"Template10" "gskSpawn_30_FirstLever_110"
 
-				"Template11" "gskSpawn_30_FirstLever_106"
+				"Template11" "gskSpawn_30_FirstLever_111"
 
-				"Template12" "gskSpawn_30_FirstLever_107"
+				"Template12" "gskSpawn_30_FirstLever_112"
 
-				"Template13" "gskSpawn_30_FirstLever_108"
+				"Template13" "gskSpawn_30_FirstLever_113"
 
-				"Template14" "gskSpawn_30_FirstLever_109"
+				"Template14" "gskSpawn_30_FirstLever_114"
 
-				"Template15" "gskSpawn_30_FirstLever_110"
+				"Template15" "gskSpawn_30_FirstLever_115"
 
-				"Template16" "gskSpawn_30_FirstLever_111"
+				"Template16" "gskSpawn_30_FirstLever_116"
 
 			}
 		}
@@ -4426,37 +4117,37 @@
 			{
 		
 
-				"Template01" "gskSpawn_30_FirstLever_112"
+				"Template01" "gskSpawn_30_FirstLever_117"
 
-				"Template02" "gskSpawn_30_FirstLever_113"
+				"Template02" "gskSpawn_30_FirstLever_118"
 
-				"Template03" "gskSpawn_30_FirstLever_114"
+				"Template03" "gskSpawn_30_FirstLever_119"
 
-				"Template04" "gskSpawn_30_FirstLever_115"
+				"Template04" "gskSpawn_30_FirstLever_120"
 
-				"Template05" "gskSpawn_30_FirstLever_116"
+				"Template05" "gskSpawn_30_FirstLever_121"
 
-				"Template06" "gskSpawn_30_FirstLever_117"
+				"Template06" "gskSpawn_30_FirstLever_122"
 
-				"Template07" "gskSpawn_30_FirstLever_118"
+				"Template07" "gskSpawn_30_FirstLever_123"
 
-				"Template08" "gskSpawn_30_FirstLever_119"
+				"Template08" "gskSpawn_30_FirstLever_124"
 
-				"Template09" "gskSpawn_30_FirstLever_120"
+				"Template09" "gskSpawn_30_FirstLever_125"
 
-				"Template10" "gskSpawn_30_FirstLever_121"
+				"Template10" "gskSpawn_30_FirstLever_126"
 
-				"Template11" "gskSpawn_30_FirstLever_122"
+				"Template11" "gskSpawn_30_FirstLever_127"
 
-				"Template12" "gskSpawn_30_FirstLever_123"
+				"Template12" "gskSpawn_30_FirstLever_128"
 
-				"Template13" "gskSpawn_30_FirstLever_124"
+				"Template13" "gskSpawn_30_FirstLever_129"
 
-				"Template14" "gskSpawn_30_FirstLever_125"
+				"Template14" "gskSpawn_30_FirstLever_130"
 
-				"Template15" "gskSpawn_30_FirstLever_126"
+				"Template15" "gskSpawn_30_FirstLever_131"
 
-				"Template16" "gskSpawn_30_FirstLever_127"
+				"Template16" "gskSpawn_30_FirstLever_132"
 
 			}
 		}
@@ -4493,37 +4184,37 @@
 			{
 		
 
-				"Template01" "gskSpawn_30_FirstLever_128"
+				"Template01" "gskSpawn_30_FirstLever_133"
 
-				"Template02" "gskSpawn_30_FirstLever_129"
+				"Template02" "gskSpawn_30_FirstLever_144"
 
-				"Template03" "gskSpawn_30_FirstLever_130"
+				"Template03" "gskSpawn_30_FirstLever_145"
 
-				"Template04" "gskSpawn_30_FirstLever_131"
+				"Template04" "gskSpawn_30_FirstLever_146"
 
-				"Template05" "gskSpawn_30_FirstLever_132"
+				"Template05" "gskSpawn_30_FirstLever_150"
 
-				"Template06" "gskSpawn_30_FirstLever_133"
+				"Template06" "gskSpawn_30_FirstLever_155"
 
-				"Template07" "gskSpawn_30_FirstLever_134"
+				"Template07" "gskSpawn_30_FirstLever_156"
 
-				"Template08" "gskSpawn_30_FirstLever_135"
+				"Template08" "gskSpawn_30_FirstLever_157"
 
-				"Template09" "gskSpawn_30_FirstLever_136"
+				"Template09" "gskSpawn_30_FirstLever_158"
 
-				"Template10" "gskSpawn_30_FirstLever_137"
+				"Template10" "gskSpawn_30_FirstLever_159"
 
-				"Template11" "gskSpawn_30_FirstLever_138"
+				"Template11" "gskSpawn_30_FirstLever_160"
 
-				"Template12" "gskSpawn_30_FirstLever_139"
+				"Template12" "gskSpawn_30_FirstLever_161"
 
-				"Template13" "gskSpawn_30_FirstLever_140"
+				"Template13" "gskSpawn_30_FirstLever_162"
 
-				"Template14" "gskSpawn_30_FirstLever_141"
+				"Template14" "gskSpawn_30_FirstLever_163"
 
-				"Template15" "gskSpawn_30_FirstLever_142"
+				"Template15" "gskSpawn_30_FirstLever_164"
 
-				"Template16" "gskSpawn_30_FirstLever_143"
+				"Template16" "gskSpawn_30_FirstLever_165"
 
 			}
 		}
@@ -4560,96 +4251,27 @@
 			{
 		
 
-				"Template01" "gskSpawn_30_FirstLever_144"
+				"Template01" "gskSpawn_30_FirstLever_166"
 
-				"Template02" "gskSpawn_30_FirstLever_145"
+				"Template02" "gskSpawn_30_FirstLever_167"
 
-				"Template03" "gskSpawn_30_FirstLever_146"
+				"Template03" "gskSpawn_30_FirstLever_168"
 
-				"Template04" "gskSpawn_30_FirstLever_147"
+				"Template04" "gskSpawn_30_FirstLever_169"
 
-				"Template05" "gskSpawn_30_FirstLever_148"
+				"Template05" "gskSpawn_30_FirstLever_170"
 
-				"Template06" "gskSpawn_30_FirstLever_149"
+				"Template06" "gskSpawn_30_FirstLever_171"
 
-				"Template07" "gskSpawn_30_FirstLever_150"
+				"Template07" "gskSpawn_30_FirstLever_172"
 
-				"Template08" "gskSpawn_30_FirstLever_151"
+				"Template08" "gskSpawn_30_FirstLever_173"
 
-				"Template09" "gskSpawn_30_FirstLever_152"
+				"Template09" "gskSpawn_30_FirstLever_174"
 
-				"Template10" "gskSpawn_30_FirstLever_153"
+				"Template10" "gskSpawn_30_FirstLever_175"
 
-				"Template11" "gskSpawn_30_FirstLever_154"
-
-				"Template12" "gskSpawn_30_FirstLever_155"
-
-				"Template13" "gskSpawn_30_FirstLever_156"
-
-				"Template14" "gskSpawn_30_FirstLever_157"
-
-				"Template15" "gskSpawn_30_FirstLever_158"
-
-				"Template16" "gskSpawn_30_FirstLever_159"
-
-			}
-		}
-
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"id"	"1280157"
-			}
-			"add:key"
-			{
-				"OnTrigger" "gskSpawn_30_FirstLever_BeginAt160,ForceSpawn,,0,-1,1,"
-			}
-		}
-		
-
-		"add:entity"
-		{
-			"classname" "point_template"
-			"combinability" "1"
-			"spawnflags" "2"
-			"targetname" "gskSpawn_30_FirstLever_BeginAt160"
-			"origin" "0 0 0"
-		}
-
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_30_FirstLever_BeginAt160"
-			}
-			"add:key"
-			{
-		
-
-				"Template01" "gskSpawn_30_FirstLever_160"
-
-				"Template02" "gskSpawn_30_FirstLever_161"
-
-				"Template03" "gskSpawn_30_FirstLever_162"
-
-				"Template04" "gskSpawn_30_FirstLever_163"
-
-				"Template05" "gskSpawn_30_FirstLever_164"
-
-				"Template06" "gskSpawn_30_FirstLever_165"
-
-				"Template07" "gskSpawn_30_FirstLever_166"
-
-				"Template08" "gskSpawn_30_FirstLever_167"
-
-				"Template09" "gskSpawn_30_FirstLever_168"
-
-				"Template10" "gskSpawn_30_FirstLever_169"
-
-				"Template11" "gskSpawn_30_FirstLever_170"
-
-				"Template12" "gskSpawn_30_FirstLever_171"
+				"Template11" "gskSpawn_30_FirstLever_176"
 
 			}
 		}

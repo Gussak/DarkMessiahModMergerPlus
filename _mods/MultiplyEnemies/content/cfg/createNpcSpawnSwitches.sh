@@ -259,6 +259,7 @@ function FUNCechoAndFillFile() {
 }
 
 bCreateSpawnsForCurrentMap=false
+bCreateSummonList=false
 #bUpdateCondumpBkp=false
 astrAllParams=("$@")
 lstrUseThisMap=""
@@ -295,6 +296,8 @@ while [[ $# -gt 0 && "${1:0:1}" == "-" ]];do
 		#echo "TODO not implemented yet. Goal is to go thru all spawn requests and filter in (generate output) only the ones inside that 3D box, while creating a new file for the new sector, and a new file for the remaining"
 	elif [[ "${1}" == "--redoall" ]];then #help mainly to be used after patching this script
 		bRedoAll=true
+	elif [[ "${1}" == "--summon" ]];then #help create summoning alises list for many NPCs and items
+		bCreateSummonList=true
 	elif [[ "${1}" == "--clean" ]];then #help clean temp files
 		mapfile -t astrFlCleanList < <(ls -1 *.NEW.txt *.TMP.txt *.cfg.condump.txt *.bkp)
 		FUNCtrash "${astrFlCleanList[@]}"
@@ -354,7 +357,7 @@ if $bRedoAll;then
 		#nSpawnMapAdds="$(egrep '"targetname".*"gskSpawn.*' "$strFlMapAdds" |egrep -v "TODO" -c)"&&:
 		if ! egrep -q "prop at .* missing modelname" "$strFlRedo";then
 			echo "WARNING: skipping, is not mapadds ready..."
-			read -n 1 -t 10&&:
+			read -n 1 -t 1&&:
 			continue;
 		fi
 		nSpawnMapAdds="$(egrep 'gskSpawn[^",]*' "$strFlMapAdds" -o |egrep -v "_BeginAt|TODO" |sort -u |wc -l)"
@@ -1195,7 +1198,7 @@ if $bCreateSpawnsForCurrentMap;then
 ' >>"$strFlMapadds"
 	
 	strFlExtractToSector=""
-	if [[ "${lstrExtractSectorName}" ]];then
+	if [[ -n "${lstrExtractSectorName}" ]];then
 		strFlExtractToSector="${strMapCfgFile%.cfg}-${lstrExtractSectorName}.cfg.condump_CLEAN.txt"
 		if [[ -f "$strFlExtractToSector" ]];then
 			ls -l "$strFlExtractToSector"
@@ -1287,7 +1290,8 @@ if $bCreateSpawnsForCurrentMap;then
 			local lstrLine="${astrAllLines[$((iLnDataIni+j))]}"
 			local lstrExtra=""
 			if [[ "$lstrLine" =~ .*gskSpawnHint.* ]];then 
-				lstrExtra="  // ( $((iSpawnCount+1))/${nTotSpawns} )";
+				#do not use, too confusing to give maintenance... lstrExtra="  // ( $((iSpawnCount+1))/${nTotSpawns} )";
+				lstrExtra="  // ( ${iSpawnCount}/${nTotSpawns} )";
 			fi
 			lstrLine="$(echo "${lstrLine}" |sed -r -e 's@(.*gskSpawnHint[^ ]*).*@\1@g')"
 			echo "${lstrLine}${lstrExtra}" >>"$strFlCondumpCleanNew"
@@ -1385,7 +1389,7 @@ if $bCreateSpawnsForCurrentMap;then
 		strLine="${astrAllLines[$i]}"
 		if [[ "$strLine" =~ .*gskSpawnHint.* ]];then # this matches gskSpawnHint_gskSpawnHint_gskSpawnHint even if one or 2 letters is missing
 			strCount="$(     printf %03d $((iSpawnCount  )) )"
-			strCountShow="$( printf   %d $((iSpawnCount+1)) )" # begins in 1 and ends like 45/45 looks better
+			strCountShow="$( printf   %d $((iSpawnCount  )) )" # this complicates/confuses fixing the clean file... strCountShow="$( printf   %d $((iSpawnCount+1)) )" # begins in 1 and ends like 45/45 looks better but is messed up
 			strCountNext="$( printf %03d $((iSpawnCount+1)) )"
 			
 			#if [[ "$strLine" =~ ^gskSpawnHint_DropPotion.* ]];then
@@ -1561,7 +1565,9 @@ if $bCreateSpawnsForCurrentMap;then
 	cat "$strFlCondumpCleanNew" |sed -r -e 's@([^ \t]*)\s*$@\1@g' >"$strFlCondumpClean" #after all went well, also trim trailing spaces
 	touch -r "$strFlCondumpCleanNew" "$strFlCondumpClean"
 	ls -l "$strMapCfgFile"
-else # create spawner aliases
+fi
+
+if $bCreateSummonList;then # create spawner aliases
 	strAliasMode=""
 	case "$strSpawnerMode" in
 		MoreFoes)
@@ -1605,11 +1611,16 @@ else # create spawner aliases
 	done
 	echo
 	echo "// NOW COPY THE ABOVE INTO SOME CONFIG FILE (but is already at gskSummonList.cfg)"
+
+	if ls -l "$strFlDBsummoningsTmp";then
+		if FUNCaskYesNo "trash cache? helps on refreshing with new or changed gskSummon... commands.";then
+			FUNCtrash "$strFlDBsummoningsTmp"
+			echo "Now re-run."
+		fi
+	fi
 fi
 
 : ${bRefreshMount:=true}
 if $bRefreshMount;then
 	FUNCrefreshMount
 fi
-
-ls -l "$strFlDBsummoningsTmp"
