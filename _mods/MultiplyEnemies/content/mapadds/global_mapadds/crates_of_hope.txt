@@ -1,0 +1,22 @@
+"mapadd_keyvalues"
+{
+	"PreInitialize"
+	{
+
+		"modify:entity"
+		{
+			"TargetMarkers" //big crates = big hopes xD, on vanilla items 3 and 4 are never used.
+			{
+				"classname" "item_crate" // why it fails? wont match by classname ? as would become a multimatch? ... :(
+			}
+			"add:key"
+			{
+				"ItemCount3" "7"
+				"ItemCount4" "3"
+				"ItemClass3" "item_food_chicken_roasted"
+				"ItemClass4" "item_food_banana_regime"
+			}
+		}
+
+	}
+}

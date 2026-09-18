@@ -6,7 +6,7 @@
 
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_000"
+			"targetname"  "gskSpawn_20_FirstDoor_000"  //gskSummonSpiderRegular
 			"origin"      "-744 -3707 225"
 			"angles"      "89 38 0"
 			"spawnflags"  "7"
@@ -19,7 +19,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_001"
+			"targetname"  "gskSpawn_20_FirstDoor_001"  //gskSummonSpiderRegular
 			"origin"      "-565 -2766 193"
 			"angles"      "79 -167 -0"
 			"spawnflags"  "7"
@@ -32,7 +32,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_002"
+			"targetname"  "gskSpawn_20_FirstDoor_002"  //gskSummonSpiderRegular
 			"origin"      "-414 -2713 202"
 			"angles"      "89 44 -0"
 			"spawnflags"  "7"
@@ -45,7 +45,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_003"
+			"targetname"  "gskSpawn_20_FirstDoor_003"  //gskSummonDevSkeletonPart
 			"origin"      "-622 -2733 193"
 			"angles"      "43 -100 0"
 			"spawnflags"  "7"
@@ -66,7 +66,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_004"
+			"targetname"  "gskSpawn_20_FirstDoor_004"  //gskSummonDevSkeletonPart
 			"origin"      "-664 -2727 193"
 			"angles"      "42 -86 0"
 			"spawnflags"  "7"
@@ -87,7 +87,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_005"
+			"targetname"  "gskSpawn_20_FirstDoor_005"  //gskSummonDevSkeletonPart
 			"origin"      "-689 -2789 193"
 			"angles"      "53 -72 -0"
 			"spawnflags"  "7"
@@ -108,7 +108,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_006"
+			"targetname"  "gskSpawn_20_FirstDoor_006"  //gskSummonDevSkeletonPart
 			"origin"      "-725 -2757 193"
 			"angles"      "44 -64 0"
 			"spawnflags"  "7"
@@ -138,7 +138,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_007"
+			"targetname"  "gskSpawn_20_FirstDoor_007"  //gskSummonDevSkeletonPart
 			"origin"      "-720 -2822 193"
 			"angles"      "57 -51 -0"
 			"spawnflags"  "7"
@@ -168,7 +168,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_008"
+			"targetname"  "gskSpawn_20_FirstDoor_008"  //gskSummonDevSkeletonPart
 			"origin"      "-672 -2831 193"
 			"angles"      "65 -74 -0"
 			"spawnflags"  "7"
@@ -198,7 +198,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_009"
+			"targetname"  "gskSpawn_20_FirstDoor_009"  //gskSummonDevSkeletonPart
 			"origin"      "-651 -2815 193"
 			"angles"      "61 -90 -0"
 			"spawnflags"  "7"
@@ -219,7 +219,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_010"
+			"targetname"  "gskSpawn_20_FirstDoor_010"  //gskSummonDevSkeletonPart
 			"origin"      "-625 -2831 193"
 			"angles"      "65 -108 -0"
 			"spawnflags"  "7"
@@ -249,7 +249,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_011"
+			"targetname"  "gskSpawn_20_FirstDoor_011"  //gskSummonDevSkeletonPart
 			"origin"      "-629 -2890 193"
 			"angles"      "83 -141 -0"
 			"spawnflags"  "7"
@@ -270,7 +270,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_012"
+			"targetname"  "gskSpawn_20_FirstDoor_012"  //gskSummonDevSkeletonPart
 			"origin"      "-655 -2923 193"
 			"angles"      "87 72 -0"
 			"spawnflags"  "7"
@@ -291,7 +291,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_013"
+			"targetname"  "gskSpawn_20_FirstDoor_013"  //gskSummonDevSkeletonPart
 			"origin"      "-742 -2971 201"
 			"angles"      "55 35 -0"
 			"spawnflags"  "7"
@@ -312,7 +312,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_014"
+			"targetname"  "gskSpawn_20_FirstDoor_014"  //gskSummonDevSkeletonPart
 			"origin"      "-684 -2950 197"
 			"angles"      "73 52 -0"
 			"spawnflags"  "7"
@@ -342,7 +342,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_015"
+			"targetname"  "gskSpawn_20_FirstDoor_015"  //gskSummonDevSkeletonPart
 			"origin"      "-717 -3009 202"
 			"angles"      "52 57 -0"
 			"spawnflags"  "7"
@@ -372,7 +372,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_016"
+			"targetname"  "gskSpawn_20_FirstDoor_016"  //gskSummonDevSkeletonPart
 			"origin"      "-747 -3002 203"
 			"angles"      "49 45 -0"
 			"spawnflags"  "7"
@@ -393,7 +393,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_017"
+			"targetname"  "gskSpawn_20_FirstDoor_017"  //gskSummonDevSkeletonPart
 			"origin"      "-741 -3047 201"
 			"angles"      "43 57 0"
 			"spawnflags"  "7"
@@ -414,7 +414,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_018"
+			"targetname"  "gskSpawn_20_FirstDoor_018"  //gskSummonDevSkeletonPart
 			"origin"      "-696 -3040 199"
 			"angles"      "48 71 -0"
 			"spawnflags"  "7"
@@ -435,7 +435,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_019"
+			"targetname"  "gskSpawn_20_FirstDoor_019"  //gskSummonDevSkeletonPart
 			"origin"      "-665 -3007 197"
 			"angles"      "59 82 -0"
 			"spawnflags"  "7"
@@ -456,7 +456,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_020"
+			"targetname"  "gskSpawn_20_FirstDoor_020"  //gskSummonDevSkeletonPart
 			"origin"      "-698 -2975 200"
 			"angles"      "63 54 -0"
 			"spawnflags"  "7"
@@ -486,7 +486,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_021"
+			"targetname"  "gskSpawn_20_FirstDoor_021"  //gskSummonDevSkeletonPart
 			"origin"      "-713 -2987 201"
 			"angles"      "58 52 -0"
 			"spawnflags"  "7"
@@ -507,7 +507,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_022"
+			"targetname"  "gskSpawn_20_FirstDoor_022"  //gskSummonDevSkeletonPart
 			"origin"      "-597 -2986 193"
 			"angles"      "61 124 -0"
 			"spawnflags"  "7"
@@ -528,7 +528,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_023"
+			"targetname"  "gskSpawn_20_FirstDoor_023"  //gskSummonDevSkeletonPart
 			"origin"      "-557 -2930 193"
 			"angles"      "61 167 -0"
 			"spawnflags"  "7"
@@ -558,7 +558,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_024"
+			"targetname"  "gskSpawn_20_FirstDoor_024"  //gskSummonDevSkeletonPart
 			"origin"      "-547 -3000 193"
 			"angles"      "50 138 -0"
 			"spawnflags"  "7"
@@ -588,7 +588,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_025"
+			"targetname"  "gskSpawn_20_FirstDoor_025"  //gskSummonDevSkeletonPart
 			"origin"      "-601 -3017 193"
 			"angles"      "54 114 -0"
 			"spawnflags"  "7"
@@ -609,7 +609,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_026"
+			"targetname"  "gskSpawn_20_FirstDoor_026"  //gskSummonDevSkeletonPart
 			"origin"      "-586 -3075 193"
 			"angles"      "42 111 0"
 			"spawnflags"  "7"
@@ -639,7 +639,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_027"
+			"targetname"  "gskSpawn_20_FirstDoor_027"  //gskSummonDevSkeletonPart
 			"origin"      "-659 -3085 193"
 			"angles"      "43 87 0"
 			"spawnflags"  "7"
@@ -660,7 +660,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_028"
+			"targetname"  "gskSpawn_20_FirstDoor_028"  //gskSummonDevSkeletonPart
 			"origin"      "-617 -3154 193"
 			"angles"      "33 98 0"
 			"spawnflags"  "7"
@@ -690,7 +690,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_029"
+			"targetname"  "gskSpawn_20_FirstDoor_029"  //gskSummonDevSkeletonPart
 			"origin"      "-690 -3161 193"
 			"angles"      "32 82 0"
 			"spawnflags"  "7"
@@ -711,7 +711,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_030"
+			"targetname"  "gskSpawn_20_FirstDoor_030"  //gskSummonDevSkeletonPart
 			"origin"      "-716 -3110 193"
 			"angles"      "37 72 0"
 			"spawnflags"  "7"
@@ -741,7 +741,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_031"
+			"targetname"  "gskSpawn_20_FirstDoor_031"  //gskSummonDevSkeletonPart
 			"origin"      "-739 -3179 195"
 			"angles"      "29 72 0"
 			"spawnflags"  "7"
@@ -771,7 +771,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_032"
+			"targetname"  "gskSpawn_20_FirstDoor_032"  //gskSummonDevSkeletonPart
 			"origin"      "-717 -3268 195"
 			"angles"      "23 80 0"
 			"spawnflags"  "7"
@@ -792,7 +792,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_033"
+			"targetname"  "gskSpawn_20_FirstDoor_033"  //gskSummonDevSkeletonPart
 			"origin"      "-654 -3241 195"
 			"angles"      "25 90 0"
 			"spawnflags"  "7"
@@ -822,7 +822,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_034"
+			"targetname"  "gskSpawn_20_FirstDoor_034"  //gskSummonDevSkeletonPart
 			"origin"      "-597 -3238 195"
 			"angles"      "25 100 0"
 			"spawnflags"  "7"
@@ -852,7 +852,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_035"
+			"targetname"  "gskSpawn_20_FirstDoor_035"  //gskSummonDevSkeletonPart
 			"origin"      "-635 -3199 195"
 			"angles"      "29 93 0"
 			"spawnflags"  "7"
@@ -873,7 +873,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_036"
+			"targetname"  "gskSpawn_20_FirstDoor_036"  //gskSummonDevSkeletonPart
 			"origin"      "-755 -3630 218"
 			"angles"      "51 -7 -0"
 			"spawnflags"  "7"
@@ -903,7 +903,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_037"
+			"targetname"  "gskSpawn_20_FirstDoor_037"  //gskSummonDevSkeletonPart
 			"origin"      "-700 -3619 207"
 			"angles"      "67 -21 -0"
 			"spawnflags"  "7"
@@ -924,7 +924,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_038"
+			"targetname"  "gskSpawn_20_FirstDoor_038"  //gskSummonDevSkeletonPart
 			"origin"      "-743 -3574 211"
 			"angles"      "51 -33 -0"
 			"spawnflags"  "7"
@@ -945,7 +945,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_039"
+			"targetname"  "gskSpawn_20_FirstDoor_039"  //gskSummonDevSkeletonPart
 			"origin"      "-674 -3580 203"
 			"angles"      "66 -58 -0"
 			"spawnflags"  "7"
@@ -966,7 +966,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_040"
+			"targetname"  "gskSpawn_20_FirstDoor_040"  //gskSummonDevSkeletonPart
 			"origin"      "-640 -3617 194"
 			"angles"      "83 -76 -0"
 			"spawnflags"  "7"
@@ -987,7 +987,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_041"
+			"targetname"  "gskSpawn_20_FirstDoor_041"  //gskSummonDevSkeletonPart
 			"origin"      "-587 -3682 197"
 			"angles"      "72 141 -0"
 			"spawnflags"  "7"
@@ -1017,7 +1017,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_042"
+			"targetname"  "gskSpawn_20_FirstDoor_042"  //gskSummonDevSkeletonPart
 			"origin"      "-557 -3722 206"
 			"angles"      "57 135 -0"
 			"spawnflags"  "7"
@@ -1047,7 +1047,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_043"
+			"targetname"  "gskSpawn_20_FirstDoor_043"  //gskSummonDevSkeletonPart
 			"origin"      "-563 -3684 201"
 			"angles"      "65 151 -0"
 			"spawnflags"  "7"
@@ -1068,7 +1068,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_044"
+			"targetname"  "gskSpawn_20_FirstDoor_044"  //gskSummonDevSkeletonPart
 			"origin"      "-558 -3624 197"
 			"angles"      "66 -164 -0"
 			"spawnflags"  "7"
@@ -1089,7 +1089,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_045"
+			"targetname"  "gskSpawn_20_FirstDoor_045"  //gskSummonDevSkeletonPart
 			"origin"      "-556 -3563 194"
 			"angles"      "58 -134 -0"
 			"spawnflags"  "7"
@@ -1119,7 +1119,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_046"
+			"targetname"  "gskSpawn_20_FirstDoor_046"  //gskSummonDevSkeletonPart
 			"origin"      "-609 -3566 195"
 			"angles"      "66 -107 -0"
 			"spawnflags"  "7"
@@ -1140,7 +1140,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_047"
+			"targetname"  "gskSpawn_20_FirstDoor_047"  //gskSummonDevSkeletonPart
 			"origin"      "-657 -3520 202"
 			"angles"      "53 -80 -0"
 			"spawnflags"  "7"
@@ -1170,7 +1170,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_048"
+			"targetname"  "gskSpawn_20_FirstDoor_048"  //gskSummonDevSkeletonPart
 			"origin"      "-703 -3522 207"
 			"angles"      "49 -61 -0"
 			"spawnflags"  "7"
@@ -1191,7 +1191,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_049"
+			"targetname"  "gskSpawn_20_FirstDoor_049"  //gskSummonDevSkeletonPart
 			"origin"      "-733 -3487 204"
 			"angles"      "41 -58 0"
 			"spawnflags"  "7"
@@ -1221,7 +1221,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_050"
+			"targetname"  "gskSpawn_20_FirstDoor_050"  //gskSummonDevSkeletonPart
 			"origin"      "-753 -3405 194"
 			"angles"      "33 -64 0"
 			"spawnflags"  "7"
@@ -1242,7 +1242,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_051"
+			"targetname"  "gskSpawn_20_FirstDoor_051"  //gskSummonDevSkeletonPart
 			"origin"      "-687 -3465 198"
 			"angles"      "42 -74 0"
 			"spawnflags"  "7"
@@ -1263,7 +1263,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_052"
+			"targetname"  "gskSpawn_20_FirstDoor_052"  //gskSummonDevSkeletonPart
 			"origin"      "-703 -3375 193"
 			"angles"      "32 -76 0"
 			"spawnflags"  "7"
@@ -1284,7 +1284,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_053"
+			"targetname"  "gskSpawn_20_FirstDoor_053"  //gskSummonDevSkeletonPart
 			"origin"      "-612 -3452 194"
 			"angles"      "42 -97 0"
 			"spawnflags"  "7"
@@ -1314,7 +1314,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_054"
+			"targetname"  "gskSpawn_20_FirstDoor_054"  //gskSummonDevSkeletonPart
 			"origin"      "-570 -3499 215"
 			"angles"      "44 -114 0"
 			"spawnflags"  "7"
@@ -1344,7 +1344,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_055"
+			"targetname"  "gskSpawn_20_FirstDoor_055"  //gskSummonDevSkeletonPart
 			"origin"      "-535 -3525 194"
 			"angles"      "49 -130 -0"
 			"spawnflags"  "7"
@@ -1365,7 +1365,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_056"
+			"targetname"  "gskSpawn_20_FirstDoor_056"  //gskSummonDevSkeletonPart
 			"origin"      "-608 -3320 193"
 			"angles"      "41 -100 0"
 			"spawnflags"  "7"
@@ -1395,7 +1395,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_057"
+			"targetname"  "gskSpawn_20_FirstDoor_057"  //gskSummonDevSkeletonPart
 			"origin"      "-622 -3350 193"
 			"angles"      "48 -97 -0"
 			"spawnflags"  "7"
@@ -1425,7 +1425,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_058"
+			"targetname"  "gskSpawn_20_FirstDoor_058"  //gskSummonDevSkeletonPart
 			"origin"      "-630 -3399 194"
 			"angles"      "62 -95 -0"
 			"spawnflags"  "7"
@@ -1455,7 +1455,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_059"
+			"targetname"  "gskSpawn_20_FirstDoor_059"  //gskSummonDevSkeletonPart
 			"origin"      "-645 -3424 194"
 			"angles"      "71 -80 -0"
 			"spawnflags"  "7"
@@ -1485,7 +1485,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_060"
+			"targetname"  "gskSpawn_20_FirstDoor_060"  //gskSummonDevTrapFire
 			"origin"      "-488 -3158 244"
 			"angles"      "36 -15 0"
 			"spawnflags"  "7"
@@ -1512,7 +1512,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_061"
+			"targetname"  "gskSpawn_20_FirstDoor_061"  //gskSummonDevTrapFire
 			"origin"      "-488 -3172 244"
 			"angles"      "36 3 0"
 			"spawnflags"  "7"
@@ -1539,7 +1539,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_062"
+			"targetname"  "gskSpawn_20_FirstDoor_062"  //gskSummonPotionStone
 			"origin"      "-551 -3418 229"
 			"angles"      "40 114 -0"
 			"spawnflags"  "7"
@@ -1552,7 +1552,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_063"
+			"targetname"  "gskSpawn_20_FirstDoor_063"  //gskSummonDevTrapFire
 			"origin"      "-888 -3430 433"
 			"angles"      "21 2 0"
 			"spawnflags"  "7"
@@ -1579,7 +1579,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_064"
+			"targetname"  "gskSpawn_20_FirstDoor_064"  //gskSummonDevTrapFire
 			"origin"      "-402 -3554 337"
 			"angles"      "30 180 -0"
 			"spawnflags"  "7"
@@ -1606,7 +1606,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_065"
+			"targetname"  "gskSpawn_20_FirstDoor_065"  //gskSummonDevTrapFire
 			"origin"      "-403 -3044 433"
 			"angles"      "19 -178 0"
 			"spawnflags"  "7"
@@ -1633,7 +1633,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_066"
+			"targetname"  "gskSpawn_20_FirstDoor_066"  //gskSummonDevTrapFire
 			"origin"      "-920 -3278 242"
 			"angles"      "7 2 0"
 			"spawnflags"  "7"
@@ -1660,7 +1660,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_067"
+			"targetname"  "gskSpawn_20_FirstDoor_067"  //gskSummonDevTrapFire
 			"origin"      "-644 -3173 487"
 			"angles"      "31 -98 -0"
 			"spawnflags"  "7"
@@ -1687,7 +1687,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_068"
+			"targetname"  "gskSpawn_20_FirstDoor_068"  //gskSummonPotionCurePoison
 			"origin"      "-657 -3206 487"
 			"angles"      "50 -86 -0"
 			"spawnflags"  "7"
@@ -1700,7 +1700,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_069"
+			"targetname"  "gskSpawn_20_FirstDoor_069"  //gskSummonPotionLife
 			"origin"      "-642 -3124 487"
 			"angles"      "32 -150 -0"
 			"spawnflags"  "7"
@@ -1713,7 +1713,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_070"
+			"targetname"  "gskSpawn_20_FirstDoor_070"  //gskSummonPotionMana
 			"origin"      "-661 -3151 487"
 			"angles"      "45 -165 -0"
 			"spawnflags"  "7"
@@ -1726,7 +1726,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_071"
+			"targetname"  "gskSpawn_20_FirstDoor_071"  //gskSummonPotionStone
 			"origin"      "-640 -3233 487"
 			"angles"      "38 -86 -0"
 			"spawnflags"  "7"
@@ -1739,9 +1739,105 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_072"
-			"origin"      "-528 -3249 455"
-			"angles"      "41 -162 -0"
+			"targetname"  "gskSpawn_20_FirstDoor_072"  //gskSummonDevArrow
+			"origin"      "-644 -3289 487"
+			"angles"      "57 124 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"combinability" "1"
+			"combinetarget1enable" "1"
+			"combinetarget2enable" "1"
+			"combinetarget3enable" "1"
+			"combinetarget4enable" "1"
+			"combinetarget5enable" "1"
+			"combinetarget6enable" "1"
+			"combinetarget7enable" "1"
+			"combinetarget8enable" "1"
+			"combinetarget9enable" "1"
+			"combinetarget10enable" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			"physdamagescale" "0.1"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			
+			"classname" "prop_ammo_arrow"
+			"angles"      "57 124 90"
+			"model" "models/items/weapons/quiver_guard/quiver_guard.mdl"
+			"NbArrow" "3"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_20_FirstDoor_073"  //gskSummonPotionLife
+			"origin"      "-476 -3557 337"
+			"angles"      "38 -2 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "item_potion_life"
+			"model" "models/items/provisions/potions/Life_potion.mdl"
+			"spawnflags"  "7"
+			"origin"      "-476 -3557 342"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_20_FirstDoor_074"  //gskSummonPotionLife
+			"origin"      "-819 -3431 433"
+			"angles"      "46 -171 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "item_potion_life"
+			"model" "models/items/provisions/potions/Life_potion.mdl"
+			"spawnflags"  "7"
+			"origin"      "-819 -3431 438"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_20_FirstDoor_075"  //gskSummonPotionLife
+			"origin"      "-417 -3171 241"
+			"angles"      "58 -170 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "item_potion_life"
+			"model" "models/items/provisions/potions/Life_potion.mdl"
+			"spawnflags"  "7"
+			"origin"      "-417 -3171 246"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_20_FirstDoor_076"  //gskSummonPotionLife
+			"origin"      "-868 -3276 241"
+			"angles"      "24 1 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "item_potion_life"
+			"model" "models/items/provisions/potions/Life_potion.mdl"
+			"spawnflags"  "7"
+			"origin"      "-868 -3276 246"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_20_FirstDoor_077"  //gskSummonPotionLife
+			"origin"      "-479 -3045 433"
+			"angles"      "60 -4 -0"
+			"spawnflags"  "7"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "item_potion_life"
+			"model" "models/items/provisions/potions/Life_potion.mdl"
+			"spawnflags"  "7"
+			"origin"      "-479 -3045 438"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_20_FirstDoor_078"  //gskSummonDevTrapFire
+			"origin"      "-455 -3557 337"
+			"angles"      "58 -14 -0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
@@ -1766,9 +1862,9 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_073"
-			"origin"      "-536 -3238 472"
-			"angles"      "36 -155 -0"
+			"targetname"  "gskSpawn_20_FirstDoor_079"  //gskSummonDevTrapFire
+			"origin"      "-456 -3039 433"
+			"angles"      "57 -28 -0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
@@ -1793,9 +1889,9 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_074"
-			"origin"      "-559 -3239 472"
-			"angles"      "42 -150 -0"
+			"targetname"  "gskSpawn_20_FirstDoor_080"  //gskSummonDevTrapFire
+			"origin"      "-841 -3442 433"
+			"angles"      "47 159 -0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
@@ -1820,720 +1916,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_075"
-			"origin"      "-588 -3232 472"
-			"angles"      "49 -134 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"inertiaScale" "1.0"
-			"fademindist" "500"
-			"fademaxdist" "700"
-			"fadescale" "1"
-			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "7 -107 19"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
-			
-			
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_20_FirstDoor_076"
-			"origin"      "-615 -3226 472"
-			"angles"      "53 -114 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"inertiaScale" "1.0"
-			"fademindist" "500"
-			"fademaxdist" "700"
-			"fadescale" "1"
-			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "1 -156 0"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
-			
-			
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_20_FirstDoor_077"
-			"origin"      "-634 -3204 487"
-			"angles"      "41 -95 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"inertiaScale" "1.0"
-			"fademindist" "500"
-			"fademaxdist" "700"
-			"fadescale" "1"
-			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "22 151 23"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
-			
-			
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_20_FirstDoor_078"
-			"origin"      "-767 -3251 455"
-			"angles"      "41 -52 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"inertiaScale" "1.0"
-			"fademindist" "500"
-			"fademaxdist" "700"
-			"fadescale" "1"
-			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "27 174 15"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
-			
-			
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_20_FirstDoor_079"
-			"origin"      "-759 -3238 472"
-			"angles"      "34 -59 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"inertiaScale" "1.0"
-			"fademindist" "500"
-			"fademaxdist" "700"
-			"fadescale" "1"
-			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "8 33 33"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
-			
-			
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_20_FirstDoor_080"
-			"origin"      "-724 -3236 472"
-			"angles"      "37 -74 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"inertiaScale" "1.0"
-			"fademindist" "500"
-			"fademaxdist" "700"
-			"fadescale" "1"
-			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "5 -64 0"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
-			
-			
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_20_FirstDoor_081"
-			"origin"      "-688 -3237 472"
-			"angles"      "39 -93 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"inertiaScale" "1.0"
-			"fademindist" "500"
-			"fademaxdist" "700"
-			"fadescale" "1"
-			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "38 51 30"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
-			
-			
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_20_FirstDoor_082"
-			"origin"      "-668 -3240 487"
-			"angles"      "31 -81 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"inertiaScale" "1.0"
-			"fademindist" "500"
-			"fademaxdist" "700"
-			"fadescale" "1"
-			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "1 26 8"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
-			
-			
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_20_FirstDoor_083"
-			"origin"      "-670 -3201 487"
-			"angles"      "38 121 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"inertiaScale" "1.0"
-			"fademindist" "500"
-			"fademaxdist" "700"
-			"fadescale" "1"
-			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "30 -163 31"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
-			
-			
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_20_FirstDoor_084"
-			"origin"      "-668 -3167 487"
-			"angles"      "46 133 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"inertiaScale" "1.0"
-			"fademindist" "500"
-			"fademaxdist" "700"
-			"fadescale" "1"
-			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "41 60 6"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
-			
-			
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_20_FirstDoor_085"
-			"origin"      "-668 -3126 487"
-			"angles"      "56 158 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"inertiaScale" "1.0"
-			"fademindist" "500"
-			"fademaxdist" "700"
-			"fadescale" "1"
-			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "26 -164 18"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
-			
-			
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_20_FirstDoor_086"
-			"origin"      "-699 -3111 472"
-			"angles"      "38 87 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"inertiaScale" "1.0"
-			"fademindist" "500"
-			"fademaxdist" "700"
-			"fadescale" "1"
-			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "28 -179 11"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
-			
-			
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_20_FirstDoor_087"
-			"origin"      "-735 -3110 472"
-			"angles"      "37 72 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"inertiaScale" "1.0"
-			"fademindist" "500"
-			"fademaxdist" "700"
-			"fadescale" "1"
-			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "11 -26 0"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
-			
-			
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_20_FirstDoor_088"
-			"origin"      "-769 -3093 453"
-			"angles"      "42 56 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"inertiaScale" "1.0"
-			"fademindist" "500"
-			"fademaxdist" "700"
-			"fadescale" "1"
-			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "39 -105 19"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
-			
-			
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_20_FirstDoor_089"
-			"origin"      "-771 -3097 455"
-			"angles"      "40 57 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"inertiaScale" "1.0"
-			"fademindist" "500"
-			"fademaxdist" "700"
-			"fadescale" "1"
-			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "36 88 9"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
-			
-			
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_20_FirstDoor_090"
-			"origin"      "-637 -3152 487"
-			"angles"      "34 61 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"inertiaScale" "1.0"
-			"fademindist" "500"
-			"fademaxdist" "700"
-			"fadescale" "1"
-			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "41 25 33"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
-			
-			
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_20_FirstDoor_091"
-			"origin"      "-633 -3107 487"
-			"angles"      "47 47 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"inertiaScale" "1.0"
-			"fademindist" "500"
-			"fademaxdist" "700"
-			"fadescale" "1"
-			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "5 -118 43"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
-			
-			
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_20_FirstDoor_092"
-			"origin"      "-605 -3116 472"
-			"angles"      "55 70 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"inertiaScale" "1.0"
-			"fademindist" "500"
-			"fademaxdist" "700"
-			"fadescale" "1"
-			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "36 115 3"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
-			
-			
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_20_FirstDoor_093"
-			"origin"      "-573 -3118 472"
-			"angles"      "56 98 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"inertiaScale" "1.0"
-			"fademindist" "500"
-			"fademaxdist" "700"
-			"fadescale" "1"
-			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "23 92 32"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
-			
-			
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_20_FirstDoor_094"
-			"origin"      "-542 -3118 472"
-			"angles"      "51 121 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"inertiaScale" "1.0"
-			"fademindist" "500"
-			"fademaxdist" "700"
-			"fadescale" "1"
-			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "42 -11 19"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
-			
-			
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_20_FirstDoor_095"
-			"origin"      "-531 -3098 455"
-			"angles"      "60 138 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"inertiaScale" "1.0"
-			"fademindist" "500"
-			"fademaxdist" "700"
-			"fadescale" "1"
-			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "1 51 29"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
-			
-			
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_20_FirstDoor_096"
-			"origin"      "-476 -3557 337"
-			"angles"      "38 -2 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"classname" "item_potion_life"
-			"model" "models/items/provisions/potions/Life_potion.mdl"
-			"spawnflags"  "7"
-			"origin"      "-476 -3557 342"
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_20_FirstDoor_097"
-			"origin"      "-819 -3431 433"
-			"angles"      "46 -171 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"classname" "item_potion_life"
-			"model" "models/items/provisions/potions/Life_potion.mdl"
-			"spawnflags"  "7"
-			"origin"      "-819 -3431 438"
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_20_FirstDoor_098"
-			"origin"      "-417 -3171 241"
-			"angles"      "58 -170 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"classname" "item_potion_life"
-			"model" "models/items/provisions/potions/Life_potion.mdl"
-			"spawnflags"  "7"
-			"origin"      "-417 -3171 246"
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_20_FirstDoor_099"
-			"origin"      "-868 -3276 241"
-			"angles"      "24 1 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"classname" "item_potion_life"
-			"model" "models/items/provisions/potions/Life_potion.mdl"
-			"spawnflags"  "7"
-			"origin"      "-868 -3276 246"
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_20_FirstDoor_100"
-			"origin"      "-479 -3045 433"
-			"angles"      "60 -4 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"classname" "item_potion_life"
-			"model" "models/items/provisions/potions/Life_potion.mdl"
-			"spawnflags"  "7"
-			"origin"      "-479 -3045 438"
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_20_FirstDoor_101"
-			"origin"      "-455 -3557 337"
-			"angles"      "58 -14 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"inertiaScale" "1.0"
-			"fademindist" "500"
-			"fademaxdist" "700"
-			"fadescale" "1"
-			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "37 58 7"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
-			
-			
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_20_FirstDoor_102"
-			"origin"      "-456 -3039 433"
-			"angles"      "57 -28 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"inertiaScale" "1.0"
-			"fademindist" "500"
-			"fademaxdist" "700"
-			"fadescale" "1"
-			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "38 1 42"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
-			
-			
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_20_FirstDoor_103"
-			"origin"      "-841 -3442 433"
-			"angles"      "47 159 -0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"inertiaScale" "1.0"
-			"fademindist" "500"
-			"fademaxdist" "700"
-			"fadescale" "1"
-			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "40 80 31"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
-			
-			
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_20_FirstDoor_104"
+			"targetname"  "gskSpawn_20_FirstDoor_081"  //gskSummonFacehugger
 			"origin"      "-643 -3306 487"
 			"angles"      "55 179 -0"
 			"spawnflags"  "7"
@@ -2545,7 +1928,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_105"
+			"targetname"  "gskSpawn_20_FirstDoor_082"  //gskSummonFacehugger
 			"origin"      "-656 -3019 487"
 			"angles"      "27 -179 -0"
 			"spawnflags"  "7"
@@ -2557,7 +1940,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_106"
+			"targetname"  "gskSpawn_20_FirstDoor_083"  //gskSummonFacehugger
 			"origin"      "-656 -3082 487"
 			"angles"      "35 -179 -0"
 			"spawnflags"  "7"
@@ -2569,7 +1952,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_107"
+			"targetname"  "gskSpawn_20_FirstDoor_084"  //gskSummonFacehugger
 			"origin"      "-651 -3253 487"
 			"angles"      "57 179 -0"
 			"spawnflags"  "7"
@@ -2581,7 +1964,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_108"
+			"targetname"  "gskSpawn_20_FirstDoor_085"  //gskSummonSpiderMini
 			"origin"      "-589 -3728 198"
 			"angles"      "48 145 -0"
 			"spawnflags"  "7"
@@ -2594,7 +1977,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_20_FirstDoor_109"
+			"targetname"  "gskSpawn_20_FirstDoor_086"  //gskSummonSpiderMini
 			"origin"      "-545 -3315 193"
 			"angles"      "51 -155 -0"
 			"spawnflags"  "7"
@@ -2986,87 +2369,6 @@
 				"Template06" "gskSpawn_20_FirstDoor_085"
 
 				"Template07" "gskSpawn_20_FirstDoor_086"
-
-				"Template08" "gskSpawn_20_FirstDoor_087"
-
-				"Template09" "gskSpawn_20_FirstDoor_088"
-
-				"Template10" "gskSpawn_20_FirstDoor_089"
-
-				"Template11" "gskSpawn_20_FirstDoor_090"
-
-				"Template12" "gskSpawn_20_FirstDoor_091"
-
-				"Template13" "gskSpawn_20_FirstDoor_092"
-
-				"Template14" "gskSpawn_20_FirstDoor_093"
-
-				"Template15" "gskSpawn_20_FirstDoor_094"
-
-				"Template16" "gskSpawn_20_FirstDoor_095"
-
-			}
-		}
-
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"id"	"1244059"
-			}
-			"add:key"
-			{
-				"OnCombine1" "gskSpawn_20_FirstDoor_BeginAt096,ForceSpawn,,0,-1,1,"
-			}
-		}
-		
-
-		"add:entity"
-		{
-			"classname" "point_template"
-			"combinability" "1"
-			"spawnflags" "2"
-			"targetname" "gskSpawn_20_FirstDoor_BeginAt096"
-			"origin" "0 0 0"
-		}
-
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_20_FirstDoor_BeginAt096"
-			}
-			"add:key"
-			{
-		
-
-				"Template01" "gskSpawn_20_FirstDoor_096"
-
-				"Template02" "gskSpawn_20_FirstDoor_097"
-
-				"Template03" "gskSpawn_20_FirstDoor_098"
-
-				"Template04" "gskSpawn_20_FirstDoor_099"
-
-				"Template05" "gskSpawn_20_FirstDoor_100"
-
-				"Template06" "gskSpawn_20_FirstDoor_101"
-
-				"Template07" "gskSpawn_20_FirstDoor_102"
-
-				"Template08" "gskSpawn_20_FirstDoor_103"
-
-				"Template09" "gskSpawn_20_FirstDoor_104"
-
-				"Template10" "gskSpawn_20_FirstDoor_105"
-
-				"Template11" "gskSpawn_20_FirstDoor_106"
-
-				"Template12" "gskSpawn_20_FirstDoor_107"
-
-				"Template13" "gskSpawn_20_FirstDoor_108"
-
-				"Template14" "gskSpawn_20_FirstDoor_109"
 
 			}
 		}
