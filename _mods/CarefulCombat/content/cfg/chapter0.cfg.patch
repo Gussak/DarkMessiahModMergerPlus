@@ -1,5 +1,5 @@
---- /dev/fd/63	2026-09-18 17:09:56.356784219 -0300
-+++ /dev/fd/62	2026-09-18 17:09:56.356784219 -0300
+--- /dev/fd/63	2026-09-18 19:16:35.753769408 -0300
++++ /dev/fd/62	2026-09-18 19:16:35.754769547 -0300
 @@ -1 +1,34 @@
 -map_warrior L00
 \ No newline at end of file
@@ -8,8 +8,8 @@
 +developer 1
 +play *gsk/english/BeginQuestC0a.wav
 +//echo As soon the game begins, execute this command: mm_player_skills_reset
-+echo As soon the game begins, execute this command: exec CarefulCombatInitL00.cfg
-+gskWait5s
++gskWait2s
++echo As soon the game begins, execute this command: exec CarefulCombatL00_INIT.cfg
 +gskWait5s
 +echo Otherwise will mess the balance (as you get now 2 free skill points to use as you prefer).
 +gskWait5s

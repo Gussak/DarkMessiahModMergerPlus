@@ -427,7 +427,7 @@ function FUNCspawnFlags() { #help based on https://developer.valvesoftware.com/w
 		if [[ -z "$lstrFlagAdd" ]];then continue;fi
 		case "$lstrFlagAdd" in # Flag Spawn (flags for spawning)
 			FS_None) ((lnFlags+=0))&&: ;; # dummy helper
-			FS_SLEEP) ((lnFlags+=1))&&: ;; # if NPC will only enable AI after the player sees it? wont detect player if player dont see it? May be good to create enemies with each other that will only fight after we see them! May also easy on CPU? #### if objects, will put physics into sleep state so FS_FALL wont work.
+			FS_SLEEP) ((lnFlags+=1))&&: ;; # if NPC will only enable AI after the player sees it? wont detect player if player dont see it? May be good to create enemies with each other that will only fight after we see them! May also easy on CPU? But FS_FALL will work as soon player sees it? #### if objects, will put physics into sleep state so FS_FALL wont work even after player seeing it...
 			FS_QUIET) ((lnFlags+=2))&&: ;; #initially quiet until in rage, excellent for surprises
 			FS_FALL) ((lnFlags+=4))&&: ;; #initially fall instead of teleport to ground
 			FS_DropHealing) ((lnFlags+=8))&&: ;; #on death #this doesnt work?
@@ -467,7 +467,11 @@ function FUNCappendToSpawnTrigger() {
 	laSpawnParams[MaxRefires]=-1 # -1 is unlimited
 	laSpawnParams[Active]=1
 	laSpawnParams[Comment]=""
-	: ${fSpawnDelayIncrement:=0.05} #help
+	: ${strSpawnMode:=""} #
+	: ${fSpawnDelayIncrement:=0.0} #help 0.05 unfortunately this delay doesnt make the spawn happen smoothly, it will just lag a bit many times... the only good thing is to prevent their physics boxes colliding if they are placed initially too close  to each other
+	if [[ "$fSpawnDelayIncrement" != "0.0" ]];then
+		nSpawnTriggerLinkedLimit=1
+	fi
 	fSpawnDelayCurrent=$fSpawnDelayIncrement
 	while true;do
 		laSpawnParams[TargetName]="${lstrSTSectionID}"
@@ -929,32 +933,12 @@ function FUNCmapadds() {
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
 			;;
-		"gskSummonDevTrapMiniSpiderCeil")
-			lnYDisplacement=-10
-			echo '
-			"classname" "npc_spider_mini" // if they fall from too high, they just die
-			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
-			;;
-		"gskSummonDevTrapMiniSpidZL200")
-			lnYDisplacement=-200
-			echo '
-			"classname" "npc_spider_mini" // below ceiling, if they fall from too high, they just die
-			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
-			;;
-		"gskSummonDevTrapMiniSpidZP200")
-			lnYDisplacement=200
-			echo '
-			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
-			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
-			;;
 		"gskSummonPotionMana")
 			lnYDisplacement=5
 			echo '
 			"classname" "item_potion_mana"
 			"model" "models/items/provisions/potions/Mana_potion.mdl"
+			"angles"      "'"0 ${anTargetAngXYZ[y]} 0"'"
 			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
 			;;
 		"gskSummonPotionLife")
@@ -962,6 +946,7 @@ function FUNCmapadds() {
 			echo '
 			"classname" "item_potion_life"
 			"model" "models/items/provisions/potions/Life_potion.mdl"
+			"angles"      "'"0 ${anTargetAngXYZ[y]} 0"'"
 			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
 			;;
 		"gskSummonPotionStone")
@@ -969,6 +954,7 @@ function FUNCmapadds() {
 			echo '
 			"classname" "item_potion_stone"
 			"model" "models/items/provisions/potions/stone_potion.mdl"
+			"angles"      "'"0 ${anTargetAngXYZ[y]} 0"'"
 			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
 			;;
 		"gskSummonPotionCurePoison")
@@ -976,6 +962,7 @@ function FUNCmapadds() {
 			echo '
 			"classname" "item_potion_cure_poison"
 			"model" "models/items/provisions/potions/cure_poison_potion.mdl"
+			"angles"      "'"0 ${anTargetAngXYZ[y]} 0"'"
 			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
 			;;
 		"gskSummonSword") # is bugging, not spawning correctly, unequipable
@@ -1097,6 +1084,33 @@ function FUNCmapadds() {
 			"spawnflags"  "'"$(FUNCspawnFlags --nodefaults FS_LongRangeView FS_FALL)"'" //cannot have FS_SLEEP or it wont use FS_FALL
 			' >>"$lstrFlAddTmp"
 			;;
+		"gskSummonDevTrapMiniSpiderCeil")
+			lnYDisplacement=-10
+			echo '
+			"classname" "npc_spider_mini" // if they fall from too high, they just die even with lower physics stuff
+			"physdamagescale" "0.1" //useless?
+			"SetGravityScale" "0.5" //useless?
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "'"$(FUNCspawnFlags --nodefaults FS_FALL FS_QUIET)"'"' >>"$lstrFlAddTmp"
+			;;
+		"gskSummonDevTrapMiniSpidZL200")
+			lnYDisplacement=-200
+			echo '
+			"classname" "npc_spider_mini" // below ceiling, if they fall from too high, they just die
+			"physdamagescale" "0.1" //useless?
+			"SetGravityScale" "0.5" //useless?
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "'"$(FUNCspawnFlags --nodefaults FS_FALL FS_QUIET)"'"' >>"$lstrFlAddTmp"
+			;;
+		"gskSummonDevTrapMiniSpidZP200")
+			lnYDisplacement=250
+			echo '
+			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
+			"physdamagescale" "0.1" //useless?
+			"SetGravityScale" "0.5" //useless?
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "'"$(FUNCspawnFlags --nodefaults FS_FALL FS_QUIET)"'"' >>"$lstrFlAddTmp"
+			;;
 		"gskSummonDevSkeletonPart")
 			local lstrSkelPartModel=""
 			local lnRandomSkelPart="$(FUNCpredictableRandom ${nSkeletonPartCount})" #this way it wont just cycle thru parts, it will be predictable random based on the mapadds filename name, and as long new items are appended in the file, it will keep the predictable random data
@@ -1161,6 +1175,7 @@ function FUNCmapadds() {
 			((nSkeletonPartCount++))&&:
 			;;
 		"gskSummonDevArrow")
+			lnYDisplacement=5
 			echo '
 			"combinability" "1"
 			"combinetarget1enable" "1"
@@ -1180,7 +1195,7 @@ function FUNCmapadds() {
 			"fadescale" "1"
 			
 			"classname" "prop_ammo_arrow"
-			"angles"      "'"0 ${anTargetAngXYZ[y]} ${anTargetAngXYZ[z]}"'"
+			"angles"      "'"${anTargetAngXYZ[x]} ${anTargetAngXYZ[y]} 90"'"
 			"model" "models/items/weapons/quiver_guard/quiver_guard.mdl"
 			"NbArrow" "3"
 			' >>"$lstrFlAddTmp"
@@ -1445,6 +1460,15 @@ if $bCreateSpawnsForCurrentMap;then
 		#nSpawnTriggerTemplateBeginIndex="$(egrep "gskSpawnTriggerBeginIndex" "$strFlCondump" |awk '{print $2}')"
 		echo "${strSpawnTriggerLine}" >>"$strFlCondumpCleanNew"
 		#echo "gskSpawnTriggerBeginIndex $nSpawnTriggerTemplateBeginIndex" >>"$strFlCondumpCleanNew"
+		
+		#if egrep "^gskSpawnMode" "$strFlCondump";then #gskSpawnMode TrapFall
+			#egrep "^gskSpawnMode" "$strFlCondump" >>"$strFlCondumpCleanNew"
+			#strSpawnMode="$(egrep "^gskSpawnMode" "$strFlCondump" |awk '{print $2}')"
+		#fi
+		if egrep "^gskSpawnDelay" "$strFlCondump";then
+			egrep "^gskSpawnDelay" "$strFlCondump" >>"$strFlCondumpCleanNew"
+			fSpawnDelayIncrement="$(egrep "^gskSpawnDelay" "$strFlCondump" |awk '{print $2}')"
+		fi
 	fi
 	
 	if egrep "^gskSpawnNoBurrowAllowed" "$strFlCondump";then

@@ -3,6 +3,21 @@
 	"PreInitialize"
 	{	
 
+		"add:entity"
+		{
+				"classname" "point_servercommand"
+				"targetname" "skill_resetter"
+		}
+		"add:entity"
+		{
+				"classname" "logic_auto"
+				"spawnflags" "1"
+				"connections"
+				{
+						"OnMapSpawn" "skill_resetter,Command,mm_player_skills_reset,0,-1"
+				}
+		}
+
 		"modify:entity"
 		{
 			"TargetMarkers"

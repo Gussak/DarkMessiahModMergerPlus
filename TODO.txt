@@ -24,6 +24,15 @@ AI:
 	keyValuePatcher.py: keep sort order on final patched file (mainly for menu keybindings).  inside the created ex.; "skilltree.kvpatch.json" patch file, there are keys and values that were created in a certain order, I need these key value patches to happen in that same order when applying the patch
 
 MayBeEasy
+- Remove spiders sounds also from regular ones (big one no).
+- Put mini spiders on places that play may go thru and not look at. And make the jump (it may be missing animation problem? If regular could be shrunk..)
+- Make 10% npcs wander, can be random or target  npcs spawn locations. 
+		 Facehugger can always wander as they fly won't trigger landmines.
+		 After spawnID add cfgs like:
+		gskSummon... Name=jim  Patrol=luk,mona,jeck
+		gskSummon... Name=luk WanderRandom 
+		Patrol is about unique id names
+		Group npcs to alert others if one is atk. Group by distance. Every sector: 1xG5, 2xG3, 4xG2. Check faction friendship.
 - find a way to let bow foes use all ammo (or 20 if infinite) before go hunting the player in melee (when they lose all their advantage...) for CarefulCombat.
 - guards could drop ale or food
 - every barrel or crate could have a chance to drop food
