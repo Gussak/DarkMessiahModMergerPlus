@@ -115,15 +115,15 @@ else
 			done
 		}
 		# aliases size limit is 30. So better add these hints there: npc food etc...
-		FUNCfillByType "FriendlyNPCs"  "^[+]gskSummonGuard$|[+]gskSummonWizard$|[+]gskSummonGuardBow$|[+]gskSummonGuardMini$|villager" #friendly NPCs
+		FUNCfillByType "MapDevDummy"   "^gskSummonDev" #KEEP ON TOP as may clash with others below. dummy location markers to spawn special things only thru mapadds feature
+		FUNCfillByType "Simulated"     "^gskSummonSim" #KEEP ON TOP as may clash with others below. items otherwise impossible to be spawned
+		FUNCfillByType "FriendlyNPCs"  "^([+]gskSummonGuard|[+]gskSummonWizard|[+]gskSummonGuardBow|[+]gskSummonGuardMini)$|villager" #friendly NPCs
 		FUNCfillByType "EtcNPCs"       "corpse" #etc NPCs
 		FUNCfillByType "FoeNPCs"       "necroguard|necromancer|spider|facehugger|undead" #foe NPCs
 		FUNCfillByType "POTIONS"       "potion"
 		FUNCfillByType "DummyNPCs"     "crow|seagull|dog|pig" #harmless NPCs
 		FUNCfillByType "FOOD"          "leek|bread|rib|fish|chicken|banana|food|fibs|garlic|ham|mushroom|pie" #food
 		FUNCfillByType "Weapons/Tools" "club|staff|sword" #tools/weapons
-		FUNCfillByType "Simulated"     "gskSummonSim" #items otherwise impossible to be spawned
-		FUNCfillByType "MapDevDummy"   "gskSummonDev" #dummy location markers to spawn special things only thru mapadds feature
 		#FUNCfillByType --not "${FUNCfillByType_regexAlreadyUsed}" #everything else
 		FUNCfillByType --not "ETC" ".*" #everything else
 	fi
@@ -554,7 +554,7 @@ function FUNCexplosionData() {
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "'"$(FUNCspawnFlags --nodefaults FS_LongRangeView FS_AIonAfterSeen)"'"
+			"spawnflags"  "'"$(FUNCspawnFlags --nodefaults FS_LongRangeView FS_AIonAfterSeen $*)"'"
 			"health" "1"
 			'
 	# could be randomly poison(with initial big damage), ice/freeze, fire, electricity..
@@ -636,8 +636,8 @@ function FUNCprepareFireTrapBoxCollider() { #TODO THIS DOES NOT WORK, the solid 
 	local lnZdfs=44
 	local lnZSz=116
 	local lnZSzHalf=$((lnZSz/2))&&:
-	local lPosZ1=$((${anTargetPosXYZ[z]}-lnZSzHalf+lnZdfs+lnHeightDisplacement))&&:
-	local lPosZ2=$((${anTargetPosXYZ[z]}+lnZSzHalf+lnZdfs+lnHeightDisplacement))&&:
+	local lPosZ1=$((${anTargetPosXYZ[z]}-lnZSzHalf+lnZdfs+lnYDisplacement))&&:
+	local lPosZ2=$((${anTargetPosXYZ[z]}+lnZSzHalf+lnZdfs+lnYDisplacement))&&:
 	
 	local lstrSolidSides='
 				side
@@ -800,7 +800,7 @@ function FUNCmapadds() {
 ' >>"$lstrFlAddTmp"
 
 	local lbCommentOut=false
-	local lnHeightDisplacement=0
+	local lnYDisplacement=0
 	local lstrIgnore=""
 	local lstrAddEntityExtra=""
 	case "${lstrSummonCmd}" in
@@ -812,7 +812,7 @@ function FUNCmapadds() {
 			"spawnflags"  "'"$(FUNCspawnFlags FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			;; 
 		"+gskSummonGuardMini")
-			lnHeightDisplacement=5
+			lnYDisplacement=5
 			echo '
 			"classname"   "npc_human_guard"
 			"model" "models/npc/guard/npc_guard_shrinked.mdl"
@@ -899,42 +899,49 @@ function FUNCmapadds() {
 			"UnburrowChanceOverride" "'"${lnUnBurrowChance}"'"' >>"$lstrFlAddTmp"
 			;;
 		mm_npc_create_spider|"gskSummonSpiderRegular")
-			lnHeightDisplacement=7
+			lnYDisplacement=7
 			echo '
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
 			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
 			;;
 		mm_npc_create_spider_mini|"gskSummonSpiderMini")
-			lnHeightDisplacement=5
+			lnYDisplacement=5
+			echo '
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
+			;;
+		"gskSummonDevTrapMiniSpiderCeil")
+			lnYDisplacement=-10
 			echo '
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
 			;;
 		"gskSummonPotionMana")
-			lnHeightDisplacement=5
+			lnYDisplacement=5
 			echo '
 			"classname" "item_potion_mana"
 			"model" "models/items/provisions/potions/Mana_potion.mdl"
 			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
 			;;
 		"gskSummonPotionLife")
-			lnHeightDisplacement=5
+			lnYDisplacement=5
 			echo '
 			"classname" "item_potion_life"
 			"model" "models/items/provisions/potions/Life_potion.mdl"
 			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
 			;;
 		"gskSummonPotionStone")
-			lnHeightDisplacement=5
+			lnYDisplacement=5
 			echo '
 			"classname" "item_potion_stone"
 			"model" "models/items/provisions/potions/stone_potion.mdl"
 			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
 			;;
 		"gskSummonPotionCurePoison")
-			lnHeightDisplacement=5
+			lnYDisplacement=5
 			echo '
 			"classname" "item_potion_cure_poison"
 			"model" "models/items/provisions/potions/cure_poison_potion.mdl"
@@ -942,7 +949,7 @@ function FUNCmapadds() {
 			;;
 		"gskSummonSword") # is bugging, not spawning correctly, unequipable
 			lstrIgnore="UnnecessaryAsPlayerCanSummon"
-			lnHeightDisplacement=10
+			lnYDisplacement=10
 			echo '
 			"classname" "prop_physics"
 			"model" "models/Items/Weapons/Sword_short/Sword_short.mdl"
@@ -950,7 +957,7 @@ function FUNCmapadds() {
 			;;
 		"gskSummonStaff") # is bugging, not spawning correctly, unequipable
 			lstrIgnore="UnnecessaryAsPlayerCanSummon"
-			lnHeightDisplacement=10
+			lnYDisplacement=10
 			echo '
 			"classname" "prop_physics"
 			"model" "models/Items/Weapons/staff_wood/staff_wood.mdl"
@@ -958,7 +965,7 @@ function FUNCmapadds() {
 			;;
 		"gskSummonClub") # is bugging, not spawning correctly, unequipable
 			lstrIgnore="UnnecessaryAsPlayerCanSummon"
-			lnHeightDisplacement=10
+			lnYDisplacement=10
 			echo '
 			"classname" "prop_physics"
 			"model" "models/Items/Weapons/Club/Club.mdl"
@@ -1014,9 +1021,9 @@ function FUNCmapadds() {
 			"fadescale" "1"
 			' >>"$lstrFlAddTmp"
 			;;
-		"gskSummonDevFireTrapSC") # SpellCaster # is messed...
+		"gskSummonDevTrapFireSC") # SpellCaster # is messed...
 			lstrIgnore="MessedColliderBoxWontSpawn"
-			lnHeightDisplacement=10
+			lnYDisplacement=10
 			# this is the spell caster firetrap
 			echo '
 			"targetname"  "'"${lstrTargetName}_TODO_SpellCasterFireTrapWontTriggerExplode"'"
@@ -1032,7 +1039,7 @@ function FUNCmapadds() {
 			lstrAddEntityExtra+="$(FUNCprepareFireTrapBoxCollider "$lstrTargetName")" #TODO this fails tho...
 			lstrAddEntityExtra+="$(FUNCprepareFireTrap "$lstrTargetName")" #This works!!! but see below, is the same of gskSummonDevFireTrap
 			;;
-		"gskSummonDevFireTrap")
+		"gskSummonDevTrapFire")
 			echo '
 			"inertiaScale" "1.0"
 			"fademindist" "500"
@@ -1044,6 +1051,19 @@ function FUNCmapadds() {
 			'"$(FUNCexplosionData)"'
 			' >>"$lstrFlAddTmp"
 			((nTrapCount++))&&:
+			;;
+		"gskSummonDevTrapFireCeiling")
+			lnYDisplacement=-10
+			echo '
+			"inertiaScale" "1.0"
+			"fademindist" "500"
+			"fademaxdist" "700"
+			"fadescale" "1"
+			"classname" "prop_dynamic"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "0 0 0"
+			'"$(FUNCexplosionData FS_FALL)"'
+			' >>"$lstrFlAddTmp"
 			;;
 		"gskSummonDevSkeletonPart")
 			local lstrSkelPartModel=""
@@ -1109,7 +1129,7 @@ function FUNCmapadds() {
 			((nSkeletonPartCount++))&&:
 			;;
 		"gskSummon_"*) #by luck I put all food beggining with '_' xD
-			lnHeightDisplacement=5
+			lnYDisplacement=5
 			echo '
 			"classname" "item_food_'"${lstrSummonCmd#gskSummon_}"'"
 			' >>"$lstrFlAddTmp"
@@ -1121,8 +1141,8 @@ function FUNCmapadds() {
 			;;
 	esac
 	
-	if((lnHeightDisplacement!=0));then
-		anTargetPosXYZ[z]="$(bc <<< "${anTargetPosXYZ[z]}+${lnHeightDisplacement}")"
+	if((lnYDisplacement!=0));then
+		anTargetPosXYZ[z]="$(bc <<< "${anTargetPosXYZ[z]}+${lnYDisplacement}")"
 		echo '
 			"origin"      "'"${anTargetPosXYZ[x]} ${anTargetPosXYZ[y]} ${anTargetPosXYZ[z]}"'"' >>"$lstrFlAddTmp"
 	fi
