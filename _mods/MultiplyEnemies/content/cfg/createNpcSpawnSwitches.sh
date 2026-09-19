@@ -454,8 +454,8 @@ function FUNCsectionID() { # a wrong beginAt (less than the real begin one) just
 
 : ${nSpawnTriggerLinkedLimit:=16} #help max simultaneous (instantaneous) spawns, min 1
 function FUNCappendToSpawnTrigger() {
-	#if [[ -z "${strSpawnTriggerLine}" ]] || [[ -z "${strSpawnTriggerID}" ]];then return 0;fi
-	if [[ -z "${strSpawnTriggerID}" ]];then return 0;fi
+	#if [[ -z "${strSpawnTriggerLine}" ]] || [[ -z "${strSpawnTriggerAtID}" ]];then return 0;fi
+	if [[ -z "${strSpawnTriggerAtID}" ]];then return 0;fi
 	
 	local lbCreateNewSection=true
 	local liTargetIndex=0
@@ -467,8 +467,8 @@ function FUNCappendToSpawnTrigger() {
 	#local lstrLogicRelayOnTrigger="$(  echo "$strSpawnTriggerLine" |tr -d '"\r' |sed -r -e "s@${lstrSTRegex}@\2@g")"
 	#local lstrLogicRelaySpawnParams="$(echo "$strSpawnTriggerLine" |tr -d '"\r' |sed -r -e "s@${lstrSTRegex}@\3@g")"&&: #ignored
 		
-	if [[ -n "$strSpawnTriggerID" ]];then
-		lstrLogicRelayID="$strSpawnTriggerID"
+	if [[ -n "$strSpawnTriggerAtID" ]];then
+		lstrLogicRelayID="$strSpawnTriggerAtID"
 	fi
 	if [[ -n "$strSpawnTriggerType" ]];then
 		lstrLogicRelayOnTrigger="$strSpawnTriggerType"
@@ -523,12 +523,12 @@ function FUNCappendToSpawnTrigger() {
 			"targetname" "'"${lstrSTSectionID}"'"
 			"origin" "0 0 0"
 		}' >>"${strFlMapadds}"
-			#lstrSpawnTriggerID="${lstrSTSectionID}"
+			#lstrSpawnTriggerAtID="${lstrSTSectionID}"
 			lnSTTemplateBeginIndex=1
 			
 			lbCreateNewSection=false
 		#else
-			#lstrSpawnTriggerID="${strSpawnTriggerID}"
+			#lstrSpawnTriggerAtID="${strSpawnTriggerAtID}"
 			##lnSTTemplateBeginIndex=$nSpawnTriggerTemplateBeginIndex
 		fi
 		
@@ -1278,7 +1278,7 @@ function FUNCmapadds() {
 		cat "$lstrFlAddTmp" \
 			|egrep -v "^$" \
 			>>"${strFlMapadds}"
-		if [[ -n "${strSpawnTriggerID}" ]];then
+		if [[ -n "${strSpawnTriggerAtID}" ]];then
 			astrTriggeredSpawnerTargetNameList+=("$lstrTargetName")
 		fi
 	fi
@@ -1492,7 +1492,7 @@ if $bCreateSpawnsForCurrentMap;then
 	#strSpawnTriggerLine=""
 	#if egrep "^gskSpawnTriggerID.*On" "$strFlCondump";then
 		#strSpawnTriggerLine="$(egrep "^gskSpawnTriggerID.*On" "$strFlCondump" |tail -n 1)"
-		##strSpawnTriggerID="$(      egrep "^gskSpawnTriggerID"         "$strFlCondump" |awk '{print $2}')"
+		##strSpawnTriggerAtID="$(      egrep "^gskSpawnTriggerID"         "$strFlCondump" |awk '{print $2}')"
 		##nSpawnTriggerTemplateBeginIndex="$(egrep "gskSpawnTriggerBeginIndex" "$strFlCondump" |awk '{print $2}')"
 		##echo "gskSpawnTriggerBeginIndex $nSpawnTriggerTemplateBeginIndex" >>"$strFlCondumpCleanNew"
 		
@@ -1525,13 +1525,16 @@ if $bCreateSpawnsForCurrentMap;then
 		fi
 		return 0
 	}
-	strSpawnTriggerID="$(FUNCgskOptions "gskSpawnTriggerID" "")"
+	strSpawnTriggerAtID="$(FUNCgskOptions "gskSpawnTriggerAtID" "")"
+	#if [[ -n "$strSpawnTriggerAtID" ]];then
+		#echo "gskSpawnTriggerAtID ${strSpawnTriggerAtID}" >>"$strFlCondumpCleanNew"
+	#fi
 	strSpawnTriggerType="$(FUNCgskOptions "gskSpawnTriggerType" "")"
 	fSpawnDelayInitial="$(FUNCgskOptions "gskSpawnDelayInital" 0.0)"
 	fSpawnDelayIncrement="$(FUNCgskOptions "gskSpawnDelay" 0.0)"
 	bSpawnNpcsAwake="$(FUNCgskOptions "gskSpawnNpcsAwake" false)"
 	bAllowBurrow="$(FUNCgskOptions "gskSpawnBurrowAllowed" true)"
-	declare -p strFlCondump strFlCondumpClean strFlCondumpCleanNew strSpawnTriggerID strSpawnTriggerType fSpawnDelayInitial fSpawnDelayIncrement bSpawnNpcsAwake bAllowBurrow
+	declare -p strFlCondump strFlCondumpClean strFlCondumpCleanNew strSpawnTriggerAtID strSpawnTriggerType fSpawnDelayInitial fSpawnDelayIncrement bSpawnNpcsAwake bAllowBurrow
 	#if egrep "^gskSpawnDelay" "$strFlCondump";then
 		#egrep "^gskSpawnDelay" "$strFlCondump" >>"$strFlCondumpCleanNew"
 		#fSpawnDelayIncrement="$(egrep "^gskSpawnDelay" "$strFlCondump" |awk '{print $2}')"
