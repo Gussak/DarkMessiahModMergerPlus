@@ -11,7 +11,7 @@
 			}
 			"add:key"
 			{
-				"ItemClass3" "item_food_chicken_roasted" //prop_ammo_arrow fails wont spawn, env_shooter_arrow spawns but cant be pickup.. 
+				"ItemClass3" "item_food_bread01_cooked" //prop_ammo_arrow fails wont spawn, env_shooter_arrow spawns but cant be pickup.. 
 				"ItemCount3" "7"
 				"ItemClass4" "item_food_banana_regime"
 				"ItemCount4" "3"

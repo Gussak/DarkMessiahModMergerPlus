@@ -59,9 +59,9 @@
 				"ItemClass2" "item_potion_mana" //prop_ammo_arrow fails wont spawn, env_shooter_arrow spawns but cant be pickup.. 
 				
 				"ItemClass3" "item_food_chicken_roasted"
-				"ItemCount3" "6"
+				"ItemCount3" "7"
 				"ItemClass4" "item_food_banana_regime"
-				"ItemCount4" "2"
+				"ItemCount4" "3"
 			}
 		}
 		
