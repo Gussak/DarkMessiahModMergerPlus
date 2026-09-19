@@ -454,17 +454,18 @@ function FUNCsectionID() { # a wrong beginAt (less than the real begin one) just
 
 : ${nSpawnTriggerLinkedLimit:=16} #help max simultaneous (instantaneous) spawns, min 1
 function FUNCappendToSpawnTrigger() {
-	if [[ -z "${strSpawnTriggerLine}" ]] || [[ -z "${strSpawnTriggerID}" ]];then return 0;fi
+	#if [[ -z "${strSpawnTriggerLine}" ]] || [[ -z "${strSpawnTriggerID}" ]];then return 0;fi
+	if [[ -z "${strSpawnTriggerID}" ]];then return 0;fi
 	
 	local lbCreateNewSection=true
 	local liTargetIndex=0
 	local lnSTTemplateBeginIndex=0
 	
 	#TODO remove these 4 lines later
-	local lstrSTRegex="^gskSpawnTriggerID\s*([0-9]*)\s*([a-zA-Z0-9_-]*)\s*[^,]*(.*)"
-	local lstrLogicRelayID="$(         echo "$strSpawnTriggerLine" |tr -d '"\r' |sed -r -e "s@${lstrSTRegex}@\1@g")"
-	local lstrLogicRelayOnTrigger="$(  echo "$strSpawnTriggerLine" |tr -d '"\r' |sed -r -e "s@${lstrSTRegex}@\2@g")"
-	local lstrLogicRelaySpawnParams="$(echo "$strSpawnTriggerLine" |tr -d '"\r' |sed -r -e "s@${lstrSTRegex}@\3@g")" #ignored
+	#local lstrSTRegex="^gskSpawnTriggerID\s*([0-9]*)\s*([a-zA-Z0-9_-]*)\s*[^,]*(.*)"
+	#local lstrLogicRelayID="$(         echo "$strSpawnTriggerLine" |tr -d '"\r' |sed -r -e "s@${lstrSTRegex}@\1@g")"
+	#local lstrLogicRelayOnTrigger="$(  echo "$strSpawnTriggerLine" |tr -d '"\r' |sed -r -e "s@${lstrSTRegex}@\2@g")"
+	#local lstrLogicRelaySpawnParams="$(echo "$strSpawnTriggerLine" |tr -d '"\r' |sed -r -e "s@${lstrSTRegex}@\3@g")"&&: #ignored
 		
 	if [[ -n "$strSpawnTriggerID" ]];then
 		lstrLogicRelayID="$strSpawnTriggerID"
@@ -1277,7 +1278,7 @@ function FUNCmapadds() {
 		cat "$lstrFlAddTmp" \
 			|egrep -v "^$" \
 			>>"${strFlMapadds}"
-		if [[ -n "${strSpawnTriggerLine}" ]];then
+		if [[ -n "${strSpawnTriggerID}" ]];then
 			astrTriggeredSpawnerTargetNameList+=("$lstrTargetName")
 		fi
 	fi
@@ -1488,14 +1489,22 @@ if $bCreateSpawnsForCurrentMap;then
 	done
 	
 	#help @InfoID="Use existing spawn trigger" put this on the condump ex. for L02_B1: gskSpawnTriggerID tim_spwaner (then in the line below put this ex.: gskSpawnTriggerBeginIndex 2) #TODO may be seek other mods for mapadd files looking for last Template[0-9]* to start from, also look at .vmf file but not everyone may have the hammer sdk installed...
-	strSpawnTriggerLine=""
-	if egrep "^gskSpawnTriggerID.*On" "$strFlCondump";then
-		strSpawnTriggerLine="$(egrep "^gskSpawnTriggerID.*On" "$strFlCondump" |tail -n 1)"
-		#strSpawnTriggerID="$(      egrep "^gskSpawnTriggerID"         "$strFlCondump" |awk '{print $2}')"
-		#nSpawnTriggerTemplateBeginIndex="$(egrep "gskSpawnTriggerBeginIndex" "$strFlCondump" |awk '{print $2}')"
-		echo "${strSpawnTriggerLine}" >>"$strFlCondumpCleanNew"
-		#echo "gskSpawnTriggerBeginIndex $nSpawnTriggerTemplateBeginIndex" >>"$strFlCondumpCleanNew"
-	fi
+	#strSpawnTriggerLine=""
+	#if egrep "^gskSpawnTriggerID.*On" "$strFlCondump";then
+		#strSpawnTriggerLine="$(egrep "^gskSpawnTriggerID.*On" "$strFlCondump" |tail -n 1)"
+		##strSpawnTriggerID="$(      egrep "^gskSpawnTriggerID"         "$strFlCondump" |awk '{print $2}')"
+		##nSpawnTriggerTemplateBeginIndex="$(egrep "gskSpawnTriggerBeginIndex" "$strFlCondump" |awk '{print $2}')"
+		##echo "gskSpawnTriggerBeginIndex $nSpawnTriggerTemplateBeginIndex" >>"$strFlCondumpCleanNew"
+		
+		##echo "${strSpawnTriggerLine}" >>"$strFlCondumpCleanNew"
+		
+		#lstrSTRegex="^gskSpawnTriggerID\s*([0-9]*)\s*([a-zA-Z0-9_-]*)\s*[^,]*(.*)"
+		#llstrLogicRelayID="$(         echo "$strSpawnTriggerLine" |tr -d '"\r' |sed -r -e "s@${lstrSTRegex}@\1@g")"
+		#llstrLogicRelayOnTrigger="$(  echo "$strSpawnTriggerLine" |tr -d '"\r' |sed -r -e "s@${lstrSTRegex}@\2@g")"
+		#llstrLogicRelaySpawnParams="$(echo "$strSpawnTriggerLine" |tr -d '"\r' |sed -r -e "s@${lstrSTRegex}@\3@g")" #ignored
+		#echo "gskSpawnTriggerID ${llstrLogicRelayID}" >>"$strFlCondumpCleanNew"
+		#echo "gskSpawnTriggerType ${llstrLogicRelayOnTrigger}" >>"$strFlCondumpCleanNew"
+	#fi
 	#if egrep "^gskSpawnNoBurrowAllowed" "$strFlCondump";then
 		#echo "gskSpawnNoBurrowAllowed" >>"$strFlCondumpCleanNew"
 		#bAllowBurrow=false
@@ -1507,7 +1516,7 @@ if $bCreateSpawnsForCurrentMap;then
 	function FUNCgskOptions() {
 		local lstrOpt="$1";shift
 		local lstrOptDefault="$1";shift
-		local lstrData="$(egrep "^${lstrOpt}" "${strFlCondumpClean}" |tail -n 1)"&&:
+		local lstrData="$(egrep "^${lstrOpt}" "${strFlCondump}" |egrep -v ForceSpawn|tail -n 1)"&&:
 		if [[ -n "$lstrData" ]];then
 			echo "$lstrData" >>"$strFlCondumpCleanNew"
 			echo "$lstrData" |awk '{print $2}' #OUTPUT

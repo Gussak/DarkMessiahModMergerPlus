@@ -1,8 +1,10 @@
 map     :  l02_b2 at: -3823 x, -11337 y, -177 z
 map     :  l02_b2 at: -3823 x, -11337 y, -177 z
 gskMapMessage gskSpawnTriggerID=1045857 (targetname NONE) at L02_B2.vmf
-gskSpawnTriggerID 1045857 OnTrigger eatters_spawner,ForceSpawn,,0,1,1,
-gskSpawnTriggerID 1045857 OnTrigger eatters_spawner,ForceSpawn,,0,1,1,
+gskSpawnTriggerID 1045857
+gskSpawnTriggerType OnTrigger
+gskSpawnTriggerID 1045857
+gskSpawnTriggerType OnTrigger
 gskSpawnHint  // ( 0/36 )
 prop at -2628 -11947 122 missing modelname
 prop at -2628 -11947 122 missing modelname

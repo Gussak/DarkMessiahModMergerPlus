@@ -1,8 +1,10 @@
 map     :  L00 at: -1878 x, -4619 y, 342
 map     :  L00 at: -1878 x, -4619 y, 342
 gskMapMessage gskSpawnTriggerID=338295 (targetname tuto_orb.game_text1a.relay, origin -632 -4029 200) at L00.vmf
-gskSpawnTriggerID 338295 "OnTrigger" ",ForceSpawn,,0,-1,1,"
-gskSpawnTriggerID 338295 "OnTrigger" ",ForceSpawn,,0,-1,1,"
+gskSpawnTriggerID 338295
+gskSpawnTriggerType OnTrigger
+gskSpawnTriggerID 338295
+gskSpawnTriggerType OnTrigger
 gskSpawnDelay 0.05
 gskSpawnNpcsAwake true
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 0/9 )

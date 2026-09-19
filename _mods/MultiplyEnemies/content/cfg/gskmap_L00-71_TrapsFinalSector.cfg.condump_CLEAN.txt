@@ -1,8 +1,10 @@
 map     :  L00 at: -1878 x, -4619 y, 342
 map     :  L00 at: -1878 x, -4619 y, 342
 gskMapMessage gskSpawnTriggerID=1151261 (origin 1408 1590 -242) at L00.vmf
-gskSpawnTriggerID 1151261 "OnStartTouch" ",ForceSpawn,,0,1,1,"
-gskSpawnTriggerID 1151261 "OnStartTouch" ",ForceSpawn,,0,1,1,"
+gskSpawnTriggerID 1151261
+gskSpawnTriggerType OnStartTouch
+gskSpawnTriggerID 1151261
+gskSpawnTriggerType OnStartTouch
 gskSpawnDelay 0.05
 gskSpawnNpcsAwake true
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 0/12 )

@@ -3,8 +3,10 @@ map     :  L00 at: -1878 x, -4619 y, 342
 gskMapMessage RegionExtractedFromVector3D 1111 -2631 759
 gskMapMessage RegionExtractedToVector3D 2378 -730 -633
 gskMapMessage gskSpawnTriggerID=338215 (origin 823 -2229 368) at L00.vmf
-gskSpawnTriggerID 338215 "OnStartTouch" ",ForceSpawn,,0,1,1,"
-gskSpawnTriggerID 338215 "OnStartTouch" ",ForceSpawn,,0,1,1,"
+gskSpawnTriggerID 338215
+gskSpawnTriggerType OnStartTouch
+gskSpawnTriggerID 338215
+gskSpawnTriggerType OnStartTouch
 gskSpawnDelay 0.0
 gskSpawnNpcsAwake true
 gskSpawnHint  // ( 0/63 )

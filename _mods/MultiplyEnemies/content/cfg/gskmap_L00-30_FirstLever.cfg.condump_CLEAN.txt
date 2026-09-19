@@ -4,8 +4,10 @@ gskMapMessage RegionExtractedFromVector3D 1224 -3077 1274
 gskMapMessage RegionExtractedToVector3D -508 -1766 -126
 gskMapMessage NOT GOOD, would spawn on every OnPressed. gskSpawnTriggerID=338670 (targetname door02.lever.button, origin -761.5 -3493 276) at L00.vmf
 gskMapMessage gskSpawnTriggerID=1280157 (targetname tuto_run.game_text3a.relay) at L00.vmf (just after passing thru the gate once, no way back)
-gskSpawnTriggerID 1280157 "OnTrigger" ",ForceSpawn,,0,-1,1,"
-gskSpawnTriggerID 1280157 "OnTrigger" ",ForceSpawn,,0,-1,1,"
+gskSpawnTriggerID 1280157
+gskSpawnTriggerType OnTrigger
+gskSpawnTriggerID 1280157
+gskSpawnTriggerType OnTrigger
 gskSpawnDelay 0.0
 gskSpawnNpcsAwake true
 gskSpawnHint  // ( 0/171 )
