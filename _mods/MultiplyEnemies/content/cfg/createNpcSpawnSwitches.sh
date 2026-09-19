@@ -291,7 +291,7 @@ while [[ $# -gt 0 && "${1:0:1}" == "-" ]];do
 	elif [[ "${1}" == "-s" ]];then #help <lstrUseThisSector> same as -c but you can prepare a smaller SECTOR area in that map with loads of foes to not encumber the engine, ex.: "02_FrontYard_OK" for gskmap_l02_b1-02_FrontYard_OK.cfg
 		shift;lstrUseThisSector="${1}"
 		bCreateSpawnsForCurrentMap=true
-	elif [[ "${1}" == "--extractSector" ]];then #help TODO <lstrExtractSectorFromXYZ> <lstrExtractSectorToXYZ> <lstrExtractSectorName> XYZ is comma separated 3D positions you can get thru console 'getpos' to determine a box where all spawn requests will be detected
+	elif [[ "${1}" == "--extractSector" ]];then #help TODO <lstrExtractSectorFromXYZ> <lstrExtractSectorToXYZ> <lstrExtractSectorName> XYZ is comma separated 3D positions you can get thru console 'getpos' to determine a box where all spawn requests will be detected. Ex.: ./createNpcSpawnSwitches.sh --extractSector "585.749634 -3053.898193 74.14216" "1113.732056 -2122.754639 940.90033" "35_TMP" -M gskmap_L00-30_FirstLever.cfg  #!!!IMPORTANT!!!make it sure to copy from the original file all gskSpawn options and other stuff on the top that may be missing, into the remaining data file.
 		shift;lstrExtractSectorFromXYZ="${1}"
 		shift;lstrExtractSectorToXYZ="${1}"
 		shift;lstrExtractSectorName="${1}"

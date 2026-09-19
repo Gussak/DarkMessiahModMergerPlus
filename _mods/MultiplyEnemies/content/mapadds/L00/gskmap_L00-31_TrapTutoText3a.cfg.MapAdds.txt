@@ -7,8 +7,8 @@
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_31_TrapTutoText3a_000"  //gskSummonDevTrapMiniSpiderFly
-			"origin"      "-647 -2539 193"
-			"angles"      "65 1 -0"
+			"origin"      "-688 -2541 195"
+			"angles"      "61 -14 -0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
@@ -17,13 +17,13 @@
 			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
-			"origin"      "-647 -2539 393"
+			"origin"      "-688 -2541 395"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_31_TrapTutoText3a_001"  //gskSummonDevTrapMiniSpiderFly
-			"origin"      "-647 -2539 193"
-			"angles"      "65 1 -0"
+			"origin"      "-676 -2512 193"
+			"angles"      "61 -35 -0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
@@ -32,13 +32,13 @@
 			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
-			"origin"      "-647 -2539 393"
+			"origin"      "-676 -2512 393"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_31_TrapTutoText3a_002"  //gskSummonDevTrapMiniSpiderFly
-			"origin"      "-647 -2539 193"
-			"angles"      "65 1 -0"
+			"origin"      "-647 -2507 193"
+			"angles"      "67 -52 -0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
@@ -47,13 +47,13 @@
 			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
-			"origin"      "-647 -2539 393"
+			"origin"      "-647 -2507 393"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_31_TrapTutoText3a_003"  //gskSummonDevTrapMiniSpiderFly
-			"origin"      "-647 -2539 193"
-			"angles"      "65 1 -0"
+			"origin"      "-618 -2512 193"
+			"angles"      "73 -74 -0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
@@ -62,13 +62,13 @@
 			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
-			"origin"      "-647 -2539 393"
+			"origin"      "-618 -2512 393"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_31_TrapTutoText3a_004"  //gskSummonDevTrapMiniSpiderFly
-			"origin"      "-647 -2539 193"
-			"angles"      "65 1 -0"
+			"origin"      "-606 -2543 193"
+			"angles"      "86 -84 -0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
@@ -77,13 +77,13 @@
 			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
-			"origin"      "-647 -2539 393"
+			"origin"      "-606 -2543 393"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_31_TrapTutoText3a_005"  //gskSummonDevTrapMiniSpiderFly
-			"origin"      "-647 -2539 193"
-			"angles"      "65 1 -0"
+			"origin"      "-628 -2542 193"
+			"angles"      "81 -37 -0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
@@ -92,13 +92,13 @@
 			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
-			"origin"      "-647 -2539 393"
+			"origin"      "-628 -2542 393"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_31_TrapTutoText3a_006"  //gskSummonDevTrapMiniSpiderFly
-			"origin"      "-647 -2539 193"
-			"angles"      "65 1 -0"
+			"origin"      "-654 -2541 193"
+			"angles"      "72 -22 -0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
@@ -107,13 +107,13 @@
 			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
-			"origin"      "-647 -2539 393"
+			"origin"      "-654 -2541 393"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_31_TrapTutoText3a_007"  //gskSummonDevTrapMiniSpiderFly
-			"origin"      "-647 -2539 193"
-			"angles"      "65 1 -0"
+			"origin"      "-671 -2567 193"
+			"angles"      "68 6 -0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
@@ -122,13 +122,13 @@
 			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
-			"origin"      "-647 -2539 393"
+			"origin"      "-671 -2567 393"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_31_TrapTutoText3a_008"  //gskSummonDevTrapMiniSpiderFly
-			"origin"      "-647 -2539 193"
-			"angles"      "65 1 -0"
+			"origin"      "-640 -2570 193"
+			"angles"      "79 15 -0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
@@ -137,13 +137,13 @@
 			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
-			"origin"      "-647 -2539 393"
+			"origin"      "-640 -2570 393"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_31_TrapTutoText3a_009"  //gskSummonDevTrapMiniSpiderFly
-			"origin"      "-647 -2539 193"
-			"angles"      "65 1 -0"
+			"origin"      "-611 -2570 193"
+			"angles"      "89 53 0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
@@ -152,13 +152,13 @@
 			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
-			"origin"      "-647 -2539 393"
+			"origin"      "-611 -2570 393"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_31_TrapTutoText3a_010"  //gskSummonDevTrapMiniSpiderFly
-			"origin"      "-647 -2539 193"
-			"angles"      "65 1 -0"
+			"origin"      "-695 -2569 195"
+			"angles"      "60 6 -0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
@@ -167,13 +167,13 @@
 			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
-			"origin"      "-647 -2539 393"
+			"origin"      "-695 -2569 395"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_31_TrapTutoText3a_011"  //gskSummonDevTrapMiniSpiderFly
-			"origin"      "-647 -2539 193"
-			"angles"      "65 1 -0"
+			"origin"      "-648 -2596 193"
+			"angles"      "71 39 -0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
@@ -182,7 +182,7 @@
 			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
-			"origin"      "-647 -2539 393"
+			"origin"      "-648 -2596 393"
 		}
 
 		"modify:entity"
