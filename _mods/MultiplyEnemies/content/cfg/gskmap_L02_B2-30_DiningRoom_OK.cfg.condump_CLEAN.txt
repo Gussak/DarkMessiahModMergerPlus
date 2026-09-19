@@ -2,6 +2,7 @@ map     :  l02_b2 at: -3139 x, -11530 y, -63 z
 map     :  l02_b2 at: -3139 x, -11530 y, -63 z
 gskMapMessage gskSpawnTriggerID=4200401 (targetname Harvey_relay) at L02_B2.vmf
 gskSpawnTriggerID 4200401 "OnTrigger" "murder_spawner,ForceSpawn,,0,1,1,"
+gskSpawnTriggerID 4200401 "OnTrigger" "murder_spawner,ForceSpawn,,0,1,1,"
 gskSpawnHint  // ( 0/71 )
 prop at -3372 -11494 100 missing modelname
 prop at -3372 -11494 100 missing modelname

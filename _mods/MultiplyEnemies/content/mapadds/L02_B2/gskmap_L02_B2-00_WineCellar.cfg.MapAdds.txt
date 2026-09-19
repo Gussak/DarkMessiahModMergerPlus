@@ -6,7 +6,7 @@
 
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_00_WineCellar_000"
+			"targetname"  "gskSpawn_00_WineCellar_000"  //gskSummonSpiderMini
 			"origin"      "-3980 -11343 -123"
 			"angles"      "14 95 0"
 			"spawnflags"  "7"
@@ -19,7 +19,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_00_WineCellar_001"
+			"targetname"  "gskSpawn_00_WineCellar_001"  //gskSummonSpiderMini
 			"origin"      "-3965 -11321 -129"
 			"angles"      "17 99 0"
 			"spawnflags"  "7"
@@ -32,7 +32,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_00_WineCellar_002"
+			"targetname"  "gskSpawn_00_WineCellar_002"  //gskSummonSpiderMini
 			"origin"      "-3997 -11290 -130"
 			"angles"      "21 90 0"
 			"spawnflags"  "7"
@@ -45,7 +45,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_00_WineCellar_003"
+			"targetname"  "gskSpawn_00_WineCellar_003"  //gskSummonSpiderMini
 			"origin"      "-4032 -11259 -243"
 			"angles"      "52 76 -0"
 			"spawnflags"  "7"
@@ -58,7 +58,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_00_WineCellar_004"
+			"targetname"  "gskSpawn_00_WineCellar_004"  //gskSummonSpiderMini
 			"origin"      "-4033 -11196 -246"
 			"angles"      "67 64 -0"
 			"spawnflags"  "7"
@@ -71,7 +71,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_00_WineCellar_005"
+			"targetname"  "gskSpawn_00_WineCellar_005"  //gskSummonSpiderMini
 			"origin"      "-4088 -11096 -241"
 			"angles"      "63 -16 -0"
 			"spawnflags"  "7"
@@ -84,7 +84,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_00_WineCellar_006"
+			"targetname"  "gskSpawn_00_WineCellar_006"  //gskSummonSpiderMini
 			"origin"      "-3999 -11091 -245"
 			"angles"      "82 -86 -0"
 			"spawnflags"  "7"
@@ -97,7 +97,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_00_WineCellar_007"
+			"targetname"  "gskSpawn_00_WineCellar_007"  //gskSummonSpiderMini
 			"origin"      "-3936 -11033 -246"
 			"angles"      "60 -125 -0"
 			"spawnflags"  "7"
@@ -110,7 +110,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_00_WineCellar_008"
+			"targetname"  "gskSpawn_00_WineCellar_008"  //gskSummonSpiderMini
 			"origin"      "-3876 -11037 -247"
 			"angles"      "51 -146 -0"
 			"spawnflags"  "7"
@@ -123,7 +123,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_00_WineCellar_009"
+			"targetname"  "gskSpawn_00_WineCellar_009"  //gskSummonSpiderMini
 			"origin"      "-3757 -11007 -237"
 			"angles"      "33 -155 0"
 			"spawnflags"  "7"
@@ -136,7 +136,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_00_WineCellar_010"
+			"targetname"  "gskSpawn_00_WineCellar_010"  //gskSummonSpiderMini
 			"origin"      "-3773 -11064 -242"
 			"angles"      "37 -166 0"
 			"spawnflags"  "7"
@@ -149,7 +149,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_00_WineCellar_011"
+			"targetname"  "gskSpawn_00_WineCellar_011"  //gskSummonSpiderMini
 			"origin"      "-3840 -11095 -246"
 			"angles"      "49 -171 -0"
 			"spawnflags"  "7"
@@ -162,7 +162,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_00_WineCellar_012"
+			"targetname"  "gskSpawn_00_WineCellar_012"  //gskSummonSpiderMini
 			"origin"      "-3780 -11153 -247"
 			"angles"      "40 172 0"
 			"spawnflags"  "7"
@@ -175,7 +175,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_00_WineCellar_013"
+			"targetname"  "gskSpawn_00_WineCellar_013"  //gskSummonSpiderMini
 			"origin"      "-3921 -11089 -247"
 			"angles"      "67 -157 -0"
 			"spawnflags"  "7"
@@ -188,7 +188,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_00_WineCellar_014"
+			"targetname"  "gskSpawn_00_WineCellar_014"  //gskSummonSpiderMini
 			"origin"      "-3879 -11279 -252"
 			"angles"      "57 -34 -0"
 			"spawnflags"  "7"
@@ -201,7 +201,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_00_WineCellar_015"
+			"targetname"  "gskSpawn_00_WineCellar_015"  //gskSummonSpiderMini
 			"origin"      "-3893 -11358 -245"
 			"angles"      "57 8 -0"
 			"spawnflags"  "7"
@@ -214,7 +214,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_00_WineCellar_016"
+			"targetname"  "gskSpawn_00_WineCellar_016"  //gskSummonSpiderMini
 			"origin"      "-3809 -11334 -246"
 			"angles"      "83 -19 -0"
 			"spawnflags"  "7"
@@ -227,7 +227,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_00_WineCellar_017"
+			"targetname"  "gskSpawn_00_WineCellar_017"  //gskSummonSpiderMini
 			"origin"      "-3726 -11425 -232"
 			"angles"      "57 125 -0"
 			"spawnflags"  "7"
@@ -240,7 +240,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_00_WineCellar_018"
+			"targetname"  "gskSpawn_00_WineCellar_018"  //gskSummonSpiderMini
 			"origin"      "-3809 -11405 -242"
 			"angles"      "69 68 -0"
 			"spawnflags"  "7"
@@ -253,7 +253,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_00_WineCellar_019"
+			"targetname"  "gskSpawn_00_WineCellar_019"  //gskSummonSpiderMini
 			"origin"      "-3791 -11281 -246"
 			"angles"      "70 -83 -0"
 			"spawnflags"  "7"
@@ -266,7 +266,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_00_WineCellar_020"
+			"targetname"  "gskSpawn_00_WineCellar_020"  //gskSummonSpiderMini
 			"origin"      "-3804 -11213 -250"
 			"angles"      "53 -81 -0"
 			"spawnflags"  "7"
@@ -279,7 +279,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_00_WineCellar_021"
+			"targetname"  "gskSpawn_00_WineCellar_021"  //gskSummonSpiderMini
 			"origin"      "-3689 -11042 -239"
 			"angles"      "33 -136 0"
 			"spawnflags"  "7"
@@ -292,7 +292,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_00_WineCellar_022"
+			"targetname"  "gskSpawn_00_WineCellar_022"  //gskSummonSpiderMini
 			"origin"      "-3667 -11251 -163"
 			"angles"      "35 -167 0"
 			"spawnflags"  "7"
@@ -305,7 +305,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_00_WineCellar_023"
+			"targetname"  "gskSpawn_00_WineCellar_023"  //gskSummonSpiderMini
 			"origin"      "-3873 -11047 -114"
 			"angles"      "53 -92 -0"
 			"spawnflags"  "7"
@@ -318,7 +318,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_00_WineCellar_024"
+			"targetname"  "gskSpawn_00_WineCellar_024"  //gskSummonSpiderRegular
 			"origin"      "-3719 -11296 -245"
 			"angles"      "20 171 -0"
 			"spawnflags"  "7"
@@ -331,7 +331,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_00_WineCellar_025"
+			"targetname"  "gskSpawn_00_WineCellar_025"  //gskSummonPotionLife
 			"origin"      "-3722 -11411 -233"
 			"angles"      "55 170 -0"
 			"spawnflags"  "7"
@@ -339,12 +339,13 @@
 			"radiusforrandomattitude" "500"
 			"classname" "item_potion_life"
 			"model" "models/items/provisions/potions/Life_potion.mdl"
+			"angles"      "0 170 0"
 			"spawnflags"  "7"
 			"origin"      "-3722 -11411 -228"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_00_WineCellar_026"
+			"targetname"  "gskSpawn_00_WineCellar_026"  //gskSummon_mushroom
 			"origin"      "-3656 -11136 -247"
 			"angles"      "42 107 -0"
 			"spawnflags"  "7"
@@ -356,7 +357,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_00_WineCellar_027"
+			"targetname"  "gskSpawn_00_WineCellar_027"  //gskSummon_mushroom
 			"origin"      "-3657 -11116 -245"
 			"angles"      "47 110 -0"
 			"spawnflags"  "7"
@@ -368,7 +369,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_00_WineCellar_028"
+			"targetname"  "gskSpawn_00_WineCellar_028"  //gskSummon_mushroom
 			"origin"      "-3658 -11099 -244"
 			"angles"      "53 114 -0"
 			"spawnflags"  "7"

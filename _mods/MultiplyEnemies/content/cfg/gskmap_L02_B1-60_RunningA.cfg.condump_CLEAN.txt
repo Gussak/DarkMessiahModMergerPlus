@@ -2,8 +2,9 @@ map     :  l02_b1 at: -2880 x, -12937 y, 519 z
 map     :  l02_b1 at: -2880 x, -12937 y, 519 z
 gskMapMessage Hint for the challenge (dont try to read if you want to guess): use a psottoinoen to avoid undead hits.
 gskMapMessage gskSpawnTriggerID=5634833 (targetname crystal_relay) at L02_B1.vmf
-gskSpawnTriggerID 5634833 "OnTrigger" "first_spawn,ForceSpawn,,0,-1,1,"
-gskSpawnNoBurrowAllowed
+gskSpawnTriggerID 5634833
+gskSpawnTriggerType OnTrigger
+gskSpawnBurrowAllowed false
 gskSpawnHint  // ( 0/48 )
 prop at -2783 -12685 477 missin modelname
 prop at -2783 -12685 477 missing modelname

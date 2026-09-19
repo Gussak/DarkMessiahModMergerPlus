@@ -2,6 +2,7 @@ map     :  l02_b2 at: -3007 x, -11873 y, 324 z
 map     :  l02_b2 at: -3007 x, -11873 y, 324 z
 gskMapMessage gskSpawnTriggerID=1058602 (targetname NONE, origin -4287 -11634 377.5) at L02_B2.vmf
 gskSpawnTriggerID 1058602 "OnStartTouch" "library_guards_spawner,ForceSpawn,,0,-1,1,"
+gskSpawnTriggerID 1058602 "OnStartTouch" "library_guards_spawner,ForceSpawn,,0,-1,1,"
 gskSpawnHint  // ( 0/60 )
 prop at -4143 -11706 686 missing modelname
 prop at -4143 -11706 686 missing modelname

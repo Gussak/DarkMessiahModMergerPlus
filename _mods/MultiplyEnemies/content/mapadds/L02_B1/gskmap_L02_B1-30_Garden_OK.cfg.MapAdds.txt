@@ -6,7 +6,7 @@
 
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_000"
+			"targetname"  "gskSpawn_30_Garden_OK_000"  //mm_npc_create_necromancer
 			"origin"      "-3141 -12775 305"
 			"angles"      "72 -21 -0"
 			"spawnflags"  "7"
@@ -19,7 +19,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_001"
+			"targetname"  "gskSpawn_30_Garden_OK_001"  //mm_npc_create_necromancer
 			"origin"      "-2878 -12789 258"
 			"angles"      "73 -166 -0"
 			"spawnflags"  "7"
@@ -32,7 +32,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_002"
+			"targetname"  "gskSpawn_30_Garden_OK_002"  //mm_npc_create_necromancer_lord
 			"origin"      "-3012 -12646 305"
 			"angles"      "66 -90 -0"
 			"spawnflags"  "7"
@@ -45,7 +45,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_003"
+			"targetname"  "gskSpawn_30_Garden_OK_003"  //mm_npc_create_necro_guard_bow
 			"origin"      "-3104 -12677 1"
 			"angles"      "44 -88 0"
 			"spawnflags"  "7"
@@ -61,7 +61,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_004"
+			"targetname"  "gskSpawn_30_Garden_OK_004"  //mm_npc_create_undead
 			"origin"      "-2899 -13045 8"
 			"angles"      "60 98 -0"
 			"spawnflags"  "7"
@@ -76,7 +76,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_005"
+			"targetname"  "gskSpawn_30_Garden_OK_005"  //mm_npc_create_undead
 			"origin"      "-2941 -13047 6"
 			"angles"      "59 76 -0"
 			"spawnflags"  "7"
@@ -91,7 +91,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_006"
+			"targetname"  "gskSpawn_30_Garden_OK_006"  //mm_npc_create_undead
 			"origin"      "-2982 -13040 7"
 			"angles"      "56 56 -0"
 			"spawnflags"  "7"
@@ -106,7 +106,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_007"
+			"targetname"  "gskSpawn_30_Garden_OK_007"  //mm_npc_create_undead
 			"origin"      "-3018 -13028 8"
 			"angles"      "53 41 -0"
 			"spawnflags"  "7"
@@ -121,7 +121,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_008"
+			"targetname"  "gskSpawn_30_Garden_OK_008"  //mm_npc_create_undead
 			"origin"      "-3062 -13017 9"
 			"angles"      "46 28 -0"
 			"spawnflags"  "7"
@@ -136,7 +136,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_009"
+			"targetname"  "gskSpawn_30_Garden_OK_009"  //mm_npc_create_necro_guard_bow
 			"origin"      "-2917 -12690 2"
 			"angles"      "48 -132 -0"
 			"spawnflags"  "7"
@@ -152,7 +152,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_010"
+			"targetname"  "gskSpawn_30_Garden_OK_010"  //mm_npc_create_necro_guard_bow
 			"origin"      "-2463 -13307 0"
 			"angles"      "61 51 -0"
 			"spawnflags"  "7"
@@ -168,7 +168,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_011"
+			"targetname"  "gskSpawn_30_Garden_OK_011"  //mm_npc_create_necro_guard_bow
 			"origin"      "-2275 -13319 -15"
 			"angles"      "54 140 -0"
 			"spawnflags"  "7"
@@ -184,7 +184,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_012"
+			"targetname"  "gskSpawn_30_Garden_OK_012"  //mm_npc_create_necro_guard_bow
 			"origin"      "-2472 -12617 -22"
 			"angles"      "74 -70 -0"
 			"spawnflags"  "7"
@@ -200,7 +200,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_013"
+			"targetname"  "gskSpawn_30_Garden_OK_013"  //mm_npc_create_necro_guard_bow
 			"origin"      "-1635 -12607 -33"
 			"angles"      "70 180 -0"
 			"spawnflags"  "7"
@@ -216,7 +216,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_014"
+			"targetname"  "gskSpawn_30_Garden_OK_014"  //mm_npc_create_necro_guard_bow
 			"origin"      "-1624 -13192 -28"
 			"angles"      "74 101 -0"
 			"spawnflags"  "7"
@@ -232,7 +232,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_015"
+			"targetname"  "gskSpawn_30_Garden_OK_015"  //mm_npc_create_necro_guard_bow
 			"origin"      "-2445 -12255 -27"
 			"angles"      "60 18 -0"
 			"spawnflags"  "7"
@@ -248,7 +248,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_016"
+			"targetname"  "gskSpawn_30_Garden_OK_016"  //mm_npc_create_necro_guard_bow
 			"origin"      "-2444 -12071 -29"
 			"angles"      "53 -15 -0"
 			"spawnflags"  "7"
@@ -264,7 +264,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_017"
+			"targetname"  "gskSpawn_30_Garden_OK_017"  //mm_npc_create_necro_guard_bow
 			"origin"      "-1626 -11640 -34"
 			"angles"      "54 176 -0"
 			"spawnflags"  "7"
@@ -280,7 +280,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_018"
+			"targetname"  "gskSpawn_30_Garden_OK_018"  //mm_npc_create_necro_guard_bow
 			"origin"      "-1902 -11871 -33"
 			"angles"      "54 91 -0"
 			"spawnflags"  "7"
@@ -296,7 +296,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_019"
+			"targetname"  "gskSpawn_30_Garden_OK_019"  //mm_npc_create_necro_guard_bow
 			"origin"      "-1679 -10897 -34"
 			"angles"      "43 -137 0"
 			"spawnflags"  "7"
@@ -312,7 +312,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_020"
+			"targetname"  "gskSpawn_30_Garden_OK_020"  //mm_npc_create_necro_guard_bow
 			"origin"      "-2469 -10871 -32"
 			"angles"      "40 -63 0"
 			"spawnflags"  "7"
@@ -328,7 +328,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_021"
+			"targetname"  "gskSpawn_30_Garden_OK_021"  //mm_npc_create_necro_guard_bow
 			"origin"      "-2079 -11147 -34"
 			"angles"      "39 -169 0"
 			"spawnflags"  "7"
@@ -344,7 +344,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_022"
+			"targetname"  "gskSpawn_30_Garden_OK_022"  //mm_npc_create_necromancer_lord
 			"origin"      "-1903 -11443 -13"
 			"angles"      "61 -90 -0"
 			"spawnflags"  "7"
@@ -357,7 +357,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_023"
+			"targetname"  "gskSpawn_30_Garden_OK_023"  //mm_npc_create_necromancer
 			"origin"      "-2517 -10954 -33"
 			"angles"      "87 -40 -0"
 			"spawnflags"  "7"
@@ -370,7 +370,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_024"
+			"targetname"  "gskSpawn_30_Garden_OK_024"  //mm_npc_create_necromancer
 			"origin"      "-2005 -12618 -34"
 			"angles"      "85 175 -0"
 			"spawnflags"  "7"
@@ -383,7 +383,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_025"
+			"targetname"  "gskSpawn_30_Garden_OK_025"  //mm_npc_create_undead
 			"origin"      "-1953 -12859 -27"
 			"angles"      "48 82 -0"
 			"spawnflags"  "7"
@@ -398,7 +398,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_026"
+			"targetname"  "gskSpawn_30_Garden_OK_026"  //mm_npc_create_undead
 			"origin"      "-1972 -12676 -33"
 			"angles"      "67 149 -0"
 			"spawnflags"  "7"
@@ -413,7 +413,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_027"
+			"targetname"  "gskSpawn_30_Garden_OK_027"  //mm_npc_create_undead
 			"origin"      "-2048 -12554 -34"
 			"angles"      "81 -135 -0"
 			"spawnflags"  "7"
@@ -428,7 +428,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_028"
+			"targetname"  "gskSpawn_30_Garden_OK_028"  //mm_npc_create_undead
 			"origin"      "-1934 -12489 -33"
 			"angles"      "59 -146 -0"
 			"spawnflags"  "7"
@@ -443,7 +443,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_029"
+			"targetname"  "gskSpawn_30_Garden_OK_029"  //mm_npc_create_undead
 			"origin"      "-1710 -12827 -31"
 			"angles"      "35 150 0"
 			"spawnflags"  "7"
@@ -458,7 +458,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_030"
+			"targetname"  "gskSpawn_30_Garden_OK_030"  //mm_npc_create_undead
 			"origin"      "-2028 -11303 -33"
 			"angles"      "43 -54 0"
 			"spawnflags"  "7"
@@ -473,7 +473,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_031"
+			"targetname"  "gskSpawn_30_Garden_OK_031"  //mm_npc_create_undead
 			"origin"      "-1835 -11309 -30"
 			"angles"      "47 -96 -0"
 			"spawnflags"  "7"
@@ -488,7 +488,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_032"
+			"targetname"  "gskSpawn_30_Garden_OK_032"  //mm_npc_create_undead
 			"origin"      "-1645 -11470 -34"
 			"angles"      "47 -165 -0"
 			"spawnflags"  "7"
@@ -503,7 +503,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_033"
+			"targetname"  "gskSpawn_30_Garden_OK_033"  //mm_npc_create_undead
 			"origin"      "-1645 -11817 -34"
 			"angles"      "33 127 0"
 			"spawnflags"  "7"
@@ -518,7 +518,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_034"
+			"targetname"  "gskSpawn_30_Garden_OK_034"  //mm_npc_create_undead
 			"origin"      "-2002 -11798 -13"
 			"angles"      "35 62 0"
 			"spawnflags"  "7"
@@ -533,7 +533,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_035"
+			"targetname"  "gskSpawn_30_Garden_OK_035"  //mm_npc_create_undead
 			"origin"      "-2817 -10828 -33"
 			"angles"      "70 -81 -0"
 			"spawnflags"  "7"
@@ -548,7 +548,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_036"
+			"targetname"  "gskSpawn_30_Garden_OK_036"  //mm_npc_create_undead
 			"origin"      "-2834 -11001 -32"
 			"angles"      "57 76 -0"
 			"spawnflags"  "7"
@@ -563,7 +563,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_037"
+			"targetname"  "gskSpawn_30_Garden_OK_037"  //mm_npc_create_undead
 			"origin"      "-2840 -10919 -29"
 			"angles"      "80 36 -0"
 			"spawnflags"  "7"
@@ -578,7 +578,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_038"
+			"targetname"  "gskSpawn_30_Garden_OK_038"  //mm_npc_create_undead
 			"origin"      "-2404 -10949 -30"
 			"angles"      "65 -75 -0"
 			"spawnflags"  "7"
@@ -593,7 +593,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_039"
+			"targetname"  "gskSpawn_30_Garden_OK_039"  //mm_npc_create_undead
 			"origin"      "-2536 -11030 -34"
 			"angles"      "60 -19 -0"
 			"spawnflags"  "7"
@@ -608,7 +608,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_040"
+			"targetname"  "gskSpawn_30_Garden_OK_040"  //mm_npc_create_necromancer
 			"origin"      "-3015 -11349 -31"
 			"angles"      "48 2 -0"
 			"spawnflags"  "7"
@@ -621,7 +621,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_041"
+			"targetname"  "gskSpawn_30_Garden_OK_041"  //mm_npc_create_undead
 			"origin"      "-2961 -11322 -34"
 			"angles"      "68 -25 -0"
 			"spawnflags"  "7"
@@ -636,7 +636,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_042"
+			"targetname"  "gskSpawn_30_Garden_OK_042"  //mm_npc_create_undead
 			"origin"      "-2919 -11377 -34"
 			"angles"      "65 12 -0"
 			"spawnflags"  "7"
@@ -651,7 +651,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_043"
+			"targetname"  "gskSpawn_30_Garden_OK_043"  //mm_npc_create_undead
 			"origin"      "-3009 -11407 -31"
 			"angles"      "42 16 0"
 			"spawnflags"  "7"
@@ -666,7 +666,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_044"
+			"targetname"  "gskSpawn_30_Garden_OK_044"  //mm_npc_create_undead
 			"origin"      "-2845 -11307 -33"
 			"angles"      "48 -1 -0"
 			"spawnflags"  "7"
@@ -681,7 +681,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_045"
+			"targetname"  "gskSpawn_30_Garden_OK_045"  //mm_npc_create_undead
 			"origin"      "-2801 -11353 -34"
 			"angles"      "57 24 -0"
 			"spawnflags"  "7"
@@ -696,7 +696,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_046"
+			"targetname"  "gskSpawn_30_Garden_OK_046"  //mm_npc_create_necro_guard_bow
 			"origin"      "-3116 -11613 69"
 			"angles"      "42 61 0"
 			"spawnflags"  "7"
@@ -712,7 +712,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_047"
+			"targetname"  "gskSpawn_30_Garden_OK_047"  //mm_npc_create_necro_guard_bow
 			"origin"      "-3113 -11340 66"
 			"angles"      "71 8 -0"
 			"spawnflags"  "7"
@@ -728,7 +728,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_048"
+			"targetname"  "gskSpawn_30_Garden_OK_048"  //mm_npc_create_necro_guard_bow
 			"origin"      "-3056 -11202 67"
 			"angles"      "52 -87 -0"
 			"spawnflags"  "7"
@@ -744,7 +744,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_049"
+			"targetname"  "gskSpawn_30_Garden_OK_049"  //mm_npc_create_necro_guard_bow
 			"origin"      "-3064 -10820 69"
 			"angles"      "56 -92 -0"
 			"spawnflags"  "7"
@@ -760,7 +760,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_050"
+			"targetname"  "gskSpawn_30_Garden_OK_050"  //mm_npc_create_necro_guard_bow
 			"origin"      "-3246 -10999 73"
 			"angles"      "50 90 -0"
 			"spawnflags"  "7"
@@ -776,7 +776,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_051"
+			"targetname"  "gskSpawn_30_Garden_OK_051"  //mm_npc_create_necro_guard_bow
 			"origin"      "-3759 -11001 125"
 			"angles"      "67 72 -0"
 			"spawnflags"  "7"
@@ -792,7 +792,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_052"
+			"targetname"  "gskSpawn_30_Garden_OK_052"  //mm_npc_create_necro_guard_bow
 			"origin"      "-3750 -10835 67"
 			"angles"      "71 -33 -0"
 			"spawnflags"  "7"
@@ -808,7 +808,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_053"
+			"targetname"  "gskSpawn_30_Garden_OK_053"  //mm_npc_create_necro_guard_shield
 			"origin"      "-3471 -10916 66"
 			"angles"      "65 4 -0"
 			"spawnflags"  "7"
@@ -822,7 +822,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_054"
+			"targetname"  "gskSpawn_30_Garden_OK_054"  //mm_npc_create_necro_guard_shield
 			"origin"      "-1916 -10956 -34"
 			"angles"      "61 158 -0"
 			"spawnflags"  "7"
@@ -836,7 +836,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_055"
+			"targetname"  "gskSpawn_30_Garden_OK_055"  //mm_npc_create_necro_guard_shield
 			"origin"      "-1862 -13325 -33"
 			"angles"      "60 87 -0"
 			"spawnflags"  "7"
@@ -850,7 +850,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_056"
+			"targetname"  "gskSpawn_30_Garden_OK_056"  //mm_npc_create_necro_guard_bow
 			"origin"      "-2305 -11700 -33"
 			"angles"      "75 79 -0"
 			"spawnflags"  "7"
@@ -866,7 +866,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_057"
+			"targetname"  "gskSpawn_30_Garden_OK_057"  //mm_npc_create_necro_guard_bow
 			"origin"      "-2367 -11675 -34"
 			"angles"      "74 47 -0"
 			"spawnflags"  "7"
@@ -882,7 +882,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_058"
+			"targetname"  "gskSpawn_30_Garden_OK_058"  //mm_npc_create_necro_guard_bow
 			"origin"      "-2400 -11611 -34"
 			"angles"      "75 12 -0"
 			"spawnflags"  "7"
@@ -898,7 +898,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_059"
+			"targetname"  "gskSpawn_30_Garden_OK_059"  //mm_npc_create_necro_guard_bow
 			"origin"      "-2390 -11549 -34"
 			"angles"      "76 -20 -0"
 			"spawnflags"  "7"
@@ -914,7 +914,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_060"
+			"targetname"  "gskSpawn_30_Garden_OK_060"  //mm_npc_create_necro_guard_bow
 			"origin"      "-2335 -11489 -34"
 			"angles"      "76 -62 -0"
 			"spawnflags"  "7"
@@ -930,7 +930,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_061"
+			"targetname"  "gskSpawn_30_Garden_OK_061"  //mm_npc_create_necro_guard_bow
 			"origin"      "-2201 -11525 -34"
 			"angles"      "77 -144 -0"
 			"spawnflags"  "7"
@@ -946,7 +946,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_062"
+			"targetname"  "gskSpawn_30_Garden_OK_062"  //mm_npc_create_necro_guard_bow
 			"origin"      "-2200 -11641 -34"
 			"angles"      "77 144 -0"
 			"spawnflags"  "7"
@@ -962,7 +962,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_063"
+			"targetname"  "gskSpawn_30_Garden_OK_063"  //gskSummonPotionLife
 			"origin"      "-1562 -13330 -33"
 			"angles"      "74 141 -0"
 			"spawnflags"  "7"
@@ -970,12 +970,13 @@
 			"radiusforrandomattitude" "500"
 			"classname" "item_potion_life"
 			"model" "models/items/provisions/potions/Life_potion.mdl"
+			"angles"      "0 141 0"
 			"spawnflags"  "7"
 			"origin"      "-1562 -13330 -28"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_064"
+			"targetname"  "gskSpawn_30_Garden_OK_064"  //gskSummonPotionLife
 			"origin"      "-1600 -12527 -27"
 			"angles"      "62 147 -0"
 			"spawnflags"  "7"
@@ -983,12 +984,13 @@
 			"radiusforrandomattitude" "500"
 			"classname" "item_potion_life"
 			"model" "models/items/provisions/potions/Life_potion.mdl"
+			"angles"      "0 147 0"
 			"spawnflags"  "7"
 			"origin"      "-1600 -12527 -22"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_065"
+			"targetname"  "gskSpawn_30_Garden_OK_065"  //gskSummonPotionLife
 			"origin"      "-2462 -12166 -30"
 			"angles"      "71 -1 -0"
 			"spawnflags"  "7"
@@ -996,12 +998,13 @@
 			"radiusforrandomattitude" "500"
 			"classname" "item_potion_life"
 			"model" "models/items/provisions/potions/Life_potion.mdl"
+			"angles"      "0 -1 0"
 			"spawnflags"  "7"
 			"origin"      "-2462 -12166 -25"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_066"
+			"targetname"  "gskSpawn_30_Garden_OK_066"  //gskSummonPotionLife
 			"origin"      "-1912 -11567 -66"
 			"angles"      "72 -75 -0"
 			"spawnflags"  "7"
@@ -1009,12 +1012,13 @@
 			"radiusforrandomattitude" "500"
 			"classname" "item_potion_life"
 			"model" "models/items/provisions/potions/Life_potion.mdl"
+			"angles"      "0 -75 0"
 			"spawnflags"  "7"
 			"origin"      "-1912 -11567 -61"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_067"
+			"targetname"  "gskSpawn_30_Garden_OK_067"  //gskSummonPotionLife
 			"origin"      "-1912 -11569 -60"
 			"angles"      "72 -75 -0"
 			"spawnflags"  "7"
@@ -1022,12 +1026,13 @@
 			"radiusforrandomattitude" "500"
 			"classname" "item_potion_life"
 			"model" "models/items/provisions/potions/Life_potion.mdl"
+			"angles"      "0 -75 0"
 			"spawnflags"  "7"
 			"origin"      "-1912 -11569 -55"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_068"
+			"targetname"  "gskSpawn_30_Garden_OK_068"  //gskSummonPotionLife
 			"origin"      "-1585 -10811 -27"
 			"angles"      "74 -157 -0"
 			"spawnflags"  "7"
@@ -1035,12 +1040,13 @@
 			"radiusforrandomattitude" "500"
 			"classname" "item_potion_life"
 			"model" "models/items/provisions/potions/Life_potion.mdl"
+			"angles"      "0 -157 0"
 			"spawnflags"  "7"
 			"origin"      "-1585 -10811 -22"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_069"
+			"targetname"  "gskSpawn_30_Garden_OK_069"  //gskSummonPotionLife
 			"origin"      "-1908 -10791 -26"
 			"angles"      "82 -135 -0"
 			"spawnflags"  "7"
@@ -1048,12 +1054,13 @@
 			"radiusforrandomattitude" "500"
 			"classname" "item_potion_life"
 			"model" "models/items/provisions/potions/Life_potion.mdl"
+			"angles"      "0 -135 0"
 			"spawnflags"  "7"
 			"origin"      "-1908 -10791 -21"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_070"
+			"targetname"  "gskSpawn_30_Garden_OK_070"  //gskSummonPotionLife
 			"origin"      "-2791 -10913 -33"
 			"angles"      "77 176 -0"
 			"spawnflags"  "7"
@@ -1061,12 +1068,13 @@
 			"radiusforrandomattitude" "500"
 			"classname" "item_potion_life"
 			"model" "models/items/provisions/potions/Life_potion.mdl"
+			"angles"      "0 176 0"
 			"spawnflags"  "7"
 			"origin"      "-2791 -10913 -28"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_071"
+			"targetname"  "gskSpawn_30_Garden_OK_071"  //gskSummonPotionLife
 			"origin"      "-2791 -10913 -33"
 			"angles"      "77 176 -0"
 			"spawnflags"  "7"
@@ -1074,12 +1082,13 @@
 			"radiusforrandomattitude" "500"
 			"classname" "item_potion_life"
 			"model" "models/items/provisions/potions/Life_potion.mdl"
+			"angles"      "0 176 0"
 			"spawnflags"  "7"
 			"origin"      "-2791 -10913 -28"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_072"
+			"targetname"  "gskSpawn_30_Garden_OK_072"  //gskSummonPotionLife
 			"origin"      "-3158 -13069 13"
 			"angles"      "61 30 -0"
 			"spawnflags"  "7"
@@ -1087,12 +1096,13 @@
 			"radiusforrandomattitude" "500"
 			"classname" "item_potion_life"
 			"model" "models/items/provisions/potions/Life_potion.mdl"
+			"angles"      "0 30 0"
 			"spawnflags"  "7"
 			"origin"      "-3158 -13069 18"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_073"
+			"targetname"  "gskSpawn_30_Garden_OK_073"  //gskSummonPotionLife
 			"origin"      "-3162 -13040 13"
 			"angles"      "63 10 -0"
 			"spawnflags"  "7"
@@ -1100,12 +1110,13 @@
 			"radiusforrandomattitude" "500"
 			"classname" "item_potion_life"
 			"model" "models/items/provisions/potions/Life_potion.mdl"
+			"angles"      "0 10 0"
 			"spawnflags"  "7"
 			"origin"      "-3162 -13040 18"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_074"
+			"targetname"  "gskSpawn_30_Garden_OK_074"  //gskSummonUndead
 			"origin"      "-3823 -13154 59"
 			"angles"      "64 3 -0"
 			"spawnflags"  "7"
@@ -1120,7 +1131,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_075"
+			"targetname"  "gskSpawn_30_Garden_OK_075"  //gskSummonUndead
 			"origin"      "-3798 -13089 61"
 			"angles"      "66 -31 -0"
 			"spawnflags"  "7"
@@ -1135,7 +1146,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_076"
+			"targetname"  "gskSpawn_30_Garden_OK_076"  //gskSummonUndead
 			"origin"      "-3740 -13047 66"
 			"angles"      "67 -67 -0"
 			"spawnflags"  "7"
@@ -1150,7 +1161,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_077"
+			"targetname"  "gskSpawn_30_Garden_OK_077"  //gskSummonUndead
 			"origin"      "-3669 -13031 55"
 			"angles"      "66 -104 -0"
 			"spawnflags"  "7"
@@ -1165,7 +1176,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_078"
+			"targetname"  "gskSpawn_30_Garden_OK_078"  //gskSummonUndead
 			"origin"      "-3591 -13042 38"
 			"angles"      "62 -135 -0"
 			"spawnflags"  "7"
@@ -1180,7 +1191,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_079"
+			"targetname"  "gskSpawn_30_Garden_OK_079"  //gskSummonUndead
 			"origin"      "-3520 -13114 14"
 			"angles"      "60 -169 -0"
 			"spawnflags"  "7"
@@ -1195,7 +1206,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_080"
+			"targetname"  "gskSpawn_30_Garden_OK_080"  //gskSummonUndead
 			"origin"      "-3521 -13192 9"
 			"angles"      "60 166 -0"
 			"spawnflags"  "7"
@@ -1210,7 +1221,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_081"
+			"targetname"  "gskSpawn_30_Garden_OK_081"  //gskSummonUndead
 			"origin"      "-3571 -13268 24"
 			"angles"      "60 137 -0"
 			"spawnflags"  "7"
@@ -1225,7 +1236,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_082"
+			"targetname"  "gskSpawn_30_Garden_OK_082"  //gskSummonUndead
 			"origin"      "-3652 -13284 41"
 			"angles"      "63 109 -0"
 			"spawnflags"  "7"
@@ -1240,7 +1251,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_083"
+			"targetname"  "gskSpawn_30_Garden_OK_083"  //gskSummonUndead
 			"origin"      "-3725 -13274 58"
 			"angles"      "64 77 -0"
 			"spawnflags"  "7"
@@ -1255,7 +1266,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_Garden_OK_084"
+			"targetname"  "gskSpawn_30_Garden_OK_084"  //gskSummonUndead
 			"origin"      "-3796 -13222 58"
 			"angles"      "65 37 -0"
 			"spawnflags"  "7"
@@ -1277,7 +1288,7 @@
 			}
 			"add:key"
 			{
-				"OnStartTouch" "gskSpawn_30_Garden_OK_BeginAt000,ForceSpawn,,0,-1,1,"
+				"OnStartTouch" "gskSpawn_30_Garden_OK_BeginAt000,ForceSpawn,,0.000,-1,1,"
 			}
 		}
 		
@@ -1344,7 +1355,7 @@
 			}
 			"add:key"
 			{
-				"OnStartTouch" "gskSpawn_30_Garden_OK_BeginAt016,ForceSpawn,,0,-1,1,"
+				"OnStartTouch" "gskSpawn_30_Garden_OK_BeginAt016,ForceSpawn,,0.000,-1,1,"
 			}
 		}
 		
@@ -1411,7 +1422,7 @@
 			}
 			"add:key"
 			{
-				"OnStartTouch" "gskSpawn_30_Garden_OK_BeginAt032,ForceSpawn,,0,-1,1,"
+				"OnStartTouch" "gskSpawn_30_Garden_OK_BeginAt032,ForceSpawn,,0.000,-1,1,"
 			}
 		}
 		
@@ -1478,7 +1489,7 @@
 			}
 			"add:key"
 			{
-				"OnStartTouch" "gskSpawn_30_Garden_OK_BeginAt048,ForceSpawn,,0,-1,1,"
+				"OnStartTouch" "gskSpawn_30_Garden_OK_BeginAt048,ForceSpawn,,0.000,-1,1,"
 			}
 		}
 		
@@ -1545,7 +1556,7 @@
 			}
 			"add:key"
 			{
-				"OnStartTouch" "gskSpawn_30_Garden_OK_BeginAt064,ForceSpawn,,0,-1,1,"
+				"OnStartTouch" "gskSpawn_30_Garden_OK_BeginAt064,ForceSpawn,,0.000,-1,1,"
 			}
 		}
 		
@@ -1612,7 +1623,7 @@
 			}
 			"add:key"
 			{
-				"OnStartTouch" "gskSpawn_30_Garden_OK_BeginAt080,ForceSpawn,,0,-1,1,"
+				"OnStartTouch" "gskSpawn_30_Garden_OK_BeginAt080,ForceSpawn,,0.000,-1,1,"
 			}
 		}
 		

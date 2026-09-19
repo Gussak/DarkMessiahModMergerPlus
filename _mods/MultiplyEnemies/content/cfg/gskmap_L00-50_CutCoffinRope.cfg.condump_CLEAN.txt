@@ -4,8 +4,9 @@ gskMapMessage RegionExtractedFromVector3D 3022 -846 1104
 gskMapMessage RegionExtractedToVector3D -359 149 -1037
 gskMapMessage gskSpawnTriggerID=1168513 (origin 1408 -1460 127) at L00.vmf
 gskSpawnTriggerID 1168513 "OnTrigger" ",ForceSpawn,,0,1,1,"
-gskSpawnNpcsAwake true
+gskSpawnTriggerID 1168513 "OnTrigger" ",ForceSpawn,,0,1,1,"
 gskSpawnDelay 0.0
+gskSpawnNpcsAwake true
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 0/80 )
 prop at 1518 -48 -404 missing modelname
 prop at 1518 -48 -404 missing modelname

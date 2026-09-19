@@ -1489,8 +1489,8 @@ if $bCreateSpawnsForCurrentMap;then
 	
 	#help @InfoID="Use existing spawn trigger" put this on the condump ex. for L02_B1: gskSpawnTriggerID tim_spwaner (then in the line below put this ex.: gskSpawnTriggerBeginIndex 2) #TODO may be seek other mods for mapadd files looking for last Template[0-9]* to start from, also look at .vmf file but not everyone may have the hammer sdk installed...
 	strSpawnTriggerLine=""
-	if egrep "^gskSpawnTriggerID" "$strFlCondump";then
-		strSpawnTriggerLine="$(egrep "^gskSpawnTriggerID" "$strFlCondump")"
+	if egrep "^gskSpawnTriggerID.*On" "$strFlCondump";then
+		strSpawnTriggerLine="$(egrep "^gskSpawnTriggerID.*On" "$strFlCondump" |tail -n 1)"
 		#strSpawnTriggerID="$(      egrep "^gskSpawnTriggerID"         "$strFlCondump" |awk '{print $2}')"
 		#nSpawnTriggerTemplateBeginIndex="$(egrep "gskSpawnTriggerBeginIndex" "$strFlCondump" |awk '{print $2}')"
 		echo "${strSpawnTriggerLine}" >>"$strFlCondumpCleanNew"
@@ -1507,12 +1507,12 @@ if $bCreateSpawnsForCurrentMap;then
 	function FUNCgskOptions() {
 		local lstrOpt="$1";shift
 		local lstrOptDefault="$1";shift
-		local lstrData="$(egrep "^${lstrOpt}" "$strFlCondump" |tail -n 1)"&&:
+		local lstrData="$(egrep "^${lstrOpt}" "${strFlCondumpClean}" |tail -n 1)"&&:
 		if [[ -n "$lstrData" ]];then
 			echo "$lstrData" >>"$strFlCondumpCleanNew"
 			echo "$lstrData" |awk '{print $2}' #OUTPUT
 		else
-			echo "$lstrOptDefault"
+			echo "$lstrOptDefault" #OUTPUT
 		fi
 		return 0
 	}
@@ -1522,7 +1522,7 @@ if $bCreateSpawnsForCurrentMap;then
 	fSpawnDelayIncrement="$(FUNCgskOptions "gskSpawnDelay" 0.0)"
 	bSpawnNpcsAwake="$(FUNCgskOptions "gskSpawnNpcsAwake" false)"
 	bAllowBurrow="$(FUNCgskOptions "gskSpawnBurrowAllowed" true)"
-	declare -p strFlCondump strSpawnTriggerID strSpawnTriggerType fSpawnDelayInitial fSpawnDelayIncrement bSpawnNpcsAwake bAllowBurrow
+	declare -p strFlCondump strFlCondumpClean strFlCondumpCleanNew strSpawnTriggerID strSpawnTriggerType fSpawnDelayInitial fSpawnDelayIncrement bSpawnNpcsAwake bAllowBurrow
 	#if egrep "^gskSpawnDelay" "$strFlCondump";then
 		#egrep "^gskSpawnDelay" "$strFlCondump" >>"$strFlCondumpCleanNew"
 		#fSpawnDelayIncrement="$(egrep "^gskSpawnDelay" "$strFlCondump" |awk '{print $2}')"

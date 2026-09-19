@@ -9,7 +9,7 @@
 			"targetname"  "gskSpawn_11_TrapsAtTutoText1a_000"  //gskSummonDevTrapMiniSpiderFly
 			"origin"      "-749 -4091 193"
 			"angles"      "63 -49 -0"
-			"spawnflags"  ""
+			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
@@ -24,7 +24,7 @@
 			"targetname"  "gskSpawn_11_TrapsAtTutoText1a_001"  //gskSummonDevTrapMiniSpiderFly
 			"origin"      "-743 -4134 193"
 			"angles"      "73 -19 -0"
-			"spawnflags"  "6"
+			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
@@ -39,7 +39,7 @@
 			"targetname"  "gskSpawn_11_TrapsAtTutoText1a_002"  //gskSummonDevTrapMiniSpiderFly
 			"origin"      "-720 -4163 194"
 			"angles"      "82 32 -0"
-			"spawnflags"  "6"
+			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
@@ -54,7 +54,7 @@
 			"targetname"  "gskSpawn_11_TrapsAtTutoText1a_003"  //gskSummonDevTrapMiniSpiderFly
 			"origin"      "-706 -4194 194"
 			"angles"      "54 -108 -0"
-			"spawnflags"  "6"
+			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
@@ -69,7 +69,7 @@
 			"targetname"  "gskSpawn_11_TrapsAtTutoText1a_004"  //gskSummonDevTrapMiniSpiderFly
 			"origin"      "-634 -4148 194"
 			"angles"      "52 -47 -0"
-			"spawnflags"  "6"
+			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
@@ -84,7 +84,7 @@
 			"targetname"  "gskSpawn_11_TrapsAtTutoText1a_005"  //gskSummonDevTrapMiniSpiderFly
 			"origin"      "-591 -4150 194"
 			"angles"      "60 -70 -0"
-			"spawnflags"  "6"
+			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
@@ -99,7 +99,7 @@
 			"targetname"  "gskSpawn_11_TrapsAtTutoText1a_006"  //gskSummonDevTrapMiniSpiderFly
 			"origin"      "-617 -4191 193"
 			"angles"      "66 -31 -0"
-			"spawnflags"  "6"
+			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
@@ -114,7 +114,7 @@
 			"targetname"  "gskSpawn_11_TrapsAtTutoText1a_007"  //gskSummonDevTrapMiniSpiderFly
 			"origin"      "-547 -4103 194"
 			"angles"      "67 54 -0"
-			"spawnflags"  "6"
+			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
@@ -129,7 +129,7 @@
 			"targetname"  "gskSpawn_11_TrapsAtTutoText1a_008"  //gskSummonDevTrapMiniSpiderFly
 			"origin"      "-560 -4058 194"
 			"angles"      "70 111 -0"
-			"spawnflags"  "6"
+			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
@@ -148,7 +148,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_11_TrapsAtTutoText1a_BeginAt000,ForceSpawn,,0.100,-1,1,"
+				"OnTrigger" "gskSpawn_11_TrapsAtTutoText1a_BeginAt000,ForceSpawn,,0.050,-1,1,"
 			}
 		}
 		
@@ -185,7 +185,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_11_TrapsAtTutoText1a_BeginAt001,ForceSpawn,,0.150,-1,1,"
+				"OnTrigger" "gskSpawn_11_TrapsAtTutoText1a_BeginAt001,ForceSpawn,,0.100,-1,1,"
 			}
 		}
 		
@@ -222,7 +222,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_11_TrapsAtTutoText1a_BeginAt002,ForceSpawn,,0.200,-1,1,"
+				"OnTrigger" "gskSpawn_11_TrapsAtTutoText1a_BeginAt002,ForceSpawn,,0.150,-1,1,"
 			}
 		}
 		
@@ -259,7 +259,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_11_TrapsAtTutoText1a_BeginAt003,ForceSpawn,,0.250,-1,1,"
+				"OnTrigger" "gskSpawn_11_TrapsAtTutoText1a_BeginAt003,ForceSpawn,,0.200,-1,1,"
 			}
 		}
 		
@@ -296,7 +296,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_11_TrapsAtTutoText1a_BeginAt004,ForceSpawn,,0.300,-1,1,"
+				"OnTrigger" "gskSpawn_11_TrapsAtTutoText1a_BeginAt004,ForceSpawn,,0.250,-1,1,"
 			}
 		}
 		
@@ -333,7 +333,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_11_TrapsAtTutoText1a_BeginAt005,ForceSpawn,,0.350,-1,1,"
+				"OnTrigger" "gskSpawn_11_TrapsAtTutoText1a_BeginAt005,ForceSpawn,,0.300,-1,1,"
 			}
 		}
 		
@@ -370,7 +370,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_11_TrapsAtTutoText1a_BeginAt006,ForceSpawn,,0.400,-1,1,"
+				"OnTrigger" "gskSpawn_11_TrapsAtTutoText1a_BeginAt006,ForceSpawn,,0.350,-1,1,"
 			}
 		}
 		
@@ -407,7 +407,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_11_TrapsAtTutoText1a_BeginAt007,ForceSpawn,,0.450,-1,1,"
+				"OnTrigger" "gskSpawn_11_TrapsAtTutoText1a_BeginAt007,ForceSpawn,,0.400,-1,1,"
 			}
 		}
 		
@@ -444,7 +444,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_11_TrapsAtTutoText1a_BeginAt008,ForceSpawn,,0.500,-1,1,"
+				"OnTrigger" "gskSpawn_11_TrapsAtTutoText1a_BeginAt008,ForceSpawn,,0.450,-1,1,"
 			}
 		}
 		
@@ -481,7 +481,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_11_TrapsAtTutoText1a_BeginAt009,ForceSpawn,,0.550,-1,1,"
+				"OnTrigger" "gskSpawn_11_TrapsAtTutoText1a_BeginAt009,ForceSpawn,,0.500,-1,1,"
 			}
 		}
 		
