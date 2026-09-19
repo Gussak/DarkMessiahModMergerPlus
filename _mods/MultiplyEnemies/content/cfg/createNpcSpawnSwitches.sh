@@ -417,8 +417,12 @@ function FUNCspawnFlags() { #help based on https://developer.valvesoftware.com/w
 	local lastrFlags=("${@-FS_None}")
 	#if [[ -z "${lastrFlags[*]}" ]];then
 	if $lbAddDefaults;then
-		local lstrSleep="";
-		if $bIsNpc && ! $bSpawnNpcsAwake;then lstrSleep=FS_SLEEP;fi
+		local lstrSleep=FS_SLEEP;
+		if $bIsNpc;then
+			if $bSpawnNpcsAwake;then
+				lstrSleep=""
+			fi
+		fi
 		
 		mapfile -t lastrFlags < <(echo "${lastrFlags[*]} ${lstrSleep} FS_FALL FS_QUIET" |tr ' ' '\n' |egrep -v "^$" |sort -u)
 	fi
@@ -808,7 +812,9 @@ function FUNCpredictableRandom() { #this way it will be predictable random based
 	printf %d "0x$(crc32 <(echo "${strFlMapadds}${1}"))"
 }
 function FUNCmapadds() {
-	local lstrSummonCmd="$1"
+	local lstrSummonCmd="$1";shift
+	
+	bIsNpc=false
 	
 	#((anTargetPosXYZ[z]+=1))&&: #height (this fix is needed?)
 	anTargetPosXYZ[z]="$(bc <<< "${anTargetPosXYZ[z]}+1")" #height (this fix is needed?)
@@ -835,7 +841,7 @@ function FUNCmapadds() {
 	local lnYDisplacement=0
 	local lstrIgnore=""
 	local lstrAddEntityExtra=""
-	: ${bSpawnNpcsAwake=false} #help
+	#: ${bSpawnNpcsAwake=false} #help
 	case "${lstrSummonCmd}" in
 		"+gskSummonGuard")
 			bIsNpc=true
@@ -1490,6 +1496,10 @@ if $bCreateSpawnsForCurrentMap;then
 		echo "${strSpawnTriggerLine}" >>"$strFlCondumpCleanNew"
 		#echo "gskSpawnTriggerBeginIndex $nSpawnTriggerTemplateBeginIndex" >>"$strFlCondumpCleanNew"
 	fi
+	#if egrep "^gskSpawnNoBurrowAllowed" "$strFlCondump";then
+		#echo "gskSpawnNoBurrowAllowed" >>"$strFlCondumpCleanNew"
+		#bAllowBurrow=false
+	#fi
 	#if egrep "^gskSpawnMode" "$strFlCondump";then #gskSpawnMode TrapFall
 		#egrep "^gskSpawnMode" "$strFlCondump" >>"$strFlCondumpCleanNew"
 		#strSpawnMode="$(egrep "^gskSpawnMode" "$strFlCondump" |awk '{print $2}')"
@@ -1497,18 +1507,22 @@ if $bCreateSpawnsForCurrentMap;then
 	function FUNCgskOptions() {
 		local lstrOpt="$1";shift
 		local lstrOptDefault="$1";shift
-		if egrep "^${lstrOpt}" "$strFlCondump";then
-			egrep "^${lstrOpt}" "$strFlCondump" >>"$strFlCondumpCleanNew"
-			egrep "^${lstrOpt}" "$strFlCondump" |awk '{print $2}' #OUTPUT
+		local lstrData="$(egrep "^${lstrOpt}" "$strFlCondump" |tail -n 1)"&&:
+		if [[ -n "$lstrData" ]];then
+			echo "$lstrData" >>"$strFlCondumpCleanNew"
+			echo "$lstrData" |awk '{print $2}' #OUTPUT
 		else
 			echo "$lstrOptDefault"
 		fi
+		return 0
 	}
 	strSpawnTriggerID="$(FUNCgskOptions "gskSpawnTriggerID" "")"
 	strSpawnTriggerType="$(FUNCgskOptions "gskSpawnTriggerType" "")"
 	fSpawnDelayInitial="$(FUNCgskOptions "gskSpawnDelayInital" 0.0)"
 	fSpawnDelayIncrement="$(FUNCgskOptions "gskSpawnDelay" 0.0)"
 	bSpawnNpcsAwake="$(FUNCgskOptions "gskSpawnNpcsAwake" false)"
+	bAllowBurrow="$(FUNCgskOptions "gskSpawnBurrowAllowed" true)"
+	declare -p strFlCondump strSpawnTriggerID strSpawnTriggerType fSpawnDelayInitial fSpawnDelayIncrement bSpawnNpcsAwake bAllowBurrow
 	#if egrep "^gskSpawnDelay" "$strFlCondump";then
 		#egrep "^gskSpawnDelay" "$strFlCondump" >>"$strFlCondumpCleanNew"
 		#fSpawnDelayIncrement="$(egrep "^gskSpawnDelay" "$strFlCondump" |awk '{print $2}')"
@@ -1517,11 +1531,6 @@ if $bCreateSpawnsForCurrentMap;then
 		#egrep "^gskSpawnNpcsAwake" "$strFlCondump" >>"$strFlCondumpCleanNew"
 		#bSpawnNpcsAwake="$(egrep "^gskSpawnNpcsAwake" "$strFlCondump" |awk '{print $2}')"
 	#fi
-	
-	if egrep "^gskSpawnNoBurrowAllowed" "$strFlCondump";then
-		echo "gskSpawnNoBurrowAllowed" >>"$strFlCondumpCleanNew"
-		bAllowBurrow=false
-	fi
 	
 	#: ${bCollectTargetPos:=true} #help temporary to update with old files
 	bCollectTargetPos=true
