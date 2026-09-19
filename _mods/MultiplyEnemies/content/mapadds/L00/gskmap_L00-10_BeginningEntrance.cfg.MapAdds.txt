@@ -3194,7 +3194,7 @@
 		{
 			"targetname"  "gskSpawn_10_BeginningEntrance_146"  //gskSummonFacehugger
 			"origin"      "-888 -4244 457"
-			"angles"      "22 15 -0"
+			"angles"      "22 179 -0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"

@@ -213,8 +213,10 @@ gskSpawnHintData; \
 echo ${strSpawnCommand}; echo ${strSpawnCommand}; \
 ${strSpawnCommand}; \
 \"" #this way, it creates a reusable log to quickly place all NPCs again!!! OBS.: getpos 2 times is because the engine bugs and may not print one character some times
+	strSpawnCommandLift=""
+	if [[ "${strSpawnCommand:0:1}" == "+" ]];then strSpawnCommandLift="-${strSpawnCommand:1}";fi
 	echo "alias -gsk${lstrType}Spawn_${liCurrentIndex} \"\
-ent_setname gskSpawnNameOk; \
+ent_setname gskSpawnNameOk; ${strSpawnCommandLift}; \
 \"" #it is important to wait the spawn happen before assigning a name to it
 }
 
@@ -863,6 +865,7 @@ function FUNCmapadds() {
 			echo '
 			"classname"   "npc_human_guard"
 			"model" "models/npc/guard/npc_guard_shrinked.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
 			"spawnflags"  "'"$(FUNCspawnFlags FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			;; 
 		"+gskSummonGuardBow")
@@ -871,9 +874,9 @@ function FUNCmapadds() {
 			"classname"   "npc_human_guard_bow"
 			"model" "models/npc/guard/npc_guard.mdl"
 			"additionalequipment" "weapon_arx_short_sword"
-			"QuiverAmmo" "8"
 			"rangeweapon" "weapon_arxcrossbow"
 			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"QuiverAmmo" "8"
 			"spawnflags"  "'"$(FUNCspawnFlags FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			;; 
 		"+gskSummonGuardShield")
@@ -882,9 +885,10 @@ function FUNCmapadds() {
 			"classname"   "npc_human_guard_bow"
 			"model" "models/npc/guard/npc_guard.mdl"
 			"additionalequipment" "weapon_arx_short_sword"
-			"QuiverAmmo" "8"
-			"rangeweapon" "weapon_arxcrossbow"
-			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"additionalshield" "weapon_mm_shield_guard"
+			//"rangeweapon" "weapon_arxcrossbow" //he cant shoot while the shield is on his hand
+			//"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			//"QuiverAmmo" "8"
 			"spawnflags"  "'"$(FUNCspawnFlags FS_DropHealing FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			;; 
 		mm_npc_create_necro_guard_bow|"gskSummonNecroGuardBow")
@@ -893,9 +897,9 @@ function FUNCmapadds() {
 			"classname"   "npc_necro_guard_bow"
 			"model" "models/npc/Necroguard/npc_necroguard.mdl"
 			"additionalequipment" "weapon_arx_short_sword"
-			"QuiverAmmo" "12"
 			"rangeweapon" "weapon_arxcrossbow"
 			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"QuiverAmmo" "12"
 			"spawnflags"  "'"$(FUNCspawnFlags FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			;; 
 		mm_npc_create_necro_guard_shield|"gskSummonNecroGuardShield")

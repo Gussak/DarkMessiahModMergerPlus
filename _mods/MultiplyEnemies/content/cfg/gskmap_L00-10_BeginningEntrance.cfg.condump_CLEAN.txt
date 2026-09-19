@@ -1031,8 +1031,8 @@ gskSummonFacehugger
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 146/156 )
 prop at -888 -4244 456 missing modelname
 prop at -888 -4244 456 missing modelname
-setpos -793.085815 -4220.376465 497.565125;setang 22.981031 -165.810455 -0.002217
-setpos -793.085815 -4220.376465 497.565125;setang 22.981031 -165.810455 -0.002217
+setpos -793.085815 -4220.376465 497.565125;setang 22.981031 -1.810455 -0.002217
+setpos -793.085815 -4220.376465 497.565125;setang 22.981031 -1.810455 -0.002217
 gskSummonFacehugger
 gskSummonFacehugger
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 147/156 )
