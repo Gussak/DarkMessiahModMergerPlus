@@ -2914,9 +2914,9 @@
 			"classname"   "npc_necro_guard_bow"
 			"model" "models/npc/Necroguard/npc_necroguard.mdl"
 			"additionalequipment" "weapon_arx_short_sword"
-			"QuiverAmmo" "12"
 			"rangeweapon" "weapon_arxcrossbow"
 			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"QuiverAmmo" "12"
 			"spawnflags"  "262"
 		}
 		"add:entity"
@@ -2930,9 +2930,9 @@
 			"classname"   "npc_necro_guard_bow"
 			"model" "models/npc/Necroguard/npc_necroguard.mdl"
 			"additionalequipment" "weapon_arx_short_sword"
-			"QuiverAmmo" "12"
 			"rangeweapon" "weapon_arxcrossbow"
 			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"QuiverAmmo" "12"
 			"spawnflags"  "262"
 		}
 		"add:entity"
@@ -2946,9 +2946,9 @@
 			"classname"   "npc_necro_guard_bow"
 			"model" "models/npc/Necroguard/npc_necroguard.mdl"
 			"additionalequipment" "weapon_arx_short_sword"
-			"QuiverAmmo" "12"
 			"rangeweapon" "weapon_arxcrossbow"
 			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"QuiverAmmo" "12"
 			"spawnflags"  "262"
 		}
 		"add:entity"
@@ -2962,9 +2962,9 @@
 			"classname"   "npc_necro_guard_bow"
 			"model" "models/npc/Necroguard/npc_necroguard.mdl"
 			"additionalequipment" "weapon_arx_short_sword"
-			"QuiverAmmo" "12"
 			"rangeweapon" "weapon_arxcrossbow"
 			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"QuiverAmmo" "12"
 			"spawnflags"  "262"
 		}
 		"add:entity"
@@ -2978,9 +2978,9 @@
 			"classname"   "npc_necro_guard_bow"
 			"model" "models/npc/Necroguard/npc_necroguard.mdl"
 			"additionalequipment" "weapon_arx_short_sword"
-			"QuiverAmmo" "12"
 			"rangeweapon" "weapon_arxcrossbow"
 			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"QuiverAmmo" "12"
 			"spawnflags"  "262"
 		}
 		"add:entity"
@@ -2994,9 +2994,9 @@
 			"classname"   "npc_necro_guard_bow"
 			"model" "models/npc/Necroguard/npc_necroguard.mdl"
 			"additionalequipment" "weapon_arx_short_sword"
-			"QuiverAmmo" "12"
 			"rangeweapon" "weapon_arxcrossbow"
 			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"QuiverAmmo" "12"
 			"spawnflags"  "262"
 		}
 		"add:entity"
@@ -3010,9 +3010,9 @@
 			"classname"   "npc_necro_guard_bow"
 			"model" "models/npc/Necroguard/npc_necroguard.mdl"
 			"additionalequipment" "weapon_arx_short_sword"
-			"QuiverAmmo" "12"
 			"rangeweapon" "weapon_arxcrossbow"
 			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"QuiverAmmo" "12"
 			"spawnflags"  "262"
 		}
 		"add:entity"
@@ -3026,9 +3026,9 @@
 			"classname"   "npc_necro_guard_bow"
 			"model" "models/npc/Necroguard/npc_necroguard.mdl"
 			"additionalequipment" "weapon_arx_short_sword"
-			"QuiverAmmo" "12"
 			"rangeweapon" "weapon_arxcrossbow"
 			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"QuiverAmmo" "12"
 			"spawnflags"  "262"
 		}
 

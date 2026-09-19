@@ -932,6 +932,7 @@
 			"radiusforrandomattitude" "500"
 			"classname"   "npc_human_guard"
 			"model" "models/npc/guard/npc_guard_shrinked.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
 			"spawnflags"  "263"
 			"origin"      "-2097 -4551 201"
 		}
