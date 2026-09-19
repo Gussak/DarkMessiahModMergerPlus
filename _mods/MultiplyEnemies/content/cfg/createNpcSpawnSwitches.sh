@@ -322,7 +322,8 @@ if((nRedoAllMultiThread>nCPUCores));then nRedoAllMultiThread=$nCPUCores;fi
 declare -p nCPUCores nRedoAllMultiThread
 
 if $bRedoAll;then
-	mapfile -t astrRedoAll < <(ls -1 gskmap_*.cfg.condump_CLEAN.txt |egrep -vi "SKIP") # |sed -r -e 's@gskmap_(.*)[.]cfg@\1@g')
+	# bigger files will be processed first as they stay longer processing so more CPU cores will be used simultaneously
+	mapfile -t astrRedoAll < <(ls -1S gskmap_*.cfg.condump_CLEAN.txt |egrep -vi "SKIP") # |sed -r -e 's@gskmap_(.*)[.]cfg@\1@g')
 	declare -p astrRedoAll |tr '[' '\n'
 	
 	: ${bRedoDryRun:=false} #help
@@ -813,7 +814,8 @@ nUndeadCount=0
 nSkeletonPartCount=0
 nTrapCount=0
 function FUNCpredictableRandom() { #this way it will be predictable random based on the mapadds filename name and some extra text and can also be a count index value
-	printf %d "0x$(crc32 <(echo "${strFlMapadds}${1}"))"
+	: ${strRandomSeedText:="DMMMGskModsPlusVAlpha896"} #help using this and recreating all mapadds, will make it all predictable random but in a different way. Good before a new run thru.
+	printf %d "0x$(crc32 <(echo "${strRandomSeedText}${strFlMapadds}${1}"))"
 }
 function FUNCmapadds() {
 	local lstrSummonCmd="$1";shift

@@ -19,10 +19,19 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
-			"angles" "0 56 0"
-			"health" "25"
-			"physdamagescale" "0.8"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "43 -37 27"
+			"health" "15"
+			"physdamagescale" "0.7"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
 			
 		}
 		"add:entity"
@@ -40,10 +49,10 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "1 97 39"
-			"health" "14"
-			"physdamagescale" "0.7"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 98 0"
+			"health" "32"
+			"physdamagescale" "0.8"
 			
 		}
 		"add:entity"
@@ -61,19 +70,10 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
-			"angles" "0 82 0"
-			"health" "28"
-			"physdamagescale" "0.6"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "18 -103 3"
+			"health" "36"
+			"physdamagescale" "0.5"
 			
 		}
 		"add:entity"
@@ -91,10 +91,19 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "36 59 28"
-			"health" "11"
-			"physdamagescale" "0.5"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 152 0"
+			"health" "9"
+			"physdamagescale" "0.6"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
 			
 		}
 		"add:entity"
@@ -112,10 +121,10 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
-			"angles" "0 68 0"
-			"health" "21"
-			"physdamagescale" "0.4"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "42 -113 42"
+			"health" "13"
+			"physdamagescale" "0.3"
 			
 		}
 		"add:entity"
@@ -133,19 +142,10 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "0 61 6"
-			"health" "27"
-			"physdamagescale" "0.3"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 -82 0"
+			"health" "12"
+			"physdamagescale" "0.4"
 			
 		}
 		"add:entity"
@@ -163,10 +163,10 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
-			"angles" "0 -26 0"
-			"health" "13"
-			"physdamagescale" "0.2"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "26 53 25"
+			"health" "21"
+			"physdamagescale" "0.1"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -193,10 +193,10 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "4 -97 11"
-			"health" "13"
-			"physdamagescale" "0.1"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 -156 0"
+			"health" "9"
+			"physdamagescale" "0.2"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -223,10 +223,10 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
-			"angles" "0 128 0"
-			"health" "25"
-			"physdamagescale" "0.8"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "31 19 27"
+			"health" "37"
+			"physdamagescale" "0.7"
 			
 		}
 		"add:entity"
@@ -244,10 +244,19 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "41 105 3"
-			"health" "13"
-			"physdamagescale" "0.7"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 122 0"
+			"health" "14"
+			"physdamagescale" "0.8"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
 			
 		}
 		"add:entity"
@@ -265,9 +274,9 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
-			"angles" "0 76 0"
-			"health" "27"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "33 39 40"
+			"health" "24"
 			"physdamagescale" "0.5"
 			
 		}
@@ -286,19 +295,10 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "35 53 15"
-			"health" "26"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 166 0"
+			"health" "31"
 			"physdamagescale" "0.6"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
 			
 		}
 		"add:entity"
@@ -316,9 +316,9 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
-			"angles" "0 38 0"
-			"health" "35"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "34 -83 16"
+			"health" "26"
 			"physdamagescale" "0.7"
 			
 		}
@@ -337,19 +337,10 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "19 -57 20"
-			"health" "29"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 36 0"
+			"health" "39"
 			"physdamagescale" "0.8"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
 			
 		}
 		"add:entity"
@@ -367,9 +358,9 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
-			"angles" "0 152 0"
-			"health" "35"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "8 91 19"
+			"health" "17"
 			"physdamagescale" "0.1"
 			
 			"physdamagescale" "1.0"
@@ -397,10 +388,19 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "40 177 4"
-			"health" "19"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 114 0"
+			"health" "9"
 			"physdamagescale" "0.2"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
 			
 		}
 		"add:entity"
@@ -418,9 +418,9 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
-			"angles" "0 130 0"
-			"health" "23"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "25 -159 33"
+			"health" "33"
 			"physdamagescale" "0.3"
 			
 			"physdamagescale" "1.0"
@@ -448,19 +448,10 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "33 83 9"
-			"health" "35"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 -144 0"
+			"health" "31"
 			"physdamagescale" "0.4"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
 			
 		}
 		"add:entity"
@@ -478,9 +469,9 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
-			"angles" "0 -164 0"
-			"health" "17"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "16 47 32"
+			"health" "29"
 			"physdamagescale" "0.5"
 			
 		}
@@ -499,9 +490,9 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "36 -67 37"
-			"health" "15"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 110 0"
+			"health" "31"
 			"physdamagescale" "0.6"
 			
 			"physdamagescale" "1.0"
@@ -529,9 +520,9 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "37 13 11"
-			"health" "33"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 -18 0"
+			"health" "36"
 			"physdamagescale" "0.6"
 			
 			"physdamagescale" "1.0"
@@ -559,19 +550,10 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
-			"angles" "0 -116 0"
-			"health" "35"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "29 7 27"
+			"health" "32"
 			"physdamagescale" "0.5"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
 			
 		}
 		"add:entity"
@@ -589,10 +571,19 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "25 95 12"
-			"health" "31"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 -36 0"
+			"health" "9"
 			"physdamagescale" "0.8"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
 			
 		}
 		"add:entity"
@@ -610,19 +601,10 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
-			"angles" "0 30 0"
-			"health" "10"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "0 117 26"
+			"health" "29"
 			"physdamagescale" "0.7"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
 			
 		}
 		"add:entity"
@@ -640,9 +622,9 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "9 -127 8"
-			"health" "17"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 -78 0"
+			"health" "33"
 			"physdamagescale" "0.2"
 			
 			"physdamagescale" "1.0"
@@ -670,9 +652,9 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
-			"angles" "0 152 0"
-			"health" "37"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "40 -157 12"
+			"health" "14"
 			"physdamagescale" "0.1"
 			
 			"physdamagescale" "1.0"
@@ -700,10 +682,19 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "20 75 23"
-			"health" "27"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 32 0"
+			"health" "21"
 			"physdamagescale" "0.4"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
 			
 		}
 		"add:entity"
@@ -721,10 +712,19 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
-			"angles" "0 58 0"
-			"health" "24"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "41 81 18"
+			"health" "26"
 			"physdamagescale" "0.3"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
 			
 		}
 		"add:entity"
@@ -742,9 +742,9 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "44 -27 14"
-			"health" "25"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 -58 0"
+			"health" "17"
 			"physdamagescale" "0.6"
 			
 			"physdamagescale" "1.0"
@@ -772,9 +772,9 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
-			"angles" "0 -36 0"
-			"health" "26"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "24 -97 41"
+			"health" "8"
 			"physdamagescale" "0.5"
 			
 			"physdamagescale" "1.0"
@@ -802,10 +802,19 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
-			"angles" "0 146 0"
-			"health" "24"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "26 161 9"
+			"health" "23"
 			"physdamagescale" "0.3"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
 			
 		}
 		"add:entity"
@@ -823,10 +832,19 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "6 179 2"
-			"health" "18"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 160 0"
+			"health" "27"
 			"physdamagescale" "0.4"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
 			
 		}
 		"add:entity"
@@ -844,9 +862,9 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
-			"angles" "0 64 0"
-			"health" "19"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "28 83 15"
+			"health" "11"
 			"physdamagescale" "0.1"
 			
 			"physdamagescale" "1.0"
@@ -874,10 +892,19 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "44 25 29"
-			"health" "8"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 74 0"
+			"health" "21"
 			"physdamagescale" "0.2"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
 			
 		}
 		"add:entity"
@@ -895,10 +922,19 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
-			"angles" "0 118 0"
-			"health" "9"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "0 -27 3"
+			"health" "21"
 			"physdamagescale" "0.7"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
 			
 		}
 		"add:entity"
@@ -916,9 +952,9 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "14 -161 36"
-			"health" "21"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 -132 0"
+			"health" "10"
 			"physdamagescale" "0.8"
 			
 		}
@@ -937,19 +973,10 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
-			"angles" "0 140 0"
-			"health" "14"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "16 39 32"
+			"health" "22"
 			"physdamagescale" "0.5"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
 			
 		}
 		"add:entity"
@@ -967,9 +994,9 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "14 149 3"
-			"health" "21"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 -74 0"
+			"health" "17"
 			"physdamagescale" "0.6"
 			
 		}
@@ -988,19 +1015,10 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
-			"angles" "0 74 0"
-			"health" "13"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "23 65 34"
+			"health" "26"
 			"physdamagescale" "0.3"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
 			
 		}
 		"add:entity"
@@ -1018,10 +1036,19 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "6 -133 23"
-			"health" "39"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 0 0"
+			"health" "25"
 			"physdamagescale" "0.4"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
 			
 		}
 		"add:entity"
@@ -1039,10 +1066,19 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "19 -41 17"
-			"health" "26"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 60 0"
+			"health" "30"
 			"physdamagescale" "0.8"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
 			
 		}
 		"add:entity"
@@ -1060,19 +1096,10 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
-			"angles" "0 30 0"
-			"health" "24"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "38 69 36"
+			"health" "23"
 			"physdamagescale" "0.7"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
 			
 		}
 		"add:entity"
@@ -1090,9 +1117,9 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "8 -3 23"
-			"health" "36"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 -114 0"
+			"health" "17"
 			"physdamagescale" "0.6"
 			
 		}
@@ -1111,19 +1138,10 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
-			"angles" "0 124 0"
-			"health" "12"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "10 15 40"
+			"health" "33"
 			"physdamagescale" "0.5"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
 			
 		}
 		"add:entity"
@@ -1141,19 +1159,10 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "34 -149 13"
-			"health" "30"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 -32 0"
+			"health" "19"
 			"physdamagescale" "0.4"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
 			
 		}
 		"add:entity"
@@ -1171,9 +1180,9 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
-			"angles" "0 178 0"
-			"health" "11"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "3 25 21"
+			"health" "28"
 			"physdamagescale" "0.3"
 			
 		}
@@ -1192,10 +1201,19 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "16 -111 35"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 42 0"
 			"health" "18"
 			"physdamagescale" "0.2"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
 			
 		}
 		"add:entity"
@@ -1213,19 +1231,10 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
-			"angles" "0 -88 0"
-			"health" "10"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "20 -141 34"
+			"health" "17"
 			"physdamagescale" "0.1"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
 			
 		}
 		"add:entity"
@@ -1243,10 +1252,19 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "6 119 38"
-			"health" "11"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 92 0"
+			"health" "29"
 			"physdamagescale" "0.8"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
 			
 		}
 		"add:entity"
@@ -1264,9 +1282,9 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
-			"angles" "0 94 0"
-			"health" "31"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "36 -107 4"
+			"health" "7"
 			"physdamagescale" "0.7"
 			
 			"physdamagescale" "1.0"
@@ -1294,19 +1312,10 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
-			"angles" "0 160 0"
-			"health" "25"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "13 155 13"
+			"health" "18"
 			"physdamagescale" "0.1"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
 			
 		}
 		"add:entity"
@@ -1324,10 +1333,19 @@
 			
 			"spawnflags"  "257"
 			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "21 25 10"
-			"health" "16"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 130 0"
+			"health" "18"
 			"physdamagescale" "0.2"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257"
+			"health" "1"
 			
 		}
 		"add:entity"

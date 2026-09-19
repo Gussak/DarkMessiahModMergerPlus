@@ -59,8 +59,8 @@ astrBMCmd=(
 	+gskTeleportUp
 	+gskTeleportTargetPos
 	+gskMoveThruWall
-	+gskDestroyToMana
-	 gskCreateLifePotionFromOilJar
+	+gskDestroyToMana #please aim at some irrelevant object first like dup weapons
+	 gskCreateLifePotionFromOilJar # please aim at an oiljar first..
 )
 mapfile -t astrBMCmd < <(echo "${astrBMCmd[@]}" |tr ' ' "\n" |sort -u)
 
@@ -93,7 +93,7 @@ for((i=0;i<${#astrBMCmd[@]};i++));do
 		strExtra=" <> <> <> <> (total ${#astrBMCmd[@]}) <> <> <> <> "
 	fi
 	
-	echo "alias +${strFuncPrefix}_sel_$(printf %03d $i) \"gskEchoOn; \
+	echo "alias +${strFuncPrefix}_sel_$(printf %03d $i) \"gskEchoOn7; \
 echo CycleCMD(${i}/${nLastIndex}):${astrBMCmd[$i]}$(FUNCcostHP "${astrBMCmd[$i]}") ${strExtra}; \
 alias +${strFuncPrefix}_previous +${strFuncPrefix}_sel_$(printf %03d $iPrev); \
 alias -${strFuncPrefix}_previous -${strFuncPrefix}_sel_$(printf %03d $iPrev); \
