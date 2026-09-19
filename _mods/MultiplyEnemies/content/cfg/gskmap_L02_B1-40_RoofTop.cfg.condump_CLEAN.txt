@@ -3,9 +3,7 @@ map     :  l02_b1 at: -3587 x, -11811 y, 905 z
 gskMapMessage FAILED: gskSpawnTriggerID=3108979 (targetname attic_door1) at L02_B1.vmf has OnOpen whipping_spawn,ForceSpawn,,0,1,1,
 gskMapMessage TODO The 2 guards were meant to spawn in the middle of opened windows (but I still dont know how to open them thru mapadds)
 gskMapMessage gskSpawnTriggerID=5106817 (targetname trappe_changelevel) at L02_B1.vmf
-gskSpawnTriggerID 5106817
-gskSpawnTriggerType OnOpen
-gskSpawnTriggerID 5106817
+gskSpawnTriggerAtID 5106817
 gskSpawnTriggerType OnOpen
 gskSpawnHint  // ( 0/41 )
 prop at -4059 -11640 1450 missing modelname

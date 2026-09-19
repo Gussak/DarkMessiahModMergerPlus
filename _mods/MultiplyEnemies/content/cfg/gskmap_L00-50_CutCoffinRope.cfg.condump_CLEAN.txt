@@ -3,9 +3,7 @@ map     :  L00 at: -1878 x, -4619 y, 342
 gskMapMessage RegionExtractedFromVector3D 3022 -846 1104
 gskMapMessage RegionExtractedToVector3D -359 149 -1037
 gskMapMessage gskSpawnTriggerID=1168513 (origin 1408 -1460 127) at L00.vmf
-gskSpawnTriggerID 1168513
-gskSpawnTriggerType OnTrigger
-gskSpawnTriggerID 1168513
+gskSpawnTriggerAtID 1168513
 gskSpawnTriggerType OnTrigger
 gskSpawnDelay 0.0
 gskSpawnNpcsAwake true

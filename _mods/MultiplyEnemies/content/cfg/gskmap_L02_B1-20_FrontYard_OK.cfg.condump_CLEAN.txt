@@ -1,9 +1,7 @@
 map     :  l02_b1 at: -4902 x, -10887 y, 328 z
 map     :  l02_b1 at: -4902 x, -10887 y, 328 z
 gskMapMessage gskSpawnTriggerID=5542494 (targetname yard_spawner) at L02_B1.vmf
-gskSpawnTriggerID 5542494
-gskSpawnTriggerType OnTrigger
-gskSpawnTriggerID 5542494
+gskSpawnTriggerAtID 5542494
 gskSpawnTriggerType OnTrigger
 gskSpawnHint  // ( 0/73 )
 prop at -4633 -10798 71 missing modelname

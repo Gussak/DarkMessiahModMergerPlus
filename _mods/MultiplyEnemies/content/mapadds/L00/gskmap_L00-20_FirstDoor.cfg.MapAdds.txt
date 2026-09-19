@@ -2000,6 +2000,390 @@
 			"origin"      "-545 -3315 198"
 		}
 
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"1244059"
+			}
+			"add:key"
+			{
+				"OnCombine1" "gskSpawn_20_FirstDoor_BeginAt000,ForceSpawn,,0.000,-1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_20_FirstDoor_BeginAt000"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_20_FirstDoor_BeginAt000"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_20_FirstDoor_000"
+
+				"Template02" "gskSpawn_20_FirstDoor_001"
+
+				"Template03" "gskSpawn_20_FirstDoor_002"
+
+				"Template04" "gskSpawn_20_FirstDoor_003"
+
+				"Template05" "gskSpawn_20_FirstDoor_004"
+
+				"Template06" "gskSpawn_20_FirstDoor_005"
+
+				"Template07" "gskSpawn_20_FirstDoor_006"
+
+				"Template08" "gskSpawn_20_FirstDoor_007"
+
+				"Template09" "gskSpawn_20_FirstDoor_008"
+
+				"Template10" "gskSpawn_20_FirstDoor_009"
+
+				"Template11" "gskSpawn_20_FirstDoor_010"
+
+				"Template12" "gskSpawn_20_FirstDoor_011"
+
+				"Template13" "gskSpawn_20_FirstDoor_012"
+
+				"Template14" "gskSpawn_20_FirstDoor_013"
+
+				"Template15" "gskSpawn_20_FirstDoor_014"
+
+				"Template16" "gskSpawn_20_FirstDoor_015"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"1244059"
+			}
+			"add:key"
+			{
+				"OnCombine1" "gskSpawn_20_FirstDoor_BeginAt016,ForceSpawn,,0.000,-1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_20_FirstDoor_BeginAt016"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_20_FirstDoor_BeginAt016"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_20_FirstDoor_016"
+
+				"Template02" "gskSpawn_20_FirstDoor_017"
+
+				"Template03" "gskSpawn_20_FirstDoor_018"
+
+				"Template04" "gskSpawn_20_FirstDoor_019"
+
+				"Template05" "gskSpawn_20_FirstDoor_020"
+
+				"Template06" "gskSpawn_20_FirstDoor_021"
+
+				"Template07" "gskSpawn_20_FirstDoor_022"
+
+				"Template08" "gskSpawn_20_FirstDoor_023"
+
+				"Template09" "gskSpawn_20_FirstDoor_024"
+
+				"Template10" "gskSpawn_20_FirstDoor_025"
+
+				"Template11" "gskSpawn_20_FirstDoor_026"
+
+				"Template12" "gskSpawn_20_FirstDoor_027"
+
+				"Template13" "gskSpawn_20_FirstDoor_028"
+
+				"Template14" "gskSpawn_20_FirstDoor_029"
+
+				"Template15" "gskSpawn_20_FirstDoor_030"
+
+				"Template16" "gskSpawn_20_FirstDoor_031"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"1244059"
+			}
+			"add:key"
+			{
+				"OnCombine1" "gskSpawn_20_FirstDoor_BeginAt032,ForceSpawn,,0.000,-1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_20_FirstDoor_BeginAt032"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_20_FirstDoor_BeginAt032"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_20_FirstDoor_032"
+
+				"Template02" "gskSpawn_20_FirstDoor_033"
+
+				"Template03" "gskSpawn_20_FirstDoor_034"
+
+				"Template04" "gskSpawn_20_FirstDoor_035"
+
+				"Template05" "gskSpawn_20_FirstDoor_036"
+
+				"Template06" "gskSpawn_20_FirstDoor_037"
+
+				"Template07" "gskSpawn_20_FirstDoor_038"
+
+				"Template08" "gskSpawn_20_FirstDoor_039"
+
+				"Template09" "gskSpawn_20_FirstDoor_040"
+
+				"Template10" "gskSpawn_20_FirstDoor_041"
+
+				"Template11" "gskSpawn_20_FirstDoor_042"
+
+				"Template12" "gskSpawn_20_FirstDoor_043"
+
+				"Template13" "gskSpawn_20_FirstDoor_044"
+
+				"Template14" "gskSpawn_20_FirstDoor_045"
+
+				"Template15" "gskSpawn_20_FirstDoor_046"
+
+				"Template16" "gskSpawn_20_FirstDoor_047"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"1244059"
+			}
+			"add:key"
+			{
+				"OnCombine1" "gskSpawn_20_FirstDoor_BeginAt048,ForceSpawn,,0.000,-1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_20_FirstDoor_BeginAt048"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_20_FirstDoor_BeginAt048"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_20_FirstDoor_048"
+
+				"Template02" "gskSpawn_20_FirstDoor_049"
+
+				"Template03" "gskSpawn_20_FirstDoor_050"
+
+				"Template04" "gskSpawn_20_FirstDoor_051"
+
+				"Template05" "gskSpawn_20_FirstDoor_052"
+
+				"Template06" "gskSpawn_20_FirstDoor_053"
+
+				"Template07" "gskSpawn_20_FirstDoor_054"
+
+				"Template08" "gskSpawn_20_FirstDoor_055"
+
+				"Template09" "gskSpawn_20_FirstDoor_056"
+
+				"Template10" "gskSpawn_20_FirstDoor_057"
+
+				"Template11" "gskSpawn_20_FirstDoor_058"
+
+				"Template12" "gskSpawn_20_FirstDoor_059"
+
+				"Template13" "gskSpawn_20_FirstDoor_060"
+
+				"Template14" "gskSpawn_20_FirstDoor_061"
+
+				"Template15" "gskSpawn_20_FirstDoor_062"
+
+				"Template16" "gskSpawn_20_FirstDoor_063"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"1244059"
+			}
+			"add:key"
+			{
+				"OnCombine1" "gskSpawn_20_FirstDoor_BeginAt064,ForceSpawn,,0.000,-1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_20_FirstDoor_BeginAt064"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_20_FirstDoor_BeginAt064"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_20_FirstDoor_064"
+
+				"Template02" "gskSpawn_20_FirstDoor_065"
+
+				"Template03" "gskSpawn_20_FirstDoor_066"
+
+				"Template04" "gskSpawn_20_FirstDoor_067"
+
+				"Template05" "gskSpawn_20_FirstDoor_068"
+
+				"Template06" "gskSpawn_20_FirstDoor_069"
+
+				"Template07" "gskSpawn_20_FirstDoor_070"
+
+				"Template08" "gskSpawn_20_FirstDoor_071"
+
+				"Template09" "gskSpawn_20_FirstDoor_072"
+
+				"Template10" "gskSpawn_20_FirstDoor_073"
+
+				"Template11" "gskSpawn_20_FirstDoor_074"
+
+				"Template12" "gskSpawn_20_FirstDoor_075"
+
+				"Template13" "gskSpawn_20_FirstDoor_076"
+
+				"Template14" "gskSpawn_20_FirstDoor_077"
+
+				"Template15" "gskSpawn_20_FirstDoor_078"
+
+				"Template16" "gskSpawn_20_FirstDoor_079"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"1244059"
+			}
+			"add:key"
+			{
+				"OnCombine1" "gskSpawn_20_FirstDoor_BeginAt080,ForceSpawn,,0.000,-1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_20_FirstDoor_BeginAt080"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_20_FirstDoor_BeginAt080"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_20_FirstDoor_080"
+
+				"Template02" "gskSpawn_20_FirstDoor_081"
+
+				"Template03" "gskSpawn_20_FirstDoor_082"
+
+				"Template04" "gskSpawn_20_FirstDoor_083"
+
+				"Template05" "gskSpawn_20_FirstDoor_084"
+
+				"Template06" "gskSpawn_20_FirstDoor_085"
+
+				"Template07" "gskSpawn_20_FirstDoor_086"
+
+			}
+		}
+
 	}
 }
 

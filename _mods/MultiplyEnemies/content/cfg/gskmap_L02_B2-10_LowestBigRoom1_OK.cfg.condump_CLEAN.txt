@@ -1,9 +1,7 @@
 map     :  l02_b2 at: -3823 x, -11337 y, -177 z
 map     :  l02_b2 at: -3823 x, -11337 y, -177 z
 gskMapMessage gskSpawnTriggerID=1049489 (targetname NONE) at L02_B2.vmf
-gskSpawnTriggerID 1049489
-gskSpawnTriggerType OnStartTouch
-gskSpawnTriggerID 1049489
+gskSpawnTriggerAtID 1049489
 gskSpawnTriggerType OnStartTouch
 gskSpawnHint  // ( 0/42 )
 prop at -4222 -10851 -116 missing modelname
