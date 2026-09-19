@@ -196,14 +196,14 @@ setpos 1215.387329 594.125488 -121.861801;setang 47.393852 96.635994 -0.000272
 setpos 1215.387329 594.125488 -121.861801;setang 47.393852 96.635994 -0.000272
 gskSummonDevSkeletonPart
 gskSummonDevSkeletonPart
-gskSpawnHint_gkSpawnHint_gskSpawnHint  // ( 27/125 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 27/125 )
 prop at 1218 1013 -540 missing modelname
 prop at 1218 1013 -540 missing modelname
 setpos 1216.351929 593.979370 -121.521957;setang 44.952568 89.771637 0.000008
 setpos 1216.351929 593.979370 -121.521957;setang 44.952568 89.771637 0.000008
 gskSummonDevSkeletonPart
 gskSummonDevSkeletonPart
-gskSpawnHint_gskSpawnHint_gskSawnHint  // ( 28/125 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 28/125 )
 prop at 1187 1045 -531 missing modelname
 prop at 1187 1045 -531 missing modelname
 setpos 1215.832764 593.719238 -121.146828;setang 42.180553 93.665901 0.000330
@@ -420,21 +420,21 @@ setpos 1757.284302 717.174927 -189.850037;setang 59.270500 148.513474 -0.001086
 setpos 1757.284302 717.174927 -189.850037;setang 59.270500 148.513474 -0.001086
 gskSummonDevSkeletonPart
 gskSummonDevSkeletonPart
-gskSpwnHint_gskSpawnHint_gskSpawnHint  // ( 59/125 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 59/125 )
 prop at 1629 808 -543 missing modelname
 prop at 1629 808 -543 missing modelname
 setpos 1757.363647 717.776978 -190.904449;setang 66.001221 145.016190 -0.001193
 setpos 1757.363647 717.776978 -190.904449;setang 66.001221 145.016190 -0.001193
 gskSummonDevSkeletonPart
 gskSummonDevSkeletonPart
-gskSpawnHint_gskSpanHint_gskSpawnHint  // ( 60/125 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 60/125 )
 prop at 1658 765 -543 missing modelname
 prop at 1658 765 -543 missing modelname
 setpos 1756.522217 716.619934 -191.971924;setang 72.666260 153.926971 -0.001065
 setpos 1756.522217 716.619934 -191.971924;setang 72.666260 153.926971 -0.001065
 gskSummonDevSkeletonPart
 gskSummonDevSkeletonPart
-gskSpawnHint_gskSpawnHint_gskSpawHint  // ( 61/125 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 61/125 )
 prop at 1670 246 -416 missing modelname
 prop at 1670 246 -416 missing modelname
 setpos 1612.227417 531.136047 -116.808701;setang 45.545925 -78.660255 -0.000055
@@ -637,21 +637,21 @@ setpos 1383.280640 987.697327 -93.067055;setang 45.678013 64.493988 -0.000077
 setpos 1383.280640 987.697327 -93.067055;setang 45.678013 64.493988 -0.000077
 gskSummonDevSkeletonPart
 gskSummonDevSkeletonPart
-gkSpawnHint_gskSpawnHint_gskSpawnHint  // ( 90/125 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 90/125 )
 prop at 1484 1305 -409 missing modelname
 prop at 1484 1305 -409 missing modelname
 setpos 1382.230225 987.913574 -92.768951;setang 43.500225 72.216019 0.000181
 setpos 1382.230225 987.913574 -92.768951;setang 43.500225 72.216019 0.000181
 gskSummonDevSkeletonPart
 gskSummonDevSkeletonPart
-gskSpawnHint_gskSpanHint_gskSpawnHint  // ( 91/125 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 91/125 )
 prop at 1519 1330 -408 missing modelname
 prop at 1519 1330 -408 missing modelname
 setpos 1382.657959 987.448669 -92.348457;setang 40.332214 67.992226 0.000531
 setpos 1382.657959 987.448669 -92.348457;setang 40.332214 67.992226 0.000531
 gskSummonDevSkeletonPart
 gskSummonDevSkeletonPart
-gskSpawnHint_gskSpawnHint_gskSpawnHin  // ( 92/125 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 92/125 )
 prop at 1556 1294 -408 missing modelname
 prop at 1556 1294 -408 missing modelname
 setpos 1383.679443 987.128357 -92.574211;setang 42.048256 59.940098 0.000346

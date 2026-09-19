@@ -4,7 +4,7 @@ gskMapMessage gskSpawnTriggerID=338670 (targetname door02.lever.button, origin -
 gskSpawnTriggerAtID 338670
 gskSpawnTriggerType OnPressed
 gskSpawnDelayInital 1.00
-gskSpawnDelay 0.05
+gskSpawnDelay 1.0
 gskSpawnNpcsAwake true
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 0/12 )
 prop at -647 -2539 192 missing modelname

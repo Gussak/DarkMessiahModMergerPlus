@@ -221,8 +221,9 @@ ent_setname gskSpawnNameOk; \
 : ${strExecEdit:=geany} #help
 : ${bAutoFixMissingChars:=true} #help the engine may not print all charaters in a line, so usually repeating the command will provide a 2nd line with the missing char
 
+strSpawnHintCore="gskSpawnHint_gskSpawnHint_gskSpawnHint"
 function FUNCchkSpawnHintData() {
-	local lstrSpawnHintDataKeyRef="echo gskSpawnHint_gskSpawnHint_gskSpawnHint; gskTargetPos;gskTargetPos; getpos;getpos; " #this was the last sync alias value
+	local lstrSpawnHintDataKeyRef="echo ${strSpawnHintCore}; gskTargetPos;gskTargetPos; getpos;getpos; " #this was the last sync alias value
 	local lstrSpawnHintDataKeyCheck="$(egrep "^alias\s*gskSpawnHintData\s+" "${strPathMainModFolder}/_mods/000gskBaseLib/content/cfg/gskBaseLib.cfg" |sed -r -e 's@.*\"(echo gskSpawnHint.*)\".*@\1@g')"
 	if [[ "$lstrSpawnHintDataKeyRef" != "$lstrSpawnHintDataKeyCheck" ]];then
 		declare -p lstrSpawnHintDataKeyRef lstrSpawnHintDataKeyCheck
@@ -355,7 +356,7 @@ if $bRedoAll;then
 		strFlMapAdds="../mapadds/${strMapNm}/${strFlCfg}.MapAdds.txt"
 		ls -l --time-style=full-iso "$strFlCfg" "$strFlMapAdds" "$strFlRedo"&&:
 		
-		nSpawnCount="$(egrep -c "gskSpawnHint" "$strFlRedo")"
+		nSpawnCount="$(egrep -c "gskSpawnHint" "$strFlRedo")" #this will match at least one of the 3 in a single line
 		#nSpawnMapAdds="$(egrep '"targetname".*"gskSpawn.*' "$strFlMapAdds" |egrep -v "TODO" -c)"&&:
 		if ! egrep -q "prop at .* missing modelname" "$strFlRedo";then
 			echo "WARNING: skipping, is not mapadds ready..."
@@ -1139,7 +1140,7 @@ function FUNCmapadds() {
 			#;;
 		"gskSummonDevTrapMiniSpiderFly") #// place flying mini spiders far from walls or they glue on it and their AI freezes stop working...
 			bIsNpc=true
-			lnYDisplacement=250
+			lnYDisplacement=200
 			echo '
 			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
 			"physdamagescale" "0.1" //useless?
@@ -1211,7 +1212,7 @@ function FUNCmapadds() {
 			((nSkeletonPartCount++))&&:
 			;;
 		"gskSummonDevArrow")
-			lnYDisplacement=5
+			#lnYDisplacement=5
 			echo '
 			"combinability" "1"
 			"combinetarget1enable" "1"
@@ -1416,13 +1417,17 @@ if $bCreateSpawnsForCurrentMap;then
 		local j
 		for((j=0;j<iTotEntryDataLines;j++));do
 			local lstrLine="${astrAllLines[$((iLnDataIni+j))]}"
-			local lstrExtra=""
+			#local lstrExtra=""
 			if [[ "$lstrLine" =~ .*gskSpawnHint.* ]];then 
 				#do not use, too confusing to give maintenance... lstrExtra="  // ( $((iSpawnCount+1))/${nTotSpawns} )";
-				lstrExtra="  // ( ${iSpawnCount}/${nTotSpawns} )";
+				#lstrExtra="  // ( ${iSpawnCount}/${nTotSpawns} )";
+				#
+				echo "${strSpawnHintCore}  // ( ${iSpawnCount}/${nTotSpawns} )" >>"$strFlCondumpCleanNew"
+			else
+				echo "${lstrLine}" >>"$strFlCondumpCleanNew"
 			fi
-			lstrLine="$(echo "${lstrLine}" |sed -r -e 's@(.*gskSpawnHint[^ ]*).*@\1@g')"
-			echo "${lstrLine}${lstrExtra}" >>"$strFlCondumpCleanNew"
+			#lstrLine="$(echo "${lstrLine}" |sed -r -e 's@(.*gskSpawnHint[^ ]*).*@\1@g')"
+			#echo "${lstrLine}${lstrExtra}" >>"$strFlCondumpCleanNew"
 		done
 	}
 	#bUsingCleanCondump=false;if [[ "$strFlCondump" == "$strFlCondumpClean" ]];then bUsingCleanCondump=true;fi
@@ -1479,7 +1484,7 @@ if $bCreateSpawnsForCurrentMap;then
 	strFinalMessages=""
 	
 	#help @InfoID="Map final messages" put this on the condump ex.: gskMapMessage Your message...
-	mapfile -t astrFinalMessages < <(egrep "(gskMapMessage|gskmsg)\ .*" "$strFlCondump" |sed -r -e 's@.*(gskMapMessage|gskmsg) (.*)@\2@g')
+	mapfile -t astrFinalMessages < <(egrep "(gskMapMessage|gskmsg)\ .*" "$strFlCondump" |tr '"' "'" |sed -r -e 's@.*(gskMapMessage|gskmsg) (.*)@\2@g')
 	for((iMsg=0;iMsg<${#astrFinalMessages[@]};iMsg++));do
 		if ! FUNCvalidateConsoleEchoMsg "${astrFinalMessages[$iMsg]}";then
 			FUNCexit 1

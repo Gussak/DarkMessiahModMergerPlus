@@ -1,39 +1,6 @@
---- /dev/fd/63	2026-09-18 19:16:35.753769408 -0300
-+++ /dev/fd/62	2026-09-18 19:16:35.754769547 -0300
-@@ -1 +1,34 @@
+--- /dev/fd/63	2026-09-19 00:00:41.788761712 -0300
++++ /dev/fd/62	2026-09-19 00:00:41.788761712 -0300
+@@ -1 +1 @@
 -map_warrior L00
 \ No newline at end of file
-+//WORKAROUND:
-+exec gskBaseLib.cfg
-+developer 1
-+play *gsk/english/BeginQuestC0a.wav
-+//echo As soon the game begins, execute this command: mm_player_skills_reset
-+gskWait2s
-+echo As soon the game begins, execute this command: exec CarefulCombatL00_INIT.cfg
-+gskWait5s
-+echo Otherwise will mess the balance (as you get now 2 free skill points to use as you prefer).
-+gskWait5s
-+echo beggining in 3... Be careful...
-+gskWait1s
-+echo beggining in 2... Have patience (like in a chess game)...
-+gskWait1s
-+echo beggining in 1... Be strong!
-+gskWait1s
-+echo and Good Luck!!!
-+gskWait1s
-+developer 0
-+
-+echo Loading map_warrior l00
-+map_warrior l00
-+// map_warrior is not forcing free dark vision...
-+//echo Loading map l00
-+//map l00
-+
-+//echo Reseting skills
-+// I dont know what is giving again darkvision/wizard eye for free.
-+// thru mapadds now You get 2 free skill points to begin with, and use the way you want.
-+// ISSUE: This should grant no free skills to begin with but is failing...
-+// TODO: create a popup at very beggining to ask the player to type on console: mm_player_skills_reset
-+//mm_player_skills_reset
-+
-+echo Chapter0 loaded
++exec chapter0_helper.cfg

@@ -12,12 +12,24 @@
 		{
 				"classname" "logic_auto"
 				"spawnflags" "1"
-				"connections"
+				"targetname" "logic_skill_resetter"
+				"connections" //this doesnt work? needs to be thru modify:entity?
 				{
 						"OnMapSpawn" "skill_resetter,Command,mm_player_skills_reset,0,-1"
 				}
 		}
-
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"logic_skill_resetter"
+			}
+			"add:key"
+			{
+				"OnMapSpawn" "skill_resetter,Command,mm_player_skills_reset,0,-1"
+			}
+		}
+		
 		"modify:entity"
 		{
 			"TargetMarkers"

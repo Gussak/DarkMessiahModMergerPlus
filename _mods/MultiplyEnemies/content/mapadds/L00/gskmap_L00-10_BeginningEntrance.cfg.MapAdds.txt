@@ -3272,7 +3272,6 @@
 			"model" "models/items/weapons/quiver_guard/quiver_guard.mdl"
 			"NbArrow" "3"
 			
-			"origin"      "-1905 -4776 206"
 		}
 		"add:entity"
 		{
@@ -3304,7 +3303,6 @@
 			"model" "models/items/weapons/quiver_guard/quiver_guard.mdl"
 			"NbArrow" "3"
 			
-			"origin"      "-673 -4081 234"
 		}
 
 	}

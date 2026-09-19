@@ -17,7 +17,7 @@
 			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
-			"origin"      "-749 -4091 443"
+			"origin"      "-749 -4091 393"
 		}
 		"add:entity"
 		{
@@ -32,7 +32,7 @@
 			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
-			"origin"      "-743 -4134 443"
+			"origin"      "-743 -4134 393"
 		}
 		"add:entity"
 		{
@@ -47,7 +47,7 @@
 			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
-			"origin"      "-720 -4163 444"
+			"origin"      "-720 -4163 394"
 		}
 		"add:entity"
 		{
@@ -62,7 +62,7 @@
 			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
-			"origin"      "-706 -4194 444"
+			"origin"      "-706 -4194 394"
 		}
 		"add:entity"
 		{
@@ -77,7 +77,7 @@
 			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
-			"origin"      "-634 -4148 444"
+			"origin"      "-634 -4148 394"
 		}
 		"add:entity"
 		{
@@ -92,7 +92,7 @@
 			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
-			"origin"      "-591 -4150 444"
+			"origin"      "-591 -4150 394"
 		}
 		"add:entity"
 		{
@@ -107,7 +107,7 @@
 			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
-			"origin"      "-617 -4191 443"
+			"origin"      "-617 -4191 393"
 		}
 		"add:entity"
 		{
@@ -122,7 +122,7 @@
 			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
-			"origin"      "-547 -4103 444"
+			"origin"      "-547 -4103 394"
 		}
 		"add:entity"
 		{
@@ -137,7 +137,7 @@
 			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
-			"origin"      "-560 -4058 444"
+			"origin"      "-560 -4058 394"
 		}
 
 		"modify:entity"

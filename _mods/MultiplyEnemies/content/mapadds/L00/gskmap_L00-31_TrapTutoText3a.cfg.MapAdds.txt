@@ -17,7 +17,7 @@
 			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
-			"origin"      "-647 -2539 443"
+			"origin"      "-647 -2539 393"
 		}
 		"add:entity"
 		{
@@ -32,7 +32,7 @@
 			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
-			"origin"      "-647 -2539 443"
+			"origin"      "-647 -2539 393"
 		}
 		"add:entity"
 		{
@@ -47,7 +47,7 @@
 			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
-			"origin"      "-647 -2539 443"
+			"origin"      "-647 -2539 393"
 		}
 		"add:entity"
 		{
@@ -62,7 +62,7 @@
 			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
-			"origin"      "-647 -2539 443"
+			"origin"      "-647 -2539 393"
 		}
 		"add:entity"
 		{
@@ -77,7 +77,7 @@
 			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
-			"origin"      "-647 -2539 443"
+			"origin"      "-647 -2539 393"
 		}
 		"add:entity"
 		{
@@ -92,7 +92,7 @@
 			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
-			"origin"      "-647 -2539 443"
+			"origin"      "-647 -2539 393"
 		}
 		"add:entity"
 		{
@@ -107,7 +107,7 @@
 			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
-			"origin"      "-647 -2539 443"
+			"origin"      "-647 -2539 393"
 		}
 		"add:entity"
 		{
@@ -122,7 +122,7 @@
 			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
-			"origin"      "-647 -2539 443"
+			"origin"      "-647 -2539 393"
 		}
 		"add:entity"
 		{
@@ -137,7 +137,7 @@
 			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
-			"origin"      "-647 -2539 443"
+			"origin"      "-647 -2539 393"
 		}
 		"add:entity"
 		{
@@ -152,7 +152,7 @@
 			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
-			"origin"      "-647 -2539 443"
+			"origin"      "-647 -2539 393"
 		}
 		"add:entity"
 		{
@@ -167,7 +167,7 @@
 			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
-			"origin"      "-647 -2539 443"
+			"origin"      "-647 -2539 393"
 		}
 		"add:entity"
 		{
@@ -182,7 +182,7 @@
 			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
-			"origin"      "-647 -2539 443"
+			"origin"      "-647 -2539 393"
 		}
 
 		"modify:entity"
@@ -193,7 +193,7 @@
 			}
 			"add:key"
 			{
-				"OnPressed" "gskSpawn_31_TrapTutoText3a_BeginAt000,ForceSpawn,,1.050,-1,1,"
+				"OnPressed" "gskSpawn_31_TrapTutoText3a_BeginAt000,ForceSpawn,,2.000,-1,1,"
 			}
 		}
 		
@@ -230,7 +230,7 @@
 			}
 			"add:key"
 			{
-				"OnPressed" "gskSpawn_31_TrapTutoText3a_BeginAt001,ForceSpawn,,1.100,-1,1,"
+				"OnPressed" "gskSpawn_31_TrapTutoText3a_BeginAt001,ForceSpawn,,3.000,-1,1,"
 			}
 		}
 		
@@ -267,7 +267,7 @@
 			}
 			"add:key"
 			{
-				"OnPressed" "gskSpawn_31_TrapTutoText3a_BeginAt002,ForceSpawn,,1.150,-1,1,"
+				"OnPressed" "gskSpawn_31_TrapTutoText3a_BeginAt002,ForceSpawn,,4.000,-1,1,"
 			}
 		}
 		
@@ -304,7 +304,7 @@
 			}
 			"add:key"
 			{
-				"OnPressed" "gskSpawn_31_TrapTutoText3a_BeginAt003,ForceSpawn,,1.200,-1,1,"
+				"OnPressed" "gskSpawn_31_TrapTutoText3a_BeginAt003,ForceSpawn,,5.000,-1,1,"
 			}
 		}
 		
@@ -341,7 +341,7 @@
 			}
 			"add:key"
 			{
-				"OnPressed" "gskSpawn_31_TrapTutoText3a_BeginAt004,ForceSpawn,,1.250,-1,1,"
+				"OnPressed" "gskSpawn_31_TrapTutoText3a_BeginAt004,ForceSpawn,,6.000,-1,1,"
 			}
 		}
 		
@@ -378,7 +378,7 @@
 			}
 			"add:key"
 			{
-				"OnPressed" "gskSpawn_31_TrapTutoText3a_BeginAt005,ForceSpawn,,1.300,-1,1,"
+				"OnPressed" "gskSpawn_31_TrapTutoText3a_BeginAt005,ForceSpawn,,7.000,-1,1,"
 			}
 		}
 		
@@ -415,7 +415,7 @@
 			}
 			"add:key"
 			{
-				"OnPressed" "gskSpawn_31_TrapTutoText3a_BeginAt006,ForceSpawn,,1.350,-1,1,"
+				"OnPressed" "gskSpawn_31_TrapTutoText3a_BeginAt006,ForceSpawn,,8.000,-1,1,"
 			}
 		}
 		
@@ -452,7 +452,7 @@
 			}
 			"add:key"
 			{
-				"OnPressed" "gskSpawn_31_TrapTutoText3a_BeginAt007,ForceSpawn,,1.400,-1,1,"
+				"OnPressed" "gskSpawn_31_TrapTutoText3a_BeginAt007,ForceSpawn,,9.000,-1,1,"
 			}
 		}
 		
@@ -489,7 +489,7 @@
 			}
 			"add:key"
 			{
-				"OnPressed" "gskSpawn_31_TrapTutoText3a_BeginAt008,ForceSpawn,,1.450,-1,1,"
+				"OnPressed" "gskSpawn_31_TrapTutoText3a_BeginAt008,ForceSpawn,,10.000,-1,1,"
 			}
 		}
 		
@@ -526,7 +526,7 @@
 			}
 			"add:key"
 			{
-				"OnPressed" "gskSpawn_31_TrapTutoText3a_BeginAt009,ForceSpawn,,1.500,-1,1,"
+				"OnPressed" "gskSpawn_31_TrapTutoText3a_BeginAt009,ForceSpawn,,11.000,-1,1,"
 			}
 		}
 		
@@ -563,7 +563,7 @@
 			}
 			"add:key"
 			{
-				"OnPressed" "gskSpawn_31_TrapTutoText3a_BeginAt010,ForceSpawn,,1.550,-1,1,"
+				"OnPressed" "gskSpawn_31_TrapTutoText3a_BeginAt010,ForceSpawn,,12.000,-1,1,"
 			}
 		}
 		
@@ -600,7 +600,7 @@
 			}
 			"add:key"
 			{
-				"OnPressed" "gskSpawn_31_TrapTutoText3a_BeginAt011,ForceSpawn,,1.600,-1,1,"
+				"OnPressed" "gskSpawn_31_TrapTutoText3a_BeginAt011,ForceSpawn,,13.000,-1,1,"
 			}
 		}
 		
@@ -637,7 +637,7 @@
 			}
 			"add:key"
 			{
-				"OnPressed" "gskSpawn_31_TrapTutoText3a_BeginAt012,ForceSpawn,,1.650,-1,1,"
+				"OnPressed" "gskSpawn_31_TrapTutoText3a_BeginAt012,ForceSpawn,,14.000,-1,1,"
 			}
 		}
 		

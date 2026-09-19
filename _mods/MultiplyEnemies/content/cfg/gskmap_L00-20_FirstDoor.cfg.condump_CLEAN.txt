@@ -7,21 +7,21 @@ gskSpawnTriggerAtID 1244059
 gskSpawnTriggerType OnCombine1
 gskSpawnDelay 0.0
 gskSpawnNpcsAwake true
-gskSpawnHint  // ( 0/87 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 0/87 )
 prop at -744 -3707 224 missing modelname
 prop at -744 -3707 224 missing modelname
 setpos -732.386292 -3707.942627 363.523041 : setang 89.000008 -142.661194 0.000096
 setpos -732.386292 -3707.942627 363.523041 : setang 89.000008 -142.661194 0.000096
 gskSummonSpiderRegular
 gskSummonSpiderRegular
-gskSpawnHint  // ( 1/87 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 1/87 )
 prop at -565 -2766 192 missing modelname
 prop at -565 -2766 192 missing modelname
 setpos -631.122314 -2790.949219 556.824158 : setang 79.496277 13.656665 -0.005789
 setpos -631.122314 -2790.949219 556.824158  setang 79.496277 13.656665 -0.005789
 gskSummonSpiderRegular
 gskSummonSpiderRegular
-gskSpawnHint  // ( 2/87 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 2/87 )
 prop at -414 -2713 201 missing modelname
 prop at -414 -2713 201 missing modelname
 setpos -403.071747 -2713.219727 365.109253 : setang 89.000008 -136.019226 -0.000093
@@ -35,21 +35,21 @@ setpos -648.411987 -2899.811523 350.930023;setang 43.336658 80.977356 0.000199
 setpos -648.411987 -2899.811523 350.930023;setang 43.336658 80.977356 0.000199
 gskSummonDevSkeletonPart
 gskSummonDevSkeletonPart
-gskSpawnHint_skSpawnHint_gskSpawnHint  // ( 4/87 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 4/87 )
 prop at -664 -2727 192 missing modelname
 prop at -664 -2727 192 missing modelname
 setpos -650.227600 -2899.804443 351.027710;setang 42.610649 94.507431 0.000283
 setpos -650.227600 -2899.804443 351.027710;setang 42.610649 94.507431 0.000283
 gskSummonDevSkeletonPart
 gskSummonDevSkeletonPart
-gskSpawnHint_gskSpawnHint_gkSpawnHint  // ( 5/87 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 5/87 )
 prop at -689 -2789 192 missing modelname
 prop at -689 -2789 192 missing modelname
 setpos -652.324158 -2899.383301 349.495575;setang 53.432301 108.500458 -0.000785
 setpos -652.324158 -2899.383301 349.495575;setang 53.432301 108.500458 -0.000785
 gskSummonDevSkeletonPart
 gskSummonDevSkeletonPart
-gskSpawnHint_gskSpawnHint_gskSpawnHin  // ( 6/87 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 6/87 )
 prop at -725 -2757 192 missing modelname
 prop at -725 -2757 192 missing modelname
 setpos -653.149719 -2900.436523 350.750580;setang 44.656654 116.683319 0.000046
@@ -357,28 +357,28 @@ setpos -636.946838 -3637.611328 362.498840;setang 41.882549 122.461449 0.000362
 setpos -636.946838 -3637.611328 362.498840;setang 41.882549 122.461449 0.000362
 gskSummonDevSkeletonPart
 gskSummonDevSkeletonPart
-gkSpawnHint_gskSpawnHint_gskSpawnHint  // ( 50/87 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 50/87 )
 prop at -753 -3405 193 missing modelname
 prop at -753 -3405 193 missing modelname
 setpos -635.885254 -3638.028320 363.589478;setang 33.170532 116.719994 0.001215
 setpos -635.885254 -3638.028320 363.589478;setang 33.170532 116.719994 0.001215
 gskSummonDevSkeletonPart
 gskSummonDevSkeletonPart
-gskSpawnHint_skSpawnHint_gskSpawnHint  // ( 51/87 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 51/87 )
 prop at -687 -3465 197 missing modelname
 prop at -687 -3465 197 missing modelname
 setpos -635.095520 -3636.682129 362.393188;setang 42.674595 106.885399 0.000276
 setpos -635.095520 -3636.682129 362.393188;setang 42.674595 106.885399 0.000276
 gskSummonDevSkeletonPart
 gskSummonDevSkeletonPart
-gskSpawnHint_gskSpawnHintgskSpawnHint  // ( 52/87 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 52/87 )
 prop at -703 -3375 192 missing modelname
 prop at -703 -3375 192 missing modelname
 setpos -634.531799 -3637.620361 363.689270;setang 32.312546 104.576088 0.001286
 setpos -634.531799 -3637.620361 363.689270;setang 32.312546 104.576088 0.001286
 gskSummonDevSkeletonPart
 gskSummonDevSkeletonPart
-gskSpawnHint_gskSpawnHint_gskSpawnHin  // ( 53/87 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 53/87 )
 prop at -612 -3452 193 missing modelname
 prop at -612 -3452 193 missing modelname
 setpos -632.046814 -3636.419189 362.428497;setang 42.410580 83.851501 0.000308
