@@ -61,6 +61,8 @@ astrBMCmd=(
 	+gskMoveThruWall
 	+gskDestroyToMana #please aim at some irrelevant object first like dup weapons
 	 gskCreateLifePotionFromOilJar # please aim at an oiljar first..
+	+BloodyManaHardCore
+	+BloodyAdrenaline
 )
 mapfile -t astrBMCmd < <(echo "${astrBMCmd[@]}" |tr ' ' "\n" |sort -u)
 
