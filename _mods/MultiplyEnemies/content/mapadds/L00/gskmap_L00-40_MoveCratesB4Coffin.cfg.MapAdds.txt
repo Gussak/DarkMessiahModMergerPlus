@@ -676,8 +676,8 @@
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_031"  //gskSummonDevSkeletonPart
-			"origin"      "1397 -1990 81"
-			"angles"      "18 89 0"
+			"origin"      "1433 -1939 74"
+			"angles"      "22 95 0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
@@ -706,8 +706,8 @@
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_032"  //gskSummonDevSkeletonPart
-			"origin"      "1433 -1939 74"
-			"angles"      "22 95 0"
+			"origin"      "1456 -2000 97"
+			"angles"      "15 98 0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
@@ -727,8 +727,8 @@
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_033"  //gskSummonDevSkeletonPart
-			"origin"      "1456 -2000 97"
-			"angles"      "15 98 0"
+			"origin"      "1443 -2063 114"
+			"angles"      "11 95 0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
@@ -757,8 +757,8 @@
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_034"  //gskSummonDevSkeletonPart
-			"origin"      "1443 -2063 114"
-			"angles"      "11 95 0"
+			"origin"      "1480 -2039 114"
+			"angles"      "11 100 0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
@@ -778,8 +778,8 @@
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_035"  //gskSummonDevSkeletonPart
-			"origin"      "1480 -2039 114"
-			"angles"      "11 100 0"
+			"origin"      "1402 -2147 135"
+			"angles"      "7 90 0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
@@ -799,8 +799,8 @@
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_036"  //gskSummonDevSkeletonPart
-			"origin"      "1402 -2147 135"
-			"angles"      "7 90 0"
+			"origin"      "1346 -2173 151"
+			"angles"      "5 84 0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
@@ -829,8 +829,8 @@
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_037"  //gskSummonDevSkeletonPart
-			"origin"      "1346 -2173 151"
-			"angles"      "5 84 0"
+			"origin"      "1320 -2110 131"
+			"angles"      "8 80 0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
@@ -850,8 +850,8 @@
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_038"  //gskSummonDevSkeletonPart
-			"origin"      "1320 -2110 131"
-			"angles"      "8 80 0"
+			"origin"      "1313 -2151 149"
+			"angles"      "5 80 0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
@@ -880,8 +880,8 @@
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_039"  //gskSummonDevSkeletonPart
-			"origin"      "1313 -2151 149"
-			"angles"      "5 80 0"
+			"origin"      "1473 -2252 179"
+			"angles"      "2 96 0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
@@ -901,8 +901,8 @@
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_040"  //gskSummonDevSkeletonPart
-			"origin"      "1473 -2252 179"
-			"angles"      "2 96 0"
+			"origin"      "1503 -2335 209"
+			"angles"      "-0 98 0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
@@ -931,8 +931,8 @@
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_041"  //gskSummonDevSkeletonPart
-			"origin"      "1503 -2335 209"
-			"angles"      "-0 98 0"
+			"origin"      "1492 -2251 181"
+			"angles"      "1 98 0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
@@ -961,8 +961,8 @@
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_042"  //gskSummonDevSkeletonPart
-			"origin"      "1492 -2251 181"
-			"angles"      "1 98 0"
+			"origin"      "1402 -2188 155"
+			"angles"      "4 90 0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
@@ -991,8 +991,8 @@
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_043"  //gskSummonDevSkeletonPart
-			"origin"      "1402 -2188 155"
-			"angles"      "4 90 0"
+			"origin"      "1313 -2248 171"
+			"angles"      "2 82 0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
@@ -1021,8 +1021,8 @@
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_044"  //gskSummonDevSkeletonPart
-			"origin"      "1313 -2248 171"
-			"angles"      "2 82 0"
+			"origin"      "1343 -2224 167"
+			"angles"      "3 84 0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
@@ -1051,8 +1051,8 @@
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_045"  //gskSummonDevSkeletonPart
-			"origin"      "1343 -2224 167"
-			"angles"      "3 84 0"
+			"origin"      "1411 -981 -214"
+			"angles"      "5 95 0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
@@ -1081,8 +1081,8 @@
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_046"  //gskSummonDevSkeletonPart
-			"origin"      "1420 -1991 84"
-			"angles"      "18 92 0"
+			"origin"      "1349 -940 -229"
+			"angles"      "9 85 0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
@@ -1102,8 +1102,8 @@
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_047"  //gskSummonDevSkeletonPart
-			"origin"      "1411 -981 -214"
-			"angles"      "5 95 0"
+			"origin"      "1394 -855 -251"
+			"angles"      "17 95 0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
@@ -1123,8 +1123,8 @@
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_048"  //gskSummonDevSkeletonPart
-			"origin"      "1349 -940 -229"
-			"angles"      "9 85 0"
+			"origin"      "1466 -857 -251"
+			"angles"      "15 110 0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
@@ -1153,8 +1153,8 @@
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_049"  //gskSummonDevSkeletonPart
-			"origin"      "1394 -855 -251"
-			"angles"      "17 95 0"
+			"origin"      "1430 -787 -293"
+			"angles"      "32 106 0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
@@ -1183,8 +1183,8 @@
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_050"  //gskSummonDevSkeletonPart
-			"origin"      "1466 -857 -251"
-			"angles"      "15 110 0"
+			"origin"      "1333 -794 -292"
+			"angles"      "31 77 0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
@@ -1204,8 +1204,8 @@
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_051"  //gskSummonDevSkeletonPart
-			"origin"      "1430 -787 -293"
-			"angles"      "32 106 0"
+			"origin"      "1309 -846 -252"
+			"angles"      "17 74 0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
@@ -1234,8 +1234,8 @@
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_052"  //gskSummonDevSkeletonPart
-			"origin"      "1333 -794 -292"
-			"angles"      "31 77 0"
+			"origin"      "1263 -746 -326"
+			"angles"      "40 51 0"
 			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
@@ -1254,67 +1254,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_053"  //gskSummonDevSkeletonPart
-			"origin"      "1309 -846 -252"
-			"angles"      "17 74 0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"inertiaScale" "1.0"
-			"fademindist" "-1"
-			"fadescale" "1"
-			"UseSpeedToCalculateSoundVolume" "1"
-			
-			"spawnflags"  "257"
-			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
-			"angles" "0 -126 0"
-			"health" "25"
-			"physdamagescale" "0.7"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
-			
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_054"  //gskSummonDevSkeletonPart
-			"origin"      "1263 -746 -326"
-			"angles"      "40 51 0"
-			"spawnflags"  "7"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"inertiaScale" "1.0"
-			"fademindist" "-1"
-			"fadescale" "1"
-			"UseSpeedToCalculateSoundVolume" "1"
-			
-			"spawnflags"  "257"
-			"classname" "prop_physics"
-			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
-			"angles" "8 171 7"
-			"health" "37"
-			"physdamagescale" "0.8"
-			
-			"physdamagescale" "1.0"
-			"ExplodeDamage" "3500"
-			"ExplodeRadius" "100"
-			"trapsecret" "2"
-			"disableshadows" "0"
-			"damagetype" "0"
-			"spawnflags"  "257"
-			"health" "1"
-			
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_055"  //gskSummonSpiderRegular
+			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_053"  //gskSummonSpiderRegular
 			"origin"      "1404 -1454 122"
 			"angles"      "-6 -91 0"
 			"spawnflags"  "7"
@@ -1327,7 +1267,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_056"  //gskSummonPotionLife
+			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_054"  //gskSummonPotionLife
 			"origin"      "1624 -1162 49"
 			"angles"      "52 -161 -0"
 			"spawnflags"  "7"
@@ -1341,7 +1281,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_057"  //gskSummonPotionLife
+			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_055"  //gskSummonPotionLife
 			"origin"      "1622 -1165 241"
 			"angles"      "55 9 -0"
 			"spawnflags"  "7"
@@ -1355,7 +1295,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_058"  //gskSummonDevTrapFire
+			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_056"  //gskSummonDevTrapFire
 			"origin"      "1659 -1165 241"
 			"angles"      "60 166 -0"
 			"spawnflags"  "7"
