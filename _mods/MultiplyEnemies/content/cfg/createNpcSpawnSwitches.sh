@@ -548,7 +548,7 @@ function FUNCappendToSpawnTrigger() {
 		local lstrTargetName
 		local lnSTTemplateIndex=$lnSTTemplateBeginIndex
 		while true;do
-			if((liTargetIndex == ${#astrTriggeredSpawnerTargetNameList[@]}));then break;fi
+			if((liTargetIndex == ${#astrTriggeredSpawnerTargetNameList[@]}));then break;fi #no more targets to spawn
 			
 			lstrTargetName="${astrTriggeredSpawnerTargetNameList[$liTargetIndex]}"
 			((liTargetIndex++))&&:
@@ -557,6 +557,8 @@ function FUNCappendToSpawnTrigger() {
 				"Template'"$(printf %02d $lnSTTemplateIndex)"'" "'"${lstrTargetName}"'"' >>"${strFlMapadds}"
 			
 			if((lnSTTemplateIndex==nSpawnTriggerLinkedLimit));then #not greater than limit because the last slot will be used to link the next section
+				if((liTargetIndex == ${#astrTriggeredSpawnerTargetNameList[@]}));then break;fi #no more targets to spawn
+				
 				lstrSTSectionID="$(FUNCsectionID ${liTargetIndex})" #for next section
 				#lstrTargetName="$lstrSTSectionID"
 				lbCreateNewSection=true

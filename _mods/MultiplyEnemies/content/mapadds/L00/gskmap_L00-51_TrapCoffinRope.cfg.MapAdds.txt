@@ -785,41 +785,6 @@
 			}
 		}
 
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"id"	"1168513"
-			}
-			"add:key"
-			{
-				"OnTrigger" "gskSpawn_51_TrapCoffinRope_BeginAt015,ForceSpawn,,6.280,-1,1,"
-			}
-		}
-		
-
-		"add:entity"
-		{
-			"classname" "point_template"
-			"combinability" "1"
-			"spawnflags" "2"
-			"targetname" "gskSpawn_51_TrapCoffinRope_BeginAt015"
-			"origin" "0 0 0"
-		}
-
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_51_TrapCoffinRope_BeginAt015"
-			}
-			"add:key"
-			{
-		
-
-			}
-		}
-
 	}
 }
 

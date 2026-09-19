@@ -473,41 +473,6 @@
 			}
 		}
 
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"id"	"338295"
-			}
-			"add:key"
-			{
-				"OnTrigger" "gskSpawn_11_TrapsAtTutoText1a_BeginAt009,ForceSpawn,,0.500,-1,1,"
-			}
-		}
-		
-
-		"add:entity"
-		{
-			"classname" "point_template"
-			"combinability" "1"
-			"spawnflags" "2"
-			"targetname" "gskSpawn_11_TrapsAtTutoText1a_BeginAt009"
-			"origin" "0 0 0"
-		}
-
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_11_TrapsAtTutoText1a_BeginAt009"
-			}
-			"add:key"
-			{
-		
-
-			}
-		}
-
 	}
 }
 

@@ -884,41 +884,6 @@
 			}
 		}
 
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"id"	"5634833"
-			}
-			"add:key"
-			{
-				"OnTrigger" "gskSpawn_60_RunningA_BeginAt048,ForceSpawn,,0.000,-1,1,"
-			}
-		}
-		
-
-		"add:entity"
-		{
-			"classname" "point_template"
-			"combinability" "1"
-			"spawnflags" "2"
-			"targetname" "gskSpawn_60_RunningA_BeginAt048"
-			"origin" "0 0 0"
-		}
-
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_60_RunningA_BeginAt048"
-			}
-			"add:key"
-			{
-		
-
-			}
-		}
-
 	}
 }
 

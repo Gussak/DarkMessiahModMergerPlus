@@ -1457,41 +1457,6 @@
 			}
 		}
 
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"id"	"1244059"
-			}
-			"add:key"
-			{
-				"OnCombine1" "gskSpawn_21_TrapCleanB4FirstDoor_BeginAt022,ForceSpawn,,24.000,-1,1,"
-			}
-		}
-		
-
-		"add:entity"
-		{
-			"classname" "point_template"
-			"combinability" "1"
-			"spawnflags" "2"
-			"targetname" "gskSpawn_21_TrapCleanB4FirstDoor_BeginAt022"
-			"origin" "0 0 0"
-		}
-
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"gskSpawn_21_TrapCleanB4FirstDoor_BeginAt022"
-			}
-			"add:key"
-			{
-		
-
-			}
-		}
-
 	}
 }
 
