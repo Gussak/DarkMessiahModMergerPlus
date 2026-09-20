@@ -1,5 +1,6 @@
 "Rune"
 {
+		//TODO move to 000gskBaseLib
     "name"      "GSK global enhancements"
     "description"   "To play GSK mods properly you need to activate this."
     "icon"          "materials/wos/vgui/runes/rune_w.tga"  //it is the same rune actually TODO create a new one?
@@ -8,7 +9,11 @@
     "requires"      "relic_l00_1"
     "mapadds"
     {
-        "global_mapadds/gsk_global_enhancements.txt"   "1"
-        "global_mapadds/gsk_global_setter_buddha.txt"  "1"
+			"global_mapadds/gsk_global_enhancements.txt"      "1"
+			"global_mapadds/gsk_global_setter_buddha.txt"     "1"
+			"global_mapadds/gsk_global_setter_ai_disable.txt" "1"
+			"global_mapadds/gsk_global_setter_noclip.txt"     "1"
+			"global_mapadds/gsk_global_setter_notarget.txt"   "1"
+			"global_mapadds/gsk_global_setter_show_triggers.txt"   "1"
     }
 }
