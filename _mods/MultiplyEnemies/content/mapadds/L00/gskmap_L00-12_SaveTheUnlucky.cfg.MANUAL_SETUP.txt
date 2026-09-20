@@ -1,83 +1,89 @@
+//https://share.google/aimode/FfMUIMjZOGUWqlWYU
+
 "mapadd_keyvalues"
 {
 	"PreInitialize"
 	{	
 
-		// 1. Create the survival tracker switch
-		add:entity
-		{
-			"classname" "logic_branch"
-			"targetname" "SaveTheUnlucky_friendly_survival_check"
-			"InitialValue" "1" // Starts as True (Survived)
-		}
-		modify:entity
-		{
-			"TargetMarkers"
+			// ==========================================
+			// 1. BASE ENTITY INITIALIZATION (CREATION)
+			// ==========================================
+
+			// Create the survival tracker switch
+			add:entity
 			{
-				"targetname"	"SaveTheUnlucky_friendly_survival_check"
+					"classname" "logic_branch"
+					"targetname" "SaveTheUnlucky_friendly_survival_check"
+					"InitialValue" "1"
 			}
-			"add:key"
+
+			// Create the counter entity
+			add:entity
 			{
-				// If the check passes when tested, award the skill point
-				"OnTrue" "gsk_generic_cmds_issuer,Command,mm_player_add_skillpoints 1,0,-1"
-				"OnTrue" "gsk_generic_cmds_issuer,Command,echo The Unlucky Shrinked Guard was saved -- you get 1 skill point,0,-1"
-				"OnFalse" "gsk_generic_cmds_issuer,Command,echo The Unlucky Shrinked Guard DIED -- you get NO skill point,0,-1"
+					"classname" "math_counter"
+					"targetname" "SaveTheUnlucky_kill_counter"
+					"startvalue" "0"
+					"max" "31"
 			}
-		}
-		// 2. Create the counter entity (Modified to trigger the test)
-		add:entity
-		{
-			"classname" "math_counter"
-			"targetname" "SaveTheUnlucky_kill_counter"
-			"startvalue" "0"
-			"max" "31" //the total found at related MapAdds auto generated file SYNC_HELPER_TIP
-		}
-		modify:entity
-		{
-			"TargetMarkers"
+
+			// ==========================================
+			// 2. LOGIC HOOKS & OUTPUT LINKS (MODIFICATIONS)
+			// ==========================================
+
+			// Hook the logic outputs onto the survival tracker switch
+			modify:entity
 			{
-				"targetname"	"SaveTheUnlucky_kill_counter"
+					TargetMarkers
+					{
+							"classname" "logic_branch"
+							"targetname" "SaveTheUnlucky_friendly_survival_check"
+					}
+					add:key
+					{
+							"OnTrue" "gsk_generic_cmds_issuer,Command,mm_player_add_skillpoints 1,0,-1"
+							"OnFalse" "gsk_generic_cmds_issuer,Command,echo \"NPC DIED - NO SKILL POINT\",0,-1"
+					}
 			}
-			"add:key"
+
+			// Hook the conditional check to fire when the kill counter finishes
+			modify:entity
 			{
-				// When all foes are dead, don't give the point automatically—test the branch instead
-				"OnHitMax" "SaveTheUnlucky_friendly_survival_check,Test,,0,-1"
+					TargetMarkers
+					{
+							"classname" "math_counter"
+							"targetname" "SaveTheUnlucky_kill_counter"
+					}
+					add:key
+					{
+							"OnHitMax" "SaveTheUnlucky_friendly_survival_check,Test,,0,-1"
+					}
 			}
-		}
-		//// 3. Create a server command executor
-		//add:entity
-		//{
-			//"classname" "point_servercommand"
-			//"targetname" "server_command" //replaced by gsk_generic_cmds_issuer
-		//}
-		// 4. Hook the friendly NPC to the survival tracker
-		modify:entity
-		{
-			"TargetMarkers"
+
+			// Hook the friendly NPC to the survival tracker switch
+			modify:entity
 			{
-				"targetname" "gskSpawn_12_SaveTheUnlucky_000" //the sole mini guard auto generated name, just keep it as first one there SYNC_HELPER_TIP
+					TargetMarkers
+					{
+							"targetname" "gskSpawn_12_SaveTheUnlucky_000"
+					}
+					add:key
+					{
+							"OnDeath" "SaveTheUnlucky_friendly_survival_check,SetValue,0,0,-1"
+					}
 			}
-			"add:key"
+
+			// Hook all mini spiders globally to the kill counter
+			modify:entity
 			{
-				// If this specific friendly dies, flip the switch to False (0)
-				"OnDeath" "SaveTheUnlucky_friendly_survival_check,SetValue,0,0,-1"
+					TargetMarkers
+					{
+							"classname" "npc_spider_mini"
+					}
+					add:key
+					{
+							"OnDeath" "SaveTheUnlucky_kill_counter,Add,1,0,-1"
+					}
 			}
-		}
-		// 5. Hook your ambush enemies to the kill counter (Example)
-		modify:entity
-		{
-			"TargetMarkers"
-			{
-				//"targetname" "gskSpawn_12_SaveTheUnlucky_001" //the mini spiders
-				"classname" "npc_spider_mini" //it can be set to other minispiders elsewhere, but if player kills enough it will work
-			}
-			"add:key"
-			{
-				// If this specific friendly dies, flip the switch to False (0)
-				"OnDeath" "SaveTheUnlucky_kill_counter,Add,1,0,-1"
-			}
-		}
 
 	}
 }
-
