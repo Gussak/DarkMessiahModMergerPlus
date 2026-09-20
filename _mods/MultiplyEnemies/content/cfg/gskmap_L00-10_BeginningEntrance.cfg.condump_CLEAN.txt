@@ -188,13 +188,6 @@ setpos -596.461670 -4100.278320 300.863770 : setang 76.988541 -175.267120 -0.000
 setpos -596.461670 -4100.278320 300.863770 : setang 76.988541 -175.267120 -0.000845
 gskSummonPotionLife
 gskSummonPotionLife
-gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 26/130 )
-prop at -2097 -4551 195 missing modelname
-prop at -2097 -4551 195 missing modelname
-setpos -2002.406494 -4667.669922 272.853119 : setang 21.878181 130.214233 -0.003495
-setpos -2002.406494 -4667.669922 272.853119 : setang 21.878181 130.214233 -0.003495
-+gskSummonGuardMini
-+gskSummonGuardMini
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 27/130 )
 prop at -1269 -4622 192 missing modelname
 prop at -1269 -4622 192 missing modelname
