@@ -1,5 +1,7 @@
 {
-    "lang.Tokens.l00_hint_SaveTheUnlucky_begin": "Defend the unlucky!",
-    "lang.Tokens.l00_hint_SaveTheUnlucky_fail": "He was really unlucky... and you too.",
-    "lang.Tokens.l00_hint_SaveTheUnlucky_success": "He was not so unlucky thanks to you!"
+    "lang.Tokens.l00_hint_RefundSkillPoint_BasicCombat": "Refund default basic combat skills point: 1",
+    "lang.Tokens.l00_hint_RefundSkillPoint_DarkVision": "Refund default dark vision skill point: 1",
+    "lang.Tokens.l00_hint_SaveTheUnlucky_begin": "The Unlucky: Defend him!",
+    "lang.Tokens.l00_hint_SaveTheUnlucky_fail": "The Unlucky (FAIL): He was really unlucky... and you too.",
+    "lang.Tokens.l00_hint_SaveTheUnlucky_success": "The Unlucky (SUCCESS): He was not so unlucky thanks to you!"
 }

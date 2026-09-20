@@ -8,7 +8,6 @@
 			// ==========================================
 			// 1. BASE ENTITY INITIALIZATION (CREATION)
 			// ==========================================
-
 			// Create the survival tracker switch
 			add:entity
 			{
@@ -16,20 +15,18 @@
 					"targetname" "SaveTheUnlucky_friendly_survival_check"
 					"InitialValue" "1"
 			}
-
 			// Create the counter entity
 			add:entity
 			{
 					"classname" "math_counter"
 					"targetname" "SaveTheUnlucky_kill_counter"
 					"startvalue" "0"
-					"max" "31"
+					"max" "26" // the total of mini spiders at related file SYNC_HINT
 			}
 
 			// ==========================================
 			// 2. LOGIC HOOKS & OUTPUT LINKS (MODIFICATIONS)
 			// ==========================================
-
 			// Hook the logic outputs onto the survival tracker switch
 			modify:entity
 			{
@@ -40,14 +37,22 @@
 					}
 					add:key
 					{
-							"OnMapSpawn" "l00_hint_SaveTheUnlucky_begin,ShowHudHint,,0,-1,1,"
+							//"OnMapSpawn" "gsk.text_SaveTheUnlucky_begin,ShowHudHint,,0,-1,1,"
+							"OnMapSpawn" "mm_player_inputs,AddSecondaryObjective,l00_hint_SaveTheUnlucky_begin,0,1,1,"
+							
 							"OnTrue" "gsk_generic_cmds_issuer,Command,mm_player_add_skillpoints 1,0,-1"
-							"OnTrue" "l00_hint_SaveTheUnlucky_success,ShowHudHint,,0,-1,1,"
+							//"OnTrue" "gsk.text_SaveTheUnlucky_success,ShowHudHint,,0,-1,1,"
+							"OnTrue" "mm_player_inputs,RemoveObjective,l00_hint_SaveTheUnlucky_begin,0,1,1,"
+							"OnTrue" "mm_player_inputs,AddSecondaryObjective,l00_hint_SaveTheUnlucky_success,0,1,1,"
+							"OnTrue" "mm_player_inputs,RemoveObjective,l00_hint_SaveTheUnlucky_success,60,1,1,"
+							
 							"OnFalse" "gsk_generic_cmds_issuer,Command,echo \"NPC DIED - NO SKILL POINT\",0,-1" // this echo wont work, try some proper game message like creating an objective etc.
-							"OnFalse" "l00_hint_SaveTheUnlucky_fail,ShowHudHint,,0,-1,1,"
+							//"OnFalse" "gsk.text_SaveTheUnlucky_fail,ShowHudHint,,0,-1,1,"
+							"OnFalse" "mm_player_inputs,RemoveObjective,l00_hint_SaveTheUnlucky_begin,0,1,1,"
+							"OnFalse" "mm_player_inputs,AddSecondaryObjective,l00_hint_SaveTheUnlucky_fail,0,1,1,"
+							"OnFalse" "mm_player_inputs,RemoveObjective,l00_hint_SaveTheUnlucky_fail,60,1,1,"
 					}
 			}
-
 			// Hook the conditional check to fire when the kill counter finishes
 			modify:entity
 			{
@@ -61,60 +66,57 @@
 							"OnHitMax" "SaveTheUnlucky_friendly_survival_check,Test,,0,-1"
 					}
 			}
-
 			// Hook the friendly NPC to the survival tracker switch
 			modify:entity
 			{
 					TargetMarkers
 					{
-							"targetname" "gskSpawn_12_SaveTheUnlucky_000"
+							"targetname" "gskSpawn_12_SaveTheUnlucky_000" //the only shrinked mini guard at related file SYNC_HINT
 					}
 					add:key
 					{
 							"OnDeath" "SaveTheUnlucky_friendly_survival_check,SetValue,0,0,-1"
 					}
 			}
-
 			// Hook all mini spiders globally to the kill counter
 			modify:entity
 			{
 					TargetMarkers
 					{
-							"classname" "npc_spider_mini"
+							"classname" "npc_spider_mini" //may match more than the ones in the related file but no problem as player has to kill all these nearby fastly
 					}
 					add:key
 					{
 							"OnDeath" "SaveTheUnlucky_kill_counter,Add,1,0,-1"
 					}
 			}
-
-			entity //radiant quest, no tracking
-			{
-				"classname" "env_hudhint"
-				"combinability" "1"
-				"targetname" "gsk.text_SaveTheUnlucky_begin"
-				"message" "l00_hint_SaveTheUnlucky_begin"
-				"duration" "-1"
-				"origin" "-2097 -4551 195"
-			}
-			entity
-			{
-				"classname" "env_hudhint"
-				"combinability" "1"
-				"targetname" "gsk.text_SaveTheUnlucky_success"
-				"message" "l00_hint_SaveTheUnlucky_success"
-				"duration" "10"
-				"origin" "-2097 -4551 200"
-			}
-			entity
-			{
-				"classname" "env_hudhint"
-				"combinability" "1"
-				"targetname" "gsk.text_SaveTheUnlucky_fail"
-				"message" "l00_hint_SaveTheUnlucky_fail"
-				"duration" "10"
-				"origin" "-2097 -4551 205"
-			}
+			//add:entity //radiant quest, no tracking
+			//{
+				//"classname" "env_hudhint"
+				//"combinability" "1"
+				//"targetname" "gsk.text_SaveTheUnlucky_begin"
+				//"message" "l00_hint_SaveTheUnlucky_begin"
+				//"duration" "-1"
+				//"origin" "-2097 -4551 195"
+			//}
+			//add:entity
+			//{
+				//"classname" "env_hudhint"
+				//"combinability" "1"
+				//"targetname" "gsk.text_SaveTheUnlucky_success"
+				//"message" "l00_hint_SaveTheUnlucky_success"
+				//"duration" "10"
+				//"origin" "-2097 -4551 200"
+			//}
+			//add:entity
+			//{
+				//"classname" "env_hudhint"
+				//"combinability" "1"
+				//"targetname" "gsk.text_SaveTheUnlucky_fail"
+				//"message" "l00_hint_SaveTheUnlucky_fail"
+				//"duration" "10"
+				//"origin" "-2097 -4551 205"
+			//}
 
 	}
 }

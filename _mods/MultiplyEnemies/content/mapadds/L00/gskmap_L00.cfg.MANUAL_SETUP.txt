@@ -40,12 +40,6 @@
 			//"add:key"
 			//{
 				//"OnMapSpawn" "gsk_generic_cmds_issuer,Command,exec gskReloadCfgs.cfg,0,-1"
-				//"OnMapSpawn" "gsk_generic_cmds_issuer,Command,exec gskBaseLib.cfg,0.1,-1"
-				//"OnMapSpawn" "gsk_generic_cmds_issuer,Command,exec gskAllCommandsListCycle.cfg,0.2,-1"
-				//"OnMapSpawn" "gsk_generic_cmds_issuer,Command,exec gskSummonList.cfg,0.3,-1"
-				////"OnMapSpawn" "gsk_generic_cmds_issuer,Command,exec gskSummonSimulatedThings,0.4,-1"
-				////"OnMapSpawn" "gsk_generic_cmds_issuer,Command,echo ReloadedSomeCFGs,0.5,-1"
-				////"OnMapSpawn" "gsk_generic_cmds_issuer,Command,exec bloodyadrenaline; exec bloodymana; exec bloodysummoner; exec CarefulCombat; exec CrouchToggle; exec eagle_eye; exec gskAllCommandsListCycle; exec gskBaseLib; exec gskEnabledBindsOk; exec gskGfxTweaks; exec gskInvSwapPreventCrash; exec gskReloadCfgs; exec gskSummonList; exec gskSummonSimulatedThings; exec MoreFoes; exec Playability; exec skipcutscenes; exec slowmotion_toggle; echo ReloadedSomeCFGs,0,-1"
 			//}
 		//}
 		
@@ -82,10 +76,38 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "mm_player_inputs,GiveSkillPoints,2,0,1,1,"  // these 2 skill points are from removed free darkvision and disabled basic combat skills
-				//"OnTrigger" "mm_player_inputs,GiveSkillPoints,1,0,1,1,"
+				//"OnTrigger" "mm_player_inputs,GiveSkillPoints,2,0,1,1,"  // these 2 skill points are from removed free darkvision and disabled basic combat skills
+				"OnTrigger" "mm_player_inputs,AddSecondaryObjective,l00_hint_RefundSkillPoint_BasicCombat,5,1,1,"
+				"OnTrigger" "mm_player_inputs,GiveSkillPoints,1,6,1,1,"
+				"OnTrigger" "mm_player_inputs,ObjectiveDone,l00_hint_RefundSkillPoint_BasicCombat,7,1,1,"
+				"OnTrigger" "mm_player_inputs,RemoveObjective,l00_hint_RefundSkillPoint_BasicCombat,67,1,1,"
+				//"OnTrigger" "gsk.text_SkillPointRefunc_DarkVision,ShowHudHint,,5,-1,1,"
+				
+				"OnTrigger" "mm_player_inputs,GiveSkillPoints,1,15,1,1,"
+				"OnTrigger" "mm_player_inputs,AddSecondaryObjective,l00_hint_RefundSkillPoint_DarkVision,16,1,1,"
+				"OnTrigger" "mm_player_inputs,ObjectiveDone,l00_hint_RefundSkillPoint_DarkVision,17,1,1,"
+				"OnTrigger" "mm_player_inputs,RemoveObjective,l00_hint_RefundSkillPoint_DarkVision,77,1,1,"
+				//"OnTrigger" "gsk.text_SkillPointRefunc_BasicCombat,ShowHudHint,,15,-1,1,"
 			}
 		}
+		//add:entity
+		//{
+			//"classname" "env_hudhint"
+			//"combinability" "1"
+			//"targetname" "gsk.text_SkillPointRefunc_BasicCombat"
+			//"message" "l00_hint_RefundSkillPoint_BasicCombat"
+			//"duration" "10"
+			//"origin" "-2097 -4551 210"
+		//}
+		//add:entity
+		//{
+			//"classname" "env_hudhint"
+			//"combinability" "1"
+			//"targetname" "gsk.text_SkillPointRefunc_DarkVision"
+			//"message" "l00_hint_RefundSkillPoint_DarkVision"
+			//"duration" "10"
+			//"origin" "-2097 -4551 215"
+		//}
 		
 		///////////////////////////////////////////////
 		// bloated crate
@@ -104,6 +126,7 @@
 				"ItemCount2" "3"
 				"ItemClass2" "item_potion_mana" //prop_ammo_arrow fails wont spawn, env_shooter_arrow spawns but cant be pickup.. 
 				
+				//TODO still trying to override below with the gsk_global stuff
 				"ItemClass3" "item_food_chicken_roasted"
 				"ItemCount3" "7"
 				"ItemClass4" "item_food_banana_regime" //they break so you need to get them fast
@@ -134,11 +157,6 @@
 			"spawnflags" "6"
 			"origin" "-645 -3317 486"
 		}
-		
-		
-		
-		
-		
 		
 	}
 }
