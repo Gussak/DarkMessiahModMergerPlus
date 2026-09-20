@@ -43,7 +43,7 @@ while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./a
 : ${strFlOut:="gskHMAliasesAndErasers.cfg"} #help
 export strFlOut
 
-strIgniteCmd="ent_fire !player ignite"
+strIgniteHM50Cmd="ent_fire !player ignite" #help override, every second is 10 damage, for 5s, we cant control the damage and the time. just for fun
 
 function FUNCfillFile() {
 	FUNCchkCfgScriptLineSz "${1-}"
@@ -68,13 +68,36 @@ function FUNCerasers() {
 	FUNCfillFile "$lstrEraser"
 }
 
+: ${bUseIgnite:=true} #help
+function FUNCchkIgnite() {
+	if((nHurtMeLim!=28));then FUNCexit 1 "needs more complex calc?";fi
+}
+
 function FUNChurmeLim() {
-	local lstr
-	for((j=0;j<$1;j++));do
-		lstr+="hurtme ${nHurtMeLim}; gskWait33ms; "
+	local lnCount="$1"
+	
+	local lstrOut
+	local j
+	
+	if $bUseIgnite;then
+		FUNCchkIgnite
+		#if(( (lnCount*nHurtMeLim) > 50 ));then
+			#lstrOut+="${strIgniteHM50Cmd}; "
+			#((lnCount--))&&:
+		#fi
+		if((lnCount>=2));then
+			#lstrOut+="gskHurtme050; gskHurtme006; " # this is for 2x28=56 only
+			lstrOut+="${strIgniteHM50Cmd}; gskHurtme006; " # this is for 2x28=56 only
+			((lnCount-=2))&&:
+		fi
+	fi
+	
+	for((j=0;j<lnCount;j++));do
+		lstrOut+="hurtme ${nHurtMeLim}; gskWait33ms; "
 	done
-	FUNCchkCfgScriptLineSz "$lstr"
-	echo "$lstr"
+	
+	FUNCchkCfgScriptLineSz "$lstrOut"
+	echo "$lstrOut"
 }
 
 echo >"$strFlOut" #init/trunc
@@ -87,14 +110,23 @@ for((i=$((nHurtMeLim+1));i<=100;i++));do #map hurtme without jumping is 28, and 
 		#FUNCfillFile "alias gskHurtme$(printf %03d $i) \"$(FUNChurmeLim 1); hurtme $(( i - nHurtMeLim*(1-1) ))\""
 	#el
 	if((  i < (${nHurtMeLim}*2) ));then
-		FUNCfillFile "alias gskHurtme$(printf %03d $i) \"$(FUNChurmeLim 1); hurtme $(( i - nHurtMeLim*(2-1) ))\""
+		if $bUseIgnite;then
+			if((i<50));then
+				FUNCfillFile "alias gskHurtme$(printf %03d $i) \"$(FUNChurmeLim 1); hurtme $(( i - nHurtMeLim*(2-1) ))\""
+			else
+				FUNCchkIgnite
+				FUNCfillFile "alias gskHurtme$(printf %03d $i) \"${strIgniteHM50Cmd}; hurtme $(( i - 50 ))\""
+			fi
+		else
+			FUNCfillFile "alias gskHurtme$(printf %03d $i) \"$(FUNChurmeLim 1); hurtme $(( i - nHurtMeLim*(2-1) ))\""
+		fi
 	elif((i < (${nHurtMeLim}*3) ));then
 		FUNCfillFile "alias gskHurtme$(printf %03d $i) \"$(FUNChurmeLim 2); hurtme $(( i - nHurtMeLim*(3-1) ))\""
 	elif((i < (${nHurtMeLim}*4) ));then
 		FUNCfillFile "alias gskHurtme$(printf %03d $i) \"$(FUNChurmeLim 3); hurtme $(( i - nHurtMeLim*(4-1) ))\""
 	fi
 done
-FUNCfillFile "alias gskHurtme050 \"${strIgniteCmd}; \" // override, every second is 10 damage, for 5s, we cant control the damage and the time. just for fun"
+#FUNCfillFile "alias gskHurtme050 \"${strIgniteHM50Cmd}; \" // override, every second is 10 damage, for 5s, we cant control the damage and the time. just for fun"
 FUNCfillFile
 FUNCfillFile "// for each constitution level"
 aiHP=(200 350 500)

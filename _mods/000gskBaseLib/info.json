@@ -8,6 +8,6 @@
     "launch_parameters"     :   [],
     "gameinfo_parameters"   :   [],
     "modules"               :   [],
-    "game_configs"          :   [ "gskBaseLib.cfg" ],
+    "game_configs"          :   [ "gskBaseLib.cfg","gskHMAliasesAndErasers.cfg" ],
     "autoexec_configs"      :   []
 }
