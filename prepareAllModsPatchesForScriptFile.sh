@@ -33,7 +33,7 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 
-#set -x
+set -x
 #set -Eeu;if true;then #BUGTRACK_OVERKILL
 
 export FUNCminiModInit_bConsumeParamHelp=false
@@ -673,18 +673,18 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 		else #if [[ -f "$strFileToMerge" ]];then
 			FUNCechoInfo "[WARNING] unable to recreate the patch as modded file does not exist: '$strFileToMerge'"
 			FUNCechoInfo "[INFO] using the patch to re-create the modded file: '$strFileToMerge'"
-			FUNCcheckEncodingUTF8 "$strVanillaScriptFile"
-			echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-			echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-			echo ">>>>>>>>>>>>>>>>>>>>>0>>>>>>>>>>>>>>>>>>>>>>>"
-			echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-			echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-			ls -l "${strVanillaScriptFile}.UTF-8"&&:
+			#FUNCcheckEncodingUTF8 "$strVanillaScriptFile"
+			#echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+			#echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+			#echo ">>>>>>>>>>>>>>>>>>>>>0>>>>>>>>>>>>>>>>>>>>>>>"
+			#echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+			#echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+			#ls -l "${strVanillaScriptFile}.UTF-8"&&:
 			if $bKeyValueDiffMode;then
 				acmdPatch=(
 					"${strPathSelf}/keyValuePatcher.py" apply --prettify --append-missing
 					--output "${strFileToMerge}.RECREATED_MODDED"
-					"$strVanillaScriptFile"
+					<(FUNCoutputAsUTF8 "$strVanillaScriptFile")
 					"${strFlPatch}"
 				) #keyValuePatcher.py apply [-h] [-o OUTPUT] [-a] target patch
 			else
@@ -759,17 +759,17 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 #		acmdPatch=(patch -F $nFuzzyPatch "$strFlWork" "${strFlPatch}")
 		if $bKeyValueDiffMode;then
 			#FUNCcheckEncodingUTF8_Work 
-			FUNCcheckEncodingUTF8 "$strFlWork"
-			echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-			echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-			echo ">>>>>>>>>>>>>>>>>>>>1>>>>>>>>>>>>>>>>>>>>>>>>"
-			echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-			echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-			ls -l "${strFlWork}.UTF-8"&&:
+			#FUNCcheckEncodingUTF8 "$strFlWork"
+			#echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+			#echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+			#echo ">>>>>>>>>>>>>>>>>>>>1>>>>>>>>>>>>>>>>>>>>>>>>"
+			#echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+			#echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+			#ls -l "${strFlWork}.UTF-8"&&:
 			acmdPatch=(
 				"${strPathSelf}/keyValuePatcher.py" apply --prettify --append-missing
 				--output "${strFlWork}.NEWLY_PATCHED"
-				"$strFlWork"
+				<(FUNCoutputAsUTF8 "$strFlWork")
 				"${strFlPatch}"
 			) #keyValuePatcher.py apply [-h] [-o OUTPUT] [-a] target patch
 		else
