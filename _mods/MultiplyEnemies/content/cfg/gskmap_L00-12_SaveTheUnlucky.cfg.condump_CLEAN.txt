@@ -190,3 +190,54 @@ setpos -1820.705322 -4660.918945 526.861572 : setang 45.413754 14.581054 -0.0078
 setpos -1820.705322 -4660.918945 526.861572 : setang 45.413754 14.581054 -0.007822
 gskSummonSpiderMini
 gskSummonSpiderMini
+
+
+
+DoFindPathToPos on enemy failed
+gskSpawnHint_gskSpawnHint_gskSpawnHint 
+prop at -1791 -4631 605 missing modelname
+prop at -1791 -4631 605 missing modelname
+setpos -1803.991699 -4525.024902 257.769714;setang -73.006348 -83.059174 0.014929
+setpos -1803.991699 -4525.024902 257.769714;setang -73.006348 -83.059174 0.014929
+gskSummonDevTrapMiniSpiderCeil 
+gskSummonDevTrapMiniSpiderCeil 
+Dummy Spawn Just To Help Create Maps, it Spawns the useless Dough Just To Help Mark The Location Temporarily 
+Late precache of models/items/provisions/bread01/bread01_raw.mdl
+Set the name of item_food_bread01_row to gskSpawnNameOk
+gskSpawnHint_gskSpawnHint_gskSpawnHint 
+prop at -1817 -4616 604 missing modelname
+prop at -1817 -4616 604 missing modelname
+setpos -1801.689819 -4524.908691 257.472046;setang -75.118370 -99.428833 0.016650
+setpos -1801.689819 -4524.908691 257.472046;setang -75.118370 -99.428833 0.016650
+gskSummonDevTrapMiniSpiderCeil 
+gskSummonDevTrapMiniSpiderCeil 
+Dummy Spawn Just To Help Create Maps, it Spawns the useless Dough Just To Help Mark The Location Temporarily 
+Set the name of item_food_bread01_row to gskSpawnNameOk
+gskSpawnHint_gskSpawnHint_gskSpawnHint 
+prop at -1862 -4643 607 missing modelname
+prop at -1862 -4643 607 missing modelname
+setpos -1799.424316 -4526.193848 258.292816;setang -69.178398 -118.037109 0.012681
+setpos -1799.424316 -4526.193848 258.292816;setang -69.178398 -118.037109 0.012681
+gskSummonDevTrapMiniSpiderCeil 
+gskSummonDevTrapMiniSpiderCeil 
+Dummy Spawn Just To Help Create Maps, it Spawns the useless Dough Just To Help Mark The Location Temporarily 
+Set the name of item_food_bread01_row to gskSpawnNameOk
+gskSpawnHint_gskSpawnHint_gskSpawnHint 
+prop at -1887 -4623 605 missing modelname
+prop at -1887 -4623 605 missing modelname
+setpos -1797.738159 -4527.418945 258.301605;setang -69.112442 -133.679138 0.012659
+setpos -1797.738159 -4527.418945 258.301605;setang -69.112442 -133.679138 0.012659
+gskSummonDevTrapMiniSpiderCeil 
+gskSummonDevTrapMiniSpiderCeil 
+Dummy Spawn Just To Help Create Maps, it Spawns the useless Dough Just To Help Mark The Location Temporarily 
+Set the name of item_food_bread01_row to gskSpawnNameOk
+gskSpawnHint_gskSpawnHint_gskSpawnHint 
+prop at -1938 -4644 607 missing modelname
+prop at -1938 -4644 607 missing modelname
+setpos -1797.615723 -4528.524414 259.163116;setang -62.380447 -140.672806 0.010180
+setpos -1797.615723 -4528.524414 259.163116;setang -62.380447 -140.672806 0.010180
+gskSummonDevTrapMiniSpiderCeil 
+gskSummonDevTrapMiniSpiderCeil 
+Dummy Spawn Just To Help Create Maps, it Spawns the useless Dough Just To Help Mark The Location Temporarily 
+Set the name of item_food_bread01_row to gskSpawnNameOk
+
