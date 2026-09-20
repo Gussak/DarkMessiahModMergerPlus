@@ -319,7 +319,7 @@ if [[ -n "$lstrUseThisSector" ]] && [[ "$lstrUseThisSector" =~ .*[.].* ]];then
 fi
 
 : ${nCPUCores:="$(grep "core id" /proc/cpuinfo |wc -l)"} #help
-: ${nRedoAllMultiThread:=$((nCPUCores-1))} #help set to 1 to disable multithread. tot -1 to try avoid sys hang/freeze
+: ${nRedoAllMultiThread:=$((nCPUCores-1))} #help set to 1 to disable multithread. tot -1 to try avoid sys hang/freeze but... 16 threads in 8 cores would still require to be (nCPUCores/2)-1 to keep a full core unused by this...
 if((nRedoAllMultiThread>nCPUCores));then nRedoAllMultiThread=$nCPUCores;fi
 declare -p nCPUCores nRedoAllMultiThread
 
@@ -449,10 +449,8 @@ function FUNCspawnFlags() { #help based on https://developer.valvesoftware.com/w
 				*) FUNCexit 1 "unrecognized (not implemented here?) spawnflag '$lstrFlagAdd'";;
 			esac
 		done
-	fi
-	
-	if [[ "$lstrType" == OBJ ]];then
-		local lastrFlags=("${@-FS_None}")
+	elif [[ "$lstrType" == OBJ ]];then
+		local lastrFlags=("${@-FSO_None}")
 		if $lbAddDefaults;then
 			mapfile -t lastrFlags < <(echo "${lastrFlags[*]} FSO_INTERACTIVE" |tr ' ' '\n' |egrep -v "^$" |sort -u)
 		fi
@@ -471,6 +469,8 @@ function FUNCspawnFlags() { #help based on https://developer.valvesoftware.com/w
 				*) FUNCexit 1 "unrecognized (not implemented here?) spawnflag '$lstrFlagAdd'";;
 			esac
 		done
+	else
+		FUNCexit 1 "invalid lstrType='${lstrType}'"
 	fi
 	
 	echo "$lnFlags"
@@ -859,13 +859,13 @@ function FUNCmapadds() {
 	
 	local lstrTargetName="$(FUNCentityName)"
 	
+			#//"spawnflags"  "'"$(FUNCspawnFlags)"'"
 	echo '
 		"add:entity"
 		{
 			"targetname"  "'"${lstrTargetName}"'"  //'"${lstrSummonCmd}"'
 			"origin"      "'"${anTargetPosXYZ[x]} ${anTargetPosXYZ[y]} ${anTargetPosXYZ[z]}"'"
 			"angles"      "'"${anTargetAngXYZ[x]} ${anTargetAngXYZ[y]} ${anTargetAngXYZ[z]}"'"
-			//"spawnflags"  "'"$(FUNCspawnFlags)"'"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 ' >>"$lstrFlAddTmp"
@@ -1152,9 +1152,8 @@ function FUNCmapadds() {
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
 			"angles" "0 0 0"
-			"spawnflags"  "'"$(FUNCspawnFlags OBJ)"'"
-			'"$(FUNCexplosionData FS_FALL)"' //it wont fall when spawning even with the flag enabled...
-			"spawnflags"  "'"$(FUNCspawnFlags --nodefaults FS_LongRangeView FS_FALL)"'" //cannot have FS_SLEEP or it wont use FS_FALL
+			'"$(FUNCexplosionData)"' //it wont fall when spawning even with the flag enabled...
+			"spawnflags"  "'"$(FUNCspawnFlags OBJ FSO_INTERACTIVE)"'" //this allows it to fall
 			' >>"$lstrFlAddTmp"
 			;;
 		"gskSummonDevTrapMiniSpiderCeil") #// place flying mini spiders far from walls or they glue on it and their AI freezes stop working...
