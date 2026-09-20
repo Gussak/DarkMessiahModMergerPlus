@@ -17,6 +17,7 @@
 			"fadescale" "1"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"SetGravityScale" "0.5" //"SetVelocityScale" "0.5"
 			"angles" "0 0 0"
 			
 			"physdamagescale" "1.0"
@@ -45,6 +46,7 @@
 			"fadescale" "1"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"SetGravityScale" "0.5" //"SetVelocityScale" "0.5"
 			"angles" "0 0 0"
 			
 			"physdamagescale" "1.0"
@@ -73,6 +75,7 @@
 			"fadescale" "1"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"SetGravityScale" "0.5" //"SetVelocityScale" "0.5"
 			"angles" "0 0 0"
 			
 			"physdamagescale" "1.0"
@@ -101,6 +104,7 @@
 			"fadescale" "1"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"SetGravityScale" "0.5" //"SetVelocityScale" "0.5"
 			"angles" "0 0 0"
 			
 			"physdamagescale" "1.0"
@@ -129,6 +133,7 @@
 			"fadescale" "1"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"SetGravityScale" "0.5" //"SetVelocityScale" "0.5"
 			"angles" "0 0 0"
 			
 			"physdamagescale" "1.0"
@@ -157,6 +162,7 @@
 			"fadescale" "1"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"SetGravityScale" "0.5" //"SetVelocityScale" "0.5"
 			"angles" "0 0 0"
 			
 			"physdamagescale" "1.0"
@@ -185,6 +191,7 @@
 			"fadescale" "1"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"SetGravityScale" "0.5" //"SetVelocityScale" "0.5"
 			"angles" "0 0 0"
 			
 			"physdamagescale" "1.0"
@@ -213,6 +220,7 @@
 			"fadescale" "1"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"SetGravityScale" "0.5" //"SetVelocityScale" "0.5"
 			"angles" "0 0 0"
 			
 			"physdamagescale" "1.0"
@@ -241,6 +249,7 @@
 			"fadescale" "1"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"SetGravityScale" "0.5" //"SetVelocityScale" "0.5"
 			"angles" "0 0 0"
 			
 			"physdamagescale" "1.0"
@@ -269,6 +278,7 @@
 			"fadescale" "1"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"SetGravityScale" "0.5" //"SetVelocityScale" "0.5"
 			"angles" "0 0 0"
 			
 			"physdamagescale" "1.0"
@@ -297,6 +307,7 @@
 			"fadescale" "1"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"SetGravityScale" "0.5" //"SetVelocityScale" "0.5"
 			"angles" "0 0 0"
 			
 			"physdamagescale" "1.0"
@@ -325,6 +336,7 @@
 			"fadescale" "1"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"SetGravityScale" "0.5" //"SetVelocityScale" "0.5"
 			"angles" "0 0 0"
 			
 			"physdamagescale" "1.0"
@@ -353,6 +365,7 @@
 			"fadescale" "1"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"SetGravityScale" "0.5" //"SetVelocityScale" "0.5"
 			"angles" "0 0 0"
 			
 			"physdamagescale" "1.0"
@@ -381,6 +394,7 @@
 			"fadescale" "1"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"SetGravityScale" "0.5" //"SetVelocityScale" "0.5"
 			"angles" "0 0 0"
 			
 			"physdamagescale" "1.0"
@@ -409,6 +423,7 @@
 			"fadescale" "1"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"SetGravityScale" "0.5" //"SetVelocityScale" "0.5"
 			"angles" "0 0 0"
 			
 			"physdamagescale" "1.0"
@@ -437,6 +452,7 @@
 			"fadescale" "1"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"SetGravityScale" "0.5" //"SetVelocityScale" "0.5"
 			"angles" "0 0 0"
 			
 			"physdamagescale" "1.0"
@@ -465,6 +481,7 @@
 			"fadescale" "1"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"SetGravityScale" "0.5" //"SetVelocityScale" "0.5"
 			"angles" "0 0 0"
 			
 			"physdamagescale" "1.0"
@@ -493,6 +510,7 @@
 			"fadescale" "1"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"SetGravityScale" "0.5" //"SetVelocityScale" "0.5"
 			"angles" "0 0 0"
 			
 			"physdamagescale" "1.0"
@@ -521,6 +539,7 @@
 			"fadescale" "1"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"SetGravityScale" "0.5" //"SetVelocityScale" "0.5"
 			"angles" "0 0 0"
 			
 			"physdamagescale" "1.0"
@@ -549,6 +568,7 @@
 			"fadescale" "1"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"SetGravityScale" "0.5" //"SetVelocityScale" "0.5"
 			"angles" "0 0 0"
 			
 			"physdamagescale" "1.0"
@@ -577,6 +597,7 @@
 			"fadescale" "1"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"SetGravityScale" "0.5" //"SetVelocityScale" "0.5"
 			"angles" "0 0 0"
 			
 			"physdamagescale" "1.0"
@@ -605,6 +626,7 @@
 			"fadescale" "1"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"SetGravityScale" "0.5" //"SetVelocityScale" "0.5"
 			"angles" "0 0 0"
 			
 			"physdamagescale" "1.0"

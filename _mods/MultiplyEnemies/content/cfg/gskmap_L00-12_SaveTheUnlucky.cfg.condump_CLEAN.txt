@@ -1,243 +1,227 @@
 map     :  L00 at: -1878 x, -4619 y, 342
 map     :  L00 at: -1878 x, -4619 y, 342
 gskMapMessage You get 1 skill point for saving him.
-gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 0/27 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 0/32 )
 prop at -2097 -4551 195 missing modelname
 prop at -2097 -4551 195 missing modelname
 setpos -2002.406494 -4667.669922 272.853119 : setang 21.878181 130.214233 -0.003495
 setpos -2002.406494 -4667.669922 272.853119 : setang 21.878181 130.214233 -0.003495
 +gskSummonGuardMini
 +gskSummonGuardMini
-gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 1/27 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 1/32 )
 prop at -1618 -4829 215 missing modelname
 prop at -1618 -4829 215 missing modelname
 setpos -1822.084839 -4668.045410 526.520020 : setang 47.855518 -39.274399 -0.008086
 setpos -1822.084839 -4668.04541 526.520020 : setang 47.855518 -39.274399 -0.008086
 gskSummonSpiderMini
 gskSummonSpiderMini
-gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 2/27 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 2/32 )
 prop at -662 -4809 212 missing modelname
 prop at -1662 -4809 212 missing modelname
 setpos -1822.052368 -4668.629395 525.686401 : setang 53.595985 -42.177715 -0.008576
 setpos -1822.052368 -4668.629395 525.686401 : setang 53.595985 -42.177715 -0.008576
 gskSummonSpiderMini
 gskSummonSpiderMini
-gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 3/27 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 3/32 )
 prop at -1640 -4765 195 missing modelname
 prop at -1640 -4765 195 missing modelname
 setpos -1820.838867 -4667.226563 525.290344 : setang 56.235397 -29.835304 -0.008727
 setpos -1820.838867 -4667.226563 525.290344 : setang 56.235397 -29.835304 -0.008727
 gskSummonSpiderMini
 gskSummonSpiderMini
-gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 4/27 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 4/32 )
 prop at -1582 -4716 193 missing modelname
 prop at -1582 -4716 193 missing modelname
 setpos -1820.188965 -4664.898926 525.920349 :setang 52.012398 -13.665809 -0.008466
 setpos -1820.188965 -4664.898926 525.920349 : setang 52.012398 -13.665809 -0.008466
 gskSummonSpiderMini
 gskSummonSpiderMini
-gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 5/27 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 5/32 )
 prop at -1547 -4628 192 missing modelname
 prop at -1547 -4628 192 missing modelname
 setpos -1820.214355 -4662.130371 526.379272 : setang 48.845211 5.473778 -0.008189
 setpos -1820.214355 -4662.130371 526.379272 : setang 48.845211 5.473778 -0.008189
 gskSummonSpiderMini
 gskSummonSpiderMini
-gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 6/27 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 6/32 )
 prop at -1594 -4566 192 missing modelname
 prop at -1594 -4566 192 missing modelname
 setpos -1820.470215 -4659.925293 525.862183 : setang 52.408260 20.720243 -0.008500
 setpos -1820.470215 -4659.925293 525.862183 : setang 52.408260 20.720243 -0.008500
 gskSummonpiderMini
 gskSummonSpiderMini
-gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 7/27 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 7/32 )
 prop at -1639 -4511 201 missing modelname
 prop at -1639 -4511 201 missng modelname
 setpos -1821.576050 -4657.816406 525.754944 : setang 53.134090 36.890415 -0.008537
 setpos -1821.576050 -4657.816406 525.754944 : setang 53.134090 36.890415 -0.008537
 gskSummonSpiderMini
 gskSummonSpiderMini
-gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 8/27 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 8/32 )
 prop at -1710 -4523 200 missing modelname
 prop at -1710 -4523 200 missing modelname
 setpos -1822.316162 -4656.337402 524.488831 : setang 61.448284 47.385517 -0.008933
 setpos -1822.316162 -4656.337402 524.488831 : setang 61.448284 47.385517 -0.008933
 gskSummonSpiderMini
 gskSummonSpiderMini
-gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 9/27 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 9/32 )
 prop at -1687 -4570 192 missing modelname
 prop at -1687 -4570 192 missing modelname
 setpos -1820.612915 -4658.286621 524.116455 : setang 63.823910 30.819731 -0.008957
 setpos -1820.612915 -4658.286621524.116455 : setang 63.823910 30.819731 -0.008957
 gskSummonSpiderMini
 gskSummonSpiderMini
-gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 10/27 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 10/32 )
 prop at 1648 -4610 192 missing modelname
 prop at -1648 -4610 192 missing modelname
 setpos -1819.721558 -4660.768555 524.591492 : setang 60.788433 13.923316 -0.008919
 setpos -1819.721558 -4660.768555 524.591492 : setang 60.788433 13.923316 -0.008919
 gskSummonSpiderMini
 gskSummonSpiderMini
-gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 11/27 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 11/32 )
 prop at -1680 -4652 192 missing modelname
 prop at -1680 -4652 192 missing modelname
 setpos -1819.258789 -4662.722656 523.719604 : setang 66.331429 1.185963 -0.008971
 setpos -1819.258789 -4662.722656 523.719604 : setang 66.331429 1.185963 -0.008971
 gskSummonSpiderMini
 gskSummonSpiderMini
-gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 12/27 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 12/32 )
 prop at -1667 -4710 193 missing modelname
 prop at -1667 -4710 193 missing modelname
 setpos -1819.833984 -4665.762207 524.251343 : setang 62.66110 -18.482416 -0.008940
 setpos -1819.833984 -4665.762207 524.251343 : setang 62.966110 -18.482416 -0.008940
 gskSummonSpiderMini
 gskSummonSpiderMini
-gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 13/27 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 13/32 )
 prop at -1699 -4760 193 missing modelname
 prop at -1699 -4760 193 missing modelname
 setpos -1821.305786 -4668.520996 524.158020 : setang 63.559994 -38.480438 -0.008946
 setpos -1821.305786 -4668.520996 524.158020 : setang 63.559994 -38.480438 -0.008946
 gskSummonSpiderMini
 gskSummonSpiderMini
-gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 14/27 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 14/32 )
 prop at -1750 -4775 193 missing modelname
 prop at -1750 -4775 193 missing modelname
 setpos -1823.270264 -4670.491211 523.572571 : setang 67.255302 -56.102104 -0.008974
 setpos -1823.270264 -4670.491211 523.572571 : setang 67.255302 -56.102104 -0.008974
 gsSummonSpiderMini
 gskSummonSpiderMini
-gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 15/27 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 15/32 )
 prop at -1721 -4723 194 missing modelname
 prop at -1721 -423 194 missing modelname
 setpos -1820.559814 -4667.764648 523.171509 : setang 69.762894 -31.879766 -0.008916
 setpos -1820.559814 -4667.764648 523.171509 : setang 69.762894 -31.879766 -0.008916
 gskSummonSpiderMini
 gskSummonSpiderMini
-gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 16/27 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 16/32 )
 prop at -1635 -4663 192 missing modelname
 prop at -1635 -4663 192 missing modelname
 setpos -1819.521240 -4663.257813 524.775574 : setang 59.600594 -2.246892 -0.008861
 setpos -1819.521240 -4663.257813 524.775574 : setang 59.600594 -2.246892 -0.008861
 gskSummonSpiderMini
 gskSummonSpiderMini
-gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 17/27 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 17/32 )
 prop at -1578 -4628 192 missing modelname
 prop at -1578 -4628 192 missing modelname
 setpos -1819.981323 -4662.010254 525.881592 : setang 52.276222 6.134199 -0.008482
 setpos -1819.98133 -4662.010254 525.881592 : setang 52.276222 6.134199 -0.008482
 gskSummonSpiderMini
 gskSummonSpiderMini
-gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 18/27 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 18/32 )
 prop at -1624 -4731 194 missing modelname
 prop at -1624 -4731 194 missing modelname
 setpos -1820.219238 -4665.907715 525.280396 : setang 56.301048 -20.199356 -0.008740
 setpos -1820.219238 -4665.907715 525.280396 : setang 56.301048 -20.199356 -0.008740
 gskSummonSpiderMini
 gskSummonSpiderMini
-gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 19/27 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 19/32 )
 prop at -1556 -4760 193 missing modelname
 prop at -1556 -4760 193 missing modelname
 setpos -1820.787964 -4665.808105526.520081 : setang 47.855228 -20.926455 -0.008085
 setpos -1820.787964 -4665.808105 526.520081 : setang 47.855228 -20.926455 -0.008085
 gskSummonSpiderMini
 gskSummonSpiderMini
-gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 20/27 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 20/32 )
 prop at -1712 -4686 192 missing modelname
 prop at -1712 -4686 192 missing modelname
 setpos -1819.454224 -4665.240723 523.002075 : setang 70.818245 -14.653701 -0.008893
 setpos -1819.454224 -4665.240723 523.002075 : setang 70.818245 -14.653701 -0.008893
 gskSummonSpiderMini
 gskSummonSpiderMini
-gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 21/27 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 21/32 )
 prop at -1765 -4720 192 missing modelname
 prop at -1765 -4720 192 missing modelname
 setpos -1821.781982 -4669.420410 522.140076 : setang 76.163666 -44.683151 -0.008691
 setpos -1821.781982 -4669.420410 522.140076 : setang 76.163666 44.683151 -0.008691
 gskSummonSpiderMini
 gskSummonSpiderMini
-gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 22/27 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 22/32 )
 prop at -1719 -4618 192 missing modename
 prop at -1719 -4618 192 missing modelname
 setpos -1819.603760 -4660.028320 522.864075 : setang 71.676147 18.214319 -0.008881
 setpos -1819.603760 -4660.028320 522.864075 : setang 71.676147 18.214319 -0.008881
 gskSummonSpiderMini
 gskSummonSpiderMini
-gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 23/27 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 23/32 )
 prop at -1726 -4566 192 missing modelname
 prop at -1726 -4566 192 missing modelname
 setpos -1821.365234 -4656.998047 523.382996 : setang 68.442642 40.192055 -0.008944
 setpos -1821.365234 -4656.998047 523.382996 : setang 68.442642 40.192055 -0.008944
 gskSummonSpiderMini
 gskSummonSpiderMini
-gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 24/27 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 24/32 )
 prop at -1615 -4522 199 missing modelname
 prop at -1615 -4522 199 missing modelname
 setpos -1821.223145 -4658.504883 525.968811 : setang 51.681988 31.675974 -0.00845
 setpos -1821.223145 -4658.504883 525.968811 : setang 51.681988 31.675974 -0.008435
 gskSummonSpiderMini
 gskSummonSpiderMini
-gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 25/27 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 25/32 )
 prop at -1553 -4530 192 missing modelname
 prop at -1553 -4530 192 missing modelname
 setpos -1821.040894 -4659.597168 526.650330 : setang 46.931305 24.349306 -0.007992
 setpos -1821.040894 -4659.597168 526.650330 : setang 46.931305 24.349306 -0.007992
 gskSummonSpiderMini
 gskSummonSpiderMini
-gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 26/27 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 26/32 )
 prop at -1521 -4575 192 missing modelname
 prop at -1521 -4575 192 missing modelname
 setpos -1820.705322 -4660.918945 526.861572 : setang 45.413754 14.581054 -0.007822
 setpos -1820.705322 -4660.918945 526.861572 : setang 45.413754 14.581054 -0.007822
 gskSummonSpiderMini
 gskSummonSpiderMini
-
-
-
-DoFindPathToPos on enemy failed
-gskSpawnHint_gskSpawnHint_gskSpawnHint 
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 27/32 )
 prop at -1791 -4631 605 missing modelname
 prop at -1791 -4631 605 missing modelname
 setpos -1803.991699 -4525.024902 257.769714;setang -73.006348 -83.059174 0.014929
 setpos -1803.991699 -4525.024902 257.769714;setang -73.006348 -83.059174 0.014929
-gskSummonDevTrapMiniSpiderCeil 
-gskSummonDevTrapMiniSpiderCeil 
-Dummy Spawn Just To Help Create Maps, it Spawns the useless Dough Just To Help Mark The Location Temporarily 
-Late precache of models/items/provisions/bread01/bread01_raw.mdl
-Set the name of item_food_bread01_row to gskSpawnNameOk
-gskSpawnHint_gskSpawnHint_gskSpawnHint 
+gskSummonDevTrapMiniSpiderCeil
+gskSummonDevTrapMiniSpiderCeil
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 28/32 )
 prop at -1817 -4616 604 missing modelname
 prop at -1817 -4616 604 missing modelname
 setpos -1801.689819 -4524.908691 257.472046;setang -75.118370 -99.428833 0.016650
 setpos -1801.689819 -4524.908691 257.472046;setang -75.118370 -99.428833 0.016650
-gskSummonDevTrapMiniSpiderCeil 
-gskSummonDevTrapMiniSpiderCeil 
-Dummy Spawn Just To Help Create Maps, it Spawns the useless Dough Just To Help Mark The Location Temporarily 
-Set the name of item_food_bread01_row to gskSpawnNameOk
-gskSpawnHint_gskSpawnHint_gskSpawnHint 
+gskSummonDevTrapMiniSpiderCeil
+gskSummonDevTrapMiniSpiderCeil
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 29/32 )
 prop at -1862 -4643 607 missing modelname
 prop at -1862 -4643 607 missing modelname
 setpos -1799.424316 -4526.193848 258.292816;setang -69.178398 -118.037109 0.012681
 setpos -1799.424316 -4526.193848 258.292816;setang -69.178398 -118.037109 0.012681
-gskSummonDevTrapMiniSpiderCeil 
-gskSummonDevTrapMiniSpiderCeil 
-Dummy Spawn Just To Help Create Maps, it Spawns the useless Dough Just To Help Mark The Location Temporarily 
-Set the name of item_food_bread01_row to gskSpawnNameOk
-gskSpawnHint_gskSpawnHint_gskSpawnHint 
+gskSummonDevTrapMiniSpiderCeil
+gskSummonDevTrapMiniSpiderCeil
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 30/32 )
 prop at -1887 -4623 605 missing modelname
 prop at -1887 -4623 605 missing modelname
 setpos -1797.738159 -4527.418945 258.301605;setang -69.112442 -133.679138 0.012659
 setpos -1797.738159 -4527.418945 258.301605;setang -69.112442 -133.679138 0.012659
-gskSummonDevTrapMiniSpiderCeil 
-gskSummonDevTrapMiniSpiderCeil 
-Dummy Spawn Just To Help Create Maps, it Spawns the useless Dough Just To Help Mark The Location Temporarily 
-Set the name of item_food_bread01_row to gskSpawnNameOk
-gskSpawnHint_gskSpawnHint_gskSpawnHint 
+gskSummonDevTrapMiniSpiderCeil
+gskSummonDevTrapMiniSpiderCeil
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 31/32 )
 prop at -1938 -4644 607 missing modelname
 prop at -1938 -4644 607 missing modelname
 setpos -1797.615723 -4528.524414 259.163116;setang -62.380447 -140.672806 0.010180
 setpos -1797.615723 -4528.524414 259.163116;setang -62.380447 -140.672806 0.010180
-gskSummonDevTrapMiniSpiderCeil 
-gskSummonDevTrapMiniSpiderCeil 
-Dummy Spawn Just To Help Create Maps, it Spawns the useless Dough Just To Help Mark The Location Temporarily 
-Set the name of item_food_bread01_row to gskSpawnNameOk
-
+gskSummonDevTrapMiniSpiderCeil
+gskSummonDevTrapMiniSpiderCeil

@@ -12,8 +12,9 @@
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
-			"physdamagescale" "0.1" //useless?
+			"physdamagescale" "0.1" //useless when falling?
 			"SetGravityScale" "0.5" //useless?
+			"SetVelocityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
 			
@@ -27,8 +28,9 @@
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
-			"physdamagescale" "0.1" //useless?
+			"physdamagescale" "0.1" //useless when falling?
 			"SetGravityScale" "0.5" //useless?
+			"SetVelocityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
 			
@@ -42,8 +44,9 @@
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
-			"physdamagescale" "0.1" //useless?
+			"physdamagescale" "0.1" //useless when falling?
 			"SetGravityScale" "0.5" //useless?
+			"SetVelocityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
 			
@@ -57,8 +60,9 @@
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
-			"physdamagescale" "0.1" //useless?
+			"physdamagescale" "0.1" //useless when falling?
 			"SetGravityScale" "0.5" //useless?
+			"SetVelocityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
 			
@@ -72,8 +76,9 @@
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
-			"physdamagescale" "0.1" //useless?
+			"physdamagescale" "0.1" //useless when falling?
 			"SetGravityScale" "0.5" //useless?
+			"SetVelocityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
 			
@@ -87,8 +92,9 @@
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
-			"physdamagescale" "0.1" //useless?
+			"physdamagescale" "0.1" //useless when falling?
 			"SetGravityScale" "0.5" //useless?
+			"SetVelocityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
 			
@@ -102,8 +108,9 @@
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
-			"physdamagescale" "0.1" //useless?
+			"physdamagescale" "0.1" //useless when falling?
 			"SetGravityScale" "0.5" //useless?
+			"SetVelocityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
 			
@@ -117,8 +124,9 @@
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
-			"physdamagescale" "0.1" //useless?
+			"physdamagescale" "0.1" //useless when falling?
 			"SetGravityScale" "0.5" //useless?
+			"SetVelocityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
 			
@@ -132,8 +140,9 @@
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
-			"physdamagescale" "0.1" //useless?
+			"physdamagescale" "0.1" //useless when falling?
 			"SetGravityScale" "0.5" //useless?
+			"SetVelocityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
 			
@@ -147,8 +156,9 @@
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
-			"physdamagescale" "0.1" //useless?
+			"physdamagescale" "0.1" //useless when falling?
 			"SetGravityScale" "0.5" //useless?
+			"SetVelocityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
 			
@@ -162,8 +172,9 @@
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
-			"physdamagescale" "0.1" //useless?
+			"physdamagescale" "0.1" //useless when falling?
 			"SetGravityScale" "0.5" //useless?
+			"SetVelocityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
 			
@@ -177,8 +188,9 @@
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
-			"physdamagescale" "0.1" //useless?
+			"physdamagescale" "0.1" //useless when falling?
 			"SetGravityScale" "0.5" //useless?
+			"SetVelocityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
 			
@@ -192,8 +204,9 @@
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
-			"physdamagescale" "0.1" //useless?
+			"physdamagescale" "0.1" //useless when falling?
 			"SetGravityScale" "0.5" //useless?
+			"SetVelocityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
 			
@@ -207,8 +220,9 @@
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
-			"physdamagescale" "0.1" //useless?
+			"physdamagescale" "0.1" //useless when falling?
 			"SetGravityScale" "0.5" //useless?
+			"SetVelocityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
 			
@@ -222,8 +236,9 @@
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
-			"physdamagescale" "0.1" //useless?
+			"physdamagescale" "0.1" //useless when falling?
 			"SetGravityScale" "0.5" //useless?
+			"SetVelocityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
 			

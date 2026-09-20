@@ -41,7 +41,7 @@
 			{
 				"OnTrigger" "buddha_global_counter,TurnOn,,0,-1"
 				// Also force the console command toggle if you still want the engine command to run it
-				"OnTrigger" "point_clientcommand,Command,buddha,0,-1"
+				"OnTrigger" "gsk_generic_cmds_issuer,Command,buddha,0,-1"
 			}
 		}
 		// 3. Turn it OFF explicitly
@@ -61,7 +61,7 @@
 			{
 				//what?? "OnTrigger" "buddha_global_counter,TurnInInActive,,0,-1"
 				"OnTrigger" "buddha_global_counter,TurnOff,,0,-1"
-				"OnTrigger" "point_clientcommand,Command,buddha,0,-1"
+				"OnTrigger" "gsk_generic_cmds_issuer,Command,buddha,0,-1"
 			}
 		}
 		

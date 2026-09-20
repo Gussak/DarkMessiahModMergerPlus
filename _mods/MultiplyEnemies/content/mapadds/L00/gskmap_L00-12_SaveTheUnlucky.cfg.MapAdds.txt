@@ -12,11 +12,12 @@
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname"   "npc_human_guard"
-			//"model" "models/npc/guard/npc_guard_shrinked.mdl"
-			"model" "models/npc/guard/npc_guard.mdl"
-			"scale" "0.30"
-			"additionalequipment" "weapon_arx_short_sword"
-			"spawnflags"  "263"
+			"model" "models/npc/guard/npc_guard_shrinked.mdl"
+			//"model" "models/npc/guard/npc_guard.mdl"
+			//does this even exist? "modelscale" "0.30"
+			//fail too "scale" "0.30"
+			//this just drops near him "additionalequipment" "weapon_arx_short_sword"
+			"spawnflags"  "135"
 			"origin"      "-2097 -4551 201"
 		}
 		"add:entity"
@@ -330,6 +331,86 @@
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "7"
 			"origin"      "-1521 -4575 198"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_12_SaveTheUnlucky_027"  //gskSummonDevTrapMiniSpiderCeil
+			"origin"      "-1791 -4631 606"
+			"angles"      "-73 97 0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini" // if they fall from too high, they just die even with lower physics stuff
+			"physdamagescale" "0.1" //useless?
+			"SetGravityScale" "0.5" //useless?
+			"SetVelocityScale" "0.5" //useless?
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "6"
+			
+			"origin"      "-1791 -4631 576"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_12_SaveTheUnlucky_028"  //gskSummonDevTrapMiniSpiderCeil
+			"origin"      "-1817 -4616 605"
+			"angles"      "-75 81 0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini" // if they fall from too high, they just die even with lower physics stuff
+			"physdamagescale" "0.1" //useless?
+			"SetGravityScale" "0.5" //useless?
+			"SetVelocityScale" "0.5" //useless?
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "6"
+			
+			"origin"      "-1817 -4616 575"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_12_SaveTheUnlucky_029"  //gskSummonDevTrapMiniSpiderCeil
+			"origin"      "-1862 -4643 608"
+			"angles"      "-69 62 0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini" // if they fall from too high, they just die even with lower physics stuff
+			"physdamagescale" "0.1" //useless?
+			"SetGravityScale" "0.5" //useless?
+			"SetVelocityScale" "0.5" //useless?
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "6"
+			
+			"origin"      "-1862 -4643 578"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_12_SaveTheUnlucky_030"  //gskSummonDevTrapMiniSpiderCeil
+			"origin"      "-1887 -4623 606"
+			"angles"      "-69 47 0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini" // if they fall from too high, they just die even with lower physics stuff
+			"physdamagescale" "0.1" //useless?
+			"SetGravityScale" "0.5" //useless?
+			"SetVelocityScale" "0.5" //useless?
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "6"
+			
+			"origin"      "-1887 -4623 576"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_12_SaveTheUnlucky_031"  //gskSummonDevTrapMiniSpiderCeil
+			"origin"      "-1938 -4644 608"
+			"angles"      "-62 40 0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini" // if they fall from too high, they just die even with lower physics stuff
+			"physdamagescale" "0.1" //useless?
+			"SetGravityScale" "0.5" //useless?
+			"SetVelocityScale" "0.5" //useless?
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "6"
+			
+			"origin"      "-1938 -4644 578"
 		}
 
 	}
