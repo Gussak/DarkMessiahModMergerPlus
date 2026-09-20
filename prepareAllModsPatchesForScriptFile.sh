@@ -33,6 +33,9 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 
+#set -x
+#set -Eeu;if true;then #BUGTRACK_OVERKILL
+
 export FUNCminiModInit_bConsumeParamHelp=false
 while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
 
@@ -288,30 +291,38 @@ for strLastOneWins in "${astrFlLastOneAlwaysWinList[@]}";do
 	fi
 done
 
-shopt -s expand_aliases #TODO just use ${BASH_LINENO[0]} instead...
-function FUNCgetEncoding_Work() {
-	local lLn="$1";shift
+#shopt -s expand_aliases #TODO just use ${BASH_LINENO[0]} instead...
+#function FUNCgetEncoding_Work() {
+function FUNCgetEncoding() {
+	#local lLn="$1";shift
 	if ! [[ -f "$1" ]];then
-		FUNCwait "[ERROR:${FUNCNAME[@]}:CalledAtLn${lLn}] invalid file '$1'"
+		#FUNCwait "[ERROR:${FUNCNAME[@]}:CalledAtLn${lLn}] invalid file '$1'"
+		FUNCechoInfo "[ERROR:] invalid file '$1'"
+		FUNCwait
 	fi
 	file -bi "$1" |sed -r -e 's@text/plain; charset=(.*)$@\1@g'; 
-};export -f FUNCgetEncoding_Work;alias FUNCgetEncoding='FUNCgetEncoding_Work $LINENO '
-function FUNCcheckEncodingUTF8_Work() { #help <DebugLINENO> <file>
-	local lLn="$1";shift
-	local lFl="$1";shift
-	if ! [[ -f "$lFl" ]];then
-		FUNCwait "[ERROR:${FUNCNAME[@]}:CalledAtLn${lLn}] invalid file '$lFl'"
-	fi
+};export -f FUNCgetEncoding #_Work;alias FUNCgetEncoding='FUNCgetEncoding_Work $LINENO '
+#function FUNCcheckEncodingUTF8_Work() { #help <DebugLINENO> <file>
+function FUNCcheckEncodingUTF8() { #help <files...>
+	#local lLn="$1";shift
 	while [[ $# -gt 0 ]];do
+		local lFl="$1"
+		if ! [[ -f "$lFl" ]];then
+			#FUNCwait "[ERROR:${FUNCNAME[@]}:CalledAtLn${lLn}] invalid file '$lFl'"
+			FUNCechoInfo "[ERROR:] invalid file '$lFl'"
+			FUNCwait
+		fi
+		
 		local lstrEnc="$(FUNCgetEncoding "$lFl")"
 		if [[ "$lstrEnc" != "utf-8" ]] && [[ "$lstrEnc" != "us-ascii" ]];then # us-ascii is a 127 bytes subset of utf8 and `file -bi` will not return as utf-8
-			echo "[ERROR_BUG:${FUNCNAME[@]}:CalledAtLn${lLn}] shall only work with UTF-8: found '${lstrEnc}' at '$lFl'" >&2
+			#echo "[ERROR_BUG:${FUNCNAME[@]}:CalledAtLn${lLn}] shall only work with UTF-8: found '${lstrEnc}' at '$lFl'" >&2
+			FUNCechoInfo "[ERROR_BUG:] shall only work with UTF-8: found '${lstrEnc}' at '$lFl'" >&2
 			exit 1;
 		fi;
 		shift
 	done
 	return 0
-};export -f FUNCcheckEncodingUTF8_Work;alias FUNCcheckEncodingUTF8='FUNCcheckEncodingUTF8_Work $LINENO '
+};export -f FUNCcheckEncodingUTF8 #_Work;alias FUNCcheckEncodingUTF8='FUNCcheckEncodingUTF8_Work $LINENO '
 
 function FUNCexecMerger() {
 	local lastrParams=()
@@ -735,6 +746,7 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 		bMergedManually=false
 #		acmdPatch=(patch -F $nFuzzyPatch "$strFlWork" "${strFlPatch}")
 		if $bKeyValueDiffMode;then
+			#FUNCcheckEncodingUTF8_Work 
 			acmdPatch=(
 				"${strPathSelf}/keyValuePatcher.py" apply --prettify --append-missing
 				--output "${strFlWork}.NEWLY_PATCHED"
@@ -958,3 +970,5 @@ FUNCechoInfo "nRet=$?"
 #read -n 1 -p "Press a key to exit..." -t $nWaitBeforeExiting&&:
 
 FUNCexit 0
+
+#fi #BUGTRACK_OVERKILL
