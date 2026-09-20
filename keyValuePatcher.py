@@ -178,6 +178,20 @@ def _open_robust(path, mode='r', encoding=None, errors=None, newline=None):
                                 pass
                 raise e
 
+def detect_encoding(file_path: str) -> str:
+    """Detect encoding via BOM; falls back to utf-8-sig for pipes/unseekable streams."""
+    try:
+        with open(file_path, "rb") as f:
+            raw = f.read(4)
+    except (IOError, OSError):
+        return "utf-8-sig"  # Safe fallback for /dev/fd/* or missing files
+
+    if raw[:3] == b'\xef\xbb\xbf': return "utf-8-sig"
+    if raw[:2] == b'\xff\xfe': return "utf-16"   # Valve localization files require BOM preservation
+    if raw[:2] == b'\xfe\xff': return "utf-16"   # Valve localization files require BOM preservation
+    if raw[:4] == b'\xff\xfe\x00\x00': return "utf-32"
+    if raw[:4] == b'\x00\x00\xfe\xff': return "utf-32"
+    return "utf-8-sig"  # No BOM → assume UTF-8
 
 # ==========================================
 # LOGGING ABSTRACTION
@@ -515,8 +529,9 @@ def parse_qct_to_dict(file_path: str, lines: Optional[List[str]] = None) -> Dict
                         ConfigError: If file cannot be read or contains unrecoverable syntax errors
         """
         if lines is None:
+                encoding = detect_encoding(file_path)
                 try:
-                        with _open_robust(file_path, "r", encoding="utf-8-sig", errors="ignore", newline="") as f:
+                        with _open_robust(file_path, "r", encoding=encoding, errors="ignore", newline="") as f:
                                 lines = f.readlines()
                 except IOError as e:
                         raise ConfigError(f"Cannot read file {file_path}: {e}")
@@ -631,8 +646,9 @@ def parse_qct_comments(file_path: str, lines: Optional[List[str]] = None) -> Dic
                         ConfigError: If the file cannot be read
         """
         if lines is None:
+                encoding = detect_encoding(file_path)
                 try:
-                        with _open_robust(file_path, "r", encoding="utf-8-sig", errors="ignore", newline="") as f:
+                        with _open_robust(file_path, "r", encoding=encoding, errors="ignore", newline="") as f:
                                 lines = f.readlines()
                 except IOError as e:
                         raise ConfigError(f"Cannot read file {file_path}: {e}")
@@ -852,8 +868,9 @@ def _value_exists_in_scope(
 
 def _read_file_lines(file_path: str) -> List[str]:
     """Read file lines once. Handles regular files and unseekable pipes/FDs."""
+    encoding = detect_encoding(file_path)
     try:
-        with _open_robust(file_path, "r", encoding="utf-8-sig", errors="ignore", newline="") as f:
+        with _open_robust(file_path, "r", encoding=encoding, errors="ignore", newline="") as f:
             return f.readlines()
     except IOError as e:
         raise ConfigError(f"Cannot read file {file_path}: {e}")
@@ -1537,8 +1554,10 @@ def handle_apply(args) -> None:
             sys.exit(EXIT_NOTHING_TO_DO)
         Logger.info("Output file specified; will generate output (copy of target).")
         
+    # 🔑 Auto-detect target encoding to preserve BOM & character set (UTF-8/UTF-16/UTF-32)
+    target_encoding = detect_encoding(args.target)
     try:
-        with _open_robust(args.target, "r", encoding="utf-8", errors="ignore", newline="") as f:
+        with _open_robust(args.target, "r", encoding=target_encoding, errors="ignore", newline="") as f:
             lines = f.readlines()
     except IOError as e:
         Logger.error(f"Failed to read target file: {e}")
@@ -1619,13 +1638,14 @@ def handle_apply(args) -> None:
         
     output_destination = args.output if args.output else args.target
     try:
-        with open(output_destination, "w", encoding="utf-8", newline="") as f:
+        # 🔑 Write back using the SAME encoding as the target to preserve BOM & format
+        with _open_robust(output_destination, "w", encoding=target_encoding, errors="ignore", newline="") as f:
             f.writelines(output_lines)
     except IOError as e:
         Logger.error(f"Failed to write output file: {e}")
         sys.exit(EXIT_PATCHING_TROUBLE)
         
-    Logger.info(f"\nPatching complete. Output: {output_destination}")
+    Logger.info(f"\nPatching complete. Output:\n{output_destination}") #\n is important to make it fast to select the full filename on the terminal as it will be a single line
 
 
 # ==========================================

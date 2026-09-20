@@ -684,7 +684,7 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 				acmdPatch=(
 					"${strPathSelf}/keyValuePatcher.py" apply --prettify --append-missing
 					--output "${strFileToMerge}.RECREATED_MODDED"
-					"$(FUNCsaveAsUTF8atTmp "$strVanillaScriptFile")"
+					"$strVanillaScriptFile" # now keyValuePatcher.py detects and restores original file encoding. #"$(FUNCsaveAsUTF8atTmp "$strVanillaScriptFile")"
 					"${strFlPatch}"
 				) #keyValuePatcher.py apply [-h] [-o OUTPUT] [-a] target patch
 			else
@@ -769,7 +769,7 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 			acmdPatch=(
 				"${strPathSelf}/keyValuePatcher.py" apply --prettify --append-missing
 				--output "${strFlWork}.NEWLY_PATCHED"
-				"$(FUNCsaveAsUTF8atTmp "$strFlWork")"
+				"$strFlWork" # now keyValuePatcher.py detects and restores original file encoding. #"$(FUNCsaveAsUTF8atTmp "$strFlWork")"
 				"${strFlPatch}"
 			) #keyValuePatcher.py apply [-h] [-o OUTPUT] [-a] target patch
 		else
