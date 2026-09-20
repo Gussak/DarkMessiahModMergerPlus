@@ -35,7 +35,7 @@
 		{
 			"TargetMarkers"
 			{
-				"classname" "turn_on_buddha"
+				"targetname" "turn_on_buddha"
 			}
 			"add:key"
 			{
@@ -55,7 +55,7 @@
 		{
 			"TargetMarkers"
 			{
-				"classname" "turn_off_buddha"
+				"targetname" "turn_off_buddha"
 			}
 			"add:key"
 			{
