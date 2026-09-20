@@ -13,7 +13,7 @@
 			{
 				"ItemClass3" "item_food_bread01_cooked" //prop_ammo_arrow fails wont spawn, env_shooter_arrow spawns but cant be pickup.. 
 				"ItemCount3" "7"
-				"ItemClass4" "item_food_banana_regime"
+				"ItemClass4" "item_food_banana_regime" //they break so you need to get them fast
 				"ItemCount4" "3"
 			}
 		}

@@ -8,9 +8,9 @@
   "launch_parameters": [],
   "gameinfo_parameters": [],
   "modules": [],
-  "game_configs": [],
-  "autoexec_configs": [],
-  "game_configs_bkp": [
+  "game_configs": [
+		"gskAllCommandsListCycle.cfg",
     "gskShowAllKeyBindings.cfg"
-  ]
+  ],
+  "autoexec_configs": []
 }

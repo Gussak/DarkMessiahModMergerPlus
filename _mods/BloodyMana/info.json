@@ -8,6 +8,6 @@
     "launch_parameters"     :   [],
     "gameinfo_parameters"   :   [],
     "modules"               :   [],
-    "game_configs"          :   [ "bloodymana.cfg", "game.cfg" ],
+    "game_configs"          :   [ "bloodymana.cfg" ],
     "autoexec_configs"      :   []
 }
