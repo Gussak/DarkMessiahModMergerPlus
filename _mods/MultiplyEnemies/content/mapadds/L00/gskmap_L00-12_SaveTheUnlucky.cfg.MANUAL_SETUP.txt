@@ -41,7 +41,7 @@
 					add:key
 					{
 							"OnTrue" "gsk_generic_cmds_issuer,Command,mm_player_add_skillpoints 1,0,-1"
-							"OnFalse" "gsk_generic_cmds_issuer,Command,echo \"NPC DIED - NO SKILL POINT\",0,-1"
+							"OnFalse" "gsk_generic_cmds_issuer,Command,echo \"NPC DIED - NO SKILL POINT\",0,-1" // this echo wont work, try some proper game message like creating an objective etc.
 					}
 			}
 
