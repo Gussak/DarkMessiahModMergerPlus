@@ -1521,8 +1521,8 @@ if $bCreateSpawnsForCurrentMap;then
 	#FUNCechoAndFillFile "alias gskCCnpcSpawn_helper \"\""
 	strCmdsErasers="gskManaRegEraser; gskHMHurtmeEraser1of3; gskHMHurtmeEraser2of3; gskHMHurtmeEraser3of3; alias gskSmnWORK gskSmnWORKmoreFoes; alias gskSpawnHintDataErasable echo ErasedHintData" #erasers are  to avoid messing the player HP and Mana pools and remove effects that slowdown things like placing more foes at least
 	#strCmdsON=" gskEchoOn; +duck; gskDevGodModeToggles; gskEffect100; ${strCmdsErasers}; alias gskWaitInteractDev gskWait333ms; " # do not use host_timescale 0.01 as it will mess teleporting. +duck is to help to fit yourself in smaller places causing less issues
-	strCmdsON=" gskEchoOn; +duck; gskDevGodModeToggles; gskEffect100; status;status; ${strCmdsErasers}; " # do not use host_timescale 0.01 as it will mess teleporting. +duck is to help to fit yourself in smaller places causing less issues. map data is to help on recreating the file with new lines of data later
-	strCmdsOFF=" -duck; gskDevGodModeToggles; gskEffectOFF; gskEchoOff; +gskReloadCfgs " # +gskReloadCfgs is to restore what was erased
+	strCmdsON=" gskEchoOn; +duck; gskDevGodModeOn; gskEffect100; status;status; ${strCmdsErasers}; " # do not use host_timescale 0.01 as it will mess teleporting. +duck is to help to fit yourself in smaller places causing less issues. map data is to help on recreating the file with new lines of data later
+	strCmdsOFF=" -duck; gskDevGodModeOff; gskEffectOFF; gskEchoOff; +gskReloadCfgs " # +gskReloadCfgs is to restore what was erased
 	FUNCechoAndFillFile "alias +gskCCnpcSpawn_next \"${strCmdsON}; +gskCCnpcSpawn_$( printf %03d $((iSpawnCount)) )\"" # initializes with some dev toggles
 	FUNCechoAndFillFile "alias gskSndSpawned \"play arkane/fix_inter/book_close.wav\""
 	#for((i=0;i<${#astrSpawnHintList[@]};i+=iDataLines));do
@@ -1762,7 +1762,6 @@ if $bCreateSpawnsForCurrentMap;then
 	FUNCechoAndFillFile "echo \" Be sure You are not immune (OFF):  Buddha\""
 	FUNCechoAndFillFile "echo \"A simple way is:\""
 	FUNCechoAndFillFile "echo \" - Stand up (as will auto crouch to help fit and positioning).\""
-	FUNCechoAndFillFile "echo \" - Enable and disable gskDevGodModeToggles and read the final status for each power, just to be sure all toggles are reset (as unfortunately we can't set them (right?)... only toggle... or NPC deployment may go out of control).\""
 	FUNCechoAndFillFile "echo \" - Close the console. While you can bind +gskCCnpcSpawn_next to a key like F4 (that will work with the console opened), it will not work when releasing the key to execute -gskCCnpcSpawn_next.\""
 	FUNCechoAndFillFile "echo \" - Hide your weapon (optional).\""
 	FUNCechoAndFillFile "echo \"Now, repeatedly press the key to spawn the next NPC: +gskCCnpcSpawn_next, but WAIT for the finished spawn sound or it will BUG(spawns 2 or more in a single location)!!!\""
