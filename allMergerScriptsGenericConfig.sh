@@ -65,9 +65,34 @@ strPathParent="$(dirname "$strPathSelf")" #help This is the folder where all Lay
 #};export -f FUNCechoInfo_Work
 ##alias FUNCechoInfo='echo "[$(basename "$0"):${FUNCNAME[@]}:$LINENO]" >&2'
 #alias FUNCechoInfo='FUNCechoInfo_Work $LINENO '
+function FUNCdbgFuncLine() {
+	local liSkip="${1-0}";shift
+	((liSkip+=1))&&: #to skip self FUNCdbgFuncLine at least
+	declare -g FUNCdbgFuncLine_OUTPUT="{ " #[${BASH_SOURCE[@]}]
+	local lstrFuncNm li
+	#for lstrFuncNm in "${FUNCNAME[@]}";do
+	local liMaxIndex=$((${#FUNCNAME[@]}-1))&&:
+	local liCount=0
+	for((li=(${#FUNCNAME[@]}-1);li>=liSkip;li--));do
+		#if [[ -n "$FUNCdbgFuncLine_OUTPUT" ]];then FUNCdbgFuncLine_OUTPUT+=" -> ";fi
+		if((liCount>0));then FUNCdbgFuncLine_OUTPUT+=" -> ";fi
+		FUNCdbgFuncLine_OUTPUT+="${FUNCNAME[$li]}():${BASH_LINENO[$li]}"
+		#if(( li == liSkip ));then FUNCdbgFuncLine_OUTPUT+=" at $(basename "${BASH_SOURCE[$li]}")";fi
+		#if(( li == liSkip ));then FUNCdbgFuncLine_OUTPUT+=" at $(basename "$0"):${BASH_LINENO[$li]}";fi
+		#if(( li == liSkip ));then FUNCdbgFuncLine_OUTPUT+=" at < ${BASH_SOURCE[@]},${FUNCNAME[@]},${BASH_LINENO[@]} >";fi
+		if(( li == liSkip ));then FUNCdbgFuncLine_OUTPUT+=" at < ${BASH_SOURCE[$liMaxIndex]}:${BASH_LINENO[$li]},${FUNCNAME[$liMaxIndex]},${BASH_LINENO[$liMaxIndex]} >";fi
+		((liCount++))&&:
+	done
+	#FUNCdbgFuncLine_OUTPUT+=" }, CalledAt{ $(basename "${BASH_SOURCE[$liSkip]}"):${FUNCNAME[$liSkip]}:${BASH_LINENO[$liSkip]} }"
+	FUNCdbgFuncLine_OUTPUT+=" }"
+}
 function FUNCechoInfo() { #help <LINENO> <MSG>
     local lLn="${BASH_LINENO[0]}" # ${BASH_LINENO[0]} automatically captures the exact line number where this function was called in the parent script!
-    echo "[$(FUNCdtFlNm):$(basename "$0"):${FUNCNAME[@]}:${BASH_LINENO[@]}:CalledAtLn${lLn}] $@" >&2
+    #echo "[$(FUNCdtFlNm):$(basename "$0"):${FUNCNAME[@]}:${BASH_LINENO[@]}:CalledAtLn${lLn}] $@" >&2
+    #FUNCdbgFuncLine 1
+    FUNCdbgFuncLine 0 #it is important to know where FUNCechoInfo was called at 
+    #echo "[$(FUNCdtFlNm):$(basename "$0"):${FUNCdbgFuncLine_OUTPUT}:CalledAtLn${lLn}] $@" >&2
+    echo "[ $(FUNCdtFlNm):$(basename "$0"):${FUNCdbgFuncLine_OUTPUT} ] $@" >&2
 };export -f FUNCechoInfo
 
 function FUNCdtFlNm() {

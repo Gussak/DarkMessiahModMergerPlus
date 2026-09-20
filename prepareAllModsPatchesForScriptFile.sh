@@ -296,7 +296,7 @@ function FUNCgetEncoding_Work() {
 	fi
 	file -bi "$1" |sed -r -e 's@text/plain; charset=(.*)$@\1@g'; 
 };export -f FUNCgetEncoding_Work;alias FUNCgetEncoding='FUNCgetEncoding_Work $LINENO '
-function FUNCcheckEncodingUTF8_Work() { #help <LINENO> <file>
+function FUNCcheckEncodingUTF8_Work() { #help <DebugLINENO> <file>
 	local lLn="$1";shift
 	local lFl="$1";shift
 	if ! [[ -f "$lFl" ]];then
@@ -658,7 +658,12 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 			FUNCechoInfo "[WARNING] unable to recreate the patch as modded file does not exist: '$strFileToMerge'"
 			FUNCechoInfo "[INFO] using the patch to re-create the modded file: '$strFileToMerge'"
 			if $bKeyValueDiffMode;then
-				acmdPatch=("${strPathSelf}/keyValuePatcher.py" apply --prettify --append-missing --output "${strFileToMerge}.RECREATED_MODDED" "$strVanillaScriptFile" "${strFlPatch}") #keyValuePatcher.py apply [-h] [-o OUTPUT] [-a] target patch
+				acmdPatch=(
+					"${strPathSelf}/keyValuePatcher.py" apply --prettify --append-missing
+					--output "${strFileToMerge}.RECREATED_MODDED"
+					"$strVanillaScriptFile"
+					"${strFlPatch}"
+				) #keyValuePatcher.py apply [-h] [-o OUTPUT] [-a] target patch
 			else
 				acmdPatch=(patch -F $nFuzzyPatch -i "${strFlPatch}" -o "${strFileToMerge}.RECREATED_MODDED" "$strVanillaScriptFile") #patch [ORIGINAL_FILE] -i [PATCH_FILE] -o [OUTPUT_FILE]
 			fi
@@ -730,7 +735,12 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 		bMergedManually=false
 #		acmdPatch=(patch -F $nFuzzyPatch "$strFlWork" "${strFlPatch}")
 		if $bKeyValueDiffMode;then
-			acmdPatch=("${strPathSelf}/keyValuePatcher.py" apply --prettify --append-missing --output "${strFlWork}.NEWLY_PATCHED" "$strFlWork" "${strFlPatch}") #keyValuePatcher.py apply [-h] [-o OUTPUT] [-a] target patch
+			acmdPatch=(
+				"${strPathSelf}/keyValuePatcher.py" apply --prettify --append-missing
+				--output "${strFlWork}.NEWLY_PATCHED"
+				"$strFlWork"
+				"${strFlPatch}"
+			) #keyValuePatcher.py apply [-h] [-o OUTPUT] [-a] target patch
 		else
 			acmdPatch=(patch -F $nFuzzyPatch -i "${strFlPatch}" -o "${strFlWork}.NEWLY_PATCHED" "$strFlWork") #patch [ORIGINAL_FILE] -i [PATCH_FILE] -o [OUTPUT_FILE]
 		fi
