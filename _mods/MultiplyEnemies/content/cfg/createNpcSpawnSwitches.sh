@@ -416,38 +416,63 @@ function FUNCmapCfg() { #ex.: gskmap_l02_b1-01_GuestHouse_OK.cfg
 }
 
 function FUNCspawnFlags() { #help based on https://developer.valvesoftware.com/wiki/Npc_ministrider#Flags
+	local lstrType="$1";shift #NPC OBJ
 	local lbAddDefaults=true;if [[ "${1-}" == --nodefaults ]];then lbAddDefaults=false;shift;fi
 	
-	local lastrFlags=("${@-FS_None}")
-	#if [[ -z "${lastrFlags[*]}" ]];then
-	if $lbAddDefaults;then
-		local lstrSleep=FS_SLEEP;
-		if $bIsNpc;then
-			if $bSpawnNpcsAwake;then
-				lstrSleep=""
+	if [[ "$lstrType" == NPC ]];then
+		local lastrFlags=("${@-FS_None}")
+		#if [[ -z "${lastrFlags[*]}" ]];then
+		if $lbAddDefaults;then
+			local lstrSleep=FS_SLEEP;
+			if $bIsNpc;then
+				if $bSpawnNpcsAwake;then
+					lstrSleep=""
+				fi
 			fi
+			
+			mapfile -t lastrFlags < <(echo "${lastrFlags[*]} ${lstrSleep} FS_FALL FS_QUIET" |tr ' ' '\n' |egrep -v "^$" |sort -u)
 		fi
-		
-		mapfile -t lastrFlags < <(echo "${lastrFlags[*]} ${lstrSleep} FS_FALL FS_QUIET" |tr ' ' '\n' |egrep -v "^$" |sort -u)
+		mapfile -t lastrFlags < <(echo "${lastrFlags[*]}" |tr ' ' '\n' |sort -u)
+		#fi
+		#while [[ $# -gt 0 ]];do
+		local lnFlags=0
+		for lstrFlagAdd in "${lastrFlags[@]}";do
+			if [[ -z "$lstrFlagAdd" ]];then continue;fi
+			case "$lstrFlagAdd" in # Flag Spawn (flags for spawning)
+				FS_None) ((lnFlags+=0))&&: ;; # dummy helper
+				FS_SLEEP) ((lnFlags+=1))&&: ;; # if NPC will only enable AI after the player sees it? wont detect player if player dont see it? May be good to create enemies with each other that will only fight after we see them! May also easy on CPU? But FS_FALL will work as soon player sees it? #### if objects, will put physics into sleep state so FS_FALL wont work even after player seeing it...
+				FS_QUIET) ((lnFlags+=2))&&: ;; #initially quiet until in rage, excellent for surprises
+				FS_FALL) ((lnFlags+=4))&&: ;; #initially fall instead of teleport to ground
+				FS_DropHealing) ((lnFlags+=8))&&: ;; #on death #this doesnt work?
+				FS_LongRangeView) ((lnFlags+=256))&&: ;;
+				FS_TANK) ((lnFlags+=16384))&&: ;; #cant be pushed
+				*) FUNCexit 1 "unrecognized (not implemented here?) spawnflag '$lstrFlagAdd'";;
+			esac
+		done
 	fi
-	mapfile -t lastrFlags < <(echo "${lastrFlags[*]}" |tr ' ' '\n' |sort -u)
-	#fi
-	#while [[ $# -gt 0 ]];do
-	local lnFlags=0
-	for lstrFlagAdd in "${lastrFlags[@]}";do
-		if [[ -z "$lstrFlagAdd" ]];then continue;fi
-		case "$lstrFlagAdd" in # Flag Spawn (flags for spawning)
-			FS_None) ((lnFlags+=0))&&: ;; # dummy helper
-			FS_SLEEP) ((lnFlags+=1))&&: ;; # if NPC will only enable AI after the player sees it? wont detect player if player dont see it? May be good to create enemies with each other that will only fight after we see them! May also easy on CPU? But FS_FALL will work as soon player sees it? #### if objects, will put physics into sleep state so FS_FALL wont work even after player seeing it...
-			FS_QUIET) ((lnFlags+=2))&&: ;; #initially quiet until in rage, excellent for surprises
-			FS_FALL) ((lnFlags+=4))&&: ;; #initially fall instead of teleport to ground
-			FS_DropHealing) ((lnFlags+=8))&&: ;; #on death #this doesnt work?
-			FS_LongRangeView) ((lnFlags+=256))&&: ;;
-			FS_TANK) ((lnFlags+=16384))&&: ;; #cant be pushed
-			*) FUNCexit 1 "unrecognized (not implemented here?) spawnflag '$lstrFlagAdd'";;
-		esac
-		#shift
-	done
+	
+	if [[ "$lstrType" == OBJ ]];then
+		local lastrFlags=("${@-FS_None}")
+		if $lbAddDefaults;then
+			mapfile -t lastrFlags < <(echo "${lastrFlags[*]} FSO_INTERACTIVE" |tr ' ' '\n' |egrep -v "^$" |sort -u)
+		fi
+		mapfile -t lastrFlags < <(echo "${lastrFlags[*]}" |tr ' ' '\n' |sort -u)
+		#fi
+		#while [[ $# -gt 0 ]];do
+		local lnFlags=0
+		for lstrFlagAdd in "${lastrFlags[@]}";do
+			if [[ -z "$lstrFlagAdd" ]];then continue;fi
+			case "$lstrFlagAdd" in # Flag Spawn (flags for spawning)
+				FSO_None) ((lnFlags+=0))&&: ;; # dummy helper
+				FSO_INITFROZEN) ((lnFlags+=1))&&: ;; # only when spawning physics will freeze, so wont fall or accomodate on terrain
+				FSO_CANTMOVE) ((lnFlags+=2))&&: ;; # cannot be moved
+				FSO_DEBRIS) ((lnFlags+=4))&&: ;; # pass thru, not a physical barrier
+				FSO_INTERACTIVE) ((lnFlags+=256))&&: ;; # can be pickup or activated
+				*) FUNCexit 1 "unrecognized (not implemented here?) spawnflag '$lstrFlagAdd'";;
+			esac
+		done
+	fi
+	
 	echo "$lnFlags"
 	return 0
 }
@@ -597,7 +622,7 @@ function FUNCexplosionData() {
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "'"$(FUNCspawnFlags --nodefaults FS_LongRangeView FS_SLEEP $*)"'"
+			"spawnflags"  "'"$(FUNCspawnFlags OBJ --nodefaults FSO_INTERACTIVE FSO_INITFROZEN $*)"'" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			'
 	# could be randomly poison(with initial big damage), ice/freeze, fire, electricity..
@@ -840,7 +865,7 @@ function FUNCmapadds() {
 			"targetname"  "'"${lstrTargetName}"'"  //'"${lstrSummonCmd}"'
 			"origin"      "'"${anTargetPosXYZ[x]} ${anTargetPosXYZ[y]} ${anTargetPosXYZ[z]}"'"
 			"angles"      "'"${anTargetAngXYZ[x]} ${anTargetAngXYZ[y]} ${anTargetAngXYZ[z]}"'"
-			"spawnflags"  "'"$(FUNCspawnFlags)"'"
+			//"spawnflags"  "'"$(FUNCspawnFlags)"'"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 ' >>"$lstrFlAddTmp"
@@ -857,16 +882,18 @@ function FUNCmapadds() {
 			"classname"   "npc_human_guard"
 			"model" "models/npc/guard/npc_guard.mdl"
 			"additionalequipment" "weapon_arx_short_sword"
-			"spawnflags"  "'"$(FUNCspawnFlags FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
+			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			;; 
 		"+gskSummonGuardMini")
 			bIsNpc=true
 			lnYDisplacement=5
 			echo '
 			"classname"   "npc_human_guard"
-			"model" "models/npc/guard/npc_guard_shrinked.mdl"
+			//"model" "models/npc/guard/npc_guard_shrinked.mdl"
+			"model" "models/npc/guard/npc_guard.mdl"
+			"modelscale" "0.30"
 			"additionalequipment" "weapon_arx_short_sword"
-			"spawnflags"  "'"$(FUNCspawnFlags FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
+			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			;; 
 		"+gskSummonGuardBow")
 			bIsNpc=true
@@ -877,7 +904,7 @@ function FUNCmapadds() {
 			"rangeweapon" "weapon_arxcrossbow"
 			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
 			"QuiverAmmo" "8"
-			"spawnflags"  "'"$(FUNCspawnFlags FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
+			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			;; 
 		"+gskSummonGuardShield")
 			bIsNpc=true
@@ -889,7 +916,7 @@ function FUNCmapadds() {
 			//"rangeweapon" "weapon_arxcrossbow" //he cant shoot while the shield is on his hand
 			//"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
 			//"QuiverAmmo" "8"
-			"spawnflags"  "'"$(FUNCspawnFlags FS_DropHealing FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
+			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_DropHealing FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			;; 
 		mm_npc_create_necro_guard_bow|"gskSummonNecroGuardBow")
 			bIsNpc=true
@@ -900,7 +927,7 @@ function FUNCmapadds() {
 			"rangeweapon" "weapon_arxcrossbow"
 			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
 			"QuiverAmmo" "12"
-			"spawnflags"  "'"$(FUNCspawnFlags FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
+			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			;; 
 		mm_npc_create_necro_guard_shield|"gskSummonNecroGuardShield")
 			bIsNpc=true
@@ -909,7 +936,7 @@ function FUNCmapadds() {
 			"model" "models/npc/Necroguard/npc_necroguard.mdl"
 			"additionalequipment"	"weapon_arx_short_sword"
 			"additionalshield" "weapon_mm_shield_necroguard"
-			"spawnflags"  "'"$(FUNCspawnFlags FS_DropHealing FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
+			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_DropHealing FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			;;
 		mm_npc_create_necromancer|"gskSummonNecromancer")
 			bIsNpc=true
@@ -917,7 +944,7 @@ function FUNCmapadds() {
 			"classname" "npc_necromancer_lord"
 			"model" "models/NPC/Necromancer/Npc_necromancer.mdl"
 			"additionalequipment" "weapon_mm_staff_combat"
-			"spawnflags"  "'"$(FUNCspawnFlags FS_DropHealing FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
+			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_DropHealing FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			;;
 		mm_npc_create_necromancer_lord|"+gskSummonNecromancerLord")
 			bIsNpc=true
@@ -925,7 +952,7 @@ function FUNCmapadds() {
 			"classname" "npc_necromancer_lord"
 			"model" "models/NPC/necromancer_lord/npc_necromancer_lord.mdl"
 			"additionalequipment" "weapon_mm_hook"
-			"spawnflags"  "'"$(FUNCspawnFlags FS_DropHealing FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
+			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_DropHealing FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			#"weaponmodel" "models/Items/Weapons/hook/hook.mdl"
 			;;
 		mm_npc_create_undead|"gskSummonUndead")
@@ -934,7 +961,7 @@ function FUNCmapadds() {
 			"classname" "npc_undead"
 			"model" "models/NPC/Undead/Npc_undead.mdl"
 			"SmellRadius" "300"
-			"spawnflags"  "'"$(FUNCspawnFlags FS_TANK)"'"' >>"$lstrFlAddTmp"
+			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_TANK)"'"' >>"$lstrFlAddTmp"
 			
 			local lnUnBurrowChance=1.0 # if 1.0 means allow burrow 100%? then -1 means what????
 			local lnUnBurrowRadius=200 # 10000 to spawn standing on the ground as soon as possible... Is it a raycast ??? I mean, wont trigger if player is behind a wall from it?
@@ -962,7 +989,7 @@ function FUNCmapadds() {
 			echo '
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
-			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
+			"spawnflags"  "'"$(FUNCspawnFlags NPC)"'"' >>"$lstrFlAddTmp"
 			;;
 		mm_npc_create_spider_mini|"gskSummonSpiderMini")
 			bIsNpc=true
@@ -970,7 +997,7 @@ function FUNCmapadds() {
 			echo '
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
+			"spawnflags"  "'"$(FUNCspawnFlags NPC)"'"' >>"$lstrFlAddTmp"
 			;;
 		"gskSummonPotionMana")
 			lnYDisplacement=5
@@ -978,7 +1005,7 @@ function FUNCmapadds() {
 			"classname" "item_potion_mana"
 			"model" "models/items/provisions/potions/Mana_potion.mdl"
 			"angles"      "'"0 ${anTargetAngXYZ[y]} 0"'"
-			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
+			"spawnflags"  "'"$(FUNCspawnFlags OBJ)"'"' >>"$lstrFlAddTmp"
 			;;
 		"gskSummonPotionLife")
 			lnYDisplacement=5
@@ -986,7 +1013,7 @@ function FUNCmapadds() {
 			"classname" "item_potion_life"
 			"model" "models/items/provisions/potions/Life_potion.mdl"
 			"angles"      "'"0 ${anTargetAngXYZ[y]} 0"'"
-			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
+			"spawnflags"  "'"$(FUNCspawnFlags OBJ)"'"' >>"$lstrFlAddTmp"
 			;;
 		"gskSummonPotionStone")
 			lnYDisplacement=5
@@ -994,7 +1021,7 @@ function FUNCmapadds() {
 			"classname" "item_potion_stone"
 			"model" "models/items/provisions/potions/stone_potion.mdl"
 			"angles"      "'"0 ${anTargetAngXYZ[y]} 0"'"
-			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
+			"spawnflags"  "'"$(FUNCspawnFlags OBJ)"'"' >>"$lstrFlAddTmp"
 			;;
 		"gskSummonPotionCurePoison")
 			lnYDisplacement=5
@@ -1002,7 +1029,7 @@ function FUNCmapadds() {
 			"classname" "item_potion_cure_poison"
 			"model" "models/items/provisions/potions/cure_poison_potion.mdl"
 			"angles"      "'"0 ${anTargetAngXYZ[y]} 0"'"
-			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
+			"spawnflags"  "'"$(FUNCspawnFlags OBJ)"'"' >>"$lstrFlAddTmp"
 			;;
 		"gskSummonSword") # is bugging, not spawning correctly, unequipable
 			lstrIgnore="UnnecessaryAsPlayerCanSummon"
@@ -1010,7 +1037,7 @@ function FUNCmapadds() {
 			echo '
 			"classname" "prop_physics"
 			"model" "models/Items/Weapons/Sword_short/Sword_short.mdl"
-			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
+			"spawnflags"  "'"$(FUNCspawnFlags OBJ)"'"' >>"$lstrFlAddTmp"
 			;;
 		"gskSummonStaff") # is bugging, not spawning correctly, unequipable
 			lstrIgnore="UnnecessaryAsPlayerCanSummon"
@@ -1018,7 +1045,7 @@ function FUNCmapadds() {
 			echo '
 			"classname" "prop_physics"
 			"model" "models/Items/Weapons/staff_wood/staff_wood.mdl"
-			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
+			"spawnflags"  "'"$(FUNCspawnFlags OBJ)"'"' >>"$lstrFlAddTmp"
 			;;
 		"gskSummonClub") # is bugging, not spawning correctly, unequipable
 			lstrIgnore="UnnecessaryAsPlayerCanSummon"
@@ -1026,52 +1053,52 @@ function FUNCmapadds() {
 			echo '
 			"classname" "prop_physics"
 			"model" "models/Items/Weapons/Club/Club.mdl"
-			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
+			"spawnflags"  "'"$(FUNCspawnFlags OBJ)"'"' >>"$lstrFlAddTmp"
 			;;
-		"gskSkillPointAdd") #TODO doesnt work....
-			#"targetname" "'"${lstrTargetName}"'_gskGive1SkillPoint"
-			echo '
-			"classname" "npc_spider_mini"
-			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"connections"
-			{
-				"OnDeath" "mm_player_inputs,GiveSkillPoints,1,0,1,1,gskmap"
-			}
-			"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
-			;;
+		#"gskSkillPointAdd") #TODO doesnt work....
+			##"targetname" "'"${lstrTargetName}"'_gskGive1SkillPoint"
+			#echo '
+			#"classname" "npc_spider_mini"
+			#"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			#"connections"
+			#{
+				#"OnDeath" "mm_player_inputs,GiveSkillPoints,1,0,1,1,gskmap"
+			#}
+			#"spawnflags"  "'"$(FUNCspawnFlags)"'"' >>"$lstrFlAddTmp"
+			#;;
 		"gskSummonCoin")
 			echo '
 			"classname" "prop_physics"
 			"model" "models/items/jewels/money/money02.mdl"
-			' >>"$lstrFlAddTmp"
+			"spawnflags"  "'"$(FUNCspawnFlags OBJ)"'"' >>"$lstrFlAddTmp"
 			;;
 		"gskSummonCrow")
 			bIsNpc=true
 			echo '
 			"classname" "npc_crow"
 			"model" "models/npc/crow/npc_crow.mdl"
-			' >>"$lstrFlAddTmp"
+			"spawnflags"  "'"$(FUNCspawnFlags NPC)"'"' >>"$lstrFlAddTmp"
 			;;
 		"gskSummonSeagull")
 			bIsNpc=true
 			echo '
 			"classname" "npc_seagull"
 			"model" "models/npc/seagull/npc_seagull.mdl"
-			' >>"$lstrFlAddTmp"
+			"spawnflags"  "'"$(FUNCspawnFlags NPC)"'"' >>"$lstrFlAddTmp"
 			;;
 		"gskSummonPig")
 			bIsNpc=true
 			echo '
 			"classname" "npc_pig"
 			"model" "models/npc/pig/pig.mdl"
-			' >>"$lstrFlAddTmp"
+			"spawnflags"  "'"$(FUNCspawnFlags NPC)"'"' >>"$lstrFlAddTmp"
 			;;
 		mm_npc_create_facehugger|"gskSummonFacehugger")
 			bIsNpc=true
 			echo '
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
-			' >>"$lstrFlAddTmp"
+			"spawnflags"  "'"$(FUNCspawnFlags NPC)"'"' >>"$lstrFlAddTmp"
 			;;
 		"gskSummonSimStoneLowBarrier") # below is has no mesh tho, looks bad.
 			echo '
@@ -1080,7 +1107,7 @@ function FUNCmapadds() {
 			"fademindist" "800"
 			"fademaxdist" "1200"
 			"fadescale" "1"
-			' >>"$lstrFlAddTmp"
+			"spawnflags"  "'"$(FUNCspawnFlags OBJ)"'"' >>"$lstrFlAddTmp"
 			;;
 		"gskSummonDevTrapFireSC") # SpellCaster # is messed...
 			lstrIgnore="MessedColliderBoxWontSpawn"
@@ -1095,6 +1122,7 @@ function FUNCmapadds() {
 			"spell" "7"
 			"lifetime" "-1"
 			"power" "1"
+			"spawnflags"  "'"$(FUNCspawnFlags OBJ)"'"
 			' >>"$lstrFlAddTmp"
 			# but the box collider wont spawn...
 			lstrAddEntityExtra+="$(FUNCprepareFireTrapBoxCollider "$lstrTargetName")" #TODO this fails tho...
@@ -1109,6 +1137,7 @@ function FUNCmapadds() {
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
 			"angles" "'"$(( $(FUNCpredictableRandom X${nTrapCount}) % 45))"' '"$(( ($(FUNCpredictableRandom Y${nTrapCount}) % 360) - 180))"' '"$(( $(FUNCpredictableRandom Z${nTrapCount}) % 45 ))"'"
+			"spawnflags"  "'"$(FUNCspawnFlags OBJ)"'"
 			'"$(FUNCexplosionData)"'
 			' >>"$lstrFlAddTmp"
 			((nTrapCount++))&&:
@@ -1123,6 +1152,7 @@ function FUNCmapadds() {
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
 			"angles" "0 0 0"
+			"spawnflags"  "'"$(FUNCspawnFlags OBJ)"'"
 			'"$(FUNCexplosionData FS_FALL)"' //it wont fall when spawning even with the flag enabled...
 			"spawnflags"  "'"$(FUNCspawnFlags --nodefaults FS_LongRangeView FS_FALL)"'" //cannot have FS_SLEEP or it wont use FS_FALL
 			' >>"$lstrFlAddTmp"
@@ -1135,7 +1165,8 @@ function FUNCmapadds() {
 			"physdamagescale" "0.1" //useless?
 			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "'"$(FUNCspawnFlags --nodefaults FS_FALL FS_QUIET)"'"' >>"$lstrFlAddTmp"
+			"spawnflags"  "'"$(FUNCspawnFlags NPC --nodefaults FS_FALL FS_QUIET)"'"
+			' >>"$lstrFlAddTmp"
 			;;
 		#"gskSummonDevTrapMiniSpidZL200") #(not good as too far from ground will just kill them...)
 			#lnYDisplacement=-200
@@ -1154,7 +1185,8 @@ function FUNCmapadds() {
 			"physdamagescale" "0.1" //useless?
 			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "'"$(FUNCspawnFlags --nodefaults FS_FALL FS_QUIET)"'"' >>"$lstrFlAddTmp"
+			"spawnflags"  "'"$(FUNCspawnFlags NPC --nodefaults FS_FALL FS_QUIET)"'"
+			' >>"$lstrFlAddTmp"
 			;;
 		"gskSummonDevSkeletonPart")
 			local lstrSkelPartModel=""
@@ -1185,7 +1217,7 @@ function FUNCmapadds() {
 			"fadescale" "1"
 			"UseSpeedToCalculateSoundVolume" "1"
 			
-			"spawnflags"  "'"$(FUNCspawnFlags --nodefaults FS_LongRangeView FS_SLEEP)"'"
+			"spawnflags"  "'"$(FUNCspawnFlags OBJ --nodefaults FSO_INTERACTIVE FSO_INITFROZEN)"'"
 			"classname" "prop_physics"
 			"model" "'"${lstrSkelPartModel}"'"
 			"angles" "'"${lnRotationX}"' '"${lnRotationY}"' '"${lnRotationZ}"'"
@@ -1243,12 +1275,14 @@ function FUNCmapadds() {
 			"angles"      "'"${anTargetAngXYZ[x]} ${anTargetAngXYZ[y]} 90"'"
 			"model" "models/items/weapons/quiver_guard/quiver_guard.mdl"
 			"NbArrow" "3"
+			"spawnflags"  "'"$(FUNCspawnFlags OBJ)"'"
 			' >>"$lstrFlAddTmp"
 			;;
 		"gskSummon_"*) #by luck I put all food beggining with '_' xD
 			lnYDisplacement=5
 			echo '
 			"classname" "item_food_'"${lstrSummonCmd#gskSummon_}"'"
+			"spawnflags"  "'"$(FUNCspawnFlags OBJ)"'"
 			' >>"$lstrFlAddTmp"
 			;;
 		*)
