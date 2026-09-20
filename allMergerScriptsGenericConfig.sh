@@ -55,7 +55,6 @@ strPathParent="$(dirname "$strPathSelf")" #help This is the folder where all Lay
 : ${strGameMainFolderBasename:="Dark Messiah Might and Magic Single Player"} #help
 : ${strGameInstallMainFolder:="${strPathParent}/${strGameMainFolderBasename}"} #help vanilla game installed main folder
 
-
 ################################# FUNCTIONS
 
 #shopt -s expand_aliases
@@ -1126,3 +1125,10 @@ function FUNCchkCfgScriptLineSz() {
 	#if((${#lstr} > nCfgScriptLineSzLim));then echo "[ERROR:${FUNCNAME[@]}:${BASH_LINENO[@]}] line too big ${#lstr} '${lstr}'";exit 1;fi
 	if((${#lstr} > nCfgScriptLineSzLim));then FUNCexit 1 "line too big ${#lstr} '${lstr}'";fi
 };export -f FUNCchkCfgScriptLineSz
+
+
+if [[ -f "${strGameInstallMainFolder}/vpks/depot_2101_000.vpk" ]];then
+	if ! FUNCaskYesNo "You need to extract all files from all the '*.vpk' files, and rename or delete or move the 'vpks' folder, otherwise some modded things won't work like new text from 'resource/english/system_strings_lvl_00.txt'. Continue anyway?";then
+		exit 1
+	fi
+fi
