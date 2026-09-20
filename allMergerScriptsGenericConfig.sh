@@ -1076,5 +1076,6 @@ export bFUNCchkLoadedModDlls=true #help prevents nested script calls to re-run t
 : ${nCfgScriptLineSzLim:=1024} #help cfg script line limit is 1024 chars
 function FUNCchkCfgScriptLineSz() {
 	local lstr="$1"
-	if((${#lstr} > nCfgScriptLineSzLim));then echo "[ERROR:${FUNCNAME[@]}:${BASH_LINENO[@]}] line too big ${#lstr} '${lstr}'";exit 1;fi
+	#if((${#lstr} > nCfgScriptLineSzLim));then echo "[ERROR:${FUNCNAME[@]}:${BASH_LINENO[@]}] line too big ${#lstr} '${lstr}'";exit 1;fi
+	if((${#lstr} > nCfgScriptLineSzLim));then FUNCexit 1 "line too big ${#lstr} '${lstr}'";fi
 };export -f FUNCchkCfgScriptLineSz
