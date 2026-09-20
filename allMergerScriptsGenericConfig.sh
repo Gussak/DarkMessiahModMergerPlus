@@ -914,14 +914,22 @@ function FUNCposTarget() {
 function FUNChasBOM() {
 	local lstrFl="$1";shift
 	if [[ "$(hexdump -n 2 -e '2/1 "%02x"' "$lstrFl")" == "fffe" ]]; then
+		FUNChasBOM_strBOM='\xff\xfe'
+		return 0
+	fi
+	if [[ "$(hexdump -n 3 -e '2/1 "%02x"' "$lstrFl")" == "efbbbf" ]]; then
+		FUNChasBOM_strBOM='\xef\xbb\xbf'
 		return 0
 	fi
 	return 1
 };export -f FUNChasBOM
-function FUNCfixBOM() {
+function FUNCfixBOM() { # <BOM> <file>
+	#local lstrBOM="";if [[ "$1" == --BOM ]];then shift;lstrBOM="$1";fi
+	local lstrBOM="$1";shift
 	local lstrFl="$1";shift
 	if ! FUNChasBOM "$lstrFl"; then
-		(printf '\xff\xfe'; cat "$lstrFl") | sponge "$lstrFl"
+		#(printf '\xff\xfe'; cat "$lstrFl") | sponge "$lstrFl"
+		(printf "$lstrBOM"; cat "$lstrFl") | sponge "$lstrFl"
 		FUNCechoInfo "[EncBOM] Fixed Encoding BOM for '$lstrFl'"
 	fi
 	: ${bFixUtf16leCRLF:=false} #help DELETE MAY BE
@@ -931,6 +939,13 @@ function FUNCfixBOM() {
 		fi
 	fi
 };export -f FUNCfixBOM
+
+function FUNCoutputAsUTF8() { #<fileIn> output to stdout
+	iconv -f $(file -b --mime-encoding "$1") -t UTF-8 "$1"
+};export -f FUNCoutputAsUTF8
+function FUNCsaveAsUTF8() { # <fileIn> <fileOut>
+	FUNCoutputAsUTF8 "$1" >"$2"
+};export -f FUNCsaveAsUTF8
 
 function FUNCxtermChild() { #help <lstrTitle> <OtherXtermParams>
 	local lstrTitle="$1";shift

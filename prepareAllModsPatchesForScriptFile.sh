@@ -318,6 +318,8 @@ function FUNCcheckEncodingUTF8() { #help <files...>
 			#echo "[ERROR_BUG:${FUNCNAME[@]}:CalledAtLn${lLn}] shall only work with UTF-8: found '${lstrEnc}' at '$lFl'" >&2
 			FUNCechoInfo "[ERROR_BUG:] shall only work with UTF-8: found '${lstrEnc}' at '$lFl'" >&2
 			exit 1;
+		else
+			declare -p lFl lstrEnc >&2
 		fi;
 		shift
 	done
@@ -445,7 +447,7 @@ function FUNCprePatchSanityChk() { #help <lstrFlChk>
 	done
 }
 
-FUNCconvEncToUTF8BOM() { #help <lEncFrom> <lstrFlIn>
+function FUNCconvEncToUTF8BOM() { #help <lEncFrom> <lstrFlIn>
 	local lEncFrom="$1";shift
 	local lstrFlIn="$1";shift
 	
@@ -633,10 +635,13 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 				#iconv -f $(file -b --mime-encoding "$strVanillaScriptFile") -t UTF-8 "$strVanillaScriptFile" >"$strFlOrig"
 				#iconv -f $(file -b --mime-encoding "$strFileToMerge"      ) -t UTF-8 "$strFileToMerge"       >"$strFlModd"
 				#"${strPathSelf}/keyValuePatcher.py" create -o "${strFlPatch}" "$strFlOrig" "$strFlModd" &&:;
+					#<(iconv -f $(file -b --mime-encoding "$strVanillaScriptFile") -t UTF-8 "$strVanillaScriptFile") \
+					#<(iconv -f $(file -b --mime-encoding "$strFileToMerge"      ) -t UTF-8 "$strFileToMerge"      ) \
+					#
 				"${strPathSelf}/keyValuePatcher.py" create \
 					-o "${strFlPatch}" \
-					<(iconv -f $(file -b --mime-encoding "$strVanillaScriptFile") -t UTF-8 "$strVanillaScriptFile") \
-					<(iconv -f $(file -b --mime-encoding "$strFileToMerge"      ) -t UTF-8 "$strFileToMerge"      ) \
+					<(FUNCoutputAsUTF8 "$strVanillaScriptFile") \
+					<(FUNCoutputAsUTF8 "$strFileToMerge"      ) \
 					&&:;
 				nKVret=$?
 				case $nKVret in
@@ -655,8 +660,8 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 					#iconv -f $(file -b --mime-encoding "$strFileToMerge"      ) -t UTF-8 "$strFileToMerge"       >"$strFlModd"
 					#diff -u "$strFlOrig" "$strFlModd" >"${strFlPatch}";nRet=$?
 					diff -u \
-						<(iconv -f $(file -b --mime-encoding "$strVanillaScriptFile") -t UTF-8 "$strVanillaScriptFile") \
-						<(iconv -f $(file -b --mime-encoding "$strFileToMerge"      ) -t UTF-8 "$strFileToMerge"      ) \
+						<(FUNCoutputAsUTF8 "$strVanillaScriptFile") \
+						<(FUNCoutputAsUTF8 "$strFileToMerge"      ) \
 							>"${strFlPatch}";nRet=$?
 							#KEEPinfo: too much unnecessary log: #					|tee "${strFlPatch}";nRet=$?
 					set +o pipefail # to not mess other things like grep
@@ -668,6 +673,13 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 		else #if [[ -f "$strFileToMerge" ]];then
 			FUNCechoInfo "[WARNING] unable to recreate the patch as modded file does not exist: '$strFileToMerge'"
 			FUNCechoInfo "[INFO] using the patch to re-create the modded file: '$strFileToMerge'"
+			FUNCcheckEncodingUTF8 "$strVanillaScriptFile"
+			echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+			echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+			echo ">>>>>>>>>>>>>>>>>>>>>0>>>>>>>>>>>>>>>>>>>>>>>"
+			echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+			echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+			ls -l "${strVanillaScriptFile}.UTF-8"&&:
 			if $bKeyValueDiffMode;then
 				acmdPatch=(
 					"${strPathSelf}/keyValuePatcher.py" apply --prettify --append-missing
@@ -747,6 +759,13 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 #		acmdPatch=(patch -F $nFuzzyPatch "$strFlWork" "${strFlPatch}")
 		if $bKeyValueDiffMode;then
 			#FUNCcheckEncodingUTF8_Work 
+			FUNCcheckEncodingUTF8 "$strFlWork"
+			echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+			echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+			echo ">>>>>>>>>>>>>>>>>>>>1>>>>>>>>>>>>>>>>>>>>>>>>"
+			echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+			echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+			ls -l "${strFlWork}.UTF-8"&&:
 			acmdPatch=(
 				"${strPathSelf}/keyValuePatcher.py" apply --prettify --append-missing
 				--output "${strFlWork}.NEWLY_PATCHED"
@@ -868,7 +887,7 @@ case "$strEncodingVanilla" in
 		;;
 esac
 if FUNChasBOM "$strVanillaScriptFileOriginal";then
-	FUNCfixBOM "$strFlWork"
+	FUNCfixBOM "${FUNChasBOM_strBOM}" "$strFlWork"
 fi
 if [[ "$(FUNCgetEncoding "$strVanillaScriptFileOriginal")" != "$(FUNCgetEncoding "$strFlWork")" ]];then
 	FUNCechoInfo "[ERROR] restoring enconding failed"
