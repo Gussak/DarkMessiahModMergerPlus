@@ -3,104 +3,104 @@
 	"PreInitialize"
 	{	
 		
-		////////////////////////////////////////////////////////////////////////////////////////////////////
-		//////////////////////////////////// TODO these should be globals into all maps ////////////////////
-		////////////////////////////////////////////////////////////////////////////////////////////////////
+		//////////////////////////////////////////////////////////////////////////////////////////////////////
+		////////////////////////////////////// TODO these should be globals into all maps ////////////////////
+		//////////////////////////////////////////////////////////////////////////////////////////////////////
 		
-		///////////////////////////// CONSOLE COMMANDS ISSUER
-		"add:entity"
-		{
-				//"classname" "point_clientcommand"
-				"classname" "point_servercommand"
-				"targetname" "gsk_generic_cmds_issuer"
-		}
+		/////////////////////////////// CONSOLE COMMANDS ISSUER
+		//"add:entity"
+		//{
+				////"classname" "point_clientcommand"
+				//"classname" "point_servercommand"
+				//"targetname" "gsk_generic_cmds_issuer"
+		//}
 		
-		////////////////// handle togglers into trusty setters
-		// ent_fire turn_on_buddha trigger
-		// ent_fire turn_off_buddha trigger
-		add:entity
-		{
-				"classname" "point_servercommand"
-				"targetname" "server_buddha_executor"
-		}
+		//////////////////// handle togglers into trusty setters
+		//// ent_fire turn_on_buddha trigger
+		//// ent_fire turn_off_buddha trigger
+		//add:entity
+		//{
+				//"classname" "point_servercommand"
+				//"targetname" "server_buddha_executor"
+		//}
 
-		add:entity
-		{
-				"classname" "logic_branch"
-				"targetname" "gate_allow_turn_on"
-				"InitialValue" "1"
-		}
+		//add:entity
+		//{
+				//"classname" "logic_branch"
+				//"targetname" "gate_allow_turn_on"
+				//"InitialValue" "1"
+		//}
 
-		add:entity
-		{
-				"classname" "logic_branch"
-				"targetname" "gate_allow_turn_off"
-				"InitialValue" "0"
-		}
+		//add:entity
+		//{
+				//"classname" "logic_branch"
+				//"targetname" "gate_allow_turn_off"
+				//"InitialValue" "0"
+		//}
 
-		add:entity
-		{
-				"classname" "logic_relay"
-				"targetname" "turn_on_buddha"
-		}
+		//add:entity
+		//{
+				//"classname" "logic_relay"
+				//"targetname" "turn_on_buddha"
+		//}
 
-		add:entity
-		{
-				"classname" "logic_relay"
-				"targetname" "turn_off_buddha"
-		}
+		//add:entity
+		//{
+				//"classname" "logic_relay"
+				//"targetname" "turn_off_buddha"
+		//}
 		
-		modify:entity
-		{
-				TargetMarkers
-				{
-						"targetname" "gate_allow_turn_on"
-				}
-				"add:key"
-				{
-					"OnTrue" "server_buddha_executor,Command,buddha,0,-1"
-				}
-		}
+		//modify:entity
+		//{
+				//TargetMarkers
+				//{
+						//"targetname" "gate_allow_turn_on"
+				//}
+				//"add:key"
+				//{
+					//"OnTrue" "server_buddha_executor,Command,buddha,0,-1"
+				//}
+		//}
 
-		modify:entity
-		{
-				TargetMarkers
-				{
-						"targetname" "gate_allow_turn_off"
-				}
-				"add:key"
-				{
-					"OnTrue" "server_buddha_executor,Command,buddha,0,-1"
-				}
-		}
+		//modify:entity
+		//{
+				//TargetMarkers
+				//{
+						//"targetname" "gate_allow_turn_off"
+				//}
+				//"add:key"
+				//{
+					//"OnTrue" "server_buddha_executor,Command,buddha,0,-1"
+				//}
+		//}
 
-		modify:entity
-		{
-				TargetMarkers
-				{
-						"targetname" "turn_on_buddha"
-				}
-				"add:key"
-				{
-					"OnTrigger" "gate_allow_turn_on,Test,,0,-1"
-					"OnTrigger" "gate_allow_turn_on,SetValue,0,0.01,-1"
-					"OnTrigger" "gate_allow_turn_off,SetValue,1,0.01,-1"
-				}
-		}
+		//modify:entity
+		//{
+				//TargetMarkers
+				//{
+						//"targetname" "turn_on_buddha"
+				//}
+				//"add:key"
+				//{
+					//"OnTrigger" "gate_allow_turn_on,Test,,0,-1"
+					//"OnTrigger" "gate_allow_turn_on,SetValue,0,0.01,-1"
+					//"OnTrigger" "gate_allow_turn_off,SetValue,1,0.01,-1"
+				//}
+		//}
 
-		modify:entity
-		{
-				TargetMarkers
-				{
-						"targetname" "turn_off_buddha"
-				}
-				"add:key"
-				{
-					"OnTrigger" "gate_allow_turn_off,Test,,0,-1"
-					"OnTrigger" "gate_allow_turn_off,SetValue,0,0.01,-1"
-					"OnTrigger" "gate_allow_turn_on,SetValue,1,0.01,-1"
-				}
-		}		
+		//modify:entity
+		//{
+				//TargetMarkers
+				//{
+						//"targetname" "turn_off_buddha"
+				//}
+				//"add:key"
+				//{
+					//"OnTrigger" "gate_allow_turn_off,Test,,0,-1"
+					//"OnTrigger" "gate_allow_turn_off,SetValue,0,0.01,-1"
+					//"OnTrigger" "gate_allow_turn_on,SetValue,1,0.01,-1"
+				//}
+		//}		
 		
 		
 		

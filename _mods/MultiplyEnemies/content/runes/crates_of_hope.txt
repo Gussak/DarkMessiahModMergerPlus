@@ -7,6 +7,7 @@
     "requires"      "relic_l00_1"
     "mapadds"
     {
+        //"global_mapadds/gsk_global_enhancements.txt"   "1"
         "global_mapadds/crates_of_hope.txt"   "1"
     }
 }

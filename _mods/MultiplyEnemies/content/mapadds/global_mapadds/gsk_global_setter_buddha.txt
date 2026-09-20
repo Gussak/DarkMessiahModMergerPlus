@@ -1,0 +1,94 @@
+"mapadd_keyvalues"
+{
+	"PreInitialize"
+	{
+
+		////////////////// handle togglers into trusty setters
+		// bind 1 "ent_fire turn_on_buddha trigger"
+		// bind 2 "ent_fire turn_off_buddha trigger"
+		//add:entity
+		//{
+				//"classname" "point_servercommand"
+				//"targetname" "server_buddha_executor" //replaced by gsk_generic_cmds_issuer
+		//}
+
+		add:entity
+		{
+				"classname" "logic_branch"
+				"targetname" "gate_allow_turn_on"
+				"InitialValue" "1"
+		}
+
+		add:entity
+		{
+				"classname" "logic_branch"
+				"targetname" "gate_allow_turn_off"
+				"InitialValue" "0"
+		}
+
+		add:entity
+		{
+				"classname" "logic_relay"
+				"targetname" "turn_on_buddha"
+		}
+
+		add:entity
+		{
+				"classname" "logic_relay"
+				"targetname" "turn_off_buddha"
+		}
+		
+		modify:entity
+		{
+				TargetMarkers
+				{
+						"targetname" "gate_allow_turn_on"
+				}
+				"add:key"
+				{
+					"OnTrue" "gsk_generic_cmds_issuer,Command,buddha,0,-1"
+				}
+		}
+
+		modify:entity
+		{
+				TargetMarkers
+				{
+						"targetname" "gate_allow_turn_off"
+				}
+				"add:key"
+				{
+					"OnTrue" "gsk_generic_cmds_issuer,Command,buddha,0,-1"
+				}
+		}
+
+		modify:entity
+		{
+				TargetMarkers
+				{
+						"targetname" "turn_on_buddha"
+				}
+				"add:key"
+				{
+					"OnTrigger" "gate_allow_turn_on,Test,,0,-1"
+					"OnTrigger" "gate_allow_turn_on,SetValue,0,0.01,-1"
+					"OnTrigger" "gate_allow_turn_off,SetValue,1,0.01,-1"
+				}
+		}
+
+		modify:entity
+		{
+				TargetMarkers
+				{
+						"targetname" "turn_off_buddha"
+				}
+				"add:key"
+				{
+					"OnTrigger" "gate_allow_turn_off,Test,,0,-1"
+					"OnTrigger" "gate_allow_turn_off,SetValue,0,0.01,-1"
+					"OnTrigger" "gate_allow_turn_on,SetValue,1,0.01,-1"
+				}
+		}
+		
+	}
+}

@@ -1,0 +1,14 @@
+"Rune"
+{
+    "name"      "GSK global enhancements"
+    "description"   "To play GSK mods properly you need to activate this."
+    "icon"          "materials/wos/vgui/runes/rune_w.tga"  //it is the same rune actually TODO create a new one?
+    "hint"          "To play GSK mods properly you need to activate this, so In the Prologue, climb at your right, is hidden up there, but the mapadds seem to have loaded before doing it."
+    //"requires"      "0" //failing to activate because of this?
+    "requires"      "relic_l00_1"
+    "mapadds"
+    {
+        "global_mapadds/gsk_global_enhancements.txt"   "1"
+        "global_mapadds/gsk_global_setter_buddha.txt"  "1"
+    }
+}
