@@ -640,8 +640,8 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 					#
 				"${strPathSelf}/keyValuePatcher.py" create \
 					-o "${strFlPatch}" \
-					<(FUNCoutputAsUTF8 "$strVanillaScriptFile") \
-					<(FUNCoutputAsUTF8 "$strFileToMerge"      ) \
+					"$(FUNCsaveAsUTF8atTmp "$strVanillaScriptFile")" \
+					"$(FUNCsaveAsUTF8atTmp "$strFileToMerge"      )" \
 					&&:;
 				nKVret=$?
 				case $nKVret in
@@ -660,8 +660,8 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 					#iconv -f $(file -b --mime-encoding "$strFileToMerge"      ) -t UTF-8 "$strFileToMerge"       >"$strFlModd"
 					#diff -u "$strFlOrig" "$strFlModd" >"${strFlPatch}";nRet=$?
 					diff -u \
-						<(FUNCoutputAsUTF8 "$strVanillaScriptFile") \
-						<(FUNCoutputAsUTF8 "$strFileToMerge"      ) \
+						"$(FUNCsaveAsUTF8atTmp "$strVanillaScriptFile")" \
+						"$(FUNCsaveAsUTF8atTmp "$strFileToMerge"      )" \
 							>"${strFlPatch}";nRet=$?
 							#KEEPinfo: too much unnecessary log: #					|tee "${strFlPatch}";nRet=$?
 					set +o pipefail # to not mess other things like grep
@@ -684,7 +684,7 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 				acmdPatch=(
 					"${strPathSelf}/keyValuePatcher.py" apply --prettify --append-missing
 					--output "${strFileToMerge}.RECREATED_MODDED"
-					<(FUNCoutputAsUTF8 "$strVanillaScriptFile")
+					"$(FUNCsaveAsUTF8atTmp "$strVanillaScriptFile")"
 					"${strFlPatch}"
 				) #keyValuePatcher.py apply [-h] [-o OUTPUT] [-a] target patch
 			else
@@ -769,7 +769,7 @@ for((i=0;i<${#astrListCurrent[@]};i++));do
 			acmdPatch=(
 				"${strPathSelf}/keyValuePatcher.py" apply --prettify --append-missing
 				--output "${strFlWork}.NEWLY_PATCHED"
-				<(FUNCoutputAsUTF8 "$strFlWork")
+				"$(FUNCsaveAsUTF8atTmp "$strFlWork")"
 				"${strFlPatch}"
 			) #keyValuePatcher.py apply [-h] [-o OUTPUT] [-a] target patch
 		else

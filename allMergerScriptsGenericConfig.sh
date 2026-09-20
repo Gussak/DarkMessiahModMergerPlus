@@ -146,7 +146,8 @@ FUNCexit() { #help [lnErr] [message]
 		local lnErr=${1-0}
 		shift
 		if(($lnErr != 0));then
-			echo "[ERROR:${FUNCNAME[@]}:${BASH_LINENO[@]}] error=$lnErr, ${@-}" >&2 #because the script keeps running and wont stop not abruptly exit to terminal anymore!!!! :(, this is the only way to see problems now... :(
+			#echo "[ERROR:${FUNCNAME[@]}:${BASH_LINENO[@]}] error=$lnErr, ${@-}" >&2 #because the script keeps running and wont stop not abruptly exit to terminal anymore!!!! :(, this is the only way to see problems now... :(
+			FUNCechoInfo "[ERROR:] error=$lnErr, ${@-}" >&2 #because the script keeps running and wont stop not abruptly exit to terminal anymore!!!! :(, this is the only way to see problems now... :(
 			read -n 1 >&2
 		fi
 		exit $lnErr
@@ -940,11 +941,25 @@ function FUNCfixBOM() { # <BOM> <file>
 	fi
 };export -f FUNCfixBOM
 
-function FUNCoutputAsUTF8() { #<fileIn> output to stdout
-	iconv -f $(file -b --mime-encoding "$1") -t UTF-8 "$1"
+function FUNCoutputAsUTF8() { #<lstrFlIn> output to stdout
+	local lstrFlIn="$1";shift
+	iconv -f $(file -b --mime-encoding "$lstrFlIn") -t UTF-8 "$lstrFlIn"
 };export -f FUNCoutputAsUTF8
-function FUNCsaveAsUTF8() { # <fileIn> <fileOut>
-	FUNCoutputAsUTF8 "$1" >"$2"
+function FUNCsaveAsUTF8() { # <lstrFlIn> <lstrFlOut>
+	local lstrFlIn="$1";shift
+	local lstrFlOut="$1";shift
+	FUNCoutputAsUTF8 "$lstrFlIn" >"$lstrFlOut"
+	if(( $(stat -c %s "$lstrFlOut") == 0 ));then
+		ls -l "$lstrFlIn" "$lstrFlOut" >&2 &&:
+		FUNCexit 1 "empty invalid size of '$lstrFlOut'"
+	fi
+};export -f FUNCsaveAsUTF8
+function FUNCsaveAsUTF8atTmp() { # <lstrFlIn> output the tmp file
+	local lstrFlIn="$1";shift
+	local lFlTmp="$(mktemp)"
+	#FUNCoutputAsUTF8 "$lstrFlIn" >"lFlTmp"
+	FUNCsaveAsUTF8 "$lstrFlIn" "$lFlTmp"
+	echo "$lFlTmp"
 };export -f FUNCsaveAsUTF8
 
 function FUNCxtermChild() { #help <lstrTitle> <OtherXtermParams>

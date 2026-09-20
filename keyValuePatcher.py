@@ -161,6 +161,23 @@ def strip_line_ending(line: str) -> str:
         """Strip all trailing CR and LF characters from a line."""
         return line.rstrip("\r\n").rstrip("\n").rstrip("\r")
 
+def _open_robust(path, mode='r', encoding=None, errors=None, newline=None):
+        """Open a file, with fallback for /dev/fd/ process substitution paths."""
+        try:
+                return open(path, mode, encoding=encoding, errors=errors, newline=newline)
+        except (IOError, OSError) as e:
+                if path.startswith('/dev/fd/') and 'r' in mode:
+                        try:
+                                fd = int(path.split('/')[-1])
+                                kwargs = {}
+                                if encoding is not None: kwargs['encoding'] = encoding
+                                if errors is not None: kwargs['errors'] = errors
+                                if newline is not None: kwargs['newline'] = newline
+                                return os.fdopen(fd, mode, **kwargs)
+                        except Exception:
+                                pass
+                raise e
+
 
 # ==========================================
 # LOGGING ABSTRACTION
@@ -499,7 +516,7 @@ def parse_qct_to_dict(file_path: str, lines: Optional[List[str]] = None) -> Dict
         """
         if lines is None:
                 try:
-                        with open(file_path, "r", encoding="utf-8-sig", errors="ignore", newline="") as f:
+                        with _open_robust(file_path, "r", encoding="utf-8-sig", errors="ignore", newline="") as f:
                                 lines = f.readlines()
                 except IOError as e:
                         raise ConfigError(f"Cannot read file {file_path}: {e}")
@@ -615,7 +632,7 @@ def parse_qct_comments(file_path: str, lines: Optional[List[str]] = None) -> Dic
         """
         if lines is None:
                 try:
-                        with open(file_path, "r", encoding="utf-8-sig", errors="ignore", newline="") as f:
+                        with _open_robust(file_path, "r", encoding="utf-8-sig", errors="ignore", newline="") as f:
                                 lines = f.readlines()
                 except IOError as e:
                         raise ConfigError(f"Cannot read file {file_path}: {e}")
@@ -836,7 +853,7 @@ def _value_exists_in_scope(
 def _read_file_lines(file_path: str) -> List[str]:
     """Read file lines once. Handles regular files and unseekable pipes/FDs."""
     try:
-        with open(file_path, "r", encoding="utf-8-sig", errors="ignore", newline="") as f:
+        with _open_robust(file_path, "r", encoding="utf-8-sig", errors="ignore", newline="") as f:
             return f.readlines()
     except IOError as e:
         raise ConfigError(f"Cannot read file {file_path}: {e}")
@@ -1491,7 +1508,7 @@ def handle_apply(args) -> None:
         
     try:
         # Using object_pairs_hook=dict strictly forces Python to remember original JSON sequence
-        with open(args.patch, "r", encoding="utf-8") as f:
+        with _open_robust(args.patch, "r", encoding="utf-8") as f:
             patches = json.load(f, object_pairs_hook=dict)
     except json.JSONDecodeError as e:
         Logger.error(f"Invalid JSON in patch file: {e}")
@@ -1521,7 +1538,7 @@ def handle_apply(args) -> None:
         Logger.info("Output file specified; will generate output (copy of target).")
         
     try:
-        with open(args.target, "r", encoding="utf-8", errors="ignore", newline="") as f:
+        with _open_robust(args.target, "r", encoding="utf-8", errors="ignore", newline="") as f:
             lines = f.readlines()
     except IOError as e:
         Logger.error(f"Failed to read target file: {e}")
