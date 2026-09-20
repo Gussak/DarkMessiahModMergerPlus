@@ -1049,7 +1049,7 @@ def _filter_nondom_dup_to_new_only(
 
 def handle_create(args) -> None:
         """
-        Generate a patch JSON file by comparing original and modified configs.
+        Generate a JSON patch file by comparing original and modified configs.
 
         Identifies all key-value pairs that differ between two files and
         saves them to a JSON patch file. Keys and values in the patch file
@@ -1060,12 +1060,8 @@ def handle_create(args) -> None:
         them without touching existing occurrences.
         Dominant duplicate keys are expanded with indices (e.g., "prop_physics.0").
         """
-        if not os.path.exists(args.original):
-                Logger.error(f"Original file not found: {args.original}")
-                sys.exit(EXIT_PATCHING_TROUBLE)
-        if not os.path.exists(args.modified):
-                Logger.error(f"Modified file not found: {args.modified}")
-                sys.exit(EXIT_PATCHING_TROUBLE)
+        # Note: os.path.exists() fails on process substitution (/dev/fd/*).
+        # Validation is safely deferred to the subsequent try/except blocks below.
 
         try:
                 # 🔑 READ FILES ONCE to support pipes/FDs from process substitution
@@ -1490,12 +1486,9 @@ def handle_apply(args) -> None:
     exclusively by the patch values.
     For removal directives: Keys with "//@KEYVALUE_REMOVE" comment are stripped.
     """
-    if not os.path.exists(args.target):
-        Logger.error(f"Target file not found: {args.target}")
-        sys.exit(EXIT_PATCHING_TROUBLE)
-    if not os.path.exists(args.patch):
-        Logger.error(f"Patch file not found: {args.patch}")
-        sys.exit(EXIT_PATCHING_TROUBLE)
+    # Note: os.path.exists() fails on process substitution (/dev/fd/*).
+    # Validation is safely deferred to the subsequent try/except IOError blocks.
+        
     try:
         # Using object_pairs_hook=dict strictly forces Python to remember original JSON sequence
         with open(args.patch, "r", encoding="utf-8") as f:
