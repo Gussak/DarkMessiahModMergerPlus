@@ -95,7 +95,7 @@ FUNCaskYesNo() { # <questionForYesNo>. use like: if FUNCaskYesNo "oi?";then ...
 	while read -t 0.1 -n 1;do :;done #clear key buffer
 	local lstrResp
 	echo -n "[QUESTION] ${1}? (y/...)" >&2
-	read -n 1 lstrResp&&:;echo
+	read -n 1 lstrResp&&:;echo >&2
 	if [[ "$lstrResp" =~ [yY] ]];then return 0;fi
 	return 1
 };export -f FUNCaskYesNo
@@ -907,14 +907,6 @@ function FUNCfixBOM() {
 	fi
 };export -f FUNCfixBOM
 
-function FUNCsay() { #to help when you are far away
-	if which ScriptEchoColor >/dev/null;then
-		echoc --say "$1";
-	else
-		echo "[SPEAKS] $1"
-	fi
-};export -f FUNCsay
-
 function FUNCxtermChild() { #help <lstrTitle> <OtherXtermParams>
 	local lstrTitle="$1";shift
 	
@@ -960,11 +952,11 @@ function FUNCxterm() { #help <xtermParams> #TODO USE ONLY FUNCxtermChild
 	return 0
 };export -f FUNCxterm
 
-function FUNCsay() {
-	if which echoc >/dev/null;then
-		echoc --say "$@"
+function FUNCsay() { #to help when you are far away
+	if which ScriptEchoColor >/dev/null;then
+		echoc --say "$*" >&2
 	else
-		echo "SAY: $@"
+		echo "[SPEAKS] $*" >&2
 	fi
 };export -f FUNCsay
 
@@ -994,16 +986,16 @@ function FUNCrefreshMount() {  # if it did not update, means OverlayFS needs ref
 		if which ScriptEchoColor >/dev/null;then
 			local lstrFlRemount="/usr/local/bin/secSudoWithScript.secOverrideMultiLayerMountPoint.overlayfs_DarkMessiahMightandMagicSinglePlayer_UmountRemount.sh"
 			if [[ -f "$lstrFlRemount" ]];then
-				secSudoWithScript.sh "$lstrFlRemount"
+				secSudoWithScript.sh "$lstrFlRemount" >&2
 			else
-				bSudoWithScript=true secOverrideMultiLayerMountPoint.sh -u "Dark Messiah Might and Magic Single Player"
+				bSudoWithScript=true secOverrideMultiLayerMountPoint.sh -u "Dark Messiah Might and Magic Single Player" >&2
 			fi
 		else
 			set -x
 			if FUNCaskYesNo "remount? (otherwise will drop_caches (overkill))";then
-				sudo mount -o remount "$strGameMainFolderBasename"
+				sudo mount -o remount "$strGameMainFolderBasename" >&2
 			else
-				bash -c sync && sudo dd if=/proc/3/stat of=/proc/sys/vm/drop_caches bs=1 count=1
+				(bash -c sync && sudo dd if=/proc/3/stat of=/proc/sys/vm/drop_caches bs=1 count=1) >&2
 				FUNCsay "drop caches" #help overkill tho
 			fi
 			set +x

@@ -891,7 +891,8 @@ function FUNCmapadds() {
 			"classname"   "npc_human_guard"
 			//"model" "models/npc/guard/npc_guard_shrinked.mdl"
 			"model" "models/npc/guard/npc_guard.mdl"
-			"modelscale" "0.30"
+			//does this even exist? "modelscale" "0.30"
+			"scale" "0.30"
 			"additionalequipment" "weapon_arx_short_sword"
 			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			;; 
@@ -1151,6 +1152,7 @@ function FUNCmapadds() {
 			"fadescale" "1"
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"SetGravityScale" "0.5" //"SetVelocityScale" "0.5"
 			"angles" "0 0 0"
 			'"$(FUNCexplosionData)"' //it wont fall when spawning even with the flag enabled...
 			"spawnflags"  "'"$(FUNCspawnFlags OBJ FSO_INTERACTIVE)"'" //this allows it to fall
@@ -1158,11 +1160,12 @@ function FUNCmapadds() {
 			;;
 		"gskSummonDevTrapMiniSpiderCeil") #// place flying mini spiders far from walls or they glue on it and their AI freezes stop working...
 			bIsNpc=true
-			lnYDisplacement=-30
+			lnYDisplacement=-30 # to not glue on ceiling
 			echo '
 			"classname" "npc_spider_mini" // if they fall from too high, they just die even with lower physics stuff
 			"physdamagescale" "0.1" //useless?
 			"SetGravityScale" "0.5" //useless?
+			"SetVelocityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "'"$(FUNCspawnFlags NPC --nodefaults FS_FALL FS_QUIET)"'"
 			' >>"$lstrFlAddTmp"
@@ -1181,8 +1184,9 @@ function FUNCmapadds() {
 			lnYDisplacement=200
 			echo '
 			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
-			"physdamagescale" "0.1" //useless?
+			"physdamagescale" "0.1" //useless when falling?
 			"SetGravityScale" "0.5" //useless?
+			"SetVelocityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "'"$(FUNCspawnFlags NPC --nodefaults FS_FALL FS_QUIET)"'"
 			' >>"$lstrFlAddTmp"
