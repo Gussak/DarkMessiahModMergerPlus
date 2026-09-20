@@ -14,7 +14,7 @@
 			"classname"   "npc_human_guard"
 			//"model" "models/npc/guard/npc_guard_shrinked.mdl"
 			"model" "models/npc/guard/npc_guard.mdl"
-			"modelscale" "0.30"
+			"scale" "0.30"
 			"additionalequipment" "weapon_arx_short_sword"
 			"spawnflags"  "263"
 			"origin"      "-2097 -4551 201"

@@ -889,11 +889,11 @@ function FUNCmapadds() {
 			lnYDisplacement=5
 			echo '
 			"classname"   "npc_human_guard"
-			//"model" "models/npc/guard/npc_guard_shrinked.mdl"
-			"model" "models/npc/guard/npc_guard.mdl"
+			"model" "models/npc/guard/npc_guard_shrinked.mdl"
+			//"model" "models/npc/guard/npc_guard.mdl"
 			//does this even exist? "modelscale" "0.30"
-			"scale" "0.30"
-			"additionalequipment" "weapon_arx_short_sword"
+			//fail too "scale" "0.30"
+			//this just drops near him "additionalequipment" "weapon_arx_short_sword"
 			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			;; 
 		"+gskSummonGuardBow")
