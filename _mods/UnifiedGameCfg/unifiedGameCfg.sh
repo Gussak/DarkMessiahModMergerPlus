@@ -144,7 +144,7 @@ if true;then
 		#:
 	#done
 	
-
+	FUNCrefreshMount
 fi
 
 echo "[INFO] the below command will add a debug info in every game.cfg file. Run only once and only if you know what you are doing!"
