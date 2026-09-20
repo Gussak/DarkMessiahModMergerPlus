@@ -92,6 +92,7 @@ if true;then
 		fi
 		#declare -p lastrCfgsAllList;exit
 	done
+	echo
 	declare -p lastrCfgsAllList
 
 	strAutoGenHint="AUTO_GEN=$(basename "$0")"
@@ -120,6 +121,7 @@ if true;then
 		((iCountExec++))&&:
 		echo -e "exec ${strFlCfg%-} \t\t\t// ${iCountExec} ${strAutoGenHint}" |tee -a "$strFlNew"
 	done
+	echo
 	declare -p iCountExec
 	
 	set -x

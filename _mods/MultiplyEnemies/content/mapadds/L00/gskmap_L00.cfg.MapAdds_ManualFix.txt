@@ -31,30 +31,31 @@
 			}
 		}
 		
-		// CMD: grant initially reload basic important cfgs
-		"add:entity"
-		{
-				"classname" "logic_auto"
-				"spawnflags" "1"
-				"targetname" "logic_force_reload_basic_cfgs"
-		}
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"targetname"	"logic_force_reload_basic_cfgs"
-			}
-			"add:key"
-			{
-				"OnMapSpawn" "gsk_generic_cmds_issuer,Command,exec gskReloadCfgs.cfg,0,-1"
-				"OnMapSpawn" "gsk_generic_cmds_issuer,Command,exec gskBaseLib.cfg,0.1,-1"
-				"OnMapSpawn" "gsk_generic_cmds_issuer,Command,exec gskAllCommandsListCycle.cfg,0.2,-1"
-				"OnMapSpawn" "gsk_generic_cmds_issuer,Command,exec gskSummonList.cfg,0.3,-1"
-				//"OnMapSpawn" "gsk_generic_cmds_issuer,Command,exec gskSummonSimulatedThings,0.4,-1"
-				//"OnMapSpawn" "gsk_generic_cmds_issuer,Command,echo ReloadedSomeCFGs,0.5,-1"
-				//"OnMapSpawn" "gsk_generic_cmds_issuer,Command,exec bloodyadrenaline; exec bloodymana; exec bloodysummoner; exec CarefulCombat; exec CrouchToggle; exec eagle_eye; exec gskAllCommandsListCycle; exec gskBaseLib; exec gskEnabledBindsOk; exec gskGfxTweaks; exec gskInvSwapPreventCrash; exec gskReloadCfgs; exec gskSummonList; exec gskSummonSimulatedThings; exec MoreFoes; exec Playability; exec skipcutscenes; exec slowmotion_toggle; echo ReloadedSomeCFGs,0,-1"
-			}
-		}
+		// UNNECESSARY, only this wont work: gskReloadCfgs.cfg, but the point is to properly config the 'game_configs' at info.json files and run ./unifiedGameCfg.sh to have a properly patched game.cfg
+		//// CMD: grant initially reload basic important cfgs
+		//"add:entity"
+		//{
+				//"classname" "logic_auto"
+				//"spawnflags" "1"
+				//"targetname" "logic_force_reload_basic_cfgs"
+		//}
+		//"modify:entity"
+		//{
+			//"TargetMarkers"
+			//{
+				//"targetname"	"logic_force_reload_basic_cfgs"
+			//}
+			//"add:key"
+			//{
+				//"OnMapSpawn" "gsk_generic_cmds_issuer,Command,exec gskReloadCfgs.cfg,0,-1"
+				//"OnMapSpawn" "gsk_generic_cmds_issuer,Command,exec gskBaseLib.cfg,0.1,-1"
+				//"OnMapSpawn" "gsk_generic_cmds_issuer,Command,exec gskAllCommandsListCycle.cfg,0.2,-1"
+				//"OnMapSpawn" "gsk_generic_cmds_issuer,Command,exec gskSummonList.cfg,0.3,-1"
+				////"OnMapSpawn" "gsk_generic_cmds_issuer,Command,exec gskSummonSimulatedThings,0.4,-1"
+				////"OnMapSpawn" "gsk_generic_cmds_issuer,Command,echo ReloadedSomeCFGs,0.5,-1"
+				////"OnMapSpawn" "gsk_generic_cmds_issuer,Command,exec bloodyadrenaline; exec bloodymana; exec bloodysummoner; exec CarefulCombat; exec CrouchToggle; exec eagle_eye; exec gskAllCommandsListCycle; exec gskBaseLib; exec gskEnabledBindsOk; exec gskGfxTweaks; exec gskInvSwapPreventCrash; exec gskReloadCfgs; exec gskSummonList; exec gskSummonSimulatedThings; exec MoreFoes; exec Playability; exec skipcutscenes; exec slowmotion_toggle; echo ReloadedSomeCFGs,0,-1"
+			//}
+		//}
 		
 		//// CMD: clear the darkvision skill button 
 		//// FAIL (there is no item_spell_darkvision nor spell_darkvision?)
