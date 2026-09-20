@@ -4,49 +4,49 @@
 	{
 
 		////////////////// handle togglers into trusty setters
-		// bind 1 "ent_fire turn_on_show_triggers trigger"
-		// bind 2 "ent_fire turn_off_show_triggers trigger"
+		// bind 1 "ent_fire turn_on_showtriggers_toggle trigger"
+		// bind 2 "ent_fire turn_off_showtriggers_toggle trigger"
 		//add:entity
 		//{
 				//"classname" "point_servercommand"
-				//"targetname" "server_show_triggers_executor" //replaced by gsk_generic_cmds_issuer
+				//"targetname" "server_showtriggers_toggle_executor" //replaced by gsk_generic_cmds_issuer
 		//}
 
 		add:entity
 		{
 				"classname" "logic_branch"
-				"targetname" "gate_allow_turn_on"
+				"targetname" "gate_showtriggers_toggle_allow_turn_on"
 				"InitialValue" "1"
 		}
 
 		add:entity
 		{
 				"classname" "logic_branch"
-				"targetname" "gate_allow_turn_off"
+				"targetname" "gate_showtriggers_toggle_allow_turn_off"
 				"InitialValue" "0"
 		}
 
 		add:entity
 		{
 				"classname" "logic_relay"
-				"targetname" "turn_on_show_triggers"
+				"targetname" "turn_on_showtriggers_toggle"
 		}
 
 		add:entity
 		{
 				"classname" "logic_relay"
-				"targetname" "turn_off_show_triggers"
+				"targetname" "turn_off_showtriggers_toggle"
 		}
 		
 		modify:entity
 		{
 				TargetMarkers
 				{
-						"targetname" "gate_allow_turn_on"
+						"targetname" "gate_showtriggers_toggle_allow_turn_on"
 				}
 				"add:key"
 				{
-					"OnTrue" "gsk_generic_cmds_issuer,Command,show_triggers,0,-1"
+					"OnTrue" "gsk_generic_cmds_issuer,Command,showtriggers_toggle,0,-1"
 				}
 		}
 
@@ -54,11 +54,11 @@
 		{
 				TargetMarkers
 				{
-						"targetname" "gate_allow_turn_off"
+						"targetname" "gate_showtriggers_toggle_allow_turn_off"
 				}
 				"add:key"
 				{
-					"OnTrue" "gsk_generic_cmds_issuer,Command,show_triggers,0,-1"
+					"OnTrue" "gsk_generic_cmds_issuer,Command,showtriggers_toggle,0,-1"
 				}
 		}
 
@@ -66,13 +66,13 @@
 		{
 				TargetMarkers
 				{
-						"targetname" "turn_on_show_triggers"
+						"targetname" "turn_on_showtriggers_toggle"
 				}
 				"add:key"
 				{
-					"OnTrigger" "gate_allow_turn_on,Test,,0,-1"
-					"OnTrigger" "gate_allow_turn_on,SetValue,0,0.01,-1"
-					"OnTrigger" "gate_allow_turn_off,SetValue,1,0.01,-1"
+					"OnTrigger" "gate_showtriggers_toggle_allow_turn_on,Test,,0,-1"
+					"OnTrigger" "gate_showtriggers_toggle_allow_turn_on,SetValue,0,0.01,-1"
+					"OnTrigger" "gate_showtriggers_toggle_allow_turn_off,SetValue,1,0.01,-1"
 				}
 		}
 
@@ -80,13 +80,13 @@
 		{
 				TargetMarkers
 				{
-						"targetname" "turn_off_show_triggers"
+						"targetname" "turn_off_showtriggers_toggle"
 				}
 				"add:key"
 				{
-					"OnTrigger" "gate_allow_turn_off,Test,,0,-1"
-					"OnTrigger" "gate_allow_turn_off,SetValue,0,0.01,-1"
-					"OnTrigger" "gate_allow_turn_on,SetValue,1,0.01,-1"
+					"OnTrigger" "gate_showtriggers_toggle_allow_turn_off,Test,,0,-1"
+					"OnTrigger" "gate_showtriggers_toggle_allow_turn_off,SetValue,0,0.01,-1"
+					"OnTrigger" "gate_showtriggers_toggle_allow_turn_on,SetValue,1,0.01,-1"
 				}
 		}
 		

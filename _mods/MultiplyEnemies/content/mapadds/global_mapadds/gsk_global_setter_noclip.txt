@@ -15,14 +15,14 @@
 		add:entity
 		{
 				"classname" "logic_branch"
-				"targetname" "gate_allow_turn_on"
+				"targetname" "gate_noclip_allow_turn_on"
 				"InitialValue" "1"
 		}
 
 		add:entity
 		{
 				"classname" "logic_branch"
-				"targetname" "gate_allow_turn_off"
+				"targetname" "gate_noclip_allow_turn_off"
 				"InitialValue" "0"
 		}
 
@@ -42,7 +42,7 @@
 		{
 				TargetMarkers
 				{
-						"targetname" "gate_allow_turn_on"
+						"targetname" "gate_noclip_allow_turn_on"
 				}
 				"add:key"
 				{
@@ -54,7 +54,7 @@
 		{
 				TargetMarkers
 				{
-						"targetname" "gate_allow_turn_off"
+						"targetname" "gate_noclip_allow_turn_off"
 				}
 				"add:key"
 				{
@@ -70,9 +70,9 @@
 				}
 				"add:key"
 				{
-					"OnTrigger" "gate_allow_turn_on,Test,,0,-1"
-					"OnTrigger" "gate_allow_turn_on,SetValue,0,0.01,-1"
-					"OnTrigger" "gate_allow_turn_off,SetValue,1,0.01,-1"
+					"OnTrigger" "gate_noclip_allow_turn_on,Test,,0,-1"
+					"OnTrigger" "gate_noclip_allow_turn_on,SetValue,0,0.01,-1"
+					"OnTrigger" "gate_noclip_allow_turn_off,SetValue,1,0.01,-1"
 				}
 		}
 
@@ -84,9 +84,9 @@
 				}
 				"add:key"
 				{
-					"OnTrigger" "gate_allow_turn_off,Test,,0,-1"
-					"OnTrigger" "gate_allow_turn_off,SetValue,0,0.01,-1"
-					"OnTrigger" "gate_allow_turn_on,SetValue,1,0.01,-1"
+					"OnTrigger" "gate_noclip_allow_turn_off,Test,,0,-1"
+					"OnTrigger" "gate_noclip_allow_turn_off,SetValue,0,0.01,-1"
+					"OnTrigger" "gate_noclip_allow_turn_on,SetValue,1,0.01,-1"
 				}
 		}
 		
