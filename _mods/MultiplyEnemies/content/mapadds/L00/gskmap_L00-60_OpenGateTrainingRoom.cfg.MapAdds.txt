@@ -9,7 +9,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_000"  //gskSummonDevSkeletonPart
 			"origin"      "1131 289 -409"
 			"angles"      "43 75 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -30,7 +29,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_001"  //gskSummonDevSkeletonPart
 			"origin"      "1176 259 -406"
 			"angles"      "41 84 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -51,7 +49,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_002"  //gskSummonDevSkeletonPart
 			"origin"      "1095 253 -401"
 			"angles"      "39 70 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -72,7 +69,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -81,7 +78,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_003"  //gskSummonDevSkeletonPart
 			"origin"      "1068 329 -410"
 			"angles"      "45 60 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -102,7 +98,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -111,7 +107,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_004"  //gskSummonDevSkeletonPart
 			"origin"      "1005 323 -408"
 			"angles"      "41 52 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -132,7 +127,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_005"  //gskSummonDevSkeletonPart
 			"origin"      "1016 393 -413"
 			"angles"      "47 44 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -153,7 +147,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -162,7 +156,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_006"  //gskSummonDevSkeletonPart
 			"origin"      "1078 400 -415"
 			"angles"      "52 54 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -183,7 +176,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -192,7 +185,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_007"  //gskSummonDevSkeletonPart
 			"origin"      "958 405 -411"
 			"angles"      "43 35 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -213,7 +205,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_008"  //gskSummonDevSkeletonPart
 			"origin"      "880 425 -412"
 			"angles"      "38 26 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -234,7 +225,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_009"  //gskSummonDevSkeletonPart
 			"origin"      "896 499 -414"
 			"angles"      "42 16 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -255,7 +245,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_010"  //gskSummonDevSkeletonPart
 			"origin"      "898 383 -408"
 			"angles"      "37 33 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -276,7 +265,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_011"  //gskSummonDevSkeletonPart
 			"origin"      "1025 676 -528"
 			"angles"      "63 -26 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -297,7 +285,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_012"  //gskSummonDevSkeletonPart
 			"origin"      "1082 660 -532"
 			"angles"      "70 -29 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -318,7 +305,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -327,7 +314,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_013"  //gskSummonDevSkeletonPart
 			"origin"      "1075 715 -538"
 			"angles"      "66 -43 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -348,7 +334,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_014"  //gskSummonDevSkeletonPart
 			"origin"      "1124 697 -540"
 			"angles"      "72 -51 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -369,7 +354,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_015"  //gskSummonDevSkeletonPart
 			"origin"      "1178 691 -542"
 			"angles"      "76 -70 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -390,7 +374,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_016"  //gskSummonDevSkeletonPart
 			"origin"      "1123 761 -542"
 			"angles"      "65 -62 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -411,7 +394,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_017"  //gskSummonDevSkeletonPart
 			"origin"      "1051 780 -542"
 			"angles"      "59 -50 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -432,7 +414,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -441,7 +423,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_018"  //gskSummonDevSkeletonPart
 			"origin"      "1032 848 -542"
 			"angles"      "53 -55 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -462,7 +443,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -471,7 +452,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_019"  //gskSummonDevSkeletonPart
 			"origin"      "1035 911 -541"
 			"angles"      "48 -61 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -492,7 +472,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -501,7 +481,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_020"  //gskSummonDevSkeletonPart
 			"origin"      "1025 979 -534"
 			"angles"      "43 -65 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -522,7 +501,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_021"  //gskSummonDevSkeletonPart
 			"origin"      "1075 915 -540"
 			"angles"      "50 -67 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -543,7 +521,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -552,7 +530,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_022"  //gskSummonDevSkeletonPart
 			"origin"      "1062 996 -532"
 			"angles"      "43 -70 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -573,7 +550,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_023"  //gskSummonDevSkeletonPart
 			"origin"      "1116 968 -538"
 			"angles"      "47 -76 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -594,7 +570,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -603,7 +579,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_024"  //gskSummonDevSkeletonPart
 			"origin"      "1078 942 -538"
 			"angles"      "48 -69 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -624,7 +599,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -633,7 +608,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_025"  //gskSummonDevSkeletonPart
 			"origin"      "1141 1026 -530"
 			"angles"      "43 -81 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -654,7 +628,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_026"  //gskSummonDevSkeletonPart
 			"origin"      "1171 977 -540"
 			"angles"      "47 -84 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -675,7 +648,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -684,7 +657,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_027"  //gskSummonDevSkeletonPart
 			"origin"      "1218 1013 -539"
 			"angles"      "44 -91 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -705,7 +677,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_028"  //gskSummonDevSkeletonPart
 			"origin"      "1187 1045 -530"
 			"angles"      "42 -87 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -726,7 +697,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -735,7 +706,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_029"  //gskSummonDevSkeletonPart
 			"origin"      "1146 1100 -517"
 			"angles"      "37 -83 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -756,7 +726,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_030"  //gskSummonDevSkeletonPart
 			"origin"      "1202 1119 -517"
 			"angles"      "37 -89 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -777,7 +746,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_031"  //gskSummonDevSkeletonPart
 			"origin"      "1217 1075 -527"
 			"angles"      "40 -91 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -798,7 +766,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_032"  //gskSummonDevSkeletonPart
 			"origin"      "1278 1091 -534"
 			"angles"      "39 -97 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -819,7 +786,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -828,7 +795,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_033"  //gskSummonDevSkeletonPart
 			"origin"      "1265 568 -539"
 			"angles"      "84 160 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -849,7 +815,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -858,7 +824,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_034"  //gskSummonDevSkeletonPart
 			"origin"      "1306 532 -539"
 			"angles"      "76 149 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -879,7 +844,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -888,7 +853,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_035"  //gskSummonDevSkeletonPart
 			"origin"      "1313 553 -541"
 			"angles"      "77 162 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -909,7 +873,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_036"  //gskSummonDevSkeletonPart
 			"origin"      "1368 523 -542"
 			"angles"      "69 158 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -930,7 +893,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -939,7 +902,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_037"  //gskSummonDevSkeletonPart
 			"origin"      "1413 523 -542"
 			"angles"      "64 163 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -960,7 +922,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_038"  //gskSummonDevSkeletonPart
 			"origin"      "1479 518 -539"
 			"angles"      "57 166 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -981,7 +942,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -990,7 +951,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_039"  //gskSummonDevSkeletonPart
 			"origin"      "1464 534 -542"
 			"angles"      "59 169 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1011,7 +971,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_040"  //gskSummonDevSkeletonPart
 			"origin"      "1506 566 -542"
 			"angles"      "56 177 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1032,7 +991,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -1041,7 +1000,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_041"  //gskSummonDevSkeletonPart
 			"origin"      "1529 529 -536"
 			"angles"      "53 170 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1062,7 +1020,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -1071,7 +1029,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_042"  //gskSummonDevSkeletonPart
 			"origin"      "1560 557 -535"
 			"angles"      "50 176 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1092,7 +1049,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_043"  //gskSummonDevSkeletonPart
 			"origin"      "1598 633 -541"
 			"angles"      "48 -173 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1113,7 +1069,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_044"  //gskSummonDevSkeletonPart
 			"origin"      "1646 659 -540"
 			"angles"      "44 -171 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1134,7 +1089,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -1143,7 +1098,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_045"  //gskSummonDevSkeletonPart
 			"origin"      "1674 645 -535"
 			"angles"      "42 -173 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1164,7 +1118,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -1173,7 +1127,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_046"  //gskSummonDevSkeletonPart
 			"origin"      "1717 672 -534"
 			"angles"      "39 -171 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1194,7 +1147,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_047"  //gskSummonDevSkeletonPart
 			"origin"      "1721 642 -530"
 			"angles"      "39 -174 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1215,7 +1167,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_048"  //gskSummonDevSkeletonPart
 			"origin"      "1724 724 -541"
 			"angles"      "39 -165 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1236,7 +1187,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_049"  //gskSummonDevSkeletonPart
 			"origin"      "1481 812 -537"
 			"angles"      "50 -20 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1257,7 +1207,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -1266,7 +1216,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_050"  //gskSummonDevSkeletonPart
 			"origin"      "1525 787 -538"
 			"angles"      "55 -18 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1287,7 +1236,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -1296,7 +1245,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_051"  //gskSummonDevSkeletonPart
 			"origin"      "1508 841 -534"
 			"angles"      "51 -27 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1317,7 +1265,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_052"  //gskSummonDevSkeletonPart
 			"origin"      "1449 881 -538"
 			"angles"      "45 -29 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1338,7 +1285,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_053"  //gskSummonDevSkeletonPart
 			"origin"      "1439 963 -540"
 			"angles"      "41 -38 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1359,7 +1305,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -1368,7 +1314,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_054"  //gskSummonDevSkeletonPart
 			"origin"      "1524 893 -533"
 			"angles"      "49 -37 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1389,7 +1334,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_055"  //gskSummonDevSkeletonPart
 			"origin"      "1537 950 -538"
 			"angles"      "47 -47 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1410,7 +1354,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_056"  //gskSummonDevSkeletonPart
 			"origin"      "1608 917 -541"
 			"angles"      "54 -53 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1431,7 +1374,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -1440,7 +1383,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_057"  //gskSummonDevSkeletonPart
 			"origin"      "1608 953 -541"
 			"angles"      "51 -57 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1461,7 +1403,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -1470,7 +1412,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_058"  //gskSummonDevSkeletonPart
 			"origin"      "1580 826 -539"
 			"angles"      "59 -32 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1491,7 +1432,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_059"  //gskSummonDevSkeletonPart
 			"origin"      "1629 808 -542"
 			"angles"      "66 -35 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1512,7 +1452,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -1521,7 +1461,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_060"  //gskSummonDevSkeletonPart
 			"origin"      "1658 765 -542"
 			"angles"      "72 -27 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1542,7 +1481,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -1551,7 +1490,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_061"  //gskSummonDevSkeletonPart
 			"origin"      "1670 246 -415"
 			"angles"      "45 102 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1572,7 +1510,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_062"  //gskSummonDevSkeletonPart
 			"origin"      "1702 291 -415"
 			"angles"      "49 111 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1593,7 +1530,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_063"  //gskSummonDevSkeletonPart
 			"origin"      "1736 263 -415"
 			"angles"      "45 115 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1614,7 +1550,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_064"  //gskSummonDevSkeletonPart
 			"origin"      "1750 317 -413"
 			"angles"      "49 123 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1635,7 +1570,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_065"  //gskSummonDevSkeletonPart
 			"origin"      "1857 279 -406"
 			"angles"      "39 134 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1656,7 +1590,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_066"  //gskSummonDevSkeletonPart
 			"origin"      "1829 346 -405"
 			"angles"      "45 139 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1677,7 +1610,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -1686,7 +1619,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_067"  //gskSummonDevSkeletonPart
 			"origin"      "1993 932 -410"
 			"angles"      "42 -135 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1707,7 +1639,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -1716,7 +1648,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_068"  //gskSummonDevSkeletonPart
 			"origin"      "1964 870 -409"
 			"angles"      "48 -140 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1737,7 +1668,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -1746,7 +1677,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_069"  //gskSummonDevSkeletonPart
 			"origin"      "1937 868 -409"
 			"angles"      "50 -136 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1767,7 +1697,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -1776,7 +1706,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_070"  //gskSummonDevSkeletonPart
 			"origin"      "1889 867 -410"
 			"angles"      "54 -127 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1797,7 +1726,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_071"  //gskSummonDevSkeletonPart
 			"origin"      "1874 906 -408"
 			"angles"      "51 -118 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1818,7 +1746,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -1827,7 +1755,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_072"  //gskSummonDevSkeletonPart
 			"origin"      "1872 953 -409"
 			"angles"      "46 -114 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1848,7 +1775,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_073"  //gskSummonDevSkeletonPart
 			"origin"      "1925 989 -412"
 			"angles"      "41 -120 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1869,7 +1795,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_074"  //gskSummonDevSkeletonPart
 			"origin"      "1901 924 -406"
 			"angles"      "47 -122 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1890,7 +1815,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_075"  //gskSummonDevSkeletonPart
 			"origin"      "1934 941 -404"
 			"angles"      "44 -125 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1911,7 +1835,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_076"  //gskSummonDevSkeletonPart
 			"origin"      "1964 995 -412"
 			"angles"      "39 -124 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1932,7 +1855,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_077"  //gskSummonDevSkeletonPart
 			"origin"      "1977 936 -407"
 			"angles"      "42 -132 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1953,7 +1875,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_078"  //gskSummonDevSkeletonPart
 			"origin"      "1933 900 -405"
 			"angles"      "47 -130 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1974,7 +1895,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_079"  //gskSummonDevSkeletonPart
 			"origin"      "1895 971 -410"
 			"angles"      "44 -116 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1995,7 +1915,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -2004,7 +1924,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_080"  //gskSummonDevSkeletonPart
 			"origin"      "1889 1000 -415"
 			"angles"      "42 -113 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2025,7 +1944,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_081"  //gskSummonDevSkeletonPart
 			"origin"      "1464 1437 -415"
 			"angles"      "35 -101 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2046,7 +1964,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_082"  //gskSummonDevSkeletonPart
 			"origin"      "1429 1388 -413"
 			"angles"      "38 -97 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2067,7 +1984,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -2076,7 +1993,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_083"  //gskSummonDevSkeletonPart
 			"origin"      "1466 1354 -409"
 			"angles"      "40 -104 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2097,7 +2013,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_084"  //gskSummonDevSkeletonPart
 			"origin"      "1417 1323 -414"
 			"angles"      "43 -97 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2118,7 +2033,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -2127,7 +2042,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_085"  //gskSummonDevSkeletonPart
 			"origin"      "1395 1280 -415"
 			"angles"      "47 -93 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2148,7 +2062,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -2157,7 +2071,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_086"  //gskSummonDevSkeletonPart
 			"origin"      "1429 1240 -413"
 			"angles"      "51 -101 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2178,7 +2091,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -2187,7 +2100,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_087"  //gskSummonDevSkeletonPart
 			"origin"      "1457 1284 -411"
 			"angles"      "46 -105 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2208,7 +2120,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_088"  //gskSummonDevSkeletonPart
 			"origin"      "1488 1233 -409"
 			"angles"      "49 -114 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2229,7 +2140,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -2238,7 +2149,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_089"  //gskSummonDevSkeletonPart
 			"origin"      "1516 1266 -408"
 			"angles"      "45 -116 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2259,7 +2169,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -2268,7 +2178,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_090"  //gskSummonDevSkeletonPart
 			"origin"      "1484 1305 -408"
 			"angles"      "43 -108 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2289,7 +2198,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_091"  //gskSummonDevSkeletonPart
 			"origin"      "1519 1330 -407"
 			"angles"      "40 -113 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2310,7 +2218,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -2319,7 +2227,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_092"  //gskSummonDevSkeletonPart
 			"origin"      "1556 1294 -407"
 			"angles"      "42 -121 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2340,7 +2247,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_093"  //gskSummonDevSkeletonPart
 			"origin"      "1522 1249 -408"
 			"angles"      "46 -118 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2361,7 +2267,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_094"  //gskSummonDevSkeletonPart
 			"origin"      "1608 1325 -413"
 			"angles"      "38 -124 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2382,7 +2287,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -2391,7 +2296,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_095"  //gskSummonDevSkeletonPart
 			"origin"      "1623 1280 -415"
 			"angles"      "40 -130 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2412,7 +2316,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -2421,7 +2325,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_096"  //gskSummonDevSkeletonPart
 			"origin"      "1563 1246 -408"
 			"angles"      "45 -125 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2442,7 +2345,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_097"  //gskSummonDevSkeletonPart
 			"origin"      "1659 1242 -413"
 			"angles"      "40 -137 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2463,7 +2365,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -2472,7 +2374,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_098"  //gskSummonDevSkeletonPart
 			"origin"      "1642 1209 -411"
 			"angles"      "43 -139 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2493,7 +2394,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -2502,7 +2403,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_099"  //gskSummonDevSkeletonPart
 			"origin"      "1574 1209 -408"
 			"angles"      "47 -131 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2523,7 +2423,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -2532,7 +2432,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_100"  //gskSummonDevSkeletonPart
 			"origin"      "1491 1212 -410"
 			"angles"      "51 -116 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2553,7 +2452,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -2562,7 +2461,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_101"  //gskSummonDevSkeletonPart
 			"origin"      "1437 1189 -411"
 			"angles"      "56 -106 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2583,7 +2481,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -2592,7 +2490,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_102"  //gskSummonDevSkeletonPart
 			"origin"      "1386 1200 -411"
 			"angles"      "56 -92 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2613,7 +2510,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_103"  //gskSummonDevSkeletonPart
 			"origin"      "1374 1181 -413"
 			"angles"      "59 -88 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2634,7 +2530,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_104"  //gskSummonDevSkeletonPart
 			"origin"      "1341 1194 -414"
 			"angles"      "56 -80 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2655,7 +2550,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_105"  //gskSummonDevSkeletonPart
 			"origin"      "1306 1184 -414"
 			"angles"      "57 -71 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2676,7 +2570,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -2685,7 +2579,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_106"  //gskSummonDevSkeletonPart
 			"origin"      "1265 1205 -415"
 			"angles"      "52 -63 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2706,7 +2599,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_107"  //gskSummonDevSkeletonPart
 			"origin"      "1237 1186 -414"
 			"angles"      "53 -56 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2727,7 +2619,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_108"  //gskSummonDevSkeletonPart
 			"origin"      "1183 1195 -415"
 			"angles"      "48 -48 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2748,7 +2639,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_109"  //gskSummonDevSkeletonPart
 			"origin"      "1175 1186 -414"
 			"angles"      "48 -46 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2769,7 +2659,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -2778,7 +2668,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_110"  //gskSummonDevSkeletonPart
 			"origin"      "1368 1619 -415"
 			"angles"      "33 85 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2799,7 +2688,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -2808,7 +2697,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_111"  //gskSummonDevSkeletonPart
 			"origin"      "1410 1588 -415"
 			"angles"      "31 92 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2829,7 +2717,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_112"  //gskSummonDevTrapFire
 			"origin"      "1974 1286 -543"
 			"angles"      "52 -125 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2839,6 +2726,7 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
 			"angles" "15 67 23"
+			"spawnflags"  "256"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -2846,7 +2734,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 			
@@ -2856,7 +2744,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_113"  //gskSummonNecromancer
 			"origin"      "1860 1267 33"
 			"angles"      "60 -136 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_necromancer_lord"
@@ -2869,7 +2756,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_114"  //gskSummonNecromancer
 			"origin"      "1861 362 33"
 			"angles"      "44 133 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_necromancer_lord"
@@ -2882,7 +2768,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_115"  //gskSummonNecromancer
 			"origin"      "953 367 33"
 			"angles"      "39 29 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_necromancer_lord"
@@ -2895,7 +2780,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_116"  //gskSummonNecromancer
 			"origin"      "958 1266 33"
 			"angles"      "49 -45 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_necromancer_lord"
@@ -2908,7 +2792,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_117"  //gskSummonNecroGuardBow
 			"origin"      "1922 1262 33"
 			"angles"      "42 -132 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname"   "npc_necro_guard_bow"
@@ -2924,7 +2807,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_118"  //gskSummonNecroGuardBow
 			"origin"      "1727 1369 33"
 			"angles"      "52 -126 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname"   "npc_necro_guard_bow"
@@ -2940,7 +2822,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_119"  //gskSummonNecroGuardBow
 			"origin"      "1096 1367 33"
 			"angles"      "29 -61 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname"   "npc_necro_guard_bow"
@@ -2956,7 +2837,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_120"  //gskSummonNecroGuardBow
 			"origin"      "845 1132 33"
 			"angles"      "18 -20 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname"   "npc_necro_guard_bow"
@@ -2972,7 +2852,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_121"  //gskSummonNecroGuardBow
 			"origin"      "857 500 33"
 			"angles"      "39 52 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname"   "npc_necro_guard_bow"
@@ -2988,7 +2867,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_122"  //gskSummonNecroGuardBow
 			"origin"      "1090 256 33"
 			"angles"      "27 76 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname"   "npc_necro_guard_bow"
@@ -3004,7 +2882,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_123"  //gskSummonNecroGuardBow
 			"origin"      "1721 264 33"
 			"angles"      "30 124 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname"   "npc_necro_guard_bow"
@@ -3020,7 +2897,6 @@
 			"targetname"  "gskSpawn_60_OpenGateTrainingRoom_124"  //gskSummonNecroGuardBow
 			"origin"      "1969 496 33"
 			"angles"      "20 150 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname"   "npc_necro_guard_bow"

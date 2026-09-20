@@ -9,7 +9,6 @@
 			"targetname"  "gskSpawn_35_ClimbChain_000"  //gskSummonSpiderRegular
 			"origin"      "882 -2353 336"
 			"angles"      "76 -84 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
@@ -22,7 +21,6 @@
 			"targetname"  "gskSpawn_35_ClimbChain_001"  //gskSummonDevSkeletonPart
 			"origin"      "675 -2500 194"
 			"angles"      "62 109 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -43,7 +41,6 @@
 			"targetname"  "gskSpawn_35_ClimbChain_002"  //gskSummonDevSkeletonPart
 			"origin"      "708 -2498 196"
 			"angles"      "57 129 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -64,7 +61,6 @@
 			"targetname"  "gskSpawn_35_ClimbChain_003"  //gskSummonDevSkeletonPart
 			"origin"      "696 -2477 195"
 			"angles"      "65 131 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -85,7 +81,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -94,7 +90,6 @@
 			"targetname"  "gskSpawn_35_ClimbChain_004"  //gskSummonDevSkeletonPart
 			"origin"      "738 -2500 201"
 			"angles"      "50 140 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -115,7 +110,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -124,7 +119,6 @@
 			"targetname"  "gskSpawn_35_ClimbChain_005"  //gskSummonDevSkeletonPart
 			"origin"      "699 -2410 195"
 			"angles"      "70 -54 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -145,7 +139,6 @@
 			"targetname"  "gskSpawn_35_ClimbChain_006"  //gskSummonDevSkeletonPart
 			"origin"      "676 -2305 194"
 			"angles"      "42 -70 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -166,7 +159,6 @@
 			"targetname"  "gskSpawn_35_ClimbChain_007"  //gskSummonDevSkeletonPart
 			"origin"      "720 -2309 201"
 			"angles"      "44 -86 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -187,7 +179,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -196,7 +188,6 @@
 			"targetname"  "gskSpawn_35_ClimbChain_008"  //gskSummonDevSkeletonPart
 			"origin"      "749 -2312 215"
 			"angles"      "41 -97 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -217,7 +208,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -226,7 +217,6 @@
 			"targetname"  "gskSpawn_35_ClimbChain_009"  //gskSummonDevSkeletonPart
 			"origin"      "742 -2351 207"
 			"angles"      "52 -96 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -247,7 +237,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -256,7 +246,6 @@
 			"targetname"  "gskSpawn_35_ClimbChain_010"  //gskSummonDevSkeletonPart
 			"origin"      "742 -2385 204"
 			"angles"      "64 -99 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -277,7 +266,6 @@
 			"targetname"  "gskSpawn_35_ClimbChain_011"  //gskSummonDevSkeletonPart
 			"origin"      "760 -2386 231"
 			"angles"      "57 -112 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -298,7 +286,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -307,7 +295,6 @@
 			"targetname"  "gskSpawn_35_ClimbChain_012"  //gskSummonDevSkeletonPart
 			"origin"      "744 -2737 326"
 			"angles"      "70 87 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -328,7 +315,6 @@
 			"targetname"  "gskSpawn_35_ClimbChain_013"  //gskSummonDevSkeletonPart
 			"origin"      "794 -2760 323"
 			"angles"      "62 115 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -349,7 +335,6 @@
 			"targetname"  "gskSpawn_35_ClimbChain_014"  //gskSummonDevSkeletonPart
 			"origin"      "791 -2708 315"
 			"angles"      "74 133 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -370,7 +355,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -379,7 +364,6 @@
 			"targetname"  "gskSpawn_35_ClimbChain_015"  //gskSummonDevSkeletonPart
 			"origin"      "840 -2743 319"
 			"angles"      "59 139 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -400,7 +384,6 @@
 			"targetname"  "gskSpawn_35_ClimbChain_016"  //gskSummonDevSkeletonPart
 			"origin"      "865 -2699 319"
 			"angles"      "59 163 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -421,7 +404,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -430,7 +413,6 @@
 			"targetname"  "gskSpawn_35_ClimbChain_017"  //gskSummonDevSkeletonPart
 			"origin"      "916 -2703 328"
 			"angles"      "48 166 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -451,7 +433,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -460,7 +442,6 @@
 			"targetname"  "gskSpawn_35_ClimbChain_018"  //gskSummonDevSkeletonPart
 			"origin"      "877 -2638 320"
 			"angles"      "57 -170 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -481,7 +462,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -490,7 +471,6 @@
 			"targetname"  "gskSpawn_35_ClimbChain_019"  //gskSummonDevSkeletonPart
 			"origin"      "910 -2581 320"
 			"angles"      "48 -154 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -511,7 +491,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -520,7 +500,6 @@
 			"targetname"  "gskSpawn_35_ClimbChain_020"  //gskSummonDevSkeletonPart
 			"origin"      "839 -2584 309"
 			"angles"      "61 -141 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -541,7 +520,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -550,7 +529,6 @@
 			"targetname"  "gskSpawn_35_ClimbChain_021"  //gskSummonDevSkeletonPart
 			"origin"      "772 -2617 304"
 			"angles"      "78 -119 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -571,7 +549,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -580,7 +558,6 @@
 			"targetname"  "gskSpawn_35_ClimbChain_022"  //gskSummonDevSkeletonPart
 			"origin"      "736 -2587 296"
 			"angles"      "73 -82 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -601,7 +578,6 @@
 			"targetname"  "gskSpawn_35_ClimbChain_023"  //gskSummonDevSkeletonPart
 			"origin"      "702 -2570 296"
 			"angles"      "67 -64 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -622,7 +598,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -631,7 +607,6 @@
 			"targetname"  "gskSpawn_35_ClimbChain_024"  //gskSummonDevSkeletonPart
 			"origin"      "738 -2644 311"
 			"angles"      "86 -62 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -652,7 +627,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -661,7 +636,6 @@
 			"targetname"  "gskSpawn_35_ClimbChain_025"  //gskSummonDevSkeletonPart
 			"origin"      "716 -2647 317"
 			"angles"      "82 -23 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -682,7 +656,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -691,7 +665,6 @@
 			"targetname"  "gskSpawn_35_ClimbChain_026"  //gskSummonDevSkeletonPart
 			"origin"      "825 -2540 305"
 			"angles"      "57 -123 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -712,7 +685,6 @@
 			"targetname"  "gskSpawn_35_ClimbChain_027"  //gskSummonDevSkeletonPart
 			"origin"      "873 -2512 317"
 			"angles"      "46 -131 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -733,7 +705,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -742,7 +714,6 @@
 			"targetname"  "gskSpawn_35_ClimbChain_028"  //gskSummonDevSkeletonPart
 			"origin"      "929 -2529 323"
 			"angles"      "42 -145 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -763,7 +734,6 @@
 			"targetname"  "gskSpawn_35_ClimbChain_029"  //gskSummonDevSkeletonPart
 			"origin"      "918 -2474 327"
 			"angles"      "37 -133 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -784,7 +754,6 @@
 			"targetname"  "gskSpawn_35_ClimbChain_030"  //gskSummonDevSkeletonPart
 			"origin"      "924 -2437 331"
 			"angles"      "33 -129 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -805,7 +774,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -814,7 +783,6 @@
 			"targetname"  "gskSpawn_35_ClimbChain_031"  //gskSummonDevSkeletonPart
 			"origin"      "865 -2438 324"
 			"angles"      "38 -118 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -835,7 +803,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -844,7 +812,6 @@
 			"targetname"  "gskSpawn_35_ClimbChain_032"  //gskSummonDevSkeletonPart
 			"origin"      "835 -2504 315"
 			"angles"      "49 -120 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -865,7 +832,6 @@
 			"targetname"  "gskSpawn_35_ClimbChain_033"  //gskSummonDevSkeletonPart
 			"origin"      "913 -2644 324"
 			"angles"      "50 -175 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -886,7 +852,6 @@
 			"targetname"  "gskSpawn_35_ClimbChain_034"  //gskSummonDevSkeletonPart
 			"origin"      "839 -2193 337"
 			"angles"      "24 100 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -907,7 +872,6 @@
 			"targetname"  "gskSpawn_35_ClimbChain_035"  //gskSummonDevSkeletonPart
 			"origin"      "814 -2163 337"
 			"angles"      "34 82 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -928,7 +892,6 @@
 			"targetname"  "gskSpawn_35_ClimbChain_036"  //gskSummonDevSkeletonPart
 			"origin"      "809 -2133 337"
 			"angles"      "53 68 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -949,7 +912,6 @@
 			"targetname"  "gskSpawn_35_ClimbChain_037"  //gskSummonDevSkeletonPart
 			"origin"      "832 -2131 337"
 			"angles"      "56 107 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -970,13 +932,12 @@
 			"targetname"  "gskSpawn_35_ClimbChain_038"  //gskSummonPotionStone
 			"origin"      "688 -2775 535"
 			"angles"      "36 90 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "item_potion_stone"
 			"model" "models/items/provisions/potions/stone_potion.mdl"
 			"angles"      "0 90 0"
-			"spawnflags"  "7"
+			"spawnflags"  "256"
 			"origin"      "688 -2775 540"
 		}
 

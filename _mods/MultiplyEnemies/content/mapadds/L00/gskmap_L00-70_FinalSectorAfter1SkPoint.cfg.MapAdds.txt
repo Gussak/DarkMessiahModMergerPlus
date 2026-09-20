@@ -9,7 +9,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_000"  //gskSummonSpiderRegular
 			"origin"      "1568 2312 -411"
 			"angles"      "88 -118 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
@@ -22,7 +21,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_001"  //gskSummonSpiderRegular
 			"origin"      "1616 1861 -369"
 			"angles"      "88 142 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
@@ -35,7 +33,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_002"  //gskSummonSpiderRegular
 			"origin"      "1085 2243 -395"
 			"angles"      "89 3 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
@@ -48,7 +45,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_003"  //gskSummonSpiderRegular
 			"origin"      "1501 2848 42"
 			"angles"      "87 -124 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
@@ -61,7 +57,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_004"  //gskSummonSpiderRegular
 			"origin"      "1332 2681 36"
 			"angles"      "89 33 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
@@ -74,7 +69,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_005"  //gskSummonSpiderRegular
 			"origin"      "1422 2447 33"
 			"angles"      "89 -87 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
@@ -87,7 +81,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_006"  //gskSummonSpiderRegular
 			"origin"      "2006 2844 34"
 			"angles"      "37 -168 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
@@ -100,7 +93,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_007"  //gskSummonSpiderRegular
 			"origin"      "1953 2713 36"
 			"angles"      "42 170 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
@@ -113,7 +105,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_008"  //gskSummonSpiderRegular
 			"origin"      "1903 2837 34"
 			"angles"      "47 -165 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
@@ -126,7 +117,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_009"  //gskSummonSpiderRegular
 			"origin"      "1847 2707 39"
 			"angles"      "54 164 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
@@ -139,7 +129,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_010"  //gskSummonSpiderRegular
 			"origin"      "1783 2824 36"
 			"angles"      "63 -158 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
@@ -152,7 +141,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_011"  //gskSummonSpiderRegular
 			"origin"      "1743 2713 42"
 			"angles"      "70 151 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
@@ -165,7 +153,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_012"  //gskSummonSpiderRegular
 			"origin"      "1256 2399 -402"
 			"angles"      "32 -58 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
@@ -178,7 +165,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_013"  //gskSummonSpiderRegular
 			"origin"      "1643 2215 -415"
 			"angles"      "48 -156 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
@@ -191,7 +177,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_014"  //gskSummonSpiderRegular
 			"origin"      "1221 1855 -415"
 			"angles"      "40 45 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
@@ -204,7 +189,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_015"  //gskSummonSpiderRegular
 			"origin"      "1232 1984 -415"
 			"angles"      "51 13 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
@@ -217,7 +201,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_016"  //gskSummonSpiderRegular
 			"origin"      "1431 1965 -415"
 			"angles"      "82 -118 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
@@ -230,7 +213,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_017"  //gskSummonDevSkeletonPart
 			"origin"      "1234 2107 -415"
 			"angles"      "53 -29 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -251,7 +233,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -260,7 +242,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_018"  //gskSummonDevSkeletonPart
 			"origin"      "1225 2073 -415"
 			"angles"      "55 -18 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -281,7 +262,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_019"  //gskSummonDevSkeletonPart
 			"origin"      "1282 2057 -415"
 			"angles"      "64 -20 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -302,7 +282,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -311,7 +291,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_020"  //gskSummonDevSkeletonPart
 			"origin"      "1312 2030 -415"
 			"angles"      "71 -11 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -332,7 +311,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_021"  //gskSummonDevSkeletonPart
 			"origin"      "1356 2139 -464"
 			"angles"      "67 -70 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -353,7 +331,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_022"  //gskSummonDevSkeletonPart
 			"origin"      "1413 2063 -472"
 			"angles"      "84 -105 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -374,7 +351,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_023"  //gskSummonDevSkeletonPart
 			"origin"      "1457 2099 -470"
 			"angles"      "72 -123 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -395,7 +371,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -404,7 +380,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_024"  //gskSummonDevSkeletonPart
 			"origin"      "1479 2182 -443"
 			"angles"      "57 -115 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -425,7 +400,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_025"  //gskSummonDevSkeletonPart
 			"origin"      "1569 2152 -415"
 			"angles"      "50 -141 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -446,7 +420,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -455,7 +429,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_026"  //gskSummonDevSkeletonPart
 			"origin"      "1607 2084 -415"
 			"angles"      "50 -162 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -476,7 +449,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -485,7 +458,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_027"  //gskSummonDevSkeletonPart
 			"origin"      "1605 2070 -415"
 			"angles"      "51 -165 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -506,7 +478,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_028"  //gskSummonDevSkeletonPart
 			"origin"      "1569 2037 -415"
 			"angles"      "57 -173 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -527,7 +498,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -536,7 +507,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_029"  //gskSummonDevSkeletonPart
 			"origin"      "1649 1980 -415"
 			"angles"      "46 172 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -557,7 +527,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_030"  //gskSummonDevSkeletonPart
 			"origin"      "1579 1953 -414"
 			"angles"      "54 161 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -578,7 +547,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -587,7 +556,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_031"  //gskSummonDevSkeletonPart
 			"origin"      "1675 1919 -396"
 			"angles"      "39 161 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -608,7 +576,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -617,7 +585,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_032"  //gskSummonDevSkeletonPart
 			"origin"      "1515 1916 -415"
 			"angles"      "60 139 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -638,7 +605,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_033"  //gskSummonDevSkeletonPart
 			"origin"      "1510 1861 -415"
 			"angles"      "54 125 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -659,7 +625,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -668,7 +634,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_034"  //gskSummonDevSkeletonPart
 			"origin"      "1446 1904 -415"
 			"angles"      "66 112 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -689,7 +654,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -698,7 +663,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_035"  //gskSummonDevSkeletonPart
 			"origin"      "1426 1851 -415"
 			"angles"      "57 99 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -719,7 +683,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -728,7 +692,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_036"  //gskSummonDevSkeletonPart
 			"origin"      "1351 1796 -415"
 			"angles"      "49 77 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -749,7 +712,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -758,7 +721,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_037"  //gskSummonDevSkeletonPart
 			"origin"      "1402 1780 -415"
 			"angles"      "48 91 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -779,7 +741,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_038"  //gskSummonDevSkeletonPart
 			"origin"      "1429 1701 -410"
 			"angles"      "38 95 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -800,7 +761,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_039"  //gskSummonDevSkeletonPart
 			"origin"      "1389 1702 -409"
 			"angles"      "38 88 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -821,7 +781,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -830,7 +790,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_040"  //gskSummonDevSkeletonPart
 			"origin"      "1368 1619 -415"
 			"angles"      "33 85 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -851,7 +810,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -860,7 +819,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_041"  //gskSummonDevSkeletonPart
 			"origin"      "1410 1588 -415"
 			"angles"      "31 92 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -881,7 +839,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_042"  //gskSummonDevSkeletonPart
 			"origin"      "1453 1652 -415"
 			"angles"      "35 98 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -902,7 +859,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -911,7 +868,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_043"  //gskSummonDevSkeletonPart
 			"origin"      "1372 1772 -415"
 			"angles"      "47 83 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -932,7 +888,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -941,7 +897,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_044"  //gskSummonDevSkeletonPart
 			"origin"      "1344 1852 -415"
 			"angles"      "56 71 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -962,7 +917,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -971,7 +926,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_045"  //gskSummonDevSkeletonPart
 			"origin"      "1326 1955 -415"
 			"angles"      "70 38 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -992,7 +946,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -1001,7 +955,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_046"  //gskSummonDevSkeletonPart
 			"origin"      "1160 1906 -415"
 			"angles"      "44 25 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1022,7 +975,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -1031,7 +984,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_047"  //gskSummonDevSkeletonPart
 			"origin"      "1180 1943 -415"
 			"angles"      "47 18 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1052,7 +1004,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_048"  //gskSummonDevSkeletonPart
 			"origin"      "1150 2022 -415"
 			"angles"      "45 -3 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1073,7 +1024,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -1082,7 +1033,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_049"  //gskSummonDevSkeletonPart
 			"origin"      "1346 2349 -411"
 			"angles"      "36 -81 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1103,7 +1053,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_050"  //gskSummonDevSkeletonPart
 			"origin"      "1328 2251 -415"
 			"angles"      "46 -73 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1124,7 +1073,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_051"  //gskSummonDevSkeletonPart
 			"origin"      "1294 2300 -406"
 			"angles"      "39 -70 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1145,7 +1093,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_052"  //gskSummonDevSkeletonPart
 			"origin"      "1283 2250 -413"
 			"angles"      "44 -64 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1166,7 +1113,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_053"  //gskSummonDevSkeletonPart
 			"origin"      "1241 2238 -406"
 			"angles"      "42 -55 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1187,7 +1133,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_054"  //gskSummonDevSkeletonPart
 			"origin"      "1180 2322 -395"
 			"angles"      "31 -55 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1208,7 +1153,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -1217,7 +1162,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_055"  //gskSummonDevSkeletonPart
 			"origin"      "1156 2253 -395"
 			"angles"      "34 -45 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1238,7 +1182,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_056"  //gskSummonDevSkeletonPart
 			"origin"      "1211 2224 -404"
 			"angles"      "41 -48 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1259,7 +1202,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -1268,7 +1211,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_057"  //gskSummonDevSkeletonPart
 			"origin"      "1498 2326 -412"
 			"angles"      "38 -108 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1289,7 +1231,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_058"  //gskSummonDevSkeletonPart
 			"origin"      "1483 2263 -415"
 			"angles"      "44 -108 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1310,7 +1251,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -1319,7 +1260,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_059"  //gskSummonDevSkeletonPart
 			"origin"      "1527 2257 -415"
 			"angles"      "43 -118 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1340,7 +1280,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_060"  //gskSummonDevSkeletonPart
 			"origin"      "1502 2212 -426"
 			"angles"      "50 -117 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1361,7 +1300,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -1370,7 +1309,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_061"  //gskSummonDevSkeletonPart
 			"origin"      "1517 2012 -425"
 			"angles"      "67 179 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1391,7 +1329,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -1400,7 +1338,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_062"  //gskSummonDevSkeletonPart
 			"origin"      "1278 2058 81"
 			"angles"      "46 13 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1421,7 +1358,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_063"  //gskSummonDevSkeletonPart
 			"origin"      "1255 2078 81"
 			"angles"      "42 5 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1442,7 +1378,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -1451,7 +1387,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_064"  //gskSummonDevSkeletonPart
 			"origin"      "1285 2082 81"
 			"angles"      "48 4 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1472,7 +1407,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_065"  //gskSummonDevSkeletonPart
 			"origin"      "1316 2007 33"
 			"angles"      "56 39 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1493,7 +1427,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -1502,7 +1436,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_066"  //gskSummonDevSkeletonPart
 			"origin"      "1315 1951 33"
 			"angles"      "49 53 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1523,7 +1456,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_067"  //gskSummonDevSkeletonPart
 			"origin"      "1360 1965 33"
 			"angles"      "55 64 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1544,7 +1476,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_068"  //gskSummonDevSkeletonPart
 			"origin"      "1417 1949 33"
 			"angles"      "55 88 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1565,7 +1496,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -1574,7 +1505,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_069"  //gskSummonDevSkeletonPart
 			"origin"      "1467 1962 33"
 			"angles"      "56 109 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1595,7 +1525,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -1604,7 +1534,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_070"  //gskSummonDevSkeletonPart
 			"origin"      "1517 1965 33"
 			"angles"      "52 128 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1625,7 +1554,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_071"  //gskSummonDevSkeletonPart
 			"origin"      "1522 2018 33"
 			"angles"      "59 144 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1646,7 +1574,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_072"  //gskSummonDevSkeletonPart
 			"origin"      "1540 2094 17"
 			"angles"      "62 -179 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1667,7 +1594,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -1676,7 +1603,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_073"  //gskSummonDevSkeletonPart
 			"origin"      "1531 2172 33"
 			"angles"      "57 -143 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1697,7 +1623,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_074"  //gskSummonDevSkeletonPart
 			"origin"      "1455 2260 34"
 			"angles"      "50 -101 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1718,7 +1643,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -1727,7 +1652,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_075"  //gskSummonDevSkeletonPart
 			"origin"      "1368 2263 33"
 			"angles"      "48 -72 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1748,7 +1672,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_076"  //gskSummonDevSkeletonPart
 			"origin"      "1357 2330 33"
 			"angles"      "39 -75 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1769,7 +1692,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -1778,7 +1701,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_077"  //gskSummonDevSkeletonPart
 			"origin"      "1377 2195 33"
 			"angles"      "61 -66 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1799,7 +1721,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -1808,7 +1730,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_078"  //gskSummonDevSkeletonPart
 			"origin"      "1346 2167 33"
 			"angles"      "62 -45 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1829,7 +1750,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -1838,7 +1759,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_079"  //gskSummonDevSkeletonPart
 			"origin"      "1422 2333 33"
 			"angles"      "53 -89 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1859,7 +1779,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -1868,7 +1788,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_080"  //gskSummonDevSkeletonPart
 			"origin"      "1421 2290 33"
 			"angles"      "64 -88 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1889,7 +1808,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -1898,7 +1817,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_081"  //gskSummonDevSkeletonPart
 			"origin"      "1483 2295 37"
 			"angles"      "58 -122 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1919,7 +1837,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_082"  //gskSummonDevSkeletonPart
 			"origin"      "1516 2328 65"
 			"angles"      "42 -126 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1940,7 +1857,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_083"  //gskSummonDevSkeletonPart
 			"origin"      "1479 2366 65"
 			"angles"      "39 -109 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1961,7 +1877,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_084"  //gskSummonDevSkeletonPart
 			"origin"      "1537 2410 57"
 			"angles"      "32 -119 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1982,7 +1897,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_085"  //gskSummonDevSkeletonPart
 			"origin"      "1513 2436 45"
 			"angles"      "32 -111 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2003,7 +1917,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_086"  //gskSummonDevSkeletonPart
 			"origin"      "1499 2534 33"
 			"angles"      "27 -103 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2024,7 +1937,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -2033,7 +1946,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_087"  //gskSummonDevSkeletonPart
 			"origin"      "1335 2444 33"
 			"angles"      "34 -70 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2054,7 +1966,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_088"  //gskSummonDevSkeletonPart
 			"origin"      "1336 2366 33"
 			"angles"      "43 -61 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2075,7 +1986,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -2084,7 +1995,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_089"  //gskSummonDevSkeletonPart
 			"origin"      "1328 2290 33"
 			"angles"      "53 -43 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2105,7 +2015,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_090"  //gskSummonDevSkeletonPart
 			"origin"      "1430 2619 33"
 			"angles"      "57 -94 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2126,7 +2035,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -2135,7 +2044,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_091"  //gskSummonDevSkeletonPart
 			"origin"      "1486 2769 34"
 			"angles"      "31 -104 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2156,7 +2064,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_092"  //gskSummonDevSkeletonPart
 			"origin"      "1417 2889 70"
 			"angles"      "22 -86 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2177,7 +2084,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_093"  //gskSummonDevSkeletonPart
 			"origin"      "1386 2825 66"
 			"angles"      "30 -74 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2198,7 +2104,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -2207,7 +2113,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_094"  //gskSummonDevSkeletonPart
 			"origin"      "1331 2879 89"
 			"angles"      "17 -65 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2228,7 +2133,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_095"  //gskSummonDevSkeletonPart
 			"origin"      "1352 2792 60"
 			"angles"      "34 -58 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2249,7 +2153,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -2258,7 +2162,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_096"  //gskSummonDevSkeletonPart
 			"origin"      "1331 2766 51"
 			"angles"      "38 -46 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2279,7 +2182,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -2288,7 +2191,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_097"  //gskSummonDevSkeletonPart
 			"origin"      "1401 2782 48"
 			"angles"      "43 -75 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2309,7 +2211,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_098"  //gskSummonDevSkeletonPart
 			"origin"      "1535 2657 43"
 			"angles"      "51 178 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2330,7 +2231,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -2339,7 +2240,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_099"  //gskSummonDevSkeletonPart
 			"origin"      "1514 2689 36"
 			"angles"      "58 -161 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2360,7 +2260,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_100"  //gskSummonDevSkeletonPart
 			"origin"      "1532 2730 34"
 			"angles"      "48 -145 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2381,7 +2280,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_101"  //gskSummonDevSkeletonPart
 			"origin"      "1498 2726 34"
 			"angles"      "56 -135 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2402,7 +2300,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -2411,7 +2309,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_102"  //gskSummonDevSkeletonPart
 			"origin"      "1550 2772 34"
 			"angles"      "39 -137 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2432,7 +2329,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_103"  //gskSummonDevSkeletonPart
 			"origin"      "1524 2776 34"
 			"angles"      "42 -128 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2453,7 +2349,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_104"  //gskSummonDevSkeletonPart
 			"origin"      "1489 2780 35"
 			"angles"      "45 -115 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2474,7 +2369,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_105"  //gskSummonDevSkeletonPart
 			"origin"      "1503 2747 34"
 			"angles"      "50 -129 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2495,7 +2389,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_106"  //gskSummonDevSkeletonPart
 			"origin"      "1530 2754 34"
 			"angles"      "44 -136 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2516,7 +2409,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -2525,7 +2418,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_107"  //gskSummonDevSkeletonPart
 			"origin"      "1439 2799 45"
 			"angles"      "41 -93 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2546,7 +2438,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -2555,7 +2447,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_108"  //gskSummonDevSkeletonPart
 			"origin"      "1416 2828 59"
 			"angles"      "32 -84 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2576,7 +2467,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -2585,7 +2476,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_109"  //gskSummonDevSkeletonPart
 			"origin"      "1655 2820 35"
 			"angles"      "45 -115 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2606,7 +2496,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -2615,7 +2505,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_110"  //gskSummonDevSkeletonPart
 			"origin"      "1611 2769 34"
 			"angles"      "75 -76 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2636,7 +2525,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -2645,7 +2534,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_111"  //gskSummonDevSkeletonPart
 			"origin"      "1643 2787 34"
 			"angles"      "61 -119 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2666,7 +2554,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -2675,7 +2563,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_112"  //gskSummonDevSkeletonPart
 			"origin"      "1636 2751 34"
 			"angles"      "81 -151 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2696,7 +2583,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -2705,7 +2592,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_113"  //gskSummonDevSkeletonPart
 			"origin"      "1665 2768 34"
 			"angles"      "60 -150 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2726,7 +2612,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -2735,7 +2621,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_114"  //gskSummonDevSkeletonPart
 			"origin"      "1701 2765 34"
 			"angles"      "46 -164 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2756,7 +2641,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -2765,7 +2650,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_115"  //gskSummonDevSkeletonPart
 			"origin"      "1669 2732 36"
 			"angles"      "61 171 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2786,7 +2670,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -2795,7 +2679,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_116"  //gskSummonDevSkeletonPart
 			"origin"      "1659 2697 44"
 			"angles"      "54 134 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2816,7 +2699,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -2825,7 +2708,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_117"  //gskSummonDevSkeletonPart
 			"origin"      "1645 2661 54"
 			"angles"      "39 109 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2846,7 +2728,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_118"  //gskSummonDevSkeletonPart
 			"origin"      "1638 2690 44"
 			"angles"      "57 112 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2867,13 +2748,12 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_119"  //gskSummonPotionLife
 			"origin"      "1260 2413 -151"
 			"angles"      "41 -102 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "item_potion_life"
 			"model" "models/items/provisions/potions/Life_potion.mdl"
 			"angles"      "0 -102 0"
-			"spawnflags"  "7"
+			"spawnflags"  "256"
 			"origin"      "1260 2413 -146"
 		}
 		"add:entity"
@@ -2881,13 +2761,12 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_120"  //gskSummonPotionLife
 			"origin"      "1122 2231 -151"
 			"angles"      "36 3 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "item_potion_life"
 			"model" "models/items/provisions/potions/Life_potion.mdl"
 			"angles"      "0 3 0"
-			"spawnflags"  "7"
+			"spawnflags"  "256"
 			"origin"      "1122 2231 -146"
 		}
 		"add:entity"
@@ -2895,13 +2774,12 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_121"  //gskSummonPotionLife
 			"origin"      "1197 2067 81"
 			"angles"      "42 -6 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "item_potion_life"
 			"model" "models/items/provisions/potions/Life_potion.mdl"
 			"angles"      "0 -6 0"
-			"spawnflags"  "7"
+			"spawnflags"  "256"
 			"origin"      "1197 2067 86"
 		}
 		"add:entity"
@@ -2909,13 +2787,12 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_122"  //gskSummonPotionLife
 			"origin"      "1234 2193 177"
 			"angles"      "66 48 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "item_potion_life"
 			"model" "models/items/provisions/potions/Life_potion.mdl"
 			"angles"      "0 48 0"
-			"spawnflags"  "7"
+			"spawnflags"  "256"
 			"origin"      "1234 2193 182"
 		}
 		"add:entity"
@@ -2923,7 +2800,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_123"  //gskSummonDevTrapFire
 			"origin"      "1091 2225 -151"
 			"angles"      "43 -3 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2933,6 +2809,7 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
 			"angles" "19 169 35"
+			"spawnflags"  "256"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -2940,7 +2817,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 			
@@ -2950,7 +2827,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_124"  //gskSummonDevTrapFire
 			"origin"      "1259 2451 -151"
 			"angles"      "40 -32 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2960,6 +2836,7 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
 			"angles" "30 -72 4"
+			"spawnflags"  "256"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -2967,7 +2844,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 			
@@ -2977,7 +2854,6 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_125"  //gskSummonDevTrapFire
 			"origin"      "1195 2190 177"
 			"angles"      "46 21 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -2987,6 +2863,7 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
 			"angles" "39 99 19"
+			"spawnflags"  "256"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -2994,7 +2871,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 			
@@ -3004,144 +2881,132 @@
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_126"  //gskSummonFacehugger
 			"origin"      "1433 1959 312"
 			"angles"      "42 108 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
-			
+			"spawnflags"  "6"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_127"  //gskSummonFacehugger
 			"origin"      "1507 2012 297"
 			"angles"      "44 156 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
-			
+			"spawnflags"  "6"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_128"  //gskSummonFacehugger
 			"origin"      "1496 2114 297"
 			"angles"      "45 -150 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
-			
+			"spawnflags"  "6"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_129"  //gskSummonFacehugger
 			"origin"      "1420 2189 312"
 			"angles"      "35 -99 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
-			
+			"spawnflags"  "6"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_130"  //gskSummonFacehugger
 			"origin"      "1343 2117 297"
 			"angles"      "54 -46 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
-			
+			"spawnflags"  "6"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_131"  //gskSummonFacehugger
 			"origin"      "1350 2010 297"
 			"angles"      "58 44 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
-			
+			"spawnflags"  "6"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_132"  //gskSummonFacehugger
 			"origin"      "1421 2115 312"
 			"angles"      "41 -101 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
-			
+			"spawnflags"  "6"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_133"  //gskSummonFacehugger
 			"origin"      "1431 2029 312"
 			"angles"      "73 158 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
-			
+			"spawnflags"  "6"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_134"  //gskSummonFacehugger
 			"origin"      "1432 2032 312"
 			"angles"      "65 149 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
-			
+			"spawnflags"  "6"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_135"  //gskSummonFacehugger
 			"origin"      "1158 1941 -151"
 			"angles"      "22 15 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
-			
+			"spawnflags"  "6"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_136"  //gskSummonFacehugger
 			"origin"      "1655 2242 -151"
 			"angles"      "12 170 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
-			
+			"spawnflags"  "6"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_70_FinalSectorAfter1SkPoint_137"  //gskSummonFacehugger
 			"origin"      "1658 1949 -151"
 			"angles"      "43 -177 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
-			
+			"spawnflags"  "6"
 		}
 
 		"modify:entity"

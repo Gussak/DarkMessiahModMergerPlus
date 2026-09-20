@@ -9,7 +9,6 @@
 			"targetname"  "gskSpawn__000"  //mm_npc_create_spider
 			"origin"      "1643 -1327 -99"
 			"angles"      "89 -161 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
@@ -22,7 +21,6 @@
 			"targetname"  "gskSpawn__001"  //mm_npc_create_spider
 			"origin"      "1599 -1361 -99"
 			"angles"      "77 48 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
@@ -35,7 +33,6 @@
 			"targetname"  "gskSpawn__002"  //mm_npc_create_spider
 			"origin"      "1621 -1478 -99"
 			"angles"      "89 -90 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
@@ -48,7 +45,6 @@
 			"targetname"  "gskSpawn__003"  //mm_npc_create_spider
 			"origin"      "1624 -1575 -99"
 			"angles"      "89 -96 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
@@ -61,7 +57,6 @@
 			"targetname"  "gskSpawn__004"  //mm_npc_create_spider
 			"origin"      "1623 -1679 -99"
 			"angles"      "89 -88 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
@@ -74,7 +69,6 @@
 			"targetname"  "gskSpawn__005"  //mm_npc_create_spider
 			"origin"      "1495 -1615 -278"
 			"angles"      "89 21 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
@@ -87,7 +81,6 @@
 			"targetname"  "gskSpawn__006"  //mm_npc_create_spider
 			"origin"      "1574 -1558 -252"
 			"angles"      "89 61 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
@@ -100,7 +93,6 @@
 			"targetname"  "gskSpawn__007"  //mm_npc_create_spider
 			"origin"      "1555 -1825 -278"
 			"angles"      "89 55 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
@@ -113,7 +105,6 @@
 			"targetname"  "gskSpawn__008"  //mm_npc_create_spider
 			"origin"      "1698 -1816 -278"
 			"angles"      "89 113 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
@@ -126,7 +117,6 @@
 			"targetname"  "gskSpawn__009"  //mm_npc_create_spider
 			"origin"      "1700 -1289 -278"
 			"angles"      "89 -171 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
@@ -139,7 +129,6 @@
 			"targetname"  "gskSpawn__010"  //mm_npc_create_undead
 			"origin"      "2803 -2083 -237"
 			"angles"      "88 122 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_undead"
@@ -154,7 +143,6 @@
 			"targetname"  "gskSpawn__011"  //mm_npc_create_undead
 			"origin"      "2806 -2582 -237"
 			"angles"      "78 147 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_undead"
@@ -169,7 +157,6 @@
 			"targetname"  "gskSpawn__012"  //mm_npc_create_undead
 			"origin"      "2735 -2580 -237"
 			"angles"      "77 29 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_undead"
@@ -184,7 +171,6 @@
 			"targetname"  "gskSpawn__013"  //mm_npc_create_spider
 			"origin"      "1601 -1430 -278"
 			"angles"      "89 9 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"

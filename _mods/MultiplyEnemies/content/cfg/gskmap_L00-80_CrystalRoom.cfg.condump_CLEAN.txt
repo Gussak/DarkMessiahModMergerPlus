@@ -1,0 +1,58 @@
+map     :  L00 at: -1878 x, -4619 y, 342
+map     :  L00 at: -1878 x, -4619 y, 342
+gskMapMessage RegionExtractedFromVector3D -478 1578 -831
+gskMapMessage RegionExtractedToVector3D 3201 3667 1713
+gskMapMessage trigger: targetname 'socle_end.combine.relay', 'origin' '1763 2800 40', at L00.vmf
+gskSpawnTriggerAtID 1176624
+gskSpawnTriggerType OnTrigger
+gskSpawnDelay 0.0
+gskSpawnNpcsAwake true
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 0/7 )
+prop at 2890 2902 223 missing modelname
+prop at 2890 2902 223 missing modelname
+setpos 2370.970703 2781.111572 188.307877;setang -3.764365 13.105677 0.003729
+setpos 2370.970703 2781.111572 188.307877;setang -3.764365 13.105677 0.003729
+gskSummonFacehugger
+gskSummonFacehugger
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 1/7 )
+prop at 2890 2635 243 missing modelname
+prop at 2890 2635 243 missing modelname
+setpos 2370.649170 2780.434326 188.355560;setang -5.744363 -15.604325 0.003851
+setpos 2370.649170 2780.434326 188.355560;setang -5.744363 -15.604325 0.003851
+gskSummonFacehugger
+gskSummonFacehugger
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 2/7 )
+prop at 2699 2443 246 missing modelname
+prop at 2699 2443 246 missing modelname
+setpos 2370.192627 2780.025146 188.378922;setang -6.932364 -45.700363 0.003924
+setpos 2370.192627 2780.025146 188.378922;setang -6.932364 -45.700363 0.003924
+gskSummonFacehugger
+gskSummonFacehugger
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 3/7 )
+prop at 2434 2441 234 missing modelname
+prop at 2434 2441 234 missing modelname
+setpos 2369.645996 2779.843994 188.389114;setang -7.526363 -79.294327 0.003961
+setpos 2369.645996 2779.843994 188.389114;setang -7.526363 -79.294327 0.003961
+gskSummonFacehugger
+gskSummonFacehugger
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 4/7 )
+prop at 2243 2912 217 missing modelname
+prop at 2243 2912 217 missing modelname
+setpos 2368.978027 2781.275879 188.409042;setang -8.912364 134.053650 0.004047
+setpos 2368.978027 2781.275879 188.409042;setang -8.912364 134.053650 0.004047
+gskSummonFacehugger
+gskSummonFacehugger
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 5/7 )
+prop at 2402 3082 237 missing modelname
+prop at 2402 3082 237 missing modelname
+setpos 2369.545166 2781.418701 188.412994;setang -9.242364 83.761597 0.004068
+setpos 2369.545166 2781.418701 188.412994;setang -9.242364 83.761597 0.004068
+gskSummonFacehugger
+gskSummonFacehugger
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 6/7 )
+prop at 2702 3092 255 missing modelname
+prop at 2702 3092 255 missing modelname
+setpos 2370.063965 2781.314453 188.401169;setang -8.318363 43.039547 0.004010
+setpos 2370.063965 2781.314453 188.401169;setang -8.318363 43.039547 0.004010
+gskSummonFacehugger
+gskSummonFacehugger

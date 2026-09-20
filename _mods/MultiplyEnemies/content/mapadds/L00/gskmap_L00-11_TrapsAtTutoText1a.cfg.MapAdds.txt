@@ -9,7 +9,6 @@
 			"targetname"  "gskSpawn_11_TrapsAtTutoText1a_000"  //gskSummonDevTrapMiniSpiderFly
 			"origin"      "-749 -4091 193"
 			"angles"      "63 -49 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
@@ -17,6 +16,7 @@
 			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
+			
 			"origin"      "-749 -4091 393"
 		}
 		"add:entity"
@@ -24,7 +24,6 @@
 			"targetname"  "gskSpawn_11_TrapsAtTutoText1a_001"  //gskSummonDevTrapMiniSpiderFly
 			"origin"      "-743 -4134 193"
 			"angles"      "73 -19 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
@@ -32,6 +31,7 @@
 			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
+			
 			"origin"      "-743 -4134 393"
 		}
 		"add:entity"
@@ -39,7 +39,6 @@
 			"targetname"  "gskSpawn_11_TrapsAtTutoText1a_002"  //gskSummonDevTrapMiniSpiderFly
 			"origin"      "-720 -4163 194"
 			"angles"      "82 32 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
@@ -47,6 +46,7 @@
 			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
+			
 			"origin"      "-720 -4163 394"
 		}
 		"add:entity"
@@ -54,7 +54,6 @@
 			"targetname"  "gskSpawn_11_TrapsAtTutoText1a_003"  //gskSummonDevTrapMiniSpiderFly
 			"origin"      "-706 -4194 194"
 			"angles"      "54 -108 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
@@ -62,6 +61,7 @@
 			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
+			
 			"origin"      "-706 -4194 394"
 		}
 		"add:entity"
@@ -69,7 +69,6 @@
 			"targetname"  "gskSpawn_11_TrapsAtTutoText1a_004"  //gskSummonDevTrapMiniSpiderFly
 			"origin"      "-634 -4148 194"
 			"angles"      "52 -47 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
@@ -77,6 +76,7 @@
 			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
+			
 			"origin"      "-634 -4148 394"
 		}
 		"add:entity"
@@ -84,7 +84,6 @@
 			"targetname"  "gskSpawn_11_TrapsAtTutoText1a_005"  //gskSummonDevTrapMiniSpiderFly
 			"origin"      "-591 -4150 194"
 			"angles"      "60 -70 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
@@ -92,6 +91,7 @@
 			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
+			
 			"origin"      "-591 -4150 394"
 		}
 		"add:entity"
@@ -99,7 +99,6 @@
 			"targetname"  "gskSpawn_11_TrapsAtTutoText1a_006"  //gskSummonDevTrapMiniSpiderFly
 			"origin"      "-617 -4191 193"
 			"angles"      "66 -31 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
@@ -107,6 +106,7 @@
 			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
+			
 			"origin"      "-617 -4191 393"
 		}
 		"add:entity"
@@ -114,7 +114,6 @@
 			"targetname"  "gskSpawn_11_TrapsAtTutoText1a_007"  //gskSummonDevTrapMiniSpiderFly
 			"origin"      "-547 -4103 194"
 			"angles"      "67 54 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
@@ -122,6 +121,7 @@
 			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
+			
 			"origin"      "-547 -4103 394"
 		}
 		"add:entity"
@@ -129,7 +129,6 @@
 			"targetname"  "gskSpawn_11_TrapsAtTutoText1a_008"  //gskSummonDevTrapMiniSpiderFly
 			"origin"      "-560 -4058 194"
 			"angles"      "70 111 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini" // above ground, if they fall from too high, they just die
@@ -137,6 +136,7 @@
 			"SetGravityScale" "0.5" //useless?
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
+			
 			"origin"      "-560 -4058 394"
 		}
 

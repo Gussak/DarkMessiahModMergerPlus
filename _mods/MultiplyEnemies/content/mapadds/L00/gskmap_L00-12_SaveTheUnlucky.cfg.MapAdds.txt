@@ -1,0 +1,337 @@
+
+"mapadd_keyvalues"
+{
+	"PreInitialize"
+	{	
+
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_12_SaveTheUnlucky_000"  //+gskSummonGuardMini
+			"origin"      "-2097 -4551 196"
+			"angles"      "21 -50 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_human_guard"
+			//"model" "models/npc/guard/npc_guard_shrinked.mdl"
+			"model" "models/npc/guard/npc_guard.mdl"
+			"modelscale" "0.30"
+			"additionalequipment" "weapon_arx_short_sword"
+			"spawnflags"  "263"
+			"origin"      "-2097 -4551 201"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_12_SaveTheUnlucky_001"  //gskSummonSpiderMini
+			"origin"      "-1618 -4829 216"
+			"angles"      "47 141 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-1618 -4829 221"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_12_SaveTheUnlucky_002"  //gskSummonSpiderMini
+			"origin"      "-1662 -4809 213"
+			"angles"      "53 138 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-1662 -4809 218"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_12_SaveTheUnlucky_003"  //gskSummonSpiderMini
+			"origin"      "-1640 -4765 196"
+			"angles"      "56 151 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-1640 -4765 201"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_12_SaveTheUnlucky_004"  //gskSummonSpiderMini
+			"origin"      "-1582 -4716 194"
+			"angles"      "52 167 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-1582 -4716 199"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_12_SaveTheUnlucky_005"  //gskSummonSpiderMini
+			"origin"      "-1547 -4628 193"
+			"angles"      "48 -175 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-1547 -4628 198"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_12_SaveTheUnlucky_006"  //gskSummonSpiderMini
+			"origin"      "-1594 -4566 193"
+			"angles"      "52 -160 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-1594 -4566 198"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_12_SaveTheUnlucky_007"  //gskSummonSpiderMini
+			"origin"      "-1639 -4511 202"
+			"angles"      "53 -144 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-1639 -4511 207"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_12_SaveTheUnlucky_008"  //gskSummonSpiderMini
+			"origin"      "-1710 -4523 201"
+			"angles"      "61 -133 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-1710 -4523 206"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_12_SaveTheUnlucky_009"  //gskSummonSpiderMini
+			"origin"      "-1687 -4570 193"
+			"angles"      "63 -150 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-1687 -4570 198"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_12_SaveTheUnlucky_010"  //gskSummonSpiderMini
+			"origin"      "-1648 -4610 193"
+			"angles"      "60 -167 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-1648 -4610 198"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_12_SaveTheUnlucky_011"  //gskSummonSpiderMini
+			"origin"      "-1680 -4652 193"
+			"angles"      "66 -179 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-1680 -4652 198"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_12_SaveTheUnlucky_012"  //gskSummonSpiderMini
+			"origin"      "-1667 -4710 194"
+			"angles"      "62 162 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-1667 -4710 199"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_12_SaveTheUnlucky_013"  //gskSummonSpiderMini
+			"origin"      "-1699 -4760 194"
+			"angles"      "63 142 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-1699 -4760 199"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_12_SaveTheUnlucky_014"  //gskSummonSpiderMini
+			"origin"      "-1750 -4775 194"
+			"angles"      "67 124 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-1750 -4775 199"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_12_SaveTheUnlucky_015"  //gskSummonSpiderMini
+			"origin"      "-1721 -4723 195"
+			"angles"      "69 149 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-1721 -4723 200"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_12_SaveTheUnlucky_016"  //gskSummonSpiderMini
+			"origin"      "-1635 -4663 193"
+			"angles"      "59 178 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-1635 -4663 198"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_12_SaveTheUnlucky_017"  //gskSummonSpiderMini
+			"origin"      "-1578 -4628 193"
+			"angles"      "52 -174 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-1578 -4628 198"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_12_SaveTheUnlucky_018"  //gskSummonSpiderMini
+			"origin"      "-1624 -4731 195"
+			"angles"      "56 160 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-1624 -4731 200"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_12_SaveTheUnlucky_019"  //gskSummonSpiderMini
+			"origin"      "-1556 -4760 194"
+			"angles"      "47 160 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-1556 -4760 199"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_12_SaveTheUnlucky_020"  //gskSummonSpiderMini
+			"origin"      "-1712 -4686 193"
+			"angles"      "70 166 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-1712 -4686 198"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_12_SaveTheUnlucky_021"  //gskSummonSpiderMini
+			"origin"      "-1765 -4720 193"
+			"angles"      "76 136 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-1765 -4720 198"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_12_SaveTheUnlucky_022"  //gskSummonSpiderMini
+			"origin"      "-1719 -4618 193"
+			"angles"      "71 -162 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-1719 -4618 198"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_12_SaveTheUnlucky_023"  //gskSummonSpiderMini
+			"origin"      "-1726 -4566 193"
+			"angles"      "68 -140 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-1726 -4566 198"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_12_SaveTheUnlucky_024"  //gskSummonSpiderMini
+			"origin"      "-1615 -4522 200"
+			"angles"      "51 -149 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-1615 -4522 205"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_12_SaveTheUnlucky_025"  //gskSummonSpiderMini
+			"origin"      "-1553 -4530 193"
+			"angles"      "46 -156 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-1553 -4530 198"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_12_SaveTheUnlucky_026"  //gskSummonSpiderMini
+			"origin"      "-1521 -4575 193"
+			"angles"      "45 -166 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "-1521 -4575 198"
+		}
+
+	}
+}
+

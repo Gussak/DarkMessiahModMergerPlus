@@ -9,7 +9,6 @@
 			"targetname"  "gskSpawn_21_TrapCleanB4FirstDoor_000"  //gskSummonDevTrapFireCeiling
 			"origin"      "-1983 -4640 608"
 			"angles"      "-74 -170 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -26,10 +25,10 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "261"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			 //it wont fall when spawning even with the flag enabled...
-			"spawnflags"  "260" //cannot have FS_SLEEP or it wont use FS_FALL
+			"spawnflags"  "256" //this allows it to fall
 			
 			"origin"      "-1983 -4640 588"
 		}
@@ -38,7 +37,6 @@
 			"targetname"  "gskSpawn_21_TrapCleanB4FirstDoor_001"  //gskSummonDevTrapFireCeiling
 			"origin"      "-1984 -4599 599"
 			"angles"      "-71 -144 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -55,10 +53,10 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "261"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			 //it wont fall when spawning even with the flag enabled...
-			"spawnflags"  "260" //cannot have FS_SLEEP or it wont use FS_FALL
+			"spawnflags"  "256" //this allows it to fall
 			
 			"origin"      "-1984 -4599 579"
 		}
@@ -67,7 +65,6 @@
 			"targetname"  "gskSpawn_21_TrapCleanB4FirstDoor_002"  //gskSummonDevTrapFireCeiling
 			"origin"      "-1876 -4617 605"
 			"angles"      "-55 -149 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -84,10 +81,10 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "261"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			 //it wont fall when spawning even with the flag enabled...
-			"spawnflags"  "260" //cannot have FS_SLEEP or it wont use FS_FALL
+			"spawnflags"  "256" //this allows it to fall
 			
 			"origin"      "-1876 -4617 585"
 		}
@@ -96,7 +93,6 @@
 			"targetname"  "gskSpawn_21_TrapCleanB4FirstDoor_003"  //gskSummonDevTrapFireCeiling
 			"origin"      "-1801 -4623 606"
 			"angles"      "-44 -161 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -113,10 +109,10 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "261"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			 //it wont fall when spawning even with the flag enabled...
-			"spawnflags"  "260" //cannot have FS_SLEEP or it wont use FS_FALL
+			"spawnflags"  "256" //this allows it to fall
 			
 			"origin"      "-1801 -4623 586"
 		}
@@ -125,7 +121,6 @@
 			"targetname"  "gskSpawn_21_TrapCleanB4FirstDoor_004"  //gskSummonDevTrapFireCeiling
 			"origin"      "-1733 -4629 606"
 			"angles"      "-37 -167 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -142,10 +137,10 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "261"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			 //it wont fall when spawning even with the flag enabled...
-			"spawnflags"  "260" //cannot have FS_SLEEP or it wont use FS_FALL
+			"spawnflags"  "256" //this allows it to fall
 			
 			"origin"      "-1733 -4629 586"
 		}
@@ -154,7 +149,6 @@
 			"targetname"  "gskSpawn_21_TrapCleanB4FirstDoor_005"  //gskSummonDevTrapFireCeiling
 			"origin"      "-1633 -4632 607"
 			"angles"      "-29 -171 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -171,10 +165,10 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "261"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			 //it wont fall when spawning even with the flag enabled...
-			"spawnflags"  "260" //cannot have FS_SLEEP or it wont use FS_FALL
+			"spawnflags"  "256" //this allows it to fall
 			
 			"origin"      "-1633 -4632 587"
 		}
@@ -183,7 +177,6 @@
 			"targetname"  "gskSpawn_21_TrapCleanB4FirstDoor_006"  //gskSummonDevTrapFireCeiling
 			"origin"      "-1514 -4636 607"
 			"angles"      "-21 -173 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -200,10 +193,10 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "261"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			 //it wont fall when spawning even with the flag enabled...
-			"spawnflags"  "260" //cannot have FS_SLEEP or it wont use FS_FALL
+			"spawnflags"  "256" //this allows it to fall
 			
 			"origin"      "-1514 -4636 587"
 		}
@@ -212,7 +205,6 @@
 			"targetname"  "gskSpawn_21_TrapCleanB4FirstDoor_007"  //gskSummonDevTrapFireCeiling
 			"origin"      "-1461 -4672 607"
 			"angles"      "-17 -170 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -229,10 +221,10 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "261"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			 //it wont fall when spawning even with the flag enabled...
-			"spawnflags"  "260" //cannot have FS_SLEEP or it wont use FS_FALL
+			"spawnflags"  "256" //this allows it to fall
 			
 			"origin"      "-1461 -4672 587"
 		}
@@ -241,7 +233,6 @@
 			"targetname"  "gskSpawn_21_TrapCleanB4FirstDoor_008"  //gskSummonDevTrapFireCeiling
 			"origin"      "-1289 -4641 608"
 			"angles"      "-65 -162 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -258,10 +249,10 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "261"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			 //it wont fall when spawning even with the flag enabled...
-			"spawnflags"  "260" //cannot have FS_SLEEP or it wont use FS_FALL
+			"spawnflags"  "256" //this allows it to fall
 			
 			"origin"      "-1289 -4641 588"
 		}
@@ -270,7 +261,6 @@
 			"targetname"  "gskSpawn_21_TrapCleanB4FirstDoor_009"  //gskSummonDevTrapFireCeiling
 			"origin"      "-1252 -4665 608"
 			"angles"      "-60 -173 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -287,10 +277,10 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "261"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			 //it wont fall when spawning even with the flag enabled...
-			"spawnflags"  "260" //cannot have FS_SLEEP or it wont use FS_FALL
+			"spawnflags"  "256" //this allows it to fall
 			
 			"origin"      "-1252 -4665 588"
 		}
@@ -299,7 +289,6 @@
 			"targetname"  "gskSpawn_21_TrapCleanB4FirstDoor_010"  //gskSummonDevTrapFireCeiling
 			"origin"      "-1210 -4626 606"
 			"angles"      "-55 -165 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -316,10 +305,10 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "261"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			 //it wont fall when spawning even with the flag enabled...
-			"spawnflags"  "260" //cannot have FS_SLEEP or it wont use FS_FALL
+			"spawnflags"  "256" //this allows it to fall
 			
 			"origin"      "-1210 -4626 586"
 		}
@@ -328,7 +317,6 @@
 			"targetname"  "gskSpawn_21_TrapCleanB4FirstDoor_011"  //gskSummonDevTrapFireCeiling
 			"origin"      "-1210 -4626 606"
 			"angles"      "-54 -165 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -345,10 +333,10 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "261"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			 //it wont fall when spawning even with the flag enabled...
-			"spawnflags"  "260" //cannot have FS_SLEEP or it wont use FS_FALL
+			"spawnflags"  "256" //this allows it to fall
 			
 			"origin"      "-1210 -4626 586"
 		}
@@ -357,7 +345,6 @@
 			"targetname"  "gskSpawn_21_TrapCleanB4FirstDoor_012"  //gskSummonDevTrapFireCeiling
 			"origin"      "-1147 -4644 608"
 			"angles"      "-47 -173 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -374,10 +361,10 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "261"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			 //it wont fall when spawning even with the flag enabled...
-			"spawnflags"  "260" //cannot have FS_SLEEP or it wont use FS_FALL
+			"spawnflags"  "256" //this allows it to fall
 			
 			"origin"      "-1147 -4644 588"
 		}
@@ -386,7 +373,6 @@
 			"targetname"  "gskSpawn_21_TrapCleanB4FirstDoor_013"  //gskSummonDevTrapFireCeiling
 			"origin"      "-1078 -4651 609"
 			"angles"      "-40 -176 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -403,10 +389,10 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "261"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			 //it wont fall when spawning even with the flag enabled...
-			"spawnflags"  "260" //cannot have FS_SLEEP or it wont use FS_FALL
+			"spawnflags"  "256" //this allows it to fall
 			
 			"origin"      "-1078 -4651 589"
 		}
@@ -415,7 +401,6 @@
 			"targetname"  "gskSpawn_21_TrapCleanB4FirstDoor_014"  //gskSummonDevTrapFireCeiling
 			"origin"      "-1013 -4612 603"
 			"angles"      "-33 -170 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -432,10 +417,10 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "261"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			 //it wont fall when spawning even with the flag enabled...
-			"spawnflags"  "260" //cannot have FS_SLEEP or it wont use FS_FALL
+			"spawnflags"  "256" //this allows it to fall
 			
 			"origin"      "-1013 -4612 583"
 		}
@@ -444,7 +429,6 @@
 			"targetname"  "gskSpawn_21_TrapCleanB4FirstDoor_015"  //gskSummonDevTrapFireCeiling
 			"origin"      "-487 -4645 608"
 			"angles"      "-19 -174 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -461,10 +445,10 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "261"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			 //it wont fall when spawning even with the flag enabled...
-			"spawnflags"  "260" //cannot have FS_SLEEP or it wont use FS_FALL
+			"spawnflags"  "256" //this allows it to fall
 			
 			"origin"      "-487 -4645 588"
 		}
@@ -473,7 +457,6 @@
 			"targetname"  "gskSpawn_21_TrapCleanB4FirstDoor_016"  //gskSummonDevTrapFireCeiling
 			"origin"      "-565 -4635 607"
 			"angles"      "-22 -172 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -490,10 +473,10 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "261"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			 //it wont fall when spawning even with the flag enabled...
-			"spawnflags"  "260" //cannot have FS_SLEEP or it wont use FS_FALL
+			"spawnflags"  "256" //this allows it to fall
 			
 			"origin"      "-565 -4635 587"
 		}
@@ -502,7 +485,6 @@
 			"targetname"  "gskSpawn_21_TrapCleanB4FirstDoor_017"  //gskSummonDevTrapFireCeiling
 			"origin"      "-688 -4697 602"
 			"angles"      "-29 180 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -519,10 +501,10 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "261"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			 //it wont fall when spawning even with the flag enabled...
-			"spawnflags"  "260" //cannot have FS_SLEEP or it wont use FS_FALL
+			"spawnflags"  "256" //this allows it to fall
 			
 			"origin"      "-688 -4697 582"
 		}
@@ -531,7 +513,6 @@
 			"targetname"  "gskSpawn_21_TrapCleanB4FirstDoor_018"  //gskSummonDevTrapFireCeiling
 			"origin"      "-727 -4688 605"
 			"angles"      "-33 -178 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -548,10 +529,10 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "261"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			 //it wont fall when spawning even with the flag enabled...
-			"spawnflags"  "260" //cannot have FS_SLEEP or it wont use FS_FALL
+			"spawnflags"  "256" //this allows it to fall
 			
 			"origin"      "-727 -4688 585"
 		}
@@ -560,7 +541,6 @@
 			"targetname"  "gskSpawn_21_TrapCleanB4FirstDoor_019"  //gskSummonDevTrapFireCeiling
 			"origin"      "-766 -4648 608"
 			"angles"      "-38 -167 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -577,10 +557,10 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "261"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			 //it wont fall when spawning even with the flag enabled...
-			"spawnflags"  "260" //cannot have FS_SLEEP or it wont use FS_FALL
+			"spawnflags"  "256" //this allows it to fall
 			
 			"origin"      "-766 -4648 588"
 		}
@@ -589,7 +569,6 @@
 			"targetname"  "gskSpawn_21_TrapCleanB4FirstDoor_020"  //gskSummonDevTrapFireCeiling
 			"origin"      "-837 -4629 606"
 			"angles"      "-46 -154 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -606,10 +585,10 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "261"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			 //it wont fall when spawning even with the flag enabled...
-			"spawnflags"  "260" //cannot have FS_SLEEP or it wont use FS_FALL
+			"spawnflags"  "256" //this allows it to fall
 			
 			"origin"      "-837 -4629 586"
 		}
@@ -618,7 +597,6 @@
 			"targetname"  "gskSpawn_21_TrapCleanB4FirstDoor_021"  //gskSummonDevTrapFireCeiling
 			"origin"      "-877 -4622 606"
 			"angles"      "-52 -143 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -635,10 +613,10 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "261"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			 //it wont fall when spawning even with the flag enabled...
-			"spawnflags"  "260" //cannot have FS_SLEEP or it wont use FS_FALL
+			"spawnflags"  "256" //this allows it to fall
 			
 			"origin"      "-877 -4622 586"
 		}

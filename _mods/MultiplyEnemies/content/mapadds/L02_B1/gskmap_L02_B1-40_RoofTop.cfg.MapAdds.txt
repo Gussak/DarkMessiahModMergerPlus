@@ -9,7 +9,6 @@
 //			"targetname"  "gskSpawn_40_RoofTop_000"  //dummyJustTeleport
 //			"origin"      "-4059 -11640 1451"
 //			"angles"      "15 7 -0"
-//			"spawnflags"  "7"
 //			"physdamagescale" "1.0"
 //			"radiusforrandomattitude" "500"
 //			"targetname"   "gskSpawn_40_RoofTop_000_TODO_FixMissingSupportFor_dummyJustTeleport"
@@ -19,7 +18,6 @@
 //			"targetname"  "gskSpawn_40_RoofTop_001"  //+gskInteractUseMoreFoes
 //			"origin"      "-4059 -11640 1451"
 //			"angles"      "15 7 -0"
-//			"spawnflags"  "7"
 //			"physdamagescale" "1.0"
 //			"radiusforrandomattitude" "500"
 //			"targetname"   "gskSpawn_40_RoofTop_001_TODO_FixMissingSupportFor_+gskInteractUseMoreFoes"
@@ -29,7 +27,6 @@
 //			"targetname"  "gskSpawn_40_RoofTop_002"  //dummyJustTeleport
 //			"origin"      "-4060 -11615 1450"
 //			"angles"      "15 -13 -0"
-//			"spawnflags"  "7"
 //			"physdamagescale" "1.0"
 //			"radiusforrandomattitude" "500"
 //			"targetname"   "gskSpawn_40_RoofTop_002_TODO_FixMissingSupportFor_dummyJustTeleport"
@@ -39,7 +36,6 @@
 //			"targetname"  "gskSpawn_40_RoofTop_003"  //+gskInteractUseMoreFoes
 //			"origin"      "-4060 -11615 1450"
 //			"angles"      "15 -13 -0"
-//			"spawnflags"  "7"
 //			"physdamagescale" "1.0"
 //			"radiusforrandomattitude" "500"
 //			"targetname"   "gskSpawn_40_RoofTop_003_TODO_FixMissingSupportFor_+gskInteractUseMoreFoes"
@@ -49,7 +45,6 @@
 //			"targetname"  "gskSpawn_40_RoofTop_004"  //dummyJustTeleport
 //			"origin"      "-4229 -11790 1451"
 //			"angles"      "2 -85 -0"
-//			"spawnflags"  "7"
 //			"physdamagescale" "1.0"
 //			"radiusforrandomattitude" "500"
 //			"targetname"   "gskSpawn_40_RoofTop_004_TODO_FixMissingSupportFor_dummyJustTeleport"
@@ -59,7 +54,6 @@
 //			"targetname"  "gskSpawn_40_RoofTop_005"  //+gskInteractUseMoreFoes
 //			"origin"      "-4229 -11790 1451"
 //			"angles"      "2 -85 -0"
-//			"spawnflags"  "7"
 //			"physdamagescale" "1.0"
 //			"radiusforrandomattitude" "500"
 //			"targetname"   "gskSpawn_40_RoofTop_005_TODO_FixMissingSupportFor_+gskInteractUseMoreFoes"
@@ -69,7 +63,6 @@
 //			"targetname"  "gskSpawn_40_RoofTop_006"  //dummyJustTeleport
 //			"origin"      "-4203 -11789 1451"
 //			"angles"      "3 -104 -0"
-//			"spawnflags"  "7"
 //			"physdamagescale" "1.0"
 //			"radiusforrandomattitude" "500"
 //			"targetname"   "gskSpawn_40_RoofTop_006_TODO_FixMissingSupportFor_dummyJustTeleport"
@@ -79,7 +72,6 @@
 //			"targetname"  "gskSpawn_40_RoofTop_007"  //+gskInteractUseMoreFoes
 //			"origin"      "-4203 -11789 1451"
 //			"angles"      "3 -104 -0"
-//			"spawnflags"  "7"
 //			"physdamagescale" "1.0"
 //			"radiusforrandomattitude" "500"
 //			"targetname"   "gskSpawn_40_RoofTop_007_TODO_FixMissingSupportFor_+gskInteractUseMoreFoes"
@@ -89,7 +81,6 @@
 			"targetname"  "gskSpawn_40_RoofTop_008"  //mm_npc_create_necro_guard_bow
 			"origin"      "-4217 -11801 1396"
 			"angles"      "59 -44 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname"   "npc_necro_guard_bow"
@@ -105,7 +96,6 @@
 			"targetname"  "gskSpawn_40_RoofTop_009"  //mm_npc_create_necro_guard_bow
 			"origin"      "-4044 -11636 1400"
 			"angles"      "70 1 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname"   "npc_necro_guard_bow"
@@ -121,7 +111,6 @@
 			"targetname"  "gskSpawn_40_RoofTop_010"  //mm_npc_create_necromancer
 			"origin"      "-3261 -11575 973"
 			"angles"      "79 10 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_necromancer_lord"
@@ -134,7 +123,6 @@
 			"targetname"  "gskSpawn_40_RoofTop_011"  //mm_npc_create_undead
 			"origin"      "-3264 -11628 973"
 			"angles"      "71 49 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_undead"
@@ -149,7 +137,6 @@
 			"targetname"  "gskSpawn_40_RoofTop_012"  //mm_npc_create_undead
 			"origin"      "-3312 -11618 973"
 			"angles"      "89 45 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_undead"
@@ -164,7 +151,6 @@
 			"targetname"  "gskSpawn_40_RoofTop_013"  //mm_npc_create_undead
 			"origin"      "-3323 -11581 973"
 			"angles"      "63 8 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_undead"
@@ -179,7 +165,6 @@
 			"targetname"  "gskSpawn_40_RoofTop_014"  //mm_npc_create_undead
 			"origin"      "-3362 -11600 973"
 			"angles"      "81 16 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_undead"
@@ -194,7 +179,6 @@
 			"targetname"  "gskSpawn_40_RoofTop_015"  //mm_npc_create_necro_guard_bow
 			"origin"      "-3614 -11618 973"
 			"angles"      "77 179 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname"   "npc_necro_guard_bow"
@@ -210,7 +194,6 @@
 			"targetname"  "gskSpawn_40_RoofTop_016"  //mm_npc_create_necro_guard_bow
 			"origin"      "-3262 -11663 973"
 			"angles"      "88 19 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname"   "npc_necro_guard_bow"
@@ -226,7 +209,6 @@
 			"targetname"  "gskSpawn_40_RoofTop_017"  //mm_npc_create_necro_guard_bow
 			"origin"      "-3226 -11710 995"
 			"angles"      "85 51 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname"   "npc_necro_guard_bow"
@@ -242,7 +224,6 @@
 			"targetname"  "gskSpawn_40_RoofTop_018"  //mm_npc_create_necro_guard_bow
 			"origin"      "-4068 -11680 973"
 			"angles"      "73 93 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname"   "npc_necro_guard_bow"
@@ -258,7 +239,6 @@
 			"targetname"  "gskSpawn_40_RoofTop_019"  //mm_npc_create_necro_guard_bow
 			"origin"      "-4051 -11573 973"
 			"angles"      "75 -86 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname"   "npc_necro_guard_bow"
@@ -274,7 +254,6 @@
 			"targetname"  "gskSpawn_40_RoofTop_020"  //mm_npc_create_necro_guard_bow
 			"origin"      "-3955 -11592 973"
 			"angles"      "71 -143 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname"   "npc_necro_guard_bow"
@@ -290,7 +269,6 @@
 			"targetname"  "gskSpawn_40_RoofTop_021"  //mm_npc_create_necromancer
 			"origin"      "-4203 -11540 1389"
 			"angles"      "74 104 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_necromancer_lord"
@@ -303,7 +281,6 @@
 			"targetname"  "gskSpawn_40_RoofTop_022"  //mm_npc_create_undead
 			"origin"      "-4227 -11697 1389"
 			"angles"      "77 75 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_undead"
@@ -318,7 +295,6 @@
 			"targetname"  "gskSpawn_40_RoofTop_023"  //mm_npc_create_undead
 			"origin"      "-4174 -11686 1389"
 			"angles"      "78 114 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_undead"
@@ -333,7 +309,6 @@
 			"targetname"  "gskSpawn_40_RoofTop_024"  //mm_npc_create_undead
 			"origin"      "-4205 -11653 1389"
 			"angles"      "86 90 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_undead"
@@ -348,7 +323,6 @@
 			"targetname"  "gskSpawn_40_RoofTop_025"  //mm_npc_create_undead
 			"origin"      "-4187 -11600 1389"
 			"angles"      "88 -139 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_undead"
@@ -363,7 +337,6 @@
 			"targetname"  "gskSpawn_40_RoofTop_026"  //mm_npc_create_necro_guard_bow
 			"origin"      "-3232 -12390 731"
 			"angles"      "80 37 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname"   "npc_necro_guard_bow"
@@ -379,7 +352,6 @@
 			"targetname"  "gskSpawn_40_RoofTop_027"  //mm_npc_create_necro_guard_bow
 			"origin"      "-3165 -12458 1027"
 			"angles"      "72 -58 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname"   "npc_necro_guard_bow"
@@ -395,7 +367,6 @@
 			"targetname"  "gskSpawn_40_RoofTop_028"  //mm_npc_create_necro_guard_bow
 			"origin"      "-3214 -12448 731"
 			"angles"      "81 -26 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname"   "npc_necro_guard_bow"
@@ -411,7 +382,6 @@
 			"targetname"  "gskSpawn_40_RoofTop_029"  //mm_npc_create_necro_guard_bow
 			"origin"      "-3214 -12507 731"
 			"angles"      "80 27 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname"   "npc_necro_guard_bow"
@@ -427,7 +397,6 @@
 			"targetname"  "gskSpawn_40_RoofTop_030"  //mm_npc_create_necro_guard_bow
 			"origin"      "-3524 -12530 731"
 			"angles"      "89 -89 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname"   "npc_necro_guard_bow"
@@ -443,7 +412,6 @@
 			"targetname"  "gskSpawn_40_RoofTop_031"  //mm_npc_create_necro_guard_bow
 			"origin"      "-3680 -12461 731"
 			"angles"      "70 -22 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname"   "npc_necro_guard_bow"
@@ -459,7 +427,6 @@
 			"targetname"  "gskSpawn_40_RoofTop_032"  //mm_npc_create_necro_guard_bow
 			"origin"      "-3682 -12505 731"
 			"angles"      "71 -2 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname"   "npc_necro_guard_bow"
@@ -475,7 +442,6 @@
 			"targetname"  "gskSpawn_40_RoofTop_033"  //mm_npc_create_necro_guard_bow
 			"origin"      "-3625 -12452 731"
 			"angles"      "77 -41 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname"   "npc_necro_guard_bow"
@@ -491,7 +457,6 @@
 			"targetname"  "gskSpawn_40_RoofTop_034"  //mm_npc_create_necro_guard_shield
 			"origin"      "-3445 -12593 731"
 			"angles"      "87 90 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname"   "npc_necro_guard"
@@ -505,13 +470,12 @@
 			"targetname"  "gskSpawn_40_RoofTop_035"  //gskSummonPotionLife
 			"origin"      "-3221 -11526 995"
 			"angles"      "81 -124 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "item_potion_life"
 			"model" "models/items/provisions/potions/Life_potion.mdl"
 			"angles"      "0 -124 0"
-			"spawnflags"  "7"
+			"spawnflags"  "256"
 			"origin"      "-3221 -11526 1000"
 		}
 		"add:entity"
@@ -519,60 +483,55 @@
 			"targetname"  "gskSpawn_40_RoofTop_036"  //gskSummonCrow
 			"origin"      "-3459 -12382 731"
 			"angles"      "55 -80 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_crow"
 			"model" "models/npc/crow/npc_crow.mdl"
-			
+			"spawnflags"  "7"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_40_RoofTop_037"  //gskSummonCrow
 			"origin"      "-3430 -12395 731"
 			"angles"      "59 -97 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_crow"
 			"model" "models/npc/crow/npc_crow.mdl"
-			
+			"spawnflags"  "7"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_40_RoofTop_038"  //gskSummonCrow
 			"origin"      "-3475 -12410 731"
 			"angles"      "62 -66 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_crow"
 			"model" "models/npc/crow/npc_crow.mdl"
-			
+			"spawnflags"  "7"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_40_RoofTop_039"  //gskSummonCrow
 			"origin"      "-3442 -12420 731"
 			"angles"      "68 -88 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_crow"
 			"model" "models/npc/crow/npc_crow.mdl"
-			
+			"spawnflags"  "7"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_40_RoofTop_040"  //gskSummonCrow
 			"origin"      "-3504 -12387 731"
 			"angles"      "51 -58 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_crow"
 			"model" "models/npc/crow/npc_crow.mdl"
-			
+			"spawnflags"  "7"
 		}
 
 		"modify:entity"

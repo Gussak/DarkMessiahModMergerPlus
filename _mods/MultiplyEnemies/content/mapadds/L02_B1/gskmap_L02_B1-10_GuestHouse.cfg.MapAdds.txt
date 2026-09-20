@@ -9,13 +9,12 @@
 			"targetname"  "gskSpawn_10_GuestHouse_000"  //gskSummonPotionLife
 			"origin"      "-5038 -10721 214"
 			"angles"      "-26 23 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "item_potion_life"
 			"model" "models/items/provisions/potions/Life_potion.mdl"
 			"angles"      "0 23 0"
-			"spawnflags"  "7"
+			"spawnflags"  "256"
 			"origin"      "-5038 -10721 219"
 		}
 		"add:entity"
@@ -23,13 +22,12 @@
 			"targetname"  "gskSpawn_10_GuestHouse_001"  //gskSummonPotionLife
 			"origin"      "-4761 -10835 116"
 			"angles"      "59 -176 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "item_potion_life"
 			"model" "models/items/provisions/potions/Life_potion.mdl"
 			"angles"      "0 -176 0"
-			"spawnflags"  "7"
+			"spawnflags"  "256"
 			"origin"      "-4761 -10835 121"
 		}
 		"add:entity"
@@ -37,13 +35,12 @@
 			"targetname"  "gskSpawn_10_GuestHouse_002"  //gskSummonPotionLife
 			"origin"      "-5046 -10771 142"
 			"angles"      "21 25 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "item_potion_life"
 			"model" "models/items/provisions/potions/Life_potion.mdl"
 			"angles"      "0 25 0"
-			"spawnflags"  "7"
+			"spawnflags"  "256"
 			"origin"      "-5046 -10771 147"
 		}
 		"add:entity"
@@ -51,13 +48,12 @@
 			"targetname"  "gskSpawn_10_GuestHouse_003"  //gskSummonPotionLife
 			"origin"      "-5053 -10714 78"
 			"angles"      "44 -2 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "item_potion_life"
 			"model" "models/items/provisions/potions/Life_potion.mdl"
 			"angles"      "0 -2 0"
-			"spawnflags"  "7"
+			"spawnflags"  "256"
 			"origin"      "-5053 -10714 83"
 		}
 		"add:entity"
@@ -65,7 +61,6 @@
 			"targetname"  "gskSpawn_10_GuestHouse_004"  //mm_npc_create_necro_guard_bow
 			"origin"      "-4831 -10965 66"
 			"angles"      "59 82 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname"   "npc_necro_guard_bow"
@@ -81,7 +76,6 @@
 			"targetname"  "gskSpawn_10_GuestHouse_005"  //mm_npc_create_necro_guard_bow
 			"origin"      "-4832 -10881 66"
 			"angles"      "42 85 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname"   "npc_necro_guard_bow"
@@ -97,7 +91,6 @@
 			"targetname"  "gskSpawn_10_GuestHouse_006"  //mm_npc_create_necro_guard_bow
 			"origin"      "-4831 -10831 66"
 			"angles"      "58 82 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname"   "npc_necro_guard_bow"
@@ -113,7 +106,6 @@
 			"targetname"  "gskSpawn_10_GuestHouse_007"  //mm_npc_create_necro_guard_shield
 			"origin"      "-4982 -10661 66"
 			"angles"      "55 45 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname"   "npc_necro_guard"
@@ -127,7 +119,6 @@
 			"targetname"  "gskSpawn_10_GuestHouse_008"  //mm_npc_create_undead
 			"origin"      "-4913 -10949 66"
 			"angles"      "47 18 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_undead"
@@ -142,7 +133,6 @@
 			"targetname"  "gskSpawn_10_GuestHouse_009"  //mm_npc_create_undead
 			"origin"      "-4952 -10831 66"
 			"angles"      "22 73 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_undead"
@@ -157,7 +147,6 @@
 			"targetname"  "gskSpawn_10_GuestHouse_010"  //mm_npc_create_undead
 			"origin"      "-4981 -10798 66"
 			"angles"      "24 61 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_undead"
@@ -172,7 +161,6 @@
 			"targetname"  "gskSpawn_10_GuestHouse_011"  //mm_npc_create_necromancer
 			"origin"      "-4938 -10765 66"
 			"angles"      "31 71 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_necromancer_lord"
@@ -185,31 +173,28 @@
 			"targetname"  "gskSpawn_10_GuestHouse_012"  //gskSummonCrow
 			"origin"      "-5016 -10800 265"
 			"angles"      "34 -40 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_crow"
 			"model" "models/npc/crow/npc_crow.mdl"
-			
+			"spawnflags"  "7"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_10_GuestHouse_013"  //gskSummonCrow
 			"origin"      "-5004 -10808 276"
 			"angles"      "41 17 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_crow"
 			"model" "models/npc/crow/npc_crow.mdl"
-			
+			"spawnflags"  "7"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_10_GuestHouse_014"  //gskSummonDevTrapFire
 			"origin"      "-4830 -10417 265"
 			"angles"      "34 -119 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -219,6 +204,7 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
 			"angles" "30 78 34"
+			"spawnflags"  "256"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -226,7 +212,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 			
@@ -236,7 +222,6 @@
 			"targetname"  "gskSpawn_10_GuestHouse_015"  //gskSummonDevTrapFire
 			"origin"      "-4123 -12168 101"
 			"angles"      "59 176 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -246,6 +231,7 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
 			"angles" "11 -1 8"
+			"spawnflags"  "256"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -253,7 +239,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 			
@@ -263,7 +249,6 @@
 			"targetname"  "gskSpawn_10_GuestHouse_016"  //gskSummonDevTrapFire
 			"origin"      "-4174 -12570 67"
 			"angles"      "36 88 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -273,6 +258,7 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
 			"angles" "35 -52 32"
+			"spawnflags"  "256"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -280,7 +266,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 			
@@ -290,7 +276,6 @@
 			"targetname"  "gskSpawn_10_GuestHouse_017"  //gskSummonDevTrapFire
 			"origin"      "-5202 -11813 66"
 			"angles"      "54 50 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -300,6 +285,7 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
 			"angles" "31 -131 21"
+			"spawnflags"  "256"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -307,7 +293,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 			
@@ -317,7 +303,6 @@
 			"targetname"  "gskSpawn_10_GuestHouse_018"  //gskSummonDevTrapFire
 			"origin"      "-1630 -13317 -32"
 			"angles"      "66 160 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -327,6 +312,7 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
 			"angles" "32 74 39"
+			"spawnflags"  "256"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -334,7 +320,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 			
@@ -344,7 +330,6 @@
 			"targetname"  "gskSpawn_10_GuestHouse_019"  //gskSummonDevTrapFire
 			"origin"      "-1661 -12475 -32"
 			"angles"      "61 132 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -354,6 +339,7 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
 			"angles" "44 -109 44"
+			"spawnflags"  "256"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -361,7 +347,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 			
@@ -371,7 +357,6 @@
 			"targetname"  "gskSpawn_10_GuestHouse_020"  //gskSummonDevTrapFire
 			"origin"      "-2193 -12212 -17"
 			"angles"      "48 -103 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -381,6 +366,7 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
 			"angles" "23 -176 21"
+			"spawnflags"  "256"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -388,7 +374,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 			
@@ -398,7 +384,6 @@
 			"targetname"  "gskSpawn_10_GuestHouse_021"  //gskSummonDevTrapFire
 			"origin"      "-1570 -10855 -33"
 			"angles"      "54 -154 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -408,6 +393,7 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
 			"angles" "5 1 41"
+			"spawnflags"  "256"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -415,7 +401,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 			
@@ -425,7 +411,6 @@
 			"targetname"  "gskSpawn_10_GuestHouse_022"  //gskSummonDevTrapFire
 			"origin"      "-1971 -10809 -24"
 			"angles"      "44 -117 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -435,6 +420,7 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
 			"angles" "24 -162 29"
+			"spawnflags"  "256"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -442,7 +428,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 			
@@ -452,7 +438,6 @@
 //			"targetname"  "gskSpawn_10_GuestHouse_023"  //dummyJustTeleport
 //			"origin"      "-3606 -10953 84"
 //			"angles"      "32 43 0"
-//			"spawnflags"  "7"
 //			"physdamagescale" "1.0"
 //			"radiusforrandomattitude" "500"
 //			"targetname"   "gskSpawn_10_GuestHouse_023_TODO_FixMissingSupportFor_dummyJustTeleport"
@@ -462,7 +447,6 @@
 //			"targetname"  "gskSpawn_10_GuestHouse_024"  //+gskInteractUseMoreFoes
 //			"origin"      "-3606 -10953 84"
 //			"angles"      "32 43 0"
-//			"spawnflags"  "7"
 //			"physdamagescale" "1.0"
 //			"radiusforrandomattitude" "500"
 //			"targetname"   "gskSpawn_10_GuestHouse_024_TODO_FixMissingSupportFor_+gskInteractUseMoreFoes"
@@ -472,7 +456,6 @@
 			"targetname"  "gskSpawn_10_GuestHouse_025"  //gskSummonDevTrapFire
 			"origin"      "-3581 -10982 27"
 			"angles"      "67 107 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -482,6 +465,7 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
 			"angles" "33 -33 31"
+			"spawnflags"  "256"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -489,7 +473,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 			

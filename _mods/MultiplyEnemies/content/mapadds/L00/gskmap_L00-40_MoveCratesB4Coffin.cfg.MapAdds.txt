@@ -9,7 +9,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_000"  //gskSummonSpiderRegular
 			"origin"      "1349 -2303 189"
 			"angles"      "89 59 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
@@ -22,7 +21,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_001"  //gskSummonSpiderRegular
 			"origin"      "1311 -1478 1"
 			"angles"      "89 -61 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
@@ -35,7 +33,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_002"  //gskSummonSpiderRegular
 			"origin"      "1496 -1492 1"
 			"angles"      "88 -114 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
@@ -48,7 +45,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_003"  //gskSummonSpiderRegular
 			"origin"      "1497 -1857 63"
 			"angles"      "88 171 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
@@ -61,7 +57,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_004"  //gskSummonDevSkeletonPart
 			"origin"      "1116 -1515 140"
 			"angles"      "54 -122 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -82,7 +77,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_005"  //gskSummonDevSkeletonPart
 			"origin"      "1156 -1546 145"
 			"angles"      "45 -167 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -103,7 +97,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_006"  //gskSummonDevSkeletonPart
 			"origin"      "1188 -1564 145"
 			"angles"      "34 180 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -124,7 +117,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_007"  //gskSummonDevSkeletonPart
 			"origin"      "1223 -1541 145"
 			"angles"      "26 -171 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -145,7 +137,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -154,7 +146,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_008"  //gskSummonDevSkeletonPart
 			"origin"      "1244 -1563 145"
 			"angles"      "23 180 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -175,7 +166,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_009"  //gskSummonDevSkeletonPart
 			"origin"      "1430 -1482 1"
 			"angles"      "54 -99 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -196,7 +186,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -205,7 +195,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_010"  //gskSummonDevSkeletonPart
 			"origin"      "1413 -1513 1"
 			"angles"      "61 -92 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -226,7 +215,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_011"  //gskSummonDevSkeletonPart
 			"origin"      "1387 -1478 1"
 			"angles"      "53 -82 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -247,7 +235,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_012"  //gskSummonDevSkeletonPart
 			"origin"      "1374 -1530 8"
 			"angles"      "63 -71 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -268,7 +255,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -277,7 +264,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_013"  //gskSummonDevSkeletonPart
 			"origin"      "1341 -1553 7"
 			"angles"      "63 -48 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -298,7 +284,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -307,7 +293,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_014"  //gskSummonDevSkeletonPart
 			"origin"      "1330 -1605 10"
 			"angles"      "68 -17 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -328,7 +313,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -337,7 +322,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_015"  //gskSummonDevSkeletonPart
 			"origin"      "1311 -1606 17"
 			"angles"      "62 -13 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -358,7 +342,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_016"  //gskSummonDevSkeletonPart
 			"origin"      "1356 -1671 15"
 			"angles"      "71 39 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -379,7 +362,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -388,7 +371,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_017"  //gskSummonSpiderRegular
 			"origin"      "1464 -2130 132"
 			"angles"      "7 97 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
@@ -401,7 +383,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_018"  //gskSummonSpiderRegular
 			"origin"      "1385 -2055 106"
 			"angles"      "12 87 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
@@ -414,7 +395,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_019"  //gskSummonSpiderRegular
 			"origin"      "1362 -1898 62"
 			"angles"      "27 81 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
@@ -427,7 +407,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_020"  //gskSummonSpiderRegular
 			"origin"      "1403 -1767 35"
 			"angles"      "51 88 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
@@ -440,7 +419,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_021"  //gskSummonSpiderRegular
 			"origin"      "1467 -1676 19"
 			"angles"      "69 141 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
@@ -453,7 +431,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_022"  //gskSummonDevSkeletonPart
 			"origin"      "1493 -1769 38"
 			"angles"      "45 121 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -474,7 +451,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_023"  //gskSummonDevSkeletonPart
 			"origin"      "1485 -1824 52"
 			"angles"      "35 112 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -495,7 +471,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_024"  //gskSummonDevSkeletonPart
 			"origin"      "1437 -1732 28"
 			"angles"      "59 106 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -516,7 +491,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_025"  //gskSummonDevSkeletonPart
 			"origin"      "1391 -1692 19"
 			"angles"      "71 74 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -537,7 +511,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -546,7 +520,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_026"  //gskSummonDevSkeletonPart
 			"origin"      "1390 -1622 10"
 			"angles"      "86 -18 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -567,7 +540,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -576,7 +549,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_027"  //gskSummonDevSkeletonPart
 			"origin"      "1348 -1721 21"
 			"angles"      "59 57 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -597,7 +569,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -606,7 +578,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_028"  //gskSummonDevSkeletonPart
 			"origin"      "1326 -1776 36"
 			"angles"      "45 61 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -627,7 +598,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_029"  //gskSummonDevSkeletonPart
 			"origin"      "1323 -1846 55"
 			"angles"      "32 69 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -648,7 +618,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_030"  //gskSummonDevSkeletonPart
 			"origin"      "1356 -1830 44"
 			"angles"      "37 76 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -669,7 +638,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -678,7 +647,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_031"  //gskSummonDevSkeletonPart
 			"origin"      "1433 -1939 74"
 			"angles"      "22 95 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -699,7 +667,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_032"  //gskSummonDevSkeletonPart
 			"origin"      "1456 -2000 97"
 			"angles"      "15 98 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -720,7 +687,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_033"  //gskSummonDevSkeletonPart
 			"origin"      "1443 -2063 114"
 			"angles"      "11 95 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -741,7 +707,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_034"  //gskSummonDevSkeletonPart
 			"origin"      "1480 -2039 114"
 			"angles"      "11 100 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -762,7 +727,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -771,7 +736,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_035"  //gskSummonDevSkeletonPart
 			"origin"      "1402 -2147 135"
 			"angles"      "7 90 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -792,7 +756,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -801,7 +765,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_036"  //gskSummonDevSkeletonPart
 			"origin"      "1346 -2173 151"
 			"angles"      "5 84 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -822,7 +785,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_037"  //gskSummonDevSkeletonPart
 			"origin"      "1320 -2110 131"
 			"angles"      "8 80 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -843,7 +805,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_038"  //gskSummonDevSkeletonPart
 			"origin"      "1313 -2151 149"
 			"angles"      "5 80 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -864,7 +825,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_039"  //gskSummonDevSkeletonPart
 			"origin"      "1473 -2252 179"
 			"angles"      "2 96 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -885,7 +845,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_040"  //gskSummonDevSkeletonPart
 			"origin"      "1503 -2335 209"
 			"angles"      "-0 98 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -906,7 +865,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_041"  //gskSummonDevSkeletonPart
 			"origin"      "1492 -2251 181"
 			"angles"      "1 98 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -927,7 +885,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_042"  //gskSummonDevSkeletonPart
 			"origin"      "1402 -2188 155"
 			"angles"      "4 90 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -948,7 +905,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_043"  //gskSummonDevSkeletonPart
 			"origin"      "1313 -2248 171"
 			"angles"      "2 82 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -969,7 +925,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -978,7 +934,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_044"  //gskSummonDevSkeletonPart
 			"origin"      "1343 -2224 167"
 			"angles"      "3 84 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -999,7 +954,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -1008,7 +963,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_045"  //gskSummonDevSkeletonPart
 			"origin"      "1411 -981 -214"
 			"angles"      "5 95 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1029,7 +983,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_046"  //gskSummonDevSkeletonPart
 			"origin"      "1349 -940 -229"
 			"angles"      "9 85 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1050,7 +1003,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_047"  //gskSummonDevSkeletonPart
 			"origin"      "1394 -855 -251"
 			"angles"      "17 95 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1071,7 +1023,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -1080,7 +1032,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_048"  //gskSummonDevSkeletonPart
 			"origin"      "1466 -857 -251"
 			"angles"      "15 110 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1101,7 +1052,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_049"  //gskSummonDevSkeletonPart
 			"origin"      "1430 -787 -293"
 			"angles"      "32 106 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1122,7 +1072,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_050"  //gskSummonDevSkeletonPart
 			"origin"      "1333 -794 -292"
 			"angles"      "31 77 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1143,7 +1092,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 		}
@@ -1152,7 +1101,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_051"  //gskSummonDevSkeletonPart
 			"origin"      "1309 -846 -252"
 			"angles"      "17 74 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1173,7 +1121,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_052"  //gskSummonDevSkeletonPart
 			"origin"      "1263 -746 -326"
 			"angles"      "40 51 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1194,7 +1141,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_053"  //gskSummonSpiderRegular
 			"origin"      "1404 -1454 122"
 			"angles"      "-6 -91 0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
@@ -1207,13 +1153,12 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_054"  //gskSummonPotionLife
 			"origin"      "1624 -1162 49"
 			"angles"      "52 -161 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "item_potion_life"
 			"model" "models/items/provisions/potions/Life_potion.mdl"
 			"angles"      "0 -161 0"
-			"spawnflags"  "7"
+			"spawnflags"  "256"
 			"origin"      "1624 -1162 54"
 		}
 		"add:entity"
@@ -1221,13 +1166,12 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_055"  //gskSummonPotionLife
 			"origin"      "1622 -1165 241"
 			"angles"      "55 9 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "item_potion_life"
 			"model" "models/items/provisions/potions/Life_potion.mdl"
 			"angles"      "0 9 0"
-			"spawnflags"  "7"
+			"spawnflags"  "256"
 			"origin"      "1622 -1165 246"
 		}
 		"add:entity"
@@ -1235,7 +1179,6 @@
 			"targetname"  "gskSpawn_40_MoveCratesB4Coffin_056"  //gskSummonDevTrapFire
 			"origin"      "1659 -1165 241"
 			"angles"      "60 166 -0"
-			"spawnflags"  "7"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"inertiaScale" "1.0"
@@ -1245,6 +1188,7 @@
 			"classname" "prop_physics"
 			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
 			"angles" "40 -108 33"
+			"spawnflags"  "256"
 			
 			"physdamagescale" "1.0"
 			"ExplodeDamage" "3500"
@@ -1252,7 +1196,7 @@
 			"trapsecret" "2"
 			"disableshadows" "0"
 			"damagetype" "0"
-			"spawnflags"  "257"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
 			"health" "1"
 			
 			
