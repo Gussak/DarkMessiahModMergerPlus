@@ -1166,7 +1166,7 @@ function FUNCmapadds() {
 			;;
 		"gskSummonDevTrapMiniSpiderCeil") #// place flying mini spiders far from walls or they glue on it and their AI freezes stop working...
 			bIsNpc=true
-			lnYDisplacement=-100 # to never glue on ceiling to avoid freeze the AI (tho they may just fall and die if too high)
+			lnYDisplacement=-200 # to never glue on ceiling to avoid freeze the AI (tho they may just fall and die if too high)
 			echo '
 			"classname" "npc_spider_mini" // if they fall from too high, they just die even with lower physics stuff
 			"physdamagescale" "0.1" //useless?
