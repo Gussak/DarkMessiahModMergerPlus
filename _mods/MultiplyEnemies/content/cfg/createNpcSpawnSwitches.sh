@@ -443,8 +443,9 @@ function FUNCspawnFlags() { #help based on https://developer.valvesoftware.com/w
 				FS_SLEEP) ((lnFlags+=1))&&: ;; # if NPC will only enable AI after the player sees it? wont detect player if player dont see it? May be good to create enemies with each other that will only fight after we see them! May also easy on CPU? But FS_FALL will work as soon player sees it? #### if objects, will put physics into sleep state so FS_FALL wont work even after player seeing it...
 				FS_QUIET) ((lnFlags+=2))&&: ;; #initially quiet until in rage, excellent for surprises
 				FS_FALL) ((lnFlags+=4))&&: ;; #initially fall instead of teleport to ground
-				FS_DropHealing) ((lnFlags+=8))&&: ;; #on death #this doesnt work?
-				FS_LongRangeView) ((lnFlags+=256))&&: ;;
+				FS_DropHealing|FS_DROP) ((lnFlags+=8))&&: ;; #drop is like fall but checks boundary, may be better? #FS_DropHealing does nothing, keep as just an idea :(
+				FS_LongRangeView) ((lnFlags+=128))&&: ;;
+				FS_FadeCorpse) ((lnFlags+=256))&&: ;;
 				FS_TANK) ((lnFlags+=16384))&&: ;; #cant be pushed
 				*) FUNCexit 1 "unrecognized (not implemented here?) spawnflag '$lstrFlagAdd'";;
 			esac
