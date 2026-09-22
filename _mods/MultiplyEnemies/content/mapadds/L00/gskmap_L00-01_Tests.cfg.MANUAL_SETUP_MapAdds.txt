@@ -1,0 +1,97 @@
+"mapadd_keyvalues"
+{
+	"PreInitialize"
+	{	
+		
+		add:entity
+		{
+			"classname" "item_secret"
+			"targetname" "secret_goblin_sensor"
+			"origin" "-1999 -4735 20" // Position exactly inside the goblin
+			// Skill Interaction Settings
+			"item_name" "A Frozen Trap"
+			"secret_type" "1" // Tells the engine to look for the Rogue's Awareness skill
+			"radius" "150"
+			// How close the player needs to be to detect it
+			// The Reveal and Activation Sequence
+			//"OnFound" "frozen_goblin,Alpha,255,0.0,-1"
+			//"OnFound" "frozen_goblin,EnableDamage,,0.0,-1"
+		}
+		modify:entity
+		{
+				TargetMarkers
+				{
+						"targetname" "secret_goblin_sensor"
+				}
+				add:key
+				{
+						"OnFound" "frozen_goblin,Alpha,255,0.0,-1"
+						"OnFound" "frozen_goblin,EnableDamage,,0.0,-1"
+				}
+		}
+		
+		add:entity
+		{
+			"classname" "prop_physics_override"
+			"targetname" "frozen_goblin"
+			"model" "models/NPCs/Goblin/Goblin.mdl"
+			"DefaultAnim" "run"
+			"PlaybackRate" "0.0"
+			"origin" "-1999 -4735 20"
+			"angles" "0 0 0"
+			// Health and Initial Locked State
+			"health" "20"
+			"spawnflags" "8"
+			// Prevents it from falling over
+			"DamageFilter" "invuln_filter" // Starts immune to damage until found
+			// Invisibility and Ice Properties
+			"rendermode" "1"
+			// Enables transparency manipulation
+			"renderamt" "0"
+			// Start at 0 (100% Invisible)
+			"renderfx" "15"
+			// Glass/Frost sheen effect
+			"rendercolor" "150 200 255"
+			"BreakableParticle" "ice_block_break"
+			Gmail - Dmmm frozen visitors
+			// Explosion Trigger
+			//"OnBreak" "ice_blast_radius,Explode,,0.0,-1"
+		}
+		modify:entity
+		{
+				TargetMarkers
+				{
+						"targetname" "frozen_goblin"
+				}
+				add:key
+				{
+						"OnBreak" "ice_blast_radius,Explode,,0.0,-1"
+				}
+		}
+		
+		add:entity
+		{
+			"classname" "env_explosion"
+			"targetname" "ice_blast_radius"
+			"origin" "-1999 -4735 20"
+			"iMagnitude" "15"
+			"iRadiusOverride" "150"
+			"fireballsprite" "sprites/ice_blast.vmt"
+			"spawnflags" "1"
+			//"OnBreak" "ice_blast_radius,TriggerFreezeEffect,,0.0,-1"
+		}
+		modify:entity
+		{
+				TargetMarkers
+				{
+						"targetname" "ice_blast_radius"
+				}
+				add:key
+				{
+						"OnBreak" "ice_blast_radius,TriggerFreezeEffect,,0.0,-1"
+				}
+		}
+		
+	}
+}
+
