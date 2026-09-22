@@ -20,6 +20,12 @@ function FUNCtst1() {
 }
 
 #EXEC
-clear
+#clear
 #FUNCtst1 "$@"
 FUNCchkLoadedModDlls
+
+
+
+
+
+echo "TEST FINISHED"

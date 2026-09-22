@@ -45,7 +45,7 @@ strPathMainModFolderBasename="$(basename "${strPathSelf}")"
 	#FUNCexit 1
 #fi
 if [[ ! -f "${strPathSelf}/allMergerScriptsGenericConfig.sh" ]];then
-	echo "[ERROR] failed to determine Main ModMerger Root path: current path '$strPathSelf' doesnt contain 'allMergerScriptsGenericConfig.sh', exiting."
+	echo "[ERROR] failed to determine Main Gsk_ModMerger Root path: current path '$strPathSelf' doesnt contain 'allMergerScriptsGenericConfig.sh', exiting."
 	FUNCexit 1
 fi
 strPathParent="$(dirname "$strPathSelf")" #help This is the folder where all Layers are placed, it is the parent of game main folder. this is important to be detected like that in case this path is a symlink! when using '../' would navigate to the realpath!
@@ -116,10 +116,11 @@ FUNCchkDeps() {
 	#return $lnRet
 #};export -f FUNCask
 FUNCaskYesNo() { # <questionForYesNo>. use like: if FUNCaskYesNo "oi?";then ...
+	local lnWait=$((60*60*24*31*12));if [[ "$1" == --wait ]];then shift;lnWait="$1";shift;fi
 	while read -t 0.1 -n 1;do :;done #clear key buffer
 	local lstrResp
 	echo -n "[QUESTION] ${1}? (y/...)" >&2
-	read -n 1 lstrResp&&:;echo >&2
+	read -t $lnWait -n 1 lstrResp&&:;echo >&2
 	if [[ "$lstrResp" =~ [yY] ]];then return 0;fi
 	return 1
 };export -f FUNCaskYesNo
@@ -165,15 +166,6 @@ if $bCheckMainExecutable;then
 		ls -ld "${strGameInstallMainFolder}"&&:
 		ls -l "${strGameInstallMainFolder}/mm.exe"&&:
 		if ! FUNCaskYesNo "unable to detect mm.exe main executable, continue anyway?";then
-			exit 1
-		fi
-	fi
-fi
-
-: ${bCheckModLauncherModsProperlyInstalled:=true} #help todoo
-if $bCheckModLauncherModsProperlyInstalled;then
-	if find "${strPathParent}/" -iname "info.json" |egrep -v "_mods.*info.json";then
-		if ! FUNCaskYesNo "Some ModLauncher mod is not properly installed.";then
 			exit 1
 		fi
 	fi
@@ -1019,9 +1011,16 @@ function FUNCbackupSpecialFilesForGoodLoading() {
 	local lstrSuffix="BKP_GOOD_LOADING"
 	local lstrDtSuffix=".${lstrDT}.${lstrSuffix}"
 	
-	cp -v "${strGameInstallMainFolder}/bin/vidcfg.bin" "${strGameInstallMainFolder}/bin/vidcfg.bin.${lstrDtSuffix}" #help without this file it will crash with "terminate called after throwing an instance of 'dxvk::DxvkError'"
-	cp -vf "${strGameInstallMainFolder}/bin/vidcfg.bin.${lstrDtSuffix}" "${strGameInstallMainFolder}/bin/vidcfg.bin.${lstrSuffix}" #to help backup latest
+	local lstrFlI
+	local lastrFlImportant=( #help problems in these files create obscure messages hard to determine they were the culprit
+		"bin/vidcfg.bin" #help without this file it will crash with "terminate called after throwing an instance of 'dxvk::DxvkError'"
+		"_mods/core/user_settings.json" #help this file if empty or other problems will crash with "This application has requested the Runtime to terminate it in an unusual way.\nPlease contact the application's support team for more information."
+	) 
 	
+	for lstrFlI in "${lastrFlImportant[@]}";do
+		cp -v  "${strGameInstallMainFolder}/${lstrFlI}"                 "${strGameInstallMainFolder}/${lstrFlI}.${lstrDtSuffix}" 
+		cp -vf "${strGameInstallMainFolder}/${lstrFlI}.${lstrDtSuffix}" "${strGameInstallMainFolder}/${lstrFlI}.${lstrSuffix}" #to help backup latest
+	done
 };export -f FUNCbackupSpecialFilesForGoodLoading
 
 function FUNCfindBrokenSymlinks() {
@@ -1126,9 +1125,53 @@ function FUNCchkCfgScriptLineSz() {
 	if((${#lstr} > nCfgScriptLineSzLim));then FUNCexit 1 "line too big ${#lstr} '${lstr}'";fi
 };export -f FUNCchkCfgScriptLineSz
 
+: ${strFlVpkChk:="${strGameInstallMainFolder}/vpks/depot_2101_000.vpk"} #help
+if [[ -f "$strFlVpkChk" ]];then
+	ls -l "$strFlVpkChk"
+	echo "OBS.: RUNNING: $0 $@" >&2
+	if ! FUNCaskYesNo --wait 10 "You need to extract all files from all the '*.vpk' files, and rename or delete or move the 'vpks' folder, otherwise some modded things won't work like new text from 'resource/english/system_strings_lvl_00.txt'. Continue anyway?";then
+		exit 1
+	fi
+fi
 
-if [[ -f "${strGameInstallMainFolder}/vpks/depot_2101_000.vpk" ]];then
-	if ! FUNCaskYesNo "You need to extract all files from all the '*.vpk' files, and rename or delete or move the 'vpks' folder, otherwise some modded things won't work like new text from 'resource/english/system_strings_lvl_00.txt'. Continue anyway?";then
+
+: ${bCheckModLauncherModsProperlyInstalled:=true} #help todoo
+if $bCheckModLauncherModsProperlyInstalled;then
+	if find "${strPathParent}/" -iname "info.json" |egrep -v "_mods.*info.json";then
+		if ! FUNCaskYesNo "Some ModLauncher mod is not properly installed.";then
+			exit 1
+		fi
+	fi
+fi
+
+: ${strFlModLauncherChk:="${strGameInstallMainFolder}/_mods/core/user_settings.json"} #help
+function FUNCchkModLauncherCfgValidateItCompletely() {
+	if(( $(FUNCjson "$strFlModLauncherChk" ".load_order" |wc -l) == 0 ));then return 1;fi
+	if(( $(FUNCjson "$strFlModLauncherChk" ".ignore" |wc -l) == 0 ));then return 1;fi
+	local lastrChkList
+	lastrChkList=(linux_deck nohardware novid use_directx95 use_windowed)
+	for lstrChkId in "${lastrChkList[@]}";do
+		local lstrChk="$(FUNCjson "$strFlModLauncherChk" ".${lstrChkId}")";
+		if ! [[ "$lstrChk" =~ ^true|false$ ]];then
+			echo "[ERROR] with lstrChkId='$lstrChkId' lstrChk='$lstrChk'" >&2
+			return 1;
+		fi
+	done
+	lastrChkList=(screen_height screen_width windowed_mode)
+	for lstrChkId in "${lastrChkList[@]}";do
+		local lstrChk="$(FUNCjson "$strFlModLauncherChk" ".${lstrChkId}")";
+		if ! [[ "$lstrChk" =~ ^[0-9]*$ ]];then
+			echo "[ERROR] with lstrChkId='$lstrChkId' lstrChk='$lstrChk'" >&2
+			return 1;
+		fi
+	done
+}
+: ${bCheckModLauncherJSon:=true} #help
+if $bCheckModLauncherJSon;then
+	if [[ ! -f "$strFlModLauncherChk" ]] || (( $(stat -c %s "$strFlModLauncherChk") == 0 )) || ! FUNCchkModLauncherCfgValidateItCompletely;then
+		ls -l "$strFlModLauncherChk"&&:
+		echo "[ERROR] invalid file '$strFlModLauncherChk'" >&2
+		echo "[ERROR] this file empty will crash ModLauncher, it needs to contain default values, restore from ModLauncher package." >&2
 		exit 1
 	fi
 fi

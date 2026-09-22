@@ -321,7 +321,7 @@ while true;do
 			fi
 		fi
 		
-		ln -vsf "$strMapCfgFile" "$strTeleCurrentCfgFile"
+		ln -vsf "./$(basename "$strMapCfgFile")" "$strTeleCurrentCfgFile"
 		cat "${strTeleCurrentCfgFile}" |egrep "^echo"
 	fi
 	

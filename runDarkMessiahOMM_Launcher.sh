@@ -33,8 +33,10 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 
+# use this here?    while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
+
 if [[ "${1-}" == "--help" ]];then
-	egrep "[#]help" $0 #do not use this here yet: while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
+	egrep "[#]help" $0
 	exit 0
 fi
 
@@ -78,14 +80,16 @@ esac
 while [[ ! -f "${strInstFolder}/${strExecutable}" ]];do read -t 3 -p "waiting mount of '${strInstFolder}'"&&:;done
 cd "$strInstFolder" 
 
-if [[ -n "$@" ]];then "$@";exit;fi #help you can run other commands with the correct wineprefix, try "bash" to just open a command line
+#if [[ -n "$@" ]];then "$@";exit;fi #help you can run other commands with the correct wineprefix, try "bash" to just open a command line like $0 -1 bash
 
 ############################ AUTO LOAD SAVEGAME
 function FUNCautoLoadLastSave() {
 	strFl="_mods/core/user_settings.json"
 	
 	if ! egrep 'linux_deck.*true' "$strFl";then
-		FUNCwait10s "warning, linux_deck option is disabled"
+		echo
+		echo "[warning] linux_deck option is disabled 2s" #TODO explain it's usefulness
+		read -t 2&&:
 	fi
 	
 	if [[ "$1" == enable ]];then
@@ -165,6 +169,13 @@ export WINE_LARGE_ADDRESS_AWARE=1 #AI forces Wine to use clean 32-bit memory add
 export DISABLE_VK_LAYER_VALVE_steam_overlay_1=1 #Disable Steam Overlay Hooking Conflict. can also place at dxvk.conf (where mm.exe is, create if needed) add: DISABLE_VK_LAYER_VALVE_steam_overlay_1=1
 export WINEDLLOVERRIDES="binkw32,dinput8,version,dmrestoration_client,dmrestoration_server,dmmm_restoration=n,b" #dont put d3d9,dxgi as dxvk may break. This makes any difference?
 #KEEP tho too much log: export WINEDEBUG="+loaddll"
+#export WINEDEBUG="fixme-all,+seh,+dotnet" #enables verbose logging of SEH (Structured Exception Handling) 
+export WINEDEBUG="fixme-all,+dotnet" #enables verbose logging of SEH (Structured Exception Handling) 
 #declare -p __GL_THREADED_OPTIMIZATIONS WINE_LARGE_ADDRESS_AWARE
-wine "$strExecutable" "${astrOptList[@]}"
+if [[ -n "$@" ]];then #help you can run other commands with the correct wineprefix, try "bash" to just open a command line like $0 -1 bash
+	"$@";
+	exit;
+else
+	wine "$strExecutable" "${astrOptList[@]}"
+fi 
 set +x

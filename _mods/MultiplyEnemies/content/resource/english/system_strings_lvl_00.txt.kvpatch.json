@@ -3,6 +3,5 @@
     "lang.Tokens.l00_refundskpt_darkv": "Refund default dark vision skill point: 1",
     "lang.Tokens.l00_savtheunluk_begin": "The Unlucky: Defend him!",
     "lang.Tokens.l00_savtheunluk_fail": "The Unlucky (FAIL): He was really unlucky... and you too.",
-    "lang.Tokens.l00_savtheunluk_success": "The Unlucky (SUCCESS): He was not so unlucky thanks to you!",
-    "lang.Tokens.tuto_parry_reminder": "Don\u2019t forget: to parry by pressing and holding %+attack2%."
+    "lang.Tokens.l00_savtheunluk_success": "The Unlucky (SUCCESS): He was not so unlucky thanks to you!"
 }

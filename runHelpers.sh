@@ -5,6 +5,7 @@
 #fi
 
 export bCheckMainExecutable=false
+export bCheckModLauncherJSon=false
 while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do pwd;cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"
 #NO need this help info:OLD: must be after secOverrideMultiLayerMountPoint.sh or equivalent or just not using layers at all, so mm.exe will be detected
 
