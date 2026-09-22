@@ -239,15 +239,17 @@ function FUNCpauseAndResumeAtom() {
 	yad --geometry=500x1+$nScrWhalf+0 --title="$strTitle" --on-top --no-buttons --no-focus &&: #unable to popup below :(, it should not receive imediate focus but should be focusable!!! unable to prevent it starting --on-top, so keep it there; no buttons, just hold the flow here
 	kill -SIGCONT $lnPidGm
 	
-	read -n 1 -t 3 -p WaitingABitToChkIfGameIsRunning&&:
-	if ps --no-headers -p $lnPidGm >&2;then
-		FUNCbackupSpecialFilesForGoodLoading # it is here because the game reached a good loading spot without crashes. This is a better place as the game is running after loading.
-	fi
-	
 	set -x
 	xdotool windowactivate ${aPidGm_WindowID[$lnPidGm]}
 	xdotool windowfocus    ${aPidGm_WindowID[$lnPidGm]}
 	set +x
+	
+	echo "Waiting A Bit To Chk If Game Is really still Running without crash" >&2
+	read -n 1 -t 60 &&:
+	if ps --no-headers -p $lnPidGm >&2;then
+		FUNCbackupSpecialFilesForGoodLoading # it is here because the game reached a good loading spot without crashes. This is a better place as the game is running after loading.
+	fi
+	echo DEBUGwait10s >&2;read -n 1 -t 10&&:
 };export -f FUNCpauseAndResumeAtom
 
 function FUNCpauseAfterLoad() {
@@ -280,7 +282,7 @@ function FUNCpauseAfterLoad() {
 			fi
 			
 			: ${fSleepAfterHintFound:=3.0};export fSleepAfterHintFound #help
-			read -n 1 -t $fSleepAfterHintFound -p "hit a key to SIGSTOP game"&&:
+			read -n 1 -t $fSleepAfterHintFound -p "hit a key to SIGSTOP the game"&&:;echo
 			
 			#FUNCdetectPidToPause
 			

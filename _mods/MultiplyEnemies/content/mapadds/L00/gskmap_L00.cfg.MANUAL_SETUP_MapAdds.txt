@@ -77,23 +77,23 @@
 			"add:key"
 			{
 				//"OnTrigger" "mm_player_inputs,GiveSkillPoints,2,0,1,1,"  // these 2 skill points are from removed free darkvision and disabled basic combat skills
-				//"OnTrigger" "mm_player_inputs,AddSecondaryObjective,l00_refundskpt_bascmbt,5,1,1,"
-				//"OnTrigger" "mm_player_inputs,GiveSkillPoints,1,6,1,1,"
-				//"OnTrigger" "mm_player_inputs,ObjectiveDone,l00_refundskpt_bascmbt,7,1,1,"
-				//"OnTrigger" "mm_player_inputs,RemoveObjective,l00_refundskpt_bascmbt,67,1,1,"
-				"OnTrigger" "mm_player_inputs,AddSecondaryObjective,tuto_parry_reminder,5,1,1,"
+				"OnTrigger" "mm_player_inputs,AddSecondaryObjective,l00_refundskpt_bscmbt,5,1,1,"
 				"OnTrigger" "mm_player_inputs,GiveSkillPoints,1,6,1,1,"
-				"OnTrigger" "mm_player_inputs,ObjectiveDone,tuto_parry_reminder,7,1,1,"
-				"OnTrigger" "mm_player_inputs,RemoveObjective,tuto_parry_reminder,67,1,1,"
+				"OnTrigger" "mm_player_inputs,ObjectiveDone,l00_refundskpt_bscmbt,7,1,1,"
+				"OnTrigger" "mm_player_inputs,RemoveObjective,l00_refundskpt_bscmbt,607,1,1,"
+				//"OnTrigger" "mm_player_inputs,AddSecondaryObjective,tuto_parry_reminder,5,1,1," // This was to test and find out the game prefers reading it from vpks ignoring changes to that file
+				//"OnTrigger" "mm_player_inputs,GiveSkillPoints,1,6,1,1,"
+				//"OnTrigger" "mm_player_inputs,ObjectiveDone,tuto_parry_reminder,7,1,1,"
+				//"OnTrigger" "mm_player_inputs,RemoveObjective,tuto_parry_reminder,67,1,1,"
 				////"OnTrigger" "gsk.text_SkillPointRefunc_DarkVision,ShowHudHint,,5,-1,1,"
 				
-				"OnTrigger" "mm_player_inputs,GiveSkillPoints,1,15,1,1,"
 				//"OnTrigger" "mm_player_inputs,AddSecondaryObjective,l00_hint_RefundSkillPoint_DarkVision,16,1,1,"
 				//"OnTrigger" "mm_player_inputs,ObjectiveDone,l00_hint_RefundSkillPoint_DarkVision,17,1,1,"
 				//"OnTrigger" "mm_player_inputs,RemoveObjective,l00_hint_RefundSkillPoint_DarkVision,77,1,1,"
-				"OnTrigger" "mm_player_inputs,AddSecondaryObjective,l00_refundskpt_darkv,16,1,1,"
-				"OnTrigger" "mm_player_inputs,ObjectiveDone,l00_refundskpt_darkv,17,1,1,"
-				"OnTrigger" "mm_player_inputs,RemoveObjective,l00_refundskpt_darkv,77,1,1,"
+				"OnTrigger" "mm_player_inputs,AddSecondaryObjective,l00_refundskpt_darkv,16,1,1," // this seems to fail, too big identifier? I think the limit is 32 characters: l00_hint_RefundSkillPoint_DarkVision
+				"OnTrigger" "mm_player_inputs,GiveSkillPoints,1,17,1,1,"
+				"OnTrigger" "mm_player_inputs,ObjectiveDone,l00_refundskpt_darkv,18,1,1,"
+				"OnTrigger" "mm_player_inputs,RemoveObjective,l00_refundskpt_darkv,618,1,1,"
 				////"OnTrigger" "gsk.text_SkillPointRefunc_BasicCombat,ShowHudHint,,15,-1,1,"
 			}
 		}
@@ -102,7 +102,7 @@
 			//"classname" "env_hudhint"
 			//"combinability" "1"
 			//"targetname" "gsk.text_SkillPointRefunc_BasicCombat"
-			//"message" "l00_hint_RefundSkillPoint_BasicCombat"
+			//"message" "l00_refundskpt_bscmbt"
 			//"duration" "10"
 			//"origin" "-2097 -4551 210"
 		//}

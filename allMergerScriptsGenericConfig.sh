@@ -37,9 +37,9 @@ set -Eeu #use this specifically, not to everything or |grep results will fail...
 
 ############################### CONFIGS
 
-strPathSelf="$(pwd)"
-strPathMainModFolder="${strPathSelf}"
-strPathMainModFolderBasename="$(basename "${strPathSelf}")"
+strPathSelf="$(pwd)";export strPathSelf
+strPathMainModFolder="${strPathSelf}";export strPathMainModFolder
+strPathMainModFolderBasename="$(basename "${strPathSelf}")";export strPathMainModFolderBasename
 #if [[ ! -f "${strPathSelf}/$(basename "$0")" ]];then
 	#echo "[ERROR] failed to determine ModMerger path: current path '$strPathSelf' doesnt contain $(basename "$0")"
 	#FUNCexit 1
@@ -48,12 +48,12 @@ if [[ ! -f "${strPathSelf}/allMergerScriptsGenericConfig.sh" ]];then
 	echo "[ERROR] failed to determine Main Gsk_ModMerger Root path: current path '$strPathSelf' doesnt contain 'allMergerScriptsGenericConfig.sh', exiting."
 	FUNCexit 1
 fi
-strPathParent="$(dirname "$strPathSelf")" #help This is the folder where all Layers are placed, it is the parent of game main folder. this is important to be detected like that in case this path is a symlink! when using '../' would navigate to the realpath!
+strPathParent="$(dirname "$strPathSelf")";export strPathParent #help This is the folder where all Layers are placed, it is the parent of game main folder. this is important to be detected like that in case this path is a symlink! when using '../' would navigate to the realpath!
 
 : ${strGameSubRelatFolderWriteAllHere:="WriteNewDataHereOnly"};export strGameSubRelatFolderWriteAllHere #help I know of: mm custom AddOn(overhaul mod) and my new one WriteNewDataHereOnly
 
-: ${strGameMainFolderBasename:="Dark Messiah Might and Magic Single Player"} #help
-: ${strGameInstallMainFolder:="${strPathParent}/${strGameMainFolderBasename}"} #help vanilla game installed main folder
+: ${strGameMainFolderBasename:="Dark Messiah Might and Magic Single Player"};export strGameMainFolderBasename #help
+: ${strGameInstallMainFolder:="${strPathParent}/${strGameMainFolderBasename}"};export strGameInstallMainFolder #help vanilla game installed main folder
 
 ################################# FUNCTIONS
 
@@ -84,7 +84,7 @@ function FUNCdbgFuncLine() {
 	done
 	#FUNCdbgFuncLine_OUTPUT+=" }, CalledAt{ $(basename "${BASH_SOURCE[$liSkip]}"):${FUNCNAME[$liSkip]}:${BASH_LINENO[$liSkip]} }"
 	FUNCdbgFuncLine_OUTPUT+=" }"
-}
+};export -f FUNCdbgFuncLine
 function FUNCechoInfo() { #help <LINENO> <MSG>
     local lLn="${BASH_LINENO[0]}" # ${BASH_LINENO[0]} automatically captures the exact line number where this function was called in the parent script!
     #echo "[$(FUNCdtFlNm):$(basename "$0"):${FUNCNAME[@]}:${BASH_LINENO[@]}:CalledAtLn${lLn}] $@" >&2
@@ -160,7 +160,7 @@ trap 'echo "Ctrl+C pressed, exiting..." >&2; exit 1' INT
 
 ####################################### MAIN
 
-: ${bCheckMainExecutable:=true} #help disable if is the mounting script calling it like runHelpers.sh
+: ${bCheckMainExecutable:=true};export bCheckMainExecutable #help disable if is the mounting script calling it like runHelpers.sh
 if $bCheckMainExecutable;then
 	if [[ ! -f "${strGameInstallMainFolder}/mm.exe" ]];then
 		ls -ld "${strGameInstallMainFolder}"&&:
@@ -171,14 +171,14 @@ if $bCheckMainExecutable;then
 	fi
 fi
 
-: ${bVerbose:=false} #help enable this to see auto configured variables thru `declare`
+: ${bVerbose:=false};export bVerbose #help enable this to see auto configured variables thru `declare`
 exec 3>/dev/null   # Point FD 3 to /dev/null
 if $bVerbose;then
 	exec 3>&2          # Point FD 3 to stderr
 fi
 
-: ${bChkVpkExec:=false} #help
-strVpkExec="$HOME/.local/bin/vpk"
+: ${bChkVpkExec:=false};export bChkVpkExec #help
+strVpkExec="$HOME/.local/bin/vpk";export strVpkExec
 if $bChkVpkExec;then
 	if [[ ! -f "$strVpkExec" ]];then
 		set -x
@@ -190,7 +190,7 @@ if $bChkVpkExec;then
 	fi
 fi
 
-: ${bDoPrivacyChecks:=true} #help
+: ${bDoPrivacyChecks:=true};export bDoPrivacyChecks #help
 if $bDoPrivacyChecks;then
 	#KEEPinfo: if egrep "$USER" * -iRnIa |egrep -v ".SUCCESS.cfg:|.log:";then #this may end weird
 	bPrivProb=false
@@ -216,7 +216,7 @@ fi
 
 # Detect the OS environment safely
 OS_ENV=$(uname -s)
-: ${strOSEnvType:=""} #help override in case it is failing to detect
+: ${strOSEnvType:=""};export strOSEnvType #help override in case it is failing to detect
 if [[ -z "$strOSEnvType" ]];then
 	case "$OS_ENV" in
 		CYGWIN*)
@@ -258,9 +258,9 @@ if [[ -z "$strOSEnvType" ]];then
 fi
 
 # sed to prettify arrays into multilines use like: declare -p astr |sed -r -e "$strSedArrayLn"  >&3
-strSedArrayLn='s@(\[[0-9]*\]=)@\n \1@g'
-strSedArrayNumToLn="$strSedArrayLn"
-strSedArrayIDsToLn='s@(\[[+]*[a-zA-Z0-9_/.]*\]=)@\n \1@g'
+strSedArrayLn='s@(\[[0-9]*\]=)@\n \1@g';export strSedArrayLn
+strSedArrayNumToLn="$strSedArrayLn";export strSedArrayNumToLn
+strSedArrayIDsToLn='s@(\[[+]*[a-zA-Z0-9_/.]*\]=)@\n \1@g';export strSedArrayIDsToLn
 #strSedArrayNumNoIndexToLn='s@(\[[0-9]*\]=)(.*)[)]*$@\n \2@g'
 #strSedArrayNumNoIndexToLn='s@(\[[0-9]*\]=)(.*)[)]*$@\n \2@g'
 function FUNCarrayDumpNice() {
@@ -269,7 +269,7 @@ function FUNCarrayDumpNice() {
 	for lstrVal in "${lstrArray[@]}";do
 		echo "$(echo -e "\t")$lstrVal"
 	done
-}
+};export -f FUNCarrayDumpNice
 
 # all text file extensions
 astrScriptsExt=()
@@ -277,11 +277,11 @@ astrScriptsExt+=(cfg lst nut qc qct res scr smd txt vcd vcfg vdf vmap vmat vmf v
 astrScriptsExt+=(ahk ain bat bns cfg css dat fgd gam html inf ini js lst md org php qc qct rad rc res scr smd tag tga ttj txt vbsp vcd vdf vmf vmt) #clear;find . -mount -type f -exec bash -c 'file -b --mime-type "$1" | grep -q "^text/"' _ {} \; -print | awk -F. 'NF>1 {print $NF}' | sort -u #vpk is not 
 astrScriptsExt=($(echo "${astrScriptsExt[@]}" |tr ' ' '\n' |sort -u))
 #declare -p astrScriptsExt |tr '[' '\n' >&3
-strScriptsExtRegexEsc=".*[.]\($(echo "${astrScriptsExt[@]}" |sed -r -e 's@ @\\|@g')\)$"
-strScriptsExtRegexNorm=".*[.]($(echo "${astrScriptsExt[@]}" |sed -r -e 's@ @|@g'))$"
-strJustExtRegexEsc="$(echo "${astrScriptsExt[@]}" |sed -r -e 's@ @\\|@g')$"
-strJustExtRegex="$(echo "${astrScriptsExt[@]}" |sed -r -e 's@ @|@g')$"
-: ${strExtRegexReviewed:="lst|qct|txt|vmt|res"} #help what extensions are compatible with .kvpatch.json
+strScriptsExtRegexEsc=".*[.]\($(echo "${astrScriptsExt[@]}" |sed -r -e 's@ @\\|@g')\)$";export strScriptsExtRegexEsc
+strScriptsExtRegexNorm=".*[.]($(echo "${astrScriptsExt[@]}" |sed -r -e 's@ @|@g'))$";export strScriptsExtRegexNorm
+strJustExtRegexEsc="$(echo "${astrScriptsExt[@]}" |sed -r -e 's@ @\\|@g')$";export strJustExtRegexEsc
+strJustExtRegex="$(echo "${astrScriptsExt[@]}" |sed -r -e 's@ @|@g')$";export strJustExtRegex
+: ${strExtRegexReviewed:="lst|qct|txt|vmt|res"};export strExtRegexReviewed #help what extensions are compatible with .kvpatch.json
 astrGrepIncludesExt=()
 for strExt in "${astrScriptsExt[@]}";do
 	astrGrepIncludesExt+=(--include="*.${strExt}")
@@ -289,7 +289,7 @@ done
 
 declare -p strScriptsExtRegexEsc strScriptsExtRegexNorm >&3
 
-: ${strVanillaLayer:="$(ls -d "${strGameInstallMainFolder}"*VanillaGameFiles*)"} #help vanilla game installed files' folder
+: ${strVanillaLayer:="$(ls -d "${strGameInstallMainFolder}"*VanillaGameFiles*)"};export strVanillaLayer #help vanilla game installed files' folder
 if [[ ! -d "$strVanillaLayer" ]];then
 	pwd
 	echo "selfRunParam0: $0"
@@ -299,30 +299,30 @@ if [[ ! -d "$strVanillaLayer" ]];then
 fi
 
 #: ${strVanillaScriptsFolder:="${strGameInstallMainFolder}.layer004.VanillaExtractedTextFiles.IGNORE_LAYER"} #help
-: ${strVanillaScriptsPath:="$(ls -d "${strGameInstallMainFolder}"*VanillaExtractedTextFiles*/)"} #help after installing the game, use some vpk extractor (like thru one of the other bash scripts here)
+: ${strVanillaScriptsPath:="$(ls -d "${strGameInstallMainFolder}"*VanillaExtractedTextFiles*/)"};export strVanillaScriptsPath #help after installing the game, use some vpk extractor (like thru one of the other bash scripts here)
 if [[ ! -d "$strVanillaScriptsPath" ]];then echo "ERROR: VanillaExtractedTextFiles layer not found";FUNCexit 1;fi
 
-: ${strVanillaAllExtractedFilesPath:="$(ls -d "${strGameInstallMainFolder}"*VanillaExtractedAllFilesFromVPK*/)"} #help after installing the game, use some vpk extractor (like thru one of the other bash scripts here), but extract ALL files
+: ${strVanillaAllExtractedFilesPath:="$(ls -d "${strGameInstallMainFolder}"*VanillaExtractedAllFilesFromVPK*/)"};export strVanillaAllExtractedFilesPath #help after installing the game, use some vpk extractor (like thru one of the other bash scripts here), but extract ALL files
 if [[ ! -d "$strVanillaAllExtractedFilesPath" ]];then echo "WARNING: strVanillaAllExtractedFilesPath layer not found";fi
 
-: ${strWriteLayer:="${strGameInstallMainFolder}.0.WriteLayer"} #help write output thru OverlayFS
+: ${strWriteLayer:="${strGameInstallMainFolder}.0.WriteLayer"};export strWriteLayer #help write output thru OverlayFS
 
-: ${strDownloadedModFilesRel:=".modPackages"} #help
-: ${strDisabledTmpTestFolderRel:=".DisabledTmpTest"} #help
+: ${strDownloadedModFilesRel:=".modPackages"};export strDownloadedModFilesRel #help
+: ${strDisabledTmpTestFolderRel:=".DisabledTmpTest"};export strDisabledTmpTestFolderRel #help
 
-: ${strMergedModsFolderBN:="FinalMergedScriptsMaxPriority"} #help
-: ${strMergedModsFolder:="${strPathSelf}/_mods/${strMergedModsFolderBN}"} #help
+: ${strMergedModsFolderBN:="FinalMergedScriptsMaxPriority"};export strMergedModsFolderBN #help
+: ${strMergedModsFolder:="${strPathSelf}/_mods/${strMergedModsFolderBN}"};export strMergedModsFolder #help
 mkdir -vp "${strMergedModsFolder}"
 
-strFinalMergedFolderContent="${strMergedModsFolder}/content/" #help compatible with mod manager
+strFinalMergedFolderContent="${strMergedModsFolder}/content/";export strFinalMergedFolderContent #help compatible with mod manager
 mkdir -vp "$strFinalMergedFolderContent"
 
-strFinalDummyHelperFolder="${strMergedModsFolder}/dummy/"
+strFinalDummyHelperFolder="${strMergedModsFolder}/dummy/";export strFinalDummyHelperFolder
 mkdir -vp "${strFinalDummyHelperFolder}"
 
-: ${strRegexFoldersToIgnore:="IGNORE_LAYER|Extracted.Quick.TMP|/_tmp/|/tmp/"} #help this is compatible with secOverrideMultiLayerMountPoint.sh that is using OverlayFS
+: ${strRegexFoldersToIgnore:="IGNORE_LAYER|Extracted.Quick.TMP|/_tmp/|/tmp/"};export strRegexFoldersToIgnore #help this is compatible with secOverrideMultiLayerMountPoint.sh that is using OverlayFS
 
-strFlFinalMergerModJson="$strMergedModsFolder/info.json"
+strFlFinalMergerModJson="$strMergedModsFolder/info.json";export strFlFinalMergerModJson
 
 astrKnownGameModRelativeFolders=( #help from mini mods or overhaul EDIT THIS LINE TO ADD NEW ONES IF EVER
 	mm #vanilla, also used by many mods
@@ -330,8 +330,8 @@ astrKnownGameModRelativeFolders=( #help from mini mods or overhaul EDIT THIS LIN
 	AddOn #overhaul mod
 	content #ModLauncher mods
 ) 
-strRegexKGMRF=""
-strRegexEscKGMRF=""
+strRegexKGMRF="";export strRegexKGMRF
+strRegexEscKGMRF="";export strRegexEscKGMRF
 for strKGMRF in "${astrKnownGameModRelativeFolders[@]}";do
 	if [[ -n "${strRegexKGMRF}" ]];then strRegexKGMRF+="|";fi
 	if [[ -n "${strRegexEscKGMRF}" ]];then strRegexEscKGMRF+='\|';fi
@@ -394,7 +394,7 @@ function FUNCpatchMode() {
 	fi
 };export -f FUNCpatchMode
 
-: ${strExecMerger:="meld"} #help
+: ${strExecMerger:="meld"};export strExecMerger #help
 if ! which "$strExecMerger" >&3;then
 	strExecMerger="winmerge" # for cygwin/windows
 fi
@@ -901,7 +901,7 @@ function FUNCposTarget() {
 	echo "$lstrPosTarget"
 	declare -gA FUNCposTarget_anPosXYZ="$(FUNCxyzArray "$lstrPosTarget")"
 	return 0
-}
+};export -f FUNCposTarget
 
 function FUNChasBOM() {
 	local lstrFl="$1";shift
@@ -1007,6 +1007,7 @@ function FUNCsay() { #to help when you are far away
 };export -f FUNCsay
 
 function FUNCbackupSpecialFilesForGoodLoading() {
+	FUNCechoInfo "DEBUG"
 	local lstrDT="$(date +'%Y_%m_%d-%H_%M_%S')"
 	local lstrSuffix="BKP_GOOD_LOADING"
 	local lstrDtSuffix=".${lstrDT}.${lstrSuffix}"
@@ -1018,8 +1019,10 @@ function FUNCbackupSpecialFilesForGoodLoading() {
 	) 
 	
 	for lstrFlI in "${lastrFlImportant[@]}";do
-		cp -v  "${strGameInstallMainFolder}/${lstrFlI}"                 "${strGameInstallMainFolder}/${lstrFlI}.${lstrDtSuffix}" 
-		cp -vf "${strGameInstallMainFolder}/${lstrFlI}.${lstrDtSuffix}" "${strGameInstallMainFolder}/${lstrFlI}.${lstrSuffix}" #to help backup latest
+		set -x
+		cp -v  "${strGameInstallMainFolder}/${lstrFlI}"                 "${strGameInstallMainFolder}/${lstrFlI}.${lstrDtSuffix}" >&2
+		cp -vf "${strGameInstallMainFolder}/${lstrFlI}.${lstrDtSuffix}" "${strGameInstallMainFolder}/${lstrFlI}.${lstrSuffix}"   >&2 #to help backup latest
+		set +x
 	done
 };export -f FUNCbackupSpecialFilesForGoodLoading
 
@@ -1114,18 +1117,18 @@ function FUNCchkLoadedModDlls() {
 		fi
 	done
 };export -f FUNCchkLoadedModDlls
-: ${bFUNCchkLoadedModDlls:=false}
+: ${bFUNCchkLoadedModDlls:=false};export bFUNCchkLoadedModDlls
 if ! $bFUNCchkLoadedModDlls;then FUNCchkLoadedModDlls;fi
 export bFUNCchkLoadedModDlls=true #help prevents nested script calls to re-run this.
 
-: ${nCfgScriptLineSzLim:=1024} #help cfg script line limit is 1024 chars
+: ${nCfgScriptLineSzLim:=1024};export nCfgScriptLineSzLim #help cfg script line limit is 1024 chars
 function FUNCchkCfgScriptLineSz() {
 	local lstr="$1"
 	#if((${#lstr} > nCfgScriptLineSzLim));then echo "[ERROR:${FUNCNAME[@]}:${BASH_LINENO[@]}] line too big ${#lstr} '${lstr}'";exit 1;fi
 	if((${#lstr} > nCfgScriptLineSzLim));then FUNCexit 1 "line too big ${#lstr} '${lstr}'";fi
 };export -f FUNCchkCfgScriptLineSz
 
-: ${strFlVpkChk:="${strGameInstallMainFolder}/vpks/depot_2101_000.vpk"} #help
+: ${strFlVpkChk:="${strGameInstallMainFolder}/vpks/depot_2101_000.vpk"};export strFlVpkChk #help
 if [[ -f "$strFlVpkChk" ]];then
 	ls -l "$strFlVpkChk"
 	echo "OBS.: RUNNING: $0 $@" >&2
@@ -1135,7 +1138,7 @@ if [[ -f "$strFlVpkChk" ]];then
 fi
 
 
-: ${bCheckModLauncherModsProperlyInstalled:=true} #help todoo
+: ${bCheckModLauncherModsProperlyInstalled:=true};export bCheckModLauncherModsProperlyInstalled #help
 if $bCheckModLauncherModsProperlyInstalled;then
 	if find "${strPathParent}/" -iname "info.json" |egrep -v "_mods.*info.json";then
 		if ! FUNCaskYesNo "Some ModLauncher mod is not properly installed.";then
@@ -1144,7 +1147,7 @@ if $bCheckModLauncherModsProperlyInstalled;then
 	fi
 fi
 
-: ${strFlModLauncherChk:="${strGameInstallMainFolder}/_mods/core/user_settings.json"} #help
+: ${strFlModLauncherChk:="${strGameInstallMainFolder}/_mods/core/user_settings.json"};export strFlModLauncherChk #help
 function FUNCchkModLauncherCfgValidateItCompletely() {
 	if(( $(FUNCjson "$strFlModLauncherChk" ".load_order" |wc -l) == 0 ));then return 1;fi
 	if(( $(FUNCjson "$strFlModLauncherChk" ".ignore" |wc -l) == 0 ));then return 1;fi
@@ -1165,8 +1168,8 @@ function FUNCchkModLauncherCfgValidateItCompletely() {
 			return 1;
 		fi
 	done
-}
-: ${bCheckModLauncherJSon:=true} #help
+};export -f FUNCchkModLauncherCfgValidateItCompletely
+: ${bCheckModLauncherJSon:=true};export bCheckModLauncherJSon #help
 if $bCheckModLauncherJSon;then
 	if [[ ! -f "$strFlModLauncherChk" ]] || (( $(stat -c %s "$strFlModLauncherChk") == 0 )) || ! FUNCchkModLauncherCfgValidateItCompletely;then
 		ls -l "$strFlModLauncherChk"&&:
