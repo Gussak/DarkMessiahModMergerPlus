@@ -1636,7 +1636,7 @@ if $bCreateSpawnsForCurrentMap;then
 			function FUNCeditCondumpAtLn() {
 				FUNCechoInfo "[ERROR:invalidPOS] ( the engine sometimes do not print some letters!!! :O ), FailFixBiggestLineConflictFor: $1"
 				#"$strExecEdit" "$strFlCondump:$((iLnData+1))"
-				"$strExecEdit" "${strFlCondumpClean}:$((iLnData+1))"
+				set -x;"$strExecEdit" "${strFlCondumpClean}:$((iLnData+1))" "${strFlCondump}:$((iLnData+1))";set +x
 				FUNCexit 1 "you need to re-run the script"
 			}
 			
@@ -1785,7 +1785,7 @@ if $bCreateSpawnsForCurrentMap;then
 		FUNCwait10s "There are not supported spawnings or other TODOs at mapadds file."
 	fi
 	
-	touch -r "$strFlCondumpClean" "$strFlCondumpCleanNew"
+	touch -r "$strFlCondumpClean" "$strFlCondumpCleanNew"&&:
 	cat "$strFlCondumpCleanNew" |sed -r -e 's@([^ \t]*)\s*$@\1@g' >"$strFlCondumpClean" #after all went well, also trim trailing spaces
 	touch -r "$strFlCondumpCleanNew" "$strFlCondumpClean"
 	ls -l "$strMapCfgFile"
