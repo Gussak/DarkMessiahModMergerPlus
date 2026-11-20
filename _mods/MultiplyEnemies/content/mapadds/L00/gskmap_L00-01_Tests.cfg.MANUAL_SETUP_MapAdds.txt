@@ -3,94 +3,391 @@
 	"PreInitialize"
 	{	
 		
-		add:entity
-		{
-			"classname" "item_secret"
-			"targetname" "secret_goblin_sensor"
-			"origin" "-1999 -4735 20" // Position exactly inside the goblin
-			// Skill Interaction Settings
-			"item_name" "A Frozen Trap"
-			"secret_type" "1" // Tells the engine to look for the Rogue's Awareness skill
-			"radius" "150"
-			// How close the player needs to be to detect it
-			// The Reveal and Activation Sequence
-			//"OnFound" "frozen_goblin,Alpha,255,0.0,-1"
-			//"OnFound" "frozen_goblin,EnableDamage,,0.0,-1"
-		}
-		modify:entity
-		{
-				TargetMarkers
-				{
-						"targetname" "secret_goblin_sensor"
-				}
-				add:key
-				{
-						"OnFound" "frozen_goblin,Alpha,255,0.0,-1"
-						"OnFound" "frozen_goblin,EnableDamage,,0.0,-1"
-				}
-		}
+		//add:entity
+		//{
+			//"classname" "item_secret"
+			//"targetname" "secret_goblin_sensor"
+			//"origin" "-1999 -4735 20" // Position exactly inside the goblin
+			//// Skill Interaction Settings
+			//"item_name" "A Frozen Trap"
+			//"secret_type" "1" // Tells the engine to look for the Rogue's Awareness skill
+			//"radius" "150"
+			//// How close the player needs to be to detect it
+			//// The Reveal and Activation Sequence
+			////"OnFound" "frozen_goblin,Alpha,255,0.0,-1"
+			////"OnFound" "frozen_goblin,EnableDamage,,0.0,-1"
+		//}
+		//modify:entity
+		//{
+				//TargetMarkers
+				//{
+						//"targetname" "secret_goblin_sensor"
+				//}
+				//add:key
+				//{
+						//"OnFound" "frozen_goblin,Alpha,255,0.0,-1"
+						//"OnFound" "frozen_goblin,EnableDamage,,0.0,-1"
+				//}
+		//}
 		
-		add:entity
-		{
-			"classname" "prop_physics_override"
-			"targetname" "frozen_goblin"
-			"model" "models/NPCs/Goblin/Goblin.mdl"
-			"DefaultAnim" "run"
-			"PlaybackRate" "0.0"
-			"origin" "-1999 -4735 20"
-			"angles" "0 0 0"
-			// Health and Initial Locked State
-			"health" "20"
-			"spawnflags" "8"
-			// Prevents it from falling over
-			"DamageFilter" "invuln_filter" // Starts immune to damage until found
-			// Invisibility and Ice Properties
-			"rendermode" "1"
-			// Enables transparency manipulation
-			"renderamt" "0"
-			// Start at 0 (100% Invisible)
-			"renderfx" "15"
-			// Glass/Frost sheen effect
-			"rendercolor" "150 200 255"
-			"BreakableParticle" "ice_block_break"
-			Gmail - Dmmm frozen visitors
-			// Explosion Trigger
-			//"OnBreak" "ice_blast_radius,Explode,,0.0,-1"
-		}
-		modify:entity
-		{
-				TargetMarkers
-				{
-						"targetname" "frozen_goblin"
-				}
-				add:key
-				{
-						"OnBreak" "ice_blast_radius,Explode,,0.0,-1"
-				}
-		}
+		//add:entity
+		//{
+			//"classname" "prop_physics_override"
+			//"targetname" "frozen_goblin"
+			//"model" "models/NPC/Goblin/Npc_Goblin.mdl"
+			//"DefaultAnim" "run"
+			//"PlaybackRate" "0.0"
+			//"origin" "-1999 -4735 20"
+			//"angles" "0 0 0"
+			//// Health and Initial Locked State
+			//"health" "100000"
+			//"spawnflags" "8"
+			//// Prevents it from falling over
+			////"DamageFilter" "invuln_filter" // Starts immune to damage until found
+			
+			//// Invisibility and Ice Properties
+			//"rendermode" "1"
+			
+			//// Enables transparency manipulation
+			//"renderamt" "0"
+			
+			//// Start at 0 (100% Invisible)
+			//"renderfx" "15"
+			
+			//// Glass/Frost sheen effect
+			//"rendercolor" "150 200 255"
+			
+			////"BreakableParticle" "ice_block_break"
+			
+			//// Explosion Trigger
+			////"OnBreak" "ice_blast_radius,Explode,,0.0,-1"
+		//}
+		//modify:entity
+		//{
+				//TargetMarkers
+				//{
+						//"targetname" "frozen_goblin"
+				//}
+				//add:key
+				//{
+						//"OnBreak" "ice_blast_radius,Explode,,0.0,-1"
+				//}
+		//}
 		
-		add:entity
-		{
-			"classname" "env_explosion"
-			"targetname" "ice_blast_radius"
-			"origin" "-1999 -4735 20"
-			"iMagnitude" "15"
-			"iRadiusOverride" "150"
-			"fireballsprite" "sprites/ice_blast.vmt"
-			"spawnflags" "1"
-			//"OnBreak" "ice_blast_radius,TriggerFreezeEffect,,0.0,-1"
-		}
-		modify:entity
-		{
-				TargetMarkers
-				{
-						"targetname" "ice_blast_radius"
-				}
-				add:key
-				{
-						"OnBreak" "ice_blast_radius,TriggerFreezeEffect,,0.0,-1"
-				}
-		}
+		//add:entity
+		//{
+			//"classname" "env_explosion"
+			//"targetname" "ice_blast_radius"
+			//"origin" "-1999 -4735 20"
+			//"iMagnitude" "15"
+			//"iRadiusOverride" "150"
+			//"fireballsprite" "sprites/blueflare1" //"fireballsprite" "sprites/ice_blast.vmt"
+			//"spawnflags" "1"
+			////"OnBreak" "ice_blast_radius,TriggerFreezeEffect,,0.0,-1"
+		//}
+		//modify:entity
+		//{
+				//TargetMarkers
+				//{
+						//"targetname" "ice_blast_radius"
+				//}
+				//add:key
+				//{
+						//"OnBreak" "ice_blast_radius,TriggerFreezeEffect,,0.0,-1"
+				//}
+		//}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+// 1. THE TRIGGER PROP
+"add:entity"
+{
+    "classname" "prop_physics"
+    "targetname" "random_mine_trigger"
+    "origin" "-1999 -4735 30"
+    "angles" "15 -106 36"
+    "model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+    "spawnflags" "257"
+    "health" "1"
+    
+    // On break, tell the logic selector to pick a random element
+    "OnBreak" "mine_randomizer,PickRandom,,0,-1"
+}
+//modify:entity
+//{
+		//TargetMarkers
+		//{
+				//"targetname" "random_mine_trigger"
+		//}
+		//add:key
+		//{
+				//"OnBreak" "mine_randomizer,PickRandom,,0,-1"
+		//}
+//}
+
+// 2. THE RANDOM SELECTOR (The Magic Entity)
+"add:entity"
+{
+    "classname" "logic_case"
+    "targetname" "mine_randomizer"
+    
+    // Case 01: Fire / Physics Blast
+    "OnCase01" "blast_fire,Explode,,0,-1"
+    
+    // Case 02: Ice Blast + Ice Particles
+    "OnCase02" "blast_ice,Explode,,0,-1"
+    "OnCase02" "particles_ice,Start,,0,-1"
+    
+    // Case 03: Lightning Blast + Lightning Particles
+    "OnCase03" "blast_electric,Explode,,0,-1"
+    "OnCase03" "particles_electric,Start,,0,-1"
+    
+    // Case 04: Poison Blast + Poison Particles
+    "OnCase04" "blast_poison,Explode,,0,-1"
+    "OnCase04" "particles_poison,Start,,0,-1"
+}
+
+// ==========================================
+// 3. THE ELEMENTAL CORES (Hidden at the same location)
+// ==========================================
+
+// --- CASE 1: FIRE MINE ---
+"add:entity"
+{
+    "classname" "env_explosion"
+    "targetname" "blast_fire"
+    "origin" "-1999 -4735 30"
+    "iMagnitude" "3500"
+    "iRadiusOverride" "100"
+    "damagetype" "0" // Standard damage (uses default fire visuals)
+}
+
+// --- CASE 2: ICE MINE ---
+"add:entity"
+{
+    "classname" "env_explosion"
+    "targetname" "blast_ice"
+    "origin" "-1999 -4735 30"
+    "iMagnitude" "3500"
+    "iRadiusOverride" "100"
+    "damagetype" "16777216"
+    "spawnflags" "12"
+}
+"add:entity"
+{
+    "classname" "info_particle_system"
+    "targetname" "particles_ice"
+    "origin" "-1999 -4735 30"
+    "start_active" "0"
+    "effect_name" "ice_freeze_impact"
+}
+
+// --- CASE 3: ELECTRIC MINE ---
+"add:entity"
+{
+    "classname" "env_explosion"
+    "targetname" "blast_electric"
+    "origin" "-1999 -4735 30"
+    "iMagnitude" "3500"
+    "iRadiusOverride" "100"
+    "damagetype" "65536"
+    "spawnflags" "12"
+}
+"add:entity"
+{
+    "classname" "info_particle_system"
+    "targetname" "particles_electric"
+    "origin" "-1999 -4735 30"
+    "start_active" "0"
+    "effect_name" "lightning_impact"
+}
+
+// --- CASE 4: POISON MINE ---
+"add:entity"
+{
+    "classname" "env_explosion"
+    "targetname" "blast_poison"
+    "origin" "-1999 -4735 30"
+    "iMagnitude" "3500"
+    "iRadiusOverride" "100"
+    "damagetype" "131072"
+    "spawnflags" "12"
+}
+"add:entity"
+{
+    "classname" "info_particle_system"
+    "targetname" "particles_poison"
+    "origin" "-1999 -4735 30"
+    "start_active" "0"
+    "effect_name" "cloud_poison"
+}
+		
+
+
+
+
+
+
+
+
+
+
+//// =========================================================
+//// 1. SPAWN ALL THE CORE ENTITIES (NO OUTPUTS INSIDE THEM)
+//// =========================================================
+
+//"add:entity"
+//{
+    //"classname" "prop_physics"
+    //"targetname" "random_mine_trigger"
+    //"origin" "-1515 -4521 193"
+    //"angles" "15 -106 36"
+    //"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+    //"spawnflags" "257"
+    //"health" "1"
+//}
+
+//"add:entity"
+//{
+    //"classname" "logic_case"
+    //"targetname" "mine_randomizer"
+//}
+
+//"add:entity"
+//{
+    //"classname" "env_explosion"
+    //"targetname" "blast_fire"
+    //"origin" "-1515 -4521 193"
+    //"iMagnitude" "3500"
+    //"iRadiusOverride" "100"
+    //"damagetype" "0"
+//}
+
+//"add:entity"
+//{
+    //"classname" "env_explosion"
+    //"targetname" "blast_ice"
+    //"origin" "-1515 -4521 193"
+    //"iMagnitude" "3500"
+    //"iRadiusOverride" "100"
+    //"damagetype" "16777216"
+    //"spawnflags" "12"
+//}
+
+//"add:entity"
+//{
+    //"classname" "info_particle_system"
+    //"targetname" "particles_ice"
+    //"origin" "-1515 -4521 193"
+    //"start_active" "0"
+    //"effect_name" "ice_freeze_impact"
+//}
+
+//"add:entity"
+//{
+    //"classname" "env_explosion"
+    //"targetname" "blast_electric"
+    //"origin" "-1515 -4521 193"
+    //"iMagnitude" "3500"
+    //"iRadiusOverride" "100"
+    //"damagetype" "65536"
+    //"spawnflags" "12"
+//}
+
+//"add:entity"
+//{
+    //"classname" "info_particle_system"
+    //"targetname" "particles_electric"
+    //"origin" "-1515 -4521 193"
+    //"start_active" "0"
+    //"effect_name" "lightning_impact"
+//}
+
+//"add:entity"
+//{
+    //"classname" "env_explosion"
+    //"targetname" "blast_poison"
+    //"origin" "-1515 -4521 193"
+    //"iMagnitude" "3500"
+    //"iRadiusOverride" "100"
+    //"damagetype" "131072"
+    //"spawnflags" "12"
+//}
+
+//"add:entity"
+//{
+    //"classname" "info_particle_system"
+    //"targetname" "particles_poison"
+    //"origin" "-1515 -4521 193"
+    //"start_active" "0"
+    //"effect_name" "cloud_poison"
+//}
+
+
+//// =========================================================
+//// 2. LINK THE TRIGGERS VIA MODIFY:ENTITY BLOCKS
+//// =========================================================
+
+//// --- Link Prop Break to the Logic Case ---
+//modify:entity
+//{
+    //TargetMarkers
+    //{
+        //"targetname" "random_mine_trigger"
+    //}
+    //add:key
+    //{
+        //"OnBreak" "mine_randomizer,PickRandom,,0,-1"
+    //}
+//}
+
+//// --- Link the Random Cases to their Respective Elements ---
+//modify:entity
+//{
+    //TargetMarkers
+    //{
+        //"targetname" "mine_randomizer"
+    //}
+    //add:key
+    //{
+        //// Case 1: Fire
+        //"OnCase01" "blast_fire,Explode,,0,-1"
+        
+        //// Case 2: Ice
+        //"OnCase02" "blast_ice,Explode,,0,-1"
+        //"OnCase02" "particles_ice,Start,,0,-1"
+        
+        //// Case 3: Electric
+        //"OnCase03" "blast_electric,Explode,,0,-1"
+        //"OnCase03" "particles_electric,Start,,0,-1"
+        
+        //// Case 4: Poison
+        //"OnCase04" "blast_poison,Explode,,0,-1"
+        //"OnCase04" "particles_poison,Start,,0,-1"
+    //}
+//}
+		
 		
 	}
 }
