@@ -662,6 +662,139 @@
 			"spawnflags"  "7"
 			"origin"      "5751 -680 69"
 		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_01_Climbing_OK_052"  //gskSummonDevArrow
+			"origin"      "9894 -439 -376"
+			"angles"      "44 52 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"combinability" "1"
+			"combinetarget1enable" "1"
+			"combinetarget2enable" "1"
+			"combinetarget3enable" "1"
+			"combinetarget4enable" "1"
+			"combinetarget5enable" "1"
+			"combinetarget6enable" "1"
+			"combinetarget7enable" "1"
+			"combinetarget8enable" "1"
+			"combinetarget9enable" "1"
+			"combinetarget10enable" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			"physdamagescale" "0.1"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			
+			"classname" "prop_ammo_arrow"
+			"angles"      "44 52 90"
+			"model" "models/items/weapons/quiver_guard/quiver_guard.mdl"
+			"NbArrow" "3"
+			"spawnflags"  "256"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_01_Climbing_OK_053"  //gskSummonDevArrow
+			"origin"      "9885 -402 -376"
+			"angles"      "49 35 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"combinability" "1"
+			"combinetarget1enable" "1"
+			"combinetarget2enable" "1"
+			"combinetarget3enable" "1"
+			"combinetarget4enable" "1"
+			"combinetarget5enable" "1"
+			"combinetarget6enable" "1"
+			"combinetarget7enable" "1"
+			"combinetarget8enable" "1"
+			"combinetarget9enable" "1"
+			"combinetarget10enable" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			"physdamagescale" "0.1"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			
+			"classname" "prop_ammo_arrow"
+			"angles"      "49 35 90"
+			"model" "models/items/weapons/quiver_guard/quiver_guard.mdl"
+			"NbArrow" "3"
+			"spawnflags"  "256"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_01_Climbing_OK_054"  //gskSummonDevArrow
+			"origin"      "9920 -410 -377"
+			"angles"      "55 53 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"combinability" "1"
+			"combinetarget1enable" "1"
+			"combinetarget2enable" "1"
+			"combinetarget3enable" "1"
+			"combinetarget4enable" "1"
+			"combinetarget5enable" "1"
+			"combinetarget6enable" "1"
+			"combinetarget7enable" "1"
+			"combinetarget8enable" "1"
+			"combinetarget9enable" "1"
+			"combinetarget10enable" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			"physdamagescale" "0.1"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			
+			"classname" "prop_ammo_arrow"
+			"angles"      "55 53 90"
+			"model" "models/items/weapons/quiver_guard/quiver_guard.mdl"
+			"NbArrow" "3"
+			"spawnflags"  "256"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_01_Climbing_OK_055"  //gskSummonDevArrow
+			"origin"      "9953 -426 -377"
+			"angles"      "55 76 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"combinability" "1"
+			"combinetarget1enable" "1"
+			"combinetarget2enable" "1"
+			"combinetarget3enable" "1"
+			"combinetarget4enable" "1"
+			"combinetarget5enable" "1"
+			"combinetarget6enable" "1"
+			"combinetarget7enable" "1"
+			"combinetarget8enable" "1"
+			"combinetarget9enable" "1"
+			"combinetarget10enable" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			"physdamagescale" "0.1"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			
+			"classname" "prop_ammo_arrow"
+			"angles"      "55 76 90"
+			"model" "models/items/weapons/quiver_guard/quiver_guard.mdl"
+			"NbArrow" "3"
+			"spawnflags"  "256"
+			
+		}
+//		"add:entity"
+//		{
+//			"targetname"  "gskSpawn_01_Climbing_OK_056"  //gskSummonWeaponBow
+//			"origin"      "9920 -365 -376"
+//			"angles"      "66 26 -0"
+//			"physdamagescale" "1.0"
+//			"radiusforrandomattitude" "500"
+//			"targetname"   "gskSpawn_01_Climbing_OK_056_TODO_FixMissingSupportFor_gskSummonWeaponBow"
+//		}
 
 	}
 }
