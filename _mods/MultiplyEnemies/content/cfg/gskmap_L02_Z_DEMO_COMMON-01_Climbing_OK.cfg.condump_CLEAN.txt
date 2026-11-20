@@ -1,5 +1,6 @@
 map     :  l02_z_demo_Common at: 8706 x, 1229 y, -1458 z
 map     :  l02_z_demo_Common at: 8706 x, 1229 y, -1458 z
+gskMapMessage For some reason gskSummonNecroGuardBow wont shoot arrows... necromancers wont attack too... replaced with gskSummonNecroGuardShield :(
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 0/57 )
 prop at 238 988 -772 missing modelname
 prop at 9238 988 -772 missing modelname
@@ -40,50 +41,50 @@ prop at 8064 -255 -116 missing modelname
 prop at 8064 -255 -116 missing modelname
 setpos 7982.882813 -232.424362 85.01062;setang 67.353691 -15.860776 -0.001179
 setpos 7982.882813 -232.424362 85.010620;setang 67.353691 -15.860776 -0.001179
-gskSummonNecroGuardBow
-gskSummonNecroGuardBow
+gskSummonNecroGuardShield
+gskSummonNecroGuardShield
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 6/57 )
 prop at 8035 -302 -120 missing modelname
 prop at 8035 -302 -120 missing modelname
 setpos 7980.000488 -236.895401 85.021118;setang 67.287689 -49.718880 -0.001195
 setpos 7980.000488 -236.895401 85.021118;setang 67.287689 -49.718880 -0.001195
-gskSummonNeroGuardBow
-gskSummonNecroGuardBow
+gskSummonNecroGuardShield
+gskSummonNecroGuardShield
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 7/57 )
 prop at 7991 -328 -123 missing modelname
 prop at 7991 -328 -123 missing modelname
 setpos 7975.624023 -238.912323 85.136703;setang 66.561798 -80.343018 -0.001190
 setpos 7975.624023 -238.912323 85.136703;setang 66.561798 -80.343018 -0.001190
-gskSummonNecroGuardBow
-gskSummonNecroGuardBow
+gskSummonNecroGuardShield
+gskSummonNecroGuardShield
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 8/57 )
 prop at 8076 -206 -114 missing modelname
 prop at 8076 -206 -114 missing modelname
 setpos 7982.904785 -227.875580 85.481857;setang 64.384209 13.112710 -0.001183
 setpos 7982.904785 -227.875580 85.481857;setang 64.384209 13.112710 -0.001183
-gskSummonNecroGuardBow
-gskSummonNecroGuardBow
+gskSummonNecroGuardShield
+gskSummonNecroGuardShield
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 9/57 )
 prop at 8061 -154 -112 missing modelname
 prop at 8061 -154 -112 missing modelname
 setpos 7980.811035 -224.014954 85.885986;setang 6.810669 41.360455 -0.001165
 setpos 7980.811035 -224.014954 85.885986;setang 61.810669 41.360455 -0.001165
-gskSummonNecroGuardBow
-gskSummonNecroGuardBow
+gskSummonNecroGuardShield
+gskSummonNecroGuardShield
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 10/57 )
 prop at 8028 -162 -113 missing modelname
 prop at 8028 -162 -113 missing modelname
 setpos 7979.790527 -222.744095 84.799797;setang 68.673470 51.591305 -0.001166
 setpos 7979.790527 -222.744095 84.799797;setang 68.673470 51.591305 -0.001166
-gskSummonNecroGuardBow
-gkSummonNecroGuardBow
+gskSummonNecroGuardShield
+gskSummonNecroGuardShield
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 11/57 )
 prop at 8166 122 -123 missing modelname
 prop at 8166 122 -123 missing modelname
 setpos 825.557617 167.907822 -10.902813;setang 56.399197 -142.348236 -0.000964
 setpos 8225.557617 167.907822 -10.902813;setang 56.399197 -142.348236 -0.000964
-gskSummonNecromancer
-gskSummonNecromancer
+gskSummonNecroGuardShield
+gskSummonNecroGuardShield
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 12/57 )
 prop at 8214 55 -124 missing modelname
 prop at 8214 55 -124 missing modelname
@@ -271,8 +272,8 @@ prop at 7401 -428 -81 missing modelname
 prop at 7401 -428 -81 missing modelname
 setpos 7454.083984 -370.879211 22.923809;setang 53.364395 -132.90487 -0.000796
 setpos 7454.083984 -370.879211 22.923809;setang 53.364395 -132.904877 -0.000796
-+gskSummonNecromancerLord
-+gskSummonNecromancerLord
+gskSummonNecroGuardShield
+gskSummonNecroGuardShield
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 39/57 )
 prop at 7547 -294 -89 missing modelname
 prop at 7547 -294 -89 missing modelname
