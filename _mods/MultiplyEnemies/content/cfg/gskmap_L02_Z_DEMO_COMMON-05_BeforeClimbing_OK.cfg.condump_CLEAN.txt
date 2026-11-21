@@ -1,0 +1,24 @@
+map     :  l02_z_demo_Common at: 8706 x, 1229 y, -1458 z
+map     :  l02_z_demo_Common at: 8706 x, 1229 y, -1458 z
+gskMapMessage only spiders and undead work on the very starting
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 0/3 )
+prop at 10027 -290 -375 missing modelname
+prop at 10027 -290 -375 missing modelname
+setpos 9971.029297 -327.832336 -287.960724;setang 52.243000 34.352627 -0.000717
+setpos 9971.029297 -327.832336 -287.960724;setang 52.243000 34.352627 -0.000717
+gskSummonSpiderMini
+gskSummonSpiderMini
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 1/3 )
+prop at 9952 -223 -383 missing modelnae
+prop at 9952 -223 -383 missing modelname
+setpos 9963.231445 -324.929840 -286.657227;setang 43.005043 96.259918 0.000239
+setpos 9963.231445 -324.929840 -286.657227;setang 43.005043 96.259918 0.000239
+gskSummonSpiderMini
+gskSummonSpiderMini
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 2/3 )
+prop at 9944 -271 -369 missing modelname
+prop at 9944 -271 -369 missing modelname
+setpos 9936.476563 -324.605286 -309.921906;setang 47.360336 82.400093 -0.000261
+setpos 9936.47653 -324.605286 -309.921906;setang 47.360336 82.400093 -0.000261
+gskSummonSpiderMini
+gskSummonSpiderMini
