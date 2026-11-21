@@ -7,38 +7,26 @@
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_05_BeforeClimbing_OK_000"  //gskSummonSpiderMini
-			"origin"      "10027 -290 -374"
-			"angles"      "52 -146 -0"
+			"origin"      "9339 -235 -1201"
+			"angles"      "37 131 -0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "7"
-			"origin"      "10027 -290 -369"
+			"origin"      "9339 -235 -1196"
 		}
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_05_BeforeClimbing_OK_001"  //gskSummonSpiderMini
-			"origin"      "9952 -223 -382"
-			"angles"      "43 -84 0"
+			"origin"      "9465 -91 -1148"
+			"angles"      "26 -170 -0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "7"
-			"origin"      "9952 -223 -377"
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_05_BeforeClimbing_OK_002"  //gskSummonSpiderMini
-			"origin"      "9944 -271 -368"
-			"angles"      "47 -98 -0"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"classname" "npc_spider_mini"
-			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
-			"origin"      "9944 -271 -363"
+			"origin"      "9465 -91 -1143"
 		}
 
 	}

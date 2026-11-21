@@ -14,6 +14,7 @@
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "9238 988 -764"
 		}
 		"add:entity"
@@ -26,6 +27,7 @@
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "10027 -290 -369"
 		}
 		"add:entity"
@@ -38,6 +40,7 @@
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "9952 -223 -377"
 		}
 		"add:entity"
@@ -50,6 +53,7 @@
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "9944 -271 -363"
 		}
 		"add:entity"
@@ -62,6 +66,7 @@
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "8821 -2119 -362"
 		}
 		"add:entity"
@@ -77,7 +82,8 @@
 			"rangeweapon" "weapon_arxcrossbow"
 			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
 			"QuiverAmmo" "12"
-			"spawnflags"  "134"
+			"spawnflags"  "262"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -92,7 +98,8 @@
 			"rangeweapon" "weapon_arxcrossbow"
 			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
 			"QuiverAmmo" "12"
-			"spawnflags"  "134"
+			"spawnflags"  "262"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -107,7 +114,8 @@
 			"rangeweapon" "weapon_arxcrossbow"
 			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
 			"QuiverAmmo" "12"
-			"spawnflags"  "134"
+			"spawnflags"  "262"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -122,7 +130,8 @@
 			"rangeweapon" "weapon_arxcrossbow"
 			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
 			"QuiverAmmo" "12"
-			"spawnflags"  "134"
+			"spawnflags"  "262"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -137,7 +146,8 @@
 			"rangeweapon" "weapon_arxcrossbow"
 			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
 			"QuiverAmmo" "12"
-			"spawnflags"  "134"
+			"spawnflags"  "262"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -152,7 +162,8 @@
 			"rangeweapon" "weapon_arxcrossbow"
 			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
 			"QuiverAmmo" "12"
-			"spawnflags"  "134"
+			"spawnflags"  "262"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -164,7 +175,8 @@
 			"classname" "npc_necromancer_lord"
 			"model" "models/NPC/Necromancer/Npc_necromancer.mdl"
 			"additionalequipment" "weapon_mm_staff_combat"
-			"spawnflags"  "142"
+			"spawnflags"  "270"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -179,6 +191,7 @@
 			"spawnflags"  "16390"
 			"UnburrowRadius" "200"
 			"UnburrowChanceOverride" "1.0"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -193,6 +206,7 @@
 			"spawnflags"  "16390"
 			"UnburrowRadius" "200"
 			"UnburrowChanceOverride" "1.0"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -207,6 +221,7 @@
 			"spawnflags"  "16390"
 			"UnburrowRadius" "200"
 			"UnburrowChanceOverride" "1.0"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -218,6 +233,7 @@
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "9275 866 -747"
 		}
 		"add:entity"
@@ -230,6 +246,7 @@
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "9178 710 -732"
 		}
 		"add:entity"
@@ -242,6 +259,7 @@
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "9352 768 -738"
 		}
 		"add:entity"
@@ -254,6 +272,7 @@
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "9330 807 -747"
 		}
 		"add:entity"
@@ -266,6 +285,7 @@
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "9379 812 -741"
 		}
 		"add:entity"
@@ -278,6 +298,7 @@
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "9320 776 -744"
 		}
 		"add:entity"
@@ -290,6 +311,7 @@
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "9349 1062 -749"
 		}
 		"add:entity"
@@ -302,6 +324,7 @@
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "9348 1094 -756"
 		}
 		"add:entity"
@@ -314,6 +337,7 @@
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "9308 1095 -770"
 		}
 		"add:entity"
@@ -326,6 +350,7 @@
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "9512 -38 -559"
 		}
 		"add:entity"
@@ -338,6 +363,7 @@
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "9511 -11 -566"
 		}
 		"add:entity"
@@ -350,6 +376,7 @@
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "9848 427 -590"
 		}
 		"add:entity"
@@ -362,6 +389,7 @@
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "9847 504 -619"
 		}
 		"add:entity"
@@ -374,6 +402,7 @@
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "9793 488 -627"
 		}
 		"add:entity"
@@ -386,6 +415,7 @@
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "9764 517 -639"
 		}
 		"add:entity"
@@ -398,6 +428,7 @@
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "9667 -1479 -389"
 		}
 		"add:entity"
@@ -410,6 +441,7 @@
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "9713 -1441 -397"
 		}
 		"add:entity"
@@ -422,6 +454,7 @@
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "9358 -1685 -373"
 		}
 		"add:entity"
@@ -434,6 +467,7 @@
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "9315 -1716 -382"
 		}
 		"add:entity"
@@ -446,6 +480,7 @@
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "8521 -1745 -386"
 		}
 		"add:entity"
@@ -458,6 +493,7 @@
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "8552 -1800 -380"
 		}
 		"add:entity"
@@ -470,6 +506,7 @@
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "9393 -246 -1174"
 		}
 		"add:entity"
@@ -482,6 +519,7 @@
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "9491 -87 -1140"
 		}
 		"add:entity"
@@ -494,7 +532,8 @@
 			"classname" "npc_necromancer_lord"
 			"model" "models/NPC/necromancer_lord/npc_necromancer_lord.mdl"
 			"additionalequipment" "weapon_mm_hook"
-			"spawnflags"  "142"
+			"spawnflags"  "270"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -509,6 +548,7 @@
 			"spawnflags"  "16390"
 			"UnburrowRadius" "200"
 			"UnburrowChanceOverride" "1.0"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -523,6 +563,7 @@
 			"spawnflags"  "16390"
 			"UnburrowRadius" "200"
 			"UnburrowChanceOverride" "1.0"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -537,6 +578,7 @@
 			"spawnflags"  "16390"
 			"UnburrowRadius" "200"
 			"UnburrowChanceOverride" "1.0"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -551,6 +593,7 @@
 			"spawnflags"  "16390"
 			"UnburrowRadius" "200"
 			"UnburrowChanceOverride" "1.0"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -565,6 +608,7 @@
 			"spawnflags"  "16390"
 			"UnburrowRadius" "200"
 			"UnburrowChanceOverride" "1.0"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -576,6 +620,7 @@
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "6077 -775 40"
 		}
 		"add:entity"
@@ -588,6 +633,7 @@
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "6411 -688 12"
 		}
 		"add:entity"
@@ -600,6 +646,7 @@
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "6706 -782 -40"
 		}
 		"add:entity"
@@ -612,6 +659,7 @@
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "6768 -743 -57"
 		}
 		"add:entity"
@@ -624,6 +672,7 @@
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "7093 -825 -90"
 		}
 		"add:entity"
@@ -636,6 +685,7 @@
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "7107 -789 -96"
 		}
 		"add:entity"
@@ -648,6 +698,7 @@
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "7104 -653 -83"
 		}
 		"add:entity"
@@ -660,6 +711,7 @@
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "5751 -680 69"
 		}
 		"add:entity"
@@ -812,6 +864,7 @@
 			"spawnflags"  "16390"
 			"UnburrowRadius" "200"
 			"UnburrowChanceOverride" "1.0"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -826,6 +879,7 @@
 			"spawnflags"  "16390"
 			"UnburrowRadius" "200"
 			"UnburrowChanceOverride" "1.0"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -840,6 +894,7 @@
 			"spawnflags"  "16390"
 			"UnburrowRadius" "200"
 			"UnburrowChanceOverride" "1.0"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -854,6 +909,7 @@
 			"spawnflags"  "16390"
 			"UnburrowRadius" "200"
 			"UnburrowChanceOverride" "1.0"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -868,6 +924,7 @@
 			"spawnflags"  "16390"
 			"UnburrowRadius" "200"
 			"UnburrowChanceOverride" "1.0"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -882,6 +939,7 @@
 			"spawnflags"  "16390"
 			"UnburrowRadius" "200"
 			"UnburrowChanceOverride" "1.0"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -896,17 +954,18 @@
 			"spawnflags"  "16390"
 			"UnburrowRadius" "200"
 			"UnburrowChanceOverride" "1.0"
+			"sleepstate" "0"
 		}
 
 		"modify:entity"
 		{
 			"TargetMarkers"
 			{
-				"id"	"3525157"
+				"id"	"3530283"
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_10_Climbing_OK_BeginAt000,ForceSpawn,,0.000,-1,1,"
+				"OnStartTouch" "gskSpawn_10_Climbing_OK_BeginAt000,ForceSpawn,,0.000,-1,1,"
 			}
 		}
 		
@@ -969,11 +1028,11 @@
 		{
 			"TargetMarkers"
 			{
-				"id"	"3525157"
+				"id"	"3530283"
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_10_Climbing_OK_BeginAt016,ForceSpawn,,0.000,-1,1,"
+				"OnStartTouch" "gskSpawn_10_Climbing_OK_BeginAt016,ForceSpawn,,0.000,-1,1,"
 			}
 		}
 		
@@ -1036,11 +1095,11 @@
 		{
 			"TargetMarkers"
 			{
-				"id"	"3525157"
+				"id"	"3530283"
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_10_Climbing_OK_BeginAt032,ForceSpawn,,0.000,-1,1,"
+				"OnStartTouch" "gskSpawn_10_Climbing_OK_BeginAt032,ForceSpawn,,0.000,-1,1,"
 			}
 		}
 		
@@ -1103,11 +1162,11 @@
 		{
 			"TargetMarkers"
 			{
-				"id"	"3525157"
+				"id"	"3530283"
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_10_Climbing_OK_BeginAt048,ForceSpawn,,0.000,-1,1,"
+				"OnStartTouch" "gskSpawn_10_Climbing_OK_BeginAt048,ForceSpawn,,0.000,-1,1,"
 			}
 		}
 		

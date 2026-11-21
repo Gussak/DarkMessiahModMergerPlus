@@ -449,8 +449,9 @@ function FUNCspawnFlags() { #help based on https://developer.valvesoftware.com/w
 				FS_QUIET) ((lnFlags+=2))&&: ;; #initially quiet until in rage, excellent for surprises
 				FS_FALL) ((lnFlags+=4))&&: ;; #initially fall instead of teleport to ground
 				FS_DropHealing|FS_DROP) ((lnFlags+=8))&&: ;; #drop is like fall but checks boundary, may be better? #FS_DropHealing does nothing, keep as just an idea :(
-				FS_LongRangeView) ((lnFlags+=128))&&: ;;
-				FS_FadeCorpse) ((lnFlags+=256))&&: ;;
+				FS_LongRangeView) ((lnFlags+=256))&&: ;; #Increases sight and ranged attack distance (up to 6,000 units).
+				FS_FadeCorpse) ((lnFlags+=512))&&: ;;
+				FS_FullAI) ((lnFlags+=1024))&&: ;; #no matter where NPC is, will use full AI thinking
 				FS_TANK) ((lnFlags+=16384))&&: ;; #cant be pushed
 				*) FUNCexit 1 "unrecognized (not implemented here?) spawnflag '$lstrFlagAdd'";;
 			esac
@@ -1308,6 +1309,13 @@ function FUNCmapadds() {
 			"targetname"   "'"${lstrTargetName}"'_TODO_FixMissingSupportFor_'"${lstrSummonCmd}"'"' >>"$lstrFlAddTmp"
 			;;
 	esac
+	
+	if $bIsNpc;then
+		if $bSpawnNpcsAwake;then
+			echo '
+			"sleepstate" "0"' >>"$lstrFlAddTmp"
+		fi
+	fi
 	
 	if((lnYDisplacement!=0));then
 		anTargetPosXYZ[z]="$(bc <<< " ${anTargetPosXYZ[z]} + (${lnYDisplacement}) ")"
