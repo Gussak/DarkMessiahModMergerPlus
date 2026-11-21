@@ -1,10 +1,8 @@
 map     :  l02_z_demo_Common at: 8706 x, 1229 y, -1458 z
 map     :  l02_z_demo_Common at: 8706 x, 1229 y, -1458 z
-gskMapMessage For some reason even with gskSpawnNpcsAwake true, gskSummonNecroGuardBow wont shoot arrows... gskSummonNecromancer wont attack too... neither gskSummonNecroGuardShield :(, but spawning them in-game using console commands (the summon commands) will work!
-gskMapMessage 'id' '3530283', 'targetname' 'tutotrigger.getRope', 'origin' '9324 69.83 -1039.84', 'OnStartTouch' 'tutorelay.getRope,Trigger,,0,-1' on 00_LUMP_ENTITIES.bin
-gskSpawnTriggerAtID 3530283
+gskMapMessage at 00_LUMP_ENTITIES.bin: 'targetname' 'tutotrigger.jumpRope', 'origin' '9319.5 296 -712', 'classname' 'trigger_once', 'id' '3530273', 'OnStartTouch' 'tuto.jumpRope,ShowHudHint,,0,-1'
+gskSpawnTriggerAtID 3530273
 gskSpawnTriggerType OnStartTouch
-gskSpawnNpcsAwake true
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 0/64 )
 prop at 238 988 -772 missing modelname
 prop at 9238 988 -772 missing modelname

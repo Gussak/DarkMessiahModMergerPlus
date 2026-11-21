@@ -28,6 +28,16 @@
 			"spawnflags"  "7"
 			"origin"      "9465 -91 -1143"
 		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_BeforeClimbing_OK_002"  //gskSummonSim003_stool01
+			"origin"      "9945 -276 -369"
+			"angles"      "29 -115 0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "item_food_leek03"
+			"spawnflags"  "256"
+		}
 
 	}
 }
