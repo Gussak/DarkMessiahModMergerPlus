@@ -1046,6 +1046,14 @@ function FUNCmapadds() {
 			"model" "models/Items/Weapons/Sword_short/Sword_short.mdl"
 			"spawnflags"  "'"$(FUNCspawnFlags OBJ)"'"' >>"$lstrFlAddTmp"
 			;;
+		"gskSummonWeaponBow") # is bugging, not spawning correctly, unequipable. weapon_arxcrossbow
+			lstrIgnore="UnnecessaryAsPlayerCanSummon"
+			lnYDisplacement=10
+			echo '
+			"classname" "prop_physics"
+			"model" "models/Items/Weapons/Bow_classic/Bow_classic.mdl"
+			"spawnflags"  "'"$(FUNCspawnFlags OBJ)"'"' >>"$lstrFlAddTmp"
+			;;
 		"gskSummonStaff") # is bugging, not spawning correctly, unequipable
 			lstrIgnore="UnnecessaryAsPlayerCanSummon"
 			lnYDisplacement=10
