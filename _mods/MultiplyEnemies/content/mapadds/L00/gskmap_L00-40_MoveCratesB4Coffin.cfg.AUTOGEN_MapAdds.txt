@@ -14,6 +14,7 @@
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "1349 -2303 196"
 		}
 		"add:entity"
@@ -26,6 +27,7 @@
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "1311 -1478 8"
 		}
 		"add:entity"
@@ -38,6 +40,7 @@
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "1496 -1492 8"
 		}
 		"add:entity"
@@ -50,6 +53,7 @@
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "1497 -1857 70"
 		}
 		"add:entity"
@@ -376,6 +380,7 @@
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "1464 -2130 139"
 		}
 		"add:entity"
@@ -388,6 +393,7 @@
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "1385 -2055 113"
 		}
 		"add:entity"
@@ -400,6 +406,7 @@
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "1362 -1898 69"
 		}
 		"add:entity"
@@ -412,6 +419,7 @@
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "1403 -1767 42"
 		}
 		"add:entity"
@@ -424,6 +432,7 @@
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "1467 -1676 26"
 		}
 		"add:entity"
@@ -1236,6 +1245,7 @@
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "1404 -1454 129"
 		}
 		"add:entity"

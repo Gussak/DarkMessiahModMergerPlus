@@ -17,7 +17,7 @@
 			//does this even exist? "modelscale" "0.30"
 			//fail too "scale" "0.30"
 			//this just drops near him "additionalequipment" "weapon_arx_short_sword"
-			"spawnflags"  "135"
+			"spawnflags"  "263"
 			"origin"      "-2097 -4551 201"
 		}
 		"add:entity"

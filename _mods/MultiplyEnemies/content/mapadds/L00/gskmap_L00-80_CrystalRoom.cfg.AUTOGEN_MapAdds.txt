@@ -14,6 +14,7 @@
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -25,6 +26,7 @@
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -36,6 +38,7 @@
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -47,6 +50,7 @@
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -58,6 +62,7 @@
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -69,6 +74,7 @@
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -80,6 +86,7 @@
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 		}
 
 		"modify:entity"

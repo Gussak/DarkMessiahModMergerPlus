@@ -1393,7 +1393,8 @@
 			"classname" "npc_necromancer_lord"
 			"model" "models/NPC/Necromancer/Npc_necromancer.mdl"
 			"additionalequipment" "weapon_mm_staff_combat"
-			"spawnflags"  "142"
+			"spawnflags"  "270"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -1405,7 +1406,8 @@
 			"classname" "npc_necromancer_lord"
 			"model" "models/NPC/Necromancer/Npc_necromancer.mdl"
 			"additionalequipment" "weapon_mm_staff_combat"
-			"spawnflags"  "142"
+			"spawnflags"  "270"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -1417,7 +1419,8 @@
 			"classname" "npc_necromancer_lord"
 			"model" "models/NPC/Necromancer/Npc_necromancer.mdl"
 			"additionalequipment" "weapon_mm_staff_combat"
-			"spawnflags"  "142"
+			"spawnflags"  "270"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -1429,7 +1432,8 @@
 			"classname" "npc_necromancer_lord"
 			"model" "models/NPC/Necromancer/Npc_necromancer.mdl"
 			"additionalequipment" "weapon_mm_staff_combat"
-			"spawnflags"  "142"
+			"spawnflags"  "270"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -1444,6 +1448,7 @@
 			"spawnflags"  "16390"
 			"UnburrowRadius" "200"
 			"UnburrowChanceOverride" "1.0"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -1458,6 +1463,7 @@
 			"spawnflags"  "16390"
 			"UnburrowRadius" "200"
 			"UnburrowChanceOverride" "1.0"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -1472,6 +1478,7 @@
 			"spawnflags"  "16390"
 			"UnburrowRadius" "200"
 			"UnburrowChanceOverride" "1.0"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -1486,6 +1493,7 @@
 			"spawnflags"  "16390"
 			"UnburrowRadius" "200"
 			"UnburrowChanceOverride" "1.0"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -1500,6 +1508,7 @@
 			"spawnflags"  "16390"
 			"UnburrowRadius" "200"
 			"UnburrowChanceOverride" "1.0"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -1514,6 +1523,7 @@
 			"spawnflags"  "16390"
 			"UnburrowRadius" "200"
 			"UnburrowChanceOverride" "1.0"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -1526,7 +1536,8 @@
 			"model" "models/npc/Necroguard/npc_necroguard.mdl"
 			"additionalequipment"	"weapon_arx_short_sword"
 			"additionalshield" "weapon_mm_shield_necroguard"
-			"spawnflags"  "142"
+			"spawnflags"  "270"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -1539,7 +1550,8 @@
 			"model" "models/npc/Necroguard/npc_necroguard.mdl"
 			"additionalequipment"	"weapon_arx_short_sword"
 			"additionalshield" "weapon_mm_shield_necroguard"
-			"spawnflags"  "142"
+			"spawnflags"  "270"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -1552,7 +1564,8 @@
 			"model" "models/npc/Necroguard/npc_necroguard.mdl"
 			"additionalequipment"	"weapon_arx_short_sword"
 			"additionalshield" "weapon_mm_shield_necroguard"
-			"spawnflags"  "142"
+			"spawnflags"  "270"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -1565,7 +1578,8 @@
 			"model" "models/npc/Necroguard/npc_necroguard.mdl"
 			"additionalequipment"	"weapon_arx_short_sword"
 			"additionalshield" "weapon_mm_shield_necroguard"
-			"spawnflags"  "142"
+			"spawnflags"  "270"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -1578,7 +1592,8 @@
 			"model" "models/npc/Necroguard/npc_necroguard.mdl"
 			"additionalequipment"	"weapon_arx_short_sword"
 			"additionalshield" "weapon_mm_shield_necroguard"
-			"spawnflags"  "142"
+			"spawnflags"  "270"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -1591,7 +1606,8 @@
 			"model" "models/npc/Necroguard/npc_necroguard.mdl"
 			"additionalequipment"	"weapon_arx_short_sword"
 			"additionalshield" "weapon_mm_shield_necroguard"
-			"spawnflags"  "142"
+			"spawnflags"  "270"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -1604,7 +1620,8 @@
 			"model" "models/npc/Necroguard/npc_necroguard.mdl"
 			"additionalequipment"	"weapon_arx_short_sword"
 			"additionalshield" "weapon_mm_shield_necroguard"
-			"spawnflags"  "142"
+			"spawnflags"  "270"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -1617,7 +1634,8 @@
 			"model" "models/npc/Necroguard/npc_necroguard.mdl"
 			"additionalequipment"	"weapon_arx_short_sword"
 			"additionalshield" "weapon_mm_shield_necroguard"
-			"spawnflags"  "142"
+			"spawnflags"  "270"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -1632,7 +1650,8 @@
 			"rangeweapon" "weapon_arxcrossbow"
 			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
 			"QuiverAmmo" "12"
-			"spawnflags"  "134"
+			"spawnflags"  "262"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -1647,7 +1666,8 @@
 			"rangeweapon" "weapon_arxcrossbow"
 			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
 			"QuiverAmmo" "12"
-			"spawnflags"  "134"
+			"spawnflags"  "262"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -1662,7 +1682,8 @@
 			"rangeweapon" "weapon_arxcrossbow"
 			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
 			"QuiverAmmo" "12"
-			"spawnflags"  "134"
+			"spawnflags"  "262"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -1677,7 +1698,8 @@
 			"rangeweapon" "weapon_arxcrossbow"
 			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
 			"QuiverAmmo" "12"
-			"spawnflags"  "134"
+			"spawnflags"  "262"
+			"sleepstate" "0"
 		}
 
 		"modify:entity"

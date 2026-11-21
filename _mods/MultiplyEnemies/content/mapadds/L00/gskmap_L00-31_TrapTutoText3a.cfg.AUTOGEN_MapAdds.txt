@@ -18,6 +18,7 @@
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
 			
+			"sleepstate" "0"
 			"origin"      "-688 -2541 395"
 		}
 		"add:entity"
@@ -34,6 +35,7 @@
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
 			
+			"sleepstate" "0"
 			"origin"      "-676 -2512 393"
 		}
 		"add:entity"
@@ -50,6 +52,7 @@
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
 			
+			"sleepstate" "0"
 			"origin"      "-647 -2507 393"
 		}
 		"add:entity"
@@ -66,6 +69,7 @@
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
 			
+			"sleepstate" "0"
 			"origin"      "-618 -2512 393"
 		}
 		"add:entity"
@@ -82,6 +86,7 @@
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
 			
+			"sleepstate" "0"
 			"origin"      "-606 -2543 393"
 		}
 		"add:entity"
@@ -98,6 +103,7 @@
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
 			
+			"sleepstate" "0"
 			"origin"      "-628 -2542 393"
 		}
 		"add:entity"
@@ -114,6 +120,7 @@
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
 			
+			"sleepstate" "0"
 			"origin"      "-654 -2541 393"
 		}
 		"add:entity"
@@ -130,6 +137,7 @@
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
 			
+			"sleepstate" "0"
 			"origin"      "-671 -2567 393"
 		}
 		"add:entity"
@@ -146,6 +154,7 @@
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
 			
+			"sleepstate" "0"
 			"origin"      "-640 -2570 393"
 		}
 		"add:entity"
@@ -162,6 +171,7 @@
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
 			
+			"sleepstate" "0"
 			"origin"      "-611 -2570 393"
 		}
 		"add:entity"
@@ -178,6 +188,7 @@
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
 			
+			"sleepstate" "0"
 			"origin"      "-695 -2569 395"
 		}
 		"add:entity"
@@ -194,6 +205,7 @@
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
 			
+			"sleepstate" "0"
 			"origin"      "-648 -2596 393"
 		}
 

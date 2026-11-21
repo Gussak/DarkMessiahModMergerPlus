@@ -14,6 +14,7 @@
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "459 -2707 -83"
 		}
 		"add:entity"
@@ -26,6 +27,7 @@
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "-414 -2713 209"
 		}
 		"add:entity"
@@ -38,6 +40,7 @@
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "405 -2399 577"
 		}
 		"add:entity"
@@ -1070,6 +1073,7 @@
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "45 -2700 124"
 		}
 		"add:entity"
@@ -1082,6 +1086,7 @@
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "-25 -2551 114"
 		}
 		"add:entity"
@@ -1094,6 +1099,7 @@
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "57 -2363 83"
 		}
 		"add:entity"
@@ -1106,6 +1112,7 @@
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "207 -2328 -7"
 		}
 		"add:entity"
@@ -1118,6 +1125,7 @@
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "364 -2388 -97"
 		}
 		"add:entity"
@@ -1130,6 +1138,7 @@
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "285 -2569 -48"
 		}
 		"add:entity"
@@ -1142,6 +1151,7 @@
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "339 -2711 -44"
 		}
 		"add:entity"
@@ -1154,6 +1164,7 @@
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "125 -2480 26"
 		}
 		"add:entity"
@@ -1166,6 +1177,7 @@
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "135 -2614 48"
 		}
 		"add:entity"
@@ -1178,6 +1190,7 @@
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "-398 -2727 210"
 		}
 		"add:entity"
@@ -1581,6 +1594,7 @@
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "943 -1876 216"
 		}
 		"add:entity"
@@ -1593,6 +1607,7 @@
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "835 -1922 218"
 		}
 		"add:entity"
@@ -1605,6 +1620,7 @@
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "667 -1809 140"
 		}
 		"add:entity"
@@ -2437,6 +2453,7 @@
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -2448,6 +2465,7 @@
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -2459,6 +2477,7 @@
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -2470,6 +2489,7 @@
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -2481,6 +2501,7 @@
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -2492,6 +2513,7 @@
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -2503,6 +2525,7 @@
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -2514,6 +2537,7 @@
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 		}
 		"add:entity"
 		{
@@ -2525,6 +2549,7 @@
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "-749 -2636 200"
 		}
 		"add:entity"
@@ -2537,6 +2562,7 @@
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "-145 -2305 210"
 		}
 		"add:entity"
@@ -2549,6 +2575,7 @@
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
 			"spawnflags"  "6"
+			"sleepstate" "0"
 			"origin"      "-21 -2769 167"
 		}
 		"add:entity"
