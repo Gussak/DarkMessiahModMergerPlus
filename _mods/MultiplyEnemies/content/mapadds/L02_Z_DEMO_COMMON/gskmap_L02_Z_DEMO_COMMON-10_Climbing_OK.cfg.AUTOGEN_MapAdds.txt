@@ -6,67 +6,67 @@
 
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_000"  //gskSummonSpiderRegular
+			"targetname"  "gskSpawn_10_Climbing_OK_000"  //gskSummonSpiderRegular
 			"origin"      "9238 988 -771"
 			"angles"      "52 -109 -0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"origin"      "9238 988 -764"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_001"  //gskSummonSpiderMini
+			"targetname"  "gskSpawn_10_Climbing_OK_001"  //gskSummonSpiderMini
 			"origin"      "10027 -290 -374"
 			"angles"      "52 -146 -0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"origin"      "10027 -290 -369"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_002"  //gskSummonSpiderMini
+			"targetname"  "gskSpawn_10_Climbing_OK_002"  //gskSummonSpiderMini
 			"origin"      "9952 -223 -382"
 			"angles"      "43 -84 0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"origin"      "9952 -223 -377"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_003"  //gskSummonSpiderMini
+			"targetname"  "gskSpawn_10_Climbing_OK_003"  //gskSummonSpiderMini
 			"origin"      "9944 -271 -368"
 			"angles"      "47 -98 -0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"origin"      "9944 -271 -363"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_004"  //gskSummonSpiderRegular
+			"targetname"  "gskSpawn_10_Climbing_OK_004"  //gskSummonSpiderRegular
 			"origin"      "8821 -2119 -369"
 			"angles"      "81 95 -0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"origin"      "8821 -2119 -362"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_005"  //gskSummonNecroGuardBow
+			"targetname"  "gskSpawn_10_Climbing_OK_005"  //gskSummonNecroGuardBow
 			"origin"      "8064 -255 -115"
 			"angles"      "67 165 -0"
 			"physdamagescale" "1.0"
@@ -77,11 +77,11 @@
 			"rangeweapon" "weapon_arxcrossbow"
 			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
 			"QuiverAmmo" "12"
-			"spawnflags"  "135"
+			"spawnflags"  "134"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_006"  //gskSummonNecroGuardBow
+			"targetname"  "gskSpawn_10_Climbing_OK_006"  //gskSummonNecroGuardBow
 			"origin"      "8035 -302 -119"
 			"angles"      "67 131 -0"
 			"physdamagescale" "1.0"
@@ -92,11 +92,11 @@
 			"rangeweapon" "weapon_arxcrossbow"
 			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
 			"QuiverAmmo" "12"
-			"spawnflags"  "135"
+			"spawnflags"  "134"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_007"  //gskSummonNecroGuardBow
+			"targetname"  "gskSpawn_10_Climbing_OK_007"  //gskSummonNecroGuardBow
 			"origin"      "7991 -328 -122"
 			"angles"      "66 100 -0"
 			"physdamagescale" "1.0"
@@ -107,11 +107,11 @@
 			"rangeweapon" "weapon_arxcrossbow"
 			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
 			"QuiverAmmo" "12"
-			"spawnflags"  "135"
+			"spawnflags"  "134"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_008"  //gskSummonNecroGuardBow
+			"targetname"  "gskSpawn_10_Climbing_OK_008"  //gskSummonNecroGuardBow
 			"origin"      "8076 -206 -113"
 			"angles"      "64 -167 -0"
 			"physdamagescale" "1.0"
@@ -122,11 +122,11 @@
 			"rangeweapon" "weapon_arxcrossbow"
 			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
 			"QuiverAmmo" "12"
-			"spawnflags"  "135"
+			"spawnflags"  "134"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_009"  //gskSummonNecroGuardBow
+			"targetname"  "gskSpawn_10_Climbing_OK_009"  //gskSummonNecroGuardBow
 			"origin"      "8061 -154 -111"
 			"angles"      "61 -139 -0"
 			"physdamagescale" "1.0"
@@ -137,11 +137,11 @@
 			"rangeweapon" "weapon_arxcrossbow"
 			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
 			"QuiverAmmo" "12"
-			"spawnflags"  "135"
+			"spawnflags"  "134"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_010"  //gskSummonNecroGuardBow
+			"targetname"  "gskSpawn_10_Climbing_OK_010"  //gskSummonNecroGuardBow
 			"origin"      "8028 -162 -112"
 			"angles"      "68 -129 -0"
 			"physdamagescale" "1.0"
@@ -152,11 +152,11 @@
 			"rangeweapon" "weapon_arxcrossbow"
 			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
 			"QuiverAmmo" "12"
-			"spawnflags"  "135"
+			"spawnflags"  "134"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_011"  //gskSummonNecromancer
+			"targetname"  "gskSpawn_10_Climbing_OK_011"  //gskSummonNecromancer
 			"origin"      "8166 122 -122"
 			"angles"      "56 38 -0"
 			"physdamagescale" "1.0"
@@ -164,11 +164,11 @@
 			"classname" "npc_necromancer_lord"
 			"model" "models/NPC/Necromancer/Npc_necromancer.mdl"
 			"additionalequipment" "weapon_mm_staff_combat"
-			"spawnflags"  "143"
+			"spawnflags"  "142"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_012"  //gskSummonUndead
+			"targetname"  "gskSpawn_10_Climbing_OK_012"  //gskSummonUndead
 			"origin"      "8214 55 -123"
 			"angles"      "45 95 -0"
 			"physdamagescale" "1.0"
@@ -176,13 +176,13 @@
 			"classname" "npc_undead"
 			"model" "models/NPC/Undead/Npc_undead.mdl"
 			"SmellRadius" "300"
-			"spawnflags"  "16391"
+			"spawnflags"  "16390"
 			"UnburrowRadius" "200"
 			"UnburrowChanceOverride" "1.0"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_013"  //gskSummonUndead
+			"targetname"  "gskSpawn_10_Climbing_OK_013"  //gskSummonUndead
 			"origin"      "8243 117 -128"
 			"angles"      "61 124 -0"
 			"physdamagescale" "1.0"
@@ -190,13 +190,13 @@
 			"classname" "npc_undead"
 			"model" "models/NPC/Undead/Npc_undead.mdl"
 			"SmellRadius" "300"
-			"spawnflags"  "16391"
+			"spawnflags"  "16390"
 			"UnburrowRadius" "200"
 			"UnburrowChanceOverride" "1.0"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_014"  //gskSummonUndead
+			"targetname"  "gskSpawn_10_Climbing_OK_014"  //gskSummonUndead
 			"origin"      "8203 102 -124"
 			"angles"      "59 90 -0"
 			"physdamagescale" "1.0"
@@ -204,289 +204,289 @@
 			"classname" "npc_undead"
 			"model" "models/NPC/Undead/Npc_undead.mdl"
 			"SmellRadius" "300"
-			"spawnflags"  "16391"
+			"spawnflags"  "16390"
 			"UnburrowRadius" "200"
 			"UnburrowChanceOverride" "1.0"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_015"  //gskSummonSpiderMini
+			"targetname"  "gskSpawn_10_Climbing_OK_015"  //gskSummonSpiderMini
 			"origin"      "9275 866 -752"
 			"angles"      "57 177 -0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"origin"      "9275 866 -747"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_016"  //gskSummonSpiderMini
+			"targetname"  "gskSpawn_10_Climbing_OK_016"  //gskSummonSpiderMini
 			"origin"      "9178 710 -737"
 			"angles"      "49 95 -0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"origin"      "9178 710 -732"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_017"  //gskSummonSpiderMini
+			"targetname"  "gskSpawn_10_Climbing_OK_017"  //gskSummonSpiderMini
 			"origin"      "9352 768 -743"
 			"angles"      "41 -162 0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"origin"      "9352 768 -738"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_018"  //gskSummonSpiderMini
+			"targetname"  "gskSpawn_10_Climbing_OK_018"  //gskSummonSpiderMini
 			"origin"      "9330 807 -752"
 			"angles"      "41 -145 0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"origin"      "9330 807 -747"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_019"  //gskSummonSpiderMini
+			"targetname"  "gskSpawn_10_Climbing_OK_019"  //gskSummonSpiderMini
 			"origin"      "9379 812 -746"
 			"angles"      "30 -154 0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"origin"      "9379 812 -741"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_020"  //gskSummonSpiderMini
+			"targetname"  "gskSpawn_10_Climbing_OK_020"  //gskSummonSpiderMini
 			"origin"      "9320 776 -749"
 			"angles"      "47 -157 -0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"origin"      "9320 776 -744"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_021"  //gskSummonSpiderMini
+			"targetname"  "gskSpawn_10_Climbing_OK_021"  //gskSummonSpiderMini
 			"origin"      "9349 1062 -754"
 			"angles"      "27 139 0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"origin"      "9349 1062 -749"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_022"  //gskSummonSpiderMini
+			"targetname"  "gskSpawn_10_Climbing_OK_022"  //gskSummonSpiderMini
 			"origin"      "9348 1094 -761"
 			"angles"      "31 147 0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"origin"      "9348 1094 -756"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_023"  //gskSummonSpiderMini
+			"targetname"  "gskSpawn_10_Climbing_OK_023"  //gskSummonSpiderMini
 			"origin"      "9308 1095 -775"
 			"angles"      "41 138 0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"origin"      "9308 1095 -770"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_024"  //gskSummonSpiderMini
+			"targetname"  "gskSpawn_10_Climbing_OK_024"  //gskSummonSpiderMini
 			"origin"      "9512 -38 -564"
 			"angles"      "44 42 0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"origin"      "9512 -38 -559"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_025"  //gskSummonSpiderMini
+			"targetname"  "gskSpawn_10_Climbing_OK_025"  //gskSummonSpiderMini
 			"origin"      "9511 -11 -571"
 			"angles"      "44 72 0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"origin"      "9511 -11 -566"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_026"  //gskSummonSpiderMini
+			"targetname"  "gskSpawn_10_Climbing_OK_026"  //gskSummonSpiderMini
 			"origin"      "9848 427 -595"
 			"angles"      "28 168 0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"origin"      "9848 427 -590"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_027"  //gskSummonSpiderMini
+			"targetname"  "gskSpawn_10_Climbing_OK_027"  //gskSummonSpiderMini
 			"origin"      "9847 504 -624"
 			"angles"      "35 -166 0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"origin"      "9847 504 -619"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_028"  //gskSummonSpiderMini
+			"targetname"  "gskSpawn_10_Climbing_OK_028"  //gskSummonSpiderMini
 			"origin"      "9793 488 -632"
 			"angles"      "49 -167 -0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"origin"      "9793 488 -627"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_029"  //gskSummonSpiderMini
+			"targetname"  "gskSpawn_10_Climbing_OK_029"  //gskSummonSpiderMini
 			"origin"      "9764 517 -644"
 			"angles"      "56 -146 -0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"origin"      "9764 517 -639"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_030"  //gskSummonSpiderMini
+			"targetname"  "gskSpawn_10_Climbing_OK_030"  //gskSummonSpiderMini
 			"origin"      "9667 -1479 -394"
 			"angles"      "31 -2 0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"origin"      "9667 -1479 -389"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_031"  //gskSummonSpiderMini
+			"targetname"  "gskSpawn_10_Climbing_OK_031"  //gskSummonSpiderMini
 			"origin"      "9713 -1441 -402"
 			"angles"      "44 -26 0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"origin"      "9713 -1441 -397"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_032"  //gskSummonSpiderMini
+			"targetname"  "gskSpawn_10_Climbing_OK_032"  //gskSummonSpiderMini
 			"origin"      "9358 -1685 -378"
 			"angles"      "31 -50 0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"origin"      "9358 -1685 -373"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_033"  //gskSummonSpiderMini
+			"targetname"  "gskSpawn_10_Climbing_OK_033"  //gskSummonSpiderMini
 			"origin"      "9315 -1716 -387"
 			"angles"      "31 -27 0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"origin"      "9315 -1716 -382"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_034"  //gskSummonSpiderMini
+			"targetname"  "gskSpawn_10_Climbing_OK_034"  //gskSummonSpiderMini
 			"origin"      "8521 -1745 -391"
 			"angles"      "39 -38 0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"origin"      "8521 -1745 -386"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_035"  //gskSummonSpiderMini
+			"targetname"  "gskSpawn_10_Climbing_OK_035"  //gskSummonSpiderMini
 			"origin"      "8552 -1800 -385"
 			"angles"      "48 -28 -0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"origin"      "8552 -1800 -380"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_036"  //gskSummonSpiderMini
+			"targetname"  "gskSpawn_10_Climbing_OK_036"  //gskSummonSpiderMini
 			"origin"      "9393 -246 -1179"
 			"angles"      "46 78 -0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"origin"      "9393 -246 -1174"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_037"  //gskSummonSpiderMini
+			"targetname"  "gskSpawn_10_Climbing_OK_037"  //gskSummonSpiderMini
 			"origin"      "9491 -87 -1145"
 			"angles"      "42 -164 0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"origin"      "9491 -87 -1140"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_038"  //+gskSummonNecromancerLord
+			"targetname"  "gskSpawn_10_Climbing_OK_038"  //+gskSummonNecromancerLord
 			"origin"      "7401 -428 -80"
 			"angles"      "53 48 -0"
 			"physdamagescale" "1.0"
@@ -494,11 +494,11 @@
 			"classname" "npc_necromancer_lord"
 			"model" "models/NPC/necromancer_lord/npc_necromancer_lord.mdl"
 			"additionalequipment" "weapon_mm_hook"
-			"spawnflags"  "143"
+			"spawnflags"  "142"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_039"  //gskSummonUndead
+			"targetname"  "gskSpawn_10_Climbing_OK_039"  //gskSummonUndead
 			"origin"      "7547 -294 -88"
 			"angles"      "40 -94 0"
 			"physdamagescale" "1.0"
@@ -506,13 +506,13 @@
 			"classname" "npc_undead"
 			"model" "models/NPC/Undead/Npc_undead.mdl"
 			"SmellRadius" "300"
-			"spawnflags"  "16391"
+			"spawnflags"  "16390"
 			"UnburrowRadius" "200"
 			"UnburrowChanceOverride" "1.0"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_040"  //gskSummonUndead
+			"targetname"  "gskSpawn_10_Climbing_OK_040"  //gskSummonUndead
 			"origin"      "7502 -326 -83"
 			"angles"      "45 -66 -0"
 			"physdamagescale" "1.0"
@@ -520,13 +520,13 @@
 			"classname" "npc_undead"
 			"model" "models/NPC/Undead/Npc_undead.mdl"
 			"SmellRadius" "300"
-			"spawnflags"  "16391"
+			"spawnflags"  "16390"
 			"UnburrowRadius" "200"
 			"UnburrowChanceOverride" "1.0"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_041"  //gskSummonUndead
+			"targetname"  "gskSpawn_10_Climbing_OK_041"  //gskSummonUndead
 			"origin"      "7463 -353 -81"
 			"angles"      "43 -38 0"
 			"physdamagescale" "1.0"
@@ -534,13 +534,13 @@
 			"classname" "npc_undead"
 			"model" "models/NPC/Undead/Npc_undead.mdl"
 			"SmellRadius" "300"
-			"spawnflags"  "16391"
+			"spawnflags"  "16390"
 			"UnburrowRadius" "200"
 			"UnburrowChanceOverride" "1.0"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_042"  //gskSummonUndead
+			"targetname"  "gskSpawn_10_Climbing_OK_042"  //gskSummonUndead
 			"origin"      "7448 -384 -82"
 			"angles"      "44 -17 0"
 			"physdamagescale" "1.0"
@@ -548,13 +548,13 @@
 			"classname" "npc_undead"
 			"model" "models/NPC/Undead/Npc_undead.mdl"
 			"SmellRadius" "300"
-			"spawnflags"  "16391"
+			"spawnflags"  "16390"
 			"UnburrowRadius" "200"
 			"UnburrowChanceOverride" "1.0"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_043"  //gskSummonUndead
+			"targetname"  "gskSpawn_10_Climbing_OK_043"  //gskSummonUndead
 			"origin"      "7429 -411 -83"
 			"angles"      "40 -1 0"
 			"physdamagescale" "1.0"
@@ -562,109 +562,109 @@
 			"classname" "npc_undead"
 			"model" "models/NPC/Undead/Npc_undead.mdl"
 			"SmellRadius" "300"
-			"spawnflags"  "16391"
+			"spawnflags"  "16390"
 			"UnburrowRadius" "200"
 			"UnburrowChanceOverride" "1.0"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_044"  //gskSummonSpiderRegular
+			"targetname"  "gskSpawn_10_Climbing_OK_044"  //gskSummonSpiderRegular
 			"origin"      "6077 -775 33"
 			"angles"      "51 87 -0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"origin"      "6077 -775 40"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_045"  //gskSummonSpiderRegular
+			"targetname"  "gskSpawn_10_Climbing_OK_045"  //gskSummonSpiderRegular
 			"origin"      "6411 -688 5"
 			"angles"      "60 -106 -0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"origin"      "6411 -688 12"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_046"  //gskSummonSpiderMini
+			"targetname"  "gskSpawn_10_Climbing_OK_046"  //gskSummonSpiderMini
 			"origin"      "6706 -782 -45"
 			"angles"      "49 156 -0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"origin"      "6706 -782 -40"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_047"  //gskSummonSpiderMini
+			"targetname"  "gskSpawn_10_Climbing_OK_047"  //gskSummonSpiderMini
 			"origin"      "6768 -743 -62"
 			"angles"      "41 179 0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"origin"      "6768 -743 -57"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_048"  //gskSummonSpiderMini
+			"targetname"  "gskSpawn_10_Climbing_OK_048"  //gskSummonSpiderMini
 			"origin"      "7093 -825 -95"
 			"angles"      "43 146 0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"origin"      "7093 -825 -90"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_049"  //gskSummonSpiderMini
+			"targetname"  "gskSpawn_10_Climbing_OK_049"  //gskSummonSpiderMini
 			"origin"      "7107 -789 -101"
 			"angles"      "45 158 -0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"origin"      "7107 -789 -96"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_050"  //gskSummonSpiderMini
+			"targetname"  "gskSpawn_10_Climbing_OK_050"  //gskSummonSpiderMini
 			"origin"      "7104 -653 -88"
 			"angles"      "45 -162 -0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"origin"      "7104 -653 -83"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_051"  //gskSummonSpiderMini
+			"targetname"  "gskSpawn_10_Climbing_OK_051"  //gskSummonSpiderMini
 			"origin"      "5751 -680 64"
 			"angles"      "44 -135 0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_mini"
 			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "6"
 			"origin"      "5751 -680 69"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_052"  //gskSummonDevArrow
+			"targetname"  "gskSpawn_10_Climbing_OK_052"  //gskSummonDevArrow
 			"origin"      "9894 -439 -376"
 			"angles"      "44 52 -0"
 			"physdamagescale" "1.0"
@@ -695,7 +695,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_053"  //gskSummonDevArrow
+			"targetname"  "gskSpawn_10_Climbing_OK_053"  //gskSummonDevArrow
 			"origin"      "9885 -402 -376"
 			"angles"      "49 35 -0"
 			"physdamagescale" "1.0"
@@ -726,7 +726,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_054"  //gskSummonDevArrow
+			"targetname"  "gskSpawn_10_Climbing_OK_054"  //gskSummonDevArrow
 			"origin"      "9920 -410 -377"
 			"angles"      "55 53 -0"
 			"physdamagescale" "1.0"
@@ -757,7 +757,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_01_Climbing_OK_055"  //gskSummonDevArrow
+			"targetname"  "gskSpawn_10_Climbing_OK_055"  //gskSummonDevArrow
 			"origin"      "9953 -426 -377"
 			"angles"      "55 76 -0"
 			"physdamagescale" "1.0"
@@ -788,13 +788,381 @@
 		}
 //		"add:entity"
 //		{
-//			"targetname"  "gskSpawn_01_Climbing_OK_056"  //gskSummonWeaponBow
+//			"targetname"  "gskSpawn_10_Climbing_OK_056"  //gskSummonWeaponBow
 //			"origin"      "9920 -365 -376"
 //			"angles"      "66 26 -0"
 //			"physdamagescale" "1.0"
 //			"radiusforrandomattitude" "500"
-//			"targetname"   "gskSpawn_01_Climbing_OK_056_TODO_FixMissingSupportFor_gskSummonWeaponBow"
+//			"classname" "prop_physics"
+//			"model" "models/Items/Weapons/Bow_classic/Bow_classic.mdl"
+//			"spawnflags"  "256"
+//			"origin"      "9920 -365 -366"
+//			"targetname"  "IGNORED_UnnecessaryAsPlayerCanSummon"
 //		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_10_Climbing_OK_057"  //gskSummonUndead
+			"origin"      "7239 -823 -104"
+			"angles"      "66 96 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"SmellRadius" "300"
+			"spawnflags"  "16390"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_10_Climbing_OK_058"  //gskSummonUndead
+			"origin"      "7285 -813 -110"
+			"angles"      "66 120 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"SmellRadius" "300"
+			"spawnflags"  "16390"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_10_Climbing_OK_059"  //gskSummonUndead
+			"origin"      "7318 -778 -115"
+			"angles"      "67 144 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"SmellRadius" "300"
+			"spawnflags"  "16390"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_10_Climbing_OK_060"  //gskSummonUndead
+			"origin"      "7337 -735 -116"
+			"angles"      "67 168 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"SmellRadius" "300"
+			"spawnflags"  "16390"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_10_Climbing_OK_061"  //gskSummonUndead
+			"origin"      "7337 -697 -111"
+			"angles"      "67 -173 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"SmellRadius" "300"
+			"spawnflags"  "16390"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_10_Climbing_OK_062"  //gskSummonUndead
+			"origin"      "7317 -664 -77"
+			"angles"      "66 -152 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"SmellRadius" "300"
+			"spawnflags"  "16390"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_10_Climbing_OK_063"  //gskSummonUndead
+			"origin"      "7269 -600 -88"
+			"angles"      "51 -88 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_undead"
+			"model" "models/NPC/Undead/Npc_undead.mdl"
+			"SmellRadius" "300"
+			"spawnflags"  "16390"
+			"UnburrowRadius" "200"
+			"UnburrowChanceOverride" "1.0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"3525157"
+			}
+			"add:key"
+			{
+				"OnTrigger" "gskSpawn_10_Climbing_OK_BeginAt000,ForceSpawn,,0.000,-1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_10_Climbing_OK_BeginAt000"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_10_Climbing_OK_BeginAt000"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_10_Climbing_OK_000"
+
+				"Template02" "gskSpawn_10_Climbing_OK_001"
+
+				"Template03" "gskSpawn_10_Climbing_OK_002"
+
+				"Template04" "gskSpawn_10_Climbing_OK_003"
+
+				"Template05" "gskSpawn_10_Climbing_OK_004"
+
+				"Template06" "gskSpawn_10_Climbing_OK_005"
+
+				"Template07" "gskSpawn_10_Climbing_OK_006"
+
+				"Template08" "gskSpawn_10_Climbing_OK_007"
+
+				"Template09" "gskSpawn_10_Climbing_OK_008"
+
+				"Template10" "gskSpawn_10_Climbing_OK_009"
+
+				"Template11" "gskSpawn_10_Climbing_OK_010"
+
+				"Template12" "gskSpawn_10_Climbing_OK_011"
+
+				"Template13" "gskSpawn_10_Climbing_OK_012"
+
+				"Template14" "gskSpawn_10_Climbing_OK_013"
+
+				"Template15" "gskSpawn_10_Climbing_OK_014"
+
+				"Template16" "gskSpawn_10_Climbing_OK_015"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"3525157"
+			}
+			"add:key"
+			{
+				"OnTrigger" "gskSpawn_10_Climbing_OK_BeginAt016,ForceSpawn,,0.000,-1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_10_Climbing_OK_BeginAt016"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_10_Climbing_OK_BeginAt016"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_10_Climbing_OK_016"
+
+				"Template02" "gskSpawn_10_Climbing_OK_017"
+
+				"Template03" "gskSpawn_10_Climbing_OK_018"
+
+				"Template04" "gskSpawn_10_Climbing_OK_019"
+
+				"Template05" "gskSpawn_10_Climbing_OK_020"
+
+				"Template06" "gskSpawn_10_Climbing_OK_021"
+
+				"Template07" "gskSpawn_10_Climbing_OK_022"
+
+				"Template08" "gskSpawn_10_Climbing_OK_023"
+
+				"Template09" "gskSpawn_10_Climbing_OK_024"
+
+				"Template10" "gskSpawn_10_Climbing_OK_025"
+
+				"Template11" "gskSpawn_10_Climbing_OK_026"
+
+				"Template12" "gskSpawn_10_Climbing_OK_027"
+
+				"Template13" "gskSpawn_10_Climbing_OK_028"
+
+				"Template14" "gskSpawn_10_Climbing_OK_029"
+
+				"Template15" "gskSpawn_10_Climbing_OK_030"
+
+				"Template16" "gskSpawn_10_Climbing_OK_031"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"3525157"
+			}
+			"add:key"
+			{
+				"OnTrigger" "gskSpawn_10_Climbing_OK_BeginAt032,ForceSpawn,,0.000,-1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_10_Climbing_OK_BeginAt032"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_10_Climbing_OK_BeginAt032"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_10_Climbing_OK_032"
+
+				"Template02" "gskSpawn_10_Climbing_OK_033"
+
+				"Template03" "gskSpawn_10_Climbing_OK_034"
+
+				"Template04" "gskSpawn_10_Climbing_OK_035"
+
+				"Template05" "gskSpawn_10_Climbing_OK_036"
+
+				"Template06" "gskSpawn_10_Climbing_OK_037"
+
+				"Template07" "gskSpawn_10_Climbing_OK_038"
+
+				"Template08" "gskSpawn_10_Climbing_OK_039"
+
+				"Template09" "gskSpawn_10_Climbing_OK_040"
+
+				"Template10" "gskSpawn_10_Climbing_OK_041"
+
+				"Template11" "gskSpawn_10_Climbing_OK_042"
+
+				"Template12" "gskSpawn_10_Climbing_OK_043"
+
+				"Template13" "gskSpawn_10_Climbing_OK_044"
+
+				"Template14" "gskSpawn_10_Climbing_OK_045"
+
+				"Template15" "gskSpawn_10_Climbing_OK_046"
+
+				"Template16" "gskSpawn_10_Climbing_OK_047"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"3525157"
+			}
+			"add:key"
+			{
+				"OnTrigger" "gskSpawn_10_Climbing_OK_BeginAt048,ForceSpawn,,0.000,-1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_10_Climbing_OK_BeginAt048"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_10_Climbing_OK_BeginAt048"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_10_Climbing_OK_048"
+
+				"Template02" "gskSpawn_10_Climbing_OK_049"
+
+				"Template03" "gskSpawn_10_Climbing_OK_050"
+
+				"Template04" "gskSpawn_10_Climbing_OK_051"
+
+				"Template05" "gskSpawn_10_Climbing_OK_052"
+
+				"Template06" "gskSpawn_10_Climbing_OK_053"
+
+				"Template07" "gskSpawn_10_Climbing_OK_054"
+
+				"Template08" "gskSpawn_10_Climbing_OK_055"
+
+				"Template09" "gskSpawn_10_Climbing_OK_057"
+
+				"Template10" "gskSpawn_10_Climbing_OK_058"
+
+				"Template11" "gskSpawn_10_Climbing_OK_059"
+
+				"Template12" "gskSpawn_10_Climbing_OK_060"
+
+				"Template13" "gskSpawn_10_Climbing_OK_061"
+
+				"Template14" "gskSpawn_10_Climbing_OK_062"
+
+				"Template15" "gskSpawn_10_Climbing_OK_063"
+
+			}
+		}
 
 	}
 }
