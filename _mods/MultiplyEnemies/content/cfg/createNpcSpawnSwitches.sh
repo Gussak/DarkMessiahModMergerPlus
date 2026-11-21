@@ -1125,6 +1125,11 @@ function FUNCmapadds() {
 			"fadescale" "1"
 			"spawnflags"  "'"$(FUNCspawnFlags OBJ)"'"' >>"$lstrFlAddTmp"
 			;;
+		"gskSummonSim"*"_stool01") #hack simulated spawn of special useful things, see below at `"gskSummon_"*)` as this is replacing a food item
+			echo '
+			"classname" "item_food_leek03"
+			"spawnflags"  "'"$(FUNCspawnFlags OBJ)"'"' >>"$lstrFlAddTmp"
+			;;
 		"gskSummonDevTrapFireSC") # SpellCaster # is messed...
 			lstrIgnore="MessedColliderBoxWontSpawn"
 			lnYDisplacement=10
