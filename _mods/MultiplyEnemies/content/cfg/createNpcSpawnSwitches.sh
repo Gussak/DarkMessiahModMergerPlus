@@ -1593,10 +1593,11 @@ if $bCreateSpawnsForCurrentMap;then
 	function FUNCgskOptions() {
 		local lstrOpt="$1";shift
 		local lstrOptDefaultValue="$1";shift
-		local lstrData="$(egrep "^${lstrOpt}" "${strFlCondump}" |egrep -v ForceSpawn|tail -n 1)"&&:
+		local lstrData="$(egrep "^${lstrOpt}\s" "${strFlCondump}" |egrep -v ForceSpawn|tail -n 1)"&&:
 		if [[ -n "$lstrData" ]];then
+			FUNCechoInfo "lstrData='$lstrData' lstrOpt='$lstrOpt' lstrOptDefaultValue='$lstrOptDefaultValue'" #declare -p lstrData >&2
 			echo "$lstrData" >>"$strFlCondumpCleanNew"
-			echo "$lstrData" |awk '{print $2}' #OUTPUT
+			echo "$lstrData" |awk '{print $2}' #OUTPUT custom value
 		else
 			echo "$lstrOptDefaultValue" #OUTPUT
 		fi
@@ -1611,7 +1612,7 @@ if $bCreateSpawnsForCurrentMap;then
 	fSpawnDelayIncrement="$(FUNCgskOptions "gskSpawnDelay" 0.0)"
 	bSpawnNpcsAwake="$(FUNCgskOptions "gskSpawnNpcsAwake" false)"
 	bAllowBurrow="$(FUNCgskOptions "gskSpawnBurrowAllowed" true)"
-	declare -p strFlCondump strFlCondumpClean strFlCondumpCleanNew strSpawnTriggerAtID strSpawnTriggerType fSpawnDelayInitial fSpawnDelayIncrement bSpawnNpcsAwake bAllowBurrow
+	declare -p strFlCondump strFlCondumpClean strFlCondumpCleanNew strSpawnTriggerAtID strSpawnTriggerType fSpawnDelayInitial fSpawnDelayIncrement bSpawnNpcsAwake bAllowBurrow >&2
 	#if egrep "^gskSpawnDelay" "$strFlCondump";then
 		#egrep "^gskSpawnDelay" "$strFlCondump" >>"$strFlCondumpCleanNew"
 		#fSpawnDelayIncrement="$(egrep "^gskSpawnDelay" "$strFlCondump" |awk '{print $2}')"
