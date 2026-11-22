@@ -1,0 +1,53 @@
+"mapadd_keyvalues"
+{
+	"PreInitialize"
+	{	
+		
+		//////////////////////////////////////////////////
+		// rope bow
+		"add:entity"
+		{
+			"classname" "weapon_arxcrossbowrope" //because it is fun to be able to use it tactically
+			"angles" "0 105 -90"
+			"combinability" "1"
+			"trapsecret" "0"
+			"combinetarget1enable" "1"
+			"combinetarget2enable" "1"
+			"combinetarget3enable" "1"
+			"combinetarget4enable" "1"
+			"combinetarget5enable" "1"
+			"combinetarget6enable" "1"
+			"combinetarget7enable" "1"
+			"combinetarget8enable" "1"
+			"combinetarget9enable" "1"
+			"combinetarget10enable" "1"
+			"removefrominventoryonlongload" "0"
+			"targetname" "rope_bow"
+			"spawnflags" "6"
+			"origin" "11475 -1343 -1419" //on secrect cave."9298 -1016 -1756"
+		}
+		"add:entity"
+		{
+			"classname" "weapon_arxcrossbowrope" //because it is fun to be able to use it tactically
+			"angles" "0 105 -90"
+			"combinability" "1"
+			"trapsecret" "0"
+			"combinetarget1enable" "1"
+			"combinetarget2enable" "1"
+			"combinetarget3enable" "1"
+			"combinetarget4enable" "1"
+			"combinetarget5enable" "1"
+			"combinetarget6enable" "1"
+			"combinetarget7enable" "1"
+			"combinetarget8enable" "1"
+			"combinetarget9enable" "1"
+			"combinetarget10enable" "1"
+			"removefrominventoryonlongload" "0"
+			"targetname" "rope_bow"
+			"spawnflags" "6"
+			"origin" "9298 -1016 -1756" //underwater
+		}
+		
+	}
+}
+
