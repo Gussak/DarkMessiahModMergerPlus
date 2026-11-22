@@ -821,7 +821,7 @@
 			}
 			"add:key"
 			{
-				"OnStartTouch" "gskSpawn_50_TopRooms_BeginAt000,ForceSpawn,,0.000,-1,1,"
+				"OnStartTouch" "gskSpawn_50_TopRooms_BeginAt000,ForceSpawn,,0.000,1,1,"
 			}
 		}
 		
@@ -888,7 +888,7 @@
 			}
 			"add:key"
 			{
-				"OnStartTouch" "gskSpawn_50_TopRooms_BeginAt016,ForceSpawn,,0.000,-1,1,"
+				"OnStartTouch" "gskSpawn_50_TopRooms_BeginAt016,ForceSpawn,,0.000,1,1,"
 			}
 		}
 		
@@ -955,7 +955,7 @@
 			}
 			"add:key"
 			{
-				"OnStartTouch" "gskSpawn_50_TopRooms_BeginAt032,ForceSpawn,,0.000,-1,1,"
+				"OnStartTouch" "gskSpawn_50_TopRooms_BeginAt032,ForceSpawn,,0.000,1,1,"
 			}
 		}
 		
@@ -1022,7 +1022,7 @@
 			}
 			"add:key"
 			{
-				"OnStartTouch" "gskSpawn_50_TopRooms_BeginAt048,ForceSpawn,,0.000,-1,1,"
+				"OnStartTouch" "gskSpawn_50_TopRooms_BeginAt048,ForceSpawn,,0.000,1,1,"
 			}
 		}
 		

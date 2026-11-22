@@ -959,7 +959,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt000,ForceSpawn,,0.200,-1,1,"
+				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt000,ForceSpawn,,0.200,1,1,"
 			}
 		}
 		
@@ -996,7 +996,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt001,ForceSpawn,,0.400,-1,1,"
+				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt001,ForceSpawn,,0.400,1,1,"
 			}
 		}
 		
@@ -1033,7 +1033,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt002,ForceSpawn,,0.600,-1,1,"
+				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt002,ForceSpawn,,0.600,1,1,"
 			}
 		}
 		
@@ -1070,7 +1070,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt003,ForceSpawn,,0.800,-1,1,"
+				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt003,ForceSpawn,,0.800,1,1,"
 			}
 		}
 		
@@ -1107,7 +1107,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt004,ForceSpawn,,1.000,-1,1,"
+				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt004,ForceSpawn,,1.000,1,1,"
 			}
 		}
 		
@@ -1144,7 +1144,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt005,ForceSpawn,,1.200,-1,1,"
+				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt005,ForceSpawn,,1.200,1,1,"
 			}
 		}
 		
@@ -1181,7 +1181,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt006,ForceSpawn,,1.400,-1,1,"
+				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt006,ForceSpawn,,1.400,1,1,"
 			}
 		}
 		
@@ -1218,7 +1218,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt007,ForceSpawn,,1.600,-1,1,"
+				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt007,ForceSpawn,,1.600,1,1,"
 			}
 		}
 		
@@ -1255,7 +1255,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt008,ForceSpawn,,1.800,-1,1,"
+				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt008,ForceSpawn,,1.800,1,1,"
 			}
 		}
 		
@@ -1292,7 +1292,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt009,ForceSpawn,,2.000,-1,1,"
+				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt009,ForceSpawn,,2.000,1,1,"
 			}
 		}
 		
@@ -1329,7 +1329,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt010,ForceSpawn,,2.200,-1,1,"
+				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt010,ForceSpawn,,2.200,1,1,"
 			}
 		}
 		
@@ -1366,7 +1366,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt011,ForceSpawn,,2.400,-1,1,"
+				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt011,ForceSpawn,,2.400,1,1,"
 			}
 		}
 		
@@ -1403,7 +1403,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt012,ForceSpawn,,2.600,-1,1,"
+				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt012,ForceSpawn,,2.600,1,1,"
 			}
 		}
 		
@@ -1440,7 +1440,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt013,ForceSpawn,,2.800,-1,1,"
+				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt013,ForceSpawn,,2.800,1,1,"
 			}
 		}
 		
@@ -1477,7 +1477,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt014,ForceSpawn,,3.000,-1,1,"
+				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt014,ForceSpawn,,3.000,1,1,"
 			}
 		}
 		
@@ -1514,7 +1514,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt015,ForceSpawn,,3.200,-1,1,"
+				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt015,ForceSpawn,,3.200,1,1,"
 			}
 		}
 		
@@ -1551,7 +1551,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt016,ForceSpawn,,3.400,-1,1,"
+				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt016,ForceSpawn,,3.400,1,1,"
 			}
 		}
 		
@@ -1588,7 +1588,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt017,ForceSpawn,,3.600,-1,1,"
+				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt017,ForceSpawn,,3.600,1,1,"
 			}
 		}
 		
@@ -1625,7 +1625,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt018,ForceSpawn,,3.800,-1,1,"
+				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt018,ForceSpawn,,3.800,1,1,"
 			}
 		}
 		
@@ -1662,7 +1662,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt019,ForceSpawn,,4.000,-1,1,"
+				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt019,ForceSpawn,,4.000,1,1,"
 			}
 		}
 		
@@ -1699,7 +1699,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt020,ForceSpawn,,4.200,-1,1,"
+				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt020,ForceSpawn,,4.200,1,1,"
 			}
 		}
 		
@@ -1736,7 +1736,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt021,ForceSpawn,,4.400,-1,1,"
+				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt021,ForceSpawn,,4.400,1,1,"
 			}
 		}
 		
@@ -1773,7 +1773,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt022,ForceSpawn,,4.600,-1,1,"
+				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt022,ForceSpawn,,4.600,1,1,"
 			}
 		}
 		
@@ -1810,7 +1810,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt023,ForceSpawn,,4.800,-1,1,"
+				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt023,ForceSpawn,,4.800,1,1,"
 			}
 		}
 		
@@ -1847,7 +1847,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt024,ForceSpawn,,5.000,-1,1,"
+				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt024,ForceSpawn,,5.000,1,1,"
 			}
 		}
 		
@@ -1884,7 +1884,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt025,ForceSpawn,,5.200,-1,1,"
+				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt025,ForceSpawn,,5.200,1,1,"
 			}
 		}
 		
@@ -1921,7 +1921,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt026,ForceSpawn,,5.400,-1,1,"
+				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt026,ForceSpawn,,5.400,1,1,"
 			}
 		}
 		
@@ -1958,7 +1958,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt027,ForceSpawn,,5.600,-1,1,"
+				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt027,ForceSpawn,,5.600,1,1,"
 			}
 		}
 		
@@ -1995,7 +1995,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt028,ForceSpawn,,5.800,-1,1,"
+				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt028,ForceSpawn,,5.800,1,1,"
 			}
 		}
 		
@@ -2032,7 +2032,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt029,ForceSpawn,,6.000,-1,1,"
+				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt029,ForceSpawn,,6.000,1,1,"
 			}
 		}
 		
@@ -2069,7 +2069,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt030,ForceSpawn,,6.200,-1,1,"
+				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt030,ForceSpawn,,6.200,1,1,"
 			}
 		}
 		
@@ -2106,7 +2106,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt031,ForceSpawn,,6.400,-1,1,"
+				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt031,ForceSpawn,,6.400,1,1,"
 			}
 		}
 		
@@ -2143,7 +2143,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt032,ForceSpawn,,6.600,-1,1,"
+				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt032,ForceSpawn,,6.600,1,1,"
 			}
 		}
 		
@@ -2180,7 +2180,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt033,ForceSpawn,,6.800,-1,1,"
+				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt033,ForceSpawn,,6.800,1,1,"
 			}
 		}
 		
@@ -2217,7 +2217,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt034,ForceSpawn,,7.000,-1,1,"
+				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt034,ForceSpawn,,7.000,1,1,"
 			}
 		}
 		
@@ -2254,7 +2254,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt035,ForceSpawn,,7.200,-1,1,"
+				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt035,ForceSpawn,,7.200,1,1,"
 			}
 		}
 		
@@ -2291,7 +2291,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt036,ForceSpawn,,7.400,-1,1,"
+				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt036,ForceSpawn,,7.400,1,1,"
 			}
 		}
 		
@@ -2328,7 +2328,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt037,ForceSpawn,,7.600,-1,1,"
+				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt037,ForceSpawn,,7.600,1,1,"
 			}
 		}
 		
@@ -2365,7 +2365,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt038,ForceSpawn,,7.800,-1,1,"
+				"OnTrigger" "gskSpawn_35_ClimbChain_BeginAt038,ForceSpawn,,7.800,1,1,"
 			}
 		}
 		

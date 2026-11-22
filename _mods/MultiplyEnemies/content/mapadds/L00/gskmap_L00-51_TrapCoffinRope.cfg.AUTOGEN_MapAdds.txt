@@ -268,7 +268,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_51_TrapCoffinRope_BeginAt000,ForceSpawn,,1.330,-1,1,"
+				"OnTrigger" "gskSpawn_51_TrapCoffinRope_BeginAt000,ForceSpawn,,1.330,1,1,"
 			}
 		}
 		
@@ -305,7 +305,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_51_TrapCoffinRope_BeginAt001,ForceSpawn,,1.660,-1,1,"
+				"OnTrigger" "gskSpawn_51_TrapCoffinRope_BeginAt001,ForceSpawn,,1.660,1,1,"
 			}
 		}
 		
@@ -342,7 +342,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_51_TrapCoffinRope_BeginAt002,ForceSpawn,,1.990,-1,1,"
+				"OnTrigger" "gskSpawn_51_TrapCoffinRope_BeginAt002,ForceSpawn,,1.990,1,1,"
 			}
 		}
 		
@@ -379,7 +379,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_51_TrapCoffinRope_BeginAt003,ForceSpawn,,2.320,-1,1,"
+				"OnTrigger" "gskSpawn_51_TrapCoffinRope_BeginAt003,ForceSpawn,,2.320,1,1,"
 			}
 		}
 		
@@ -416,7 +416,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_51_TrapCoffinRope_BeginAt004,ForceSpawn,,2.650,-1,1,"
+				"OnTrigger" "gskSpawn_51_TrapCoffinRope_BeginAt004,ForceSpawn,,2.650,1,1,"
 			}
 		}
 		
@@ -453,7 +453,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_51_TrapCoffinRope_BeginAt005,ForceSpawn,,2.980,-1,1,"
+				"OnTrigger" "gskSpawn_51_TrapCoffinRope_BeginAt005,ForceSpawn,,2.980,1,1,"
 			}
 		}
 		
@@ -490,7 +490,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_51_TrapCoffinRope_BeginAt006,ForceSpawn,,3.310,-1,1,"
+				"OnTrigger" "gskSpawn_51_TrapCoffinRope_BeginAt006,ForceSpawn,,3.310,1,1,"
 			}
 		}
 		
@@ -527,7 +527,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_51_TrapCoffinRope_BeginAt007,ForceSpawn,,3.640,-1,1,"
+				"OnTrigger" "gskSpawn_51_TrapCoffinRope_BeginAt007,ForceSpawn,,3.640,1,1,"
 			}
 		}
 		
@@ -564,7 +564,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_51_TrapCoffinRope_BeginAt008,ForceSpawn,,3.970,-1,1,"
+				"OnTrigger" "gskSpawn_51_TrapCoffinRope_BeginAt008,ForceSpawn,,3.970,1,1,"
 			}
 		}
 		
@@ -601,7 +601,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_51_TrapCoffinRope_BeginAt009,ForceSpawn,,4.300,-1,1,"
+				"OnTrigger" "gskSpawn_51_TrapCoffinRope_BeginAt009,ForceSpawn,,4.300,1,1,"
 			}
 		}
 		
@@ -638,7 +638,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_51_TrapCoffinRope_BeginAt010,ForceSpawn,,4.630,-1,1,"
+				"OnTrigger" "gskSpawn_51_TrapCoffinRope_BeginAt010,ForceSpawn,,4.630,1,1,"
 			}
 		}
 		
@@ -675,7 +675,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_51_TrapCoffinRope_BeginAt011,ForceSpawn,,4.960,-1,1,"
+				"OnTrigger" "gskSpawn_51_TrapCoffinRope_BeginAt011,ForceSpawn,,4.960,1,1,"
 			}
 		}
 		
@@ -712,7 +712,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_51_TrapCoffinRope_BeginAt012,ForceSpawn,,5.290,-1,1,"
+				"OnTrigger" "gskSpawn_51_TrapCoffinRope_BeginAt012,ForceSpawn,,5.290,1,1,"
 			}
 		}
 		
@@ -749,7 +749,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_51_TrapCoffinRope_BeginAt013,ForceSpawn,,5.620,-1,1,"
+				"OnTrigger" "gskSpawn_51_TrapCoffinRope_BeginAt013,ForceSpawn,,5.620,1,1,"
 			}
 		}
 		
@@ -786,7 +786,7 @@
 			}
 			"add:key"
 			{
-				"OnTrigger" "gskSpawn_51_TrapCoffinRope_BeginAt014,ForceSpawn,,5.950,-1,1,"
+				"OnTrigger" "gskSpawn_51_TrapCoffinRope_BeginAt014,ForceSpawn,,5.950,1,1,"
 			}
 		}
 		

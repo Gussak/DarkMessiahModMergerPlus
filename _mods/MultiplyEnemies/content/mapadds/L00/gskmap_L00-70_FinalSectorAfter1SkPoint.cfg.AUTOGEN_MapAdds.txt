@@ -2974,7 +2974,7 @@
 			}
 			"add:key"
 			{
-				"OnStartTouch" "gskSpawn_70_FinalSectorAfter1SkPoint_BeginAt000,ForceSpawn,,0.000,-1,1,"
+				"OnStartTouch" "gskSpawn_70_FinalSectorAfter1SkPoint_BeginAt000,ForceSpawn,,0.000,1,1,"
 			}
 		}
 		
@@ -3041,7 +3041,7 @@
 			}
 			"add:key"
 			{
-				"OnStartTouch" "gskSpawn_70_FinalSectorAfter1SkPoint_BeginAt016,ForceSpawn,,0.000,-1,1,"
+				"OnStartTouch" "gskSpawn_70_FinalSectorAfter1SkPoint_BeginAt016,ForceSpawn,,0.000,1,1,"
 			}
 		}
 		
@@ -3108,7 +3108,7 @@
 			}
 			"add:key"
 			{
-				"OnStartTouch" "gskSpawn_70_FinalSectorAfter1SkPoint_BeginAt032,ForceSpawn,,0.000,-1,1,"
+				"OnStartTouch" "gskSpawn_70_FinalSectorAfter1SkPoint_BeginAt032,ForceSpawn,,0.000,1,1,"
 			}
 		}
 		
@@ -3175,7 +3175,7 @@
 			}
 			"add:key"
 			{
-				"OnStartTouch" "gskSpawn_70_FinalSectorAfter1SkPoint_BeginAt048,ForceSpawn,,0.000,-1,1,"
+				"OnStartTouch" "gskSpawn_70_FinalSectorAfter1SkPoint_BeginAt048,ForceSpawn,,0.000,1,1,"
 			}
 		}
 		
@@ -3242,7 +3242,7 @@
 			}
 			"add:key"
 			{
-				"OnStartTouch" "gskSpawn_70_FinalSectorAfter1SkPoint_BeginAt064,ForceSpawn,,0.000,-1,1,"
+				"OnStartTouch" "gskSpawn_70_FinalSectorAfter1SkPoint_BeginAt064,ForceSpawn,,0.000,1,1,"
 			}
 		}
 		
@@ -3309,7 +3309,7 @@
 			}
 			"add:key"
 			{
-				"OnStartTouch" "gskSpawn_70_FinalSectorAfter1SkPoint_BeginAt080,ForceSpawn,,0.000,-1,1,"
+				"OnStartTouch" "gskSpawn_70_FinalSectorAfter1SkPoint_BeginAt080,ForceSpawn,,0.000,1,1,"
 			}
 		}
 		
@@ -3376,7 +3376,7 @@
 			}
 			"add:key"
 			{
-				"OnStartTouch" "gskSpawn_70_FinalSectorAfter1SkPoint_BeginAt096,ForceSpawn,,0.000,-1,1,"
+				"OnStartTouch" "gskSpawn_70_FinalSectorAfter1SkPoint_BeginAt096,ForceSpawn,,0.000,1,1,"
 			}
 		}
 		
@@ -3443,7 +3443,7 @@
 			}
 			"add:key"
 			{
-				"OnStartTouch" "gskSpawn_70_FinalSectorAfter1SkPoint_BeginAt112,ForceSpawn,,0.000,-1,1,"
+				"OnStartTouch" "gskSpawn_70_FinalSectorAfter1SkPoint_BeginAt112,ForceSpawn,,0.000,1,1,"
 			}
 		}
 		
@@ -3510,7 +3510,7 @@
 			}
 			"add:key"
 			{
-				"OnStartTouch" "gskSpawn_70_FinalSectorAfter1SkPoint_BeginAt128,ForceSpawn,,0.000,-1,1,"
+				"OnStartTouch" "gskSpawn_70_FinalSectorAfter1SkPoint_BeginAt128,ForceSpawn,,0.000,1,1,"
 			}
 		}
 		

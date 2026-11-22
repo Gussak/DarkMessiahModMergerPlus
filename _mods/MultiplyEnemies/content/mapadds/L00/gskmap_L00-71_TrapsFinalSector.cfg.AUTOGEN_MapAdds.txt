@@ -217,7 +217,7 @@
 			}
 			"add:key"
 			{
-				"OnStartTouch" "gskSpawn_71_TrapsFinalSector_BeginAt000,ForceSpawn,,1.500,-1,1,"
+				"OnStartTouch" "gskSpawn_71_TrapsFinalSector_BeginAt000,ForceSpawn,,1.500,1,1,"
 			}
 		}
 		
@@ -254,7 +254,7 @@
 			}
 			"add:key"
 			{
-				"OnStartTouch" "gskSpawn_71_TrapsFinalSector_BeginAt001,ForceSpawn,,2.000,-1,1,"
+				"OnStartTouch" "gskSpawn_71_TrapsFinalSector_BeginAt001,ForceSpawn,,2.000,1,1,"
 			}
 		}
 		
@@ -291,7 +291,7 @@
 			}
 			"add:key"
 			{
-				"OnStartTouch" "gskSpawn_71_TrapsFinalSector_BeginAt002,ForceSpawn,,2.500,-1,1,"
+				"OnStartTouch" "gskSpawn_71_TrapsFinalSector_BeginAt002,ForceSpawn,,2.500,1,1,"
 			}
 		}
 		
@@ -328,7 +328,7 @@
 			}
 			"add:key"
 			{
-				"OnStartTouch" "gskSpawn_71_TrapsFinalSector_BeginAt003,ForceSpawn,,3.000,-1,1,"
+				"OnStartTouch" "gskSpawn_71_TrapsFinalSector_BeginAt003,ForceSpawn,,3.000,1,1,"
 			}
 		}
 		
@@ -365,7 +365,7 @@
 			}
 			"add:key"
 			{
-				"OnStartTouch" "gskSpawn_71_TrapsFinalSector_BeginAt004,ForceSpawn,,3.500,-1,1,"
+				"OnStartTouch" "gskSpawn_71_TrapsFinalSector_BeginAt004,ForceSpawn,,3.500,1,1,"
 			}
 		}
 		
@@ -402,7 +402,7 @@
 			}
 			"add:key"
 			{
-				"OnStartTouch" "gskSpawn_71_TrapsFinalSector_BeginAt005,ForceSpawn,,4.000,-1,1,"
+				"OnStartTouch" "gskSpawn_71_TrapsFinalSector_BeginAt005,ForceSpawn,,4.000,1,1,"
 			}
 		}
 		
@@ -439,7 +439,7 @@
 			}
 			"add:key"
 			{
-				"OnStartTouch" "gskSpawn_71_TrapsFinalSector_BeginAt006,ForceSpawn,,4.500,-1,1,"
+				"OnStartTouch" "gskSpawn_71_TrapsFinalSector_BeginAt006,ForceSpawn,,4.500,1,1,"
 			}
 		}
 		
@@ -476,7 +476,7 @@
 			}
 			"add:key"
 			{
-				"OnStartTouch" "gskSpawn_71_TrapsFinalSector_BeginAt007,ForceSpawn,,5.000,-1,1,"
+				"OnStartTouch" "gskSpawn_71_TrapsFinalSector_BeginAt007,ForceSpawn,,5.000,1,1,"
 			}
 		}
 		
@@ -513,7 +513,7 @@
 			}
 			"add:key"
 			{
-				"OnStartTouch" "gskSpawn_71_TrapsFinalSector_BeginAt008,ForceSpawn,,5.500,-1,1,"
+				"OnStartTouch" "gskSpawn_71_TrapsFinalSector_BeginAt008,ForceSpawn,,5.500,1,1,"
 			}
 		}
 		
@@ -550,7 +550,7 @@
 			}
 			"add:key"
 			{
-				"OnStartTouch" "gskSpawn_71_TrapsFinalSector_BeginAt009,ForceSpawn,,6.000,-1,1,"
+				"OnStartTouch" "gskSpawn_71_TrapsFinalSector_BeginAt009,ForceSpawn,,6.000,1,1,"
 			}
 		}
 		
@@ -587,7 +587,7 @@
 			}
 			"add:key"
 			{
-				"OnStartTouch" "gskSpawn_71_TrapsFinalSector_BeginAt010,ForceSpawn,,6.500,-1,1,"
+				"OnStartTouch" "gskSpawn_71_TrapsFinalSector_BeginAt010,ForceSpawn,,6.500,1,1,"
 			}
 		}
 		
@@ -624,7 +624,7 @@
 			}
 			"add:key"
 			{
-				"OnStartTouch" "gskSpawn_71_TrapsFinalSector_BeginAt011,ForceSpawn,,7.000,-1,1,"
+				"OnStartTouch" "gskSpawn_71_TrapsFinalSector_BeginAt011,ForceSpawn,,7.000,1,1,"
 			}
 		}
 		

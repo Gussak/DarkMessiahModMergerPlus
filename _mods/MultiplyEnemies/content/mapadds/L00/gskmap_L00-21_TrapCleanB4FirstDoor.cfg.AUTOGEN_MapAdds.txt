@@ -651,7 +651,7 @@
 			}
 			"add:key"
 			{
-				"OnCombine1" "gskSpawn_21_TrapCleanB4FirstDoor_BeginAt000,ForceSpawn,,2.000,-1,1,"
+				"OnCombine1" "gskSpawn_21_TrapCleanB4FirstDoor_BeginAt000,ForceSpawn,,2.000,1,1,"
 			}
 		}
 		
@@ -688,7 +688,7 @@
 			}
 			"add:key"
 			{
-				"OnCombine1" "gskSpawn_21_TrapCleanB4FirstDoor_BeginAt001,ForceSpawn,,3.000,-1,1,"
+				"OnCombine1" "gskSpawn_21_TrapCleanB4FirstDoor_BeginAt001,ForceSpawn,,3.000,1,1,"
 			}
 		}
 		
@@ -725,7 +725,7 @@
 			}
 			"add:key"
 			{
-				"OnCombine1" "gskSpawn_21_TrapCleanB4FirstDoor_BeginAt002,ForceSpawn,,4.000,-1,1,"
+				"OnCombine1" "gskSpawn_21_TrapCleanB4FirstDoor_BeginAt002,ForceSpawn,,4.000,1,1,"
 			}
 		}
 		
@@ -762,7 +762,7 @@
 			}
 			"add:key"
 			{
-				"OnCombine1" "gskSpawn_21_TrapCleanB4FirstDoor_BeginAt003,ForceSpawn,,5.000,-1,1,"
+				"OnCombine1" "gskSpawn_21_TrapCleanB4FirstDoor_BeginAt003,ForceSpawn,,5.000,1,1,"
 			}
 		}
 		
@@ -799,7 +799,7 @@
 			}
 			"add:key"
 			{
-				"OnCombine1" "gskSpawn_21_TrapCleanB4FirstDoor_BeginAt004,ForceSpawn,,6.000,-1,1,"
+				"OnCombine1" "gskSpawn_21_TrapCleanB4FirstDoor_BeginAt004,ForceSpawn,,6.000,1,1,"
 			}
 		}
 		
@@ -836,7 +836,7 @@
 			}
 			"add:key"
 			{
-				"OnCombine1" "gskSpawn_21_TrapCleanB4FirstDoor_BeginAt005,ForceSpawn,,7.000,-1,1,"
+				"OnCombine1" "gskSpawn_21_TrapCleanB4FirstDoor_BeginAt005,ForceSpawn,,7.000,1,1,"
 			}
 		}
 		
@@ -873,7 +873,7 @@
 			}
 			"add:key"
 			{
-				"OnCombine1" "gskSpawn_21_TrapCleanB4FirstDoor_BeginAt006,ForceSpawn,,8.000,-1,1,"
+				"OnCombine1" "gskSpawn_21_TrapCleanB4FirstDoor_BeginAt006,ForceSpawn,,8.000,1,1,"
 			}
 		}
 		
@@ -910,7 +910,7 @@
 			}
 			"add:key"
 			{
-				"OnCombine1" "gskSpawn_21_TrapCleanB4FirstDoor_BeginAt007,ForceSpawn,,9.000,-1,1,"
+				"OnCombine1" "gskSpawn_21_TrapCleanB4FirstDoor_BeginAt007,ForceSpawn,,9.000,1,1,"
 			}
 		}
 		
@@ -947,7 +947,7 @@
 			}
 			"add:key"
 			{
-				"OnCombine1" "gskSpawn_21_TrapCleanB4FirstDoor_BeginAt008,ForceSpawn,,10.000,-1,1,"
+				"OnCombine1" "gskSpawn_21_TrapCleanB4FirstDoor_BeginAt008,ForceSpawn,,10.000,1,1,"
 			}
 		}
 		
@@ -984,7 +984,7 @@
 			}
 			"add:key"
 			{
-				"OnCombine1" "gskSpawn_21_TrapCleanB4FirstDoor_BeginAt009,ForceSpawn,,11.000,-1,1,"
+				"OnCombine1" "gskSpawn_21_TrapCleanB4FirstDoor_BeginAt009,ForceSpawn,,11.000,1,1,"
 			}
 		}
 		
@@ -1021,7 +1021,7 @@
 			}
 			"add:key"
 			{
-				"OnCombine1" "gskSpawn_21_TrapCleanB4FirstDoor_BeginAt010,ForceSpawn,,12.000,-1,1,"
+				"OnCombine1" "gskSpawn_21_TrapCleanB4FirstDoor_BeginAt010,ForceSpawn,,12.000,1,1,"
 			}
 		}
 		
@@ -1058,7 +1058,7 @@
 			}
 			"add:key"
 			{
-				"OnCombine1" "gskSpawn_21_TrapCleanB4FirstDoor_BeginAt011,ForceSpawn,,13.000,-1,1,"
+				"OnCombine1" "gskSpawn_21_TrapCleanB4FirstDoor_BeginAt011,ForceSpawn,,13.000,1,1,"
 			}
 		}
 		
@@ -1095,7 +1095,7 @@
 			}
 			"add:key"
 			{
-				"OnCombine1" "gskSpawn_21_TrapCleanB4FirstDoor_BeginAt012,ForceSpawn,,14.000,-1,1,"
+				"OnCombine1" "gskSpawn_21_TrapCleanB4FirstDoor_BeginAt012,ForceSpawn,,14.000,1,1,"
 			}
 		}
 		
@@ -1132,7 +1132,7 @@
 			}
 			"add:key"
 			{
-				"OnCombine1" "gskSpawn_21_TrapCleanB4FirstDoor_BeginAt013,ForceSpawn,,15.000,-1,1,"
+				"OnCombine1" "gskSpawn_21_TrapCleanB4FirstDoor_BeginAt013,ForceSpawn,,15.000,1,1,"
 			}
 		}
 		
@@ -1169,7 +1169,7 @@
 			}
 			"add:key"
 			{
-				"OnCombine1" "gskSpawn_21_TrapCleanB4FirstDoor_BeginAt014,ForceSpawn,,16.000,-1,1,"
+				"OnCombine1" "gskSpawn_21_TrapCleanB4FirstDoor_BeginAt014,ForceSpawn,,16.000,1,1,"
 			}
 		}
 		
@@ -1206,7 +1206,7 @@
 			}
 			"add:key"
 			{
-				"OnCombine1" "gskSpawn_21_TrapCleanB4FirstDoor_BeginAt015,ForceSpawn,,17.000,-1,1,"
+				"OnCombine1" "gskSpawn_21_TrapCleanB4FirstDoor_BeginAt015,ForceSpawn,,17.000,1,1,"
 			}
 		}
 		
@@ -1243,7 +1243,7 @@
 			}
 			"add:key"
 			{
-				"OnCombine1" "gskSpawn_21_TrapCleanB4FirstDoor_BeginAt016,ForceSpawn,,18.000,-1,1,"
+				"OnCombine1" "gskSpawn_21_TrapCleanB4FirstDoor_BeginAt016,ForceSpawn,,18.000,1,1,"
 			}
 		}
 		
@@ -1280,7 +1280,7 @@
 			}
 			"add:key"
 			{
-				"OnCombine1" "gskSpawn_21_TrapCleanB4FirstDoor_BeginAt017,ForceSpawn,,19.000,-1,1,"
+				"OnCombine1" "gskSpawn_21_TrapCleanB4FirstDoor_BeginAt017,ForceSpawn,,19.000,1,1,"
 			}
 		}
 		
@@ -1317,7 +1317,7 @@
 			}
 			"add:key"
 			{
-				"OnCombine1" "gskSpawn_21_TrapCleanB4FirstDoor_BeginAt018,ForceSpawn,,20.000,-1,1,"
+				"OnCombine1" "gskSpawn_21_TrapCleanB4FirstDoor_BeginAt018,ForceSpawn,,20.000,1,1,"
 			}
 		}
 		
@@ -1354,7 +1354,7 @@
 			}
 			"add:key"
 			{
-				"OnCombine1" "gskSpawn_21_TrapCleanB4FirstDoor_BeginAt019,ForceSpawn,,21.000,-1,1,"
+				"OnCombine1" "gskSpawn_21_TrapCleanB4FirstDoor_BeginAt019,ForceSpawn,,21.000,1,1,"
 			}
 		}
 		
@@ -1391,7 +1391,7 @@
 			}
 			"add:key"
 			{
-				"OnCombine1" "gskSpawn_21_TrapCleanB4FirstDoor_BeginAt020,ForceSpawn,,22.000,-1,1,"
+				"OnCombine1" "gskSpawn_21_TrapCleanB4FirstDoor_BeginAt020,ForceSpawn,,22.000,1,1,"
 			}
 		}
 		
@@ -1428,7 +1428,7 @@
 			}
 			"add:key"
 			{
-				"OnCombine1" "gskSpawn_21_TrapCleanB4FirstDoor_BeginAt021,ForceSpawn,,23.000,-1,1,"
+				"OnCombine1" "gskSpawn_21_TrapCleanB4FirstDoor_BeginAt021,ForceSpawn,,23.000,1,1,"
 			}
 		}
 		
