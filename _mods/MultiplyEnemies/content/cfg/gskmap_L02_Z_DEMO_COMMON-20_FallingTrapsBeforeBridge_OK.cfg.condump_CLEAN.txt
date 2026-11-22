@@ -5,6 +5,7 @@ gskMapMessage falling trap bombs
 gskSpawnTriggerAtID 3253833
 gskSpawnTriggerType OnTrigger
 gskSpawnDelayInital 1.00
+gskSpawnDelay 1.00
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 0/27 )
 prop at 9036 -616 1356 missing modelname
 prop at 9036 -616 1356 missing modelname

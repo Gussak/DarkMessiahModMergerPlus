@@ -513,10 +513,11 @@ function FUNCappendToSpawnTrigger() {
 	local lstrSTSectionID="$(FUNCsectionID ${liTargetIndex})"
 	local lnSTTemplateBeginSection=0
 	
+	: ${iSpawnMaxRespawns:=1} #
 	declare -A laSpawnParams # ",ForceSpawn,,0,-1,1,"
 	laSpawnParams[InputAction]="ForceSpawn"
 	laSpawnParams[InputParamOverride]=""
-	laSpawnParams[MaxRefires]=1 # -1 is unlimited. 0 is fire only once? so 1 is one refire total 2 fires?
+	laSpawnParams[MaxRefires]=${iSpawnMaxRespawns} # -1 is unlimited. 0 is fire only once (no RE-spawns, just spawn)? so 1 is one refire total 2 fires? But 1 seems to allow only one spawning call?
 	laSpawnParams[Active]=1
 	laSpawnParams[Comment]=""
 	: ${strSpawnMode:=""} #
@@ -1612,6 +1613,7 @@ if $bCreateSpawnsForCurrentMap;then
 	fSpawnDelayIncrement="$(FUNCgskOptions "gskSpawnDelay" 0.0)"
 	bSpawnNpcsAwake="$(FUNCgskOptions "gskSpawnNpcsAwake" false)"
 	bAllowBurrow="$(FUNCgskOptions "gskSpawnBurrowAllowed" true)"
+	iSpawnMaxRespawns="$(FUNCgskOptions "gskSpawnMaxRespawns" 0.0)"
 	declare -p strFlCondump strFlCondumpClean strFlCondumpCleanNew strSpawnTriggerAtID strSpawnTriggerType fSpawnDelayInitial fSpawnDelayIncrement bSpawnNpcsAwake bAllowBurrow >&2
 	#if egrep "^gskSpawnDelay" "$strFlCondump";then
 		#egrep "^gskSpawnDelay" "$strFlCondump" >>"$strFlCondumpCleanNew"
