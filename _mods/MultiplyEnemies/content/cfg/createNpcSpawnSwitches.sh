@@ -521,7 +521,7 @@ function FUNCappendToSpawnTrigger() {
 	laSpawnParams[Active]=1
 	laSpawnParams[Comment]=""
 	: ${strSpawnMode:=""} #
-	: ${fSpawnDelayIncrement:=0.0} #help 0.05 unfortunately this delay doesnt make the spawn happen smoothly, it will just lag a bit many times... the only good thing is to prevent their physics boxes colliding if they are placed initially too close  to each other
+	: ${fSpawnDelayIncrement:=0.0} #help 0.05 unfortunately this delay doesnt make the spawn of NPCs happen smoothly, it will just lag a bit many times... the only good thing is to prevent their physics boxes colliding if they are placed initially too close  to each other. Tho this is great for falling static objects like gskSummonDevTrapFireCeiling
 	if [[ "$fSpawnDelayIncrement" != "0.0" ]];then
 		nSpawnTriggerLinkedLimit=1
 	fi
@@ -1608,12 +1608,12 @@ if $bCreateSpawnsForCurrentMap;then
 	#if [[ -n "$strSpawnTriggerAtID" ]];then
 		#echo "gskSpawnTriggerAtID ${strSpawnTriggerAtID}" >>"$strFlCondumpCleanNew"
 	#fi
-	strSpawnTriggerType="$(FUNCgskOptions "gskSpawnTriggerType" "")"
-	fSpawnDelayInitial="$(FUNCgskOptions "gskSpawnDelayInital" 0.0)"
-	fSpawnDelayIncrement="$(FUNCgskOptions "gskSpawnDelay" 0.0)"
-	bSpawnNpcsAwake="$(FUNCgskOptions "gskSpawnNpcsAwake" false)"
-	bAllowBurrow="$(FUNCgskOptions "gskSpawnBurrowAllowed" true)"
-	iSpawnMaxRespawns="$(FUNCgskOptions "gskSpawnMaxRespawns" 0.0)"
+	strSpawnTriggerType="$(FUNCgskOptions "gskSpawnTriggerType" "")" #help
+	fSpawnDelayInitial="$(FUNCgskOptions "gskSpawnDelayInital" 0.0)" #help
+	fSpawnDelayIncrement="$(FUNCgskOptions "gskSpawnDelay" 0.0)" #help
+	bSpawnNpcsAwake="$(FUNCgskOptions "gskSpawnNpcsAwake" false)" #help
+	bAllowBurrow="$(FUNCgskOptions "gskSpawnBurrowAllowed" true)" #help
+	iSpawnMaxRespawns="$(FUNCgskOptions "gskSpawnMaxRespawns" 0.0)" #help
 	declare -p strFlCondump strFlCondumpClean strFlCondumpCleanNew strSpawnTriggerAtID strSpawnTriggerType fSpawnDelayInitial fSpawnDelayIncrement bSpawnNpcsAwake bAllowBurrow >&2
 	#if egrep "^gskSpawnDelay" "$strFlCondump";then
 		#egrep "^gskSpawnDelay" "$strFlCondump" >>"$strFlCondumpCleanNew"
