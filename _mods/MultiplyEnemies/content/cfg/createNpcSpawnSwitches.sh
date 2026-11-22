@@ -516,7 +516,7 @@ function FUNCappendToSpawnTrigger() {
 	declare -A laSpawnParams # ",ForceSpawn,,0,-1,1,"
 	laSpawnParams[InputAction]="ForceSpawn"
 	laSpawnParams[InputParamOverride]=""
-	laSpawnParams[MaxRefires]=-1 # -1 is unlimited
+	laSpawnParams[MaxRefires]=1 # -1 is unlimited. 0 is fire only once? so 1 is one refire total 2 fires?
 	laSpawnParams[Active]=1
 	laSpawnParams[Comment]=""
 	: ${strSpawnMode:=""} #
