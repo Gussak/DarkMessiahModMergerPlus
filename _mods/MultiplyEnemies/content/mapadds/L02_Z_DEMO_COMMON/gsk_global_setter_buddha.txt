@@ -1,0 +1,1 @@
+../global_mapadds/gsk_global_setter_buddha.txt
