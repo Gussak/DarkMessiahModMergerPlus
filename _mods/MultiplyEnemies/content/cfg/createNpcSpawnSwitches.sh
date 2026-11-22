@@ -520,7 +520,6 @@ function FUNCappendToSpawnTrigger() {
 	local lstrSTSectionID="$(FUNCsectionID ${liTargetIndex})"
 	local lnSTTemplateBeginSection=0
 	
-	: ${iSpawnMaxRespawns:=1} #
 	declare -A laSpawnParams # ",ForceSpawn,,0,-1,1,"
 	laSpawnParams[InputAction]="ForceSpawn"
 	laSpawnParams[InputParamOverride]=""
@@ -528,7 +527,6 @@ function FUNCappendToSpawnTrigger() {
 	laSpawnParams[Active]=1
 	laSpawnParams[Comment]=""
 	: ${strSpawnMode:=""} #
-	: ${fSpawnDelayIncrement:=0.0} #help 0.05 unfortunately this delay doesnt make the spawn of NPCs happen smoothly, it will just lag a bit many times... the only good thing is to prevent their physics boxes colliding if they are placed initially too close  to each other. Tho this is great for falling static objects like gskSummonDevTrapFireCeiling
 	if [[ "$fSpawnDelayIncrement" != "0.0" ]];then
 		nSpawnTriggerLinkedLimit=1
 	fi
@@ -851,7 +849,6 @@ function FUNCprepareFireTrapBoxCollider() { #TODO THIS DOES NOT WORK, the solid 
 		'
 }
 
-: ${bAllowBurrow=true} #help you can override and force re-prepare all mapadds with them all not hidden
 nUndeadCount=0
 nSkeletonPartCount=0
 nTrapCount=0
@@ -1617,10 +1614,10 @@ if $bCreateSpawnsForCurrentMap;then
 	#fi
 	strSpawnTriggerType="$(FUNCgskOptions "gskSpawnTriggerType" "")" #help
 	fSpawnDelayInitial="$(FUNCgskOptions "gskSpawnDelayInital" 0.0)" #help
-	fSpawnDelayIncrement="$(FUNCgskOptions "gskSpawnDelay" 0.0)" #help
+	fSpawnDelayIncrement="$(FUNCgskOptions "gskSpawnDelay" 0.0)" #help 0.05 unfortunately this delay doesnt make the spawn of NPCs happen smoothly, it will just lag a bit many times... the only good thing is to prevent their physics boxes colliding if they are placed initially too close  to each other. Tho this is great for falling static objects like gskSummonDevTrapFireCeiling
 	bSpawnNpcsAwake="$(FUNCgskOptions "gskSpawnNpcsAwake" false)" #help
-	bAllowBurrow="$(FUNCgskOptions "gskSpawnBurrowAllowed" true)" #help
-	iSpawnMaxRespawns="$(FUNCgskOptions "gskSpawnMaxRespawns" 1)" #help
+	bAllowBurrow="$(FUNCgskOptions "gskSpawnBurrowAllowed" true)" #help you can override and force re-prepare all mapadds with them all not hidden
+	iSpawnMaxRespawns="$(FUNCgskOptions "gskSpawnMaxRespawns" 1)" #help 
 	declare -p strFlCondump strFlCondumpClean strFlCondumpCleanNew strSpawnTriggerAtID strSpawnTriggerType fSpawnDelayInitial fSpawnDelayIncrement bSpawnNpcsAwake bAllowBurrow >&2
 	#if egrep "^gskSpawnDelay" "$strFlCondump";then
 		#egrep "^gskSpawnDelay" "$strFlCondump" >>"$strFlCondumpCleanNew"
