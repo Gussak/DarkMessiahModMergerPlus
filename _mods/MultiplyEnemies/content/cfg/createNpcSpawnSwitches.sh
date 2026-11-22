@@ -48,6 +48,8 @@ if [[ -f "$strFlDBsummoningsCacheKey" ]];then
 	fi
 fi
 
+iTotEntryDataLines=7
+
 : ${strFlDBsummoningsTmp:="${strFlDBsummoningsCache}"} #help internal use
 export strFlDBsummoningsTmp
 bOldSummonCacheLoaded=false
@@ -303,6 +305,11 @@ while [[ $# -gt 0 && "${1:0:1}" == "-" ]];do
 		bRedoAll=true
 	elif [[ "${1}" == "--summon" ]];then #help create summoning alises list for many NPCs and items
 		bCreateSummonList=true
+	elif [[ "${1}" == "--invert" ]];then #help <strFl> invert spawn order of ex.: gskmap_L00-10_BeginningEntrance.cfg.condump_CLEAN.txt
+		set -x
+		strFl="$1"; mapfile -t astrEntryList < <(cat "$strFl" |egrep gskSpawnHint -A $((iTotEntryDataLines-1)) |tr '\n' '@' |sed -r 's/@gskSpawnHint/\n@gskSpawnHint/g'); for((i=${#astrEntryList[@]}-1;i>0;i--));do echo "${astrEntryList[$i]}";done |tr '@' '\n' >"${strFl}.inverted_TMP.txt"
+		set +x
+		exit 0
 	elif [[ "${1}" == "--clean" ]];then #help clean temp files
 		mapfile -t astrFlCleanList < <(ls -1 *.NEW.txt *.TMP.txt *.cfg.condump.txt *.bkp)
 		FUNCtrash "${astrFlCleanList[@]}"
@@ -1613,7 +1620,7 @@ if $bCreateSpawnsForCurrentMap;then
 	fSpawnDelayIncrement="$(FUNCgskOptions "gskSpawnDelay" 0.0)" #help
 	bSpawnNpcsAwake="$(FUNCgskOptions "gskSpawnNpcsAwake" false)" #help
 	bAllowBurrow="$(FUNCgskOptions "gskSpawnBurrowAllowed" true)" #help
-	iSpawnMaxRespawns="$(FUNCgskOptions "gskSpawnMaxRespawns" 0.0)" #help
+	iSpawnMaxRespawns="$(FUNCgskOptions "gskSpawnMaxRespawns" 1)" #help
 	declare -p strFlCondump strFlCondumpClean strFlCondumpCleanNew strSpawnTriggerAtID strSpawnTriggerType fSpawnDelayInitial fSpawnDelayIncrement bSpawnNpcsAwake bAllowBurrow >&2
 	#if egrep "^gskSpawnDelay" "$strFlCondump";then
 		#egrep "^gskSpawnDelay" "$strFlCondump" >>"$strFlCondumpCleanNew"
@@ -1627,7 +1634,6 @@ if $bCreateSpawnsForCurrentMap;then
 	#: ${bCollectTargetPos:=true} #help temporary to update with old files
 	bCollectTargetPos=true
 	if ! egrep -q "prop at .* missing modelname" "$strFlCondump";then bCollectTargetPos=false;fi
-	iTotEntryDataLines=7
 	if ! $bCollectTargetPos;then ((iTotEntryDataLines-=2))&&:;fi
 	
 	if egrep -nH "(setpos.*setpos|setang.*setang|prop at.*prop at|missing modelname.*missing modelname)" "$strFlCondump";then FUNCexit 1 "fix it at CLEAN file (not TMP) and re-run the script";fi
