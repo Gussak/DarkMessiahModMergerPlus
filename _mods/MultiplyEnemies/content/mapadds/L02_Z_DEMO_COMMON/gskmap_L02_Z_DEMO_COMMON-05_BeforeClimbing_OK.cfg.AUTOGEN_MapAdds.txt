@@ -162,6 +162,104 @@
 			"spawnflags"  "256"
 			
 		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_BeforeClimbing_OK_007"  //gskSummonDevSkeletonPart
+			"origin"      "9007 325 -1469"
+			"angles"      "43 58 0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "44 -161 13"
+			"health" "35"
+			"physdamagescale" "0.3"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_BeforeClimbing_OK_008"  //gskSummonDevSkeletonPart
+			"origin"      "9086 291 -1440"
+			"angles"      "59 -42 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 -106 0"
+			"health" "29"
+			"physdamagescale" "0.4"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
+			"health" "1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_BeforeClimbing_OK_009"  //gskSummonDevSkeletonPart
+			"origin"      "9135 311 -1443"
+			"angles"      "62 -69 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_crane.mdl"
+			"angles" "12 -131 35"
+			"health" "14"
+			"physdamagescale" "0.1"
+			
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_BeforeClimbing_OK_010"  //gskSummonDevSkeletonPart
+			"origin"      "9164 385 -1475"
+			"angles"      "52 -87 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"inertiaScale" "1.0"
+			"fademindist" "-1"
+			"fadescale" "1"
+			"UseSpeedToCalculateSoundVolume" "1"
+			
+			"spawnflags"  "257"
+			"classname" "prop_physics"
+			"model" "models/props/debris/skeleton/cr_skel_thorax.mdl"
+			"angles" "0 -148 0"
+			"health" "35"
+			"physdamagescale" "0.2"
+			
+			"physdamagescale" "1.0"
+			"ExplodeDamage" "3500"
+			"ExplodeRadius" "100"
+			"trapsecret" "2"
+			"disableshadows" "0"
+			"damagetype" "0"
+			"spawnflags"  "257" //frozen to  prevent they all spawn and explode just after
+			"health" "1"
+			
+		}
 
 	}
 }

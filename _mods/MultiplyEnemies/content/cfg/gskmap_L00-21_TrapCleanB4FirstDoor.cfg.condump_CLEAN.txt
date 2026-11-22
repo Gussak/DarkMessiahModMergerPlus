@@ -5,7 +5,6 @@ gskMapMessage these traps help on cleaning the skeleton parts bloating the groun
 gskSpawnTriggerAtID 1244059
 gskSpawnTriggerType OnCombine1
 gskSpawnDelayInital 1.00
-gskSpawnDelayInital 1.00
 gskSpawnNpcsAwake true
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 0/22 )
 prop at -1983 -4640 607 missing modelname

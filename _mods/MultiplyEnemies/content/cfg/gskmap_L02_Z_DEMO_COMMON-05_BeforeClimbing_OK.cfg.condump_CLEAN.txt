@@ -1,52 +1,80 @@
 map     :  l02_z_demo_Common at: 8706 x, 1229 y, -1458 z
 map     :  l02_z_demo_Common at: 8706 x, 1229 y, -1458 z
 gskMapMessage the stool is to have a source of fire to lit arrows to help kill enemies above
-gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 0/7 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 0/11 )
 prop at 9339 -235 -1202 missing modelname
 prop at 9339 -235 -1202 missing modelname
 setpos 9245.077148 -123.804810 -1089.741699;setang 37.526936 -49.762886 -0.005166
 setpos 9245.077148 -123.804810 -1089.741699;setang 37.526936 -49.762886 -0.005166
 gskSummonSpiderMini
 gskSummonSpiderMini
-gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 1/7 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 1/11 )
 prop at 9465 -91 -1149 missing modelname
 prop at 9465 -91 -1149 missing modelname
 setpos 9357.993164 -111.424141 -1094.142578;setang 26.636980 10.957608 -0.004234
 setpos 9357.993164 -111.424141 -1094.142578;setang 26.636980 10.957608 -0.004234
 gskSummonSpiderMini
 gskSummonSpiderMini
-gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 2/7 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 2/11 )
 prop at 9945 -276 -370 missing modelname
 prop at 9945 -276 -370 missing modelname
 setpos 9901.424805 -371.983917 -309.161133;setang 29.862387 65.474266 0.000845
 setpos 9901.424805 -371.983917 -309.161133;setang 29.862387 65.474266 0.000845
 gskSummonSim003_stool01
 gskSummonSim003_stool01
-gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 3/7 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 3/11 )
 prop at 9071 540 -1525 missing modelname
 prop at 9071 540 -1525 missing modelname
 setpos 8936.456055 680.161499 -1452.345703;setang 20.548393 -46.253197 0.002189
 setpos 8936.456055 680.161499 -1452.345703;setang 20.548393 -46.253197 0.002189
 gskSummonDevArrow
 gskSummonDevArrow
-gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 4/7 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 4/11 )
 prop at 9018 650 -1524 missing modelname
 prop at 9018 650 -1524 missing modelname
 setpos 8846.666992 692.586609 -1448.348389;setang 23.172903 -13.830601 0.002003
 setpos 8846.666992 692.586609 -1448.348389;setang 23.172903 -13.830601 0.002003
 gskSummonDevArrow
 gskSummonDevArrow
-gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 5/7 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 5/11 )
 prop at 8959 669 -1527 missing modelname
 prop at 8959 669 -1527 missing modelname
 setpos 8848.002930 692.468628 -1449.546387;setang 34.260925 -12.115030 0.001118
 setpos 8848.002930 692.468628 -1449.546387;setang 34.260925 -12.115030 0.001118
 gskSummonDevArrow
 gskSummonDevArrow
-gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 6/7 )
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 6/11 )
 prop at 8959 712 -1523 missing modelname
 prop at 8959 712 -1523 missing modelname
 setpos 8847.949219 694.906555 -1449.406006;setang 33.072918 8.609022 0.001224
 setpos 8847.949219 694.906555 -1449.406006;setang 33.072918 8.609022 0.001224
 gskSummonDevArrow
 gskSummonDevArrow
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 7/11 )
+prop at 9007 325 -1470 missing modelname
+prop at 9007 325 -1470 missing modelname
+setpos 9065.613281 415.984436 -1367.458740;setang 43.385380 -122.888382 0.000194
+setpos 9065.613281 415.984436 -1367.458740;setang 43.385380 -122.888382 0.000194
+gskSummonDevSkeletonPart
+gskSummonDevSkeletonPart
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 8/11 )
+prop at 9086 291 -1441 missing modelname
+prop at 9086 291 -1441 missing modelname
+setpos 9167.000000 219.053055 -1261.484131;setang 59.023514 138.575424 -0.001080
+setpos 9167.000000 219.053055 -1261.484131;setang 59.023514 138.575424 -0.001080
+gskSummonDevSkeletonPart
+gskSummonDevSkeletonPart
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 9/11 )
+prop at 9135 311 -1444 missing modelname
+prop at 9135 311 -1444 missing modelname
+setpos 9170.297852 221.546112 -1261.986206;setang 62.256912 111.713730 -0.001157
+setpos 9170.297852 221.546112 -1261.986206;setang 62.256912 111.713730 -0.001157
+gskSummonDevSkeletonPart
+gskSummonDevSkeletonPart
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 10/11 )
+prop at 9164 385 -1476 missing modelname
+prop at 9164 385 -1476 missing modelname
+setpos 9173.157227 221.674988 -1260.557373;setang 52.886909 93.100426 -0.000765
+setpos 9173.157227 221.674988 -1260.557373;setang 52.886909 93.100426 -0.000765
+gskSummonDevSkeletonPart
+gskSummonDevSkeletonPart

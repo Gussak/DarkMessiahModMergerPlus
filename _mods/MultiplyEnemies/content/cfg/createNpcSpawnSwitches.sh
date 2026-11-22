@@ -1592,13 +1592,13 @@ if $bCreateSpawnsForCurrentMap;then
 	#fi
 	function FUNCgskOptions() {
 		local lstrOpt="$1";shift
-		local lstrOptDefault="$1";shift
+		local lstrOptDefaultValue="$1";shift
 		local lstrData="$(egrep "^${lstrOpt}" "${strFlCondump}" |egrep -v ForceSpawn|tail -n 1)"&&:
 		if [[ -n "$lstrData" ]];then
 			echo "$lstrData" >>"$strFlCondumpCleanNew"
 			echo "$lstrData" |awk '{print $2}' #OUTPUT
 		else
-			echo "$lstrOptDefault" #OUTPUT
+			echo "$lstrOptDefaultValue" #OUTPUT
 		fi
 		return 0
 	}
