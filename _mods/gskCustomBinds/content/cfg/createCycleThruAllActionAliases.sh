@@ -72,6 +72,9 @@ echo "// AUTO GENERATED WITH $(basename "$0"), DO NOT EDIT!"
 echo
 echo "// all cmds: selectable list"
 echo
+echo "alias +pauseCycleCmds \"pause;\" //to not pause, just erase the alias like: alias +pauseCycleCmds"
+echo "alias -pauseCycleCmds \"pause;\" //to not pause, just erase the alias like: alias -pauseCycleCmds"
+echo
 for((i=0;i<${#astrBMCmd[@]};i++));do
 	iPrev=$((i-1))&&:
 	if((iPrev==-1));then iPrev=$(( ${#astrBMCmd[@]} - 1 ));fi
@@ -95,16 +98,17 @@ for((i=0;i<${#astrBMCmd[@]};i++));do
 		strExtra=" <> <> <> <> (total ${#astrBMCmd[@]}) <> <> <> <> "
 	fi
 	
-	echo "alias +${strFuncPrefix}_sel_$(printf %03d $i) \"gskEchoOn7; \
-echo CycleCMD(${i}/${nLastIndex}):${astrBMCmd[$i]}$(FUNCcostHP "${astrBMCmd[$i]}") ${strExtra}; \
+	echo "alias +${strFuncPrefix}_sel_$(printf %03d $i) \"\
 alias +${strFuncPrefix}_previous +${strFuncPrefix}_sel_$(printf %03d $iPrev); \
 alias -${strFuncPrefix}_previous -${strFuncPrefix}_sel_$(printf %03d $iPrev); \
 alias +${strFuncPrefix}_activate +${strFuncPrefix}_act_$(printf %03d $i    ); \
 alias -${strFuncPrefix}_activate -${strFuncPrefix}_act_$(printf %03d $i    ); \
 alias +${strFuncPrefix}_next     +${strFuncPrefix}_sel_$(printf %03d $iNext); \
 alias -${strFuncPrefix}_next     -${strFuncPrefix}_sel_$(printf %03d $iNext); \
-\""
-	echo "alias -${strFuncPrefix}_sel_$(printf %03d $i) \"gskEchoOff\""
++pauseCycleCmds; \
+gskEchoOn7; \
+echo CycleCMD(${i}/${nLastIndex}):${astrBMCmd[$i]}$(FUNCcostHP "${astrBMCmd[$i]}") ${strExtra};\""
+	echo "alias -${strFuncPrefix}_sel_$(printf %03d $i) \"gskEchoOff; -pauseCycleCmds\""
 	echo
 done
 echo

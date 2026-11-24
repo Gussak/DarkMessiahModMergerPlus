@@ -201,15 +201,19 @@ function FUNCaliasNpcSpawner() {
 
 	local lstrBeginLoopHint="";if((liCurrentIndex==0));then lstrBeginLoopHint=" <> <> <> <> <> <> <> <> <> <>";fi
 	local iPrevious=$((liCurrentIndex-1));if((iPrevious==-1));then iPrevious=$liMaxIndex;fi
-	echo "alias gsk${lstrType}Switch_${liCurrentIndex} \"\
+	echo ""
+	echo "alias +gsk${lstrType}Switch_${liCurrentIndex} \"\
 gskEchoOn; \
 contimes 50; \
 echo CFG_CREATE${lstrInfo}:${lstrShortName}${lstrBeginLoopHint}; \
 alias +gsk${lstrType}Spawn      +gsk${lstrType}Spawn_${liCurrentIndex}; \
 alias -gsk${lstrType}Spawn      -gsk${lstrType}Spawn_${liCurrentIndex}; \
-alias +gsk${lstrType}SwitchPrev gsk${lstrType}Switch_${iPrevious}; \
-alias +gsk${lstrType}Switch     gsk${lstrType}Switch_${iNext}; \
-\""
+alias +gsk${lstrType}SwitchPrev +gsk${lstrType}Switch_${iPrevious}; \
+alias +gsk${lstrType}Switch     +gsk${lstrType}Switch_${iNext}; \
+alias +gsk${lstrType}SwitchNext +gsk${lstrType}Switch_${iNext}; \
++pauseSummonCycle; \
+\"" #why there is Switch and SwitchNext? because SwitchNext is easy to understand. Switch was old one but it is already configured as a keybinding. TODO update the keybinding to SwitchNext
+	echo "alias -gsk${lstrType}Switch_${liCurrentIndex} \"gskEchoOff; -pauseSummonCycle;\""
 	echo "alias +gsk${lstrType}Spawn_${liCurrentIndex} \"\
 gskSpawnHintData; \
 echo ${strSpawnCommand}; echo ${strSpawnCommand}; \
@@ -1838,7 +1842,12 @@ if $bCreateSummonList;then # create spawner aliases
 	
 	echo >gskSummonList.cfg #trunc/init
 	echo "// Total ${#astrNPC[@]} NPCs/Items" |tee -a "gskSummonList.cfg"
+	echo |tee -a "gskSummonList.cfg"
+	echo "alias +pauseSummonCycle \"pause;\" //to disable pausing, erase the alias like: alias +pauseSummonCycle" |tee -a "gskSummonList.cfg"
+	echo "alias -pauseSummonCycle \"pause;\" //to disable pausing, erase the alias like: alias -pauseSummonCycle" |tee -a "gskSummonList.cfg"
+	echo |tee -a "gskSummonList.cfg"
 	echo "alias mm_npc_create_facehugger \"mm_npc_create npc_facehugger models/NPC/Facehugger/Npc_Facehugger.mdl\"" |tee -a "gskSummonList.cfg"
+	echo |tee -a "gskSummonList.cfg"
 	
 	# these could work but the engine do not allow it. The NPC is created but the special item (bread or potion) is badly positioned at feet and on death it just vanishes.
 	#  mm_npc_create npc_necro_guard_bow models/npc/Necroguard/npc_necroguard.mdl item_food_bread01_cooked weapon_arx_short_sword  weapon_arxcrossbow

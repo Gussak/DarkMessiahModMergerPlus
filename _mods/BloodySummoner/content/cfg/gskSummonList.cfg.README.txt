@@ -1,0 +1,3 @@
+# generate with:
+cd ../../../_mods/MultiplyEnemies/content/cfg/
+./createNpcSpawnSwitches.sh --summon
