@@ -260,6 +260,182 @@
 			"health" "1"
 			
 		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_BeforeClimbing_OK_011"  //gskSummonFacehugger
+			"origin"      "11116 -1601 -971"
+			"angles"      "2 160 0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_facehugger"
+			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
+			"spawnflags"  "7"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_BeforeClimbing_OK_012"  //gskSummonFacehugger
+			"origin"      "10924 -1684 -665"
+			"angles"      "-44 95 0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_facehugger"
+			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
+			"spawnflags"  "7"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_BeforeClimbing_OK_013"  //gskSummonFacehugger
+			"origin"      "11131 -1224 -1039"
+			"angles"      "17 -137 0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_facehugger"
+			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
+			"spawnflags"  "7"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_BeforeClimbing_OK_014"  //gskSummonFacehugger
+			"origin"      "11310 -1523 -1477"
+			"angles"      "40 158 0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_facehugger"
+			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
+			"spawnflags"  "7"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_BeforeClimbing_OK_015"  //gskSummonSpiderRegular
+			"origin"      "11318 -1211 -1499"
+			"angles"      "47 -153 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_regular"
+			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
+			"spawnflags"  "7"
+			"origin"      "11318 -1211 -1492"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_BeforeClimbing_OK_016"  //gskSummonSpiderMini
+			"origin"      "11236 -1113 -1513"
+			"angles"      "36 -147 0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "11236 -1113 -1508"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_BeforeClimbing_OK_017"  //gskSummonSpiderMini
+			"origin"      "11225 -1542 -1517"
+			"angles"      "38 151 0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "11225 -1542 -1512"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_BeforeClimbing_OK_018"  //gskSummonSpiderMini
+			"origin"      "11378 -1438 -1436"
+			"angles"      "25 170 0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "11378 -1438 -1431"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_BeforeClimbing_OK_019"  //gskSummonSpiderMini
+			"origin"      "11504 -1226 -1456"
+			"angles"      "59 140 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "11504 -1226 -1451"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_BeforeClimbing_OK_020"  //gskSummonSpiderMini
+			"origin"      "11446 -1153 -1479"
+			"angles"      "77 156 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "11446 -1153 -1474"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_BeforeClimbing_OK_021"  //gskSummonSpiderMini
+			"origin"      "11488 -1386 -1420"
+			"angles"      "38 112 0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "11488 -1386 -1415"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_BeforeClimbing_OK_022"  //gskSummonSpiderMini
+			"origin"      "11472 -1276 -1439"
+			"angles"      "54 121 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "11472 -1276 -1434"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_BeforeClimbing_OK_023"  //gskSummonSpiderMini
+			"origin"      "11378 -1380 -1438"
+			"angles"      "43 89 0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "11378 -1380 -1433"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_BeforeClimbing_OK_024"  //gskSummonSpiderMini
+			"origin"      "11314 -1435 -1501"
+			"angles"      "38 157 0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "11314 -1435 -1496"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_BeforeClimbing_OK_025"  //gskSummonSpiderMini
+			"origin"      "11256 -1268 -1524"
+			"angles"      "49 -169 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_spider_mini"
+			"model" "models/NPC/spider_mini/Npc_spider_mini.mdl"
+			"spawnflags"  "7"
+			"origin"      "11256 -1268 -1519"
+		}
 
 	}
 }
