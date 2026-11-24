@@ -284,6 +284,8 @@ while [[ $# -gt 0 && "${1:0:1}" == "-" ]];do
 	elif [[ "${1}" == "-M" ]];then #help like -m but a single string like l02_b2-05_Library_OK will become lstrUseThisMap=l02_b2 and lstrUseThisSector=05_Library_OK. You can use just the filename also like gskmap_l02_b2-05_Library_OK.cfg
 		shift;lstrMapAndSector="${1}"
 		lstrMapAndSector="${lstrMapAndSector#gskmap_}"
+		lstrMapAndSector="${lstrMapAndSector%.condump.txt}" #to make it easier to use direcly from the first file we create
+		lstrMapAndSector="${lstrMapAndSector%.condump_CLEAN.txt}" #too
 		lstrMapAndSector="${lstrMapAndSector%.cfg}"
 		lstrUseThisMap="$(     echo "$lstrMapAndSector" |sed -r -e 's@(.*)-(.*)@\1@g')"
 		if [[ "$lstrMapAndSector" =~ .*[-].* ]];then

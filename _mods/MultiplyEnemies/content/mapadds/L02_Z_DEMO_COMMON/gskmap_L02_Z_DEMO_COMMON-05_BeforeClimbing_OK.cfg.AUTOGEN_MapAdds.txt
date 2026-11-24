@@ -436,6 +436,45 @@
 			"spawnflags"  "7"
 			"origin"      "11256 -1268 -1519"
 		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_BeforeClimbing_OK_026"  //gskSummonPotionCurePoison
+			"origin"      "11367 -1458 -1444"
+			"angles"      "60 163 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "item_potion_cure_poison"
+			"model" "models/items/provisions/potions/cure_poison_potion.mdl"
+			"angles"      "0 163 0"
+			"spawnflags"  "256"
+			"origin"      "11367 -1458 -1439"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_BeforeClimbing_OK_027"  //gskSummonPotionLife
+			"origin"      "11387 -1420 -1436"
+			"angles"      "41 174 0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "item_potion_life"
+			"model" "models/items/provisions/potions/Life_potion.mdl"
+			"angles"      "0 174 0"
+			"spawnflags"  "256"
+			"origin"      "11387 -1420 -1431"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_BeforeClimbing_OK_028"  //gskSummonPotionMana
+			"origin"      "11390 -1403 -1436"
+			"angles"      "41 -179 0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "item_potion_mana"
+			"model" "models/items/provisions/potions/Mana_potion.mdl"
+			"angles"      "0 -179 0"
+			"spawnflags"  "256"
+			"origin"      "11390 -1403 -1431"
+		}
 
 	}
 }
