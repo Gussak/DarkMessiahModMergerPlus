@@ -599,19 +599,23 @@ function SECFUNCshowHelpV2() { #help TODO WIP making it much easier to maintain!
 		lastrColumnsPerLine[1]="$(echo -e "${lcolorReqOpenClose}<${lcolorCode}${lastrColumnsPerLine[1]}${lcolorReqOpenClose}>${lcolorEnd}")"
 		
 		#echo "${lastrColumnsPerLine[2]}"
-		local lstrDefaultVar="$(echo "${lastrColumnsPerLine[2]}" |sed -n -r -e 's@(.*<)(.*)(>.*)@\2@p')" #from help column
-		#declare -p lstrDefaultVar
-		if [[ -n "$lstrDefaultVar" ]] && [[ "$lstrDefaultVar" =~ ^[a-zA-Z0-9_]*$ ]];then
-			local lstrDefVal="$(eval "echo \"\${$lstrDefaultVar}\"")" #KEEPinfo: eval is properely protected
-			#declare -p lstrDefaultVar lstrDefVal
+		local lstrDefaultVarName="$(echo "${lastrColumnsPerLine[2]}" |sed -n -r -e 's@(.*<)(.*)(>.*)@\2@p')" #from help column
+		if [[ -n "$lstrDefaultVarName" ]] && [[ "$lstrDefaultVarName" =~ ^[a-zA-Z0-9_]*$ ]];then
+			local lstrDefVal=""
+			if [[ -v "$lstrDefaultVarName" ]];then
+				lstrDefVal="${!lstrDefaultVarName}"
+			else
+				echo "[Warning] ${lstrDefaultVarName} is undefined" >&2
+			fi
+			#declare -p lstrDefaultVarName lstrDefVal
 			local lstrHelpWithVarValues="${lastrColumnsPerLine[2]}"
-			#echo "${lstrHelpWithVarValues}" |sed -n -r -e 's@(.*<)('"${lstrDefaultVar}"')(>.*)@\1'"${lstrDefaultVar}=\"${lstrDefVal}\""'\3@p'
+			#echo "${lstrHelpWithVarValues}" |sed -n -r -e 's@(.*<)('"${lstrDefaultVarName}"')(>.*)@\1'"${lstrDefaultVarName}=\"${lstrDefVal}\""'\3@p'
 			
 			local lstrVarAndVal
 			function FUNCsetVarAndVal() {
 				lstrVarAndVal=""
 				lstrVarAndVal+="${lcolorReqOpenClose}<"
-				lstrVarAndVal+="${lcolorOptParamVar}${lstrDefaultVar}"
+				lstrVarAndVal+="${lcolorOptParamVar}${lstrDefaultVarName}"
 				lstrVarAndVal+="${lcolorEqualSign}="
 				lstrVarAndVal+="${lcolorValue}\"${lstrDefVal}\""
 				lstrVarAndVal+="${lcolorReqOpenClose}>"
@@ -623,12 +627,12 @@ function SECFUNCshowHelpV2() { #help TODO WIP making it much easier to maintain!
 			FUNCcolorSet
 			FUNCsetVarAndVal
 			
-			lastrColumnsPerLine[2]="$(echo "${lstrHelpWithVarValues}" |sed -n -r -e 's@(.*)<('"${lstrDefaultVar}"')>(.*)@\1'"${lstrVarAndVal}"'\3@p')"
-			#echo "${lstrHelpWithVarValues}" |sed -n -r -e 's@(.*)<('"${lstrDefaultVar}"')>(.*)@\1'"${lcolorReqOpenClose}<${lcolorOptParamVar}${lstrDefaultVar}${lcolorEqualSign}=${lcolorValue}\"${lstrDefVal}\"${lcolorReqOpenClose}>${lcolorEnd}"'\3@p'
+			lastrColumnsPerLine[2]="$(echo "${lstrHelpWithVarValues}" |sed -n -r -e 's@(.*)<('"${lstrDefaultVarName}"')>(.*)@\1'"${lstrVarAndVal}"'\3@p')"
+			#echo "${lstrHelpWithVarValues}" |sed -n -r -e 's@(.*)<('"${lstrDefaultVarName}"')>(.*)@\1'"${lcolorReqOpenClose}<${lcolorOptParamVar}${lstrDefaultVarName}${lcolorEqualSign}=${lcolorValue}\"${lstrDefVal}\"${lcolorReqOpenClose}>${lcolorEnd}"'\3@p'
 			#echo "${lastrColumnsPerLine[2]}"
 		else
-			if [[ -n "$lstrDefaultVar" ]];then
-				echo "[ERROR] invalid (potentialy dangerous) variable name '$lstrDefaultVar' to eval for value."
+			if [[ -n "$lstrDefaultVarName" ]];then
+				echo "[ERROR] invalid (potentialy dangerous) variable name '$lstrDefaultVarName' to eval for value."
 				exit 1
 			fi
 		fi
