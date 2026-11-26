@@ -1151,6 +1151,15 @@ if $bCheckModLauncherModsProperlyInstalled;then
 	fi
 fi
 
+function FUNCchkCfgFiles() {
+	local astrCfgList
+	mapfile -t astrCfgList < <(find -iregex ".*/content/cfg/.*[.]cfg");
+	if egrep "$(echo -e "\t")" "${astrCfgList[@]}";then
+		FUNCwaitSeconds 3 "[PROBLEM] .cfg files do not work well with tabs \\\\t='\t' ";
+	fi
+};export -f FUNCchkCfgFiles
+FUNCchkCfgFiles
+
 : ${strFlModLauncherChk:="${strGameInstallMainFolder}/_mods/core/user_settings.json"};export strFlModLauncherChk #help
 function FUNCchkModLauncherCfgValidateItCompletely() {
 	if(( $(FUNCjson "$strFlModLauncherChk" ".load_order" |wc -l) == 0 ));then return 1;fi
