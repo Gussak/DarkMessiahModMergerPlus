@@ -123,7 +123,7 @@ else
 		FUNCfillByType "Simulated"     "^gskSummonSim" #KEEP ON TOP as may clash with others below. items otherwise impossible to be spawned
 		FUNCfillByType "FriendlyNPCs"  "^([+]gskSummonGuard|[+]gskSummonWizard|[+]gskSummonGuardBow|[+]gskSummonGuardShield|[+]gskSummonGuardMini)$|villager" #friendly NPCs
 		FUNCfillByType "EtcNPCs"       "corpse" #etc NPCs
-		FUNCfillByType "FoeNPCs"       "necroguard|necromancer|spider|facehugger|undead" #foe NPCs
+		FUNCfillByType "FoeNPCs"       "necroguard|necromancer|spider|facehugger|undead|goblin|lich|orc|specter" #foe NPCs
 		FUNCfillByType "POTIONS"       "potion"
 		FUNCfillByType "DummyNPCs"     "crow|seagull|dog|pig" #harmless NPCs
 		FUNCfillByType "FOOD"          "leek|bread|rib|fish|chicken|banana|food|fibs|garlic|ham|mushroom|pie" #food
