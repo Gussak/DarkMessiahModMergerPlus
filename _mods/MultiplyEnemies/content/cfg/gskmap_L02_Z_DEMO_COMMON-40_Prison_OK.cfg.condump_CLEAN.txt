@@ -53,17 +53,17 @@ setpos 4017.007324 -4013.597412 225.347641;setang 56.663803 39.927986 -0.001024
 gskSummonSpiderRegular
 gskSummonSpiderRegular
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 7/25 )
-prop at 4168 -4054 155 missing modelname
-prop at 4168 -4054 155 missing modelname
-setpos 4027.775391 -3997.825439 229.309586;setang 26.307020 -21.980396 0.001727
-setpos 4027.775391 -3997.825439 229.309586;setang 26.307020 -21.980396 0.001727
+prop at 4083 -3979 56 missing modelname
+prop at 4083 -3979 56 missing modelname
+setpos 4007.756836 -4038.894287 123.252968;setang 34.982796 38.307713 0.001059
+setpos 4007.756836 -4038.894287 123.252968;setang 34.982796 38.307713 0.001059
 gskSummonFacehugger
 gskSummonFacehugger
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 8/25 )
-prop at 4078 -4088 148 missing modelname
-prop at 4078 -4088 148 missing modelname
-setpos 4011.415771 -3990.751709 228.404221;setang 34.425106 -55.772594 0.001061
-setpos 4011.415771 -3990.751709 228.404221;setang 34.425106 -55.772594 0.001061
+prop at 4004 -4016 109 missing modelname
+prop at 4004 -4016 109 missing modelname
+setpos 4001.316650 -4037.169678 121.298294;setang 34.916801 86.883781 0.041899
+setpos 4001.316650 -4037.169678 121.298294;setang 34.916801 86.883781 0.041899
 gskSummonFacehugger
 gskSummonFacehugger
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 9/25 )

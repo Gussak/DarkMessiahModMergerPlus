@@ -96,8 +96,8 @@
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_40_Prison_OK_007"  //gskSummonFacehugger
-			"origin"      "4168 -4054 156"
-			"angles"      "26 159 0"
+			"origin"      "4083 -3979 57"
+			"angles"      "34 -142 0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_facehugger"
@@ -107,8 +107,8 @@
 		"add:entity"
 		{
 			"targetname"  "gskSpawn_40_Prison_OK_008"  //gskSummonFacehugger
-			"origin"      "4078 -4088 149"
-			"angles"      "34 125 0"
+			"origin"      "4004 -4016 110"
+			"angles"      "34 -94 0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
 			"classname" "npc_facehugger"
