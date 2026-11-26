@@ -1,0 +1,145 @@
+map     :  l02_z_demo_Common at: 4372 x, -4061 y, 126 z
+map     :  l02_z_demo_Common at: 4372 x, -4061 y, 126 z
+gskMapMessage at 00_LUMP_ENTITIES.bin: 'origin' '2688 -3728 -72', 'classname' 'trigger_once', 'id' '4048014', 'OnTrigger' 'tutorelay.dragoonCrate,Trigger,,0,-1'
+gskSpawnTriggerAtID 4048014
+gskSpawnTriggerType OnTrigger
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 0/20 )
+prop at 2377 -4399 -112 missing modelname
+prop at 2377 -4399 -112 missing modelname
+setpos 2257.613525 -4490.058105 -22.915436;setang 30.596573 37.362820 0.001388
+setpos 2257.613525 -4490.058105 -22.915436;setang 30.596573 37.362820 0.001388
+gskSummonNecroGuardBow
+gskSummonNecroGuardBow
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 1/20 )
+prop at 2377 -4521 -112 missing modelname
+prop at 2377 -4521 -112 missing modelname
+setpos 2259.407959 -4495.439453 -23.591396;setang 36.338608 -12.137459 0.000884
+setpos 2259.407959 -4495.439453 -23.591396;setang 36.338608 -12.137459 0.000884
+gskSummonNecroGuardBow
+gskSummonNecroGuardBow
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 2/20 )
+prop at 2312 -4465 -112 missing modelname
+prop at 2312 -4465 -112 missing modelname
+setpos 2380.865967 -4485.946289 -17.792500;setang 52.770462 162.864639 -0.000784
+setpos 2380.865967 -4485.946289 -17.792500;setang 52.770462 162.864639 -0.000784
+gskSummonNecroGuardBow
+gskSummonNecroGuardBow
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 3/20 )
+prop at 1301 -4400 -52 missing modelname
+prop at 1301 -4400 -52 missing modelname
+setpos 1301.619873 -4457.799316 70.293930;setang 64.647873 91.028191 -0.001249
+setpos 1301.619873 -4457.799316 70.293930;setang 64.647873 91.028191 -0.001249
++gskSummonNecromancerLord
++gskSummonNecromancerLord
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 4/20 )
+prop at 1303 -4513 -52 missing modelname
+prop at 1303 -4513 -52 missing modelname
+setpos 1302.030273 -4476.087402 68.953644;setang 73.028740 -88.460678 -0.001069
+setpos 1302.030273 -4476.087402 68.953644;setang 73.028740 -88.460678 -0.001069
++gskSummonNecromancerLord
++gskSummonNecromancerLord
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 5/20 )
+prop at 1207 -4457 -52 missing modelname
+prop at 1207 -4457 -52 missing modelname
+setpos 1293.224731 -4465.960938 71.781990;setang 55.013920 174.055359 -0.000930
+setpos 1293.224731 -4465.960938 71.781990;setang 55.013920 174.055359 -0.000930
++gskSummonNecromancerLord
++gskSummonNecromancerLord
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 6/20 )
+prop at 1403 -4457 -52 missing modelname
+prop at 1403 -4457 -52 missing modelname
+setpos 1310.215942 -4466.002441 72.086922;setang 52.968369 5.755050 -0.000793
+setpos 1310.215942 -4466.002441 72.086922;setang 52.968369 5.755050 -0.000793
++gskSummonNecromancerLord
++gskSummonNecromancerLord
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 7/20 )
+prop at 1314 -4156 -112 missing modelname
+prop at 1314 -4156 -112 missing modelname
+setpos 1377.869873 -4193.720215 9.632978;setang 58.577038 149.737534 -0.001097
+setpos 1377.869873 -4193.720215 9.632978;setang 58.577038 149.737534 -0.001097
+gskSummonNecroGuardBow
+gskSummonNecroGuardBow
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 8/20 )
+prop at 1306 -4160 -112 missing modelname
+prop at 1306 -4160 -112 missing modelname
+setpos 1377.613159 -4194.405273 9.905213;setang 56.795414 154.489380 -0.001026
+setpos 1377.613159 -4194.405273 9.905213;setang 56.795414 154.489380 -0.001026
+gskSummonNecroGuardBow
+gskSummonNecroGuardBow
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 9/20 )
+prop at 1684 -4370 -112 missing modelname
+prop at 1684 -4370 -112 missing modelname
+setpos 1547.637939 -4442.742676 3.305156;setang 36.668629 27.966366 0.000853
+setpos 1547.637939 -4442.742676 3.305156;setang 36.668629 27.966366 0.000853
+gskSummonNecroGuardBow
+gskSummonNecroGuardBow
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 10/20 )
+prop at 1919 -4370 -112 missing modelname
+prop at 1919 -4370 -112 missing modelname
+setpos 1545.973755 -4445.135254 5.333830;setang 17.132586 11.467053 0.002378
+setpos 1545.973755 -4445.135254 5.333830;setang 17.132586 11.467053 0.002378
+gskSummonNecroGuardBow
+gskSummonNecroGuardBow
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 11/20 )
+prop at 2136 -4374 -112 missing modelname
+prop at 2136 -4374 -112 missing modelname
+setpos 1545.188477 -4445.605957 5.776632;setang 11.192590 6.913150 0.002764
+setpos 1545.188477 -4445.605957 5.776632;setang 11.192590 6.913150 0.002764
+gskSummonNecroGuardBow
+gskSummonNecroGuardBow
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 12/20 )
+prop at 2133 -4540 -112 missing modelname
+prop at 2133 -4540 -112 missing modelname
+setpos 1545.168335 -4446.673340 5.776632;setang 11.192589 -9.058846 0.002764
+setpos 1545.168335 -4446.673340 5.776632;setang 11.192589 -9.058846 0.002764
+gskSummonNecroGuardBow
+gskSummonNecroGuardBow
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 13/20 )
+prop at 1942 -4543 -112 missing modelname
+prop at 1942 -4543 -112 missing modelname
+setpos 1545.791504 -4447.138184 5.418973;setang 16.076590 -13.612919 0.002448
+setpos 1545.791504 -4447.138184 5.418973;setang 16.076590 -13.612919 0.002448
+gskSummonNecroGuardBow
+gskSummonNecroGuardBow
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 14/20 )
+prop at 1708 -4544 -112 missing modelname
+prop at 1708 -4544 -112 missing modelname
+setpos 1547.024902 -4449.397949 3.887260;setang 31.784620 -30.509413 0.001290
+setpos 1547.024902 -4449.397949 3.887260;setang 31.784620 -30.509413 0.001290
+gskSummonNecroGuardBow
+gskSummonNecroGuardBow
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 15/20 )
+prop at 1885 -4124 -112 missing modelname
+prop at 1885 -4124 -112 missing modelname
+setpos 1880.397217 -4263.946289 37.506401;setang 46.832085 88.092026 -0.000260
+setpos 1880.397217 -4263.946289 37.506401;setang 46.832085 88.092026 -0.000260
+gskSummonNecroGuardShield
+gskSummonNecroGuardShield
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 16/20 )
+prop at 1760 -4115 -112 missing modelname
+prop at 1760 -4115 -112 missing modelname
+setpos 1875.700562 -4266.211426 38.636024;setang 38.384613 127.560287 0.000688
+setpos 1875.700562 -4266.211426 38.636024;setang 38.384613 127.560287 0.000688
+gskSummonNecroGuardShield
+gskSummonNecroGuardShield
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 17/20 )
+prop at 1498 -4653 -112 missing modelname
+prop at 1498 -4653 -112 missing modelname
+setpos 1650.636230 -4677.745117 -43.499020;setang 23.930588 170.724792 0.001904
+setpos 1650.636230 -4677.745117 -43.499020;setang 23.930588 170.724792 0.001904
+gskSummonNecroGuardShield
+gskSummonNecroGuardShield
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 18/20 )
+prop at 2374 -4772 -112 missing modelname
+prop at 2374 -4772 -112 missing modelname
+setpos 2105.087891 -4679.735352 -23.228935;setang 17.330544 -18.958874 0.002364
+setpos 2105.087891 -4679.735352 -23.228935;setang 17.330544 -18.958874 0.002364
+gskSummonNecroGuardShield
+gskSummonNecroGuardShield
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 19/20 )
+prop at 1893 -4790 -112 missing modelname
+prop at 1893 -4790 -112 missing modelname
+setpos 1806.512329 -4544.251465 89.292603;setang 37.724564 -70.703621 0.000750
+setpos 1806.512329 -4544.251465 89.292603;setang 37.724564 -70.703621 0.000750
+gskSummonNecroGuardShield
+gskSummonNecroGuardShield

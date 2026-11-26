@@ -115,6 +115,232 @@
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
 			"spawnflags"  "7"
 		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_40_Prison_OK_009"  //+gskSummonNecromancerLord
+			"origin"      "5159 -4552 57"
+			"angles"      "79 -93 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_necromancer_lord"
+			"model" "models/NPC/necromancer_lord/npc_necromancer_lord.mdl"
+			"additionalequipment" "weapon_mm_hook"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_40_Prison_OK_010"  //gskSummonNecromancer
+			"origin"      "3994 -4505 57"
+			"angles"      "74 -98 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_necromancer_lord"
+			"model" "models/NPC/Necromancer/Npc_necromancer.mdl"
+			"additionalequipment" "weapon_mm_staff_combat"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_40_Prison_OK_011"  //gskSummonNecroGuardShield
+			"origin"      "4114 -4544 57"
+			"angles"      "56 162 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment"	"weapon_arx_short_sword"
+			"additionalshield" "weapon_mm_shield_necroguard"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_40_Prison_OK_012"  //gskSummonNecroGuardShield
+			"origin"      "4120 -4429 57"
+			"angles"      "49 -158 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment"	"weapon_arx_short_sword"
+			"additionalshield" "weapon_mm_shield_necroguard"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_40_Prison_OK_013"  //gskSummonNecroGuardBow
+			"origin"      "5222 -4556 57"
+			"angles"      "69 136 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"QuiverAmmo" "12"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_40_Prison_OK_014"  //gskSummonNecroGuardBow
+			"origin"      "5245 -4518 57"
+			"angles"      "68 175 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"QuiverAmmo" "12"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_40_Prison_OK_015"  //gskSummonNecroGuardBow
+			"origin"      "5264 -4436 57"
+			"angles"      "54 -139 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"QuiverAmmo" "12"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_40_Prison_OK_016"  //gskSummonNecroGuardBow
+			"origin"      "5248 -4399 61"
+			"angles"      "49 -123 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"QuiverAmmo" "12"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_40_Prison_OK_017"  //gskSummonNecroGuardBow
+			"origin"      "5203 -4384 57"
+			"angles"      "50 -102 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"QuiverAmmo" "12"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_40_Prison_OK_018"  //gskSummonNecroGuardBow
+			"origin"      "5156 -4378 57"
+			"angles"      "49 -82 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"QuiverAmmo" "12"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_40_Prison_OK_019"  //gskSummonNecroGuardShield
+			"origin"      "5019 -4395 57"
+			"angles"      "42 -92 0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment"	"weapon_arx_short_sword"
+			"additionalshield" "weapon_mm_shield_necroguard"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_40_Prison_OK_020"  //gskSummonNecroGuardShield
+			"origin"      "5018 -4579 57"
+			"angles"      "41 81 0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment"	"weapon_arx_short_sword"
+			"additionalshield" "weapon_mm_shield_necroguard"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_40_Prison_OK_021"  //gskSummonNecroGuardBow
+			"origin"      "4063 -4423 57"
+			"angles"      "63 -123 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"QuiverAmmo" "12"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_40_Prison_OK_022"  //gskSummonNecroGuardBow
+			"origin"      "4016 -4416 57"
+			"angles"      "65 -92 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"QuiverAmmo" "12"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_40_Prison_OK_023"  //gskSummonNecroGuardBow
+			"origin"      "3971 -4424 57"
+			"angles"      "64 -61 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"QuiverAmmo" "12"
+			"spawnflags"  "263"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_40_Prison_OK_024"  //gskSummonNecroGuardBow
+			"origin"      "3964 -4476 57"
+			"angles"      "74 -26 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"QuiverAmmo" "12"
+			"spawnflags"  "263"
+		}
 
 		"modify:entity"
 		{
@@ -165,6 +391,73 @@
 				"Template08" "gskSpawn_40_Prison_OK_007"
 
 				"Template09" "gskSpawn_40_Prison_OK_008"
+
+				"Template10" "gskSpawn_40_Prison_OK_009"
+
+				"Template11" "gskSpawn_40_Prison_OK_010"
+
+				"Template12" "gskSpawn_40_Prison_OK_011"
+
+				"Template13" "gskSpawn_40_Prison_OK_012"
+
+				"Template14" "gskSpawn_40_Prison_OK_013"
+
+				"Template15" "gskSpawn_40_Prison_OK_014"
+
+				"Template16" "gskSpawn_40_Prison_OK_015"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"3525157"
+			}
+			"add:key"
+			{
+				"OnTrigger" "gskSpawn_40_Prison_OK_BeginAt016,ForceSpawn,,0.000,1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_40_Prison_OK_BeginAt016"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_40_Prison_OK_BeginAt016"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_40_Prison_OK_016"
+
+				"Template02" "gskSpawn_40_Prison_OK_017"
+
+				"Template03" "gskSpawn_40_Prison_OK_018"
+
+				"Template04" "gskSpawn_40_Prison_OK_019"
+
+				"Template05" "gskSpawn_40_Prison_OK_020"
+
+				"Template06" "gskSpawn_40_Prison_OK_021"
+
+				"Template07" "gskSpawn_40_Prison_OK_022"
+
+				"Template08" "gskSpawn_40_Prison_OK_023"
+
+				"Template09" "gskSpawn_40_Prison_OK_024"
 
 			}
 		}
