@@ -301,12 +301,12 @@ while [[ $# -gt 0 && "${1:0:1}" == "-" ]];do
 	elif [[ "${1}" == "-s" ]];then #help <lstrUseThisSector> same as -c but you can prepare a smaller SECTOR area in that map with loads of foes to not encumber the engine, ex.: "02_FrontYard_OK" for gskmap_l02_b1-02_FrontYard_OK.cfg
 		shift;lstrUseThisSector="${1}"
 		bCreateSpawnsForCurrentMap=true
-	elif [[ "${1}" == "--extractSector" ]];then #help TODO <lstrExtractSectorFromXYZ> <lstrExtractSectorToXYZ> <lstrExtractSectorName> XYZ is comma separated 3D positions you can get thru console 'getpos' to determine a box where all spawn requests will be detected. Ex.: ./createNpcSpawnSwitches.sh --extractSector "585.749634 -3053.898193 74.14216" "1113.732056 -2122.754639 940.90033" "35_TMP" -M gskmap_L00-30_FirstLever.cfg  #!!!IMPORTANT!!!make it sure to copy from the original file all gskSpawn options and other stuff on the top that may be missing, into the remaining data file.
+	elif [[ "${1}" == "--extractSector" ]];then #help <lstrExtractSectorFromXYZ> <lstrExtractSectorToXYZ> <lstrExtractSectorName> XYZ is comma separated 3D positions you can get thru console 'getpos' to determine a box where all spawn requests will be detected. Ex.: ./createNpcSpawnSwitches.sh --extractSector "585.749634 -3053.898193 74.14216" "1113.732056 -2122.754639 940.90033" "35_TMP" -M gskmap_L00-30_FirstLever.cfg  #!!!IMPORTANT!!!make it sure to copy from the original file all gskSpawn options and other stuff on the top that may be missing, into the remaining data file.
 		shift;lstrExtractSectorFromXYZ="${1}"
 		shift;lstrExtractSectorToXYZ="${1}"
 		shift;lstrExtractSectorName="${1}"
 		bCreateSpawnsForCurrentMap=true
-		#echo "TODO not implemented yet. Goal is to go thru all spawn requests and filter in (generate output) only the ones inside that 3D box, while creating a new file for the new sector, and a new file for the remaining"
+		# Goal is to go thru all spawn requests and filter in (generate output) only the ones inside that 3D box, while creating a new file for the new sector, and a new file for the remaining
 	elif [[ "${1}" == "--redoall" ]];then #help mainly to be used after patching this script
 		bRedoAll=true
 	elif [[ "${1}" == "--summon" ]];then #help create summoning alises list for many NPCs and items
@@ -974,6 +974,67 @@ function FUNCmapadds() {
 			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_DropHealing FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			#"weaponmodel" "models/Items/Weapons/hook/hook.mdl"
 			;;
+		mm_npc_create_goblin|"gskSummonGoblin")
+			bIsNpc=true
+			echo '
+			"classname" "npc_goblin"
+			"model" "models/NPC/goblin/npc_goblin.mdl"
+			"additionalequipment" "weapon_arxclub"
+			"additionalshield" "weapon_mm_shield_gob"
+			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_DropHealing FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
+			;;
+		mm_npc_create_orc_sword|"gskSummonOrcSword")
+			bIsNpc=true
+			echo '
+			"classname" "npc_orc_sword"
+			"model" "models/NPC/orc/npc_orc.mdl"
+			"additionalequipment" "weapon_arxorccleaver"
+			"additionalhelmet" "weapon_arxhelmet"
+			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_DropHealing FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
+			;;
+		mm_npc_create_orc_sword_bow|"gskSummonOrcSwordBow")
+			bIsNpc=true
+			echo '
+			"classname" "npc_orc_bow"
+			"model" "models/NPC/orc/npc_orc.mdl"
+			"additionalequipment" "weapon_arxcrossbow"
+			"additionalhelmet" "weapon_arxhelmet"
+			"OrnamentModel" "models/items/weapons/Quiver_Orc/quiver_orc.mdl"
+			"OrnamentAttachment" "Quiver"
+			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_DropHealing FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
+			;;
+		mm_npc_create_orc_sword_shield|"+gskSummonOrcSwordShield")
+			bIsNpc=true
+			echo '
+			"classname" "npc_orc"
+			"model" "models/NPC/npc_orc/npc_orc.mdl"
+			"additionalequipment" "weapon_arxorccleaver"
+			"additionalhelmet" "weapon_arxhelmet"
+			"additionalshield" "weapon_mm_shield_orc"
+			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_DropHealing FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
+			;;
+		mm_npc_create_lich|"gskSummonLich")
+			bIsNpc=true
+			echo '
+			"classname" "npc_lich"
+			"model" "models/NPC/lich/npc_lich.mdl"
+			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_DropHealing FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
+			;;
+		mm_npc_create_lich_king|"+gskSummonLichKing")
+			bIsNpc=true
+			echo '
+			"classname" "npc_lich_king"
+			"model" "models/NPC/lich_king/npc_lich_king.mdl"
+			"additionalhelmet" "weapon_mm_helmet_lichcrown"
+			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_DropHealing FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
+			;;
+		mm_npc_create_servant_specter|"gskSummonSpecter")
+			bIsNpc=true
+			echo '
+			"classname" "npc_servant_specter"
+			"model" "models/NPC/servant_specter/npc_servant_specter.mdl"
+			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_DropHealing FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
+			;;
 		mm_npc_create_undead|"gskSummonUndead")
 			bIsNpc=true
 			echo '
@@ -1098,6 +1159,20 @@ function FUNCmapadds() {
 			"classname" "prop_physics"
 			"model" "models/items/jewels/money/money02.mdl"
 			"spawnflags"  "'"$(FUNCspawnFlags OBJ)"'"' >>"$lstrFlAddTmp"
+			;;
+		"gskSummonTorch") #TODO test, shall be gskSummonDev... or gskSummonSim(simulated)... ?
+			echo '
+			"classname" "env_torch"
+			"health" "30"
+			"firesize" "40"
+			"fireattack" "4"
+			"firetype" "0"
+			"ignitionpoint" "32"
+			"damagescale" "1.0"
+			"combinability" "1"
+			"trapsecret" "0"
+			"torchsound" "Fire_Loop_Torch"
+			"spawnflags" "29"' >>"$lstrFlAddTmp"
 			;;
 		"gskSummonCrow")
 			bIsNpc=true
