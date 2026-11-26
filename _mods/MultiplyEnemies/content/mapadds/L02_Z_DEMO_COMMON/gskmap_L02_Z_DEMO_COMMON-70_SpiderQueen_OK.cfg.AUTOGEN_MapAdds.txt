@@ -370,6 +370,51 @@
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
 			"spawnflags"  "7"
 		}
+//		"add:entity"
+//		{
+//			"targetname"  "gskSpawn_70_SpiderQueen_OK_031"  //+gskSummonScrollMagicReflection
+//			"origin"      "309 -5562 -271"
+//			"angles"      "60 80 -0"
+//			"physdamagescale" "1.0"
+//			"radiusforrandomattitude" "500"
+//			"targetname"   "gskSpawn_70_SpiderQueen_OK_031_TODO_FixMissingSupportFor_+gskSummonScrollMagicReflection"
+//		}
+//		"add:entity"
+//		{
+//			"targetname"  "gskSpawn_70_SpiderQueen_OK_032"  //gskSummonScrollInferno
+//			"origin"      "343 -5558 -271"
+//			"angles"      "61 92 -0"
+//			"physdamagescale" "1.0"
+//			"radiusforrandomattitude" "500"
+//			"targetname"   "gskSpawn_70_SpiderQueen_OK_032_TODO_FixMissingSupportFor_gskSummonScrollInferno"
+//		}
+//		"add:entity"
+//		{
+//			"targetname"  "gskSpawn_70_SpiderQueen_OK_033"  //gskSummonScrollFreeze
+//			"origin"      "202 -5589 -271"
+//			"angles"      "50 55 -0"
+//			"physdamagescale" "1.0"
+//			"radiusforrandomattitude" "500"
+//			"targetname"   "gskSpawn_70_SpiderQueen_OK_033_TODO_FixMissingSupportFor_gskSummonScrollFreeze"
+//		}
+//		"add:entity"
+//		{
+//			"targetname"  "gskSpawn_70_SpiderQueen_OK_034"  //gskSummonScrollFireball
+//			"origin"      "262 -5518 -271"
+//			"angles"      "64 57 -0"
+//			"physdamagescale" "1.0"
+//			"radiusforrandomattitude" "500"
+//			"targetname"   "gskSpawn_70_SpiderQueen_OK_034_TODO_FixMissingSupportFor_gskSummonScrollFireball"
+//		}
+//		"add:entity"
+//		{
+//			"targetname"  "gskSpawn_70_SpiderQueen_OK_035"  //gskSummonScrollCharm
+//			"origin"      "298 -5656 -271"
+//			"angles"      "47 81 -0"
+//			"physdamagescale" "1.0"
+//			"radiusforrandomattitude" "500"
+//			"targetname"   "gskSpawn_70_SpiderQueen_OK_035_TODO_FixMissingSupportFor_gskSummonScrollCharm"
+//		}
 
 		"modify:entity"
 		{
