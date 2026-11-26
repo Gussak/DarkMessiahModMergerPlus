@@ -306,73 +306,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_70_SpiderQueen_OK_025"  //gskSummonFacehugger
-			"origin"      "-703 -6193 20"
-			"angles"      "4 32 0"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"classname" "npc_facehugger"
-			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
-			"spawnflags"  "7"
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_70_SpiderQueen_OK_026"  //gskSummonFacehugger
-			"origin"      "-544 -6270 3"
-			"angles"      "6 44 0"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"classname" "npc_facehugger"
-			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
-			"spawnflags"  "7"
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_70_SpiderQueen_OK_027"  //gskSummonFacehugger
-			"origin"      "-697 -4984 23"
-			"angles"      "4 -32 0"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"classname" "npc_facehugger"
-			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
-			"spawnflags"  "7"
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_70_SpiderQueen_OK_028"  //gskSummonFacehugger
-			"origin"      "-554 -4914 16"
-			"angles"      "5 -44 0"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"classname" "npc_facehugger"
-			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
-			"spawnflags"  "7"
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_70_SpiderQueen_OK_029"  //gskSummonFacehugger
-			"origin"      "-840 -5710 30"
-			"angles"      "1 13 0"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"classname" "npc_facehugger"
-			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
-			"spawnflags"  "7"
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_70_SpiderQueen_OK_030"  //gskSummonFacehugger
-			"origin"      "-840 -5477 54"
-			"angles"      "-0 -9 0"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"classname" "npc_facehugger"
-			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
-			"spawnflags"  "7"
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_70_SpiderQueen_OK_031"  //+gskSummonScrollMagicReflection
+			"targetname"  "gskSpawn_70_SpiderQueen_OK_025"  //+gskSummonScrollMagicReflection
 			"origin"      "309 -5562 -271"
 			"angles"      "60 80 -0"
 			"physdamagescale" "1.0"
@@ -384,7 +318,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_70_SpiderQueen_OK_032"  //gskSummonScrollInferno
+			"targetname"  "gskSpawn_70_SpiderQueen_OK_026"  //gskSummonScrollInferno
 			"origin"      "343 -5558 -271"
 			"angles"      "61 92 -0"
 			"physdamagescale" "1.0"
@@ -396,7 +330,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_70_SpiderQueen_OK_033"  //gskSummonScrollFreeze
+			"targetname"  "gskSpawn_70_SpiderQueen_OK_027"  //gskSummonScrollFreeze
 			"origin"      "202 -5589 -271"
 			"angles"      "50 55 -0"
 			"physdamagescale" "1.0"
@@ -408,7 +342,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_70_SpiderQueen_OK_034"  //gskSummonScrollFireball
+			"targetname"  "gskSpawn_70_SpiderQueen_OK_028"  //gskSummonScrollFireball
 			"origin"      "262 -5518 -271"
 			"angles"      "64 57 -0"
 			"physdamagescale" "1.0"
@@ -420,7 +354,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_70_SpiderQueen_OK_035"  //gskSummonScrollCharm
+			"targetname"  "gskSpawn_70_SpiderQueen_OK_029"  //gskSummonScrollCharm
 			"origin"      "298 -5656 -271"
 			"angles"      "47 81 -0"
 			"physdamagescale" "1.0"
@@ -432,7 +366,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_70_SpiderQueen_OK_036"  //+gskSummonWizard
+			"targetname"  "gskSpawn_70_SpiderQueen_OK_030"  //+gskSummonWizard
 			"origin"      "281 -5589 -271"
 			"angles"      "50 39 -0"
 			"physdamagescale" "1.0"
@@ -441,6 +375,106 @@
 			"model" "models/NPC/Wizard/Npc_Wizard.mdl"
 			"additionalequipment" "weapon_mm_staff_wood"
 			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_70_SpiderQueen_OK_031"  //gskSummonScrollFireTrap
+			"origin"      "411 -5534 -271"
+			"angles"      "33 -17 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "item_loot_scroll_fire_trap"
+			"angles"      "0 -17 0"
+			"spawnflags"  "256"
+			"origin"      "411 -5534 -266"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_70_SpiderQueen_OK_032"  //gskSummonFacehugger
+			"origin"      "-512 -6170 -162"
+			"angles"      "67 83 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_facehugger"
+			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
+			"spawnflags"  "7"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_70_SpiderQueen_OK_033"  //gskSummonFacehugger
+			"origin"      "-660 -6122 -162"
+			"angles"      "63 38 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_facehugger"
+			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
+			"spawnflags"  "7"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_70_SpiderQueen_OK_034"  //gskSummonFacehugger
+			"origin"      "-798 -5708 -130"
+			"angles"      "46 -6 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_facehugger"
+			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
+			"spawnflags"  "7"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_70_SpiderQueen_OK_035"  //gskSummonFacehugger
+			"origin"      "-800 -5474 -130"
+			"angles"      "44 -5 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_facehugger"
+			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
+			"spawnflags"  "7"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_70_SpiderQueen_OK_036"  //gskSummonFacehugger
+			"origin"      "-513 -4983 -162"
+			"angles"      "45 -70 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_facehugger"
+			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
+			"spawnflags"  "7"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_70_SpiderQueen_OK_037"  //gskSummonFacehugger
+			"origin"      "-643 -5051 -162"
+			"angles"      "44 -42 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_facehugger"
+			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
+			"spawnflags"  "7"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_70_SpiderQueen_OK_038"  //gskSummonFacehugger
+			"origin"      "-738 -5254 -162"
+			"angles"      "42 -12 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_facehugger"
+			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
+			"spawnflags"  "7"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_70_SpiderQueen_OK_039"  //gskSummonFacehugger
+			"origin"      "-734 -5915 -162"
+			"angles"      "30 23 -0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_facehugger"
+			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
+			"spawnflags"  "7"
 		}
 
 		"modify:entity"
@@ -618,6 +652,12 @@
 				"Template04" "gskSpawn_70_SpiderQueen_OK_035"
 
 				"Template05" "gskSpawn_70_SpiderQueen_OK_036"
+
+				"Template06" "gskSpawn_70_SpiderQueen_OK_037"
+
+				"Template07" "gskSpawn_70_SpiderQueen_OK_038"
+
+				"Template08" "gskSpawn_70_SpiderQueen_OK_039"
 
 			}
 		}
