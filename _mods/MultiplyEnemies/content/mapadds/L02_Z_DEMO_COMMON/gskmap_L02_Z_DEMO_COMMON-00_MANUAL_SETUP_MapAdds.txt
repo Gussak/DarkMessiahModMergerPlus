@@ -47,6 +47,17 @@
 			"spawnflags" "6"
 			"origin" "9298 -1016 -1756" //underwater
 		}
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"4592696" //spider monster boss
+			}
+			"add:key"
+			{
+				"health" "31500" //sync with CarefulCombat mod
+			}
+		}
 		
 	}
 }
