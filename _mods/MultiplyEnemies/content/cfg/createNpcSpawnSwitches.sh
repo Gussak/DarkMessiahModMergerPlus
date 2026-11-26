@@ -938,6 +938,14 @@ function FUNCmapadds() {
 			//"QuiverAmmo" "8"
 			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_DropHealing FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			;; 
+		"+gskSummonWizard") #mm_npc_create_wizard
+			bIsNpc=true
+			echo '
+			"classname"   "npc_wizard"
+			"model" "models/NPC/Wizard/Npc_Wizard.mdl"
+			"additionalequipment" "weapon_mm_staff_wood"
+			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_DropHealing FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
+			;; 
 		mm_npc_create_necro_guard_bow|"gskSummonNecroGuardBow")
 			bIsNpc=true
 			echo '
@@ -1109,6 +1117,21 @@ function FUNCmapadds() {
 			echo '
 			"classname" "item_potion_cure_poison"
 			"model" "models/items/provisions/potions/cure_poison_potion.mdl"
+			"angles"      "'"0 ${anTargetAngXYZ[y]} 0"'"
+			"spawnflags"  "'"$(FUNCspawnFlags OBJ)"'"' >>"$lstrFlAddTmp"
+			;;
+		"gskSummonScroll"*|"+gskSummonScroll"*)
+			# ex.: gskSummonScrollFireTrap becomes item_loot_scroll_fire_trap
+			local lstrClassName="${lstrSummonCmd}"
+			lstrClassName="${lstrClassName#+}"
+			lstrClassName="${lstrClassName#gskSummonScroll}"
+			lstrClassName="item_loot_scroll$(echo "${lstrClassName}" |sed -r -e 's@[A-Z]@_&@g' |tr '[:upper:]' '[:lower:]')"
+			#case "${lstrSummonCmd%gskSummonScroll}" in
+				#*) strClassName+="$(echo "${lstrSummonCmd%gskSummonScroll}" |tr '[:upper:]' '[:lower:]')";;
+			#esac
+			lnYDisplacement=5
+			echo '
+			"classname"   "'"${lstrClassName}"'"
 			"angles"      "'"0 ${anTargetAngXYZ[y]} 0"'"
 			"spawnflags"  "'"$(FUNCspawnFlags OBJ)"'"' >>"$lstrFlAddTmp"
 			;;
