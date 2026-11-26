@@ -119,7 +119,7 @@ if true;then
 		if [[ "$strFlCfg" =~ ^chapter0[.]cfg.* ]];then continue;fi # seems single use from start new game
 		if [[ "$strFlCfg" =~ .*_INIT[.]cfg.* ]];then continue;fi # _INIT.cfg are meant to be run only once
 		((iCountExec++))&&:
-		echo -e "exec ${strFlCfg%-} \t\t\t// ${iCountExec} ${strAutoGenHint}" |tee -a "$strFlNew"
+		echo -e "exec ${strFlCfg%-}       // ${iCountExec} ${strAutoGenHint}" |tee -a "$strFlNew"
 	done
 	echo
 	declare -p iCountExec

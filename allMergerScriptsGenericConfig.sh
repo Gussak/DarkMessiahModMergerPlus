@@ -1154,7 +1154,7 @@ fi
 function FUNCchkCfgFiles() {
 	local astrCfgList
 	mapfile -t astrCfgList < <(find -iregex ".*/content/cfg/.*[.]cfg");
-	if egrep "$(echo -e "\t")" "${astrCfgList[@]}";then
+	if egrep "$(echo -e "\t")" "${astrCfgList[@]}" -n;then
 		FUNCwaitSeconds 3 "[PROBLEM] .cfg files do not work well with tabs \\\\t='\t' ";
 	fi
 };export -f FUNCchkCfgFiles

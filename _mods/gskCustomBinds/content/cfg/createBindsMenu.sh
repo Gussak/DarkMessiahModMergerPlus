@@ -77,16 +77,16 @@ FUNCcreateInGameDoc() {
 	
 	echo "echo [ALIAS] ${lstrAlias}" >>"${strFlGskBindDoc}"
 	if [[ -n "$lstrDescShort" ]];then
-		echo -e "echo \t${lstrDescShort}" >>"${strFlGskBindDoc}"
+		echo -e "echo ..${lstrDescShort}" >>"${strFlGskBindDoc}"
 	fi
 	
 	local lstrLN="$(grep "^bind[ ]*[^ ]*[ ]*${lstrAlias} " "${lstrFlDB}")"
 	if [[ "$lstrLN" =~ .*FullNiceDescription.* ]];then
 		local lstrFullDesc="$(echo "$lstrLN" | sed -r -e 's@.*FullNiceDescription: (.*)@\1@')"
 		if ! FUNCvalidateConsoleEchoMsg "$lstrFullDesc";then FUNCexit 1;fi
-		lstrFullDesc="$(echo -n "${lstrFullDesc}" |tr -d '\r' |sed -r -e 's@\\n@;@g' |sed -r -e 's@;@\necho \t@g' |sed -r -e 's@\t@..@g')" #improve formatting (uses the invalid ';' as token). Begging spaces are trimmmed by console echo
+		lstrFullDesc="$(echo -n "${lstrFullDesc}" |tr -d '\r' |sed -r -e 's@\\n@;@g' |sed -r -e 's@;@\necho ..@g' |sed -r -e 's@\t@..@g')" #improve formatting (uses the invalid ';' as token). Begging spaces are trimmmed by console echo
 		#declare -p lstrFullDesc >&2;read
-		echo -e "echo \t${lstrFullDesc}" >>"$strFlGskBindDoc"
+		echo -e "echo ..${lstrFullDesc}" >>"$strFlGskBindDoc"
 	fi
 	echo "echo" >>"$strFlGskBindDoc"
 }
@@ -158,7 +158,7 @@ for((iAlias=0;iAlias<${#astrAliasList[@]};iAlias++));do
         "'"$strMenuID"'" "'"$strDescription"'"
 '
 	if [[ -n "$strKVPatches" ]];then strKVPatches+=",\n";fi
-	strKVPatches+="\t\"${strAlias}\": \"#${strMenuID}\""
+	strKVPatches+="  \"${strAlias}\": \"#${strMenuID}\""
 	#declare -p strAlias strMenuID strDescription
 done
 declare -p iMaxMenuIdSz strMaxMenuIdSz
