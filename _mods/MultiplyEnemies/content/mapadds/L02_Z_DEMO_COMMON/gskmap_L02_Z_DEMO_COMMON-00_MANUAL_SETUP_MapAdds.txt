@@ -47,6 +47,8 @@
 			"spawnflags" "6"
 			"origin" "9298 -1016 -1756" //underwater
 		}
+		
+		////////////////////// TUFF SPIDER BOSS
 		"modify:entity"
 		{
 			"TargetMarkers"
@@ -56,6 +58,19 @@
 			"add:key"
 			{
 				"health" "31500" //sync with CarefulCombat mod
+			}
+		}
+		
+		/////////////////////// NO FREE HEALINGS (because it is blood magic fuel, and makes things too easy)
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"4026329"
+			}
+			"add:key"
+			{
+				"OnMapSpawn" "noMoreHeal,SetValue,1,0,-1" //see "id" "4215845"
 			}
 		}
 		
