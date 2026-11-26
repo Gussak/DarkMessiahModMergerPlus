@@ -1,0 +1,11 @@
+After several weeks of hard work, testing, balancing and care put into this project, I have decided that, for the time being, future updates will be hosted on GitHub thru super easy [url=https://github.com/Gussak/DarkMessiahModMergerPlus/tags]Tags[/url].
+
+Mods without ".kvpatch.json" work on Windows.
+Otherwise (with kvpatches) depends on cygwin+python+bash to run on Windows.
+Tho I have not tested it on Windows (I only use linux).
+
+Created on Linux.
+ 
+For OverlayFs alternative on windows, try these: Docker OverlayFS WSL2, may be Union Filesystems (FUSE) WinFsp rclone, Unified Write Filter (UWF). I never used them (I dont use windows), I just found they they are equivalent to that tool on linux.
+
+Later, using AI, it is possible to convert Bash to std c++20 where the same code compiles on windows and linux (and I know C++ well too), so no cygwin will be required. But can also be to python that does not require compilation.
