@@ -125,6 +125,7 @@ else
 		FUNCfillByType "EtcNPCs"       "corpse" #etc NPCs
 		FUNCfillByType "FoeNPCs"       "necroguard|necromancer|spider|facehugger|undead|goblin|lich|orc|specter" #foe NPCs
 		FUNCfillByType "POTIONS"       "potion"
+		FUNCfillByType "Scrolls"       "scroll"
 		FUNCfillByType "DummyNPCs"     "crow|seagull|dog|pig" #harmless NPCs
 		FUNCfillByType "FOOD"          "leek|bread|rib|fish|chicken|banana|food|fibs|garlic|ham|mushroom|pie" #food
 		FUNCfillByType "Weapons/Tools" "Tool|Weapon" #tools/weapons
@@ -1952,7 +1953,9 @@ if $bCreateSummonList;then # create spawner aliases
 	if $bOldSummonCacheLoaded && ls -l "$strFlDBsummoningsTmp";then
 		if FUNCaskYesNo "used old summon cache, trash it? helps on refreshing with new or changed gskSummon... commands.";then
 			FUNCtrash "$strFlDBsummoningsTmp"
-			echo "Now re-run."
+			echo ">>>>>>>>>>>>>>>>>>>>>>>> NOW RE-RUN IT <<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+			echo ">>>>>>>>>>>>>>>>>>>>>>>> NOW RE-RUN IT <<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+			echo ">>>>>>>>>>>>>>>>>>>>>>>> NOW RE-RUN IT <<<<<<<<<<<<<<<<<<<<<<<<<<<<"
 		fi
 	fi
 fi
