@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# SPDX-License-Identifier: Apache-2.0
+
 #set -x
 if true;then
 	while [[ ! -f "./allMergerScriptsGenericConfig.sh" ]];do cd ..;done; source "./allMergerScriptsGenericConfig.sh"; FUNCminiModInit "$@"

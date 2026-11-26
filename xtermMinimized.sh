@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# SPDX-License-Identifier: Apache-2.0
+
 echo "see 'allMergerScriptsGenericConfig.sh/FUNCxterm/launchappminimized' instead"
 exit
 

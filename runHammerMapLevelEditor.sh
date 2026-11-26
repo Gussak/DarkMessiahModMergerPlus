@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# SPDX-License-Identifier: Apache-2.0
+
 set -Eeu
 
 egrep "[#]help" "$0"

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# SPDX-License-Identifier: Apache-2.0
+
 #if [[ "${1-}" == "--help" ]];then #help ok
 	#: #egrep "[#]help" "$0"
 #fi
