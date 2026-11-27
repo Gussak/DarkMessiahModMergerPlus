@@ -826,7 +826,9 @@ if $bShowFinalComparison;then
 	echo "'$strVanillaScriptFile'"
 	echo "'$strFlWork'"
 	FUNCcheckEncodingUTF8 "$strVanillaScriptFile" "$strFlWork"
+	ls -l "$strFlWork"
 	FUNCexecMerger "$strVanillaScriptFile" "$strFlWork"
+	ls -l "$strFlWork"
 fi
 
 FUNCcompareEncoding() {
@@ -846,25 +848,36 @@ FUNCcompareEncoding() {
 ##################### RESTORE ENCODING, be careful below here ####################
 ##################################################################################
 
+declare -p strEncodingVanilla
 case "$strEncodingVanilla" in
 	us-ascii|utf-16le|iso-8859-1)
-		#set -x
+		set -x
 		file -bi "$strFlWork"
+		ls -l "$strFlWork"
 		(iconv -f UTF-8 -t "$strEncodingVanilla" "$strFlWork") |sponge "$strFlWork"
+		ls -l "$strFlWork"
 		file -bi "$strFlWork"
-		#set +x
+		set +x
 		;;
 esac
 if FUNChasBOM "$strVanillaScriptFileOriginal";then
+	ls -l "$strFlWork"
 	FUNCfixBOM "${FUNChasBOM_strBOM}" "$strFlWork"
+	ls -l "$strFlWork"
 fi
-if [[ "$(FUNCgetEncoding "$strVanillaScriptFileOriginal")" != "$(FUNCgetEncoding "$strFlWork")" ]];then
-	FUNCechoInfo "[ERROR] restoring enconding failed"
+strTmpEncOrig="$(FUNCgetEncoding "$strVanillaScriptFileOriginal")"
+strTmpEncWork="$(FUNCgetEncoding "$strFlWork")"
+if [[ "$strTmpEncOrig" != "$strTmpEncWork" ]];then
+	FUNCechoInfo "[ERROR] restoring enconding failed strTmpEncOrig='$strTmpEncOrig' strTmpEncWork='$strTmpEncWork'"
 	set -x
 	file -bi "$strVanillaScriptFileOriginal"
 	file -bi "$strFlWork"
 	set +x
 	echo "iconv -f UTF-8 -t '$strEncodingVanilla' '$strFlWork' >'${strFlWork}.$strEncodingVanilla'; file -bi '${strFlWork}.$strEncodingVanilla' #Try this"
+	if(( $(stat -c %s "$strFlWork") == 0 ));then
+		ls -l "$strFlWork"
+		FUNCechoInfo "[ERROR] work file is empty!!!"
+	fi
 	exit 1
 fi
 
