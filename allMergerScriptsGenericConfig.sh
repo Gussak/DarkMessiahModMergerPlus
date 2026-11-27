@@ -1127,7 +1127,9 @@ function FUNCchkCfgFiles() {
 		FUNCwaitSeconds 3 "[PROBLEM] .cfg files do not work well with tabs \\\\t='\t' ";
 	fi
 };export -f FUNCchkCfgFiles
-FUNCchkCfgFiles
+: ${bFUNCchkCfgFiles:=true} #help
+export bFUNCchkCfgFiles
+if $bFUNCchkCfgFiles;then FUNCchkCfgFiles; bFUNCchkCfgFiles=false;fi
 
 : ${strFlModLauncherChk:="${strGameInstallMainFolder}/_mods/core/user_settings.json"};export strFlModLauncherChk #help
 function FUNCchkModLauncherCfgValidateItCompletely() {
