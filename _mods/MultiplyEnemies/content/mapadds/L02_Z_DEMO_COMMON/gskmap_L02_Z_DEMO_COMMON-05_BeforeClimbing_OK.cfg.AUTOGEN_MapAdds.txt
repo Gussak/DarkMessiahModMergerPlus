@@ -475,6 +475,39 @@
 			"spawnflags"  "256"
 			"origin"      "11390 -1403 -1431"
 		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_BeforeClimbing_OK_029"  //+gskSummonVillager
+			"origin"      "9248 751 -741"
+			"angles"      "73 29 0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_villager_male"
+			"model" "models/NPC/villager_male/Npc_Villager_Male.mdl"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_BeforeClimbing_OK_030"  //+gskSummonVillagerFem
+			"origin"      "9958 -377 -377"
+			"angles"      "60 74 0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_villager_female"
+			"model" "models/NPC/villager_female/Npc_Villager_Female.mdl"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_05_BeforeClimbing_OK_031"  //+gskSummonVillagerFem
+			"origin"      "9160 1328 -1504"
+			"angles"      "82 -159 0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_villager_female"
+			"model" "models/NPC/villager_female/Npc_Villager_Female.mdl"
+			"spawnflags"  "271"
+		}
 
 	}
 }
