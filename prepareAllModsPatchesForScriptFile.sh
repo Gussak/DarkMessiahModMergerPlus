@@ -336,7 +336,7 @@ function FUNCexecMerger() {
 	done
 	
 	if $lbAlert;then
-		FUNCsay "PROBLEM: Manual Merging Required"
+		FUNCsay "PROBLEM: Manual Merging or Checking Required"
 	else
 		FUNCsay "Merge result is ready to check."
 	fi
@@ -851,13 +851,32 @@ FUNCcompareEncoding() {
 declare -p strEncodingVanilla
 case "$strEncodingVanilla" in
 	us-ascii|utf-16le|iso-8859-1)
-		set -x
 		file -bi "$strFlWork"
-		ls -l "$strFlWork"
-		(iconv -f UTF-8 -t "$strEncodingVanilla" "$strFlWork") |sponge "$strFlWork"
-		ls -l "$strFlWork"
+		strFlEncVanilla="${strFlWork}.${strEncodingVanilla}"
+		iconv -f UTF-8 -t "$strEncodingVanilla" "$strFlWork" >"${strFlEncVanilla}" &&:;nRet=$?
+		#TODO could also jus detect the UTF-8 BOM and remove it?
+		bChkIconvWorkaround=false
+		if((nRet!=0));then
+			FUNCechoInfo "[WARNING] iconv failed nRet=$nRet, retrying with '-t $strEncodingVanilla//TRANSLIT' (tries to translate invalid chars to similars)";
+			iconv -f UTF-8 -t "$strEncodingVanilla//TRANSLIT" "$strFlWork" >"${strFlEncVanilla}" &&:;nRet=$?
+			bChkIconvWorkaround=true
+		fi
+		if((nRet!=0));then
+			FUNCechoInfo "[WARNING] iconv failed nRet=$nRet, retrying with '-c' (drops invalid chars)";
+			iconv -c -f UTF-8 -t "$strEncodingVanilla" "$strFlWork" >"${strFlEncVanilla}" &&:;nRet=$?
+			bChkIconvWorkaround=true
+		fi
+		if((nRet!=0));then
+			FUNCechoInfo "[ERROR] iconv failed nRet=$nRet"
+			exit 1
+		fi
+		if $bChkIconvWorkaround;then
+			FUNCechoInfo "[WARNING] as iconv workaround was used, it is important to check if nothing was converted wrong creating invalid identifiers that the engine will not detect"
+			FUNCexecMerger --alert "$strFlWork" "${strFlEncVanilla}"
+		fi
+		file -bi "${strFlEncVanilla}"
+		cat "${strFlEncVanilla}" >"$strFlWork"
 		file -bi "$strFlWork"
-		set +x
 		;;
 esac
 if FUNChasBOM "$strVanillaScriptFileOriginal";then
