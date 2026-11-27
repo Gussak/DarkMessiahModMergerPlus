@@ -175,8 +175,14 @@ if $bDBG;then
 	declare -p astrDbg |tr '[' '\n'
 fi
 
-split --additional-suffix .cfg -l 127 "$strFlGskBindDoc" "${strFlGskBindDocBN}_" #the engine wont echo more than 127 lines from a single exec cfg file
+ls -l "$strFlGskBindDoc"
+egrep "$(echo -e "\t")" "$strFlGskBindDoc" -c
+sed -i -r -e 's@\t@..@g' "$strFlGskBindDoc"
+egrep "$(echo -e "\t")" "$strFlGskBindDoc" -c
+ls -l "$strFlGskBindDoc"
+split --verbose --additional-suffix .cfg -l 127 "$strFlGskBindDoc" "${strFlGskBindDocBN}_" #the engine wont echo more than 127 lines from a single exec cfg file
 ls -1 "${strFlGskBindDocBN}_"* |egrep -v "_FULL.cfg" |sed -r -e 's@.*@exec &@g' >"${strFlGskBindDocBN}_FULL.cfg"
+ls -l "$strFlGskBindDoc" "${strFlGskBindDocBN}_"*
 
 echo "NOW RUN THIS:"
 echo "(trash \"../scripts/kb_act.lst\"; cd \"${strPathMainModFolder}\"; ./merge.sh -f \"scripts/kb_act.lst\")"
