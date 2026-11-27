@@ -32,91 +32,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_TempleDoor_OK_002"  //gskSummonNecroGuardBow
-			"origin"      "5613 -3108 881"
-			"angles"      "49 71 -0"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"classname"   "npc_necro_guard_bow"
-			"model" "models/npc/Necroguard/npc_necroguard.mdl"
-			"additionalequipment" "weapon_arx_short_sword"
-			"rangeweapon" "weapon_arxcrossbow"
-			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
-			"QuiverAmmo" "12"
-			"spawnflags"  "263"
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_30_TempleDoor_OK_003"  //gskSummonNecroGuardBow
-			"origin"      "5781 -3102 881"
-			"angles"      "49 112 -0"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"classname"   "npc_necro_guard_bow"
-			"model" "models/npc/Necroguard/npc_necroguard.mdl"
-			"additionalequipment" "weapon_arx_short_sword"
-			"rangeweapon" "weapon_arxcrossbow"
-			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
-			"QuiverAmmo" "12"
-			"spawnflags"  "263"
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_30_TempleDoor_OK_004"  //gskSummonNecroGuardBow
-			"origin"      "4907 -3109 881"
-			"angles"      "39 71 -0"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"classname"   "npc_necro_guard_bow"
-			"model" "models/npc/Necroguard/npc_necroguard.mdl"
-			"additionalequipment" "weapon_arx_short_sword"
-			"rangeweapon" "weapon_arxcrossbow"
-			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
-			"QuiverAmmo" "12"
-			"spawnflags"  "263"
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_30_TempleDoor_OK_005"  //gskSummonNecroGuardBow
-			"origin"      "5083 -3114 881"
-			"angles"      "39 108 -0"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"classname"   "npc_necro_guard_bow"
-			"model" "models/npc/Necroguard/npc_necroguard.mdl"
-			"additionalequipment" "weapon_arx_short_sword"
-			"rangeweapon" "weapon_arxcrossbow"
-			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
-			"QuiverAmmo" "12"
-			"spawnflags"  "263"
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_30_TempleDoor_OK_006"  //gskSummonNecromancer
-			"origin"      "5002 -3101 881"
-			"angles"      "42 91 -0"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"classname" "npc_necromancer_lord"
-			"model" "models/NPC/Necromancer/Npc_necromancer.mdl"
-			"additionalequipment" "weapon_mm_staff_combat"
-			"spawnflags"  "271"
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_30_TempleDoor_OK_007"  //gskSummonNecromancer
-			"origin"      "5692 -3103 881"
-			"angles"      "34 92 -0"
-			"physdamagescale" "1.0"
-			"radiusforrandomattitude" "500"
-			"classname" "npc_necromancer_lord"
-			"model" "models/NPC/Necromancer/Npc_necromancer.mdl"
-			"additionalequipment" "weapon_mm_staff_combat"
-			"spawnflags"  "271"
-		}
-		"add:entity"
-		{
-			"targetname"  "gskSpawn_30_TempleDoor_OK_008"  //+gskSummonNecromancerLord
+			"targetname"  "gskSpawn_30_TempleDoor_OK_002"  //+gskSummonNecromancerLord
 			"origin"      "5345 -3334 305"
 			"angles"      "29 89 -0"
 			"physdamagescale" "1.0"
@@ -128,7 +44,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_TempleDoor_OK_009"  //gskSummonNecroGuardBow
+			"targetname"  "gskSpawn_30_TempleDoor_OK_003"  //gskSummonNecroGuardBow
 			"origin"      "5275 -3305 305"
 			"angles"      "30 79 -0"
 			"physdamagescale" "1.0"
@@ -143,7 +59,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_TempleDoor_OK_010"  //gskSummonNecroGuardBow
+			"targetname"  "gskSpawn_30_TempleDoor_OK_004"  //gskSummonNecroGuardBow
 			"origin"      "5214 -3287 305"
 			"angles"      "30 69 -0"
 			"physdamagescale" "1.0"
@@ -158,7 +74,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_TempleDoor_OK_011"  //gskSummonNecroGuardBow
+			"targetname"  "gskSpawn_30_TempleDoor_OK_005"  //gskSummonNecroGuardBow
 			"origin"      "5410 -3302 305"
 			"angles"      "30 99 -0"
 			"physdamagescale" "1.0"
@@ -173,7 +89,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_TempleDoor_OK_012"  //gskSummonNecroGuardBow
+			"targetname"  "gskSpawn_30_TempleDoor_OK_006"  //gskSummonNecroGuardBow
 			"origin"      "5482 -3279 305"
 			"angles"      "31 110 -0"
 			"physdamagescale" "1.0"
@@ -188,7 +104,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_TempleDoor_OK_013"  //gskSummonUndead
+			"targetname"  "gskSpawn_30_TempleDoor_OK_007"  //gskSummonUndead
 			"origin"      "5833 -2590 169"
 			"angles"      "55 147 -0"
 			"physdamagescale" "1.0"
@@ -202,7 +118,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_TempleDoor_OK_014"  //gskSummonUndead
+			"targetname"  "gskSpawn_30_TempleDoor_OK_008"  //gskSummonUndead
 			"origin"      "5843 -2365 170"
 			"angles"      "57 -158 -0"
 			"physdamagescale" "1.0"
@@ -216,7 +132,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_TempleDoor_OK_015"  //gskSummonUndead
+			"targetname"  "gskSpawn_30_TempleDoor_OK_009"  //gskSummonUndead
 			"origin"      "5678 -2263 200"
 			"angles"      "59 -105 -0"
 			"physdamagescale" "1.0"
@@ -230,7 +146,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_TempleDoor_OK_016"  //gskSummonUndead
+			"targetname"  "gskSpawn_30_TempleDoor_OK_010"  //gskSummonUndead
 			"origin"      "5556 -2347 169"
 			"angles"      "58 -83 -0"
 			"physdamagescale" "1.0"
@@ -244,7 +160,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_TempleDoor_OK_017"  //gskSummonUndead
+			"targetname"  "gskSpawn_30_TempleDoor_OK_011"  //gskSummonUndead
 			"origin"      "5316 -2257 166"
 			"angles"      "63 -83 -0"
 			"physdamagescale" "1.0"
@@ -258,7 +174,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_TempleDoor_OK_018"  //gskSummonUndead
+			"targetname"  "gskSpawn_30_TempleDoor_OK_012"  //gskSummonUndead
 			"origin"      "5206 -2378 170"
 			"angles"      "69 -46 -0"
 			"physdamagescale" "1.0"
@@ -272,7 +188,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_TempleDoor_OK_019"  //gskSummonUndead
+			"targetname"  "gskSpawn_30_TempleDoor_OK_013"  //gskSummonUndead
 			"origin"      "5041 -2321 193"
 			"angles"      "53 -34 -0"
 			"physdamagescale" "1.0"
@@ -286,7 +202,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_TempleDoor_OK_020"  //gskSummonUndead
+			"targetname"  "gskSpawn_30_TempleDoor_OK_014"  //gskSummonUndead
 			"origin"      "5003 -2522 196"
 			"angles"      "55 -1 -0"
 			"physdamagescale" "1.0"
@@ -300,7 +216,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_TempleDoor_OK_021"  //gskSummonUndead
+			"targetname"  "gskSpawn_30_TempleDoor_OK_015"  //gskSummonUndead
 			"origin"      "5114 -2667 176"
 			"angles"      "62 31 -0"
 			"physdamagescale" "1.0"
@@ -314,7 +230,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_TempleDoor_OK_022"  //gskSummonUndead
+			"targetname"  "gskSpawn_30_TempleDoor_OK_016"  //gskSummonUndead
 			"origin"      "5349 -2578 158"
 			"angles"      "85 90 -0"
 			"physdamagescale" "1.0"
@@ -328,7 +244,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_TempleDoor_OK_023"  //gskSummonUndead
+			"targetname"  "gskSpawn_30_TempleDoor_OK_017"  //gskSummonUndead
 			"origin"      "5481 -2665 169"
 			"angles"      "45 88 -0"
 			"physdamagescale" "1.0"
@@ -342,7 +258,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_TempleDoor_OK_024"  //gskSummonUndead
+			"targetname"  "gskSpawn_30_TempleDoor_OK_018"  //gskSummonUndead
 			"origin"      "5430 -2553 157"
 			"angles"      "63 59 -0"
 			"physdamagescale" "1.0"
@@ -356,7 +272,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_TempleDoor_OK_025"  //gskSummonUndead
+			"targetname"  "gskSpawn_30_TempleDoor_OK_019"  //gskSummonUndead
 			"origin"      "5239 -2670 164"
 			"angles"      "41 -54 -0"
 			"physdamagescale" "1.0"
@@ -370,7 +286,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_TempleDoor_OK_026"  //gskSummonUndead
+			"targetname"  "gskSpawn_30_TempleDoor_OK_020"  //gskSummonUndead
 			"origin"      "5439 -2240 166"
 			"angles"      "63 12 -0"
 			"physdamagescale" "1.0"
@@ -384,7 +300,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_TempleDoor_OK_027"  //gskSummonUndead
+			"targetname"  "gskSpawn_30_TempleDoor_OK_021"  //gskSummonUndead
 			"origin"      "5701 -2753 166"
 			"angles"      "46 99 -0"
 			"physdamagescale" "1.0"
@@ -398,7 +314,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_TempleDoor_OK_028"  //gskSummonNecroGuardShield
+			"targetname"  "gskSpawn_30_TempleDoor_OK_022"  //gskSummonNecroGuardShield
 			"origin"      "6132 -2239 217"
 			"angles"      "74 42 -0"
 			"physdamagescale" "1.0"
@@ -411,7 +327,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_TempleDoor_OK_029"  //gskSummonNecroGuardShield
+			"targetname"  "gskSpawn_30_TempleDoor_OK_023"  //gskSummonNecroGuardShield
 			"origin"      "6171 -2248 217"
 			"angles"      "77 74 -0"
 			"physdamagescale" "1.0"
@@ -424,7 +340,7 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_30_TempleDoor_OK_030"  //gskSummonNecroGuardShield
+			"targetname"  "gskSpawn_30_TempleDoor_OK_024"  //gskSummonNecroGuardShield
 			"origin"      "6213 -2245 217"
 			"angles"      "77 112 -0"
 			"physdamagescale" "1.0"
@@ -433,6 +349,140 @@
 			"model" "models/npc/Necroguard/npc_necroguard.mdl"
 			"additionalequipment"	"weapon_arx_short_sword"
 			"additionalshield" "weapon_mm_shield_necroguard"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_30_TempleDoor_OK_025"  //+gskSummonVillager
+			"origin"      "5586 -3079 881"
+			"angles"      "40 56 0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_villager_male"
+			"model" "models/NPC/villager_male/Npc_Villager_Male.mdl"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_30_TempleDoor_OK_026"  //+gskSummonVillager
+			"origin"      "5789 -3081 881"
+			"angles"      "40 125 0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_villager_male"
+			"model" "models/NPC/villager_male/Npc_Villager_Male.mdl"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_30_TempleDoor_OK_027"  //+gskSummonVillager
+			"origin"      "5695 -3084 881"
+			"angles"      "45 93 0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_villager_male"
+			"model" "models/NPC/villager_male/Npc_Villager_Male.mdl"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_30_TempleDoor_OK_028"  //+gskSummonVillager
+			"origin"      "5646 -3085 881"
+			"angles"      "44 75 0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_villager_male"
+			"model" "models/NPC/villager_male/Npc_Villager_Male.mdl"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_30_TempleDoor_OK_029"  //+gskSummonVillager
+			"origin"      "5749 -3083 881"
+			"angles"      "43 113 0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_villager_male"
+			"model" "models/NPC/villager_male/Npc_Villager_Male.mdl"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_30_TempleDoor_OK_030"  //+gskSummonVillagerFem
+			"origin"      "5006 -3079 881"
+			"angles"      "42 90 0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_villager_female"
+			"model" "models/NPC/villager_female/Npc_Villager_Female.mdl"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_30_TempleDoor_OK_031"  //+gskSummonVillagerFem
+			"origin"      "4889 -3080 881"
+			"angles"      "36 56 0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_villager_female"
+			"model" "models/NPC/villager_female/Npc_Villager_Female.mdl"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_30_TempleDoor_OK_032"  //+gskSummonVillagerFem
+			"origin"      "4942 -3079 881"
+			"angles"      "40 69 0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_villager_female"
+			"model" "models/NPC/villager_female/Npc_Villager_Female.mdl"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_30_TempleDoor_OK_033"  //+gskSummonVillagerFem
+			"origin"      "5061 -3077 881"
+			"angles"      "41 109 0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_villager_female"
+			"model" "models/NPC/villager_female/Npc_Villager_Female.mdl"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_30_TempleDoor_OK_034"  //+gskSummonVillagerFem
+			"origin"      "5106 -3080 881"
+			"angles"      "38 121 0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_villager_female"
+			"model" "models/NPC/villager_female/Npc_Villager_Female.mdl"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_30_TempleDoor_OK_035"  //gskSummonNecromancer
+			"origin"      "5006 -3160 881"
+			"angles"      "63 88 0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_necromancer_lord"
+			"model" "models/NPC/Necromancer/Npc_necromancer.mdl"
+			"additionalequipment" "weapon_mm_staff_combat"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_30_TempleDoor_OK_036"  //gskSummonNecromancer
+			"origin"      "5689 -3160 881"
+			"angles"      "61 93 0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname" "npc_necromancer_lord"
+			"model" "models/NPC/Necromancer/Npc_necromancer.mdl"
+			"additionalequipment" "weapon_mm_staff_combat"
 			"spawnflags"  "271"
 		}
 
@@ -564,6 +614,53 @@
 				"Template14" "gskSpawn_30_TempleDoor_OK_029"
 
 				"Template15" "gskSpawn_30_TempleDoor_OK_030"
+
+				"Template16" "gskSpawn_30_TempleDoor_OK_031"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"3995108"
+			}
+			"add:key"
+			{
+				"OnStartTouch" "gskSpawn_30_TempleDoor_OK_BeginAt032,ForceSpawn,,0.000,1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_30_TempleDoor_OK_BeginAt032"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_30_TempleDoor_OK_BeginAt032"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_30_TempleDoor_OK_032"
+
+				"Template02" "gskSpawn_30_TempleDoor_OK_033"
+
+				"Template03" "gskSpawn_30_TempleDoor_OK_034"
+
+				"Template04" "gskSpawn_30_TempleDoor_OK_035"
+
+				"Template05" "gskSpawn_30_TempleDoor_OK_036"
 
 			}
 		}

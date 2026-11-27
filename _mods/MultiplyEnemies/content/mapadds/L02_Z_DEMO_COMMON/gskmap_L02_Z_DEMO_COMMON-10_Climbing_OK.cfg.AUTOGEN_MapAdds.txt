@@ -897,6 +897,50 @@
 			"UnburrowRadius" "200"
 			"UnburrowChanceOverride" "1.0"
 		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_10_Climbing_OK_064"  //+gskSummonVillager
+			"origin"      "8125 261 -128"
+			"angles"      "55 -155 0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_villager_male"
+			"model" "models/NPC/villager_male/Npc_Villager_Male.mdl"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_10_Climbing_OK_065"  //+gskSummonVillager
+			"origin"      "7539 -243 -80"
+			"angles"      "51 -97 0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_villager_male"
+			"model" "models/NPC/villager_male/Npc_Villager_Male.mdl"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_10_Climbing_OK_066"  //+gskSummonVillagerFem
+			"origin"      "7581 -258 -89"
+			"angles"      "53 -124 0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_villager_female"
+			"model" "models/NPC/villager_female/Npc_Villager_Female.mdl"
+			"spawnflags"  "271"
+		}
+		"add:entity"
+		{
+			"targetname"  "gskSpawn_10_Climbing_OK_067"  //+gskSummonVillagerFem
+			"origin"      "8136 188 -125"
+			"angles"      "49 -30 0"
+			"physdamagescale" "1.0"
+			"radiusforrandomattitude" "500"
+			"classname"   "npc_villager_female"
+			"model" "models/NPC/villager_female/Npc_Villager_Female.mdl"
+			"spawnflags"  "271"
+		}
 
 		"modify:entity"
 		{
@@ -1160,6 +1204,49 @@
 				"Template14" "gskSpawn_10_Climbing_OK_062"
 
 				"Template15" "gskSpawn_10_Climbing_OK_063"
+
+				"Template16" "gskSpawn_10_Climbing_OK_064"
+
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"3530273"
+			}
+			"add:key"
+			{
+				"OnStartTouch" "gskSpawn_10_Climbing_OK_BeginAt064,ForceSpawn,,0.000,1,1,"
+			}
+		}
+		
+
+		"add:entity"
+		{
+			"classname" "point_template"
+			"combinability" "1"
+			"spawnflags" "2"
+			"targetname" "gskSpawn_10_Climbing_OK_BeginAt064"
+			"origin" "0 0 0"
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"targetname"	"gskSpawn_10_Climbing_OK_BeginAt064"
+			}
+			"add:key"
+			{
+		
+
+				"Template01" "gskSpawn_10_Climbing_OK_065"
+
+				"Template02" "gskSpawn_10_Climbing_OK_066"
+
+				"Template03" "gskSpawn_10_Climbing_OK_067"
 
 			}
 		}
