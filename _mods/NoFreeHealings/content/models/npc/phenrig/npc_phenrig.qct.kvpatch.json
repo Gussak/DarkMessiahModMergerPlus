@@ -1,3 +1,9 @@
 {
-    "spelldatas.air_2.effect": "20"
+    "__comments__": {
+        "spelldatas.air_2.effect": "//ok free healing but will need patience, like a slow regen. others are 500 every 180s. as this one is any range, will be much slower",
+        "spelldatas.air_2.trigger": "//was 0.30, but just to match other healers, and is a huge lot slower"
+    },
+    "spelldatas.air_2.effect": "1",
+    "spelldatas.air_2.recovery": "3",
+    "spelldatas.air_2.trigger": "0.95"
 }

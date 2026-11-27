@@ -62,17 +62,66 @@
 		}
 		
 		/////////////////////// NO FREE HEALINGS (because it is blood magic fuel, and makes things too easy)
-		"modify:entity"
-		{
-			"TargetMarkers"
-			{
-				"id"	"4026329"
-			}
-			"add:key"
-			{
-				"OnMapSpawn" "noMoreHeal,SetValue,1,0,-1" //see "id" "4215845"
-			}
-		}
+		//TODO everything fails trying to disable phenrig healing
+		//WORKAROUND: just totally nerfed phenrig healing thru NoFreeHealings mini mod
+		//"modify:entity"
+		//{
+			//"TargetMarkers"
+			//{
+				//"id"	"4026329"
+			//}
+			//"add:key"
+			//{
+				//"OnMapSpawn" "noMoreHeal,SetValue,1,40,-1" //see "id" "4215845" about setting noMoreHeal. It is 40s later to grant this will work
+				//"OnMapSpawn" "relay.noMoreHeal,Trigger,,40,-1"
+			//}
+		//}
+		//"modify:entity"
+		//{
+			//"TargetMarkers"
+			//{
+				//"id" "3704148"
+			//}
+			//"add:key"
+			//{
+				//"InitialValue" "1"
+			//}
+		//}
+		//"modify:entity"
+		//{
+			//"TargetMarkers"
+			//{
+				//"id" "3530273" //'targetname' 'tutotrigger.jumpRope'
+			//}
+			//"add:key"
+			//{
+				//"OnStartTouch" "noMoreHeal,SetValue,1,0,-1"
+			//}
+		//}
+		//"modify:entity"
+		//{
+			//"TargetMarkers"
+			//{
+				//"id" "4615119"
+			//}
+			//"add:key"
+			//{
+				//"target1" "0"
+			//}
+		//}
+		//"modify:entity"
+		//{
+			//"TargetMarkers"
+			//{
+				//"id" "4615117"
+			//}
+			//"add:key"
+			//{
+				//"target1" "0"
+			//}
+		//}
+		
+		
 		
 	}
 }
