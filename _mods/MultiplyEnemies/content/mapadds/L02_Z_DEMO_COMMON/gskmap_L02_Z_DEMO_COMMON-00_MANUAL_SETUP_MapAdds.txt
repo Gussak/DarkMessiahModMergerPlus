@@ -61,6 +61,31 @@
 			}
 		}
 		
+		///////////////// dont allow get out with the crystal while there is combat
+		// I am not 100% sure what I describe here is corret, but the point is it works xD
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id"	"2808249" //Gard.Grille the crystal covering (this only prevents auto ending without taking the crystal)
+			}
+			"add:key"
+			{
+				"IfPlayerInCombat" "2"
+			}
+		}
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"id" "4615185" //voice.getCrystal, this calls changelevel2 what forces end the map after taking the crystal
+			}
+			"add:key"
+			{
+				"IfPlayerInCombat" "2"
+			}
+		}
+		
 		/////////////////////// NO FREE HEALINGS (because it is blood magic fuel, and makes things too easy)
 		//TODO everything fails trying to disable phenrig healing
 		//WORKAROUND: just totally nerfed phenrig healing thru NoFreeHealings mini mod
