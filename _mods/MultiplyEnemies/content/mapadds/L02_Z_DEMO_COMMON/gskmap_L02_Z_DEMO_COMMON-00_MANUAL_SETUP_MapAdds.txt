@@ -58,6 +58,7 @@
 			"add:key"
 			{
 				"health" "31500" //sync with CarefulCombat mod
+				"OnDeath" "Player_Input,GiveSkillPoints,22,0,-1" //this is to boost the player for the final combat
 			}
 		}
 		
