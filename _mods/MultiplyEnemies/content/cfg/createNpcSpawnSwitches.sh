@@ -915,6 +915,20 @@ function FUNCmapadds() {
 			"additionalequipment" "weapon_mm_staff_wood"
 			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_DropHealing FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			;; 
+		"+gskSummonVillager")
+			bIsNpc=true
+			echo '
+			"classname"   "npc_villager_male"
+			"model" "models/NPC/villager_male/Npc_Villager_Male.mdl"
+			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_DropHealing FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
+			;; 
+		"+gskSummonVillagerFem")
+			bIsNpc=true
+			echo '
+			"classname"   "npc_villager_female"
+			"model" "models/NPC/villager_female/Npc_Villager_Female.mdl"
+			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_DropHealing FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
+			;; 
 		mm_npc_create_necro_guard_bow|"gskSummonNecroGuardBow")
 			bIsNpc=true
 			echo '
