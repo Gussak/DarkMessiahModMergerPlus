@@ -1,0 +1,5 @@
+echo "#run bspsrc but it wont open the file (i guess it wants windows pathing mode?) "
+echo "'bspsrc-jar-only/bspinfo.sh' some.bsp #then extract all entites at least"
+echo "#then convert .bin to text with"
+echo 'set -x;ls *.bin |while read strFl;do sed "s@\x00@@g" "$strFl" > "${strFl}.txt";done;set +x;'
+echo "#this shall suffice to be able to create proper mapadds hooks like gskSpawnTriggerAtID"
