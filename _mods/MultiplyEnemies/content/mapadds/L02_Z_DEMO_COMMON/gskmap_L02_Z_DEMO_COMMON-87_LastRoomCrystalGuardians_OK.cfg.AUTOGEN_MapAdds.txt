@@ -196,11 +196,11 @@
 		{
 			"TargetMarkers"
 			{
-				"id"	"2808249"
+				"id"	"3742478"
 			}
 			"add:key"
 			{
-				"OnOpen" "gskSpawn_87_LastRoomCrystalGuardians_OK_BeginAt000,ForceSpawn,,0.000,1,1,"
+				"OnPressed" "gskSpawn_87_LastRoomCrystalGuardians_OK_BeginAt000,ForceSpawn,,0.000,1,1,"
 			}
 		}
 		
@@ -263,11 +263,11 @@
 		{
 			"TargetMarkers"
 			{
-				"id"	"2808249"
+				"id"	"3742478"
 			}
 			"add:key"
 			{
-				"OnOpen" "gskSpawn_87_LastRoomCrystalGuardians_OK_BeginAt016,ForceSpawn,,0.000,1,1,"
+				"OnPressed" "gskSpawn_87_LastRoomCrystalGuardians_OK_BeginAt016,ForceSpawn,,0.000,1,1,"
 			}
 		}
 		

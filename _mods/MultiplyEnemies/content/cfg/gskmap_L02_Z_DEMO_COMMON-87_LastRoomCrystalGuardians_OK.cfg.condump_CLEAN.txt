@@ -1,8 +1,8 @@
 map     :  l02_z_demo_Common at: 4372 x, -4061 y, 126 z
 map     :  l02_z_demo_Common at: 4372 x, -4061 y, 126 z
-gskMapMessage at 00_LUMP_ENTITIES.bin: 'targetname' 'Gard.Grille','origin' '2326.83 -4846.51 -59','classname' 'func_door','id' '2808249','OnOpen' 'Obj.Manager,RemoveObjective,Obj_DC01_Sec03,0,1'
-gskSpawnTriggerAtID 2808249
-gskSpawnTriggerType OnOpen
+gskMapMessage at 00_LUMP_ENTITIES.bin: 'targetname' 'button.catchCrystal','origin' '-1750 -5598 -30','classname' 'func_button','id' '3742478','OnPressed' 'sprite_tresor_fin,Kill,,0,-1'
+gskSpawnTriggerAtID 3742478
+gskSpawnTriggerType OnPressed
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 0/17 )
 prop at -1933 -5207 -163 missing modelname
 prop at -1933 -5207 -163 missing modelname
