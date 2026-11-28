@@ -13,7 +13,7 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "519"
 			"origin"      "861 -5941 -264"
 		}
 		"add:entity"
@@ -25,7 +25,7 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "519"
 			"origin"      "652 -6089 -264"
 		}
 		"add:entity"
@@ -37,7 +37,7 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "519"
 			"origin"      "415 -6100 -264"
 		}
 		"add:entity"
@@ -49,7 +49,7 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "519"
 			"origin"      "197 -6093 -264"
 		}
 		"add:entity"
@@ -61,7 +61,7 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "519"
 			"origin"      "767 -5718 -264"
 		}
 		"add:entity"
@@ -73,7 +73,7 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "519"
 			"origin"      "763 -5473 -264"
 		}
 		"add:entity"
@@ -85,7 +85,7 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "519"
 			"origin"      "864 -5294 -264"
 		}
 		"add:entity"
@@ -97,7 +97,7 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "519"
 			"origin"      "770 -5086 -264"
 		}
 		"add:entity"
@@ -109,7 +109,7 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "519"
 			"origin"      "585 -5078 -264"
 		}
 		"add:entity"
@@ -121,7 +121,7 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "519"
 			"origin"      "354 -5038 -264"
 		}
 		"add:entity"
@@ -133,7 +133,7 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "519"
 			"origin"      "162 -5091 -264"
 		}
 		"add:entity"
@@ -145,7 +145,7 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "519"
 			"origin"      "-398 -5082 -155"
 		}
 		"add:entity"
@@ -157,7 +157,7 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "519"
 			"origin"      "-618 -5127 -155"
 		}
 		"add:entity"
@@ -169,7 +169,7 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "519"
 			"origin"      "-556 -5409 -155"
 		}
 		"add:entity"
@@ -181,7 +181,7 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "519"
 			"origin"      "-486 -5730 -155"
 		}
 		"add:entity"
@@ -193,7 +193,7 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "519"
 			"origin"      "-554 -6022 -155"
 		}
 		"add:entity"
@@ -205,7 +205,7 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "519"
 			"origin"      "-421 -6140 -155"
 		}
 		"add:entity"
@@ -217,7 +217,7 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "519"
 			"origin"      "590 -5593 -264"
 		}
 		"add:entity"
@@ -229,7 +229,7 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "519"
 			"origin"      "300 -5908 -264"
 		}
 		"add:entity"
@@ -241,7 +241,7 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "519"
 			"origin"      "86 -5595 -264"
 		}
 		"add:entity"
@@ -253,7 +253,7 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "519"
 			"origin"      "317 -5292 -264"
 		}
 		"add:entity"
@@ -265,7 +265,7 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "519"
 			"origin"      "420 -5470 -264"
 		}
 		"add:entity"
@@ -277,7 +277,7 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "519"
 			"origin"      "412 -5674 -264"
 		}
 		"add:entity"
@@ -289,7 +289,7 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "519"
 			"origin"      "207 -5717 -264"
 		}
 		"add:entity"
@@ -301,7 +301,7 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_spider_regular"
 			"model" "models/NPC/Spider_Regular/Npc_Spider_Regular.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "519"
 			"origin"      "190 -5485 -264"
 		}
 		"add:entity"
@@ -374,7 +374,7 @@
 			"classname"   "npc_wizard"
 			"model" "models/NPC/Wizard/Npc_Wizard.mdl"
 			"additionalequipment" "weapon_mm_staff_wood"
-			"spawnflags"  "271"
+			"spawnflags"  "783"
 		}
 		"add:entity"
 		{
@@ -397,7 +397,7 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "519"
 		}
 		"add:entity"
 		{
@@ -408,7 +408,7 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "519"
 		}
 		"add:entity"
 		{
@@ -419,7 +419,7 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "519"
 		}
 		"add:entity"
 		{
@@ -430,7 +430,7 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "519"
 		}
 		"add:entity"
 		{
@@ -441,7 +441,7 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "519"
 		}
 		"add:entity"
 		{
@@ -452,7 +452,7 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "519"
 		}
 		"add:entity"
 		{
@@ -463,7 +463,7 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "519"
 		}
 		"add:entity"
 		{
@@ -474,7 +474,7 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "519"
 		}
 		"add:entity"
 		{
@@ -550,7 +550,7 @@
 			"radiusforrandomattitude" "500"
 			"classname"   "npc_villager_female"
 			"model" "models/NPC/villager_female/Npc_Villager_Female.mdl"
-			"spawnflags"  "271"
+			"spawnflags"  "783"
 		}
 		"add:entity"
 		{
@@ -561,7 +561,7 @@
 			"radiusforrandomattitude" "500"
 			"classname"   "npc_villager_female"
 			"model" "models/NPC/villager_female/Npc_Villager_Female.mdl"
-			"spawnflags"  "271"
+			"spawnflags"  "783"
 		}
 		"add:entity"
 		{
@@ -572,7 +572,7 @@
 			"radiusforrandomattitude" "500"
 			"classname"   "npc_villager_female"
 			"model" "models/NPC/villager_female/Npc_Villager_Female.mdl"
-			"spawnflags"  "271"
+			"spawnflags"  "783"
 		}
 		"add:entity"
 		{
@@ -583,7 +583,7 @@
 			"radiusforrandomattitude" "500"
 			"classname"   "npc_villager_male"
 			"model" "models/NPC/villager_male/Npc_Villager_Male.mdl"
-			"spawnflags"  "271"
+			"spawnflags"  "783"
 		}
 		"add:entity"
 		{
@@ -594,7 +594,7 @@
 			"radiusforrandomattitude" "500"
 			"classname"   "npc_villager_male"
 			"model" "models/NPC/villager_male/Npc_Villager_Male.mdl"
-			"spawnflags"  "271"
+			"spawnflags"  "783"
 		}
 
 		"modify:entity"

@@ -13,7 +13,7 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "519"
 		}
 		"add:entity"
 		{
@@ -24,7 +24,7 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "519"
 		}
 		"add:entity"
 		{
@@ -35,7 +35,7 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "519"
 		}
 		"add:entity"
 		{
@@ -46,7 +46,7 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "519"
 		}
 		"add:entity"
 		{
@@ -57,7 +57,7 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "519"
 		}
 		"add:entity"
 		{
@@ -68,7 +68,7 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "519"
 		}
 		"add:entity"
 		{
@@ -79,7 +79,7 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "519"
 		}
 		"add:entity"
 		{
@@ -90,7 +90,7 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "519"
 		}
 		"add:entity"
 		{
@@ -101,7 +101,7 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "519"
 		}
 		"add:entity"
 		{
@@ -112,7 +112,7 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "519"
 		}
 		"add:entity"
 		{
@@ -123,7 +123,7 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "519"
 		}
 		"add:entity"
 		{
@@ -134,7 +134,7 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "519"
 		}
 		"add:entity"
 		{
@@ -145,7 +145,7 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "519"
 		}
 		"add:entity"
 		{
@@ -156,7 +156,7 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "519"
 		}
 		"add:entity"
 		{
@@ -167,7 +167,7 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "519"
 		}
 		"add:entity"
 		{
@@ -178,7 +178,7 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "519"
 		}
 		"add:entity"
 		{
@@ -189,7 +189,7 @@
 			"radiusforrandomattitude" "500"
 			"classname" "npc_facehugger"
 			"model" "models/NPC/Facehugger/Npc_Facehugger.mdl"
-			"spawnflags"  "7"
+			"spawnflags"  "519"
 		}
 
 		"modify:entity"

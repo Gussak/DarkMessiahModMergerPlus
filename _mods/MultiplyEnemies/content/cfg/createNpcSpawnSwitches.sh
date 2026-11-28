@@ -408,7 +408,7 @@ function FUNCspawnFlags() { #help based on https://developer.valvesoftware.com/w
 	local lbAddDefaults=true;if [[ "${1-}" == --nodefaults ]];then lbAddDefaults=false;shift;fi
 	
 	if [[ "$lstrType" == NPC ]];then
-		local lastrFlags=("${@-FS_None}")
+		local lastrFlags=("${@-FS_None}" FS_FadeCorpse)
 		#if [[ -z "${lastrFlags[*]}" ]];then
 		if $lbAddDefaults;then
 			local lstrSleep=FS_SLEEP;
@@ -428,13 +428,19 @@ function FUNCspawnFlags() { #help based on https://developer.valvesoftware.com/w
 			if [[ -z "$lstrFlagAdd" ]];then continue;fi
 			case "$lstrFlagAdd" in # Flag Spawn (flags for spawning)
 				FS_None) ((lnFlags+=0))&&: ;; # dummy helper
-				FS_SLEEP) ((lnFlags+=1))&&: ;; # if NPC will only enable AI after the player sees it? wont detect player if player dont see it? May be good to create enemies with each other that will only fight after we see them! May also easy on CPU? But FS_FALL will work as soon player sees it? #### if objects, will put physics into sleep state so FS_FALL wont work even after player seeing it...
+				FS_SLEEP) ((lnFlags+=1))&&: ;; # if NPC will only enable AI after the player sees it. wont detect player if player dont see it. May be good to create enemies with each other that will only fight after we see them! May also easy on CPU? But FS_FALL will work as soon player sees it? #### if objects, will put physics into sleep state so FS_FALL wont work even after player seeing it...
 				FS_QUIET) ((lnFlags+=2))&&: ;; #initially quiet until in rage, excellent for surprises
 				FS_FALL) ((lnFlags+=4))&&: ;; #initially fall instead of teleport to ground
-				FS_DropHealing|FS_DROP) ((lnFlags+=8))&&: ;; #drop is like fall but checks boundary, may be better? #FS_DropHealing does nothing, keep as just an idea :(
+				FS_FallSliding) ((lnFlags+=8))&&: ;; # what this actually really does??? drop health kit? NO. fall but checks boundary, may be better? NO #FS_FallSliding does nothing, keep as just an idea :( it did not help when spawning facehuggers while aiming at the wall (only in-game but fails on mapadds many times)
+				FS_DumbAI) ((lnFlags+=16))&&: ;; # sees less peripherallically and moves far less easily but saves CPU and RAM
+				FS_SquadLeader) ((lnFlags+=32))&&: ;; #???
+				FS_WaitScript) ((lnFlags+=128))&&: ;; # NPC stays idle waiting an script end
 				FS_LongRangeView) ((lnFlags+=256))&&: ;; #Increases sight and ranged attack distance (up to 6,000 units).
-				FS_FadeCorpse) ((lnFlags+=512))&&: ;;
-				FS_FullAI) ((lnFlags+=1024))&&: ;; #no matter where NPC is, will use full AI thinking
+				FS_FadeCorpse) ((lnFlags+=512))&&: ;; # THIS IS ULTIMATE IMPORTANT USE ALWAYS! helps grant savegame will not overflow. But doesnt work!?!?!?!?!?
+				FS_AIalwaysActive) ((lnFlags+=1024))&&: ;; #no matter where NPC is, will use full AI thinking, good for bosses
+				FS_TemplateNPC) ((lnFlags+=2048))&&: ;; #wont spawn, becomes template for npc_template_maker
+				FS_AvoidPlayerPath) ((lnFlags+=4096))&&: ;; #wont push the player
+				FS_DontDropWeapons) ((lnFlags+=8192))&&: ;; #wont drop equipped weapon
 				FS_TANK) ((lnFlags+=16384))&&: ;; #cant be pushed
 				*) FUNCexit 1 "unrecognized (not implemented here?) spawnflag '$lstrFlagAdd'";;
 			esac
@@ -905,7 +911,7 @@ function FUNCmapadds() {
 			//"rangeweapon" "weapon_arxcrossbow" //he cant shoot while the shield is on his hand
 			//"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
 			//"QuiverAmmo" "8"
-			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_DropHealing FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
+			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_FallSliding FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			;; 
 		"+gskSummonWizard") #mm_npc_create_wizard
 			bIsNpc=true
@@ -913,21 +919,21 @@ function FUNCmapadds() {
 			"classname"   "npc_wizard"
 			"model" "models/NPC/Wizard/Npc_Wizard.mdl"
 			"additionalequipment" "weapon_mm_staff_wood"
-			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_DropHealing FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
+			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_FallSliding FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			;; 
 		"+gskSummonVillager")
 			bIsNpc=true
 			echo '
 			"classname"   "npc_villager_male"
 			"model" "models/NPC/villager_male/Npc_Villager_Male.mdl"
-			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_DropHealing FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
+			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_FallSliding FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			;; 
 		"+gskSummonVillagerFem")
 			bIsNpc=true
 			echo '
 			"classname"   "npc_villager_female"
 			"model" "models/NPC/villager_female/Npc_Villager_Female.mdl"
-			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_DropHealing FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
+			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_FallSliding FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			;; 
 		mm_npc_create_necro_guard_bow|"gskSummonNecroGuardBow")
 			bIsNpc=true
@@ -947,7 +953,7 @@ function FUNCmapadds() {
 			"model" "models/npc/Necroguard/npc_necroguard.mdl"
 			"additionalequipment"	"weapon_arx_short_sword"
 			"additionalshield" "weapon_mm_shield_necroguard"
-			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_DropHealing FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
+			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_FallSliding FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			;;
 		mm_npc_create_necromancer|"gskSummonNecromancer")
 			bIsNpc=true
@@ -955,7 +961,7 @@ function FUNCmapadds() {
 			"classname" "npc_necromancer_lord"
 			"model" "models/NPC/Necromancer/Npc_necromancer.mdl"
 			"additionalequipment" "weapon_mm_staff_combat"
-			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_DropHealing FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
+			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_FallSliding FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			;;
 		mm_npc_create_necromancer_lord|"+gskSummonNecromancerLord")
 			bIsNpc=true
@@ -963,7 +969,7 @@ function FUNCmapadds() {
 			"classname" "npc_necromancer_lord"
 			"model" "models/NPC/necromancer_lord/npc_necromancer_lord.mdl"
 			"additionalequipment" "weapon_mm_hook"
-			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_DropHealing FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
+			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_FallSliding FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			#"weaponmodel" "models/Items/Weapons/hook/hook.mdl"
 			;;
 		mm_npc_create_goblin|"gskSummonGoblin")
@@ -973,7 +979,7 @@ function FUNCmapadds() {
 			"model" "models/NPC/goblin/npc_goblin.mdl"
 			"additionalequipment" "weapon_arxclub"
 			"additionalshield" "weapon_mm_shield_gob"
-			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_DropHealing FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
+			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_FallSliding FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			;;
 		mm_npc_create_orc_sword|"gskSummonOrcSword")
 			bIsNpc=true
@@ -982,7 +988,7 @@ function FUNCmapadds() {
 			"model" "models/NPC/orc/npc_orc.mdl"
 			"additionalequipment" "weapon_arxorccleaver"
 			"additionalhelmet" "weapon_arxhelmet"
-			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_DropHealing FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
+			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_FallSliding FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			;;
 		mm_npc_create_orc_sword_bow|"gskSummonOrcSwordBow")
 			bIsNpc=true
@@ -993,7 +999,7 @@ function FUNCmapadds() {
 			"additionalhelmet" "weapon_arxhelmet"
 			"OrnamentModel" "models/items/weapons/Quiver_Orc/quiver_orc.mdl"
 			"OrnamentAttachment" "Quiver"
-			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_DropHealing FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
+			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_FallSliding FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			;;
 		mm_npc_create_orc_sword_shield|"+gskSummonOrcSwordShield")
 			bIsNpc=true
@@ -1003,14 +1009,14 @@ function FUNCmapadds() {
 			"additionalequipment" "weapon_arxorccleaver"
 			"additionalhelmet" "weapon_arxhelmet"
 			"additionalshield" "weapon_mm_shield_orc"
-			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_DropHealing FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
+			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_FallSliding FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			;;
 		mm_npc_create_lich|"gskSummonLich")
 			bIsNpc=true
 			echo '
 			"classname" "npc_lich"
 			"model" "models/NPC/lich/npc_lich.mdl"
-			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_DropHealing FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
+			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_FallSliding FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			;;
 		mm_npc_create_lich_king|"+gskSummonLichKing")
 			bIsNpc=true
@@ -1018,14 +1024,14 @@ function FUNCmapadds() {
 			"classname" "npc_lich_king"
 			"model" "models/NPC/lich_king/npc_lich_king.mdl"
 			"additionalhelmet" "weapon_mm_helmet_lichcrown"
-			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_DropHealing FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
+			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_FallSliding FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			;;
 		mm_npc_create_servant_specter|"gskSummonSpecter")
 			bIsNpc=true
 			echo '
 			"classname" "npc_servant_specter"
 			"model" "models/NPC/servant_specter/npc_servant_specter.mdl"
-			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_DropHealing FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
+			"spawnflags"  "'"$(FUNCspawnFlags NPC FS_FallSliding FS_LongRangeView)"'"' >>"$lstrFlAddTmp"
 			;;
 		mm_npc_create_undead|"gskSummonUndead")
 			bIsNpc=true
