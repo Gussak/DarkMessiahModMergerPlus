@@ -8,50 +8,50 @@ prop at -1651 -5884 -163 missing modelname
 prop at -1651 -5884 -163 missing modelname
 setpos -1757.474731 -5787.447754 16.285976;setang 51.252735 -42.086342 -0.000677
 setpos -1757.474731 -5787.447754 16.285976;setang 51.252735 -42.086342 -0.000677
-+gskSummonNecromancerLord
-+gskSummonNecromancerLord
+gskSummonNecroGuardBow
+gskSummonNecroGuardBow
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 1/19 )
 prop at -1749 -5937 -163 missing modelname
 prop at -1749 -5937 -163 missing modelname
 setpos -1762.877319 -5790.115234 16.391552;setang 50.526928 -84.458527 -0.000624
 setpos -1762.877319 -5790.115234 16.391552;setang 50.526928 -84.458527 -0.000624
-+gskSummonNecromancerLord
-+gskSummonNecromancerLord
+gskSummonNecroGuardBow
+gskSummonNecroGuardBow
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 2/19 )
 prop at -1877 -5888 -163 missing modelname
 prop at -1877 -5888 -163 missing modelname
 setpos -1769.754028 -5787.535156 16.362837;setang 50.724869 -136.862579 -0.000625
 setpos -1769.754028 -5787.535156 16.362837;setang 50.724869 -136.862579 -0.000625
-+gskSummonNecromancerLord
-+gskSummonNecromancerLord
+gskSummonNecroGuardBow
+gskSummonNecroGuardBow
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 3/19 )
 prop at -1623 -5318 -163 missing modelname
 prop at -1623 -5318 -163 missing modelname
 setpos -1726.573486 -5359.295898 -42.214130;setang 47.227798 21.506783 -0.000298
 setpos -1726.573486 -5359.295898 -42.214130;setang 47.227798 21.506783 -0.000298
-+gskSummonNecromancerLord
-+gskSummonNecromancerLord
+gskSummonNecroGuardBow
+gskSummonNecroGuardBow
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 4/19 )
 prop at -1718 -5241 -163 missing modelname
 prop at -1718 -5241 -163 missing modelname
 setpos -1733.035400 -5354.304688 -42.130791;setang 46.633984 82.556740 -0.000229
 setpos -1733.035400 -5354.304688 -42.130791;setang 46.633984 82.556740 -0.000229
-+gskSummonNecromancerLord
-+gskSummonNecromancerLord
+gskSummonNecroGuardBow
+gskSummonNecroGuardBow
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 5/19 )
 prop at -1825 -5246 -163 missing modelname
 prop at -1825 -5246 -163 missing modelname
 setpos -1738.718018 -5356.340820 -41.361092;setang 40.958427 128.162827 0.000421
 setpos -1738.718018 -5356.340820 -41.361092;setang 40.958427 128.162827 0.000421
-+gskSummonNecromancerLord
-+gskSummonNecromancerLord
+gskSummonNecroGuardBow
+gskSummonNecroGuardBow
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 6/19 )
 prop at -2014 -5677 -163 missing modelname
 prop at -2014 -5677 -163 missing modelname
 setpos -1944.339600 -5572.605957 91.899521;setang 63.789692 -123.660934 -0.001218
 setpos -1944.339600 -5572.605957 91.899521;setang 63.789692 -123.660934 -0.001218
-+gskSummonNecromancerLord
-+gskSummonNecromancerLord
+gskSummonNecroGuardBow
+gskSummonNecroGuardBow
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 7/19 )
 prop at -2033 -5572 -163 missing modelname
 prop at -2033 -5572 -163 missing modelname
@@ -64,29 +64,29 @@ prop at -2005 -5481 -163 missing modelname
 prop at -2005 -5481 -163 missing modelname
 setpos -1944.965698 -5557.847656 91.060425;setang 69.068817 127.835579 -0.001193
 setpos -1944.965698 -5557.847656 91.060425;setang 69.068817 127.835579 -0.001193
-+gskSummonNecromancerLord
-+gskSummonNecromancerLord
+gskSummonNecroGuardBow
+gskSummonNecroGuardBow
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 9/19 )
 prop at -1470 -5644 -163 missing modelname
 prop at -1470 -5644 -163 missing modelname
 setpos -1401.557983 -5601.335938 98.732498;setang 72.830750 -147.780365 -0.001090
 setpos -1401.557983 -5601.335938 98.732498;setang 72.830750 -147.780365 -0.001090
-gskSummonNecromancer
-gskSummonNecromancer
+gskSummonNecroGuardBow
+gskSummonNecroGuardBow
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 10/19 )
 prop at -1489 -5586 -163 missing modelname
 prop at -1489 -5586 -163 missing modelname
 setpos -1402.915771 -5595.448242 98.913223;setang 71.708878 174.005463 -0.001157
 setpos -1402.915771 -5595.448242 98.913223;setang 71.708878 174.005463 -0.001157
-gskSummonNecromancer
-gskSummonNecromancer
+gskSummonNecroGuardBow
+gskSummonNecroGuardBow
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 11/19 )
 prop at -1471 -5532 -163 missing modelname
 prop at -1471 -5532 -163 missing modelname
 setpos -1400.792358 -5590.485840 99.061844;setang 70.784966 139.949203 -0.001177
 setpos -1400.792358 -5590.485840 99.061844;setang 70.784966 139.949203 -0.001177
-gskSummonNecromancer
-gskSummonNecromancer
+gskSummonNecroGuardBow
+gskSummonNecroGuardBow
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 12/19 )
 prop at -1223 -5701 -163 missing modelname
 prop at -1223 -5701 -163 missing modelname
@@ -99,8 +99,8 @@ prop at -1240 -5605 -163 missing modelname
 prop at -1240 -5605 -163 missing modelname
 setpos -1087.799683 -5680.453613 93.037743;setang 56.465664 153.437088 -0.001027
 setpos -1087.799683 -5680.453613 93.037743;setang 56.465664 153.437088 -0.001027
-gskSummonNecromancer
-gskSummonNecromancer
+gskSummonNecroGuardBow
+gskSummonNecroGuardBow
 gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 14/19 )
 prop at -1234 -5510 -163 missing modelname
 prop at -1234 -5510 -163 missing modelname

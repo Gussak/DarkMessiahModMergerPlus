@@ -1,0 +1,124 @@
+map     :  l02_z_demo_Common at: 4372 x, -4061 y, 126 z
+map     :  l02_z_demo_Common at: 4372 x, -4061 y, 126 z
+gskMapMessage at 00_LUMP_ENTITIES.bin: 'targetname' 'Gard.Grille','origin' '2326.83 -4846.51 -59','classname' 'func_door','id' '2808249','OnOpen' 'Obj.Manager,RemoveObjective,Obj_DC01_Sec03,0,1'
+gskSpawnTriggerAtID 2808249
+gskSpawnTriggerType OnOpen
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 0/17 )
+prop at -1933 -5207 -163 missing modelname
+prop at -1933 -5207 -163 missing modelname
+setpos -1710.142822 -5349.506836 78.016045;setang 42.378941 147.445267 0.000311
+setpos -1710.142822 -5349.506836 78.016045;setang 42.378941 147.445267 0.000311
+gskSummonFacehugger
+gskSummonFacehugger
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 1/17 )
+prop at -1819 -5133 -163 missing modelname
+prop at -1819 -5133 -163 missing modelname
+setpos -1707.338257 -5346.640625 77.667336;setang 44.952988 117.547043 0.000011
+setpos -1707.338257 -5346.640625 77.667336;setang 44.952988 117.547043 0.000011
+gskSummonFacehugger
+gskSummonFacehugger
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 2/17 )
+prop at -1697 -5123 -163 missing modelname
+prop at -1697 -5123 -163 missing modelname
+setpos -1703.449463 -5345.572266 77.364586;setang 47.130352 88.243324 -0.000246
+setpos -1703.449463 -5345.572266 77.364586;setang 47.130352 88.243324 -0.000246
+gskSummonFacehugger
+gskSummonFacehugger
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 3/17 )
+prop at -1615 -5266 -163 missing modelname
+prop at -1615 -5266 -163 missing modelname
+setpos -1697.249146 -5347.289551 74.806656;setang 64.154366 44.487331 -0.001207
+setpos -1697.249146 -5347.289551 74.806656;setang 64.154366 44.487331 -0.001207
+gskSummonFacehugger
+gskSummonFacehugger
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 4/17 )
+prop at -2060 -5830 -163 missing modelname
+prop at -2060 -5830 -163 missing modelname
+setpos -1728.355713 -5844.062012 162.653107;setang 44.490978 177.642776 0.000065
+setpos -1728.355713 -5844.062012 162.653107;setang 44.490978 177.642776 0.000065
+gskSummonFacehugger
+gskSummonFacehugger
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 5/17 )
+prop at -1978 -5933 -163 missing modelname
+prop at -1978 -5933 -163 missing modelname
+setpos -1728.404541 -5847.111328 161.748978;setang 50.891270 -160.906357 -0.000607
+setpos -1728.404541 -5847.111328 161.748978;setang 50.891270 -160.906357 -0.000607
+gskSummonFacehugger
+gskSummonFacehugger
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 6/17 )
+prop at -1876 -6021 -163 missing modelname
+prop at -1876 -6021 -163 missing modelname
+setpos -1726.211304 -5850.845703 161.134079;setang 55.048210 -131.337845 -0.000886
+setpos -1726.211304 -5850.845703 161.134079;setang 55.048210 -131.337845 -0.000886
+gskSummonFacehugger
+gskSummonFacehugger
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 7/17 )
+prop at -1781 -6064 -163 missing modelname
+prop at -1781 -6064 -163 missing modelname
+setpos -1722.817139 -5852.735840 160.994888;setang 55.972000 -105.333763 -0.000949
+setpos -1722.817139 -5852.735840 160.994888;setang 55.972000 -105.333763 -0.000949
+gskSummonFacehugger
+gskSummonFacehugger
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 8/17 )
+prop at -1651 -5997 -163 missing modelname
+prop at -1651 -5997 -163 missing modelname
+setpos -1716.779663 -5852.595215 159.781143;setang 63.824371 -65.468849 -0.001182
+setpos -1716.779663 -5852.595215 159.781143;setang 63.824371 -65.468849 -0.001182
+gskSummonFacehugger
+gskSummonFacehugger
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 9/17 )
+prop at -1581 -5875 -163 missing modelname
+prop at -1581 -5875 -163 missing modelname
+setpos -1711.596436 -5846.326660 159.195129;setang 67.519730 -12.272389 -0.001175
+setpos -1711.596436 -5846.326660 159.195129;setang 67.519730 -12.272389 -0.001175
+gskSummonFacehugger
+gskSummonFacehugger
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 10/17 )
+prop at -2098 -5725 -163 missing modelname
+prop at -2098 -5725 -163 missing modelname
+setpos -1954.030640 -5572.308594 3.572792;setang 38.484943 -133.348480 0.000722
+setpos -1954.030640 -5572.308594 3.572792;setang 38.484943 -133.348480 0.000722
+gskSummonFacehugger
+gskSummonFacehugger
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 11/17 )
+prop at -2073 -5628 -163 missing modelname
+prop at -2073 -5628 -163 missing modelname
+setpos -1956.569336 -5570.723145 1.750558;setang 51.749035 -153.808167 -0.000676
+setpos -1956.569336 -5570.723145 1.750558;setang 51.749035 -153.808167 -0.000676
+gskSummonFacehugger
+gskSummonFacehugger
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 12/17 )
+prop at -2065 -5517 -163 missing modelname
+prop at -2065 -5517 -163 missing modelname
+setpos -1956.899048 -5563.619141 1.359832;setang 54.388390 156.626144 -0.000859
+setpos -1956.899048 -5563.619141 1.359832;setang 54.388390 156.626144 -0.000859
+gskSummonFacehugger
+gskSummonFacehugger
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 13/17 )
+prop at -2085 -5374 -163 missing modelname
+prop at -2085 -5374 -163 missing modelname
+setpos -1953.090698 -5561.271484 3.869373;setang 36.109001 125.209450 0.000951
+setpos -1953.090698 -5561.271484 3.869373;setang 36.109001 125.209450 0.000951
+gskSummonFacehugger
+gskSummonFacehugger
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 14/17 )
+prop at -1513 -5679 -163 missing modelname
+prop at -1513 -5679 -163 missing modelname
+setpos -1555.838379 -5606.387695 72.683716;setang 70.257187 -59.192230 -0.001123
+setpos -1555.838379 -5606.387695 72.683716;setang 70.257187 -59.192230 -0.001123
+gskSummonFacehugger
+gskSummonFacehugger
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 15/17 )
+prop at -1524 -5596 -163 missing modelname
+prop at -1524 -5596 -163 missing modelname
+setpos -1551.374634 -5597.849121 70.598228;setang 83.192062 3.971123 -0.000437
+setpos -1551.374634 -5597.849121 70.598228;setang 83.192062 3.971123 -0.000437
+gskSummonFacehugger
+gskSummonFacehugger
+gskSpawnHint_gskSpawnHint_gskSpawnHint  // ( 16/17 )
+prop at -1519 -5526 -163 missing modelname
+prop at -1519 -5526 -163 missing modelname
+setpos -1555.952881 -5590.479492 72.322762;setang 72.500908 60.135990 -0.001076
+setpos -1555.952881 -5590.479492 72.322762;setang 72.500908 60.135990 -0.001076
+gskSummonFacehugger
+gskSummonFacehugger

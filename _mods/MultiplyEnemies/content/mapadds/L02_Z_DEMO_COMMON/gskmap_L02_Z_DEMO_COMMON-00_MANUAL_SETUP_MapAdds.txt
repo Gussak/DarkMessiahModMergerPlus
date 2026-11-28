@@ -58,7 +58,7 @@
 			"add:key"
 			{
 				"health" "31500" //sync with CarefulCombat mod
-				"OnDeath" "Player_Input,GiveSkillPoints,22,0,-1" //this is to boost the player for the final combat
+				"OnDeath" "Player_Input,GiveSkillPoints,666,0,-1" //this is to boost the player for the final combat. TODO?: lower a lot (like just 6) if this prologue gets linked into a subsequent map
 			}
 		}
 		

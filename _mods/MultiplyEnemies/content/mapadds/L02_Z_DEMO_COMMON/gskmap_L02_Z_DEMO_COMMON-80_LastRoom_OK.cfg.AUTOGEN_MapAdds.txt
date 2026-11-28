@@ -6,87 +6,108 @@
 
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_80_LastRoom_OK_000"  //+gskSummonNecromancerLord
+			"targetname"  "gskSpawn_80_LastRoom_OK_000"  //gskSummonNecroGuardBow
 			"origin"      "-1651 -5884 -162"
 			"angles"      "51 138 -0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"classname" "npc_necromancer_lord"
-			"model" "models/NPC/necromancer_lord/npc_necromancer_lord.mdl"
-			"additionalequipment" "weapon_mm_hook"
-			"spawnflags"  "271"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"QuiverAmmo" "12"
+			"spawnflags"  "263"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_80_LastRoom_OK_001"  //+gskSummonNecromancerLord
+			"targetname"  "gskSpawn_80_LastRoom_OK_001"  //gskSummonNecroGuardBow
 			"origin"      "-1749 -5937 -162"
 			"angles"      "50 96 -0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"classname" "npc_necromancer_lord"
-			"model" "models/NPC/necromancer_lord/npc_necromancer_lord.mdl"
-			"additionalequipment" "weapon_mm_hook"
-			"spawnflags"  "271"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"QuiverAmmo" "12"
+			"spawnflags"  "263"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_80_LastRoom_OK_002"  //+gskSummonNecromancerLord
+			"targetname"  "gskSpawn_80_LastRoom_OK_002"  //gskSummonNecroGuardBow
 			"origin"      "-1877 -5888 -162"
 			"angles"      "50 44 -0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"classname" "npc_necromancer_lord"
-			"model" "models/NPC/necromancer_lord/npc_necromancer_lord.mdl"
-			"additionalequipment" "weapon_mm_hook"
-			"spawnflags"  "271"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"QuiverAmmo" "12"
+			"spawnflags"  "263"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_80_LastRoom_OK_003"  //+gskSummonNecromancerLord
+			"targetname"  "gskSpawn_80_LastRoom_OK_003"  //gskSummonNecroGuardBow
 			"origin"      "-1623 -5318 -162"
 			"angles"      "47 -159 -0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"classname" "npc_necromancer_lord"
-			"model" "models/NPC/necromancer_lord/npc_necromancer_lord.mdl"
-			"additionalequipment" "weapon_mm_hook"
-			"spawnflags"  "271"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"QuiverAmmo" "12"
+			"spawnflags"  "263"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_80_LastRoom_OK_004"  //+gskSummonNecromancerLord
+			"targetname"  "gskSpawn_80_LastRoom_OK_004"  //gskSummonNecroGuardBow
 			"origin"      "-1718 -5241 -162"
 			"angles"      "46 -98 -0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"classname" "npc_necromancer_lord"
-			"model" "models/NPC/necromancer_lord/npc_necromancer_lord.mdl"
-			"additionalequipment" "weapon_mm_hook"
-			"spawnflags"  "271"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"QuiverAmmo" "12"
+			"spawnflags"  "263"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_80_LastRoom_OK_005"  //+gskSummonNecromancerLord
+			"targetname"  "gskSpawn_80_LastRoom_OK_005"  //gskSummonNecroGuardBow
 			"origin"      "-1825 -5246 -162"
 			"angles"      "40 -52 0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"classname" "npc_necromancer_lord"
-			"model" "models/NPC/necromancer_lord/npc_necromancer_lord.mdl"
-			"additionalequipment" "weapon_mm_hook"
-			"spawnflags"  "271"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"QuiverAmmo" "12"
+			"spawnflags"  "263"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_80_LastRoom_OK_006"  //+gskSummonNecromancerLord
+			"targetname"  "gskSpawn_80_LastRoom_OK_006"  //gskSummonNecroGuardBow
 			"origin"      "-2014 -5677 -162"
 			"angles"      "63 57 -0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"classname" "npc_necromancer_lord"
-			"model" "models/NPC/necromancer_lord/npc_necromancer_lord.mdl"
-			"additionalequipment" "weapon_mm_hook"
-			"spawnflags"  "271"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"QuiverAmmo" "12"
+			"spawnflags"  "263"
 		}
 		"add:entity"
 		{
@@ -102,51 +123,63 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_80_LastRoom_OK_008"  //+gskSummonNecromancerLord
+			"targetname"  "gskSpawn_80_LastRoom_OK_008"  //gskSummonNecroGuardBow
 			"origin"      "-2005 -5481 -162"
 			"angles"      "69 -53 -0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"classname" "npc_necromancer_lord"
-			"model" "models/NPC/necromancer_lord/npc_necromancer_lord.mdl"
-			"additionalequipment" "weapon_mm_hook"
-			"spawnflags"  "271"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"QuiverAmmo" "12"
+			"spawnflags"  "263"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_80_LastRoom_OK_009"  //gskSummonNecromancer
+			"targetname"  "gskSpawn_80_LastRoom_OK_009"  //gskSummonNecroGuardBow
 			"origin"      "-1470 -5644 -162"
 			"angles"      "72 33 -0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"classname" "npc_necromancer_lord"
-			"model" "models/NPC/Necromancer/Npc_necromancer.mdl"
-			"additionalequipment" "weapon_mm_staff_combat"
-			"spawnflags"  "271"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"QuiverAmmo" "12"
+			"spawnflags"  "263"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_80_LastRoom_OK_010"  //gskSummonNecromancer
+			"targetname"  "gskSpawn_80_LastRoom_OK_010"  //gskSummonNecroGuardBow
 			"origin"      "-1489 -5586 -162"
 			"angles"      "71 -6 -0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"classname" "npc_necromancer_lord"
-			"model" "models/NPC/Necromancer/Npc_necromancer.mdl"
-			"additionalequipment" "weapon_mm_staff_combat"
-			"spawnflags"  "271"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"QuiverAmmo" "12"
+			"spawnflags"  "263"
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_80_LastRoom_OK_011"  //gskSummonNecromancer
+			"targetname"  "gskSpawn_80_LastRoom_OK_011"  //gskSummonNecroGuardBow
 			"origin"      "-1471 -5532 -162"
 			"angles"      "70 -41 -0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"classname" "npc_necromancer_lord"
-			"model" "models/NPC/Necromancer/Npc_necromancer.mdl"
-			"additionalequipment" "weapon_mm_staff_combat"
-			"spawnflags"  "271"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"QuiverAmmo" "12"
+			"spawnflags"  "263"
 		}
 		"add:entity"
 		{
@@ -162,15 +195,18 @@
 		}
 		"add:entity"
 		{
-			"targetname"  "gskSpawn_80_LastRoom_OK_013"  //gskSummonNecromancer
+			"targetname"  "gskSpawn_80_LastRoom_OK_013"  //gskSummonNecroGuardBow
 			"origin"      "-1240 -5605 -162"
 			"angles"      "56 -27 -0"
 			"physdamagescale" "1.0"
 			"radiusforrandomattitude" "500"
-			"classname" "npc_necromancer_lord"
-			"model" "models/NPC/Necromancer/Npc_necromancer.mdl"
-			"additionalequipment" "weapon_mm_staff_combat"
-			"spawnflags"  "271"
+			"classname"   "npc_necro_guard_bow"
+			"model" "models/npc/Necroguard/npc_necroguard.mdl"
+			"additionalequipment" "weapon_arx_short_sword"
+			"rangeweapon" "weapon_arxcrossbow"
+			"QuiverModel" "models/items/weapons/Quiver_guard/quiver_guard.mdl"
+			"QuiverAmmo" "12"
+			"spawnflags"  "263"
 		}
 		"add:entity"
 		{
